@@ -93,12 +93,14 @@ public class DuelView {
 
         if (command.equals("summon")) {
             try {
+                //todo alan inja az koja level ro peyda konim ke bebinim chand ta tribute mikhad?
                 duelController.summonMonster();
             } catch (Exception exception) {
                 printText(exception.getMessage());
             }
             return false;
         }
+
         matcher = getCommandMatcher(command, "set (--position|-p) (DO|OO)");
         if (matcher.matches()) {
             try {

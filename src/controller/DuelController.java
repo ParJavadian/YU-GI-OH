@@ -16,6 +16,7 @@ public class DuelController {
     private Phase phase;
 
     //TODO havasa be cancel bashe(safhe 43 doc)
+    //TODO aya jayi handle hardim ke shomare phase ro har seri chap kone?
 
     public DuelController(User player, User rival, int roundNumber) {
         this.player = player;
@@ -154,12 +155,13 @@ public class DuelController {
         }
     }
 
-    private void tributeOneMonster() {
 
+    private void tributeOneMonster(int address) throws Exception {
+        selectCardPlayerMonsterZone(address);
     }
 
-    private void tributeTwoMonsters() {
-
+    private void tributeTwoMonsters(int address1, int address2) throws Exception{
+        //TODO inja alan bayad ye exception midad ke address1 != address2 vali tu doc nist!
     }
 
     public void preSet() {
