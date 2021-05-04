@@ -115,6 +115,13 @@ public class DuelController {
 
     public void summonMonster() throws Exception {
         MonsterCard monsterCard = (MonsterCard) selectedCard;
+        MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
+        int numberOfMonsterCard = 0;
+        for (int i = 0; i < 5; i++) {
+            if (!monsterCards[i].equals(null)){
+                numberOfMonsterCard++;
+            }
+        }
         if (this.selectedCard == null) {
             throw new NoCardSelected();
         } else if (true/*todo*/) {
@@ -128,6 +135,22 @@ public class DuelController {
         } else if (monsterCard.getLevel() <= 4) {
             //Todo
             DuelView.printText("summoned successfully");
+        } else if (monsterCard.getLevel()<7){
+            if (numberOfMonsterCard < 1){
+                throw new InsufficientForTribute();
+            } else {
+                tributeOneMonster();
+                //Todo
+                DuelView.printText("summoned successfully");
+            }
+        } else {
+            if (numberOfMonsterCard < 2){
+                throw new InsufficientForTribute();
+            } else {
+                tributeTwoMonsters();
+                //Todo
+                DuelView.printText("summoned successfully");
+            }
         }
     }
 
