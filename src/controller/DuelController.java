@@ -278,7 +278,7 @@ public class DuelController {
                 else toPrint += previous.getName()+":"+previous.getDescription()+"\n";
             }
         }
-
+        DuelView.printText(toPrint);
     }
 
     private void ritualSummon() {
