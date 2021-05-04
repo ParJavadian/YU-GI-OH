@@ -5,6 +5,7 @@ import model.*;
 import view.DuelView;
 
 import java.util.List;
+import java.util.ListIterator;
 
 public class DuelController {
 
@@ -260,7 +261,23 @@ public class DuelController {
 
     }
 
-    public void showGraveyard() {
+    public void showGraveyard() throws Exception{
+        List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
+        String toPrint = null;
+        if (graveyard.isEmpty())
+            throw new GraveYardEmpty();
+        else {
+            ListIterator<Card> li = graveyard.listIterator();
+            while (li.hasNext()) {
+                li.next();
+            }
+            while (li.hasPrevious()) {
+                Card previous = li.previous();
+                if (graveyard.indexOf(previous) == 0)
+                toPrint += previous.getName()+":"+previous.getDescription();
+                else toPrint += previous.getName()+":"+previous.getDescription()+"\n";
+            }
+        }
 
     }
 
