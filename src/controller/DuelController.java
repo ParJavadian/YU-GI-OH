@@ -15,6 +15,7 @@ public class DuelController {
     private Card selectedCard;
     private int roundCounter;
     private Phase phase;
+    private static boolean hasSummonedInThisTurn;
 
     //TODO havasa be cancel bashe(safhe 43 doc)
     //TODO aya jayi handle hardim ke shomare phase ro har seri chap kone?
@@ -129,7 +130,7 @@ public class DuelController {
         if (this.player.getBoard().isFullMonsterZone()) {
             throw new FullMonsterZone();
         }
-        if (hasSummonedInThisTurn()) {
+        if (hasSummonedInThisTurn) {
             throw new AlreadySummoned();
         }
         MonsterCard monsterCard = (MonsterCard) selectedCard;
@@ -143,6 +144,7 @@ public class DuelController {
         if (monsterCard.getLevel() <= 4) {
             //Todo
             DuelView.printText("summoned successfully");
+            hasSummonedInThisTurn = true;
         }
         if (monsterCard.getLevel() < 7) {
             if (countOfMonsterCardsInGround < 1) {
@@ -151,6 +153,7 @@ public class DuelController {
                 tributeOneMonster();
                 //Todo
                 DuelView.printText("summoned successfully");
+                hasSummonedInThisTurn = true;
             }
         } else {
             if (countOfMonsterCardsInGround < 2) {
@@ -159,6 +162,7 @@ public class DuelController {
                 tributeTwoMonsters();
                 //Todo
                 DuelView.printText("summoned successfully");
+                hasSummonedInThisTurn = true;
             }
         }
     }
@@ -310,31 +314,66 @@ public class DuelController {
         }
     }
 
-    private User shouldEndGame() {
+    private User shouldEndGame() { // todo benazaram nabayad User return kone.void bashe va endGame ro call kone okeye
+        List<Card> playersCardInHand = player.getBoard().getCardsInHand();
+        List<Card> rivalsCardInHand = rival.getBoard().getCardsInHand();
+        if (player.getLifePoint() < 0) {
+            endGame(player);
+        } else if (rival.getLifePoint() < 0) {
+            endGame(rival);
+        } else if (playersCardInHand.isEmpty()) {
+            endGame(player);
+        } else if (rivalsCardInHand.isEmpty()) {
+            endGame(rival);
+        }
         return null;
     }
 
-    private void endGame(User loser) {
-
+    private void endGame(User loser) { //todo duplicate code dare ba surrender.vali chon surrender User pass nemide nemitoonam ino call konam vasash
+        User otherUser;
+        if (loser.equals(rival)) {
+            otherUser = player;
+        } else {
+            otherUser = rival;
+        }
+        if (roundCounter == roundNumber) {
+            DuelView.printText(loser.getUsername() + " won the whole match with score: " + loser.getScore() + "-" + otherUser.getScore());
+        } else {
+            DuelView.printText(loser.getUsername() + " won the game and the score is: " + loser.getScore() + "-" + otherUser.getScore());
+        }
     }
 
     public void goNextPhase() {
         if (phase.equals(Phase.DRAW_PHASE)) {
             phase = Phase.STANDBY_PHASE;
-        }else if (phase.equals(Phase.STANDBY_PHASE)) {
+            DuelView.printText(phase.getNamePascalCase());
+        } else if (phase.equals(Phase.STANDBY_PHASE)) {
             phase = Phase.MAIN_PHASE1;
+            DuelView.printText(phase.getNamePascalCase());
         } else if (phase.equals(Phase.MAIN_PHASE1)) {
             phase = Phase.BATTLE_PHASE;
+            DuelView.printText(phase.getNamePascalCase());
         } else if (phase.equals(Phase.BATTLE_PHASE)) {
             phase = Phase.MAIN_PHASE2;
+            DuelView.printText(phase.getNamePascalCase());
         } else if (phase.equals(Phase.MAIN_PHASE2)) {
             phase = Phase.END_PHASE;
+            DuelView.printText(phase.getNamePascalCase());
+            DuelView.printText("its " + rival.getNickname() + "’s turn");
+            changeTurn();
         }
-
     }
 
-    private boolean hasSummonedInThisTurn() {
-        return false;
+//    private boolean hasSummonedInThisTurn() {
+//        return false;
+//    } todo has summoned in this turn ro boolean gozashtam jaye tabe
+
+    //todo tabe tarif kardam ke jaye player va rival ro avaz kone
+    private void changeTurn() {
+        User temp = player;
+        player = rival;
+        rival = temp;
+        hasSummonedInThisTurn = false;
     }
 
 
