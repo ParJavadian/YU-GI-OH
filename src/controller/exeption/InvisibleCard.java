@@ -1,5 +1,7 @@
 package controller.exeption;
 
 public class InvisibleCard extends Exception{
-    //TODO nemidunam chie
+    public InvisibleCard() {
+        super("card is not visible");
+    }
 }

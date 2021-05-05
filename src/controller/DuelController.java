@@ -293,8 +293,12 @@ public class DuelController {
 
     }
 
-    public void showCard() {
-
+    public void showCard() throws Exception{
+        if (selectedCard.equals(null)){
+            throw new NoCardSelected();
+        } else if (/*TODO*/){ //todo nemidoonam az koja befahmim card select shode male kodoom bazikone
+            throw new InvisibleCard();
+        } else DuelView.printText(selectedCard.toString()); // todo gofte bood too bakhshaye ghabli tozih dadim.bardashtam in bood ke toStringesho mikhad
     }
 
     public void surrender() {
