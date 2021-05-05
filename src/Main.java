@@ -3,7 +3,6 @@ public class Main {
 
     public static void main(String[] args) {
         LogInView.getInstance().getCommandForLogin();
-        System.out.println("13");
         /*ArrayList<MonsterTypes> types = new ArrayList<>();
         types.add(MonsterTypes.BEAST);
         types.add(MonsterTypes.CYBERSE);
