@@ -282,7 +282,6 @@ public class DuelController {
                 }
             }
         }
-        System.out.println("chert and pert");
         DuelView.printText(toPrint);
     }
 
