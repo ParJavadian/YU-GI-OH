@@ -116,29 +116,36 @@ public class DuelController {
     }
 
     public void summonMonster() throws Exception {
-        MonsterCard monsterCard = (MonsterCard) selectedCard;
-        MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
-        int numberOfMonsterCard = 0;
-        for (int i = 0; i < 5; i++) {
-            if (!monsterCards[i].equals(null)){
-                numberOfMonsterCard++;
-            }
-        }
         if (this.selectedCard == null) {
             throw new NoCardSelected();
-        } else if (true/*todo*/) {
+        }
+        //TODO in exception payinie halate "مد نظر قابلیت احضار عادی را نداشته باشد monster" ro nadare hanooz
+        if (!(this.selectedCard instanceof MonsterCard) || !this.player.getBoard().isInHand(this.selectedCard)) {
             throw new CanNotSummon();
-        } else if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
+        }
+        if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
             throw new ImproperPhase();
-        } else if (this.player.getBoard().isFullMonsterZone()) {
+        }
+        if (this.player.getBoard().isFullMonsterZone()) {
             throw new FullMonsterZone();
-        } else if (hasSummonedInThisTurn()) {
+        }
+        if (hasSummonedInThisTurn()) {
             throw new AlreadySummoned();
-        } else if (monsterCard.getLevel() <= 4) {
+        }
+        MonsterCard monsterCard = (MonsterCard) selectedCard;
+        MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
+        int countOfMonsterCardsInGround = 0;
+        for (int i = 0; i < 5; i++) {
+            if (!monsterCards[i].equals(null)){
+                countOfMonsterCardsInGround++;
+            }
+        }
+        if (monsterCard.getLevel() <= 4) {
             //Todo
             DuelView.printText("summoned successfully");
-        } else if (monsterCard.getLevel()<7){
-            if (numberOfMonsterCard < 1){
+        }
+        if (monsterCard.getLevel()<7){
+            if (countOfMonsterCardsInGround < 1){
                 throw new InsufficientForTribute();
             } else {
                 tributeOneMonster();
@@ -146,7 +153,7 @@ public class DuelController {
                 DuelView.printText("summoned successfully");
             }
         } else {
-            if (numberOfMonsterCard < 2){
+            if (countOfMonsterCardsInGround < 2){
                 throw new InsufficientForTribute();
             } else {
                 tributeTwoMonsters();

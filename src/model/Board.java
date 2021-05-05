@@ -136,6 +136,13 @@ public class Board {
         return false;
     }
 
+    public boolean isInHand(Card card){
+        for(Card eachCard : this.cardsInHand){
+            if(eachCard.equals(card)) return true;
+        }
+        return false;
+    }
+
     /*public String toStringForPlayer() {
         String toReturn = "--------------------------\n" +
                 "\n";
