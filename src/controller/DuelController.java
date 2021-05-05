@@ -293,16 +293,21 @@ public class DuelController {
 
     }
 
-    public void showCard() throws Exception{
-        if (selectedCard.equals(null)){
+    public void showCard() throws Exception {
+        if (selectedCard.equals(null)) {
             throw new NoCardSelected();
-        } else if (/*TODO*/){ //todo nemidoonam az koja befahmim card select shode male kodoom bazikone!
+        } else if (/*TODO*/) { //todo nemidoonam az koja befahmim card select shode male kodoom bazikone!
             throw new InvisibleCard();
-        } else DuelView.printText(selectedCard.toString()); // todo gofte bood too bakhshaye ghabli tozih dadim.bardashtam in bood ke toStringesho mikhad
+        } else
+            DuelView.printText(selectedCard.toString()); // todo gofte bood too bakhshaye ghabli tozih dadim.bardashtam in bood ke toStringesho mikhad
     }
 
-    public void surrender() {
-
+    public void surrender() { //todo faghat payamesho chap kardam vali nemidoonam chetori az bazi kharej sham ya daste jadidi shoro konam va ina
+        if (roundCounter == roundNumber) {
+            DuelView.printText(rival.getUsername() + " won the whole match with score: " + rival.getScore() + "-" + player.getScore());
+        } else {
+            DuelView.printText(rival.getUsername() + " won the game and the score is: " + rival.getScore() + "-" + player.getScore());
+        }
     }
 
     private User shouldEndGame() {
@@ -314,6 +319,17 @@ public class DuelController {
     }
 
     public void goNextPhase() {
+        if (phase.equals(Phase.DRAW_PHASE)) {
+            phase = Phase.STANDBY_PHASE;
+        }else if (phase.equals(Phase.STANDBY_PHASE)) {
+            phase = Phase.MAIN_PHASE1;
+        } else if (phase.equals(Phase.MAIN_PHASE1)) {
+            phase = Phase.BATTLE_PHASE;
+        } else if (phase.equals(Phase.BATTLE_PHASE)) {
+            phase = Phase.MAIN_PHASE2;
+        } else if (phase.equals(Phase.MAIN_PHASE2)) {
+            phase = Phase.END_PHASE;
+        }
 
     }
 
