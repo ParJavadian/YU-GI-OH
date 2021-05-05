@@ -136,7 +136,7 @@ public class DuelController {
         MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
         int countOfMonsterCardsInGround = 0;
         for (int i = 0; i < 5; i++) {
-            if (!monsterCards[i].equals(null)){
+            if (!monsterCards[i].equals(null)) {
                 countOfMonsterCardsInGround++;
             }
         }
@@ -144,8 +144,8 @@ public class DuelController {
             //Todo
             DuelView.printText("summoned successfully");
         }
-        if (monsterCard.getLevel()<7){
-            if (countOfMonsterCardsInGround < 1){
+        if (monsterCard.getLevel() < 7) {
+            if (countOfMonsterCardsInGround < 1) {
                 throw new InsufficientForTribute();
             } else {
                 tributeOneMonster();
@@ -153,7 +153,7 @@ public class DuelController {
                 DuelView.printText("summoned successfully");
             }
         } else {
-            if (countOfMonsterCardsInGround < 2){
+            if (countOfMonsterCardsInGround < 2) {
                 throw new InsufficientForTribute();
             } else {
                 tributeTwoMonsters();
@@ -168,7 +168,7 @@ public class DuelController {
         selectCardPlayerMonsterZone(address);
     }
 
-    private void tributeTwoMonsters(int address1, int address2) throws Exception{
+    private void tributeTwoMonsters(int address1, int address2) throws Exception {
         //TODO inja alan bayad ye exception midad ke address1 != address2 vali tu doc nist!
     }
 
@@ -268,21 +268,18 @@ public class DuelController {
 
     }
 
-    public void showGraveyard() throws Exception{
+    public void showGraveyard() throws Exception {
         List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
         String toPrint = null;
         if (graveyard.isEmpty())
             throw new GraveYardEmpty();
         else {
-            ListIterator<Card> li = graveyard.listIterator();
-            while (li.hasNext()) {
-                li.next();
-            }
-            while (li.hasPrevious()) {
-                Card previous = li.previous();
-                if (graveyard.indexOf(previous) == 0)
-                toPrint += previous.getName()+":"+previous.getDescription();
-                else toPrint += previous.getName()+":"+previous.getDescription()+"\n";
+            for (Card cardInGraveyard : graveyard) {
+                if (graveyard.indexOf(cardInGraveyard) == graveyard.size() - 1) {
+                    toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription();
+                } else {
+                    toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription() + "\n";
+                }
             }
         }
         DuelView.printText(toPrint);
