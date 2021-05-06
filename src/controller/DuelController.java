@@ -143,15 +143,19 @@ public class DuelController {
         }
         if (monsterCard.getLevel() <= 4) {
             //Todo
+            unselectCard();
             DuelView.printText("summoned successfully");
             hasSummonedInThisTurn = true;
         }
         if (monsterCard.getLevel() < 7) {
             if (countOfMonsterCardsInGround < 1) {
+                unselectCard();
                 throw new InsufficientForTribute();
             } else {
+                unselectCard();
                 tributeOneMonster();
                 //Todo
+
                 DuelView.printText("summoned successfully");
                 hasSummonedInThisTurn = true;
             }
@@ -167,6 +171,68 @@ public class DuelController {
         }
     }
 
+/*
+    //TODO man(hamraz) inja gozashtam ke be jaye void, int return kone ke int tedad tribute haye monsteras ke age
+    // tribute mikhast addressesho begire
+
+    public int summonMonster() throws Exception {
+        if (this.selectedCard == null) {
+            throw new NoCardSelected();
+            return 0;
+        }
+        //TODO in exception payinie halate "مد نظر قابلیت احضار عادی را نداشته باشد monster" ro nadare hanooz
+        if (!(this.selectedCard instanceof MonsterCard) || !this.player.getBoard().isInHand(this.selectedCard)) {
+            throw new CanNotSummon();
+            return 0;
+        }
+        if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
+            throw new ImproperPhase();
+            return 0;
+        }
+        if (this.player.getBoard().isFullMonsterZone()) {
+            throw new FullMonsterZone();
+            return 0;
+        }
+        if (hasSummonedInThisTurn()) {
+            throw new AlreadySummoned();
+            return 0;
+        }
+        MonsterCard monsterCard = (MonsterCard) selectedCard;
+        MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
+        int countOfMonsterCardsInGround = 0;
+        for (int i = 0; i < 5; i++) {
+            if (!monsterCards[i].equals(null)) {
+                countOfMonsterCardsInGround++;
+            }
+        }
+        if (monsterCard.getLevel() <= 4) {
+            //Todo
+            DuelView.printText("summoned successfully");
+            return 0;
+        }
+        if (monsterCard.getLevel() < 7) {
+            if (countOfMonsterCardsInGround < 1) {
+                throw new InsufficientForTribute();
+                return 0;
+            } else {
+                tributeOneMonster();
+                //Todo
+                DuelView.printText("summoned successfully");
+                return 1;
+            }
+        } else {
+            if (countOfMonsterCardsInGround < 2) {
+                throw new InsufficientForTribute();
+                return 0;
+            } else {
+                tributeTwoMonsters();
+                //Todo
+                DuelView.printText("summoned successfully");
+                return 2;
+            }
+        }
+    }
+*/
 
     private void tributeOneMonster(int address) throws Exception {
         selectCardPlayerMonsterZone(address);
@@ -216,7 +282,22 @@ public class DuelController {
 
     }
 
-    public void directAttack() {
+    public void directAttack() throws Exception{
+
+        MonsterCard[] monsterCards = this.rival.getBoard().getMonsters();
+        int countOfMonsterCardsInGround = 0;
+        for (int i = 0; i < 5; i++) {
+            if (!monsterCards[i].equals(null))
+                countOfMonsterCardsInGround++;
+        }
+
+        if (countOfMonsterCardsInGround == 0){
+            String monsterName = this.selectedCard.getName();
+            int attack =
+            rival.decreaseLifePoint();
+        }
+        else throw new CanNotAttackDirectly();
+
 
     }
 
@@ -378,3 +459,4 @@ public class DuelController {
 
 
 }
+
