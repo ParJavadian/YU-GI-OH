@@ -4,6 +4,10 @@ import controller.exeption.*;
 import model.*;
 import view.DuelView;
 
+import javax.jws.soap.SOAPBinding;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class DuelController {
@@ -11,7 +15,7 @@ public class DuelController {
     private User player;
     private User rival;
     private int roundNumber;
-    private Card selectedCard;
+    private SelectedCard selectedCard;
     private int roundCounter;
     private Phase phase;
     private static boolean hasSummonedOrSetInThisTurn;
@@ -34,10 +38,10 @@ public class DuelController {
         MonsterCard[] monsters = this.player.getBoard().getMonsters();
         if ((address > 5) || (address < 1)) {
             throw new InvalidSelection();
-        } else if (monsters[address - 1].equals(null)) {
+        } else if (monsters[address - 1]==null) {
             throw new NoCardFoundInThisPosition();
         } else {
-            this.selectedCard = this.player.getBoard().getMonsterByNumber(address);
+            this.selectedCard = new SelectedCard(this.player.getBoard().getMonsterByNumber(address-1),BoardZone.MONSTERZONE,address-1,this.player);
             DuelView.printText("card selected");
         }
     }
@@ -46,10 +50,11 @@ public class DuelController {
         MonsterCard[] monsters = this.rival.getBoard().getMonsters();
         if ((address > 5) || (address < 1)) {
             throw new InvalidSelection();
-        } else if (monsters[address - 1].equals(null)) {
+        } else if (monsters[address - 1]==null) {
             throw new NoCardFoundInThisPosition();
         } else {
-            this.selectedCard = this.rival.getBoard().getMonsterByNumber(address);
+            this.selectedCard = new SelectedCard(this.rival.getBoard().getMonsterByNumber(address-1),BoardZone.MONSTERZONE,address-1,this.rival);
+
             DuelView.printText("card selected");
         }
     }
@@ -58,10 +63,11 @@ public class DuelController {
         Card[] spellAndTrap = this.player.getBoard().getSpellsAndTraps();
         if ((address > 5) || (address < 1)) {
             throw new InvalidSelection();
-        } else if (spellAndTrap[address - 1].equals(null)) {
+        } else if (spellAndTrap[address - 1]==null) {
             throw new NoCardFoundInThisPosition();
         } else {
-            this.selectedCard = this.player.getBoard().getSpellAndTrapByNumber(address);
+            this.selectedCard = new SelectedCard(this.player.getBoard().getSpellAndTrapByNumber(address-1),BoardZone.SPELLANDTRAPZONE,address-1,this.player);
+
             DuelView.printText("card selected");
         }
     }
@@ -70,30 +76,31 @@ public class DuelController {
         Card[] spellAndTrap = this.rival.getBoard().getSpellsAndTraps();
         if ((address > 5) || (address < 1)) {
             throw new InvalidSelection();
-        } else if (spellAndTrap[address - 1].equals(null)) {
+        } else if (spellAndTrap[address - 1]==null) {
             throw new NoCardFoundInThisPosition();
         } else {
-            this.selectedCard = this.rival.getBoard().getSpellAndTrapByNumber(address);
+            this.selectedCard = new SelectedCard(this.rival.getBoard().getSpellAndTrapByNumber(address-1),BoardZone.SPELLANDTRAPZONE,address-1,this.rival);
+
             DuelView.printText("card selected");
         }
     }
 
     public void selectCardPlayerFieldZone() throws Exception {
         Card fieldZone = this.player.getBoard().getFieldZone();
-        if (fieldZone.equals(null)) {
+        if (fieldZone==null) {
             throw new NoCardFoundInThisPosition();
         } else {
-            this.selectedCard = this.player.getBoard().getFieldZone();
+            this.selectedCard = new SelectedCard(this.player.getBoard().getFieldZone(),BoardZone.FIELDZONE,1,this.player);
             DuelView.printText("card selected");
         }
     }
 
     public void selectCardOpponentFieldZone() throws Exception {
-        Card fieldZone = this.rival.getBoard().getFieldZone();
-        if (fieldZone.equals(null)) {
+        Card fieldZone = this.player.getBoard().getFieldZone();
+        if (fieldZone==null) {
             throw new NoCardFoundInThisPosition();
         } else {
-            this.selectedCard = this.rival.getBoard().getFieldZone();
+            this.selectedCard = new SelectedCard(this.rival.getBoard().getFieldZone(),BoardZone.FIELDZONE,1,this.rival);
             DuelView.printText("card selected");
         }
     }
@@ -102,10 +109,10 @@ public class DuelController {
         List<Card> cardsInHand = this.player.getBoard().getCardsInHand();
         if ((address > cardsInHand.size()) || (address < 1)) {
             throw new InvalidSelection();
-        } else if (cardsInHand.get(address - 1).equals(null)) {
+        } else if (cardsInHand.get(address - 1) == null) {
             throw new NoCardFoundInThisPosition();
         }
-        this.selectedCard = this.player.getBoard().getCardInHandByNumber(address);
+        this.selectedCard = new SelectedCard(this.player.getBoard().getCardInHandByNumber(address-1),BoardZone.HAND,address-1,this.player);
         DuelView.printText("card selected");
     }
 
@@ -123,7 +130,7 @@ public class DuelController {
             throw new NoCardSelected();
         }
         //TODO in exception payinie halate "مد نظر قابلیت احضار عادی را نداشته باشد monster" ro nadare hanooz
-        if (!(this.selectedCard instanceof MonsterCard) || !this.player.getBoard().isInHand(this.selectedCard)) {
+        if (!(this.selectedCard.getCard() instanceof MonsterCard && this.selectedCard.getBoardZone().equals(BoardZone.HAND))) {
             throw new CanNotSummon();
         }
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
@@ -135,9 +142,9 @@ public class DuelController {
         if (hasSummonedOrSetInThisTurn) {
             throw new AlreadySummoned();
         }
-        MonsterCard monsterCard = (MonsterCard) selectedCard;
+        MonsterCard monsterCard = (MonsterCard) selectedCard.getCard();
         if (monsterCard.getLevel() <= 4) {
-            this.player.getBoard().putMonster((MonsterCard) selectedCard, "OO");
+            this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
             unselectCard();
             DuelView.printText("summoned successfully");
             hasSummonedOrSetInThisTurn = true;
@@ -167,8 +174,6 @@ public class DuelController {
             }
         }
     }
-
-
 /*
     //TODO man(hamraz) inja gozashtam ke be jaye void, int return kone ke int tedad tribute haye monsteras ke age
     // tribute mikhast addressesho begire
@@ -244,7 +249,7 @@ public class DuelController {
         MonsterCard[] monsterCards = user.getBoard().getMonsters();
         int countOfMonsterCardsInGround = 0;
         for (int i = 0; i < 5; i++) {
-            if (!monsterCards[i].equals(null)) {
+            if (monsterCards[i]!=null) {
                 countOfMonsterCardsInGround++;
             }
         }
@@ -253,10 +258,10 @@ public class DuelController {
 
     public void preSet() throws Exception{
         if(this.selectedCard == null) throw new NoCardSelected();
-        if(!this.player.getBoard().isInHand(this.selectedCard)) throw new CanNotSet();
-        if(this.selectedCard instanceof MonsterCard) setMonster();
-        else if(this.selectedCard instanceof SpellCard) setSpell();
-        else if(this.selectedCard instanceof TrapCard) setTrap();
+        if(!(this.selectedCard.getBoardZone().equals(BoardZone.HAND))) throw new CanNotSet();
+        if(this.selectedCard.getCard() instanceof MonsterCard) setMonster();
+        else if(this.selectedCard.getCard() instanceof SpellCard) setSpell();
+        else if(this.selectedCard.getCard() instanceof TrapCard) setTrap();
     }
 
     private void setMonster() throws Exception {
@@ -269,7 +274,7 @@ public class DuelController {
         if (hasSummonedOrSetInThisTurn) {
             throw new AlreadySummoned();
         }
-        this.player.getBoard().putMonster((MonsterCard) selectedCard, "DH");
+        this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "DH");
         unselectCard();
         DuelView.printText("set successfully");
         hasSummonedOrSetInThisTurn = true;
@@ -286,7 +291,7 @@ public class DuelController {
     public void changePosition(String targetPosition) throws Exception{
         if(this.selectedCard == null) {
             throw new NoCardSelected();
-        } else if ( TODO ) {
+        } else if (!this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE)) {
             throw new CanNotChangePosition();
         } else if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
             throw new CantDoActionInThisPhase(); // todo
@@ -324,7 +329,7 @@ public class DuelController {
     public void directAttack() throws Exception {
         int countOfMonsterCardsInGround = getCountOfMonsterCardsInGround(this.rival);
         if (countOfMonsterCardsInGround == 0) {
-            rival.decreaseLifePoint(((MonsterCard) this.selectedCard).getAttack());
+            rival.decreaseLifePoint(((MonsterCard) this.selectedCard.getCard()).getAttack());
         } else throw new CanNotAttackDirectly();
     }
 
@@ -414,7 +419,7 @@ public class DuelController {
     }
 
     public void showCard() throws Exception {
-        if (selectedCard.equals(null)) {
+        if (selectedCard==null) {
             throw new NoCardSelected();
         } else if (/*TODO*/) { //todo nemidoonam az koja befahmim card select shode male kodoom bazikone!
             throw new InvisibleCard();

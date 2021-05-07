@@ -7,8 +7,6 @@ import java.util.List;
 public class Board {
     List<Card> cardsInHand;
     List<Card> cardsInGraveyard;
-    HashMap<MonsterCard,String> monstersHashmap;
-    HashMap<Card,String> spellAndTrapHashmap;
     Card[] spellsAndTraps;
     String[] spellsAndTrapsCondition;
     MonsterCard[] monsters;
@@ -20,8 +18,6 @@ public class Board {
     public Board() {
         this.cardsInHand = new ArrayList<>();
         this.cardsInGraveyard = new ArrayList<>();
-        this.monstersHashmap = new HashMap<>();
-        this.spellAndTrapHashmap = new HashMap<>();
         this.spellsAndTraps = new Card[5];
         this.spellsAndTrapsCondition = new String[5];
         this.monsters = new MonsterCard[5];
@@ -29,20 +25,12 @@ public class Board {
         this.fieldZone = null;
     }
 
-    public HashMap<MonsterCard,String> getMonstersHashmap(){
-        return this.monstersHashmap;
-    }
-
-    public HashMap<Card,String> getSpellAndTrapHashmap(){
-        return this.spellAndTrapHashmap;
-    }
-
     public List<Card> getCardsInHand() {
         return this.cardsInHand;
     }
 
     public Card getFieldZone() {
-        if (this.fieldZone.equals(null)) {
+        if (this.fieldZone==null) {
             return null;
         } else return this.fieldZone;
     }
@@ -82,31 +70,23 @@ public class Board {
         }
     }
 
-    public void removeMonster(MonsterCard monsterCard) {
-        for (int i = 0; i < 5; i++) {
-            if (this.monsters[i].equals(monsterCard)) {
-                this.monsters[i] = null;
-                this.monstersCondition[i] = null;
-            }
-        }
+    public void removeMonster(int number) {
+        this.monsters[number] = null;
+        this.monstersCondition[number] = null;
     }
 
     public void putSpellOrTrap(Card card, String condition) {
-        for (int i = 0; i < 5; i++) {
-            if (!this.spellsAndTraps[i].equals(null)) {
-                this.spellsAndTraps[i] = card;
-                this.spellsAndTrapsCondition[i] = condition;
+        for(int i=0;i<5;i++){
+            if(this.spellsAndTraps[playerGroundNumbers[i]] == null){
+                this.spellsAndTraps[playerGroundNumbers[i]] =card;
+                this.spellsAndTrapsCondition[playerGroundNumbers[i]] =condition;
             }
         }
     }
 
-    public void removeSpellOrTrap(Card card) {
-        for (int i = 0; i < 5; i++) {
-            if (this.spellsAndTraps[i].equals(card)) {
-                this.spellsAndTraps[i] = null;
-                this.spellsAndTrapsCondition[i] = null;
-            }
-        }
+    public void removeSpellOrTrap(int number) {
+        this.spellsAndTraps[number] = null;
+        this.spellsAndTrapsCondition[number] = null;
     }
 
     public MonsterCard getMonsterByNumber(int number) {
@@ -117,9 +97,6 @@ public class Board {
         return this.spellsAndTraps[number];
     }
 
-    public Card getFieldZone(int number) {
-        return this.fieldZone;
-    }
 
     public String getMonsterConditionByNumber(int number) {
         return this.monstersCondition[number];
@@ -161,12 +138,7 @@ public class Board {
         return false;
     }
 
-    public boolean isInHand(Card card){
-        for(Card eachCard : this.cardsInHand){
-            if(eachCard.equals(card)) return true;
-        }
-        return false;
-    }
+
 
     /*public String toStringForPlayer() {
         String toReturn = "--------------------------\n" +
