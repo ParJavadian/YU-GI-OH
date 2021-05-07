@@ -31,7 +31,6 @@ public class DuelView {
             }
             return false;
         }
-
         Matcher matcher = getCommandMatcher(command, "select ([\\w -]+)");
         if (matcher.matches()) {
             Matcher isOpponent = getCommandMatcher(matcher.group(1), "(--opponent|-o)");

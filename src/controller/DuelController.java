@@ -147,7 +147,9 @@ public class DuelController {
                 unselectCard();
                 throw new InsufficientForTribute();
             } else {
-                tributeOneMonster(Integer.parseInt(DuelView.scan()));
+                String input = DuelView.scan();
+                if(input.equals("cancel")) return;
+                tributeOneMonster(Integer.parseInt(input));
                 //Todo
                 unselectCard();
                 DuelView.printText("summoned successfully");
@@ -230,6 +232,7 @@ public class DuelController {
     }
 */
     private void tributeOneMonster(int address) throws Exception {
+        if(address)
         selectCardPlayerMonsterZone(address);
     }
 
