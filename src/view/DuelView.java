@@ -91,11 +91,8 @@ public class DuelView {
         }
         if (command.equals("summon")) {
             try {
-                int numberOfNeededTributes = 2;
-                //todo alan inja az koja level ro peyda konim ke bebinim chand ta tribute mikhad?
-                // lazem nist khob. too controller check kardim
+
                 duelController.summonMonster();
-                if ()
             } catch (Exception exception) {
                 printText(exception.getMessage());
             }
@@ -189,6 +186,7 @@ public class DuelView {
             } catch (Exception exception) {
                 printText(exception.getMessage());
             }
+            return false;
         }
 
         matcher = getCommandMatcher(command, "card show (--selected|-s)");
