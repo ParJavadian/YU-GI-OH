@@ -167,5 +167,12 @@ public class Board {
         return true;
     }
 
+    public boolean isFullSpellAndTrapZone(){
+        for (int i = 0; i < 5; i++){
+            if (this.spellsAndTraps[i] == null) return false;
+        }
+        return true;
+    }
+
 
 }

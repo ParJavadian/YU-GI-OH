@@ -343,12 +343,29 @@ public class DuelController {
         hasSummonedOrSetInThisTurn = true;
     }
 
-    private void setSpell() {
+    private void setSpell() throws Exception{
+        if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2))))
+            throw new ImproperPhase();
+        if (this.player.getBoard().isFullSpellAndTrapZone())
+            throw new FullSpellZone();
+
+        SpellCard spellCard = (SpellCard) this.selectedCard.getCard();
+        this.player.getBoard().putSpellOrTrap(spellCard,"H");
+        unselectCard();
+        DuelView.printText("set successfully");
 
     }
 
-    private void setTrap() {
+    private void setTrap() throws Exception{
+        if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2))))
+            throw new ImproperPhase();
+        if (this.player.getBoard().isFullSpellAndTrapZone())
+            throw new FullSpellZone();
 
+        TrapCard trapCard = (TrapCard) this.selectedCard.getCard();
+        this.player.getBoard().putSpellOrTrap(trapCard,"H");
+        unselectCard();
+        DuelView.printText("set successfully");
     }
 
     public void changePosition(String targetPosition) throws Exception {
