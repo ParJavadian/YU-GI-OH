@@ -7,10 +7,10 @@ import java.util.List;
 public class Board {
     List<Card> cardsInHand;
     List<Card> cardsInGraveyard;
-    Card[] spellsAndTraps;
-    String[] spellsAndTrapsCondition;
     MonsterCard[] monsters;
     String[] monstersCondition;
+    Card[] spellsAndTraps;
+    String[] spellsAndTrapsCondition;
     Card fieldZone;
     private static final int[] playerGroundNumbers = {3,4,2,5,1};
     private static final int[] opponentGroundNumbers = {3,2,4,1,5};
@@ -97,7 +97,6 @@ public class Board {
         return this.spellsAndTraps[number];
     }
 
-
     public String getMonsterConditionByNumber(int number) {
         return this.monstersCondition[number];
     }
@@ -138,7 +137,9 @@ public class Board {
         return false;
     }
 
-
+    public void changeMonsterPosition(int index,String target){
+        this.monstersCondition[index] = target;
+    }
 
     /*public String toStringForPlayer() {
         String toReturn = "--------------------------\n" +
