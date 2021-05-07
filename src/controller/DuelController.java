@@ -432,14 +432,35 @@ public class DuelController {
     }
 
     private void attackMonsterOO(int monsterNumber) {
- /* if (this.rival.getBoard().getMonsterConditionByNumber(monsterNumber).equals("OO")){
+        MonsterCard attacker = (MonsterCard) this.selectedCard.getCard();
+        MonsterCard target = (MonsterCard) this.rival.getBoard().getMonsterByNumber(monsterNumber);
+
             if (attacker.getAttack() > target.getAttack()){
-                //hazf az safe,  dige nemishe ba in attack zad
-                this.rival.decreaseLifePoint(attacker.getAttack() - target.getAttack());
+                int damage = attacker.getAttack() - target.getAttack();
+                //TODO dige nemishe ba in attack zad
+                this.rival.decreaseLifePoint(damage);
                 this.rival.getBoard().putInGraveYard(target);
-                this.rival.getBoard()
+                this.rival.getBoard().removeMonster(monsterNumber);
+                DuelView.printText("your opponent’s monster is destroyed and your opponent receives" +
+                        damage + "battle damage");
+                //TODO chra unselectCard(); ro error mide?
             }
-        }*/
+
+            if (attacker.getAttack() == target.getAttack()){
+                this.rival.getBoard().removeMonster(monsterNumber);
+                this.player.getBoard().removeMonster(this.selectedCard.getNumber());
+                DuelView.printText("both you and your opponent monster cards are destroyed and no" +
+                        "one receives damage");
+                //TODO chra unselectCard(); ro error mide?
+            }
+
+            if (attacker.getAttack() < target.getAttack()){
+                int damage = target.getAttack() - attacker.getAttack();
+                this.player.decreaseLifePoint(damage);
+                this.player.getBoard().putInGraveYard(attacker);
+                this.player.getBoard().removeMonster(this.selectedCard.getNumber());
+                //TODO unselect
+            }
     }
 
     private void attackMonsterDO(int monsterNumber) {
