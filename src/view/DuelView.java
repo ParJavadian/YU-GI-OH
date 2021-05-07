@@ -23,7 +23,6 @@ public class DuelView {
     }
 
     private boolean processCommand(String command) {
-
         if (command.equals("select -d")) {
             try {
                 duelController.unselectCard();
@@ -92,12 +91,11 @@ public class DuelView {
             duelController.goNextPhase();
             return false;
         }
-
-
         if (command.equals("summon")) {
             try {
                 int numberOfNeededTributes = 2;
                 //todo alan inja az koja level ro peyda konim ke bebinim chand ta tribute mikhad?
+                // lazem nist khob. too controller check kardim
                 duelController.summonMonster();
                 if ()
             } catch (Exception exception) {
@@ -207,7 +205,7 @@ public class DuelView {
 
         if (command.equals("surrender")) {
             duelController.surrender();
-            //TODO inja chera return true pak shode?
+            return true;
         }
 
         if (command.startsWith("menu enter ")) {
@@ -224,8 +222,8 @@ public class DuelView {
         return false;
     }
 
-    public String getCardForTribute() {
-        return "1";
+    public static String scan() {
+        return ScannerClassForView.getScanner().nextLine();
     }
 
     public String getAnswerForActivateSpellOrTrapInRivalsTurn() {

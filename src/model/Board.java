@@ -1,25 +1,40 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Board {
     List<Card> cardsInHand;
     List<Card> cardsInGraveyard;
+    HashMap<MonsterCard,String> monstersHashmap;
+    HashMap<Card,String> spellAndTrapHashmap;
     Card[] spellsAndTraps;
     String[] spellsAndTrapsCondition;
     MonsterCard[] monsters;
     String[] monstersCondition;
     Card fieldZone;
+    private static final int[] playerGroundNumbers = {3,4,2,5,1};
+    private static final int[] opponentGroundNumbers = {3,2,4,1,5};
 
     public Board() {
         this.cardsInHand = new ArrayList<>();
         this.cardsInGraveyard = new ArrayList<>();
+        this.monstersHashmap = new HashMap<>();
+        this.spellAndTrapHashmap = new HashMap<>();
         this.spellsAndTraps = new Card[5];
         this.spellsAndTrapsCondition = new String[5];
         this.monsters = new MonsterCard[5];
         this.monstersCondition = new String[5];
         this.fieldZone = null;
+    }
+
+    public HashMap<MonsterCard,String> getMonstersHashmap(){
+        return this.monstersHashmap;
+    }
+
+    public HashMap<Card,String> getSpellAndTrapHashmap(){
+        return this.spellAndTrapHashmap;
     }
 
     public List<Card> getCardsInHand() {
@@ -48,11 +63,21 @@ public class Board {
         this.cardsInHand.add(card);
     }
 
-    public void putMonster(MonsterCard monsterCard, String condition) {
-        for (int i = 0; i < 4; i++) {
+    //TODO اینو چون به ترتیب آدمیزادی پیش میرفت فکر کردم به دردمون نمیخوره و کامنتش کردم حالا اگه لازمه جایی آنکامنتش کن
+    /*public void putMonster(MonsterCard monsterCard, String condition) {
+        for (int i = 0; i < 5; i++) {
             if (!this.monsters[i].equals(null)) {
                 this.monsters[i] = monsterCard;
                 this.monstersCondition[i] = condition;
+            }
+        }
+    }*/
+
+    public void putMonster(MonsterCard monsterCard,String condition){
+        for(int i=0;i<5;i++){
+            if(this.getMonsterByNumber(playerGroundNumbers[i]) == null){
+                this.monsters[playerGroundNumbers[i]] =monsterCard;
+                this.monstersCondition[playerGroundNumbers[i]] =condition;
             }
         }
     }

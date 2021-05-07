@@ -16,6 +16,8 @@ public class DuelController {
     private int roundCounter;
     private Phase phase;
     private static boolean hasSummonedInThisTurn;
+    private static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
+    private static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
 
     //TODO havasa be cancel bashe(safhe 43 doc)
     //TODO aya jayi handle hardim ke shomare phase ro har seri chap kone?
@@ -134,33 +136,26 @@ public class DuelController {
             throw new AlreadySummoned();
         }
         MonsterCard monsterCard = (MonsterCard) selectedCard;
-        MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
-        int countOfMonsterCardsInGround = 0;
-        for (int i = 0; i < 5; i++) {
-            if (!monsterCards[i].equals(null)) {
-                countOfMonsterCardsInGround++;
-            }
-        }
         if (monsterCard.getLevel() <= 4) {
-            //Todo
+            this.player.getBoard().putMonster((MonsterCard) selectedCard, "OO");
             unselectCard();
             DuelView.printText("summoned successfully");
             hasSummonedInThisTurn = true;
+            return;
         }
         if (monsterCard.getLevel() < 7) {
-            if (countOfMonsterCardsInGround < 1) {
+            if (getCountOfMonsterCardsInGround() < 1) {
                 unselectCard();
                 throw new InsufficientForTribute();
             } else {
-                unselectCard();
-                tributeOneMonster();
+                tributeOneMonster(Integer.parseInt(DuelView.scan()));
                 //Todo
-
+                unselectCard();
                 DuelView.printText("summoned successfully");
                 hasSummonedInThisTurn = true;
             }
         } else {
-            if (countOfMonsterCardsInGround < 2) {
+            if (getCountOfMonsterCardsInGround() < 2) {
                 throw new InsufficientForTribute();
             } else {
                 tributeTwoMonsters();
@@ -169,6 +164,17 @@ public class DuelController {
                 hasSummonedInThisTurn = true;
             }
         }
+    }
+
+    private int getCountOfMonsterCardsInGround() {
+        MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
+        int countOfMonsterCardsInGround = 0;
+        for (int i = 0; i < 5; i++) {
+            if (!monsterCards[i].equals(null)) {
+                countOfMonsterCardsInGround++;
+            }
+        }
+        return countOfMonsterCardsInGround;
     }
 
 /*
@@ -206,7 +212,7 @@ public class DuelController {
             }
         }
         if (monsterCard.getLevel() <= 4) {
-            //Todo
+        //TODO
             DuelView.printText("summoned successfully");
             return 0;
         }
@@ -282,21 +288,16 @@ public class DuelController {
 
     }
 
-    public void directAttack() throws Exception{
+    public void directAttack() throws Exception {
 
         MonsterCard[] monsterCards = this.rival.getBoard().getMonsters();
-        int countOfMonsterCardsInGround = 0;
-        for (int i = 0; i < 5; i++) {
-            if (!monsterCards[i].equals(null))
-                countOfMonsterCardsInGround++;
-        }
+        int countOfMonsterCardsInGround = getCountOfMonsterCardsInGround(monsterCards);
 
-        if (countOfMonsterCardsInGround == 0){
+        if (countOfMonsterCardsInGround == 0) {
             String monsterName = this.selectedCard.getName();
             int attack =
-            rival.decreaseLifePoint();
-        }
-        else throw new CanNotAttackDirectly();
+                    rival.decreaseLifePoint();
+        } else throw new CanNotAttackDirectly();
 
 
     }
