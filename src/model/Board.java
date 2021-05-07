@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Board {
@@ -18,10 +17,10 @@ public class Board {
     public Board() {
         this.cardsInHand = new ArrayList<>();
         this.cardsInGraveyard = new ArrayList<>();
-        this.spellsAndTraps = new Card[5];
-        this.spellsAndTrapsCondition = new String[5];
         this.monsters = new MonsterCard[5];
         this.monstersCondition = new String[5];
+        this.spellsAndTraps = new Card[5];
+        this.spellsAndTrapsCondition = new String[5];
         this.fieldZone = null;
     }
 
@@ -51,23 +50,15 @@ public class Board {
         this.cardsInHand.add(card);
     }
 
-    //TODO اینو چون به ترتیب آدمیزادی پیش میرفت فکر کردم به دردمون نمیخوره و کامنتش کردم حالا اگه لازمه جایی آنکامنتش کن
-    /*public void putMonster(MonsterCard monsterCard, String condition) {
-        for (int i = 0; i < 5; i++) {
-            if (!this.monsters[i].equals(null)) {
-                this.monsters[i] = monsterCard;
-                this.monstersCondition[i] = condition;
-            }
-        }
-    }*/
-
-    public void putMonster(MonsterCard monsterCard,String condition){
+    public int putMonster(MonsterCard monsterCard,String condition){
         for(int i=0;i<5;i++){
             if(this.monsters[playerGroundNumbers[i]] == null){
                 this.monsters[playerGroundNumbers[i]] =monsterCard;
                 this.monstersCondition[playerGroundNumbers[i]] =condition;
+                return i;
             }
         }
+        return 0;
     }
 
     public void removeMonster(int number) {
@@ -80,6 +71,7 @@ public class Board {
             if(this.spellsAndTraps[playerGroundNumbers[i]] == null){
                 this.spellsAndTraps[playerGroundNumbers[i]] =card;
                 this.spellsAndTrapsCondition[playerGroundNumbers[i]] =condition;
+                return;
             }
         }
     }

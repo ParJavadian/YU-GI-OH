@@ -1,7 +1,5 @@
 package model;
 
-import controller.BoardZone;
-
 public class SelectedCard {
     private Card card;
     private BoardZone boardZone;

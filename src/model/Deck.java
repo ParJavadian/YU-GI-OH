@@ -7,55 +7,41 @@ import java.util.List;
 
 public class Deck {
     private String deckName;
-    private HashMap<Integer, Card> mainDeck;
-    private HashMap<Integer, Card> sideDeck;
-    private int IDCounter;
+    private ArrayList<Card> mainDeck;
+    private ArrayList<Card> sideDeck;
 
     public Deck(String deckName) {
         this.deckName = deckName;
-        this.mainDeck = new HashMap<>();
-        this.sideDeck = new HashMap<>();
-        this.IDCounter = 0;
+        this.mainDeck = new ArrayList<>();
+        this.sideDeck = new ArrayList<>();
     }
 
     public String getDeckName() {
         return this.deckName;
     }
 
-    public HashMap<Integer, Card> getMainDeck() {
+    public ArrayList<Card> getMainDeck() {
         return this.mainDeck;
     }
 
-    public HashMap<Integer, Card> getSideDeck() {
+    public ArrayList<Card> getSideDeck() {
         return this.sideDeck;
     }
 
     public void addCardToMainDeck(Card card) {
-        IDCounter++;
-        this.mainDeck.put(IDCounter, card);
+        this.mainDeck.add(card);
     }
 
     public void addCardToSideDeck(Card card) {
-        IDCounter++;
-        this.sideDeck.put(IDCounter, card);
+        this.sideDeck.add(card);
     }
 
     public void removeCardFromMainDeck(Card card) {
-        for (int i = 1; i < IDCounter; i++) {
-            if (this.mainDeck.get(i).equals(card)) {
-                this.mainDeck.remove(i, card);
-                return;
-            }
-        }
+        this.mainDeck.remove(card);
     }
 
     public void removeCardFromSideDeck(Card card) {
-        for (int i = 1; i < IDCounter; i++) {
-            if (this.sideDeck.get(i).equals(card)) {
-                this.sideDeck.remove(i, card);
-                return;
-            }
-        }
+        this.sideDeck.remove(card);
     }
 
     public boolean isValid() {
@@ -78,11 +64,11 @@ public class Deck {
 
     public int numberOfWantedCard(Card wantedCard) {
         int number = 0;
-        for (Card eachCard : this.sideDeck.values()) {
+        for (Card eachCard : this.sideDeck) {
             if (eachCard.equals(wantedCard))
                 number++;
         }
-        for (Card eachCard : this.mainDeck.values()) {
+        for (Card eachCard : this.mainDeck) {
             if (eachCard.equals(wantedCard))
                 number++;
         }
@@ -93,7 +79,7 @@ public class Deck {
         String toBeReturned = "Deck: " + this.deckName + "\nMain deck:\nMonsters:\n";
         ArrayList<String> monsters = new ArrayList<>();
         ArrayList<String> spellAndTraps = new ArrayList<>();
-        for (Card card : this.mainDeck.values()) {
+        for (Card card : this.mainDeck) {
             if (card instanceof MonsterCard)
                 monsters.add(card.getNamePascalCase() + ": " + card.getDescription());
             else if ((card instanceof SpellCard) || (card instanceof TrapCard))
@@ -115,7 +101,7 @@ public class Deck {
         String toBeReturned = "Deck: " + this.deckName + "\nSide deck:\nMonsters:\n";
         ArrayList<String> monsters = new ArrayList<>();
         ArrayList<String> spellAndTraps = new ArrayList<>();
-        for (Card card : this.sideDeck.values()) {
+        for (Card card : this.sideDeck) {
             if (card instanceof MonsterCard)
                 monsters.add(card.getNamePascalCase() + ": " + card.getDescription());
             else if ((card instanceof SpellCard) || (card instanceof TrapCard))
