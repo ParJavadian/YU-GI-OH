@@ -451,7 +451,7 @@ public class DuelController {
                 this.player.getBoard().removeMonster(this.selectedCard.getNumber());
                 DuelView.printText("both you and your opponent monster cards are destroyed and no" +
                         "one receives damage");
-                //TODO chra unselectCard(); ro error mide?
+                //TODO unselectCard
             }
 
             if (attacker.getAttack() < target.getAttack()){
@@ -459,12 +459,30 @@ public class DuelController {
                 this.player.decreaseLifePoint(damage);
                 this.player.getBoard().putInGraveYard(attacker);
                 this.player.getBoard().removeMonster(this.selectedCard.getNumber());
+                DuelView.printText("Your monster card is destroyed and you received" + damage + "battle damage");
                 //TODO unselect
             }
     }
 
     private void attackMonsterDO(int monsterNumber) {
+        MonsterCard attacker = (MonsterCard) this.selectedCard.getCard();
+        MonsterCard target = (MonsterCard) this.rival.getBoard().getMonsterByNumber(monsterNumber);
 
+        if (attacker.getAttack() > target.getDefence()){
+            this.rival.getBoard().removeMonster(monsterNumber);
+            this.rival.getBoard().putInGraveYard(target);
+            DuelView.printText("the defense position monster is destroyed");
+            //TODO dige nemishe ba in attack zad
+            //TODO unselect
+        }
+        if (attacker.getAttack() == target.getDefence()){
+            DuelView.printText("no card is destroyed");
+        }
+        if(attacker.getAttack() < target.getDefence()){
+            int damage = attacker.getAttack() - target.getDefence();
+            this.player.decreaseLifePoint(damage);
+            DuelView.printText("no card is destroyed and you received" + damage + " battle damage");
+        }
     }
 
     private void attackMonsterDH(int monsterNumber) {
