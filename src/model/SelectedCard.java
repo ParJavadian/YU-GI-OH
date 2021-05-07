@@ -6,7 +6,7 @@ public class SelectedCard {
     private Integer number;
     private User owner;
 
-    public SelectedCard(Card card,BoardZone boardZone,Integer number,User owner){
+    public SelectedCard(Card card, BoardZone boardZone, Integer number, User owner){
         this.card = card;
         this.boardZone = boardZone;
         this.number = number;

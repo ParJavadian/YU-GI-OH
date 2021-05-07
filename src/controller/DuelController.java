@@ -252,9 +252,9 @@ public class DuelController {
         int address2 = Integer.parseInt(input2);
         if(this.player.getBoard().getMonsterByNumber(address2-1) == null) throw new NoMonsterHere1();
         if (address1 == address2) throw new sameAddresses();
-        this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
         this.player.getBoard().removeMonster(address1 - 1);
         this.player.getBoard().removeMonster(address2 - 1);
+        this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
         unselectCard();
         DuelView.printText("summoned successfully");
         hasSummonedOrSetInThisTurn = true;
