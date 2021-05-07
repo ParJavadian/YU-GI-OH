@@ -23,6 +23,7 @@ public class DuelController {
     //TODO havasa be cancel bashe(safhe 43 doc)
     //TODO aya jayi handle hardim ke shomare phase ro har seri chap kone?
     //TODO yademun nare bade har kari ke anjam shod unselect konim ke exception no card selected throw she
+    //TODO print board bade literally har kari ke mikonim!
 
     public DuelController(User player, User rival, int roundNumber) {
         this.player = player;
@@ -405,12 +406,40 @@ public class DuelController {
         DuelView.printText("flip summoned successfully");
     }
 
-    public void attackMonster(int monsterNumber) {
+    public void attackMonster(int monsterNumber) throws Exception{
 
+        if (this.selectedCard == null) throw new NoCardSelected();
+        if (!this.player.getBoard().existsOnBoard(this.selectedCard.getCard()) && !(this.selectedCard.getCard() instanceof MonsterCard))
+            throw new CanNotAttack();
+        if (!(phase.equals(Phase.BATTLE_PHASE)))
+            throw new CantDoActionInThisPhase();
+        //TODO baraye exception already attacked biayam ye array list dorost konim az monster hayii ke attack shodan o
+        // bade tamum shodane battle phasse khalish konim?
+        //TODO THIS CARD ALREADY ATTACKED
+        if (getCountOfMonsterCardsInGround(this.rival) == 0)
+            throw new NoCardToAttack();
+
+        MonsterCard attacker = (MonsterCard) this.selectedCard.getCard();
+        MonsterCard target = (MonsterCard) this.rival.getBoard().getMonsterByNumber(monsterNumber);
+        String targetPosition = this.rival.getBoard().getMonsterConditionByNumber(monsterNumber);
+
+        if (targetPosition.equals("OO"))
+            attackMonsterOO(monsterNumber);
+        else if (targetPosition.equals("DO"))
+            attackMonsterDO(monsterNumber);
+        else if (targetPosition.equals("DH"))
+            attackMonsterDH(monsterNumber);
     }
 
     private void attackMonsterOO(int monsterNumber) {
-
+ /* if (this.rival.getBoard().getMonsterConditionByNumber(monsterNumber).equals("OO")){
+            if (attacker.getAttack() > target.getAttack()){
+                //hazf az safe,  dige nemishe ba in attack zad
+                this.rival.decreaseLifePoint(attacker.getAttack() - target.getAttack());
+                this.rival.getBoard().putInGraveYard(target);
+                this.rival.getBoard()
+            }
+        }*/
     }
 
     private void attackMonsterDO(int monsterNumber) {
