@@ -163,6 +163,7 @@ public class DuelController {
                 hasSummonedOrSetInThisTurn = true;
             }
         }
+        System.out.println("chertopert");
     }
 
 
