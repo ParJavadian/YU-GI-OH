@@ -226,10 +226,6 @@ public class DuelView {
         return "1";
     }
 
-    static public void getBackForShowGraveYard() {
-        ScannerClassForView.getScanner().nextLine();
-    }
-
     static public void printException(Exception output) {
 
     }

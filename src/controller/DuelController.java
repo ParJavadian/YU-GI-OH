@@ -395,6 +395,14 @@ public class DuelController {
             }
         }
         DuelView.printText(toPrint);
+
+        String input = DuelView.scan();
+
+       while (!input.equals("back")){
+           DuelView.printText("invalid command");
+           input = DuelView.scan();
+       }
+
     }
 
     private void ritualSummon() {
