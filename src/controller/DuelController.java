@@ -486,7 +486,25 @@ public class DuelController {
     }
 
     private void attackMonsterDH(int monsterNumber) {
+        MonsterCard attacker = (MonsterCard) this.selectedCard.getCard();
+        MonsterCard target = (MonsterCard) this.rival.getBoard().getMonsterByNumber(monsterNumber);
+        String targetName = this.rival.getBoard().getMonsterByNumber(monsterNumber).getName();
 
+        if(attacker.getAttack() > target.getDefence()){
+            this.rival.getBoard().removeMonster(monsterNumber);
+            this.rival.getBoard().putInGraveYard(target);
+            DuelView.printText("opponent’s monster card was " + targetName + " and the defense position monster is destroyed");
+            //TODO dige nemishe ba in attack zad
+            //TODO unselect
+        }
+        if (attacker.getAttack() == target.getDefence()){
+            DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed");
+        }
+        if(attacker.getAttack() < target.getDefence()) {
+            int damage = attacker.getAttack() - target.getDefence();
+            this.player.decreaseLifePoint(damage);
+            DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed and you received" + damage + " battle damage");
+        }
     }
 
     public void directAttack() throws Exception {
