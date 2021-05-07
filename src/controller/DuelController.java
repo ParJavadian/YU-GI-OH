@@ -279,12 +279,34 @@ public class DuelController {
 
     }
 
+    public void preSet() throws Exception{
+        if(this.selectedCard == null) throw new NoCardSelected();
+        if(!this.player.getBoard().isInHand(this.selectedCard)) throw new CanNotSet();
+        if(this.selectedCard instanceof MonsterCard) setMonster();
+        else if(this.selectedCard instanceof SpellCard) setSpell();
+        else if(this.selectedCard instanceof TrapCard) setTrap();
+    }
+
     private void setTrap() {
 
     }
 
-    public void changePosition(String targetPosition) {
-
+    public void changePosition(String targetPosition) throws Exception{
+        if(this.selectedCard == null) {
+            throw new NoCardSelected();
+        } else if ( TODO ) {
+            throw new CanNotChangePosition();
+        } else if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
+            throw new ImproperPhase(); // todo
+        } else if ( todo ) {
+            throw new AlreadyInWantedPosition();
+        } else if ( todo ){
+            throw new AlreadyChangedPosition();
+        } else {
+            //todo
+            DuelView.printText("monster card position changed successfully");
+            unselectCard();
+        }
     }
 
     public void flipSummon() {
