@@ -2,45 +2,60 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class Deck {
     private String deckName;
-    private List<Card> mainDeck;
-    private List<Card> sideDeck;
+    private HashMap<Integer, Card> mainDeck;
+    private HashMap<Integer, Card> sideDeck;
+    private int IDCounter;
 
     public Deck(String deckName) {
         this.deckName = deckName;
-        this.mainDeck = new ArrayList<>();
-        this.sideDeck = new ArrayList<>();
+        this.mainDeck = new HashMap<>();
+        this.sideDeck = new HashMap<>();
+        this.IDCounter = 0;
     }
 
     public String getDeckName() {
         return this.deckName;
     }
 
-    public List<Card> getMainDeck() {
+    public HashMap<Integer, Card> getMainDeck() {
         return this.mainDeck;
     }
 
-    public List<Card> getSideDeck() {
+    public HashMap<Integer, Card> getSideDeck() {
         return this.sideDeck;
     }
 
     public void addCardToMainDeck(Card card) {
-        this.mainDeck.add(card);
+        IDCounter++;
+        this.mainDeck.put(IDCounter, card);
     }
 
     public void addCardToSideDeck(Card card) {
-        this.sideDeck.add(card);
+        IDCounter++;
+        this.sideDeck.put(IDCounter, card);
     }
 
     public void removeCardFromMainDeck(Card card) {
-        this.mainDeck.remove(card);
+        for (int i = 1; i < IDCounter; i++) {
+            if (this.mainDeck.get(i).equals(card)) {
+                this.mainDeck.remove(i, card);
+                return;
+            }
+        }
     }
 
     public void removeCardFromSideDeck(Card card) {
-        this.sideDeck.remove(card);
+        for (int i = 1; i < IDCounter; i++) {
+            if (this.sideDeck.get(i).equals(card)) {
+                this.sideDeck.remove(i, card);
+                return;
+            }
+        }
     }
 
     public boolean isValid() {
@@ -57,17 +72,17 @@ public class Deck {
         return this.mainDeck.size();
     }
 
-    public int getTotalSize(){
+    public int getTotalSize() {
         return this.getMainSize() + this.getSideSize();
     }
 
     public int numberOfWantedCard(Card wantedCard) {
         int number = 0;
-        for (Card eachCard : this.sideDeck) {
+        for (Card eachCard : this.sideDeck.values()) {
             if (eachCard.equals(wantedCard))
                 number++;
         }
-        for (Card eachCard : this.mainDeck) {
+        for (Card eachCard : this.mainDeck.values()) {
             if (eachCard.equals(wantedCard))
                 number++;
         }
@@ -78,7 +93,7 @@ public class Deck {
         String toBeReturned = "Deck: " + this.deckName + "\nMain deck:\nMonsters:\n";
         ArrayList<String> monsters = new ArrayList<>();
         ArrayList<String> spellAndTraps = new ArrayList<>();
-        for (Card card : mainDeck) {
+        for (Card card : this.mainDeck.values()) {
             if (card instanceof MonsterCard)
                 monsters.add(card.getNamePascalCase() + ": " + card.getDescription());
             else if ((card instanceof SpellCard) || (card instanceof TrapCard))
@@ -100,7 +115,7 @@ public class Deck {
         String toBeReturned = "Deck: " + this.deckName + "\nSide deck:\nMonsters:\n";
         ArrayList<String> monsters = new ArrayList<>();
         ArrayList<String> spellAndTraps = new ArrayList<>();
-        for (Card card : sideDeck) {
+        for (Card card : this.sideDeck.values()) {
             if (card instanceof MonsterCard)
                 monsters.add(card.getNamePascalCase() + ": " + card.getDescription());
             else if ((card instanceof SpellCard) || (card instanceof TrapCard))

@@ -75,7 +75,7 @@ public class Board {
 
     public void putMonster(MonsterCard monsterCard,String condition){
         for(int i=0;i<5;i++){
-            if(this.getMonsterByNumber(playerGroundNumbers[i]) == null){
+            if(this.monsters[playerGroundNumbers[i]] == null){
                 this.monsters[playerGroundNumbers[i]] =monsterCard;
                 this.monstersCondition[playerGroundNumbers[i]] =condition;
             }

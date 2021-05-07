@@ -144,7 +144,7 @@ public class DuelController {
             return;
         }
         if (monsterCard.getLevel() < 7) {
-            if (getCountOfMonsterCardsInGround() < 1) {
+            if (getCountOfMonsterCardsInGround(this.player) < 1) {
                 unselectCard();
                 throw new InsufficientForTribute();
             } else {
@@ -157,7 +157,7 @@ public class DuelController {
                 hasSummonedOrSetInThisTurn = true;
             }
         } else {
-            if (getCountOfMonsterCardsInGround() < 2) {
+            if (getCountOfMonsterCardsInGround(this.player) < 2) {
                 throw new InsufficientForTribute();
             } else {
                 tributeTwoMonsters();
@@ -240,8 +240,8 @@ public class DuelController {
         //TODO inja alan bayad ye exception midad ke address1 != address2 vali tu doc nist!
     }
 
-    private int getCountOfMonsterCardsInGround() {
-        MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
+    private int getCountOfMonsterCardsInGround(User user) {
+        MonsterCard[] monsterCards = user.getBoard().getMonsters();
         int countOfMonsterCardsInGround = 0;
         for (int i = 0; i < 5; i++) {
             if (!monsterCards[i].equals(null)) {
@@ -277,14 +277,6 @@ public class DuelController {
 
     private void setSpell() {
 
-    }
-
-    public void preSet() throws Exception{
-        if(this.selectedCard == null) throw new NoCardSelected();
-        if(!this.player.getBoard().isInHand(this.selectedCard)) throw new CanNotSet();
-        if(this.selectedCard instanceof MonsterCard) setMonster();
-        else if(this.selectedCard instanceof SpellCard) setSpell();
-        else if(this.selectedCard instanceof TrapCard) setTrap();
     }
 
     private void setTrap() {
@@ -330,7 +322,7 @@ public class DuelController {
     }
 
     public void directAttack() throws Exception {
-        int countOfMonsterCardsInGround = getCountOfMonsterCardsInGround();
+        int countOfMonsterCardsInGround = getCountOfMonsterCardsInGround(this.rival);
         if (countOfMonsterCardsInGround == 0) {
             rival.decreaseLifePoint(((MonsterCard) this.selectedCard).getAttack());
         } else throw new CanNotAttackDirectly();
