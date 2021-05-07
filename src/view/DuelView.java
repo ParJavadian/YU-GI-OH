@@ -30,7 +30,6 @@ public class DuelView {
                 printText(exception.getMessage());
             }
             return false;
-            //TODO nemidunam in return false ja munde bud ya dalili dasht ke nabud. age nabayad bashe begin pakesh konam
         }
 
         Matcher matcher = getCommandMatcher(command, "select ([\\w -]+)");

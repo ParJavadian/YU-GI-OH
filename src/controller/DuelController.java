@@ -5,7 +5,6 @@ import model.*;
 import view.DuelView;
 
 import java.util.List;
-import java.util.ListIterator;
 
 public class DuelController {
 
@@ -15,7 +14,7 @@ public class DuelController {
     private Card selectedCard;
     private int roundCounter;
     private Phase phase;
-    private static boolean hasSummonedInThisTurn;
+    private static boolean hasSummonedOrSetInThisTurn;
     private static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
     private static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
 
@@ -132,7 +131,7 @@ public class DuelController {
         if (this.player.getBoard().isFullMonsterZone()) {
             throw new FullMonsterZone();
         }
-        if (hasSummonedInThisTurn) {
+        if (hasSummonedOrSetInThisTurn) {
             throw new AlreadySummoned();
         }
         MonsterCard monsterCard = (MonsterCard) selectedCard;
@@ -140,7 +139,7 @@ public class DuelController {
             this.player.getBoard().putMonster((MonsterCard) selectedCard, "OO");
             unselectCard();
             DuelView.printText("summoned successfully");
-            hasSummonedInThisTurn = true;
+            hasSummonedOrSetInThisTurn = true;
             return;
         }
         if (monsterCard.getLevel() < 7) {
@@ -152,7 +151,7 @@ public class DuelController {
                 //Todo
                 unselectCard();
                 DuelView.printText("summoned successfully");
-                hasSummonedInThisTurn = true;
+                hasSummonedOrSetInThisTurn = true;
             }
         } else {
             if (getCountOfMonsterCardsInGround() < 2) {
@@ -161,21 +160,11 @@ public class DuelController {
                 tributeTwoMonsters();
                 //Todo
                 DuelView.printText("summoned successfully");
-                hasSummonedInThisTurn = true;
+                hasSummonedOrSetInThisTurn = true;
             }
         }
     }
 
-    private int getCountOfMonsterCardsInGround() {
-        MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
-        int countOfMonsterCardsInGround = 0;
-        for (int i = 0; i < 5; i++) {
-            if (!monsterCards[i].equals(null)) {
-                countOfMonsterCardsInGround++;
-            }
-        }
-        return countOfMonsterCardsInGround;
-    }
 
 /*
     //TODO man(hamraz) inja gozashtam ke be jaye void, int return kone ke int tedad tribute haye monsteras ke age
@@ -239,7 +228,6 @@ public class DuelController {
         }
     }
 */
-
     private void tributeOneMonster(int address) throws Exception {
         selectCardPlayerMonsterZone(address);
     }
@@ -248,12 +236,39 @@ public class DuelController {
         //TODO inja alan bayad ye exception midad ke address1 != address2 vali tu doc nist!
     }
 
-    public void preSet() {
-
+    private int getCountOfMonsterCardsInGround() {
+        MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
+        int countOfMonsterCardsInGround = 0;
+        for (int i = 0; i < 5; i++) {
+            if (!monsterCards[i].equals(null)) {
+                countOfMonsterCardsInGround++;
+            }
+        }
+        return countOfMonsterCardsInGround;
     }
 
-    private void setMonster() {
+    public void preSet() throws Exception{
+        if(this.selectedCard == null) throw new NoCardSelected();
+        if(!this.player.getBoard().isInHand(this.selectedCard)) throw new CanNotSet();
+        if(this.selectedCard instanceof MonsterCard) setMonster();
+        else if(this.selectedCard instanceof SpellCard) setSpell();
+        else if(this.selectedCard instanceof TrapCard) setTrap();
+    }
 
+    private void setMonster() throws Exception {
+        if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
+            throw new ImproperPhase();
+        }
+        if (this.player.getBoard().isFullMonsterZone()) {
+            throw new FullMonsterZone();
+        }
+        if (hasSummonedOrSetInThisTurn) {
+            throw new AlreadySummoned();
+        }
+        this.player.getBoard().putMonster((MonsterCard) selectedCard, "DH");
+        unselectCard();
+        DuelView.printText("set successfully");
+        hasSummonedOrSetInThisTurn = true;
     }
 
     private void setSpell() {
@@ -289,17 +304,10 @@ public class DuelController {
     }
 
     public void directAttack() throws Exception {
-
-        MonsterCard[] monsterCards = this.rival.getBoard().getMonsters();
-        int countOfMonsterCardsInGround = getCountOfMonsterCardsInGround(monsterCards);
-
+        int countOfMonsterCardsInGround = getCountOfMonsterCardsInGround();
         if (countOfMonsterCardsInGround == 0) {
-            String monsterName = this.selectedCard.getName();
-            int attack =
-                    rival.decreaseLifePoint();
+            rival.decreaseLifePoint(((MonsterCard) this.selectedCard).getAttack());
         } else throw new CanNotAttackDirectly();
-
-
     }
 
     public void activateSpell() {
@@ -455,7 +463,7 @@ public class DuelController {
         User temp = player;
         player = rival;
         rival = temp;
-        hasSummonedInThisTurn = false;
+        hasSummonedOrSetInThisTurn = false;
     }
 
 
