@@ -297,7 +297,7 @@ public class DuelController {
         } else if ( TODO ) {
             throw new CanNotChangePosition();
         } else if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
-            throw new ImproperPhase(); // todo
+            throw new CantDoActionInThisPhase(); // todo
         } else if ( todo ) {
             throw new AlreadyInWantedPosition();
         } else if ( todo ){
