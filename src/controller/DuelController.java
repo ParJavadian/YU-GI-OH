@@ -499,11 +499,13 @@ public class DuelController {
         }
         if (attacker.getAttack() == target.getDefence()){
             DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed");
+            //TODO unselect
         }
         if(attacker.getAttack() < target.getDefence()) {
             int damage = attacker.getAttack() - target.getDefence();
             this.player.decreaseLifePoint(damage);
             DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed and you received" + damage + " battle damage");
+        //TODO unselect
         }
     }
 
