@@ -20,6 +20,7 @@ public class DuelController {
 
     //TODO havasa be cancel bashe(safhe 43 doc)
     //TODO aya jayi handle hardim ke shomare phase ro har seri chap kone?
+    //TODO yademun nare bade hat kari ke anjam shod unselect konim ke exception no card selected throw she
 
     public DuelController(User player, User rival, int roundNumber) {
         this.player = player;
@@ -165,7 +166,6 @@ public class DuelController {
                 hasSummonedOrSetInThisTurn = true;
             }
         }
-        System.out.println("chertopert");
     }
 
 
