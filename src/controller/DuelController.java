@@ -4,12 +4,14 @@ import controller.exeption.*;
 import model.*;
 import view.DuelView;
 
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 
 public class DuelController {
 
     private User player;
     private User rival;
+    private Round[] rounds;
     private int roundNumber;
     private SelectedCard selectedCard;
     private int roundCounter;
@@ -20,6 +22,7 @@ public class DuelController {
     boolean[] hasAttackedInThisTurn;
     private static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
     private static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
+    private boolean shouldEndGameForView;
     //TODO vaghti ye carto mizare roo zamin az deck baresh nemidarim! yademoon bashe dorostesh konim
 
     //TODO havasa be cancel bashe(safhe 43 doc)
@@ -30,12 +33,16 @@ public class DuelController {
     public DuelController(User player, User rival, int roundNumber) {
         this.player = player;
         this.rival = rival;
+        this.rounds = new Round[roundNumber];
         this.roundNumber = roundNumber;
+        this.phase = Phase.DRAW_PHASE;
         this.roundCounter = 0;
         this.selectedCard = null;
         this.hasSummonedOrSetInThisTurn = false;
         this.hasChangedPositionInThisTurn = new boolean[5];
         this.hasSetInThisTurn = new boolean[5];
+        this.hasAttackedInThisTurn = new boolean[5];
+        this.shouldEndGameForView = false;
     }
 
     public void selectCardPlayerMonsterZone(int address) throws Exception {
@@ -171,68 +178,6 @@ public class DuelController {
         }
     }
 
-    /*
-        //TODO man(hamraz) inja gozashtam ke be jaye void, int return kone ke int tedad tribute haye monsteras ke age
-        // tribute mikhast addressesho begire
-
-        public int summonMonster() throws Exception {
-            if (this.selectedCard == null) {
-                throw new NoCardSelected();
-                return 0;
-            }
-            //TODO in exception payinie halate "مد نظر قابلیت احضار عادی را نداشته باشد monster" ro nadare hanooz
-            if (!(this.selectedCard instanceof MonsterCard) || !this.player.getBoard().isInHand(this.selectedCard)) {
-                throw new CanNotSummon();
-                return 0;
-            }
-            if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
-                throw new ImproperPhase();
-                return 0;
-            }
-            if (this.player.getBoard().isFullMonsterZone()) {
-                throw new FullMonsterZone();
-                return 0;
-            }
-            if (hasSummonedInThisTurn()) {
-                throw new AlreadySummoned();
-                return 0;
-            }
-            MonsterCard monsterCard = (MonsterCard) selectedCard;
-            MonsterCard[] monsterCards = this.player.getBoard().getMonsters();
-            int countOfMonsterCardsInGround = 0;
-            for (int i = 0; i < 5; i++) {
-                if (!monsterCards[i].equals(null)) {
-                    countOfMonsterCardsInGround++;
-                }
-            }
-            if (monsterCard.getLevel() <= 4) {
-            //TODO
-                DuelView.printText("summoned successfully");
-                return 0;
-            }
-            if (monsterCard.getLevel() < 7) {
-                if (countOfMonsterCardsInGround < 1) {
-                    throw new InsufficientForTribute();
-                    return 0;
-                } else {
-                    tributeOneMonster();
-                    //Todo
-                    DuelView.printText("summoned successfully");
-                    return 1;
-                }
-            } else {
-                if (countOfMonsterCardsInGround < 2) {
-                    throw new InsufficientForTribute();
-                    return 0;
-                } else {
-                    tributeTwoMonsters();
-                    //Todo
-                    DuelView.printText("summoned successfully");
-                    return 2;
-                }
-            }
-        }
-    */
     private void tributeOneMonsterForSummon() throws Exception {
         String input = DuelView.scan();
         if (input.equals("cancel")) return;
@@ -605,69 +550,112 @@ public class DuelController {
             DuelView.printText(selectedCard.getCard().toString());
     }
 
-    public void surrender() { //todo faghat payamesho chap kardam vali nemidoonam chetori az bazi kharej sham ya daste jadidi shoro konam va ina
-        if (roundCounter == roundNumber) {
+    public void surrender() {
+        //todo be nazaram ino bayad joda az endgame bezanim(parmida)
+        //todo faghat payamesho chap kardam vali nemidoonam chetori az bazi kharej sham ya daste jadidi shoro konam va ina
+        /*if (roundCounter == roundNumber) {
             DuelView.printText(rival.getUsername() + " won the whole match with score: " + rival.getScore() + "-" + player.getScore());
         } else {
             DuelView.printText(rival.getUsername() + " won the game and the score is: " + rival.getScore() + "-" + player.getScore());
-        }
+        }*/
+        endGame(this.player);
     }
 
-    private User shouldEndGame() { // todo benazaram nabayad User return kone.void bashe va endGame ro call kone okeye
+    public void manageEndGame() {
         List<Card> playersCardInHand = player.getBoard().getCardsInHand();
         List<Card> rivalsCardInHand = rival.getBoard().getCardsInHand();
-        if (player.getLifePoint() < 0) {
+        if (player.getLifePoint() <= 0) {
             endGame(player);
-        } else if (rival.getLifePoint() < 0) {
+        } else if (rival.getLifePoint() <= 0) {
             endGame(rival);
         } else if (playersCardInHand.isEmpty()) {
             endGame(player);
         } else if (rivalsCardInHand.isEmpty()) {
             endGame(rival);
         }
-        return null;
     }
 
-    private void endGame(User loser) { //todo duplicate code dare ba surrender.vali chon surrender User pass nemide nemitoonam ino call konam vasash
-        User otherUser;
+    private void endGame(User loser) {
+        User winner;
         if (loser.equals(rival)) {
-            otherUser = player;
+            winner = player;
         } else {
-            otherUser = rival;
+            winner = rival;
         }
-        if (roundCounter == roundNumber) {
-            DuelView.printText(loser.getUsername() + " won the whole match with score: " + loser.getScore() + "-" + otherUser.getScore());
-        } else {
-            DuelView.printText(loser.getUsername() + " won the game and the score is: " + loser.getScore() + "-" + otherUser.getScore());
+        if (roundNumber == 1) {
+            winner.increaseScore(1000);
+            winner.increaseMoney(1000 + winner.getLifePoint());
+            loser.increaseMoney(100);
+            shouldEndGameForView = true;
+            DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
         }
+        if (roundNumber == 3) {
+            this.rounds[this.roundCounter - 1] = new Round(winner, loser, winner.getLifePoint(), loser.getLifePoint());
+            if (this.roundCounter == 2 && this.rounds[0].getWinner().equals(this.rounds[1].getWinner())) {
+                int winnerLP1 = this.rounds[0].getLifePointByUser(winner);
+                int winnerLP2 = this.rounds[1].getLifePointByUser(winner);
+                int maxLP = Math.max(winnerLP1, winnerLP2);
+                winner.increaseScore(3000);
+                winner.increaseMoney(3000 + (3 * maxLP));
+                loser.increaseMoney(300);
+                shouldEndGameForView = true;
+                DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+            } else if (roundCounter == 3) {
+                int winnerLP1 = this.rounds[0].getLifePointByUser(winner);
+                int winnerLP2 = this.rounds[1].getLifePointByUser(winner);
+                int winnerLP3 = this.rounds[2].getLifePointByUser(winner);
+                int maxLP = Math.max(winnerLP1, winnerLP2);
+                maxLP = Math.max(maxLP, winnerLP3);
+                winner.increaseScore(3000);
+                winner.increaseMoney(3000 + (3 * maxLP));
+                loser.increaseMoney(300);
+                shouldEndGameForView = true;
+                DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+            } else {
+                roundCounter++;
+                DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                //TODO go nest phaze (drawPhaze)
+            }
+        }
+    }
+
+    public boolean getShouldEndGameForView() {
+        return this.shouldEndGameForView;
     }
 
     public void goNextPhase() {
-        if (phase.equals(Phase.DRAW_PHASE)) {
-            phase = Phase.STANDBY_PHASE;
-            DuelView.printText(phase.getNamePascalCase());
+        //TODO in kar dare hala
+        if (this.phase.equals(Phase.DRAW_PHASE)) {
+            this.phase = Phase.STANDBY_PHASE;
+            DuelView.printText("phase: " + this.phase.getNamePascalCase());
         } else if (phase.equals(Phase.STANDBY_PHASE)) {
-            phase = Phase.MAIN_PHASE1;
-            DuelView.printText(phase.getNamePascalCase());
+            this.phase = Phase.MAIN_PHASE1;
+            DuelView.printText("phase: " + this.phase.getNamePascalCase());
         } else if (phase.equals(Phase.MAIN_PHASE1)) {
-            phase = Phase.BATTLE_PHASE;
-            DuelView.printText(phase.getNamePascalCase());
-        } else if (phase.equals(Phase.BATTLE_PHASE)) {
-            phase = Phase.MAIN_PHASE2;
-            DuelView.printText(phase.getNamePascalCase());
-        } else if (phase.equals(Phase.MAIN_PHASE2)) {
-            phase = Phase.END_PHASE;
-            DuelView.printText(phase.getNamePascalCase());
+            this.phase = Phase.BATTLE_PHASE;
+            DuelView.printText("phase: " + this.phase.getNamePascalCase());
+        } else if (this.phase.equals(Phase.BATTLE_PHASE)) {
+            this.phase = Phase.MAIN_PHASE2;
+            DuelView.printText("phase: " + this.phase.getNamePascalCase());
+        } else if (this.phase.equals(Phase.MAIN_PHASE2)) {
+            this.phase = Phase.END_PHASE;
+            DuelView.printText("phase: " + phase.getNamePascalCase());
             DuelView.printText("its " + rival.getNickname() + "’s turn");
             changeTurn();
         }
     }
 
     private void changeTurn() {
-        User temp = player;
-        player = rival;
-        rival = temp;
-        hasSummonedOrSetInThisTurn = false;
+        //TODO inam hanooz kar dare
+        User temp = this.player;
+        this.player = rival;
+        this.rival = temp;
+        this.hasSummonedOrSetInThisTurn = false;
+        this.hasAttackedInThisTurn = new boolean[5];
+        this.hasSetInThisTurn = new boolean[5];
+        this.hasChangedPositionInThisTurn = new boolean[5];
     }
 
 

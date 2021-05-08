@@ -18,7 +18,9 @@ public class DuelView {
         String command;
         while (true) {
             command = ScannerClassForView.getScanner().nextLine();
-            if (processCommand(command)) break;
+            if (processCommand(command) ) break;
+            duelController.manageEndGame();
+            if(duelController.getShouldEndGameForView()) break;
         }
     }
 
@@ -91,14 +93,12 @@ public class DuelView {
         }
         if (command.equals("summon")) {
             try {
-
                 duelController.summonMonster();
             } catch (Exception exception) {
                 printText(exception.getMessage());
             }
             return false;
         }
-
 /*
         //todo chon controlleresho avaz kardam inam avaz kardam(hamraz) vali ghablio comment kardam
 
@@ -123,7 +123,6 @@ public class DuelView {
         }
 
         */
-
         matcher = getCommandMatcher(command, "set (--position|-p) (DO|OO)");
         if (matcher.matches()) {
             try {
@@ -134,7 +133,6 @@ public class DuelView {
             }
             return false;
         }
-
         if (command.equals("set")) {
             try {
                 duelController.preSet();
@@ -143,7 +141,6 @@ public class DuelView {
             }
             return false;
         }
-
         if (command.equals("flip-summon")) {
             try {
                 duelController.flipSummon();
@@ -170,7 +167,6 @@ public class DuelView {
             }
             return false;
         }
-
         if (command.equals("activate effect")) {
             try {
                 duelController.activateSpell();
@@ -188,7 +184,6 @@ public class DuelView {
             }
             return false;
         }
-
         matcher = getCommandMatcher(command, "card show (--selected|-s)");
         if (matcher.matches()) {
             try {
@@ -198,22 +193,14 @@ public class DuelView {
             }
             return false;
         }
-
         if (command.equals("surrender")) {
             duelController.surrender();
             return true;
         }
-
         if (command.startsWith("menu enter ")) {
             printText("menu navigation is not possible");
             return false;
         }
-
-        if (command.equals("next phase")){
-            duelController.goNextPhase();
-            return false;
-        }
-
         printText("invalid command");
         return false;
     }
