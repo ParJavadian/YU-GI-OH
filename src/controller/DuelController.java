@@ -412,7 +412,6 @@ public class DuelController {
             throw new CanNotAttack();
         if (!(phase.equals(Phase.BATTLE_PHASE)))
             throw new CantDoActionInThisPhase();
-        //TODO vaghti attack mikone hasAttackedesh ro true konim
         if (this.hasAttackedInThisTurn[this.selectedCard.getNumber()])
             throw new AlreadyAttacked();
         if (getCountOfMonsterCardsInGround(this.rival) == 0)
