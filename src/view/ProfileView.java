@@ -66,16 +66,16 @@ public class ProfileView {
         return false;
     }
 
-    /*public void printException(Exception output) {
-
-    }*/
+    private Matcher getCommandMatcher(String command, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        return pattern.matcher(command);
+    }
 
     public void printText(String output) {
         System.out.println(output);
     }
 
-    private Matcher getCommandMatcher(String command, String regex) {
-        Pattern pattern = Pattern.compile(regex);
-        return pattern.matcher(command);
-    }
+    /*public void printException(Exception output) {
+
+    }*/
 }

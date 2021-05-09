@@ -58,6 +58,15 @@ public class ShopView {
         return false;
     }
 
+    private Matcher getCommandMatcher(String command, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        return pattern.matcher(command);
+    }
+
+    public void printText(String output) {
+        System.out.println(output);
+    }
+
     /*private void showMenu() {
 
     }
@@ -69,13 +78,4 @@ public class ShopView {
     public void printException(Exception output) {
 
     }*/
-
-    public void printText(String output) {
-        System.out.println(output);
-    }
-
-    private Matcher getCommandMatcher(String command, String regex) {
-        Pattern pattern = Pattern.compile(regex);
-        return pattern.matcher(command);
-    }
 }

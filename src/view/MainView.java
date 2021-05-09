@@ -70,24 +70,22 @@ public class MainView {
         return false;
     }
 
-    /*public void printException(Exception output) {
-
-    }*/
-
-    public void printText(String output) {
-        System.out.println(output);
-    }
-
     private Matcher getCommandMatcher(String command, String regex) {
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(command);
     }
 
+    public void printText(String output) {
+        System.out.println(output);
+    }
+
+    /*public void exitMenu() {
+
+    }*/
     /*public void showMenu() {
 
     }*/
-
-    /*public void exitMenu() {
+    /*public void printException(Exception output) {
 
     }*/
 }

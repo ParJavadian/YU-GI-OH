@@ -12,14 +12,14 @@ public class ScoreBoardController {
     private static ScoreBoardController instance = null;
     private User user;
 
-    private ScoreBoardController(User user) {
-        this.user = user;
-    }
-
     public static ScoreBoardController getInstance(User user) {
         if (instance == null) instance = new ScoreBoardController(user);
         else if (!instance.user.equals(user)) instance.user = user;
         return instance;
+    }
+
+    private ScoreBoardController(User user) {
+        this.user = user;
     }
 
     public void showScoreboard() {

@@ -12,6 +12,12 @@ public class DeckController {
     private static DeckController instance = null;
     private User user;
 
+    public static DeckController getInstance(User user) {
+        if (instance == null) instance = new DeckController(user);
+        else if (!instance.user.equals(user)) instance.user = user;
+        return instance;
+    }
+
     private DeckController(User user) {
         this.user = user;
     }
@@ -74,12 +80,6 @@ public class DeckController {
                 throw new CardNotFound(cardName);
         } else
             throw new DeckNotFound(deckName);
-    }
-
-    public static DeckController getInstance(User user) {
-        if (instance == null) instance = new DeckController(user);
-        else if (!instance.user.equals(user)) instance.user = user;
-        return instance;
     }
 
     public void showAllDecks() {

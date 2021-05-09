@@ -10,6 +10,12 @@ public class ProfileController {
     private static ProfileController instance = null;
     private User user;
 
+    public static ProfileController getInstance (User user) {
+        if (instance == null) instance = new ProfileController(user);
+        else if(!instance.user.equals(user)) instance.user = user;
+        return instance;
+    }
+
     private ProfileController(User user){
         this.user = user;
     }
@@ -26,11 +32,5 @@ public class ProfileController {
         if(!this.user.getPassword().equals(oldPassword)) throw new WrongPassword();
         if(this.user.getPassword().equals(newPassword)) throw new SamePassword();
         this.user.setPassword(newPassword);
-    }
-
-    public static ProfileController getInstance (User user) {
-        if (instance == null) instance = new ProfileController(user);
-        else if(!instance.user.equals(user)) instance.user = user;
-        return instance;
     }
 }

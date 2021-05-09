@@ -15,6 +15,11 @@ public class LogInController {
 
     private static LogInController instance = null;
 
+    public static LogInController getInstance() {
+        if (instance == null) instance = new LogInController();
+        return instance;
+    }
+
     private LogInController() {
 
     }
@@ -43,11 +48,6 @@ public class LogInController {
             LogInView.getInstance().printText("user logged in successfully!");
             MainView.getInstance(User.getUserByUsername(userName)).getCommandForMain();
         }
-    }
-
-    public static LogInController getInstance() {
-        if (instance == null) instance = new LogInController();
-        return instance;
     }
 
 

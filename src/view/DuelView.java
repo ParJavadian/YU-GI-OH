@@ -10,6 +10,18 @@ public class DuelView {
     private User user;
     private DuelController duelController;
 
+    static public void printException(Exception output) {
+
+    }
+
+    static public void printText(String output) {
+        System.out.println(output);
+    }
+
+    public static String scan() {
+        return ScannerClassForView.getScanner().nextLine();
+    }
+
     public DuelView(User user, User rival, int roundNumber) {
         duelController = new DuelController(user, rival, roundNumber);
     }
@@ -205,20 +217,8 @@ public class DuelView {
         return false;
     }
 
-    public static String scan() {
-        return ScannerClassForView.getScanner().nextLine();
-    }
-
     public String getAnswerForActivateSpellOrTrapInRivalsTurn() {
         return "1";
-    }
-
-    static public void printException(Exception output) {
-
-    }
-
-    static public void printText(String output) {
-        System.out.println(output);
     }
 
     private Matcher getCommandMatcher(String command, String regex) {

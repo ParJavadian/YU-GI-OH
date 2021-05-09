@@ -65,23 +65,25 @@ public class LogInView {
         return false;
     }
 
-    /*
-    public void printException(Exception output) {
-
-    }
-*/
-    public void printText(String output) {
-        System.out.println(output);
-    }
-
     private Matcher getCommandMatcher(String command, String regex) {
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(command);
     }
 
+    public void printText(String output) {
+        System.out.println(output);
+    }
+
     /*public void goToMainMenu(User user) {
 
     }*/
+
+    /*
+    public void printException(Exception output) {
+
+    }
+*/
+
     /*
     public void exit() {
         System.exit(0);

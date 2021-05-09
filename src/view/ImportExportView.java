@@ -55,14 +55,13 @@ public class ImportExportView {
         return false;
     }
 
-
-    public void printText(String output) {
-        System.out.println(output);
-    }
-
     private Matcher getCommandMatcher(String command, String regex) {
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(command);
+    }
+
+    public void printText(String output) {
+        System.out.println(output);
     }
 
     /*public void printException(Exception output) {
