@@ -25,20 +25,27 @@ public class LogInController {
     }
 
     public void createUser(String username, String password, String nickname) throws Exception {
+        //TODO oh oh yadam bashe ino tozih bedam va shayad kheili chiza ro bayad avaz konim
         List<User> allUsers = User.getAllUsers();
-        for (User eachUser : allUsers) {
-            if (eachUser.getUsername().equals(username)) {
-                throw new RepetitiveUsername(username);
-            } else if (eachUser.getNickname().equals(nickname)) {
-                throw new RepetitiveNickname(nickname);
-            } else {
-                new User(username, nickname, password);
-                LogInView.getInstance().printText("user created successfully!");
+        if (allUsers != null) {
+            for (User eachUser : allUsers) {
+                if (eachUser.getUsername().equals(username)) {
+                    throw new RepetitiveUsername(username);
+                } else if (eachUser.getNickname().equals(nickname)) {
+                    throw new RepetitiveNickname(nickname);
+                } else {
+                    new User(username, nickname, password);
+                    LogInView.getInstance().printText("user created successfully!");
+                }
             }
+        }
+        else{
+            new User(username, nickname, password);
+            LogInView.getInstance().printText("user created successfully!");
         }
     }
 
-    public void loginUser(String userName, String password) throws Exception{
+    public void loginUser(String userName, String password) throws Exception {
         User user = User.getUserByUsername(userName);
         if (user == null) {
             throw new UsernameNotFound();
@@ -49,7 +56,6 @@ public class LogInController {
             MainView.getInstance(User.getUserByUsername(userName)).getCommandForMain();
         }
     }
-
 
 
 }
