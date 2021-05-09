@@ -147,6 +147,18 @@ public class Board {
         this.cardsInGraveyard.remove(card);
     }
 
+    //TODO hamraz ino ezafe kard:
+    public boolean doesHaveMonsterInHand(){
+        int counterOfMonsters = 0;
+        for (Card card : cardsInHand) {
+            if (card instanceof MonsterCard)
+            counterOfMonsters ++;
+        }
+        if (counterOfMonsters > 0)
+            return true;
+        else return false;
+    }
+
     /*public String toStringForPlayer() {
         String toReturn = "--------------------------\n" +
                 "\n";
