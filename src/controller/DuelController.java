@@ -136,6 +136,17 @@ public class DuelController {
         }
     }
 
+    private int getCountOfMonsterCardsInGround(User user) {
+        MonsterCard[] monsterCards = user.getBoard().getMonsters();
+        int countOfMonsterCardsInGround = 0;
+        for (int i = 0; i < 5; i++) {
+            if (monsterCards[i] != null) {
+                countOfMonsterCardsInGround++;
+            }
+        }
+        return countOfMonsterCardsInGround;
+    }
+
     public void summonMonster() throws Exception {
         //TODO special va ritual summon
         if (this.selectedCard == null) {
@@ -206,17 +217,6 @@ public class DuelController {
         unselectCard();
         DuelView.printText("summoned successfully");
         hasSummonedOrSetInThisTurn = true;
-    }
-
-    private int getCountOfMonsterCardsInGround(User user) {
-        MonsterCard[] monsterCards = user.getBoard().getMonsters();
-        int countOfMonsterCardsInGround = 0;
-        for (int i = 0; i < 5; i++) {
-            if (monsterCards[i] != null) {
-                countOfMonsterCardsInGround++;
-            }
-        }
-        return countOfMonsterCardsInGround;
     }
 
     public void preSet() throws Exception {
@@ -463,74 +463,8 @@ public class DuelController {
 
     }
 
-    private void printBoard() {
-        String toPrint = this.rival.getNickname() + ":" + this.rival.getLifePoint() + "\n";
-        for (Card ignored : this.rival.getBoard().getCardsInHand()) {
-            toPrint += "\tc";
-        }
-        toPrint += "\n";
-        toPrint += this.rival.getActiveDeck().getTotalSize() + "\n";
-        for (int i = 0; i < 5; i++) {
-            toPrint += "\t";
-            if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.rival.getBoard().getSpellAndTrapConditionByNumber(i);
-        }
-        toPrint += "\n";
-        for (int i = 0; i < 5; i++) {
-            toPrint += "\t";
-            if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.rival.getBoard().getMonsterConditionByNumber(i);
-        }
-        toPrint += "\n" + this.rival.getBoard().getCardsInGraveyard().size() + "\t\t\t\t\t\t";
-        if (this.rival.getBoard().getFieldZone() == null) toPrint += "E\n";
-        else toPrint += "O\n";
-        toPrint += "\n--------------------------\n\n";
-        if (this.player.getBoard().getFieldZone() == null) toPrint += "E\t\t\t\t\t\t";
-        else toPrint += "O\t\t\t\t\t\t";
-        toPrint += this.player.getBoard().getCardsInGraveyard().size() + "\n";
-        for (int i = 0; i < 5; i++) {
-            toPrint += "\t";
-            if (this.player.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.player.getBoard().getMonsterConditionByNumber(i);
-        }
-        toPrint += "\n";
-        for (int i = 0; i < 5; i++) {
-            toPrint += "\t";
-            if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.player.getBoard().getSpellAndTrapConditionByNumber(i);
-        }
-        toPrint += "\t\t\t\t\t\t" + this.player.getActiveDeck().getTotalSize() + "\n";
-        for (Card ignored : this.player.getBoard().getCardsInHand()) {
-            toPrint += "c\t";
-        }
-        toPrint += "\n" + this.player.getNickname() + ":" + this.player.getLifePoint();
-        DuelView.printText(toPrint);
-    }
-
     private void activateSpellOrTrapInRivalsTurn() {
 
-    }
-
-    public void showGraveyard() throws Exception {
-        List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
-        String toPrint = null;
-        if (graveyard.isEmpty())
-            throw new GraveYardEmpty();
-        else {
-            for (Card cardInGraveyard : graveyard) {
-                if (graveyard.indexOf(cardInGraveyard) == graveyard.size() - 1) {
-                    toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription();
-                } else {
-                    toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription() + "\n";
-                }
-            }
-        }
-        DuelView.printText(toPrint);
-        String input = DuelView.scan();
-        while (!input.equals("back")) {
-            DuelView.printText("invalid command");
-            input = DuelView.scan();
-        }
     }
 
     private void ritualSummon() {
@@ -539,15 +473,6 @@ public class DuelController {
 
     private void specialSummon() {
 
-    }
-
-    public void showCard() throws Exception {
-        if (selectedCard == null) {
-            throw new NoCardSelected();
-        } else if (!this.selectedCard.getOwner().equals(this.player)) {
-            throw new InvisibleCard();
-        } else
-            DuelView.printText(selectedCard.getCard().toString());
     }
 
     public void surrender() {
@@ -656,6 +581,81 @@ public class DuelController {
         this.hasAttackedInThisTurn = new boolean[5];
         this.hasSetInThisTurn = new boolean[5];
         this.hasChangedPositionInThisTurn = new boolean[5];
+    }
+
+    private void printBoard() {
+        String toPrint = this.rival.getNickname() + ":" + this.rival.getLifePoint() + "\n";
+        for (Card ignored : this.rival.getBoard().getCardsInHand()) {
+            toPrint += "\tc";
+        }
+        toPrint += "\n";
+        toPrint += this.rival.getActiveDeck().getTotalSize() + "\n";
+        for (int i = 0; i < 5; i++) {
+            toPrint += "\t";
+            if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
+            else toPrint += this.rival.getBoard().getSpellAndTrapConditionByNumber(i);
+        }
+        toPrint += "\n";
+        for (int i = 0; i < 5; i++) {
+            toPrint += "\t";
+            if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
+            else toPrint += this.rival.getBoard().getMonsterConditionByNumber(i);
+        }
+        toPrint += "\n" + this.rival.getBoard().getCardsInGraveyard().size() + "\t\t\t\t\t\t";
+        if (this.rival.getBoard().getFieldZone() == null) toPrint += "E\n";
+        else toPrint += "O\n";
+        toPrint += "\n--------------------------\n\n";
+        if (this.player.getBoard().getFieldZone() == null) toPrint += "E\t\t\t\t\t\t";
+        else toPrint += "O\t\t\t\t\t\t";
+        toPrint += this.player.getBoard().getCardsInGraveyard().size() + "\n";
+        for (int i = 0; i < 5; i++) {
+            toPrint += "\t";
+            if (this.player.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
+            else toPrint += this.player.getBoard().getMonsterConditionByNumber(i);
+        }
+        toPrint += "\n";
+        for (int i = 0; i < 5; i++) {
+            toPrint += "\t";
+            if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
+            else toPrint += this.player.getBoard().getSpellAndTrapConditionByNumber(i);
+        }
+        toPrint += "\t\t\t\t\t\t" + this.player.getActiveDeck().getTotalSize() + "\n";
+        for (Card ignored : this.player.getBoard().getCardsInHand()) {
+            toPrint += "c\t";
+        }
+        toPrint += "\n" + this.player.getNickname() + ":" + this.player.getLifePoint();
+        DuelView.printText(toPrint);
+    }
+
+    public void showCard() throws Exception {
+        if (selectedCard == null) {
+            throw new NoCardSelected();
+        } else if (!this.selectedCard.getOwner().equals(this.player)) {
+            throw new InvisibleCard();
+        } else
+            DuelView.printText(selectedCard.getCard().toString());
+    }
+
+    public void showGraveyard() throws Exception {
+        List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
+        String toPrint = null;
+        if (graveyard.isEmpty())
+            throw new GraveYardEmpty();
+        else {
+            for (Card cardInGraveyard : graveyard) {
+                if (graveyard.indexOf(cardInGraveyard) == graveyard.size() - 1) {
+                    toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription();
+                } else {
+                    toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription() + "\n";
+                }
+            }
+        }
+        DuelView.printText(toPrint);
+        String input = DuelView.scan();
+        while (!input.equals("back")) {
+            DuelView.printText("invalid command");
+            input = DuelView.scan();
+        }
     }
 
 

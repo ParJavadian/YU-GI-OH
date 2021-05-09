@@ -16,16 +16,9 @@ public class ShopController {
     private static ShopController instance = null;
     private User user;
 
-    public static ShopController getInstance(User user) {
-        if (instance == null) instance = new ShopController(user);
-        else if (!instance.user.equals(user)) instance.user = user;
-        return instance;
-    }
-
     private ShopController(User user) {
         this.user = user;
     }
-
 
     public void buyCard(String name) throws Exception {
         Card card = user.getCardByName(name);
@@ -37,6 +30,12 @@ public class ShopController {
                 throw new NotEnoughMoney();
         } else
             throw new CardNotFoundForShop();
+    }
+
+    public static ShopController getInstance(User user) {
+        if (instance == null) instance = new ShopController(user);
+        else if (!instance.user.equals(user)) instance.user = user;
+        return instance;
     }
 
     public void showAll() {

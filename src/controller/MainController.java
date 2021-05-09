@@ -8,12 +8,6 @@ public class MainController {
     private User user;
     private static MainController instance = null;
 
-    public static MainController getInstance(User user) {
-        if (instance == null) instance = new MainController(user);
-        else if (!instance.user.equals(user)) instance.user = user;
-        return instance;
-    }
-
     private MainController(User user) {
         this.user = user;
     }
@@ -46,6 +40,13 @@ public class MainController {
         DuelView duelView = new DuelView(user, User.getUserByUsername(username), roundNumber);
         duelView.getCommandForDuel();
     }
+
+    public static MainController getInstance(User user) {
+        if (instance == null) instance = new MainController(user);
+        else if (!instance.user.equals(user)) instance.user = user;
+        return instance;
+    }
+
     /*private void logOutUser(){
 
     }*/
