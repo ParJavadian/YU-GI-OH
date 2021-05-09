@@ -4,11 +4,14 @@ import controller.exeption.*;
 import model.*;
 import view.DuelView;
 
+import java.util.ArrayList;
 import java.util.DoubleSummaryStatistics;
 import java.util.List;
 
 public class DuelController {
 
+    private static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
+    private static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
     private User player;
     private User rival;
     private Round[] rounds;
@@ -20,14 +23,17 @@ public class DuelController {
     boolean[] hasChangedPositionInThisTurn;
     boolean[] hasSetInThisTurn;
     boolean[] hasAttackedInThisTurn;
-    private static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
-    private static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
     private boolean shouldEndGameForView;
     //TODO vaghti ye carto mizare roo zamin az deck baresh nemidarim! yademoon bashe dorostesh konim
+    //TODO vaghti card ro be deck ezafe mikardim ham az kole cartash kam nemishod vali fekr konam reval shod
 
     //TODO havasa be cancel bashe(safhe 43 doc)
+
     //TODO aya jayi handle hardim ke shomare phase ro har seri chap kone?
+    // man ino peyda nakardam lotfan begoo kodoom safhast(parmida)
+
     //TODO yademun nare bade har kari ke anjam shod unselect konim ke exception no card selected throw she
+
     //TODO print board bade literally har kari ke mikonim!
 
     public DuelController(User player, User rival, int roundNumber) {
@@ -35,14 +41,19 @@ public class DuelController {
         this.rival = rival;
         this.rounds = new Round[roundNumber];
         this.roundNumber = roundNumber;
-        this.phase = Phase.DRAW_PHASE;
         this.roundCounter = 0;
-        this.selectedCard = null;
-        this.hasSummonedOrSetInThisTurn = false;
-        this.hasChangedPositionInThisTurn = new boolean[5];
-        this.hasSetInThisTurn = new boolean[5];
-        this.hasAttackedInThisTurn = new boolean[5];
-        this.shouldEndGameForView = false;
+        startNewGame();
+    }
+
+    public boolean getShouldEndGameForView() {
+        return this.shouldEndGameForView;
+    }
+
+    private void startNewGame() {
+        changeTurn();
+        this.player.setNewBoard();
+        this.rival.setNewBoard();
+        startDrawPhase();
     }
 
     public void selectCardPlayerMonsterZone(int address) throws Exception {
@@ -413,12 +424,10 @@ public class DuelController {
             DuelView.printText("the defense position monster is destroyed");
             unselectCard();
         } else if (attacker.getAttack() == target.getDefence()) {
-            //TODO unselect o hasAttacked ro gozashtam age lazeme baresh darin(parmida)
             this.hasAttackedInThisTurn[this.selectedCard.getNumber()] = true;
             DuelView.printText("no card is destroyed");
             unselectCard();
         } else {
-            //TODO unselect o hasAttacked ro gozashtam age lazeme baresh darin(parmida)
             int damage = target.getDefence() - attacker.getAttack();
             this.player.decreaseLifePoint(damage);
             this.hasAttackedInThisTurn[this.selectedCard.getNumber()] = true;
@@ -438,12 +447,10 @@ public class DuelController {
             DuelView.printText("opponent’s monster card was " + targetName + " and the defense position monster is destroyed");
             unselectCard();
         } else if (attacker.getAttack() == target.getDefence()) {
-            //TODO unselect o hasAttacked ro gozashtam age lazeme baresh darin(parmida)
             this.hasAttackedInThisTurn[this.selectedCard.getNumber()] = true;
             DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed");
             unselectCard();
         } else {
-            //TODO unselect o hasAttacked ro gozashtam age lazeme baresh darin(parmida)
             int damage = target.getDefence() - attacker.getAttack();
             this.player.decreaseLifePoint(damage);
             this.hasAttackedInThisTurn[this.selectedCard.getNumber()] = true;
@@ -507,6 +514,7 @@ public class DuelController {
         } else {
             winner = rival;
         }
+        roundCounter++;
         if (roundNumber == 1) {
             winner.increaseScore(1000);
             winner.increaseMoney(1000 + winner.getLifePoint());
@@ -539,15 +547,10 @@ public class DuelController {
                 DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else {
-                roundCounter++;
                 DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-                //TODO go nest phaze (drawPhaze)
+                //TODO go next phaze (drawPhaze)
             }
         }
-    }
-
-    public boolean getShouldEndGameForView() {
-        return this.shouldEndGameForView;
     }
 
     public void goNextPhase() {
@@ -558,6 +561,7 @@ public class DuelController {
         } else if (phase.equals(Phase.STANDBY_PHASE)) {
             this.phase = Phase.MAIN_PHASE1;
             DuelView.printText("phase: " + this.phase.getNamePascalCase());
+            printBoard();
         } else if (phase.equals(Phase.MAIN_PHASE1)) {
             this.phase = Phase.BATTLE_PHASE;
             DuelView.printText("phase: " + this.phase.getNamePascalCase());
@@ -566,9 +570,22 @@ public class DuelController {
             DuelView.printText("phase: " + this.phase.getNamePascalCase());
         } else if (this.phase.equals(Phase.MAIN_PHASE2)) {
             this.phase = Phase.END_PHASE;
+        } else if (this.phase.equals(Phase.END_PHASE)) {
             DuelView.printText("phase: " + phase.getNamePascalCase());
             DuelView.printText("its " + rival.getNickname() + "’s turn");
             changeTurn();
+            startDrawPhase();
+        }
+    }
+
+    public void startDrawPhase() {
+        this.phase = Phase.DRAW_PHASE;
+        ArrayList<Card> mainCards = (ArrayList<Card>) this.player.getActiveDeck().getMainDeck();
+        if (mainCards.size() == 0) endGame(this.player);
+        else {
+            this.player.getBoard().addCardToHand(mainCards.get(mainCards.size() - 1));
+            this.player.getActiveDeck().removeCardFromMainDeck(mainCards.get(mainCards.size() - 1));
+            DuelView.printText("new card added to the hand : " + mainCards.get(mainCards.size() - 1).getNamePascalCase());
         }
     }
 
@@ -577,6 +594,7 @@ public class DuelController {
         User temp = this.player;
         this.player = rival;
         this.rival = temp;
+        this.selectedCard = null;
         this.hasSummonedOrSetInThisTurn = false;
         this.hasAttackedInThisTurn = new boolean[5];
         this.hasSetInThisTurn = new boolean[5];

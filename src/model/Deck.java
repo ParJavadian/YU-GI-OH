@@ -1,19 +1,40 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Deck {
     private String deckName;
-    private ArrayList<Card> mainDeck;
-    private ArrayList<Card> sideDeck;
+    private List<Card> mainDeck;
+    private List<Card> sideDeck;
 
     public Deck(String deckName) {
         this.deckName = deckName;
         this.mainDeck = new ArrayList<>();
         this.sideDeck = new ArrayList<>();
+    }
+
+    public String getDeckName() {
+        return this.deckName;
+    }
+
+    public List<Card> getMainDeck() {
+        return this.mainDeck;
+    }
+
+    public List<Card> getSideDeck() {
+        return this.sideDeck;
+    }
+
+    public int getSideSize() {
+        return this.sideDeck.size();
+    }
+
+    public int getMainSize() {
+        return this.mainDeck.size();
+    }
+
+    public int getTotalSize() {
+        return this.getMainSize() + this.getSideSize();
     }
 
     public void addCardToMainDeck(Card card) {
@@ -51,28 +72,12 @@ public class Deck {
                 (this.sideDeck.size() <= 15));
     }
 
-    public String getDeckName() {
-        return this.deckName;
-    }
-
-    public ArrayList<Card> getMainDeck() {
-        return this.mainDeck;
-    }
-
-    public ArrayList<Card> getSideDeck() {
-        return this.sideDeck;
-    }
-
-    public int getSideSize() {
-        return this.sideDeck.size();
-    }
-
-    public int getMainSize() {
-        return this.mainDeck.size();
-    }
-
-    public int getTotalSize() {
-        return this.getMainSize() + this.getSideSize();
+    public boolean cardExistsInDeck(Card card, boolean isSide) {
+        if (isSide) {
+            return this.sideDeck.contains(card);
+        } else {
+            return this.mainDeck.contains(card);
+        }
     }
 
     public String toStringForMainDeck() {
@@ -122,6 +127,14 @@ public class Deck {
     @Override
     public String toString() {
         return this.deckName + ": main deck " + this.mainDeck.size() + ", side deck" + this.sideDeck.size() + ", " + this.isValid();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Deck deck = (Deck) o;
+        return Objects.equals(deckName, deck.deckName);
     }
 
 }

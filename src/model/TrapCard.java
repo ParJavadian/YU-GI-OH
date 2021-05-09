@@ -44,10 +44,10 @@ public enum TrapCard implements Card {
 
     private Icon icon;
     private Status status;
-    String description;
-    int price;
+    private String description;
+    private int price;
 
-    private TrapCard(Icon icon, String description, Status status, int price) {
+    TrapCard(Icon icon, String description, Status status, int price) {
         this.icon = icon;
         this.status = status;
         this.description = description;

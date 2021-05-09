@@ -35,7 +35,7 @@ public class ShopController {
             } else
                 throw new NotEnoughMoney();
         } else
-            throw new CardNotFoundForShop();
+            throw new CardNotFoundForController();
     }
 
     public void showAll() {

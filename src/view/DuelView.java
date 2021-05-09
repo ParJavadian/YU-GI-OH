@@ -111,30 +111,6 @@ public class DuelView {
             }
             return false;
         }
-/*
-        //todo chon controlleresho avaz kardam inam avaz kardam(hamraz) vali ghablio comment kardam
-
-        if (command.equals("summon")) {
-            //todo inja alan nemigire tedade tribute ro be onvane return nemidunam che konam
-            try {
-                duelController.summonMonster();
-               int numberOfTribute = duelController.summonMonster();
-            } catch (Exception exception) {
-                printText(exception.getMessage());
-            }
-
-            if (numberOfTribute == 1){
-
-                duelController.tributeOneMonster()
-            }
-
-            else if (numberOfTribute == 2){
-
-            }
-            return false;
-        }
-
-        */
         matcher = getCommandMatcher(command, "set (--position|-p) (DO|OO)");
         if (matcher.matches()) {
             try {

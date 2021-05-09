@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    List<Card> cardsInHand;
-    List<Card> cardsInGraveyard;
-    MonsterCard[] monsters;
-    String[] monstersCondition;
-    Card[] spellsAndTraps;
-    String[] spellsAndTrapsCondition;
-    Card fieldZone;
     private static final int[] playerGroundNumbers = {3,4,2,5,1};
     private static final int[] opponentGroundNumbers = {3,2,4,1,5};
+    private List<Card> cardsInHand;
+    private List<Card> cardsInGraveyard;
+    private MonsterCard[] monsters;
+    private String[] monstersCondition;
+    private Card[] spellsAndTraps;
+    private String[] spellsAndTrapsCondition;
+    private Card fieldZone;
 
     public Board() {
         this.cardsInHand = new ArrayList<>();
@@ -22,6 +22,48 @@ public class Board {
         this.spellsAndTraps = new Card[5];
         this.spellsAndTrapsCondition = new String[5];
         this.fieldZone = null;
+    }
+
+    public List<Card> getCardsInHand() {
+        return this.cardsInHand;
+    }
+
+    public Card getFieldZone() {
+        if (this.fieldZone==null) {
+            return null;
+        } else return this.fieldZone;
+    }
+
+    public MonsterCard[] getMonsters() {
+        return this.monsters;
+    }
+
+    public Card[] getSpellsAndTraps() {
+        return this.spellsAndTraps;
+    }
+
+    public MonsterCard getMonsterByNumber(int number) {
+        return this.monsters[number];
+    }
+
+    public Card getSpellAndTrapByNumber(int number) {
+        return this.spellsAndTraps[number];
+    }
+
+    public String getMonsterConditionByNumber(int number) {
+        return this.monstersCondition[number];
+    }
+
+    public String getSpellAndTrapConditionByNumber(int number) {
+        return this.spellsAndTrapsCondition[number];
+    }
+
+    public List<Card> getCardsInGraveyard() {
+        return this.cardsInGraveyard;
+    }
+
+    public Card getCardInHandByNumber(int number) {
+        return this.cardsInHand.get(number);
     }
 
     public void removeCardFromHand(Card card) {
@@ -103,48 +145,6 @@ public class Board {
 
     public void removeFromGraveYard(Card card) {
         this.cardsInGraveyard.remove(card);
-    }
-
-    public List<Card> getCardsInHand() {
-        return this.cardsInHand;
-    }
-
-    public Card getFieldZone() {
-        if (this.fieldZone==null) {
-            return null;
-        } else return this.fieldZone;
-    }
-
-    public MonsterCard[] getMonsters() {
-        return this.monsters;
-    }
-
-    public Card[] getSpellsAndTraps() {
-        return this.spellsAndTraps;
-    }
-
-    public MonsterCard getMonsterByNumber(int number) {
-        return this.monsters[number];
-    }
-
-    public Card getSpellAndTrapByNumber(int number) {
-        return this.spellsAndTraps[number];
-    }
-
-    public String getMonsterConditionByNumber(int number) {
-        return this.monstersCondition[number];
-    }
-
-    public String getSpellAndTrapConditionByNumber(int number) {
-        return this.spellsAndTrapsCondition[number];
-    }
-
-    public List<Card> getCardsInGraveyard() {
-        return this.cardsInGraveyard;
-    }
-
-    public Card getCardInHandByNumber(int number) {
-        return this.cardsInHand.get(number);
     }
 
     /*public String toStringForPlayer() {

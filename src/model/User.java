@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class User {
 
@@ -30,22 +31,6 @@ public class User {
         setMoney(100000);
     }
 
-    public void deleteDeck(String name) {
-        this.allDecks.remove(getDeckByName(name));
-    }
-
-    public void addDeck(Deck deck) {
-        this.allDecks.add(deck);
-    }
-
-    public void addCardToUsersAllCards(Card card) {
-        this.allCards.add(card);
-    }
-
-    public void increaseScore(int amount) {
-        this.score += amount;
-    }
-
     public static User getUserByUsername(String username) {
         for (User user : allUsers) {
             if (user.getUsername().equals(username))
@@ -60,6 +45,10 @@ public class User {
                 return allUser;
         }
         return null;
+    }
+
+    public void increaseScore(int amount) {
+        this.score += amount;
     }
 
     public void decreaseScore(int amount) {
@@ -110,6 +99,10 @@ public class User {
         return this.board;
     }
 
+    public void setNewBoard(){
+        this.board = new Board();
+    }
+
     public int getLifePoint() {
         return this.lifePoint;
     }
@@ -142,16 +135,7 @@ public class User {
         this.currentActiveDeck = deck;
     }
 
-    public Deck getDeckByName(String name) {
-        for (Deck deck : allDecks) {
-            if (deck.getDeckName().equals(name)) {
-                return deck;
-            }
-        }
-        return null;
-    }
     //TODO age lazem bood jaye pascalcase aadish kon
-
     public Card getCardByName(String name) {
         for (Card card : allCards) {
             if (card.getNamePascalCase().equals(name)) {
@@ -167,5 +151,38 @@ public class User {
 
     public List<Card> getAllCards() {
         return this.allCards;
+    }
+
+    public void deleteDeck(String name) {
+        this.allDecks.remove(getDeckByName(name));
+    }
+
+    public void deleteCard(String name){
+        this.allCards.remove(getCardByName(name));
+    }
+
+    public void addDeck(Deck deck) {
+        this.allDecks.add(deck);
+    }
+
+    public void addCardToUsersAllCards(Card card) {
+        this.allCards.add(card);
+    }
+
+    public Deck getDeckByName(String name) {
+        for (Deck deck : allDecks) {
+            if (deck.getDeckName().equals(name)) {
+                return deck;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(this.username, user.username);
     }
 }

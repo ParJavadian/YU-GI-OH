@@ -164,7 +164,7 @@ public enum MonsterCard implements Card {
     private String description;
     private int price;
 
-    private MonsterCard(int level, Attribute attribute, MonsterType monsterType, CardType cardType, int attack, int defence, String description, int price) {
+    MonsterCard(int level, Attribute attribute, MonsterType monsterType, CardType cardType, int attack, int defence, String description, int price) {
         this.level = level;
         this.attribute = attribute;
         this.monsterType = monsterType;

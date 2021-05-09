@@ -78,16 +78,15 @@ public enum SpellCard implements Card {
 
     private Icon icon;
     private Status status;
-    String description;
-    int price;
+    private String description;
+    private int price;
 
-    private SpellCard(Icon icon, String description, Status status, int price) {
+    SpellCard(Icon icon, String description, Status status, int price) {
         this.icon = icon;
         this.status = status;
         this.description = description;
         this.price = price;
     }
-
 
     public String getDescription() {
         return this.description;

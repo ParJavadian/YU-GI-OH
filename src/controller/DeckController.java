@@ -42,30 +42,33 @@ public class DeckController {
 
     public void activateDeck(String name) throws Exception {
         if (this.user.getDeckByName(name) != null) {
-            user.setActiveDeck(user.getDeckByName(name));
+            this.user.setActiveDeck(this.user.getDeckByName(name));
             DeckView.getInstance(this.user).printText("deck activated successfully");
         } else
             throw new DeckNotFound(name);
     }
 
     public void addCardToDeck(String cardName, String deckName, boolean isSide) throws Exception {
-        Card card = user.getCardByName(cardName);
+        Card card = this.user.getCardByName(cardName);
         if (card != null) {
-            Deck deck = user.getDeckByName(deckName);
+            Deck deck = this.user.getDeckByName(deckName);
             if (deck != null) {
+                if (isSide) {
+                    if (deck.getSideSize() == 15) throw new FullSideDeck();
+                } else if (deck.getMainSize() == 60) throw new FullMainDeck();
+                if (deck.numberOfWantedCard(card) == 3) throw new ThreeSameCards(cardName, deckName);
+                else {
                     if (isSide) {
-                        if (deck.getSideSize() == 15) throw new FullSideDeck();
-                    } else if (deck.getMainSize() == 60) throw new FullMainDeck();
-                    if (deck.numberOfWantedCard(card) == 3) throw new ThreeSameCards(cardName, deckName);
-                    else {
-                        if (isSide)
-                            deck.addCardToSideDeck(card);
-                        else
-                            deck.addCardToMainDeck(card);
-                        DeckView.getInstance(this.user).printText("card added to deck successfully");
+                        deck.addCardToSideDeck(card);
+                        this.user.deleteCard(cardName);
+                    } else {
+                        deck.addCardToMainDeck(card);
+                        this.user.deleteCard(cardName);
                     }
+                    DeckView.getInstance(this.user).printText("card added to deck successfully");
+                }
             } else throw new DeckNotFound(deckName);
-        } else throw new CardNotFound(cardName);
+        } else throw new CardNotFoundInUser(cardName);
     }
 
     public void removeCardFromDeck(String cardName, String deckName, boolean isSide) throws Exception {
@@ -73,11 +76,21 @@ public class DeckController {
         if (deck != null) {
             Card card = user.getCardByName(cardName);
             if (card != null) {
-                //TODO motmaen shin nullpointerexeption nemide
-                if (isSide) deck.removeCardFromSideDeck(card);
-                else deck.removeCardFromMainDeck(card);
+                if (isSide) {
+                    if (deck.cardExistsInDeck(card, true)){
+                        deck.removeCardFromSideDeck(card);
+                        this.user.addCardToUsersAllCards(card);
+                    }
+                    else throw new CardNotFoundInDeck(cardName, "side");
+                } else {
+                    if (deck.cardExistsInDeck(card, false)){
+                        deck.removeCardFromMainDeck(card);
+                        this.user.addCardToUsersAllCards(card);
+                    }
+                    else throw new CardNotFoundInDeck(cardName, "main");
+                }
             } else
-                throw new CardNotFound(cardName);
+                throw new CardNotFoundForController();
         } else
             throw new DeckNotFound(deckName);
     }
@@ -87,7 +100,7 @@ public class DeckController {
         List<Deck> allDecks = this.user.getAllDecks();
         Deck activeDeck = null;
         for (Deck deck : allDecks) {
-            if (deck.equals(user.getActiveDeck())) {
+            if (deck.equals(this.user.getActiveDeck())) {
                 toPrint += deck.toString();
                 if (deck.isValid()) toPrint += ", valid\n";
                 else toPrint += ", invalid\n";
@@ -110,8 +123,8 @@ public class DeckController {
         DeckView.getInstance(this.user).printText(toPrint);
     }
 
-    public void showDeck(String deckName, boolean isSide) throws Exception{
-        if(this.user.getDeckByName(deckName) == null) throw new DeckNotFound(deckName);
+    public void showDeck(String deckName, boolean isSide) throws Exception {
+        if (this.user.getDeckByName(deckName) == null) throw new DeckNotFound(deckName);
         String toPrint = "Deck: " + deckName + "\n";
         if (isSide) toPrint += "Side deck:\nMonsters:\n";
         else toPrint += "Main deck:\nMonsters:\n";
@@ -144,7 +157,7 @@ public class DeckController {
 
     public void showAllCards() {
         String toPrint = null;
-        List<Card> allCards = user.getAllCards();
+        List<Card> allCards = this.user.getAllCards();
         Comparator<Card> cardComparator = Comparator.comparing(Card::getNamePascalCase);
         allCards.sort(cardComparator);
         for (Card card : allCards) {
