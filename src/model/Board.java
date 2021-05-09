@@ -24,24 +24,6 @@ public class Board {
         this.fieldZone = null;
     }
 
-    public List<Card> getCardsInHand() {
-        return this.cardsInHand;
-    }
-
-    public Card getFieldZone() {
-        if (this.fieldZone==null) {
-            return null;
-        } else return this.fieldZone;
-    }
-
-    public MonsterCard[] getMonsters() {
-        return this.monsters;
-    }
-
-    public Card[] getSpellsAndTraps() {
-        return this.spellsAndTraps;
-    }
-
     public void removeCardFromHand(Card card) {
         this.cardsInHand.remove(card);
     }
@@ -81,6 +63,66 @@ public class Board {
         this.spellsAndTrapsCondition[number] = null;
     }
 
+    public boolean existsOnBoard(Card card) {
+        for (int i = 0; i < 5; i++) {
+            if (this.monsters[i].equals(card)) return true;
+            if (this.spellsAndTraps[i].equals(card)) return true;
+        }
+        return false;
+    }
+
+    public void changeMonsterPosition(int index,String target){
+        this.monstersCondition[index] = target;
+    }
+
+    public boolean isFullSpellAndTrapZone(){
+        for (int i = 0; i < 5; i++){
+            if (this.spellsAndTraps[i] == null) return false;
+        }
+        return true;
+    }
+
+    public boolean isFullMonsterZone() {
+        for (int i = 0; i < 5; i++) {
+            if (this.monsters[i] == null) return false;
+        }
+        return true;
+    }
+
+    public void putInFieldZone(Card card) {
+        this.fieldZone = card;
+    }
+
+    public void removeFromFieldZone() {
+        this.fieldZone = null;
+    }
+
+    public void putInGraveYard(Card card) {
+        this.cardsInGraveyard.add(card);
+    }
+
+    public void removeFromGraveYard(Card card) {
+        this.cardsInGraveyard.remove(card);
+    }
+
+    public List<Card> getCardsInHand() {
+        return this.cardsInHand;
+    }
+
+    public Card getFieldZone() {
+        if (this.fieldZone==null) {
+            return null;
+        } else return this.fieldZone;
+    }
+
+    public MonsterCard[] getMonsters() {
+        return this.monsters;
+    }
+
+    public Card[] getSpellsAndTraps() {
+        return this.spellsAndTraps;
+    }
+
     public MonsterCard getMonsterByNumber(int number) {
         return this.monsters[number];
     }
@@ -103,34 +145,6 @@ public class Board {
 
     public Card getCardInHandByNumber(int number) {
         return this.cardsInHand.get(number);
-    }
-
-    public void putInFieldZone(Card card) {
-        this.fieldZone = card;
-    }
-
-    public void removeFromFieldZone() {
-        this.fieldZone = null;
-    }
-
-    public void putInGraveYard(Card card) {
-        this.cardsInGraveyard.add(card);
-    }
-
-    public void removeFromGraveYard(Card card) {
-        this.cardsInGraveyard.remove(card);
-    }
-
-    public boolean existsOnBoard(Card card) {
-        for (int i = 0; i < 5; i++) {
-            if (this.monsters[i].equals(card)) return true;
-            if (this.spellsAndTraps[i].equals(card)) return true;
-        }
-        return false;
-    }
-
-    public void changeMonsterPosition(int index,String target){
-        this.monstersCondition[index] = target;
     }
 
     /*public String toStringForPlayer() {
@@ -159,20 +173,5 @@ public class Board {
         toReturn+="c\n";
         toReturn+=this.
     }*/
-
-    public boolean isFullMonsterZone() {
-        for (int i = 0; i < 5; i++) {
-            if (this.monsters[i] == null) return false;
-        }
-        return true;
-    }
-
-    public boolean isFullSpellAndTrapZone(){
-        for (int i = 0; i < 5; i++){
-            if (this.spellsAndTraps[i] == null) return false;
-        }
-        return true;
-    }
-
 
 }

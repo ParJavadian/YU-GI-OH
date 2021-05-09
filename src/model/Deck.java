@@ -16,18 +16,6 @@ public class Deck {
         this.sideDeck = new ArrayList<>();
     }
 
-    public String getDeckName() {
-        return this.deckName;
-    }
-
-    public ArrayList<Card> getMainDeck() {
-        return this.mainDeck;
-    }
-
-    public ArrayList<Card> getSideDeck() {
-        return this.sideDeck;
-    }
-
     public void addCardToMainDeck(Card card) {
         this.mainDeck.add(card);
     }
@@ -44,10 +32,35 @@ public class Deck {
         this.sideDeck.remove(card);
     }
 
+    public int numberOfWantedCard(Card wantedCard) {
+        int number = 0;
+        for (Card eachCard : this.sideDeck) {
+            if (eachCard.equals(wantedCard))
+                number++;
+        }
+        for (Card eachCard : this.mainDeck) {
+            if (eachCard.equals(wantedCard))
+                number++;
+        }
+        return number;
+    }
+
     public boolean isValid() {
         return ((this.mainDeck.size() >= 40) &&
                 (this.mainDeck.size() <= 60) &&
                 (this.sideDeck.size() <= 15));
+    }
+
+    public String getDeckName() {
+        return this.deckName;
+    }
+
+    public ArrayList<Card> getMainDeck() {
+        return this.mainDeck;
+    }
+
+    public ArrayList<Card> getSideDeck() {
+        return this.sideDeck;
     }
 
     public int getSideSize() {
@@ -60,19 +73,6 @@ public class Deck {
 
     public int getTotalSize() {
         return this.getMainSize() + this.getSideSize();
-    }
-
-    public int numberOfWantedCard(Card wantedCard) {
-        int number = 0;
-        for (Card eachCard : this.sideDeck) {
-            if (eachCard.equals(wantedCard))
-                number++;
-        }
-        for (Card eachCard : this.mainDeck) {
-            if (eachCard.equals(wantedCard))
-                number++;
-        }
-        return number;
     }
 
     public String toStringForMainDeck() {
