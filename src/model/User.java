@@ -30,6 +30,22 @@ public class User {
         setMoney(100000);
     }
 
+    public void deleteDeck(String name) {
+        this.allDecks.remove(getDeckByName(name));
+    }
+
+    public void addDeck(Deck deck) {
+        this.allDecks.add(deck);
+    }
+
+    public void addCardToUsersAllCards(Card card) {
+        this.allCards.add(card);
+    }
+
+    public void increaseScore(int amount) {
+        this.score += amount;
+    }
+
     public static User getUserByUsername(String username) {
         for (User user : allUsers) {
             if (user.getUsername().equals(username))
@@ -44,6 +60,26 @@ public class User {
                 return allUser;
         }
         return null;
+    }
+
+    public void decreaseScore(int amount) {
+        this.score -= amount;
+    }
+
+    public void increaseLifePoint(int amount) {
+        this.lifePoint += amount;
+    }
+
+    public void decreaseLifePoint(int amount) {
+        this.lifePoint -= amount;
+    }
+
+    public void increaseMoney(int amount) {
+        this.money -= amount;
+    }
+
+    public void decreaseMoney(int amount) {
+        this.money += amount;
     }
 
     public static List<User> getAllUsers() {
@@ -106,30 +142,6 @@ public class User {
         this.currentActiveDeck = deck;
     }
 
-    public void increaseScore(int amount) {
-        this.score += amount;
-    }
-
-    public void decreaseScore(int amount) {
-        this.score -= amount;
-    }
-
-    public void increaseLifePoint(int amount) {
-        this.lifePoint += amount;
-    }
-
-    public void decreaseLifePoint(int amount) {
-        this.lifePoint -= amount;
-    }
-
-    public void increaseMoney(int amount) {
-        this.money -= amount;
-    }
-
-    public void decreaseMoney(int amount) {
-        this.money += amount;
-    }
-
     public Deck getDeckByName(String name) {
         for (Deck deck : allDecks) {
             if (deck.getDeckName().equals(name)) {
@@ -138,8 +150,8 @@ public class User {
         }
         return null;
     }
-
     //TODO age lazem bood jaye pascalcase aadish kon
+
     public Card getCardByName(String name) {
         for (Card card : allCards) {
             if (card.getNamePascalCase().equals(name)) {
@@ -155,17 +167,5 @@ public class User {
 
     public List<Card> getAllCards() {
         return this.allCards;
-    }
-
-    public void deleteDeck(String name) {
-        this.allDecks.remove(getDeckByName(name));
-    }
-
-    public void addDeck(Deck deck) {
-        this.allDecks.add(deck);
-    }
-
-    public void addCardToUsersAllCards(Card card) {
-        this.allCards.add(card);
     }
 }
