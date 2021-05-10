@@ -152,11 +152,9 @@ public class Board {
         int counterOfMonsters = 0;
         for (Card card : cardsInHand) {
             if (card instanceof MonsterCard)
-            counterOfMonsters ++;
+                counterOfMonsters ++;
         }
-        if (counterOfMonsters > 0)
-            return true;
-        else return false;
+        return counterOfMonsters > 0;
     }
 
     /*public String toStringForPlayer() {

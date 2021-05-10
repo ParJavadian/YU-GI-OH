@@ -5,7 +5,7 @@ import model.*;
 import view.DuelView;
 
 import java.util.ArrayList;
-import java.util.DoubleSummaryStatistics;
+import java.util.Collections;
 import java.util.List;
 
 public class DuelController {
@@ -42,18 +42,28 @@ public class DuelController {
         this.rounds = new Round[roundNumber];
         this.roundNumber = roundNumber;
         this.roundCounter = 0;
-        startNewGame();
+        startNewGame(null);
     }
 
     public boolean getShouldEndGameForView() {
         return this.shouldEndGameForView;
     }
 
-    private void startNewGame() {
-        changeTurn();
+    private void startNewGame(User winner) {
+        if (winner != null) {
+            User loser;
+            if (winner.equals(this.player)) {
+                loser = this.rival;
+            } else {
+                loser = this.player;
+            }
+            this.player = loser;
+            this.rival = winner;
+            clearLastTurn();
+        }
         this.player.setNewBoard();
         this.rival.setNewBoard();
-        startDrawPhase();
+        startDrawPhase(true);
     }
 
     public void selectCardPlayerMonsterZone(int address) throws Exception {
@@ -469,7 +479,7 @@ public class DuelController {
     public void activateSpell() throws Exception{
         if(this.selectedCard == null) throw new NoCardSelected();
         if (!(this.selectedCard.getCard() instanceof SpellCard)) throw new IsNotSpell();
-        if (!((phase.equals(Phase.MAIN_PHASE1)) || (phase.equals(Phase.MAIN_PHASE1)))) throw new CanNotActivateEffectOnThisTurn();
+        if (!((phase.equals(Phase.MAIN_PHASE1)) || (phase.equals(Phase.MAIN_PHASE2)))) throw new CanNotActivateEffectOnThisTurn();
         if(/*activat shode bud*/) throw new AlreadyActivated();
         //agar dar dast bashe o lazem bashe ke bere spellzone khate bad
         if (this.player.getBoard().isFullSpellAndTrapZone()) throw new FullSpellZone();
@@ -489,7 +499,7 @@ public class DuelController {
     }
 
     //     if (/*ritual spell ya ritual summon she bad dasture dgei vared she*/)
-   //      DuelView.printText("you should ritual summon right now");
+    //      DuelView.printText("you should ritual summon right now");
 
     private void ritualSummon() throws Exception{
 
@@ -526,212 +536,227 @@ public class DuelController {
         }
     }
 
-
-        private void specialSummon () throws Exception {
-            if (this.selectedCard == null) throw new NoCardSelected();
-            if (!this.player.getBoard().doesHaveMonsterInHand()) {
-                unselectCard();
-                throw new CanNotSpecialSummon();
-            }
-            if (/*hayula special summon nashod*/) {
-                DuelView.printText("you should special summon right now");
-                //special summon kone
-            }
+    private void specialSummon () throws Exception {
+        if (this.selectedCard == null) throw new NoCardSelected();
+        if (!this.player.getBoard().doesHaveMonsterInHand()) {
+            unselectCard();
+            throw new CanNotSpecialSummon();
         }
-
-        public void surrender () {
-            //todo be nazaram ino bayad joda az endgame bezanim(parmida)
-            //todo faghat payamesho chap kardam vali nemidoonam chetori az bazi kharej sham ya daste jadidi shoro konam va ina
+        if (/*hayula special summon nashod*/) {
+            DuelView.printText("you should special summon right now");
+            //special summon kone
+        }
+    }
+    public void surrender() {
+        //todo be nazaram ino bayad joda az endgame bezanim(parmida)
+        //todo faghat payamesho chap kardam vali nemidoonam chetori az bazi kharej sham ya daste jadidi shoro konam va ina
         /*if (roundCounter == roundNumber) {
             DuelView.printText(rival.getUsername() + " won the whole match with score: " + rival.getScore() + "-" + player.getScore());
         } else {
             DuelView.printText(rival.getUsername() + " won the game and the score is: " + rival.getScore() + "-" + player.getScore());
         }*/
-            endGame(this.player);
-        }
+        endGame(this.player);
+    }
 
-        public void manageEndGame () {
-            List<Card> playersCardInHand = player.getBoard().getCardsInHand();
-            List<Card> rivalsCardInHand = rival.getBoard().getCardsInHand();
-            if (player.getLifePoint() <= 0) {
-                endGame(player);
-            } else if (rival.getLifePoint() <= 0) {
-                endGame(rival);
-            } else if (playersCardInHand.isEmpty()) {
-                endGame(player);
-            } else if (rivalsCardInHand.isEmpty()) {
-                endGame(rival);
-            }
+    public void manageEndGame() {
+        List<Card> playersCardInHand = player.getBoard().getCardsInHand();
+        List<Card> rivalsCardInHand = rival.getBoard().getCardsInHand();
+        if (player.getLifePoint() <= 0) {
+            endGame(player);
+        } else if (rival.getLifePoint() <= 0) {
+            endGame(rival);
+        } else if (playersCardInHand.isEmpty()) {
+            endGame(player);
+        } else if (rivalsCardInHand.isEmpty()) {
+            endGame(rival);
         }
+    }
 
-        private void endGame (User loser){
-            User winner;
-            if (loser.equals(rival)) {
-                winner = player;
-            } else {
-                winner = rival;
-            }
-            roundCounter++;
-            if (roundNumber == 1) {
-                winner.increaseScore(1000);
-                winner.increaseMoney(1000 + winner.getLifePoint());
-                loser.increaseMoney(100);
+    private void endGame(User loser) {
+        User winner;
+        if (loser.equals(rival)) {
+            winner = player;
+        } else {
+            winner = rival;
+        }
+        roundCounter++;
+        if (roundNumber == 1) {
+            winner.increaseScore(1000);
+            winner.increaseMoney(1000 + winner.getLifePoint());
+            loser.increaseMoney(100);
+            shouldEndGameForView = true;
+            DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+        }
+        if (roundNumber == 3) {
+            this.rounds[this.roundCounter - 1] = new Round(winner, loser, winner.getLifePoint(), loser.getLifePoint());
+            if (this.roundCounter == 2 && this.rounds[0].getWinner().equals(this.rounds[1].getWinner())) {
+                int winnerLP1 = this.rounds[0].getLifePointByUser(winner);
+                int winnerLP2 = this.rounds[1].getLifePointByUser(winner);
+                int maxLP = Math.max(winnerLP1, winnerLP2);
+                winner.increaseScore(3000);
+                winner.increaseMoney(3000 + (3 * maxLP));
+                loser.increaseMoney(300);
                 shouldEndGameForView = true;
                 DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+            } else if (roundCounter == 3) {
+                int winnerLP1 = this.rounds[0].getLifePointByUser(winner);
+                int winnerLP2 = this.rounds[1].getLifePointByUser(winner);
+                int winnerLP3 = this.rounds[2].getLifePointByUser(winner);
+                int maxLP = Math.max(winnerLP1, winnerLP2);
+                maxLP = Math.max(maxLP, winnerLP3);
+                winner.increaseScore(3000);
+                winner.increaseMoney(3000 + (3 * maxLP));
+                loser.increaseMoney(300);
+                shouldEndGameForView = true;
+                DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+            } else {
+                DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                startNewGame(winner);
+                //TODO go next phaze (drawPhaze)
             }
-            if (roundNumber == 3) {
-                this.rounds[this.roundCounter - 1] = new Round(winner, loser, winner.getLifePoint(), loser.getLifePoint());
-                if (this.roundCounter == 2 && this.rounds[0].getWinner().equals(this.rounds[1].getWinner())) {
-                    int winnerLP1 = this.rounds[0].getLifePointByUser(winner);
-                    int winnerLP2 = this.rounds[1].getLifePointByUser(winner);
-                    int maxLP = Math.max(winnerLP1, winnerLP2);
-                    winner.increaseScore(3000);
-                    winner.increaseMoney(3000 + (3 * maxLP));
-                    loser.increaseMoney(300);
-                    shouldEndGameForView = true;
-                    DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-                    DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
-                } else if (roundCounter == 3) {
-                    int winnerLP1 = this.rounds[0].getLifePointByUser(winner);
-                    int winnerLP2 = this.rounds[1].getLifePointByUser(winner);
-                    int winnerLP3 = this.rounds[2].getLifePointByUser(winner);
-                    int maxLP = Math.max(winnerLP1, winnerLP2);
-                    maxLP = Math.max(maxLP, winnerLP3);
-                    winner.increaseScore(3000);
-                    winner.increaseMoney(3000 + (3 * maxLP));
-                    loser.increaseMoney(300);
-                    shouldEndGameForView = true;
-                    DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-                    DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+        }
+    }
+
+    public void goNextPhase() {
+        //TODO in kar dare hala
+        if (this.phase.equals(Phase.DRAW_PHASE)) {
+            this.phase = Phase.STANDBY_PHASE;
+            DuelView.printText("phase: " + this.phase.getNamePascalCase());
+        } else if (phase.equals(Phase.STANDBY_PHASE)) {
+            this.phase = Phase.MAIN_PHASE1;
+            DuelView.printText("phase: " + this.phase.getNamePascalCase());
+            printBoard();
+        } else if (phase.equals(Phase.MAIN_PHASE1)) {
+            this.phase = Phase.BATTLE_PHASE;
+            DuelView.printText("phase: " + this.phase.getNamePascalCase());
+        } else if (this.phase.equals(Phase.BATTLE_PHASE)) {
+            this.phase = Phase.MAIN_PHASE2;
+            DuelView.printText("phase: " + this.phase.getNamePascalCase());
+        } else if (this.phase.equals(Phase.MAIN_PHASE2)) {
+            this.phase = Phase.END_PHASE;
+        } else if (this.phase.equals(Phase.END_PHASE)) {
+            DuelView.printText("phase: " + phase.getNamePascalCase());
+            DuelView.printText("its " + rival.getNickname() + "’s turn");
+            changeTurn();
+            startDrawPhase(false);
+        }
+    }
+
+    public void startDrawPhase(boolean isFirstTime) {
+        this.phase = Phase.DRAW_PHASE;
+        ArrayList<Card> playerMainCards = (ArrayList<Card>) this.player.getActiveDeck().getMainDeck();
+        ArrayList<Card> rivalMainCards = (ArrayList<Card>) this.rival.getActiveDeck().getMainDeck();
+        if (playerMainCards.size() == 0) endGame(this.player);
+        else {
+            if (!isFirstTime) {
+                this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
+                this.player.getActiveDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
+                Collections.shuffle(this.player.getActiveDeck().getMainDeck());
+                DuelView.printText("new card added to the hand : " + playerMainCards.get(playerMainCards.size() - 1).getNamePascalCase());
+            }
+            else {
+                for (int i = 0; i < 5; i++) {
+                    this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
+                    this.player.getActiveDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
+                    this.rival.getBoard().addCardToHand(rivalMainCards.get(rivalMainCards.size() - 1));
+                    this.rival.getActiveDeck().removeCardFromMainDeck(rivalMainCards.get(rivalMainCards.size() - 1));
+                }
+            }
+        }
+    }
+
+    private void changeTurn() {
+        //TODO inam hanooz kar dare
+        User temp = this.player;
+        this.player = rival;
+        this.rival = temp;
+        clearLastTurn();
+    }
+
+    private void clearLastTurn() {
+        this.selectedCard = null;
+        this.hasSummonedOrSetInThisTurn = false;
+        this.hasAttackedInThisTurn = new boolean[5];
+        this.hasSetInThisTurn = new boolean[5];
+        this.hasChangedPositionInThisTurn = new boolean[5];
+    }
+
+    private void printBoard() {
+        String toPrint = this.rival.getNickname() + ":" + this.rival.getLifePoint() + "\n";
+        for (Card ignored : this.rival.getBoard().getCardsInHand()) {
+            toPrint += "\tc";
+        }
+        toPrint += "\n";
+        toPrint += this.rival.getActiveDeck().getTotalSize() + "\n";
+        for (int i = 0; i < 5; i++) {
+            toPrint += "\t";
+            if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
+            else toPrint += this.rival.getBoard().getSpellAndTrapConditionByNumber(i);
+        }
+        toPrint += "\n";
+        for (int i = 0; i < 5; i++) {
+            toPrint += "\t";
+            if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
+            else toPrint += this.rival.getBoard().getMonsterConditionByNumber(i);
+        }
+        toPrint += "\n" + this.rival.getBoard().getCardsInGraveyard().size() + "\t\t\t\t\t\t";
+        if (this.rival.getBoard().getFieldZone() == null) toPrint += "E\n";
+        else toPrint += "O\n";
+        toPrint += "\n--------------------------\n\n";
+        if (this.player.getBoard().getFieldZone() == null) toPrint += "E\t\t\t\t\t\t";
+        else toPrint += "O\t\t\t\t\t\t";
+        toPrint += this.player.getBoard().getCardsInGraveyard().size() + "\n";
+        for (int i = 0; i < 5; i++) {
+            toPrint += "\t";
+            if (this.player.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
+            else toPrint += this.player.getBoard().getMonsterConditionByNumber(i);
+        }
+        toPrint += "\n";
+        for (int i = 0; i < 5; i++) {
+            toPrint += "\t";
+            if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
+            else toPrint += this.player.getBoard().getSpellAndTrapConditionByNumber(i);
+        }
+        toPrint += "\t\t\t\t\t\t" + this.player.getActiveDeck().getTotalSize() + "\n";
+        for (Card ignored : this.player.getBoard().getCardsInHand()) {
+            toPrint += "c\t";
+        }
+        toPrint += "\n" + this.player.getNickname() + ":" + this.player.getLifePoint();
+        DuelView.printText(toPrint);
+    }
+
+    public void showCard() throws Exception {
+        if (selectedCard == null) {
+            throw new NoCardSelected();
+        } else if (!this.selectedCard.getOwner().equals(this.player)) {
+            throw new InvisibleCard();
+        } else
+            DuelView.printText(selectedCard.getCard().toString());
+    }
+
+    public void showGraveyard() throws Exception {
+        List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
+        String toPrint = null;
+        if (graveyard.isEmpty())
+            throw new GraveYardEmpty();
+        else {
+            for (Card cardInGraveyard : graveyard) {
+                if (graveyard.indexOf(cardInGraveyard) == graveyard.size() - 1) {
+                    toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription();
                 } else {
-                    DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-                    //TODO go next phaze (drawPhaze)
+                    toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription() + "\n";
                 }
             }
         }
-
-        public void goNextPhase () {
-            //TODO in kar dare hala
-            if (this.phase.equals(Phase.DRAW_PHASE)) {
-                this.phase = Phase.STANDBY_PHASE;
-                DuelView.printText("phase: " + this.phase.getNamePascalCase());
-            } else if (phase.equals(Phase.STANDBY_PHASE)) {
-                this.phase = Phase.MAIN_PHASE1;
-                DuelView.printText("phase: " + this.phase.getNamePascalCase());
-                printBoard();
-            } else if (phase.equals(Phase.MAIN_PHASE1)) {
-                this.phase = Phase.BATTLE_PHASE;
-                DuelView.printText("phase: " + this.phase.getNamePascalCase());
-            } else if (this.phase.equals(Phase.BATTLE_PHASE)) {
-                this.phase = Phase.MAIN_PHASE2;
-                DuelView.printText("phase: " + this.phase.getNamePascalCase());
-            } else if (this.phase.equals(Phase.MAIN_PHASE2)) {
-                this.phase = Phase.END_PHASE;
-            } else if (this.phase.equals(Phase.END_PHASE)) {
-                DuelView.printText("phase: " + phase.getNamePascalCase());
-                DuelView.printText("its " + rival.getNickname() + "’s turn");
-                changeTurn();
-                startDrawPhase();
-            }
+        DuelView.printText(toPrint);
+        String input = DuelView.scan();
+        while (!input.equals("back")) {
+            DuelView.printText("invalid command");
+            input = DuelView.scan();
         }
-
-        public void startDrawPhase () {
-            this.phase = Phase.DRAW_PHASE;
-            ArrayList<Card> mainCards = (ArrayList<Card>) this.player.getActiveDeck().getMainDeck();
-            if (mainCards.size() == 0) endGame(this.player);
-            else {
-                this.player.getBoard().addCardToHand(mainCards.get(mainCards.size() - 1));
-                this.player.getActiveDeck().removeCardFromMainDeck(mainCards.get(mainCards.size() - 1));
-                DuelView.printText("new card added to the hand : " + mainCards.get(mainCards.size() - 1).getNamePascalCase());
-            }
-        }
-
-        private void changeTurn () {
-            //TODO inam hanooz kar dare
-            User temp = this.player;
-            this.player = rival;
-            this.rival = temp;
-            this.selectedCard = null;
-            this.hasSummonedOrSetInThisTurn = false;
-            this.hasAttackedInThisTurn = new boolean[5];
-            this.hasSetInThisTurn = new boolean[5];
-            this.hasChangedPositionInThisTurn = new boolean[5];
-        }
-
-        private void printBoard () {
-            String toPrint = this.rival.getNickname() + ":" + this.rival.getLifePoint() + "\n";
-            for (Card ignored : this.rival.getBoard().getCardsInHand()) {
-                toPrint += "\tc";
-            }
-            toPrint += "\n";
-            toPrint += this.rival.getActiveDeck().getTotalSize() + "\n";
-            for (int i = 0; i < 5; i++) {
-                toPrint += "\t";
-                if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
-                else toPrint += this.rival.getBoard().getSpellAndTrapConditionByNumber(i);
-            }
-            toPrint += "\n";
-            for (int i = 0; i < 5; i++) {
-                toPrint += "\t";
-                if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
-                else toPrint += this.rival.getBoard().getMonsterConditionByNumber(i);
-            }
-            toPrint += "\n" + this.rival.getBoard().getCardsInGraveyard().size() + "\t\t\t\t\t\t";
-            if (this.rival.getBoard().getFieldZone() == null) toPrint += "E\n";
-            else toPrint += "O\n";
-            toPrint += "\n--------------------------\n\n";
-            if (this.player.getBoard().getFieldZone() == null) toPrint += "E\t\t\t\t\t\t";
-            else toPrint += "O\t\t\t\t\t\t";
-            toPrint += this.player.getBoard().getCardsInGraveyard().size() + "\n";
-            for (int i = 0; i < 5; i++) {
-                toPrint += "\t";
-                if (this.player.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
-                else toPrint += this.player.getBoard().getMonsterConditionByNumber(i);
-            }
-            toPrint += "\n";
-            for (int i = 0; i < 5; i++) {
-                toPrint += "\t";
-                if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
-                else toPrint += this.player.getBoard().getSpellAndTrapConditionByNumber(i);
-            }
-            toPrint += "\t\t\t\t\t\t" + this.player.getActiveDeck().getTotalSize() + "\n";
-            for (Card ignored : this.player.getBoard().getCardsInHand()) {
-                toPrint += "c\t";
-            }
-            toPrint += "\n" + this.player.getNickname() + ":" + this.player.getLifePoint();
-            DuelView.printText(toPrint);
-        }
-
-        public void showCard () throws Exception {
-            if (selectedCard == null) {
-                throw new NoCardSelected();
-            } else if (!this.selectedCard.getOwner().equals(this.player)) {
-                throw new InvisibleCard();
-            } else
-                DuelView.printText(selectedCard.getCard().toString());
-        }
-
-        public void showGraveyard () throws Exception {
-            List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
-            String toPrint = null;
-            if (graveyard.isEmpty())
-                throw new GraveYardEmpty();
-            else {
-                for (Card cardInGraveyard : graveyard) {
-                    if (graveyard.indexOf(cardInGraveyard) == graveyard.size() - 1) {
-                        toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription();
-                    } else {
-                        toPrint += cardInGraveyard.getName() + ":" + cardInGraveyard.getDescription() + "\n";
-                    }
-                }
-            }
-            DuelView.printText(toPrint);
-            String input = DuelView.scan();
-            while (!input.equals("back")) {
-                DuelView.printText("invalid command");
-                input = DuelView.scan();
-            }
-        }
+    }
 
 
 }
