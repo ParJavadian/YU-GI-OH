@@ -1,7 +1,6 @@
 package view;
 
 import controller.ImportExportController;
-import controller.ShopController;
 import model.*;
 
 import java.util.regex.Matcher;

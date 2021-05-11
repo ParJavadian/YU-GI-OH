@@ -29,8 +29,10 @@ public class ProfileController {
     }
 
     public void changePassword (String oldPassword, String newPassword) throws Exception {
-        if(!this.user.getPassword().equals(oldPassword)) throw new WrongPassword();
-        if(this.user.getPassword().equals(newPassword)) throw new SamePassword();
+        if(!this.user.getPassword().equals(oldPassword))
+            throw new WrongPassword();
+        if(this.user.getPassword().equals(newPassword))
+            throw new SamePassword();
         this.user.setPassword(newPassword);
     }
 }

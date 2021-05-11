@@ -78,14 +78,4 @@ public class MainView {
     public void printText(String output) {
         System.out.println(output);
     }
-
-    /*public void exitMenu() {
-
-    }*/
-    /*public void showMenu() {
-
-    }*/
-    /*public void printException(Exception output) {
-
-    }*/
 }

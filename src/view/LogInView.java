@@ -5,7 +5,6 @@ import controller.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class LogInView {
     private static LogInView instance = null;
 
@@ -73,21 +72,4 @@ public class LogInView {
     public void printText(String output) {
         System.out.println(output);
     }
-
-    /*public void goToMainMenu(User user) {
-
-    }*/
-
-    /*
-    public void printException(Exception output) {
-
-    }
-*/
-
-    /*
-    public void exit() {
-        System.exit(0);
-    }
-
-     */
 }

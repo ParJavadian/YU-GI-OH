@@ -74,8 +74,4 @@ public class ProfileView {
     public void printText(String output) {
         System.out.println(output);
     }
-
-    /*public void printException(Exception output) {
-
-    }*/
 }

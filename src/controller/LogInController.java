@@ -25,7 +25,6 @@ public class LogInController {
     }
 
     public void createUser(String username, String password, String nickname) throws Exception {
-        //TODO oh oh yadam bashe ino tozih bedam va shayad kheili chiza ro bayad avaz konim
         List<User> allUsers = User.getAllUsers();
         if (allUsers != null) {
             for (User eachUser : allUsers) {

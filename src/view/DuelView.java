@@ -7,12 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DuelView {
-    private User user;
     private DuelController duelController;
-
-    static public void printException(Exception output) {
-
-    }
 
     static public void printText(String output) {
         System.out.println(output);
@@ -193,15 +188,8 @@ public class DuelView {
         return false;
     }
 
-    public String getAnswerForActivateSpellOrTrapInRivalsTurn() {
-        return "1";
-    }
-
     private Matcher getCommandMatcher(String command, String regex) {
         Pattern pattern = Pattern.compile(regex);
         return pattern.matcher(command);
     }
-    /*public void exitMenu(){
-
-    }*/
 }

@@ -32,17 +32,26 @@ public class MainController {
             case "Shop":
                 ShopView.getInstance(this.user).getCommandForShop();
                 break;
+            case "ImportExport":
+                ImportExportView.getInstance(this.user).getCommandForImportExport();
+                break;
         }
     }
 
 
     public void newDuel(String username, int roundNumber) throws Exception {
-        if(User.getUserByUsername(username)==null) throw new PlayerNotFound();
-        if(this.user.getActiveDeck() == null) throw new NoActiveDeck(this.user.getUsername());
-        if(User.getUserByUsername(username).getActiveDeck() == null) throw new NoActiveDeck(username);
-        if(!this.user.getActiveDeck().isValid()) throw new InvalidDeck(this.user.getUsername());
-        if(!User.getUserByUsername(username).getActiveDeck().isValid()) throw new InvalidDeck(username);
-        if(roundNumber!=1 && roundNumber!=3) throw new UnsupportedRoundNumber();
+        if(User.getUserByUsername(username)==null)
+            throw new PlayerNotFound();
+        if(this.user.getActiveDeck() == null)
+            throw new NoActiveDeck(this.user.getUsername());
+        if(User.getUserByUsername(username).getActiveDeck() == null)
+            throw new NoActiveDeck(username);
+        if(!this.user.getActiveDeck().isValid())
+            throw new InvalidDeck(this.user.getUsername());
+        if(!User.getUserByUsername(username).getActiveDeck().isValid())
+            throw new InvalidDeck(username);
+        if(roundNumber!=1 && roundNumber!=3)
+            throw new UnsupportedRoundNumber();
         DuelView duelView = new DuelView(user, User.getUserByUsername(username), roundNumber);
         duelView.getCommandForDuel();
     }

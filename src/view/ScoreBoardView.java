@@ -56,18 +56,4 @@ public class ScoreBoardView {
     public void printText(String output) {
         System.out.println(output);
     }
-
-    /*
-
-      private void showMenu() {
-
-      }
-      public void exitMenu() {
-
-      }
-
-      public void printException(Exception output) {
-
-      }
-  */
 }

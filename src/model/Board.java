@@ -147,7 +147,8 @@ public class Board {
         this.cardsInGraveyard.remove(card);
     }
 
-    //TODO hamraz ino ezafe kard:
+    //TODO man ino ye kam avaz kardam bana be dalayeli ke tozih midam va dige in tabe lazem nabood-parmida
+    /*//TODO hamraz ino ezafe kard:
     public boolean doesHaveMonsterInHand(){
         int counterOfMonsters = 0;
         for (Card card : cardsInHand) {
@@ -155,7 +156,7 @@ public class Board {
                 counterOfMonsters ++;
         }
         return counterOfMonsters > 0;
-    }
+    }*/
 
     /*public String toStringForPlayer() {
         String toReturn = "--------------------------\n" +

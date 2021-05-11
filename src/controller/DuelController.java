@@ -577,8 +577,7 @@ public class DuelController {
 
     private void specialSummon() throws Exception {
         if (this.selectedCard == null) throw new NoCardSelected();
-        if (!this.player.getBoard().doesHaveMonsterInHand()) {
-            unselectCard();
+        if (!this.selectedCard.getBoardZone().equals(BoardZone.HAND)) {
             throw new CanNotSpecialSummon();
         }
         if (/*hayula special summon nashod*/) {

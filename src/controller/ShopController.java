@@ -27,11 +27,11 @@ public class ShopController {
     }
 
     public void buyCard(String name) throws Exception {
-        Card card = user.getCardByName(name);
+        Card card = this.user.getCardByName(name);
         if (card != null) {
-            if (user.getMoney() >= card.getPrice()) {
-                user.decreaseMoney(card.getPrice());
-                user.addCardToUsersAllCards(card);
+            if (this.user.getMoney() >= card.getPrice()) {
+                this.user.decreaseMoney(card.getPrice());
+                this.user.addCardToUsersAllCards(card);
             } else
                 throw new NotEnoughMoney();
         } else
@@ -44,6 +44,7 @@ public class ShopController {
         Collections.addAll(allCards, TrapCard.values());
         Collections.addAll(allCards, SpellCard.values());
         Comparator<Card> cardComparator = Comparator.comparing(Card::getName);
+        allCards.sort(cardComparator);
         String toPrint = null;
         for (Card card : allCards){
             if (allCards.indexOf(card) == allCards.size()-1){
@@ -51,7 +52,7 @@ public class ShopController {
             } else
                 toPrint += card.getName()+":"+card.getDescription()+"\n";
         }
-        ShopView.getInstance(user).printText(toPrint);
+        ShopView.getInstance(this.user).printText(toPrint);
     }
 
 
