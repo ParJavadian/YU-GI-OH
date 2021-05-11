@@ -34,7 +34,7 @@ public class MainView {
         MainController mainController = MainController.getInstance(this.user);
         if (command.startsWith("duel ") && command.matches("[\\w -]+")) {
             Matcher matcher1 = getCommandMatcher(command, "(--new|-n)");
-            Matcher matcher2 = getCommandMatcher(command, "(--second-player|-sp) ([\\w ]+)");
+            Matcher matcher2 = getCommandMatcher(command+" ", "(--second-player|-sp) ([\\w ]+) ");
             Matcher matcher3 = getCommandMatcher(command, "(--rounds|-r) ([0-9]+)");
             Matcher matcher4 = getCommandMatcher(command, "(--ai|-ai)");
             if (matcher1.find() && matcher2.find() && matcher3.find()) {

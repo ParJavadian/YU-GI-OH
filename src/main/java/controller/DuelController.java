@@ -767,12 +767,12 @@ public class DuelController {
     }
 
     public void showCard() throws Exception {
-        if (selectedCard == null) {
+        if (this.selectedCard == null) {
             throw new NoCardSelected();
         } else if (!this.selectedCard.getOwner().equals(this.player)) {
             throw new InvisibleCard();
         } else
-            DuelView.printText(selectedCard.getCard().toString());
+            DuelView.printText(this.selectedCard.getCard().toString());
     }
 
     public void showGraveyard() throws Exception {
