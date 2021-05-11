@@ -481,18 +481,23 @@ public class DuelController {
         if (!(this.selectedCard.getCard() instanceof SpellCard)) throw new IsNotSpell();
         if (!((phase.equals(Phase.MAIN_PHASE1)) || (phase.equals(Phase.MAIN_PHASE2)))) throw new CanNotActivateEffectOnThisTurn();
         if(/*activat shode bud*/) throw new AlreadyActivated();
-        //agar dar dast bashe o lazem bashe ke bere spellzone khate bad
+        //TODO agar dar dast bashe o lazem bashe ke bere spellzone khate bad
         if (this.player.getBoard().isFullSpellAndTrapZone()) throw new FullSpellZone();
         if(/*sahrti dasht ke nemishod faal kard */) throw new UndonePreparationOfSpell();
+
         SpellCard spellCard = (SpellCard) this.selectedCard.getCard();
         if (/* marbut be fieldzone bud*/){
-            //bezare tu fieldzone
-            //age ghablesh field zone por bud ghablie bere tu graveyard
+            if(this.player.getBoard().getFieldZone() != null) {
+                this.player.getBoard().putInGraveYard(this.player.getBoard().getFieldZone());
+                this.player.getBoard().removeFromFieldZone();
+            }
+            this.player.getBoard().putInFieldZone(spellCard);
             //jadided activate
             DuelView.printText("spell activated");
         }
+
         if (/* marbut be spellzone */){
-            //bezare tu spellzone
+            this.player.getBoard().putSpellOrTrap(spellCard,"?");
             //activate
             DuelView.printText("spell activated");
         }
@@ -500,11 +505,7 @@ public class DuelController {
 
     //     if (/*ritual spell ya ritual summon she bad dasture dgei vared she*/)
     //      DuelView.printText("you should ritual summon right now");
-
-    private void ritualSummon() throws Exception{
-
-    }
-    /*
+ /*
     private void ritualSummon() throws Exception{
         if (this.selectedCard.getCard() == null) throw new NoCardSelected();
         if(/*agar ritual tu dastemun nabud ya majmue sutuh .. barabar nabud */ //)
@@ -520,6 +521,11 @@ public class DuelController {
 
     }
 */
+
+    private void ritualSummon() throws Exception{
+
+
+    }
 
     private void activateSpellOrTrapInRivalsTurn () throws Exception {
         if (/*sharayet bar ghara bud*/) {
@@ -547,6 +553,7 @@ public class DuelController {
             //special summon kone
         }
     }
+
     public void surrender() {
         //todo be nazaram ino bayad joda az endgame bezanim(parmida)
         //todo faghat payamesho chap kardam vali nemidoonam chetori az bazi kharej sham ya daste jadidi shoro konam va ina
