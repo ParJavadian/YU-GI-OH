@@ -161,7 +161,7 @@ public class DeckController {
     }
 
     public void showAllCards() {
-        String toPrint = null;
+        String toPrint = "";
         List<Card> allCards = this.user.getAllCards();
         Comparator<Card> cardComparator = Comparator.comparing(Card::getNamePascalCase);
         allCards.sort(cardComparator);

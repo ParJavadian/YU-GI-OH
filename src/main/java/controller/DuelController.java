@@ -777,7 +777,7 @@ public class DuelController {
 
     public void showGraveyard() throws Exception {
         List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
-        String toPrint = null;
+        String toPrint = "";
         if (graveyard.isEmpty())
             throw new GraveYardEmpty();
         else {

@@ -28,7 +28,7 @@ public class ScoreBoardController {
         allUsers.sort(userComparator);
         User previousUser = null;
         int rank = 1;
-        String toPrint = null;
+        String toPrint = "";
         int i = 1;
         for (User eachUser : allUsers){
             if (previousUser != null){
