@@ -56,15 +56,22 @@ public class DeckController {
                 if (isSide) {
                     if (deck.getSideSize() == 15) throw new FullSideDeck();
                 } else if (deck.getMainSize() == 60) throw new FullMainDeck();
-                if (deck.numberOfWantedCard(card) == 3) throw new ThreeSameCards(cardName, deckName);
+                if ((card instanceof MonsterCard ||
+                        (card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.UNLIMITED))
+                        || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.UNLIMITED)))
+                        && deck.numberOfWantedCard(card) == 3)
+                    throw new ThreeSameCards(cardName, deckName);
+                else if((card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.LIMITED))
+                        || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.LIMITED))
+                        && deck.numberOfWantedCard(card) == 1)
+                    throw new OneCardForLimited(cardName,deckName);
                 else {
                     if (isSide) {
                         deck.addCardToSideDeck(card);
-                        this.user.deleteCard(cardName);
                     } else {
                         deck.addCardToMainDeck(card);
-                        this.user.deleteCard(cardName);
                     }
+                    this.user.deleteCard(cardName);
                     DeckView.getInstance(this.user).printText("card added to deck successfully");
                 }
             } else throw new DeckNotFound(deckName);
@@ -77,17 +84,15 @@ public class DeckController {
             Card card = user.getCardByName(cardName);
             if (card != null) {
                 if (isSide) {
-                    if (deck.cardExistsInDeck(card, true)){
+                    if (deck.cardExistsInDeck(card, true)) {
                         deck.removeCardFromSideDeck(card);
                         this.user.addCardToUsersAllCards(card);
-                    }
-                    else throw new CardNotFoundInDeck(cardName, "side");
+                    } else throw new CardNotFoundInDeck(cardName, "side");
                 } else {
-                    if (deck.cardExistsInDeck(card, false)){
+                    if (deck.cardExistsInDeck(card, false)) {
                         deck.removeCardFromMainDeck(card);
                         this.user.addCardToUsersAllCards(card);
-                    }
-                    else throw new CardNotFoundInDeck(cardName, "main");
+                    } else throw new CardNotFoundInDeck(cardName, "main");
                 }
             } else
                 throw new CardNotFoundForController();
