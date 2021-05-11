@@ -39,7 +39,7 @@ public class DuelView {
     private boolean processCommand(String command) {
         if (command.equals("select -d")) {
             try {
-                duelController.unselectCard();
+                duelController.unselectCardFromCommand();
             } catch (Exception exception) {
                 printText(exception.getMessage());
             }
