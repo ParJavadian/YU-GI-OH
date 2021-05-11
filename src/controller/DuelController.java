@@ -24,7 +24,7 @@ public class DuelController {
     boolean[] hasSetInThisTurn;
     boolean[] hasAttackedInThisTurn;
     private boolean shouldEndGameForView;
-    //TODO vaghti ye carto mizare roo zamin az deck baresh nemidarim! yademoon bashe dorostesh konim
+    //TODO vaghti ye carto mizare roo zamin az hand baresh nemidarim! yademoon bashe dorostesh konim
     //TODO vaghti card ro be deck ezafe mikardim ham az kole cartash kam nemishod vali fekr konam reval shod
 
     //TODO havasa be cancel bashe(safhe 43 doc)
@@ -189,6 +189,7 @@ public class DuelController {
         MonsterCard monsterCard = (MonsterCard) selectedCard.getCard();
         if (monsterCard.getLevel() <= 4) {
             this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
+            this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber()-1);
             unselectCard();
             DuelView.printText("summoned successfully");
             hasSummonedOrSetInThisTurn = true;
@@ -217,6 +218,7 @@ public class DuelController {
         if (this.player.getBoard().getMonsterByNumber(address - 1) == null) throw new NoMonsterHere1();
         this.player.getBoard().removeMonster(address - 1);
         this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
+        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber()-1);
         unselectCard();
         DuelView.printText("summoned successfully");
         hasSummonedOrSetInThisTurn = true;
@@ -235,6 +237,7 @@ public class DuelController {
         this.player.getBoard().removeMonster(address1 - 1);
         this.player.getBoard().removeMonster(address2 - 1);
         this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
+        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber()-1);
         unselectCard();
         DuelView.printText("summoned successfully");
         hasSummonedOrSetInThisTurn = true;
@@ -261,6 +264,7 @@ public class DuelController {
         MonsterCard monsterCard = (MonsterCard) this.selectedCard.getCard();
         if (monsterCard.getLevel() <= 4) {
             this.hasSetInThisTurn[this.player.getBoard().putMonster(monsterCard, "DH")] = true;
+            this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber()-1);
             unselectCard();
             DuelView.printText("set successfully");
             hasSummonedOrSetInThisTurn = true;
@@ -289,6 +293,7 @@ public class DuelController {
         if (this.player.getBoard().getMonsterByNumber(address - 1) == null) throw new NoMonsterHere1();
         this.player.getBoard().removeMonster(address - 1);
         this.hasSetInThisTurn[this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "DH")] = true;
+        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber()-1);
         unselectCard();
         DuelView.printText("set successfully");
         hasSummonedOrSetInThisTurn = true;
@@ -305,6 +310,7 @@ public class DuelController {
         if (this.player.getBoard().getMonsterByNumber(address2 - 1) == null) throw new NoMonsterHere1();
         if (address1 == address2) throw new sameAddresses();
         this.hasSetInThisTurn[this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "DH")] = true;
+        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber()-1);
         this.player.getBoard().removeMonster(address1 - 1);
         this.player.getBoard().removeMonster(address2 - 1);
         unselectCard();
@@ -319,6 +325,7 @@ public class DuelController {
             throw new FullSpellZone();
         SpellCard spellCard = (SpellCard) this.selectedCard.getCard();
         this.player.getBoard().putSpellOrTrap(spellCard, "H");
+        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber()-1);
         unselectCard();
         DuelView.printText("set successfully");
 
@@ -331,6 +338,7 @@ public class DuelController {
             throw new FullSpellZone();
         TrapCard trapCard = (TrapCard) this.selectedCard.getCard();
         this.player.getBoard().putSpellOrTrap(trapCard, "H");
+        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber()-1);
         unselectCard();
         DuelView.printText("set successfully");
     }
