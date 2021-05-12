@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import view.LogInView;
 
+import javax.accessibility.AccessibleStateSet;
 import javax.jws.soap.SOAPBinding;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -21,7 +22,7 @@ public class test {
     static User rival;
 
     @BeforeAll
-    static void toBeDoneBefore() {
+    static void toBeDoneBefore() throws Exception {
         player = new User("kiana_msz","kiana","12345");
         Deck deck = new Deck("deck of kiana");
         player.addDeck(deck);
@@ -29,6 +30,70 @@ public class test {
         rival = new User("hamriouz","hamraz","12345");
         rival.addDeck(deck);
         rival.setActiveDeck(deck);
+        deck = new Deck("second deck");
+        player.addDeck(deck);
+        deck = new Deck("third deck");
+        player.addDeck(deck);
+    }
+
+    @Test
+    @DisplayName("delete deck")
+    public void deleteDeck() throws Exception {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        int firstSize = player.getAllDecks().size();
+        DeckController.getInstance(player).deleteDeck("third deck");
+        int secondSize = player.getAllDecks().size();
+        Assertions.assertEquals(1,firstSize-secondSize);
+        Assertions.assertThrows(DeckNotFound.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).deleteDeck("deck number 4");
+            }
+        });
+        int thirdSize = player.getAllDecks().size();
+        Assertions.assertEquals(0,thirdSize-secondSize);
+        Assertions.assertEquals("deck deleted successfully\r\n",outContent.toString());
+    }
+
+    @Test
+    @DisplayName("activateDeck")
+    public void activateDeck()throws Exception{
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        DeckController.getInstance(player).activateDeck("second deck");
+        Assertions.assertEquals("deck activated successfully\r\n",outContent.toString());
+        Assertions.assertThrows(DeckNotFound.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).activateDeck("deck number 4");
+            }
+        });
+    }
+
+
+    @Test
+    @DisplayName("create deck repetitive deck name")
+    public void createDeckRepetitiveDeckName() throws Exception{
+        Assertions.assertThrows(RepetitiveDeckName.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).createDeck("deck of kiana");
+            }
+        });
+    }
+
+    @Test
+    @DisplayName("create deck fine")
+    public void createDeckFine() throws Exception {
+        int firstSize = player.getAllDecks().size();
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        DeckController.getInstance(player).createDeck("deck molayi");
+        //player.addDeck(player.getDeckByName("deck molayi"));
+        int secondSize = player.getAllDecks().size();
+        Assertions.assertEquals(1,secondSize-firstSize);
+        Assertions.assertEquals("deck created successfully!\r\n",outContent.toString());
     }
 
 
@@ -125,7 +190,7 @@ public class test {
     public void testMenuEnter(){
         InputStream sysInBackup = System.in; // backup System.in to restore it later
         PrintStream sysOutBackup = System.out;
-        ByteArrayInputStream in = new ByteArrayInputStream("menu enter \r\nmenu exit\r\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("menu enter \nmenu exit\n".getBytes());
         System.setIn(in);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
@@ -141,20 +206,19 @@ public class test {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         LogInController.getInstance().createUser("CHECK","check","ChEcK");
-        //System.out.print("user created successfully!");
         Assertions.assertEquals("user created successfully!\r\n",outContent.toString());
     }
 
-    @Test
-    @DisplayName("loginUser fine")
-    public void loginUserFine() throws Exception {
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        ByteArrayInputStream in = new ByteArrayInputStream("user logout\nmenu exit\n".getBytes());
-        System.setIn(in);
-        LogInController.getInstance().loginUser("kiana_msz","12345");
-        Assertions.assertEquals("user logged in successfully!\r\nuser logged out successfully!\r\n",outContent.toString());
-    }
+//    @Test
+//    @DisplayName("loginUser fine")
+//    public void loginUserFine() throws Exception {
+//        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+//        System.setOut(new PrintStream(outContent));
+//        ByteArrayInputStream in = new ByteArrayInputStream("user login -u kiana_msz -p 12345\nuser logout\nmenu exit\n".getBytes());
+//        System.setIn(in);
+//        LogInView.getInstance().getCommandForLogin();
+//        Assertions.assertEquals("user logged in successfully!\r\nuser logged out successfully!\r\n",outContent.toString());
+//    }
 
 
     @Test
@@ -200,6 +264,10 @@ public class test {
             }
         });
     }
+
+//    @Test
+//    @DisplayName("")
+//    public void
 
 
 }

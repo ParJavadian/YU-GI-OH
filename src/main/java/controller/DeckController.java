@@ -27,9 +27,10 @@ public class DeckController {
             Deck deck = new Deck(name);
             this.user.addDeck(deck);
             DeckView.getInstance(this.user).printText("deck created successfully!");
-        } else
+        } else {
+            DeckView.getInstance(this.user).printText("deck with name " + name + " already exists");
             throw new RepetitiveDeckName(name);
-        DeckView.getInstance(this.user).printText("deck with name " + name + " already exists");
+        }
     }
 
     public void deleteDeck(String name) throws Exception {
