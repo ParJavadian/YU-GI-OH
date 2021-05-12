@@ -32,16 +32,12 @@ public class LogInController {
                     throw new RepetitiveUsername(username);
                 } else if (eachUser.getNickname().equals(nickname)) {
                     throw new RepetitiveNickname(nickname);
-                } else {
-                    new User(username, nickname, password);
-                    LogInView.getInstance().printText("user created successfully!");
                 }
             }
         }
-        else{
-            new User(username, nickname, password);
-            LogInView.getInstance().printText("user created successfully!");
-        }
+        new User(username, nickname, password);
+        LogInView.getInstance().printText("user created successfully!");
+
     }
 
     public void loginUser(String userName, String password) throws Exception {

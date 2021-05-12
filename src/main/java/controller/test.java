@@ -1,8 +1,6 @@
 package controller;
 
-import controller.exeption.InvalidSelection;
-import controller.exeption.RepetitiveNickname;
-import controller.exeption.RepetitiveUsername;
+import controller.exeption.*;
 import model.Deck;
 import model.User;
 import org.junit.jupiter.api.Assertions;
@@ -23,7 +21,7 @@ public class test {
     static User rival;
 
     @BeforeAll
-    static void toBeDoneBefore(){
+    static void toBeDoneBefore() {
         player = new User("kiana_msz","kiana","12345");
         Deck deck = new Deck("deck of kiana");
         player.addDeck(deck);
@@ -138,12 +136,12 @@ public class test {
 //    }
     @Test
     @DisplayName("createUser everything is fine")
-    public void createUserFine(){
+    public void createUserFine() throws Exception {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        User check = new User("CHECK","check","ChEcK");
+        LogInController.getInstance().createUser("CHECK","check","ChEcK");
         //System.out.print("user created successfully!");
-        Assertions.assertEquals("user created successfully!",outContent.toString());
+        Assertions.assertEquals("user created successfully!"+'\r',outContent.toString());
     }
 
 
@@ -165,6 +163,28 @@ public class test {
             @Override
             public void execute() throws Throwable {
                 LogInController.getInstance().createUser("kiana_m","12345","kiana");
+            }
+        });
+    }
+
+    @Test
+    @DisplayName("loginUser UserNotFound")
+    public void loginUserUserNotFound() throws Exception {
+        Assertions.assertThrows(UsernameNotFound.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                LogInController.getInstance().loginUser("kasra","123");
+            }
+        });
+    }
+
+    @Test
+    @DisplayName("loginUser WrongPassword")
+    public void loginUserWrongPassword() throws Exception {
+        Assertions.assertThrows(WrongPassword.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                LogInController.getInstance().loginUser("hamriouz","123");
             }
         });
     }
