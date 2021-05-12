@@ -19,6 +19,7 @@ public class MainController {
     }
 
     public void goToMenu(String menu) {
+
         switch (menu) {
             case "Deck":
                 DeckView.getInstance(this.user).getCommandForDeck();

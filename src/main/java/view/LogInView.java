@@ -20,7 +20,7 @@ public class LogInView {
         String command;
         while (true) {
             command = ScannerClassForView.getScanner().nextLine();
-            if (processCommand(command)) System.exit(0);
+            if (processCommand(command)) return;
         }
     }
 

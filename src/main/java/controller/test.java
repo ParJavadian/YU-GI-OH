@@ -120,20 +120,21 @@ public class test {
         });
     }
 
-//    @Test
-//    @DisplayName("test menu enter")
-//    public void testMenuEnter(){
-//        InputStream sysInBackup = System.in; // backup System.in to restore it later
-//        PrintStream sysOutBackup = System.out;
-//        ByteArrayInputStream in = new ByteArrayInputStream("menu enter \nmenu exit\n".getBytes());
-//        System.setIn(in);
-//        ByteArrayOutputStream out = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(out));
-//        LogInView.getInstance().getCommandForLogin();
-//        Assertions.assertEquals("please login first\n",out.toString());
-//        System.setIn(sysInBackup);
-//        System.setOut(sysOutBackup);
-//    }
+    @Test
+    @DisplayName("test menu enter")
+    public void testMenuEnter(){
+        InputStream sysInBackup = System.in; // backup System.in to restore it later
+        PrintStream sysOutBackup = System.out;
+        ByteArrayInputStream in = new ByteArrayInputStream("menu enter \r\nmenu exit\r\n".getBytes());
+        System.setIn(in);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        LogInView.getInstance().getCommandForLogin();
+        Assertions.assertEquals("please login first\r\n",out.toString());
+        System.setIn(sysInBackup);
+        System.setOut(sysOutBackup);
+    }
+
     @Test
     @DisplayName("createUser everything is fine")
     public void createUserFine() throws Exception {
@@ -141,7 +142,18 @@ public class test {
         System.setOut(new PrintStream(outContent));
         LogInController.getInstance().createUser("CHECK","check","ChEcK");
         //System.out.print("user created successfully!");
-        Assertions.assertEquals("user created successfully!"+'\r',outContent.toString());
+        Assertions.assertEquals("user created successfully!\r\n",outContent.toString());
+    }
+
+    @Test
+    @DisplayName("loginUser fine")
+    public void loginUserFine() throws Exception {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        ByteArrayInputStream in = new ByteArrayInputStream("user logout\nmenu exit\n".getBytes());
+        System.setIn(in);
+        LogInController.getInstance().loginUser("kiana_msz","12345");
+        Assertions.assertEquals("user logged in successfully!\r\nuser logged out successfully!\r\n",outContent.toString());
     }
 
 
@@ -188,5 +200,6 @@ public class test {
             }
         });
     }
+
 
 }

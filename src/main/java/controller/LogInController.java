@@ -37,7 +37,6 @@ public class LogInController {
         }
         new User(username, nickname, password);
         LogInView.getInstance().printText("user created successfully!");
-
     }
 
     public void loginUser(String userName, String password) throws Exception {
@@ -54,9 +53,3 @@ public class LogInController {
 
 
 }
-/*
-user create -u parmida -p password -n nickname
-user login -u parmida -p password
-menu enter Shop
-shop show --all
-*/
