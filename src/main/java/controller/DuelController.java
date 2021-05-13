@@ -607,6 +607,11 @@ public class DuelController {
         }
     }
 
+    public void cheatMoney(int amount){
+        if (amount <= 5000)
+        this.player.increaseMoney(amount);
+    }
+
 
     public void surrender() {
         //todo shayad lazem bashe darbare in bishter tafakor konim
