@@ -598,6 +598,16 @@ public class DuelController {
 //        }
     }
 
+    public void cheatLifePoint(String target, int lifePoint){
+        if (lifePoint < 3000){
+        if (target.equals("player"))
+            this.player.increaseLifePoint(lifePoint);
+        if(target.equals("opponent"))
+            this.rival.decreaseLifePoint(lifePoint);
+        }
+    }
+
+
     public void surrender() {
         //todo shayad lazem bashe darbare in bishter tafakor konim
         endGame(this.player);

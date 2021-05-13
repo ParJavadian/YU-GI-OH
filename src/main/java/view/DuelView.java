@@ -184,6 +184,23 @@ public class DuelView {
             printText("menu navigation is not possible");
             return false;
         }
+
+
+
+        matcher = getCommandMatcher(command,"edoCtaehc tnioPefil ([\\w -]+) ([\\w -]+)");
+        if (matcher.matches()){
+            Matcher isOpponent = getCommandMatcher(matcher.group(1),"tnenoppo");
+            Matcher isPlayer = getCommandMatcher(matcher.group(1),"reyalp");
+            Matcher lifePoint = getCommandMatcher(matcher.group(2),"[0-9]+");
+            if (isOpponent.find())
+                duelController.cheatLifePoint("opponent",Integer.parseInt(matcher.group(2)));
+
+            if (isPlayer.find())
+                duelController.cheatLifePoint("player",Integer.parseInt(matcher.group(2)));
+
+            return false;
+        }
+
         printText("invalid command");
         return false;
     }
