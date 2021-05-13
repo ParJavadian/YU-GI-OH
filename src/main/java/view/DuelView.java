@@ -205,6 +205,13 @@ public class DuelView {
         if (matcher.matches()){
             int amount = Integer.parseInt(matcher.group(1));
             duelController.cheatMoney(amount);
+
+            return false;
+        }
+
+        if (command.equals("niw ot tnaw tsuj i tub od ot gniht dab yrev a si gnitaehc wonk i")){
+            duelController.cheatToWinGame();
+            return false;
         }
 
         printText("invalid command");

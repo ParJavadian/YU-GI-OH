@@ -612,6 +612,11 @@ public class DuelController {
         this.player.increaseMoney(amount);
     }
 
+    //TODO lotfan ino check konin ok bashe
+    public void cheatToWinGame(){
+        endGame(this.rival);
+    }
+
 
     public void surrender() {
         //todo shayad lazem bashe darbare in bishter tafakor konim
