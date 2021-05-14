@@ -72,6 +72,7 @@ public class DeckView {
                 }
             }
         }
+
         //TODO in tabe ro ezafe kardam
         if (command.startsWith("taehc deck add-card taehc ") && command.matches("[\\w -]+")){
             Matcher matcher1 = getCommandMatcher(command + " ", "(--card|-c) ([\\w ]+) ");

@@ -119,6 +119,7 @@ public class DeckController {
                 activeDeck = deck;
             }
         }
+
         allDecks.remove(activeDeck);
         Comparator<Deck> deckComparator = Comparator.comparing(Deck::getDeckName);
         allDecks.sort(deckComparator);
