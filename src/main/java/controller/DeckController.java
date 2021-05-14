@@ -41,6 +41,39 @@ public class DeckController {
             throw new DeckNotFound(name);
     }
 
+    public void addCardToDeck(String cardName, String deckName, boolean isSide, boolean isAddedByCheating) throws Exception {
+        Card card = this.user.getCardByName(cardName);
+        if (card != null) {
+            Deck deck = this.user.getDeckByName(deckName);
+            if (deck != null) {
+                if (isSide) {
+                    //TODO in khate bad ezafe shode ba boolean to vurudi haye tabe
+                    if (!isAddedByCheating) {
+                        if (deck.getSideSize() == 15) throw new FullSideDeck();
+                    } else if (deck.getMainSize() == 60) throw new FullMainDeck();
+                }
+                if ((card instanceof MonsterCard ||
+                        (card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.UNLIMITED))
+                        || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.UNLIMITED)))
+                        && deck.numberOfWantedCard(card) == 3)
+                    throw new ThreeSameCards(cardName, deckName);
+                else if ((card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.LIMITED))
+                        || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.LIMITED))
+                        && deck.numberOfWantedCard(card) == 1)
+                    throw new OneCardForLimited(cardName, deckName);
+                else {
+                    if (isSide) {
+                        deck.addCardToSideDeck(card);
+                    } else {
+                        deck.addCardToMainDeck(card);
+                    }
+                    this.user.deleteCard(cardName);
+                    DeckView.getInstance(this.user).printText("card added to deck successfully");
+                }
+            } else throw new DeckNotFound(deckName);
+        } else throw new CardNotFoundInUser(cardName);
+    }
+
     public void activateDeck(String name) throws Exception {
         if (this.user.getDeckByName(name) != null) {
             this.user.setActiveDeck(this.user.getDeckByName(name));
@@ -48,42 +81,6 @@ public class DeckController {
         } else
             throw new DeckNotFound(name);
     }
-
-    public void addCardToDeck(String cardName, String deckName, boolean isSide, boolean isAddedByCheating) throws Exception {
-            Card card = this.user.getCardByName(cardName);
-            if (card != null) {
-                Deck deck = this.user.getDeckByName(deckName);
-                if (deck != null) {
-                    if (isSide) {
-                        //TODO in khate bad ezafe shode ba boolean to vurudi haye tabe
-                        if (!isAddedByCheating) {
-                            if (deck.getSideSize() == 15) throw new FullSideDeck();
-                        } else if (deck.getMainSize() == 60) throw new FullMainDeck();
-                    }
-                    if ((card instanceof MonsterCard ||
-                            (card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.UNLIMITED))
-                            || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.UNLIMITED)))
-                            && deck.numberOfWantedCard(card) == 3)
-                        throw new ThreeSameCards(cardName, deckName);
-                    else if ((card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.LIMITED))
-                            || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.LIMITED))
-                            && deck.numberOfWantedCard(card) == 1)
-                        throw new OneCardForLimited(cardName, deckName);
-                    else {
-                        if (isSide) {
-                            deck.addCardToSideDeck(card);
-                        } else {
-                            deck.addCardToMainDeck(card);
-                        }
-                        this.user.deleteCard(cardName);
-                        DeckView.getInstance(this.user).printText("card added to deck successfully");
-                    }
-                } else throw new DeckNotFound(deckName);
-            } else throw new CardNotFoundInUser(cardName);
-        }
-    }
-
-
 
     public void removeCardFromDeck(String cardName, String deckName, boolean isSide) throws Exception {
         Deck deck = user.getDeckByName(deckName);

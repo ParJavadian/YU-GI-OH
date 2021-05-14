@@ -73,6 +73,19 @@ public class DeckView {
             }
         }
 
+        if (command.startsWith("deck rm-card ") && command.matches("[\\w -]+")) {
+            Matcher matcher1 = getCommandMatcher(command + " ", "(--card|-c) ([\\w ]+) ");
+            Matcher matcher2 = getCommandMatcher(command + " ", "(--deck|-d) ([\\w ]+) ");
+            if (matcher1.find() && matcher2.find()) {
+                Matcher matcher3 = getCommandMatcher(command, " (--side|-s)");
+                try {
+                    deckController.removeCardFromDeck(matcher1.group(2), matcher2.group(2), matcher3.find());
+                } catch (Exception exception) {
+                    printText(exception.getMessage());
+                }
+            }
+        }
+
         //TODO in tabe ro ezafe kardam
         if (command.startsWith("taehc deck add-card taehc ") && command.matches("[\\w -]+")){
             Matcher matcher1 = getCommandMatcher(command + " ", "(--card|-c) ([\\w ]+) ");
@@ -86,18 +99,7 @@ public class DeckView {
                 }
             }
         }
-        if (command.startsWith("deck rm-card ") && command.matches("[\\w -]+")) {
-            Matcher matcher1 = getCommandMatcher(command + " ", "(--card|-c) ([\\w ]+) ");
-            Matcher matcher2 = getCommandMatcher(command + " ", "(--deck|-d) ([\\w ]+) ");
-            if (matcher1.find() && matcher2.find()) {
-                Matcher matcher3 = getCommandMatcher(command, " (--side|-s)");
-                try {
-                    deckController.removeCardFromDeck(matcher1.group(2), matcher2.group(2), matcher3.find());
-                } catch (Exception exception) {
-                    printText(exception.getMessage());
-                }
-            }
-        }
+
         matcher = getCommandMatcher(command, "deck show --all");
         if (matcher.matches()) {
             deckController.showAllDecks();
