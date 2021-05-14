@@ -43,7 +43,10 @@ public class Deck {
         this.sideDeck.add(card);
     }
 
-
+    public void setDeck(ArrayList<Card> mainCards,ArrayList<Card> sideCards){
+        this.mainDeck = mainCards;
+        this.sideDeck = sideCards;
+    }
 
     public void removeCardFromMainDeck(Card card) {
         this.mainDeck.remove(card);

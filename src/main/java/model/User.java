@@ -14,6 +14,16 @@ public class User {
     private List<Card> allCards;
     private List<Deck> allDecks;
     private Deck currentActiveDeck;
+    private Deck currentGameDeck;
+
+    public Deck getGameDeck() {
+        return this.currentGameDeck;
+    }
+
+    public void setGameDeck(Deck currentGameDeck) {
+        this.currentGameDeck = currentGameDeck;
+    }
+
     private int lifePoint;
     private Board board;
     private int money;

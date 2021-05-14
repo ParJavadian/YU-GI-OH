@@ -31,6 +31,30 @@ public class DuelController {
     public DuelController(User player, User rival, int roundNumber) {
         this.player = player;
         this.rival = rival;
+        Deck deck;
+        if (this.player.getDeckByName("@" + this.player.getActiveDeck().getDeckName()) == null) {
+            deck = new Deck("@" + this.player.getActiveDeck().getDeckName());
+        }
+        else {
+            deck = this.player.getDeckByName("@" + this.player.getActiveDeck().getDeckName());
+        }
+        List<Card> mainCards = this.player.getActiveDeck().getMainDeck();
+        List<Card> sideCards = this.player.getActiveDeck().getSideDeck();
+        deck.setDeck((ArrayList<Card>) mainCards, (ArrayList<Card>) sideCards);
+        this.player.addDeck(deck);
+        this.player.setGameDeck(deck);
+        if (this.rival.getDeckByName("@" + this.rival.getActiveDeck().getDeckName()) == null) {
+            deck = new Deck("@" + this.rival.getActiveDeck().getDeckName());
+        }
+        else {
+            deck = this.rival.getDeckByName("@" + this.rival.getActiveDeck().getDeckName());
+        }
+        mainCards = this.rival.getActiveDeck().getMainDeck();
+        sideCards = this.rival.getActiveDeck().getSideDeck();
+        deck.setDeck((ArrayList<Card>) mainCards, (ArrayList<Card>) sideCards);
+        this.rival.setGameDeck(deck);
+        this.rival.addDeck(deck);
+
         this.rounds = new Round[roundNumber];
         this.roundNumber = roundNumber;
         this.roundCounter = 0;
@@ -376,8 +400,7 @@ public class DuelController {
                 throw new FullSpellZone();
             }
             this.player.getBoard().putSpellOrTrap(trapCard, "H");
-        }
-        else {
+        } else {
             if (this.player.getBoard().getFieldZone() != null) {
                 this.player.getBoard().putInGraveYard(this.player.getBoard().getFieldZone());
                 this.player.getBoard().removeFromFieldZone();
@@ -727,22 +750,22 @@ public class DuelController {
             DuelView.printText("enter card name from main and side");
             String main = DuelView.scan();
             Card mainCard = user.getCardByName(main);
-            while (mainCard == null || !user.getActiveDeck().getMainDeck().contains(mainCard)) {
+            while (mainCard == null || !user.getGameDeck().getMainDeck().contains(mainCard)) {
                 DuelView.printText("Please enter a card you have in your main deck!");
                 main = DuelView.scan();
                 mainCard = user.getCardByName(main);
             }
             String side = DuelView.scan();
             Card sideCard = user.getCardByName(side);
-            while (sideCard == null || !user.getActiveDeck().getSideDeck().contains(sideCard)) {
+            while (sideCard == null || !user.getGameDeck().getSideDeck().contains(sideCard)) {
                 DuelView.printText("Please enter a card you have in your side deck!");
                 side = DuelView.scan();
                 sideCard = user.getCardByName(side);
             }
-            user.getActiveDeck().getSideDeck().remove(sideCard);
-            user.getActiveDeck().getMainDeck().remove(mainCard);
-            user.getActiveDeck().getSideDeck().add(mainCard);
-            user.getActiveDeck().getMainDeck().add(sideCard);
+            user.getGameDeck().getSideDeck().remove(sideCard);
+            user.getGameDeck().getMainDeck().remove(mainCard);
+            user.getGameDeck().getSideDeck().add(mainCard);
+            user.getGameDeck().getMainDeck().add(sideCard);
         }
     }
 
@@ -776,43 +799,40 @@ public class DuelController {
 
     private void startDrawPhase(boolean isFirstTime) {
         this.phase = Phase.DRAW_PHASE;
-        ArrayList<Card> playerMainCards = (ArrayList<Card>) this.player.getActiveDeck().getMainDeck();
-        ArrayList<Card> rivalMainCards = (ArrayList<Card>) this.rival.getActiveDeck().getMainDeck();
+        ArrayList<Card> playerMainCards = (ArrayList<Card>) this.player.getGameDeck().getMainDeck();
+        ArrayList<Card> rivalMainCards = (ArrayList<Card>) this.rival.getGameDeck().getMainDeck();
         if (playerMainCards.size() == 0) endGame(this.player);
         else {
             if (!isFirstTime) {
                 this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
-                this.player.getActiveDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
-                Collections.shuffle(this.player.getActiveDeck().getMainDeck());
+                this.player.getGameDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
+                Collections.shuffle(this.player.getGameDeck().getMainDeck());
                 DuelView.printText("new card added to the hand : " + playerMainCards.get(playerMainCards.size() - 1).getNamePascalCase());
             } else {
                 for (int i = 0; i < 5; i++) {
                     this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
-                    this.player.getActiveDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
+                    this.player.getGameDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
                     this.rival.getBoard().addCardToHand(rivalMainCards.get(rivalMainCards.size() - 1));
-                    this.rival.getActiveDeck().removeCardFromMainDeck(rivalMainCards.get(rivalMainCards.size() - 1));
+                    this.rival.getGameDeck().removeCardFromMainDeck(rivalMainCards.get(rivalMainCards.size() - 1));
                 }
             }
         }
     }
 
     private void changeTurn() {
-            if (this.isStartTurn) this.isStartTurn = false;
-            //TODO inam hanooz kar dare
-            User temp = this.player;
-            this.player = rival;
-            this.rival = temp;
-            clearLastTurn();
+        if (this.isStartTurn) this.isStartTurn = false;
+        //TODO inam hanooz kar dare
+        User temp = this.player;
+        this.player = rival;
+        this.rival = temp;
+        clearLastTurn();
 
-            if(this.player.getUsername().equals("@AI@"))
-                handleAITurn();
+        if (this.player.getUsername().equals("@AI@"))
+            handleAITurn();
 
     }
 
-    private void handleAITurn(){
-
-
-
+    private void handleAITurn() {
 
 
         changeTurn();
@@ -830,7 +850,7 @@ public class DuelController {
             toPrint += "\tc";
         }
         toPrint += "\n";
-        toPrint += this.rival.getActiveDeck().getMainSize() + "\n";
+        toPrint += this.rival.getGameDeck().getMainSize() + "\n";
         for (int i = 4; i > -1; i--) {
             toPrint += "\t";
             if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
@@ -860,7 +880,7 @@ public class DuelController {
             if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
             else toPrint += this.player.getBoard().getSpellAndTrapConditionByNumber(i);
         }
-        toPrint += "\t\t\t\t\t\t" + this.player.getActiveDeck().getMainSize() + "\n";
+        toPrint += "\t\t\t\t\t\t" + this.player.getGameDeck().getMainSize() + "\n";
         for (Card ignored : this.player.getBoard().getCardsInHand()) {
             toPrint += "c\t";
         }
