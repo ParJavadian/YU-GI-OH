@@ -1,9 +1,7 @@
 package controller;
 
 import controller.exeption.*;
-import model.Deck;
-import model.MonsterCard;
-import model.User;
+import model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -26,8 +24,6 @@ public class test {
     static void toBeDoneBefore() throws Exception {
         player = new User("kiana_msz","kiana","12345");
         Deck deck = new Deck("deck of kiana");
-//        player.getDeckByName("deck of kiana").addCardToMainDeck(player.getCardByName("Suijin"));
-//        player.getDeckByName("deck of kiana").addCardToMainDeck(player.getCardByName("Fireyarou"));
         player.addDeck(deck);
         player.setActiveDeck(deck);
         rival = new User("hamriouz","hamraz","12345");
@@ -40,26 +36,272 @@ public class test {
     }
 
     @Test
+    @DisplayName("add card to main deck full")
+    public void addCardFullMainDeck() throws Exception{
+
+        DeckController.getInstance(player).createDeck("deck to check full main");
+        player.setActiveDeck(player.getDeckByName("deck to check full main"));
+
+//        User temp = rival;
+//        rival = player;
+//        player = temp;
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.SUIJIN);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.BABY_DRAGON);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.BATTLE_OX);
+        }
+
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(),false,false);
+        }
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck("Suijin",player.getActiveDeck().getDeckName(),false,false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),false,false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_OX.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+        Assertions.assertThrows(ThreeSameCards.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+            }
+        });
+
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.HANIWA);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.CURTAIN_OF_DARK_ONES);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.GATE_GUARDIAN);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.HERO_OF_THE_EAST);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.SCANNER);
+        }
+
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.HANIWA.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.CURTAIN_OF_DARK_ONES.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.GATE_GUARDIAN.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.HERO_OF_THE_EAST.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.SCANNER.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.ADVANCED_RITUAL_ART);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(SpellCard.ADVANCED_RITUAL_ART.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.BLACK_PENDANT);
+        }
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(SpellCard.BLACK_PENDANT.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.CHANGE_OF_HEART);
+        }
+        DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        Assertions.assertThrows(OneCardForLimited.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+            }
+        });
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.CLOSED_FOREST);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(SpellCard.CLOSED_FOREST.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.FOREST);
+        }
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(SpellCard.FOREST.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.DARK_HOLE);
+        }
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(SpellCard.DARK_HOLE.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.HARPIES_FEATHER_DUST);
+        }
+
+        DeckController.getInstance(player).addCardToDeck(SpellCard.HARPIES_FEATHER_DUST.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.MONSTER_REBORN);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(SpellCard.MONSTER_REBORN.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.RAIGEKI);
+        }
+
+
+
+            DeckController.getInstance(player).addCardToDeck(SpellCard.RAIGEKI.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(SpellCard.MAGNUM_SHIELD);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(SpellCard.MAGNUM_SHIELD.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(TrapCard.CALL_OF_THE_HAUNTED);
+        }
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(TrapCard.CALL_OF_THE_HAUNTED.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(TrapCard.MIND_CRUSH);
+        }
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(TrapCard.MIND_CRUSH.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+        }
+
+
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(TrapCard.TRAP_HOLE);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(TrapCard.MAGIC_CYLINDER);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(TrapCard.MAGIC_JAMMER);
+        }
+
+        Assertions.assertThrows(FullMainDeck.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck(TrapCard.MAGIC_CYLINDER.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+            }
+        });
+
+        DeckController.getInstance(player).activateDeck("deck of kiana");
+
+//        temp = rival;
+//        rival = player;
+//        player = temp;
+
+    }
+
+    @Test
     @DisplayName("add card to side deck full ")
     public void addCardFullSideDeck() throws Exception {
-        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
-        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
-        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
-        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
-        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
-        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
-        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
-        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
-        player.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
-        player.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
-        player.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
-        player.addCardToUsersAllCards(MonsterCard.BABY_DRAGON);
-        player.addCardToUsersAllCards(MonsterCard.BABY_DRAGON);
-        player.addCardToUsersAllCards(MonsterCard.BABY_DRAGON);
-        player.addCardToUsersAllCards(MonsterCard.BATTLE_OX);
-        player.addCardToUsersAllCards(MonsterCard.BATTLE_OX);
-        player.addCardToUsersAllCards(MonsterCard.BATTLE_OX);
+
+        DeckController.getInstance(player).createDeck("deck to check full side");
+        player.setActiveDeck(player.getDeckByName("deck to check full side"));
+
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.SUIJIN);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.BABY_DRAGON);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.BATTLE_OX);
+        }
+
         player.addCardToUsersAllCards(MonsterCard.BATTLE_WARRIOR);
+
         for (int i = 0; i < 3; i++) {
             DeckController.getInstance(player).addCardToDeck("Suijin",player.getActiveDeck().getDeckName(),true,false);
         }
@@ -72,11 +314,16 @@ public class test {
             DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_OX.getNamePascalCase(),player.getActiveDeck().getDeckName(),true,false);
         }
 
-
         for (int i = 0; i < 3; i++) {
             DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(),player.getActiveDeck().getDeckName(),true,false);
         }
 
+        Assertions.assertThrows(ThreeSameCards.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.SUIJIN.getNamePascalCase(), player.getActiveDeck().getDeckName(),false,false);
+            }
+        });
 
         for (int i = 0; i < 3; i++) {
             DeckController.getInstance(player).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(),true,false);
@@ -110,7 +357,6 @@ public class test {
             }
         });
         player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
-        //DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),true,false);
         Assertions.assertThrows(DeckNotFound.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -155,6 +401,7 @@ public class test {
                 DeckController.getInstance(player).activateDeck("deck number 4");
             }
         });
+        DeckController.getInstance(player).activateDeck("deck of kiana");
     }
 
 
@@ -241,12 +488,14 @@ public class test {
     @Test
     @DisplayName("testSelectCardPlayerTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
     public void testSelectCardPlayerTrapAndSpellZoneLessThan1() throws Exception {
+        player.setActiveDeck(player.getDeckByName("deck to check full main"));
         final DuelController duelController = new DuelController(player,rival,1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardPlayerTrapAndSpellZone(0);
             }
         });
+        player.setActiveDeck(player.getDeckByName("deck of kiana"));
     }
 
     @Test
