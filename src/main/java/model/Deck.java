@@ -33,10 +33,6 @@ public class Deck {
         return this.mainDeck.size();
     }
 
-    public int getTotalSize() {
-        return this.getMainSize() + this.getSideSize();
-    }
-
     public void addCardToMainDeck(Card card) {
         this.mainDeck.add(card);
     }

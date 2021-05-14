@@ -799,7 +799,7 @@ public class DuelController {
             toPrint += "\tc";
         }
         toPrint += "\n";
-        toPrint += this.rival.getActiveDeck().getTotalSize() + "\n";
+        toPrint += this.rival.getActiveDeck().getMainSize() + "\n";
         for (int i = 4; i > -1; i--) {
             toPrint += "\t";
             if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
@@ -829,7 +829,7 @@ public class DuelController {
             if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
             else toPrint += this.player.getBoard().getSpellAndTrapConditionByNumber(i);
         }
-        toPrint += "\t\t\t\t\t\t" + this.player.getActiveDeck().getTotalSize() + "\n";
+        toPrint += "\t\t\t\t\t\t" + this.player.getActiveDeck().getMainSize() + "\n";
         for (Card ignored : this.player.getBoard().getCardsInHand()) {
             toPrint += "c\t";
         }
