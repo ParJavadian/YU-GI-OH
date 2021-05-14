@@ -67,9 +67,9 @@ public class DeckController {
             Deck deck = this.user.getDeckByName(deckName);
             if (deck != null) {
                 if (!isAddedByCheating) {
-                    if (isSide && deck.getSideSize() == 15)
+                    if (isSide && deck.getSideSize() >= 15)
                         throw new FullSideDeck();
-                    else if (!(isSide) && (deck.getMainSize() == 60))
+                    else if (!(isSide) && (deck.getMainSize() >= 60))
                         throw new FullMainDeck();
                 }
                 if ((card instanceof MonsterCard ||

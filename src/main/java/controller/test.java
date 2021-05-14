@@ -23,42 +23,35 @@ public class test {
 
     @BeforeAll
     static void toBeDoneBefore() throws Exception {
-        player = new User("kiana_msz","kiana","12345");
+        player = new User("kiana_msz", "kiana", "12345");
         Deck deck = new Deck("deck of kiana");
+        Deck deck1 = new Deck("deck of hamraz");
         player.addDeck(deck);
         player.setActiveDeck(deck);
-        rival = new User("hamriouz","hamraz","12345");
-        rival.addDeck(deck);
-        rival.setActiveDeck(deck);
+        rival = new User("hamriouz", "hamraz", "12345");
+        rival.addDeck(deck1);
+        rival.setActiveDeck(deck1);
         for (int i = 0; i < 3; i++) {
             rival.addCardToUsersAllCards(MonsterCard.YOMI_SHIP);
-            DeckController.getInstance(rival).addCardToDeck(MonsterCard.YOMI_SHIP.getNamePascalCase(), "deck of kiana", false,false);
+            DeckController.getInstance(rival).addCardToDeck(MonsterCard.YOMI_SHIP.getNamePascalCase(), "deck of hamraz", false, false);
         }
         for (int i = 0; i < 3; i++) {
             rival.addCardToUsersAllCards(MonsterCard.DARK_BLADE);
-            DeckController.getInstance(rival).addCardToDeck(MonsterCard.DARK_BLADE.getNamePascalCase(), "deck of kiana", false,false);
+            DeckController.getInstance(rival).addCardToDeck(MonsterCard.DARK_BLADE.getNamePascalCase(), "deck of hamraz", false, false);
         }
         for (int i = 0; i < 3; i++) {
             rival.addCardToUsersAllCards(MonsterCard.DARK_MAGICIAN);
-            DeckController.getInstance(rival).addCardToDeck(MonsterCard.DARK_MAGICIAN.getNamePascalCase(), "deck of kiana", false,false);
+            DeckController.getInstance(rival).addCardToDeck(MonsterCard.DARK_MAGICIAN.getNamePascalCase(), "deck of hamraz", false, false);
         }
         rival.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
-        DeckController.getInstance(rival).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), "deck of kiana", false,false);
+        DeckController.getInstance(rival).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), "deck of hamraz", false, false);
         deck = new Deck("second deck");
         player.addDeck(deck);
         deck = new Deck("third deck");
         player.addDeck(deck);
-
-
-
-
         {
             DeckController.getInstance(player).createDeck("deck to check full main");
             player.setActiveDeck(player.getDeckByName("deck to check full main"));
-
-
-
-
             for (int i = 0; i < 4; i++) {
                 player.addCardToUsersAllCards(MonsterCard.SUIJIN);
             }
@@ -74,28 +67,21 @@ public class test {
             for (int i = 0; i < 4; i++) {
                 player.addCardToUsersAllCards(MonsterCard.BATTLE_OX);
             }
-
-
-
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck("Suijin",player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck("Suijin", player.getActiveDeck().getDeckName(), false, false);
             }
-
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck("Fireyarou", player.getActiveDeck().getDeckName(), false, false);
             }
-
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_OX.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_OX.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
-
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
-
             for (int i = 0; i < 4; i++) {
                 player.addCardToUsersAllCards(MonsterCard.HANIWA);
             }
@@ -111,30 +97,22 @@ public class test {
             for (int i = 0; i < 4; i++) {
                 player.addCardToUsersAllCards(MonsterCard.SCANNER);
             }
-
-
-
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.HANIWA.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.HANIWA.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+            }
+            for (int i = 0; i < 3; i++) {
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.CURTAIN_OF_DARK_ONES.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+            }
+            for (int i = 0; i < 3; i++) {
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.GATE_GUARDIAN.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+            }
+            for (int i = 0; i < 3; i++) {
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.HERO_OF_THE_EAST.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.CURTAIN_OF_DARK_ONES.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.SCANNER.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
-
-            for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.GATE_GUARDIAN.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
-            }
-
-            for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.HERO_OF_THE_EAST.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
-            }
-
-            for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.SCANNER.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
-            }
-
-
 
 
             for (int i = 0; i < 4; i++) {
@@ -142,7 +120,7 @@ public class test {
             }
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(SpellCard.ADVANCED_RITUAL_ART.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(SpellCard.ADVANCED_RITUAL_ART.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
 
 
@@ -152,15 +130,14 @@ public class test {
 
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(SpellCard.BLACK_PENDANT.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(SpellCard.BLACK_PENDANT.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
-
 
 
             for (int i = 0; i < 4; i++) {
                 player.addCardToUsersAllCards(SpellCard.CHANGE_OF_HEART);
             }
-            DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+            DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
 
 
             for (int i = 0; i < 4; i++) {
@@ -168,7 +145,7 @@ public class test {
             }
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(SpellCard.CLOSED_FOREST.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(SpellCard.CLOSED_FOREST.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
 
 
@@ -178,9 +155,8 @@ public class test {
 
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(SpellCard.FOREST.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(SpellCard.FOREST.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
-
 
 
             for (int i = 0; i < 4; i++) {
@@ -189,7 +165,7 @@ public class test {
 
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(SpellCard.DARK_HOLE.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(SpellCard.DARK_HOLE.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
 
 
@@ -197,14 +173,14 @@ public class test {
                 player.addCardToUsersAllCards(SpellCard.HARPIES_FEATHER_DUST);
             }
 
-            DeckController.getInstance(player).addCardToDeck(SpellCard.HARPIES_FEATHER_DUST.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+            DeckController.getInstance(player).addCardToDeck(SpellCard.HARPIES_FEATHER_DUST.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
 
             for (int i = 0; i < 4; i++) {
                 player.addCardToUsersAllCards(SpellCard.MONSTER_REBORN);
             }
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(SpellCard.MONSTER_REBORN.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(SpellCard.MONSTER_REBORN.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
 
 
@@ -213,8 +189,7 @@ public class test {
             }
 
 
-
-            DeckController.getInstance(player).addCardToDeck(SpellCard.RAIGEKI.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+            DeckController.getInstance(player).addCardToDeck(SpellCard.RAIGEKI.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
 
 
             for (int i = 0; i < 4; i++) {
@@ -222,9 +197,8 @@ public class test {
             }
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(SpellCard.MAGNUM_SHIELD.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(SpellCard.MAGNUM_SHIELD.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
-
 
 
             for (int i = 0; i < 4; i++) {
@@ -233,9 +207,8 @@ public class test {
 
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(TrapCard.CALL_OF_THE_HAUNTED.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(TrapCard.CALL_OF_THE_HAUNTED.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
-
 
 
             for (int i = 0; i < 4; i++) {
@@ -244,9 +217,8 @@ public class test {
 
 
             for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(TrapCard.MIND_CRUSH.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(TrapCard.MIND_CRUSH.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
-
 
 
             for (int i = 0; i < 4; i++) {
@@ -258,49 +230,40 @@ public class test {
             for (int i = 0; i < 4; i++) {
                 player.addCardToUsersAllCards(TrapCard.MAGIC_JAMMER);
             }
-            player.setActiveDeck(player.getDeckByName("deck of kiana"));
 
 
         }
+        player.setActiveDeck(player.getDeckByName("deck of kiana"));
     }
 
-//    @Test
-//    @DisplayName("add card to main deck full")
-//    public void addCardFullMainDeck() throws Exception{
-//
-//        player.setActiveDeck(player.getDeckByName("deck to check full main"));
-//        Assertions.assertThrows(ThreeSameCards.class, new Executable() {
-//            @Override
-//            public void execute() throws Throwable {
-//                DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
-//            }
-//        });
-//
-//
-//
-//
-//        Assertions.assertThrows(OneCardForLimited.class, new Executable() {
-//            @Override
-//            public void execute() throws Throwable {
-//                DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
-//            }
-//        });
-//
-//
-//
-//        Assertions.assertThrows(FullMainDeck.class , new Executable() {
-//            @Override
-//            public void execute() throws Throwable {
-//                DeckController.getInstance(player).addCardToDeck(TrapCard.MAGIC_CYLINDER.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
-//            }
-//        });
-//
-//
-//
-//        DeckController.getInstance(player).activateDeck("deck of kiana");
-//
-//
-//    }
+    @Test
+    @DisplayName("add card to main deck full")
+    public void addCardFullMainDeck() throws Exception {
+        player.setActiveDeck(player.getDeckByName("deck to check full main"));
+        /*ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
+        Assertions.assertEquals("deck deleted successfully\r\n", outContent.toString());*/
+        Assertions.assertThrows(ThreeSameCards.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+            }
+        });
+        Assertions.assertThrows(OneCardForLimited.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+            }
+        });
+        Assertions.assertThrows(FullMainDeck.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck(TrapCard.MAGIC_CYLINDER.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+            }
+        });
+        DeckController.getInstance(player).activateDeck("deck of kiana");
+    }
 
     @Test
     @DisplayName("add card to side deck full ")
@@ -328,36 +291,36 @@ public class test {
         player.addCardToUsersAllCards(MonsterCard.BATTLE_WARRIOR);
 
         for (int i = 0; i < 3; i++) {
-            DeckController.getInstance(player).addCardToDeck("Suijin",player.getActiveDeck().getDeckName(),true,false);
+            DeckController.getInstance(player).addCardToDeck("Suijin", player.getActiveDeck().getDeckName(), true, false);
         }
 
         for (int i = 0; i < 3; i++) {
-            DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),true,false);
+            DeckController.getInstance(player).addCardToDeck("Fireyarou", player.getActiveDeck().getDeckName(), true, false);
         }
 
         for (int i = 0; i < 3; i++) {
-            DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_OX.getNamePascalCase(),player.getActiveDeck().getDeckName(),true,false);
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_OX.getNamePascalCase(), player.getActiveDeck().getDeckName(), true, false);
         }
 
         for (int i = 0; i < 3; i++) {
-            DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(),player.getActiveDeck().getDeckName(),true,false);
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(), true, false);
         }
 
         Assertions.assertThrows(ThreeSameCards.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.SUIJIN.getNamePascalCase(), player.getActiveDeck().getDeckName(),false,false);
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.SUIJIN.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
         });
 
         for (int i = 0; i < 3; i++) {
-            DeckController.getInstance(player).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(),true,false);
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(), true, false);
         }
 
         Assertions.assertThrows(FullSideDeck.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_WARRIOR.getNamePascalCase(), player.getActiveDeck().getDeckName(),true,false);
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_WARRIOR.getNamePascalCase(), player.getActiveDeck().getDeckName(), true, false);
             }
         });
     }
@@ -373,26 +336,26 @@ public class test {
         player.addCardToUsersAllCards(MonsterCard.SUIJIN);
         player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
         player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
-        DeckController.getInstance(player).addCardToDeck("Suijin",player.getActiveDeck().getDeckName(),false,false);
-        DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),false,false);
-        DeckController.getInstance(player).addCardToDeck("Suijin",player.getActiveDeck().getDeckName(),true,false);
-        DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),true,false);
+        DeckController.getInstance(player).addCardToDeck("Suijin", player.getActiveDeck().getDeckName(), false, false);
+        DeckController.getInstance(player).addCardToDeck("Fireyarou", player.getActiveDeck().getDeckName(), false, false);
+        DeckController.getInstance(player).addCardToDeck("Suijin", player.getActiveDeck().getDeckName(), true, false);
+        DeckController.getInstance(player).addCardToDeck("Fireyarou", player.getActiveDeck().getDeckName(), true, false);
         Assertions.assertThrows(CardNotFoundInUser.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.FLAME_MANIPULATOR.getNamePascalCase(), player.getActiveDeck().getDeckName(),true,false);
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.FLAME_MANIPULATOR.getNamePascalCase(), player.getActiveDeck().getDeckName(), true, false);
             }
         });
         player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
         Assertions.assertThrows(DeckNotFound.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                DeckController.getInstance(player).addCardToDeck("Fireyarou","best deck ever",true,false);
+                DeckController.getInstance(player).addCardToDeck("Fireyarou", "best deck ever", true, false);
             }
         });
-        Assertions.assertEquals(2,player.getActiveDeck().getSideDeck().size());
-        Assertions.assertEquals(2,player.getActiveDeck().getMainDeck().size());
-        Assertions.assertEquals("card added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\n",outContent.toString());
+        Assertions.assertEquals(2, player.getActiveDeck().getSideDeck().size());
+        Assertions.assertEquals(2, player.getActiveDeck().getMainDeck().size());
+        Assertions.assertEquals("card added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\n", outContent.toString());
         player.setActiveDeck(player.getDeckByName("deck of kiana"));
     }
 
@@ -404,7 +367,7 @@ public class test {
         int firstSize = player.getAllDecks().size();
         DeckController.getInstance(player).deleteDeck("third deck");
         int secondSize = player.getAllDecks().size();
-        Assertions.assertEquals(1,firstSize-secondSize);
+        Assertions.assertEquals(1, firstSize - secondSize);
         Assertions.assertThrows(DeckNotFound.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -412,17 +375,17 @@ public class test {
             }
         });
         int thirdSize = player.getAllDecks().size();
-        Assertions.assertEquals(0,thirdSize-secondSize);
-        Assertions.assertEquals("deck deleted successfully\r\n",outContent.toString());
+        Assertions.assertEquals(0, thirdSize - secondSize);
+        Assertions.assertEquals("deck deleted successfully\r\n", outContent.toString());
     }
 
     @Test
     @DisplayName("activateDeck")
-    public void activateDeck()throws Exception{
+    public void activateDeck() throws Exception {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         DeckController.getInstance(player).activateDeck("second deck");
-        Assertions.assertEquals("deck activated successfully\r\n",outContent.toString());
+        Assertions.assertEquals("deck activated successfully\r\n", outContent.toString());
         Assertions.assertThrows(DeckNotFound.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -435,7 +398,7 @@ public class test {
 
     @Test
     @DisplayName("create deck repetitive deck name")
-    public void createDeckRepetitiveDeckName() throws Exception{
+    public void createDeckRepetitiveDeckName() throws Exception {
         Assertions.assertThrows(RepetitiveDeckName.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -453,15 +416,15 @@ public class test {
         DeckController.getInstance(player).createDeck("deck molayi");
         //player.addDeck(player.getDeckByName("deck molayi"));
         int secondSize = player.getAllDecks().size();
-        Assertions.assertEquals(1,secondSize-firstSize);
-        Assertions.assertEquals("deck created successfully!\r\n",outContent.toString());
+        Assertions.assertEquals(1, secondSize - firstSize);
+        Assertions.assertEquals("deck created successfully!\r\n", outContent.toString());
     }
 
 
     @Test
     @DisplayName("testSelectCardPlayerMonsterZone with input more than 5 which should throw InvalidSelection")
     public void testSelectCardPlayerMonsterZoneMoreThan6() throws Exception {
-        final DuelController duelController = new DuelController(player,rival,1);
+        final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardPlayerMonsterZone(6);
@@ -472,7 +435,7 @@ public class test {
     @Test
     @DisplayName("testSelectCardPlayerMonsterZone with input less than 1 which should throw InvalidSelection")
     public void testSelectCardPlayerMonsterZoneLessThan1() throws Exception {
-        final DuelController duelController = new DuelController(player,rival,1);
+        final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardPlayerMonsterZone(0);
@@ -483,7 +446,7 @@ public class test {
     @Test
     @DisplayName("testSelectCardOpponentMonsterZone with input more than 5 which should throw InvalidSelection")
     public void testSelectCardOpponentMonsterZoneMoreThan6() throws Exception {
-        final DuelController duelController = new DuelController(player,rival,1);
+        final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardOpponentMonsterZone(6);
@@ -494,7 +457,7 @@ public class test {
     @Test
     @DisplayName("testSelectCardOpponentMonsterZone with input less than 1 which should throw InvalidSelection")
     public void testSelectCardOpponentMonsterZoneLessThan1() throws Exception {
-        final DuelController duelController = new DuelController(player,rival,1);
+        final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardOpponentMonsterZone(0);
@@ -505,7 +468,7 @@ public class test {
     @Test
     @DisplayName("testSelectCardPlayerTrapAndSpellZone with input more than 5 which should throw InvalidSelection")
     public void testSelectCardPlayerTrapAndSpellZoneMoreThan6() throws Exception {
-        final DuelController duelController = new DuelController(player,rival,1);
+        final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardPlayerTrapAndSpellZone(6);
@@ -516,20 +479,20 @@ public class test {
     @Test
     @DisplayName("testSelectCardPlayerTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
     public void testSelectCardPlayerTrapAndSpellZoneLessThan1() throws Exception {
-//        player.setActiveDeck(player.getDeckByName("deck to check full main"));
-        final DuelController duelController = new DuelController(player,rival,1);
+        player.setActiveDeck(player.getDeckByName("deck to check full main"));
+        final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardPlayerTrapAndSpellZone(0);
             }
         });
-//        player.setActiveDeck(player.getDeckByName("deck of kiana"));
+        player.setActiveDeck(player.getDeckByName("deck of kiana"));
     }
 
     @Test
     @DisplayName("testSelectCardOpponentTrapAndSpellZone with input more than 5 which should throw InvalidSelection")
     public void testSelectCardOpponentTrapAndSpellZoneMoreThan6() throws Exception {
-        final DuelController duelController = new DuelController(player,rival,1);
+        final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardOpponentTrapAndSpellZone(6);
@@ -540,7 +503,7 @@ public class test {
     @Test
     @DisplayName("testSelectCardOpponentTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
     public void testSelectCardOpponentTrapAndSpellZoneLessThan1() throws Exception {
-        final DuelController duelController = new DuelController(player,rival,1);
+        final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardOpponentTrapAndSpellZone(0);
@@ -550,7 +513,7 @@ public class test {
 
     @Test
     @DisplayName("test menu enter")
-    public void testMenuEnter(){
+    public void testMenuEnter() {
         InputStream sysInBackup = System.in; // backup System.in to restore it later
         PrintStream sysOutBackup = System.out;
         ByteArrayInputStream in = new ByteArrayInputStream("menu enter \nmenu exit\n".getBytes());
@@ -558,7 +521,7 @@ public class test {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
         LogInView.getInstance().getCommandForLogin();
-        Assertions.assertEquals("please login first\r\n",out.toString());
+        Assertions.assertEquals("please login first\r\n", out.toString());
         System.setIn(sysInBackup);
         System.setOut(sysOutBackup);
     }
@@ -568,8 +531,8 @@ public class test {
     public void createUserFine() throws Exception {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        LogInController.getInstance().createUser("CHECK","check","ChEcK");
-        Assertions.assertEquals("user created successfully!\r\n",outContent.toString());
+        LogInController.getInstance().createUser("CHECK", "check", "ChEcK");
+        Assertions.assertEquals("user created successfully!\r\n", outContent.toString());
     }
 
 //    @Test
@@ -590,7 +553,7 @@ public class test {
         Assertions.assertThrows(RepetitiveUsername.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                LogInController.getInstance().createUser("kiana_msz","12345","kiana");
+                LogInController.getInstance().createUser("kiana_msz", "12345", "kiana");
             }
         });
     }
@@ -601,7 +564,7 @@ public class test {
         Assertions.assertThrows(RepetitiveNickname.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                LogInController.getInstance().createUser("kiana_m","12345","kiana");
+                LogInController.getInstance().createUser("kiana_m", "12345", "kiana");
             }
         });
     }
@@ -612,7 +575,7 @@ public class test {
         Assertions.assertThrows(UsernameNotFound.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                LogInController.getInstance().loginUser("kasra","123");
+                LogInController.getInstance().loginUser("kasra", "123");
             }
         });
     }
@@ -623,7 +586,7 @@ public class test {
         Assertions.assertThrows(WrongPassword.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                LogInController.getInstance().loginUser("hamriouz","123");
+                LogInController.getInstance().loginUser("hamriouz", "123");
             }
         });
     }
