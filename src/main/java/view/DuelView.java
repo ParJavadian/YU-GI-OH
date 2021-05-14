@@ -26,6 +26,7 @@ public class DuelView {
         while (true) {
             command = ScannerClassForView.getScanner().nextLine();
             if (processCommand(command) ) break;
+            if(duelController.getShouldEndGameForView()) break;
             duelController.manageEndGame();
             if(duelController.getShouldEndGameForView()) break;
         }
@@ -184,23 +185,18 @@ public class DuelView {
             printText("menu navigation is not possible");
             return false;
         }
-
-
-
         matcher = getCommandMatcher(command,"edoCtaehc tnioPefil ([\\w -]+) ([\\w -]+)");
         if (matcher.matches()){
             Matcher isOpponent = getCommandMatcher(matcher.group(1),"tnenoppo");
             Matcher isPlayer = getCommandMatcher(matcher.group(1),"reyalp");
             Matcher lifePoint = getCommandMatcher(matcher.group(2),"[0-9]+");
-            if (isOpponent.find())
-                duelController.cheatLifePoint("opponent",Integer.parseInt(matcher.group(2)));
-
-            if (isPlayer.find())
-                duelController.cheatLifePoint("player",Integer.parseInt(matcher.group(2)));
+            if (isOpponent.find() && lifePoint.find())
+                duelController.cheatLifePoint("opponent",Integer.parseInt(lifePoint.group()));
+            if (isPlayer.find() && lifePoint.find())
+                duelController.cheatLifePoint("player",Integer.parseInt(lifePoint.group()));
 
             return false;
         }
-
         matcher = getCommandMatcher(command, "edoCtaehc yenom ([0-9]+)");
         if (matcher.matches()){
             int amount = Integer.parseInt(matcher.group(1));
@@ -208,12 +204,10 @@ public class DuelView {
 
             return false;
         }
-
         if (command.equals("niw ot tnaw tsuj i tub od ot gniht dab yrev a si gnitaehc wonk i")){
             duelController.cheatToWinGame();
             return false;
         }
-
         printText("invalid command");
         return false;
     }
