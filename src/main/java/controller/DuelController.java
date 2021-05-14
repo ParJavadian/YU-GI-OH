@@ -34,27 +34,26 @@ public class DuelController {
         Deck deck;
         if (this.player.getDeckByName("@" + this.player.getActiveDeck().getDeckName()) == null) {
             deck = new Deck("@" + this.player.getActiveDeck().getDeckName());
-        }
-        else {
+        } else {
             deck = this.player.getDeckByName("@" + this.player.getActiveDeck().getDeckName());
+            this.player.removeDeck(deck);
         }
-        List<Card> mainCards = this.player.getActiveDeck().getMainDeck();
-        List<Card> sideCards = this.player.getActiveDeck().getSideDeck();
-        deck.setDeck((ArrayList<Card>) mainCards, (ArrayList<Card>) sideCards);
+        ArrayList<Card> mainCards = new ArrayList<>(this.player.getActiveDeck().getMainDeck());
+        ArrayList<Card> sideCards = new ArrayList<>(this.player.getActiveDeck().getSideDeck());
+        deck.setDeck(mainCards, sideCards);
         this.player.addDeck(deck);
         this.player.setGameDeck(deck);
         if (this.rival.getDeckByName("@" + this.rival.getActiveDeck().getDeckName()) == null) {
             deck = new Deck("@" + this.rival.getActiveDeck().getDeckName());
-        }
-        else {
+        } else {
             deck = this.rival.getDeckByName("@" + this.rival.getActiveDeck().getDeckName());
+            this.rival.removeDeck(deck);
         }
-        mainCards = this.rival.getActiveDeck().getMainDeck();
-        sideCards = this.rival.getActiveDeck().getSideDeck();
-        deck.setDeck((ArrayList<Card>) mainCards, (ArrayList<Card>) sideCards);
-        this.rival.setGameDeck(deck);
+        mainCards = new ArrayList<>(this.rival.getActiveDeck().getMainDeck());
+        sideCards = new ArrayList<>(this.rival.getActiveDeck().getSideDeck());
+        deck.setDeck(mainCards, sideCards);
         this.rival.addDeck(deck);
-
+        this.rival.setGameDeck(deck);
         this.rounds = new Round[roundNumber];
         this.roundNumber = roundNumber;
         this.roundCounter = 0;

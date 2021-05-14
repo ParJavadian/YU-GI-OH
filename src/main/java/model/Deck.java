@@ -137,7 +137,7 @@ public class Deck {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Deck deck = (Deck) o;
-        return Objects.equals(deckName, deck.deckName);
+        return Objects.equals(this.deckName, deck.deckName);
     }
 
 }
