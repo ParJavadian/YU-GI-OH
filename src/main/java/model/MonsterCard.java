@@ -216,26 +216,17 @@ public enum MonsterCard implements Card {
         Pattern pattern = Pattern.compile("_([a-z])[a-z]+");
         Matcher matcher = pattern.matcher(name);
         while (matcher.find())
-            name = name.replace(matcher.group(1), matcher.group(1).toUpperCase());
+            name = name.replace("_" + matcher.group(1), "_" + matcher.group(1).toUpperCase());
         name = name.replaceAll("_", " ");
         return name;
     }
 
     @Override
     public String toString() {
-        String name = this.name().charAt(0) + this.name().substring(1).toLowerCase();
-        Pattern pattern = Pattern.compile("_([a-z])[a-z]+");
-        Matcher matcher = pattern.matcher(name);
-        while (matcher.find())
-            name = name.replace(matcher.group(1), matcher.group(1).toUpperCase());
-        name = name.replaceAll("_", " ");
+        String name = this.getNamePascalCase();
         String toReturn = "Name: " + name + "\n" +
                 "Level: " + this.level + "\n";
-        String monsterType = this.monsterType.name().charAt(0) + this.monsterType.name().substring(1).toLowerCase();
-        matcher = pattern.matcher(monsterType);
-        while (matcher.find())
-            monsterType = monsterType.replace(matcher.group(1), matcher.group(1).toUpperCase());
-        monsterType = monsterType.replaceAll("_", " ");
+        String monsterType = this.monsterType.getNamePascalCase();
         toReturn = toReturn + "Type: " + monsterType + "\n" +
                 "ATK: " + this.attack + "\n" +
                 "DEF: " + this.defence + "\n" +

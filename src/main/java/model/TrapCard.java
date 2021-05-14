@@ -79,26 +79,17 @@ public enum TrapCard implements Card {
         Pattern pattern = Pattern.compile("_([a-z])[a-z]+");
         Matcher matcher = pattern.matcher(name);
         while (matcher.find())
-            name = name.replace(matcher.group(1), matcher.group(1).toUpperCase());
+            name = name.replace("_" + matcher.group(1), "_" + matcher.group(1).toUpperCase());
         name = name.replaceAll("_", " ");
         return name;
     }
 
     @Override
     public String toString() {
-        String name = this.name().charAt(0) + this.name().substring(1).toLowerCase();
-        Pattern pattern = Pattern.compile("_([a-z])[a-z]+");
-        Matcher matcher = pattern.matcher(name);
-        while (matcher.find())
-            name = name.replace(matcher.group(1), matcher.group(1).toUpperCase());
-        name = name.replaceAll("_", " ");
+        String name = this.getNamePascalCase();
         String toReturn = "Name: " + name + "\n" +
                 "Trap" + "\n";
-        String type = this.icon.name().charAt(0) + this.icon.name().substring(1).toLowerCase();
-        matcher = pattern.matcher(type);
-        while (matcher.find())
-            type = type.replace(matcher.group(1), matcher.group(1).toUpperCase());
-        type = type.replaceAll("_", " ");
+        String type = this.icon.getNamePascalCase();
         toReturn = toReturn + "Type: " + type + "\n" +
                 "Description: " + this.description;
         return toReturn;
