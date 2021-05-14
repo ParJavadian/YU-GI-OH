@@ -16,6 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 
+
 public class test {
     static User player;
     static User rival;
