@@ -41,10 +41,10 @@ public class test {
     @Test
     @DisplayName("add card to deck")
     public void addCardToDeckTest(){
-        player.getDeckByName("deck of kiana").addCardToMainDeck(player.getCardByName("Suijin"));
-        player.getDeckByName("deck of kiana").addCardToMainDeck(player.getCardByName("Fireyarou"));
-        player.getDeckByName("deck of kiana").addCardToSideDeck(player.getCardByName("Suijin"));
-        player.getDeckByName("deck of kiana").addCardToSideDeck(player.getCardByName("Fireyarou"));
+        player.getActiveDeck().addCardToMainDeck(player.getCardByName("Suijin"));
+        player.getActiveDeck().addCardToMainDeck(player.getCardByName("Fireyarou"));
+        player.getActiveDeck().addCardToSideDeck(player.getCardByName("Suijin"));
+        player.getActiveDeck().addCardToSideDeck(player.getCardByName("Fireyarou"));
         Assertions.assertEquals(2,player.getActiveDeck().getSideDeck().size());
         Assertions.assertEquals(2,player.getActiveDeck().getMainDeck().size());
     }
