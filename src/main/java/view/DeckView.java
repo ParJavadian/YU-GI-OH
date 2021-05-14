@@ -66,7 +66,20 @@ public class DeckView {
             if (matcher1.find() && matcher2.find()) {
                 Matcher matcher3 = getCommandMatcher(command, " (--side|-s)");
                 try {
-                    deckController.addCardToDeck(matcher1.group(2), matcher2.group(2), matcher3.find());
+                    deckController.addCardToDeck(matcher1.group(2), matcher2.group(2), matcher3.find(),false);
+                } catch (Exception exception) {
+                    printText(exception.getMessage());
+                }
+            }
+        }
+        //TODO in tabe ro ezafe kardam
+        if (command.startsWith("taehc deck add-card taehc ") && command.matches("[\\w -]+")){
+            Matcher matcher1 = getCommandMatcher(command + " ", "(--card|-c) ([\\w ]+) ");
+            Matcher matcher2 = getCommandMatcher(command + " ", "(--deck|-d) ([\\w ]+) ");
+            if (matcher1.find() && matcher2.find()) {
+                Matcher matcher3 = getCommandMatcher(command, " (--side|-s)");
+                try {
+                    deckController.addCardToDeck(matcher1.group(2), matcher2.group(2), matcher3.find(),true);
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }
@@ -118,6 +131,7 @@ public class DeckView {
         if (matcher.matches()) {
             return true;
         }
+
         printText("invalid command");
         return false;
     }
