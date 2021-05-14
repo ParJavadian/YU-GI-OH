@@ -835,6 +835,14 @@ public class DuelController {
     }
 
     private void handleAITurn() {
+        setMonsterCardInAI();
+        setSpellOrTrapInAI();
+        //TODO go next phase?
+        //TODO age lazem bud ye ifi cizi
+        attackInAI();
+        //TODO age lazem bud ye if
+        changePositionInAI();
+        //TODO
 
     }
 
@@ -855,7 +863,130 @@ public class DuelController {
     */
 
 
-    private int monsterCardWithMaxAttackPointInHand(){
+
+    private void setMonsterCardInAI(){
+
+    }
+
+    private void setSpellOrTrapInAI(){
+
+    }
+
+    private void attackInAI(){
+
+    }
+    private void changePositionInAI(){
+
+    }
+
+    private Card monsterCardWithoutTributeWithMaxAttackPointInHand(){
+        int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
+        int maxAttackPoint = 0;
+        int indexOfMaxAttacker = 10;
+        for (int i = 0; i < numberOfCardsInHand; i++) {
+            Card card = this.player.getBoard().getCardInHandByNumber(i);
+            if (card instanceof MonsterCard)
+                if (((MonsterCard) card).getLevel() < 5)
+                    if (((MonsterCard) card).getAttack() > maxAttackPoint) {
+                        maxAttackPoint = ((MonsterCard) card).getAttack();
+                        indexOfMaxAttacker = i;
+                    }
+        }
+        if (indexOfMaxAttacker != 10)
+        return this.player.getBoard().getCardInHandByNumber(indexOfMaxAttacker);
+        else return null;
+    }
+
+    private Card monsterCardWithOneTributeWithMaxAttackPointInHand(){
+        int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
+        int maxAttackPoint = 0;
+        int indexOfMaxAttacker = 10;
+        for (int i = 0; i < numberOfCardsInHand; i++) {
+            Card card = this.player.getBoard().getCardInHandByNumber(i);
+            if (card instanceof MonsterCard)
+                if (((MonsterCard) card).getLevel() == 5 || ((MonsterCard) card).getLevel() == 6)
+                    if (((MonsterCard) card).getAttack() > maxAttackPoint) {
+                        maxAttackPoint = ((MonsterCard) card).getAttack();
+                        indexOfMaxAttacker = i;
+                    }
+        }
+        if (indexOfMaxAttacker != 10)
+        return this.player.getBoard().getCardInHandByNumber(indexOfMaxAttacker);
+        else return null;
+    }
+
+    private Card monsterCardWithTwoTributesWithMaxAttackPointInHand(){
+        int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
+        int maxAttackPoint = 0;
+        int indexOfMaxAttacker = 10;
+        for (int i = 0; i < numberOfCardsInHand; i++) {
+            Card card = this.player.getBoard().getCardInHandByNumber(i);
+            if (card instanceof MonsterCard)
+                if (((MonsterCard) card).getLevel() > 6)
+                    if (((MonsterCard) card).getAttack() > maxAttackPoint) {
+                        maxAttackPoint = ((MonsterCard) card).getAttack();
+                        indexOfMaxAttacker = i;
+                    }
+        }
+        if (indexOfMaxAttacker != 10)
+        return this.player.getBoard().getCardInHandByNumber(indexOfMaxAttacker);
+        else return null;
+    }
+
+    private Card monsterCardWithMaxDefenseInHand(){
+        int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
+        int maxDefencePoint = 0;
+        int indexOfMaxDefender = 10;
+        for (int i = 0; i < numberOfCardsInHand; i++) {
+            Card card = this.player.getBoard().getCardInHandByNumber(i);
+            if (card instanceof MonsterCard)
+                    if (((MonsterCard) card).getDefence() > maxDefencePoint) {
+                        maxDefencePoint = ((MonsterCard) card).getDefence();
+                        indexOfMaxDefender = i;
+                    }
+        }
+        if (indexOfMaxDefender != 10)
+        return this.player.getBoard().getCardInHandByNumber(indexOfMaxDefender);
+        else return null;
+    }
+
+    private Card monsterCardWithLeaseAttackPointOnRivalBoard(){
+        int leastAttackPoint = 100000;
+        int indexOfMinAttacker = 10;
+        for (int i = 1; i <= 5; i++) {
+            Card card = this.rival.getBoard().getMonsterByNumber(i);
+            //TODO if position
+            if (leastAttackPoint > ((MonsterCard) card).getAttack())
+                indexOfMinAttacker = i;
+        }
+        if (indexOfMinAttacker != 10)
+            return this.rival.getBoard().getMonsterByNumber(indexOfMinAttacker);
+        else return null;
+    }
+
+    private Card MonsterCardWithLeastDefencePointOnRivalBoard(){
+        int leastDefencePoint = 100000;
+        int indexOfMinDefender = 10;
+        for (int i = 1; i <= 5 ; i++) {
+            Card card = this.rival.
+        }
+    }
+
+    private Card MonsterCardWithMostAttackPointOnRivalBoard(){
+        int mostAttackPoint = 0;
+        int indexOfMaxAttacker = 10;
+
+    }
+
+    //TODO harchi spell trap dare bezare zamin
+
+    //ba max attacher bezane be hidden
+
+    private Card findMonsterCardWithMinDefenceOnRivalBoard(){
+        int
+    }
+
+/* private int monsterCardWithMaxAttackPointInHand(){
         int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
         int maxAttackPoint = 0;
         int indexOfMaxAttacker = 0;
@@ -885,7 +1016,7 @@ public class DuelController {
         return indexOfMaxAttacker;
     }
 
-   /* private Card monsterCardWithMaxDefencePointInHand(){
+    private Card monsterCardWithMaxDefencePointInHand(){
         int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
         int minAttackPoint = 1000000;
         int indexOfMaxAttacker = 0;
@@ -900,12 +1031,6 @@ public class DuelController {
         return this.player.getBoard().getCardInHandByNumber(indexOfMaxAttacker);
     }
 */
-    private Card findMonsterCardWithMinDefenceOnRivalBoard(){
-
-    }
-
-    private Card
-
 
     private void clearLastTurn() {
         this.selectedCard = null;
