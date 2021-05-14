@@ -349,10 +349,18 @@ public class DuelController {
     private void setSpell() throws Exception {
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2))))
             throw new ImproperPhase();
-        if (this.player.getBoard().isFullSpellAndTrapZone())
-            throw new FullSpellZone();
         SpellCard spellCard = (SpellCard) this.selectedCard.getCard();
-        this.player.getBoard().putSpellOrTrap(spellCard, "H");
+        if (!spellCard.getIcon().equals(Icon.FIELD)) {
+            if (this.player.getBoard().isFullSpellAndTrapZone())
+                throw new FullSpellZone();
+            this.player.getBoard().putSpellOrTrap(spellCard, "H");
+        } else {
+            if (this.player.getBoard().getFieldZone() != null) {
+                this.player.getBoard().putInGraveYard(this.player.getBoard().getFieldZone());
+                this.player.getBoard().removeFromFieldZone();
+            }
+            this.player.getBoard().putInFieldZone(spellCard);
+        }
         this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
         unselectCard();
         DuelView.printText("set successfully");
@@ -362,10 +370,20 @@ public class DuelController {
     private void setTrap() throws Exception {
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2))))
             throw new ImproperPhase();
-        if (this.player.getBoard().isFullSpellAndTrapZone())
-            throw new FullSpellZone();
         TrapCard trapCard = (TrapCard) this.selectedCard.getCard();
-        this.player.getBoard().putSpellOrTrap(trapCard, "H");
+        if (!trapCard.getIcon().equals(Icon.FIELD)) {
+            if (this.player.getBoard().isFullSpellAndTrapZone()) {
+                throw new FullSpellZone();
+            }
+            this.player.getBoard().putSpellOrTrap(trapCard, "H");
+        }
+        else {
+            if (this.player.getBoard().getFieldZone() != null) {
+                this.player.getBoard().putInGraveYard(this.player.getBoard().getFieldZone());
+                this.player.getBoard().removeFromFieldZone();
+            }
+            this.player.getBoard().putInFieldZone(trapCard);
+        }
         this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
         unselectCard();
         DuelView.printText("set successfully");
@@ -536,11 +554,11 @@ public class DuelController {
             throw new CanNotActivateEffectOnThisTurn();
         if (!this.selectedCard.getBoardZone().equals(BoardZone.HAND))
             throw new AlreadyActivated();
-        if (this.player.getBoard().isFullSpellAndTrapZone() && !((SpellCard) this.selectedCard.getCard()).getIcon().equals(Icon.FIELD))
+        SpellCard spellCard = (SpellCard) this.selectedCard.getCard();
+        if (this.player.getBoard().isFullSpellAndTrapZone() && !spellCard.getIcon().equals(Icon.FIELD))
             throw new FullSpellZone();
 //        if (/*sahrti dasht ke nemishod faal kard */) throw new UndonePreparationOfSpell();
-        SpellCard spellCard = (SpellCard) this.selectedCard.getCard();
-        if (((SpellCard) this.selectedCard.getCard()).getIcon().equals(Icon.FIELD)) {
+        if (spellCard.getIcon().equals(Icon.FIELD)) {
             if (this.player.getBoard().getFieldZone() != null) {
                 this.player.getBoard().putInGraveYard(this.player.getBoard().getFieldZone());
                 this.player.getBoard().removeFromFieldZone();

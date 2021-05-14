@@ -46,19 +46,19 @@ public class DeckController {
         if (card != null) {
             Deck deck = this.user.getDeckByName(deckName);
             if (deck != null) {
-                if (isSide) {
-                    //TODO in khate bad ezafe shode ba boolean to vurudi haye tabe
-                    if (!isAddedByCheating) {
-                        if (deck.getSideSize() == 15) throw new FullSideDeck();
-                    } else if (deck.getMainSize() == 60) throw new FullMainDeck();
+                if (!isAddedByCheating) {
+                    if (isSide && deck.getSideSize() == 15)
+                        throw new FullSideDeck();
+                    else if (!isSide && (deck.getMainSize() == 60))
+                        throw new FullMainDeck();
                 }
                 if ((card instanceof MonsterCard ||
                         (card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.UNLIMITED))
                         || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.UNLIMITED)))
                         && deck.numberOfWantedCard(card) == 3)
                     throw new ThreeSameCards(cardName, deckName);
-                else if ((card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.LIMITED))
-                        || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.LIMITED))
+                else if (((card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.LIMITED))
+                        || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.LIMITED)))
                         && deck.numberOfWantedCard(card) == 1)
                     throw new OneCardForLimited(cardName, deckName);
                 else {
