@@ -30,8 +30,20 @@ public class test {
         rival = new User("hamriouz","hamraz","12345");
         rival.addDeck(deck);
         rival.setActiveDeck(deck);
-        rival.addCardToUsersAllCards(MonsterCard.YOMI_SHIP);
-        DeckController.getInstance(rival).addCardToDeck(MonsterCard.YOMI_SHIP.getNamePascalCase(), "deck of kiana", false,false);
+        for (int i = 0; i < 3; i++) {
+            rival.addCardToUsersAllCards(MonsterCard.YOMI_SHIP);
+            DeckController.getInstance(rival).addCardToDeck(MonsterCard.YOMI_SHIP.getNamePascalCase(), "deck of kiana", false,false);
+        }
+        for (int i = 0; i < 3; i++) {
+            rival.addCardToUsersAllCards(MonsterCard.DARK_BLADE);
+            DeckController.getInstance(rival).addCardToDeck(MonsterCard.DARK_BLADE.getNamePascalCase(), "deck of kiana", false,false);
+        }
+        for (int i = 0; i < 3; i++) {
+            rival.addCardToUsersAllCards(MonsterCard.DARK_MAGICIAN);
+            DeckController.getInstance(rival).addCardToDeck(MonsterCard.DARK_MAGICIAN.getNamePascalCase(), "deck of kiana", false,false);
+        }
+        rival.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
+        DeckController.getInstance(rival).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), "deck of kiana", false,false);
         deck = new Deck("second deck");
         player.addDeck(deck);
         deck = new Deck("third deck");
@@ -252,43 +264,43 @@ public class test {
         }
     }
 
-    @Test
-    @DisplayName("add card to main deck full")
-    public void addCardFullMainDeck() throws Exception{
-
-        player.setActiveDeck(player.getDeckByName("deck to check full main"));
-        Assertions.assertThrows(ThreeSameCards.class, new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
-            }
-        });
-
-
-
-
-        Assertions.assertThrows(OneCardForLimited.class, new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
-            }
-        });
-
-
-
-        Assertions.assertThrows(FullMainDeck.class , new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                DeckController.getInstance(player).addCardToDeck(TrapCard.MAGIC_CYLINDER.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
-            }
-        });
-
-
-
-        DeckController.getInstance(player).activateDeck("deck of kiana");
-
-
-    }
+//    @Test
+//    @DisplayName("add card to main deck full")
+//    public void addCardFullMainDeck() throws Exception{
+//
+//        player.setActiveDeck(player.getDeckByName("deck to check full main"));
+//        Assertions.assertThrows(ThreeSameCards.class, new Executable() {
+//            @Override
+//            public void execute() throws Throwable {
+//                DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+//            }
+//        });
+//
+//
+//
+//
+//        Assertions.assertThrows(OneCardForLimited.class, new Executable() {
+//            @Override
+//            public void execute() throws Throwable {
+//                DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+//            }
+//        });
+//
+//
+//
+//        Assertions.assertThrows(FullMainDeck.class , new Executable() {
+//            @Override
+//            public void execute() throws Throwable {
+//                DeckController.getInstance(player).addCardToDeck(TrapCard.MAGIC_CYLINDER.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
+//            }
+//        });
+//
+//
+//
+//        DeckController.getInstance(player).activateDeck("deck of kiana");
+//
+//
+//    }
 
     @Test
     @DisplayName("add card to side deck full ")
@@ -504,14 +516,14 @@ public class test {
     @Test
     @DisplayName("testSelectCardPlayerTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
     public void testSelectCardPlayerTrapAndSpellZoneLessThan1() throws Exception {
-        player.setActiveDeck(player.getDeckByName("deck to check full main"));
+//        player.setActiveDeck(player.getDeckByName("deck to check full main"));
         final DuelController duelController = new DuelController(player,rival,1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardPlayerTrapAndSpellZone(0);
             }
         });
-        player.setActiveDeck(player.getDeckByName("deck of kiana"));
+//        player.setActiveDeck(player.getDeckByName("deck of kiana"));
     }
 
     @Test
