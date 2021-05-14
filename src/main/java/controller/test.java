@@ -25,6 +25,8 @@ public class test {
     static void toBeDoneBefore() throws Exception {
         player = new User("kiana_msz","kiana","12345");
         Deck deck = new Deck("deck of kiana");
+//        player.getDeckByName("deck of kiana").addCardToMainDeck(player.getCardByName("Suijin"));
+//        player.getDeckByName("deck of kiana").addCardToMainDeck(player.getCardByName("Fireyarou"));
         player.addDeck(deck);
         player.setActiveDeck(deck);
         rival = new User("hamriouz","hamraz","12345");
@@ -34,6 +36,17 @@ public class test {
         player.addDeck(deck);
         deck = new Deck("third deck");
         player.addDeck(deck);
+    }
+
+    @Test
+    @DisplayName("add card to deck")
+    public void addCardToDeckTest(){
+        player.getDeckByName("deck of kiana").addCardToMainDeck(player.getCardByName("Suijin"));
+        player.getDeckByName("deck of kiana").addCardToMainDeck(player.getCardByName("Fireyarou"));
+        player.getDeckByName("deck of kiana").addCardToSideDeck(player.getCardByName("Suijin"));
+        player.getDeckByName("deck of kiana").addCardToSideDeck(player.getCardByName("Fireyarou"));
+        Assertions.assertEquals(2,player.getActiveDeck().getSideDeck().size());
+        Assertions.assertEquals(2,player.getActiveDeck().getMainDeck().size());
     }
 
     @Test
