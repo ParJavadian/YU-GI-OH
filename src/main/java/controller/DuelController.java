@@ -649,22 +649,25 @@ public class DuelController {
     }
 
     public void cheatLifePoint(String target, int lifePoint) {
-        if (lifePoint < 3000) {
+        if (lifePoint < 2000) {
             if (target.equals("player"))
                 this.player.increaseLifePoint(lifePoint);
             if (target.equals("opponent"))
                 this.rival.decreaseLifePoint(lifePoint);
+            DuelView.printText("shame on you for cheating!!!!");
         }
     }
 
     public void cheatMoney(int amount) {
         if (amount <= 5000)
             this.player.increaseMoney(amount);
+        DuelView.printText("shame on you for cheating!!!!");
     }
 
     //TODO lotfan ino check konin ok bashe
     // be nazare man ke okeye(parmida)
     public void cheatToWinGame() {
+        DuelView.printText("this is not a good way to win the game, but ok. Shame on you!");
         endGame(this.rival);
     }
 
