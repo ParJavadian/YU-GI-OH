@@ -837,9 +837,76 @@ public class DuelController {
 
     private void handleAITurn() {
 
-
-        changeTurn();
     }
+
+/*    private Card monsterCardWithMaxAttackPointInHand(){
+        int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
+        int maxAttackPoint = 0;
+        int indexOfMaxAttacker = 0;
+        for (int i = 0; i < numberOfCardsInHand; i++) {
+            Card card = this.player.getBoard().getCardInHandByNumber(i);
+            if (card instanceof MonsterCard)
+                if (((MonsterCard) card).getAttack() > maxAttackPoint) {
+                    maxAttackPoint = ((MonsterCard) card).getAttack();
+                    indexOfMaxAttacker = i;
+                }
+        }
+        return this.player.getBoard().getCardInHandByNumber(indexOfMaxAttacker);
+    }
+    */
+
+
+    private int monsterCardWithMaxAttackPointInHand(){
+        int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
+        int maxAttackPoint = 0;
+        int indexOfMaxAttacker = 0;
+        for (int i = 0; i < numberOfCardsInHand; i++) {
+            Card card = this.player.getBoard().getCardInHandByNumber(i);
+            if (card instanceof MonsterCard)
+                if (((MonsterCard) card).getAttack() > maxAttackPoint) {
+                    maxAttackPoint = ((MonsterCard) card).getAttack();
+                    indexOfMaxAttacker = i;
+                }
+        }
+        return indexOfMaxAttacker;
+    }
+
+    private int monsterCardWithMaxDefencePointInHand(){
+        int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
+        int minAttackPoint = 1000000;
+        int indexOfMaxAttacker = 0;
+        for (int i = 0; i < numberOfCardsInHand; i++) {
+            Card card = this.player.getBoard().getCardInHandByNumber(i);
+            if (card instanceof MonsterCard)
+                if (((MonsterCard) card).getDefence() < minAttackPoint) {
+                    minAttackPoint = ((MonsterCard) card).getDefence();
+                    indexOfMaxAttacker = i;
+                }
+        }
+        return indexOfMaxAttacker;
+    }
+
+   /* private Card monsterCardWithMaxDefencePointInHand(){
+        int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
+        int minAttackPoint = 1000000;
+        int indexOfMaxAttacker = 0;
+        for (int i = 0; i < numberOfCardsInHand; i++) {
+            Card card = this.player.getBoard().getCardInHandByNumber(i);
+            if (card instanceof MonsterCard)
+                if (((MonsterCard) card).getDefence() < minAttackPoint) {
+                    minAttackPoint = ((MonsterCard) card).getDefence();
+                    indexOfMaxAttacker = i;
+                }
+        }
+        return this.player.getBoard().getCardInHandByNumber(indexOfMaxAttacker);
+    }
+*/
+    private Card findMonsterCardWithMinDefenceOnRivalBoard(){
+
+    }
+
+    private Card
+
 
     private void clearLastTurn() {
         this.selectedCard = null;
