@@ -5,8 +5,10 @@ import model.*;
 import view.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class DeckController {
     private static DeckController instance = null;
@@ -31,6 +33,24 @@ public class DeckController {
             DeckView.getInstance(this.user).printText("deck with name " + name + " already exists");
             throw new RepetitiveDeckName(name);
         }
+    }
+
+    public Deck createRandomDeckForAI(){
+        Deck deck = new Deck("DeckForAI");
+        List<Card> allCards = new ArrayList<>();
+        Collections.addAll(allCards, MonsterCard.values());
+        Collections.addAll(allCards, SpellCard.values());
+        Collections.addAll(allCards, TrapCard.values());
+
+        while (user.getDeckByName("DeckForAI").getMainSize() < 46){
+            int randomNum = ThreadLocalRandom.current().nextInt(0, allCards.size());
+            try {
+                addCardToDeck(allCards.get(randomNum).getName(),"DeckForAi",false,false);
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
+        return deck;
     }
 
     public void deleteDeck(String name) throws Exception {

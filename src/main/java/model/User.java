@@ -32,6 +32,7 @@ public class User {
         allUsers.add(this);
     }
 
+
     public static User getUserByUsername(String username) {
         if (allUsers != null) {
             for (User user : allUsers) {
@@ -180,6 +181,7 @@ public class User {
         }
         return null;
     }
+
 
     @Override
     public boolean equals(Object o) {
