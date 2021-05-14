@@ -2,6 +2,7 @@ package controller;
 
 import controller.exeption.*;
 import model.Deck;
+import model.MonsterCard;
 import model.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -39,14 +40,34 @@ public class test {
     }
 
     @Test
-    @DisplayName("add card to deck")
-    public void addCardToDeckTest(){
-        player.getActiveDeck().addCardToMainDeck(player.getCardByName("Suijin"));
-        player.getActiveDeck().addCardToMainDeck(player.getCardByName("Fireyarou"));
-        player.getActiveDeck().addCardToSideDeck(player.getCardByName("Suijin"));
-        player.getActiveDeck().addCardToSideDeck(player.getCardByName("Fireyarou"));
+    @DisplayName("add card to player and deck")
+    public void addCardToPlayerAndDeckTest() throws Exception{
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
+        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
+        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
+        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
+        DeckController.getInstance(player).addCardToDeck("Suijin",player.getActiveDeck().getDeckName(),false,false);
+        DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),false,false);
+        DeckController.getInstance(player).addCardToDeck("Suijin",player.getActiveDeck().getDeckName(),true,false);
+        DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),true,false);
+        Assertions.assertThrows(CardNotFoundInUser.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),true,false);
+            }
+        });
+        Assertions.assertThrows(DeckNotFound.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck("Fireyarou","best deck ever",true,false);
+            }
+        });
         Assertions.assertEquals(2,player.getActiveDeck().getSideDeck().size());
         Assertions.assertEquals(2,player.getActiveDeck().getMainDeck().size());
+        Assertions.assertEquals("card added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\n",outContent.toString());
+
     }
 
     @Test
