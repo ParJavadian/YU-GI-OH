@@ -40,6 +40,57 @@ public class test {
     }
 
     @Test
+    @DisplayName("add card to side deck full ")
+    public void addCardFullSideDeck() throws Exception {
+        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
+        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
+        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
+        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
+        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
+        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
+        player.addCardToUsersAllCards(MonsterCard.SUIJIN);
+        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
+        player.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
+        player.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
+        player.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
+        player.addCardToUsersAllCards(MonsterCard.BABY_DRAGON);
+        player.addCardToUsersAllCards(MonsterCard.BABY_DRAGON);
+        player.addCardToUsersAllCards(MonsterCard.BABY_DRAGON);
+        player.addCardToUsersAllCards(MonsterCard.BATTLE_OX);
+        player.addCardToUsersAllCards(MonsterCard.BATTLE_OX);
+        player.addCardToUsersAllCards(MonsterCard.BATTLE_OX);
+        player.addCardToUsersAllCards(MonsterCard.BATTLE_WARRIOR);
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck("Suijin",player.getActiveDeck().getDeckName(),true,false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),true,false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_OX.getNamePascalCase(),player.getActiveDeck().getDeckName(),true,false);
+        }
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.BABY_DRAGON.getNamePascalCase(),player.getActiveDeck().getDeckName(),true,false);
+        }
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), player.getActiveDeck().getDeckName(),true,false);
+        }
+
+        Assertions.assertThrows(FullSideDeck.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).addCardToDeck(MonsterCard.BATTLE_WARRIOR.getNamePascalCase(), player.getActiveDeck().getDeckName(),true,false);
+            }
+        });
+    }
+
+    @Test
     @DisplayName("add card to player and deck")
     public void addCardToPlayerAndDeckTest() throws Exception{
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -58,6 +109,8 @@ public class test {
                 DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),true,false);
             }
         });
+        player.addCardToUsersAllCards(MonsterCard.FIREYAROU);
+        //DeckController.getInstance(player).addCardToDeck("Fireyarou",player.getActiveDeck().getDeckName(),true,false);
         Assertions.assertThrows(DeckNotFound.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -67,7 +120,6 @@ public class test {
         Assertions.assertEquals(2,player.getActiveDeck().getSideDeck().size());
         Assertions.assertEquals(2,player.getActiveDeck().getMainDeck().size());
         Assertions.assertEquals("card added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\n",outContent.toString());
-
     }
 
     @Test

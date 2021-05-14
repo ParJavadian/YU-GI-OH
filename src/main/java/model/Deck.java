@@ -41,6 +41,8 @@ public class Deck {
         this.sideDeck.add(card);
     }
 
+
+
     public void removeCardFromMainDeck(Card card) {
         this.mainDeck.remove(card);
     }
