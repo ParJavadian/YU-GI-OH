@@ -15,15 +15,6 @@ public class User {
     private List<Deck> allDecks;
     private Deck currentActiveDeck;
     private Deck currentGameDeck;
-
-    public Deck getGameDeck() {
-        return this.currentGameDeck;
-    }
-
-    public void setGameDeck(Deck currentGameDeck) {
-        this.currentGameDeck = currentGameDeck;
-    }
-
     private int lifePoint;
     private Board board;
     private int money;
@@ -43,6 +34,15 @@ public class User {
     }
 
 
+    public Deck getGameDeck() {
+        return this.currentGameDeck;
+    }
+
+    public void setGameDeck(Deck currentGameDeck) {
+        this.currentGameDeck = currentGameDeck;
+    }
+
+
     public static User getUserByUsername(String username) {
         if (allUsers != null) {
             for (User user : allUsers) {
@@ -59,6 +59,10 @@ public class User {
                 return allUser;
         }
         return null;
+    }
+
+    public void removeDeck(Deck deck){
+        this.allDecks.remove(deck);
     }
 
     public void increaseScore(int amount) {
