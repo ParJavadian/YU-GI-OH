@@ -797,12 +797,25 @@ public class DuelController {
     }
 
     private void changeTurn() {
-        if (this.isStartTurn) this.isStartTurn = false;
-        //TODO inam hanooz kar dare
-        User temp = this.player;
-        this.player = rival;
-        this.rival = temp;
-        clearLastTurn();
+            if (this.isStartTurn) this.isStartTurn = false;
+            //TODO inam hanooz kar dare
+            User temp = this.player;
+            this.player = rival;
+            this.rival = temp;
+            clearLastTurn();
+
+            if(this.player.getUsername().equals("@AI@"))
+                handleAITurn();
+
+    }
+
+    private void handleAITurn(){
+
+
+
+
+
+        changeTurn();
     }
 
     private void clearLastTurn() {

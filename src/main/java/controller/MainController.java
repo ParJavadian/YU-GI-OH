@@ -41,6 +41,7 @@ public class MainController {
 
 
     public void newDuel(String username, int roundNumber) throws Exception {
+        if (!username.equals("@AI@")) {
         if(User.getUserByUsername(username)==null)
             throw new PlayerNotFound();
         if(this.user.getActiveDeck() == null)
@@ -53,8 +54,20 @@ public class MainController {
             throw new InvalidDeck(username);
         if(roundNumber!=1 && roundNumber!=3)
             throw new UnsupportedRoundNumber();
-        DuelView duelView = new DuelView(user, User.getUserByUsername(username), roundNumber);
-        duelView.getCommandForDuel();
+            DuelView duelView = new DuelView(user, User.getUserByUsername(username), roundNumber);
+            duelView.getCommandForDuel();
+        }
+        else {
+            if(this.user.getActiveDeck() == null)
+                throw new NoActiveDeck(this.user.getUsername());
+            if(!this.user.getActiveDeck().isValid())
+                throw new InvalidDeck(this.user.getUsername());
+            if(roundNumber!=1 && roundNumber!=3)
+                throw new UnsupportedRoundNumber();
+
+            DuelView duelView = new DuelView(user,User.getUserByUsername("@AI@"),roundNumber);
+            duelView.getCommandForDuel();
+        }
     }
 
     /*private void logOutUser(){

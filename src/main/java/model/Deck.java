@@ -1,5 +1,7 @@
 package model;
 
+import controller.DeckController;
+
 import java.util.*;
 
 public class Deck {

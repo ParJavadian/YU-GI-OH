@@ -1,5 +1,6 @@
 package view;
 
+import controller.DeckController;
 import controller.MainController;
 import controller.ShopController;
 import model.*;
@@ -48,13 +49,16 @@ public class MainView {
             }
             if(matcher4.find() && matcher1.find() && matcher3.find()){
                 try{
-                    //TODO NEW GAME WITH AI
+                    new User("@AI@","@AIplayer","1234AIPlayer1234");
+                    User.getUserByUsername("@AI@").setActiveDeck(DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI());
+                    mainController.newDuel("@AI@",Integer.parseInt(matcher3.group(2)));
                 }
                 catch (Exception exception){
                     printText(exception.getMessage());
                 }
             }
         }
+
         Matcher matcher = getCommandMatcher(command, "menu enter ([\\w ]+)");
         if (matcher.matches()) {
             mainController.goToMenu(matcher.group(1));
