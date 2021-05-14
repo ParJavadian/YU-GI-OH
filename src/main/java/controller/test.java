@@ -240,10 +240,6 @@ public class test {
     @DisplayName("add card to main deck full")
     public void addCardFullMainDeck() throws Exception {
         player.setActiveDeck(player.getDeckByName("deck to check full main"));
-        /*ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
-        Assertions.assertEquals("deck deleted successfully\r\n", outContent.toString());*/
         Assertions.assertThrows(ThreeSameCards.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -256,6 +252,10 @@ public class test {
                 DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
         });
+        /*ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
+        Assertions.assertEquals("60 kiana_msz\r\n", outContent.toString());*/
         Assertions.assertThrows(FullMainDeck.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -480,12 +480,19 @@ public class test {
     @DisplayName("testSelectCardPlayerTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
     public void testSelectCardPlayerTrapAndSpellZoneLessThan1() throws Exception {
         player.setActiveDeck(player.getDeckByName("deck to check full main"));
+        /*ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
+        Assertions.assertEquals("60 kiana_msz\r\n", outContent.toString());*/
         final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
                 duelController.selectCardPlayerTrapAndSpellZone(0);
             }
         });
+        /*System.setOut(new PrintStream(outContent));
+        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
+        Assertions.assertEquals("teste mozakhraf\r\n", outContent.toString());*/
         player.setActiveDeck(player.getDeckByName("deck of kiana"));
     }
 
