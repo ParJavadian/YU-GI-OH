@@ -29,13 +29,19 @@ public class test {
         rival = new User("hamriouz","hamraz","12345");
         rival.addDeck(deck);
         rival.setActiveDeck(deck);
+        rival.addCardToUsersAllCards(MonsterCard.YOMI_SHIP);
+        DeckController.getInstance(rival).addCardToDeck(MonsterCard.YOMI_SHIP.getNamePascalCase(), "deck of kiana", false,false);
         deck = new Deck("second deck");
         player.addDeck(deck);
         deck = new Deck("third deck");
         player.addDeck(deck);
 
+
+
+
         {
             DeckController.getInstance(player).createDeck("deck to check full main");
+            player.setActiveDeck(player.getDeckByName("deck to check full main"));
 
 
 
@@ -239,7 +245,7 @@ public class test {
             for (int i = 0; i < 4; i++) {
                 player.addCardToUsersAllCards(TrapCard.MAGIC_JAMMER);
             }
-
+            player.setActiveDeck(player.getDeckByName("deck of kiana"));
 
 
         }
@@ -269,12 +275,14 @@ public class test {
 
 
 
-        Assertions.assertThrows(FullMainDeck.class, new Executable() {
+        Assertions.assertThrows(FullMainDeck.class , new Executable() {
             @Override
             public void execute() throws Throwable {
                 DeckController.getInstance(player).addCardToDeck(TrapCard.MAGIC_CYLINDER.getNamePascalCase(),player.getActiveDeck().getDeckName(),false,false);
             }
         });
+
+
 
         DeckController.getInstance(player).activateDeck("deck of kiana");
 
