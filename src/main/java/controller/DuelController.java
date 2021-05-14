@@ -23,7 +23,7 @@ public class DuelController {
     /*boolean[] hasChangedPositionInThisTurn;
     boolean[] hasSetInThisTurn;
     boolean[] hasAttackedInThisTurn;*/
-    MonsterZone monsterZone = new MonsterZone();
+    MonsterZone monsterZone;
     boolean isStartTurn;
     private boolean shouldEndGameForView;
     //TODO check frequently: cancel, unselect, printBoard
@@ -34,7 +34,16 @@ public class DuelController {
         this.rounds = new Round[roundNumber];
         this.roundNumber = roundNumber;
         this.roundCounter = 0;
+        this.monsterZone = new MonsterZone(this);
         startNewGame(null);
+    }
+
+    public User getPlayer() {
+        return this.player;
+    }
+
+    public User getRival() {
+        return this.rival;
     }
 
     public boolean getShouldEndGameForView() {
@@ -432,25 +441,25 @@ public class DuelController {
     }
 
     private void attackMonsterOO(int monsterNumber) throws Exception {
-        MonsterCard attacker = (MonsterCard) this.selectedCard.getCard();
-        MonsterCard target = this.rival.getBoard().getMonsterByNumber(monsterNumber);
-        if (attacker.getAttack() > target.getAttack()) {
-            int damage = attacker.getAttack() - target.getAttack();
+        int attackerAttack = this.monsterZone.getPlayerAttackPoints(this.selectedCard.getNumber());
+        int targetAttack = this.monsterZone.getRivalAttackPoints(monsterNumber);
+        if (attackerAttack > targetAttack) {
+            int damage = attackerAttack - targetAttack;
             this.rival.decreaseLifePoint(damage);
-            this.rival.getBoard().putInGraveYard(target);
+            this.rival.getBoard().putInGraveYard(this.rival.getBoard().getMonsterByNumber(monsterNumber));
             this.rival.getBoard().removeMonster(monsterNumber);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("your opponent’s monster is destroyed and your opponent receives " + damage + " battle damage");
-        } else if (attacker.getAttack() == target.getAttack()) {
+        } else if (attackerAttack == targetAttack) {
             this.rival.getBoard().removeMonster(monsterNumber);
             this.player.getBoard().removeMonster(this.selectedCard.getNumber());
             removeMonster(this.selectedCard.getNumber());
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("both you and your opponent monster cards are destroyed and no one receives damage");
         } else {
-            int damage = target.getAttack() - attacker.getAttack();
+            int damage = targetAttack - attackerAttack;
             this.player.decreaseLifePoint(damage);
-            this.player.getBoard().putInGraveYard(attacker);
+            this.player.getBoard().putInGraveYard(this.selectedCard.getCard());
             this.player.getBoard().removeMonster(this.selectedCard.getNumber());
             removeMonster(this.selectedCard.getNumber());
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
@@ -461,18 +470,18 @@ public class DuelController {
     }
 
     private void attackMonsterDO(int monsterNumber) throws Exception {
-        MonsterCard attacker = (MonsterCard) this.selectedCard.getCard();
         MonsterCard target = this.rival.getBoard().getMonsterByNumber(monsterNumber);
-        if (attacker.getAttack() > target.getDefence()) {
+        int attackerAttack = this.monsterZone.getPlayerAttackPoints(this.selectedCard.getNumber());
+        if (attackerAttack > target.getDefence()) {
             this.rival.getBoard().removeMonster(monsterNumber);
             this.rival.getBoard().putInGraveYard(target);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("the defense position monster is destroyed");
-        } else if (attacker.getAttack() == target.getDefence()) {
+        } else if (attackerAttack == target.getDefence()) {
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("no card is destroyed");
         } else {
-            int damage = target.getDefence() - attacker.getAttack();
+            int damage = target.getDefence() - attackerAttack;
             this.player.decreaseLifePoint(damage);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("no card is destroyed and you received" + damage + " battle damage");
@@ -482,20 +491,20 @@ public class DuelController {
     }
 
     private void attackMonsterDH(int monsterNumber) throws Exception {
-        MonsterCard attacker = (MonsterCard) this.selectedCard.getCard();
         MonsterCard target = this.rival.getBoard().getMonsterByNumber(monsterNumber);
+        int attackerAttack = this.monsterZone.getPlayerAttackPoints(this.selectedCard.getNumber());
         String targetName = this.rival.getBoard().getMonsterByNumber(monsterNumber).getName();
         this.rival.getBoard().changeMonsterPosition(monsterNumber, "DO");
-        if (attacker.getAttack() > target.getDefence()) {
+        if (attackerAttack > target.getDefence()) {
             this.rival.getBoard().removeMonster(monsterNumber);
             this.rival.getBoard().putInGraveYard(target);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("opponent’s monster card was " + targetName + " and the defense position monster is destroyed");
-        } else if (attacker.getAttack() == target.getDefence()) {
+        } else if (attackerAttack == target.getDefence()) {
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed");
         } else {
-            int damage = target.getDefence() - attacker.getAttack();
+            int damage = target.getDefence() - attackerAttack;
             this.player.decreaseLifePoint(damage);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed and you received" + damage + " battle damage");
@@ -598,25 +607,33 @@ public class DuelController {
 //        }
     }
 
-    public void cheatLifePoint(String target, int lifePoint){
-        if (lifePoint < 3000){
-        if (target.equals("player"))
-            this.player.increaseLifePoint(lifePoint);
-        if(target.equals("opponent"))
-            this.rival.decreaseLifePoint(lifePoint);
+    public void cheatLifePoint(String target, int lifePoint) {
+        if (lifePoint < 3000) {
+            if (target.equals("player"))
+                this.player.increaseLifePoint(lifePoint);
+            if (target.equals("opponent"))
+                this.rival.decreaseLifePoint(lifePoint);
         }
     }
 
-    public void cheatMoney(int amount){
+    public void cheatMoney(int amount) {
         if (amount <= 5000)
-        this.player.increaseMoney(amount);
+            this.player.increaseMoney(amount);
     }
 
     //TODO lotfan ino check konin ok bashe
-    public void cheatToWinGame(){
+    // be nazare man ke okeye(parmida)
+    public void cheatToWinGame() {
         endGame(this.rival);
     }
 
+    private void checkForChangesWhenAttackedMonster(int monsterNumber) {
+        switch (this.rival.getBoard().getMonsterByNumber(monsterNumber)) {
+            case COMMAND_KNIGHT:
+                this.monsterZone.decreaseAllAttackPointsBy400();
+                break;
+        }
+    }
 
     public void surrender() {
         //todo shayad lazem bashe darbare in bishter tafakor konim
@@ -678,8 +695,36 @@ public class DuelController {
                 DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else {
                 DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                exchangeCardBetweenMainAndSide(this.player);
+                exchangeCardBetweenMainAndSide(this.rival);
                 startNewGame(winner);
             }
+        }
+    }
+
+    private void exchangeCardBetweenMainAndSide(User user) {
+        DuelView.printText("Do you want to exchange a card between main and side deck" + user.getNickname() + "?");
+        String answer = DuelView.scan();
+        if (answer.equals("yes") || answer.equals("Yes")) {
+            DuelView.printText("enter card name from main and side");
+            String main = DuelView.scan();
+            Card mainCard = user.getCardByName(main);
+            while (mainCard == null || !user.getActiveDeck().getMainDeck().contains(mainCard)) {
+                DuelView.printText("Please enter a card you have in your main deck!");
+                main = DuelView.scan();
+                mainCard = user.getCardByName(main);
+            }
+            String side = DuelView.scan();
+            Card sideCard = user.getCardByName(side);
+            while (sideCard == null || !user.getActiveDeck().getSideDeck().contains(sideCard)) {
+                DuelView.printText("Please enter a card you have in your side deck!");
+                side = DuelView.scan();
+                sideCard = user.getCardByName(side);
+            }
+            user.getActiveDeck().getSideDeck().remove(sideCard);
+            user.getActiveDeck().getMainDeck().remove(mainCard);
+            user.getActiveDeck().getSideDeck().add(mainCard);
+            user.getActiveDeck().getMainDeck().add(sideCard);
         }
     }
 
@@ -755,13 +800,13 @@ public class DuelController {
         }
         toPrint += "\n";
         toPrint += this.rival.getActiveDeck().getTotalSize() + "\n";
-        for (int i = 0; i < 5; i++) {
+        for (int i = 4; i > -1; i--) {
             toPrint += "\t";
             if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
             else toPrint += this.rival.getBoard().getSpellAndTrapConditionByNumber(i);
         }
         toPrint += "\n";
-        for (int i = 0; i < 5; i++) {
+        for (int i = 4; i > -1; i--) {
             toPrint += "\t";
             if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
             else toPrint += this.rival.getBoard().getMonsterConditionByNumber(i);
