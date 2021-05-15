@@ -111,11 +111,13 @@ public class DeckController {
                     if (deck.cardExistsInDeck(card, true)) {
                         deck.removeCardFromSideDeck(card);
                         this.user.addCardToUsersAllCards(card);
+                        DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "side");
                 } else {
                     if (deck.cardExistsInDeck(card, false)) {
                         deck.removeCardFromMainDeck(card);
                         this.user.addCardToUsersAllCards(card);
+                        DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "main");
                 }
             } else

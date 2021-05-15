@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import view.DeckView;
 import view.LogInView;
 
 import javax.accessibility.AccessibleStateSet;
@@ -18,6 +19,7 @@ import java.io.PrintStream;
 
 
 public class test {
+
     static User player;
     static User rival;
 
@@ -211,14 +213,7 @@ public class test {
             }
 
 
-            for (int i = 0; i < 4; i++) {
-                player.addCardToUsersAllCards(TrapCard.MIND_CRUSH);
-            }
 
-
-            for (int i = 0; i < 3; i++) {
-                DeckController.getInstance(player).addCardToDeck(TrapCard.MIND_CRUSH.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
-            }
 
 
             for (int i = 0; i < 4; i++) {
@@ -237,6 +232,111 @@ public class test {
     }
 
     @Test
+    @DisplayName("change password test")
+    public void changePasswordTest() throws Exception {
+        Assertions.assertThrows(WrongPassword.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                ProfileController.getInstance(player).changePassword("123","1234");
+            }
+        });
+        Assertions.assertThrows(SamePassword.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                ProfileController.getInstance(player).changePassword("12345","12345");
+            }
+        });
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        ProfileController.getInstance(player).changePassword("12345","1234");
+        Assertions.assertEquals("password changed successfully!\r\n",outContent.toString());
+    }
+
+    @Test
+    @DisplayName("change nickname test")
+    public void changeNickNameTest() throws Exception {
+        Assertions.assertThrows(RepetitiveNickname.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                ProfileController.getInstance(player).changeNickname("hamraz");
+            }
+        });
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        ProfileController.getInstance(player).changeNickname("kiaanaa");
+        Assertions.assertEquals("nickname changed successfully!\r\n",outContent.toString());
+    }
+
+
+    @Test
+    @DisplayName("Remove card from deck test")
+    public void removeCardFromDeck() throws Exception {
+        Assertions.assertThrows(DeckNotFound.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).removeCardFromDeck(MonsterCard.AXE_RAIDER.getNamePascalCase(), "deck deck", false);
+            }
+        });
+        Assertions.assertThrows(CardNotFoundForController.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).removeCardFromDeck("molayi tarin card", "deck of kiana", false);
+            }
+        });
+        player.addCardToUsersAllCards(MonsterCard.AXE_RAIDER);
+//        DeckController.getInstance(player).
+        Assertions.assertThrows(CardNotFoundInDeck.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).removeCardFromDeck(MonsterCard.AXE_RAIDER.getNamePascalCase(), "deck of kiana", false);
+            }
+        });
+        Assertions.assertThrows(CardNotFoundInDeck.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).removeCardFromDeck(MonsterCard.AXE_RAIDER.getNamePascalCase(), "deck of kiana", true);
+            }
+        });
+        DeckController.getInstance(player).addCardToDeck(MonsterCard.AXE_RAIDER.getNamePascalCase(), "deck of kiana",false,false);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        DeckController.getInstance(player).removeCardFromDeck(MonsterCard.AXE_RAIDER.getNamePascalCase(), "deck of kiana", false);
+        Assertions.assertEquals("card removed form deck successfully\r\n",outContent.toString());
+
+
+
+    }
+
+
+    @Test
+    @DisplayName("showAllDecksCheck")
+    public void showAllDecksCheck(){
+        DeckController.getInstance(player).showAllDecks();
+    }
+
+
+    @Test
+    @DisplayName("showCardTest")
+    public void showCardTest() {
+        DeckController.getInstance(player).showAllCards();
+    }
+
+
+    @Test
+    @DisplayName("showDeckTest")
+    public void showDeckTest() throws Exception {
+        Assertions.assertThrows(DeckNotFound.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                DeckController.getInstance(player).showDeck("deck of kasra",false);
+            }
+        });
+        DeckController.getInstance(player).showDeck("deck to check full main",false);
+        DeckController.getInstance(player).showDeck("deck to check full main",true);
+    }
+
+
+    @Test
     @DisplayName("add card to main deck full")
     public void addCardFullMainDeck() throws Exception {
         player.setActiveDeck(player.getDeckByName("deck to check full main"));
@@ -252,6 +352,14 @@ public class test {
                 DeckController.getInstance(player).addCardToDeck(SpellCard.CHANGE_OF_HEART.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
             }
         });
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(TrapCard.MIND_CRUSH);
+        }
+
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(TrapCard.MIND_CRUSH.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+        }
         /*ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
@@ -421,102 +529,102 @@ public class test {
     }
 
 
-    @Test
-    @DisplayName("testSelectCardPlayerMonsterZone with input more than 5 which should throw InvalidSelection")
-    public void testSelectCardPlayerMonsterZoneMoreThan6() throws Exception {
-        final DuelController duelController = new DuelController(player, rival, 1);
-        Assertions.assertThrows(InvalidSelection.class, new Executable() {
-            public void execute() throws Throwable {
-                duelController.selectCardPlayerMonsterZone(6);
-            }
-        });
-    }
-
-    @Test
-    @DisplayName("testSelectCardPlayerMonsterZone with input less than 1 which should throw InvalidSelection")
-    public void testSelectCardPlayerMonsterZoneLessThan1() throws Exception {
-        final DuelController duelController = new DuelController(player, rival, 1);
-        Assertions.assertThrows(InvalidSelection.class, new Executable() {
-            public void execute() throws Throwable {
-                duelController.selectCardPlayerMonsterZone(0);
-            }
-        });
-    }
-
-    @Test
-    @DisplayName("testSelectCardOpponentMonsterZone with input more than 5 which should throw InvalidSelection")
-    public void testSelectCardOpponentMonsterZoneMoreThan6() throws Exception {
-        final DuelController duelController = new DuelController(player, rival, 1);
-        Assertions.assertThrows(InvalidSelection.class, new Executable() {
-            public void execute() throws Throwable {
-                duelController.selectCardOpponentMonsterZone(6);
-            }
-        });
-    }
-
-    @Test
-    @DisplayName("testSelectCardOpponentMonsterZone with input less than 1 which should throw InvalidSelection")
-    public void testSelectCardOpponentMonsterZoneLessThan1() throws Exception {
-        final DuelController duelController = new DuelController(player, rival, 1);
-        Assertions.assertThrows(InvalidSelection.class, new Executable() {
-            public void execute() throws Throwable {
-                duelController.selectCardOpponentMonsterZone(0);
-            }
-        });
-    }
-
-    @Test
-    @DisplayName("testSelectCardPlayerTrapAndSpellZone with input more than 5 which should throw InvalidSelection")
-    public void testSelectCardPlayerTrapAndSpellZoneMoreThan6() throws Exception {
-        final DuelController duelController = new DuelController(player, rival, 1);
-        Assertions.assertThrows(InvalidSelection.class, new Executable() {
-            public void execute() throws Throwable {
-                duelController.selectCardPlayerTrapAndSpellZone(6);
-            }
-        });
-    }
-
-    @Test
-    @DisplayName("testSelectCardPlayerTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
-    public void testSelectCardPlayerTrapAndSpellZoneLessThan1() throws Exception {
-        player.setActiveDeck(player.getDeckByName("deck to check full main"));
-        /*ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
-        Assertions.assertEquals("60 kiana_msz\r\n", outContent.toString());*/
-        final DuelController duelController = new DuelController(player, rival, 1);
-        Assertions.assertThrows(InvalidSelection.class, new Executable() {
-            public void execute() throws Throwable {
-                duelController.selectCardPlayerTrapAndSpellZone(0);
-            }
-        });
-        /*System.setOut(new PrintStream(outContent));
-        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
-        Assertions.assertEquals("teste mozakhraf\r\n", outContent.toString());*/
-        player.setActiveDeck(player.getDeckByName("deck of kiana"));
-    }
-
-    @Test
-    @DisplayName("testSelectCardOpponentTrapAndSpellZone with input more than 5 which should throw InvalidSelection")
-    public void testSelectCardOpponentTrapAndSpellZoneMoreThan6() throws Exception {
-        final DuelController duelController = new DuelController(player, rival, 1);
-        Assertions.assertThrows(InvalidSelection.class, new Executable() {
-            public void execute() throws Throwable {
-                duelController.selectCardOpponentTrapAndSpellZone(6);
-            }
-        });
-    }
-
-    @Test
-    @DisplayName("testSelectCardOpponentTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
-    public void testSelectCardOpponentTrapAndSpellZoneLessThan1() throws Exception {
-        final DuelController duelController = new DuelController(player, rival, 1);
-        Assertions.assertThrows(InvalidSelection.class, new Executable() {
-            public void execute() throws Throwable {
-                duelController.selectCardOpponentTrapAndSpellZone(0);
-            }
-        });
-    }
+//    @Test
+//    @DisplayName("testSelectCardPlayerMonsterZone with input more than 5 which should throw InvalidSelection")
+//    public void testSelectCardPlayerMonsterZoneMoreThan6() throws Exception {
+//        final DuelController duelController = new DuelController(player, rival, 1);
+//        Assertions.assertThrows(InvalidSelection.class, new Executable() {
+//            public void execute() throws Throwable {
+//                duelController.selectCardPlayerMonsterZone(6);
+//            }
+//        });
+//    }
+//
+//    @Test
+//    @DisplayName("testSelectCardPlayerMonsterZone with input less than 1 which should throw InvalidSelection")
+//    public void testSelectCardPlayerMonsterZoneLessThan1() throws Exception {
+//        final DuelController duelController = new DuelController(player, rival, 1);
+//        Assertions.assertThrows(InvalidSelection.class, new Executable() {
+//            public void execute() throws Throwable {
+//                duelController.selectCardPlayerMonsterZone(0);
+//            }
+//        });
+//    }
+//
+//    @Test
+//    @DisplayName("testSelectCardOpponentMonsterZone with input more than 5 which should throw InvalidSelection")
+//    public void testSelectCardOpponentMonsterZoneMoreThan6() throws Exception {
+//        final DuelController duelController = new DuelController(player, rival, 1);
+//        Assertions.assertThrows(InvalidSelection.class, new Executable() {
+//            public void execute() throws Throwable {
+//                duelController.selectCardOpponentMonsterZone(6);
+//            }
+//        });
+//    }
+//
+//    @Test
+//    @DisplayName("testSelectCardOpponentMonsterZone with input less than 1 which should throw InvalidSelection")
+//    public void testSelectCardOpponentMonsterZoneLessThan1() throws Exception {
+//        final DuelController duelController = new DuelController(player, rival, 1);
+//        Assertions.assertThrows(InvalidSelection.class, new Executable() {
+//            public void execute() throws Throwable {
+//                duelController.selectCardOpponentMonsterZone(0);
+//            }
+//        });
+//    }
+//
+//    @Test
+//    @DisplayName("testSelectCardPlayerTrapAndSpellZone with input more than 5 which should throw InvalidSelection")
+//    public void testSelectCardPlayerTrapAndSpellZoneMoreThan6() throws Exception {
+//        final DuelController duelController = new DuelController(player, rival, 1);
+//        Assertions.assertThrows(InvalidSelection.class, new Executable() {
+//            public void execute() throws Throwable {
+//                duelController.selectCardPlayerTrapAndSpellZone(6);
+//            }
+//        });
+//    }
+//
+//    @Test
+//    @DisplayName("testSelectCardPlayerTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
+//    public void testSelectCardPlayerTrapAndSpellZoneLessThan1() throws Exception {
+//        player.setActiveDeck(player.getDeckByName("deck to check full main"));
+//        /*ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+//        System.setOut(new PrintStream(outContent));
+//        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
+//        Assertions.assertEquals("60 kiana_msz\r\n", outContent.toString());*/
+//        final DuelController duelController = new DuelController(player, rival, 1);
+//        Assertions.assertThrows(InvalidSelection.class, new Executable() {
+//            public void execute() throws Throwable {
+//                duelController.selectCardPlayerTrapAndSpellZone(0);
+//            }
+//        });
+//        /*System.setOut(new PrintStream(outContent));
+//        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
+//        Assertions.assertEquals("teste mozakhraf\r\n", outContent.toString());*/
+//        player.setActiveDeck(player.getDeckByName("deck of kiana"));
+//    }
+//
+//    @Test
+//    @DisplayName("testSelectCardOpponentTrapAndSpellZone with input more than 5 which should throw InvalidSelection")
+//    public void testSelectCardOpponentTrapAndSpellZoneMoreThan6() throws Exception {
+//        final DuelController duelController = new DuelController(player, rival, 1);
+//        Assertions.assertThrows(InvalidSelection.class, new Executable() {
+//            public void execute() throws Throwable {
+//                duelController.selectCardOpponentTrapAndSpellZone(6);
+//            }
+//        });
+//    }
+//
+//    @Test
+//    @DisplayName("testSelectCardOpponentTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
+//    public void testSelectCardOpponentTrapAndSpellZoneLessThan1() throws Exception {
+//        final DuelController duelController = new DuelController(player, rival, 1);
+//        Assertions.assertThrows(InvalidSelection.class, new Executable() {
+//            public void execute() throws Throwable {
+//                duelController.selectCardOpponentTrapAndSpellZone(0);
+//            }
+//        });
+//    }
 
     @Test
     @DisplayName("test menu enter")

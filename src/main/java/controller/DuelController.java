@@ -1005,27 +1005,27 @@ public class DuelController {
         else return null;
     }
 
-    private Card MonsterCardWithLeastDefencePointOnRivalBoard() {
-        int leastDefencePoint = 100000;
-        int indexOfMinDefender = 10;
-        for (int i = 1; i <= 5; i++) {
-            Card card = this.rival.
-        }
-    }
-
-    private Card MonsterCardWithMostAttackPointOnRivalBoard() {
-        int mostAttackPoint = 0;
-        int indexOfMaxAttacker = 10;
-
-    }
+//    private Card MonsterCardWithLeastDefencePointOnRivalBoard() {
+//        int leastDefencePoint = 100000;
+//        int indexOfMinDefender = 10;
+////        for (int i = 1; i <= 5; i++) {
+////            Card card = this.rival.
+////        }
+//    }
+//
+//    private Card MonsterCardWithMostAttackPointOnRivalBoard() {
+//        int mostAttackPoint = 0;
+//        int indexOfMaxAttacker = 10;
+//
+//    }
 
     //TODO harchi spell trap dare bezare zamin
 
     //ba max attacher bezane be hidden
 
-    private Card findMonsterCardWithMinDefenceOnRivalBoard() {
-        int
-    }
+//    private Card findMonsterCardWithMinDefenceOnRivalBoard() {
+//        int
+//    }
 
 /* private int monsterCardWithMaxAttackPointInHand(){
         int numberOfCardsInHand = this.player.getBoard().getCardsInHand().size();
