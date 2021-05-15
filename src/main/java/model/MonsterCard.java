@@ -10,9 +10,9 @@ public enum MonsterCard implements Card {
             "All Warrior-Type monsters you control gain 400 ATK. If you control another monster, monsters your " +
                     "opponent controls cannot target this card for an attack.",
             2100) {
-        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner) {
+        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner,int targetNumber) {
             MonsterZone monsterZone = duelController.getMonsterZone();
-            if (takeActionCase.equals(TakeActionCase.SUMMONED) || takeActionCase.equals(TakeActionCase.FLIP_SUMMONED)|| takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED) {
+            if (takeActionCase.equals(TakeActionCase.SUMMONED) || takeActionCase.equals(TakeActionCase.FLIP_SUMMONED) || takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED)) {
                 monsterZone.increaseAllAttackPointsBy400();
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_MONSTERZONE)) {
                 monsterZone.decreaseAllAttackPointsBy400();
@@ -35,7 +35,7 @@ public enum MonsterCard implements Card {
 
     BATTLE_OX(4, Attribute.EARTH, MonsterType.BEAST_WARRIOR, CardType.NORMAL, 1700, 1000,
             "A monster with tremendous power, it destroys enemies with a swing of its axe.", 2900) {
-        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner) {
+        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner,int targetNumber) {
         }
 
         public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
@@ -45,7 +45,7 @@ public enum MonsterCard implements Card {
 
     AXE_RAIDER(4, Attribute.EARTH, MonsterType.WARRIOR, CardType.NORMAL, 1700, 1150,
             "An axe-wielding monster of tremendous strength and agility.", 3100) {
-        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner) {
+        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner,int targetNumber) {
         }
 
         public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
@@ -56,8 +56,8 @@ public enum MonsterCard implements Card {
     YOMI_SHIP(3, Attribute.WATER, MonsterType.AQUA, CardType.EFFECT, 800, 1400,
             "If this card is destroyed by battle and sent to the GY: Destroy the monster that destroyed this card.",
             1700) {
-        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner) {
-            if(takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED)){
+        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner,int targetNumber) {
+            if (takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED)) {
                 duelController.getPlayer().getBoard().putInGraveYard(duelController.getSelectedCard().getCard());
                 duelController.getPlayer().getBoard().removeMonster(duelController.getSelectedCard().getNumber());
                 duelController.removeMonster(duelController.getSelectedCard().getNumber());
@@ -71,7 +71,7 @@ public enum MonsterCard implements Card {
 
     HORN_IMP(4, Attribute.DARK, MonsterType.FIEND, CardType.NORMAL, 1300, 1000,
             "A small fiend that dwells in the dark, its single horn makes it a formidable opponent.", 2500) {
-        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner) {
+        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner,int targetNumber) {
         }
 
         public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
@@ -80,8 +80,8 @@ public enum MonsterCard implements Card {
     },
 
     SILVER_FANG(3, Attribute.EARTH, MonsterType.BEAST, CardType.NORMAL, 1200, 800,
-            "A snow wolf that's beautiful to the eye, but absolutely vicious in battle.", 1700){
-        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner) {
+            "A snow wolf that's beautiful to the eye, but absolutely vicious in battle.", 1700) {
+        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner,int targetNumber) {
         }
 
         public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
@@ -92,7 +92,19 @@ public enum MonsterCard implements Card {
     SUIJIN(7, Attribute.WATER, MonsterType.AQUA, CardType.EFFECT, 2500, 2400,
             "During damage calculation in your opponent's turn, if this card is being attacked: You can target " +
                     "the attacking monster; make that target's ATK 0 during damage calculation only (this is a Quick Effect). " +
-                    "This effect can only be used once while this card is face-up on the field.", 8700),
+                    "This effect can only be used once while this card is face-up on the field.", 8700) {
+        public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner,int targetNumber) {
+            if (takeActionCase.equals(TakeActionCase.ATTACKED)) {
+                if (!duelController.getMonsterZone().getRivalHasEnabledSuijin(targetNumber)){
+                    duelController.getMonsterZone().setMonsterAttackPlayer(targetNumber,0);
+                }
+            }
+        }
+
+        public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
+            return true;
+        }
+    },
 
     FIREYAROU(4, Attribute.FIRE, MonsterType.PYRO, CardType.NORMAL, 1300, 1000,
             "A malevolent creature wrapped in flames that attacks enemies with intense fire.", 2500),
@@ -289,7 +301,7 @@ public enum MonsterCard implements Card {
         return name;
     }
 
-    public abstract void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner);
+    public abstract void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner,int targetNumber);
 
     public abstract boolean canBeAttacked(DuelController duelController, int monsterNumber);
 

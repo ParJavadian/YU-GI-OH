@@ -9,6 +9,8 @@ public class MonsterZone {
     private boolean[] hasAttackedInThisTurn;
     private Integer[] playerAttackPoints;
     private Integer[] rivalAttackPoints;
+    private boolean[] playerHasEnabledSuijin;
+    private boolean[] rivalHasEnabledSuijin;
 
     public MonsterZone(DuelController duelController){
         this.duelController = duelController;
@@ -36,6 +38,22 @@ public class MonsterZone {
 
     public void setHasChangedPositionInThisTurn(int index, boolean target) {
         this.hasChangedPositionInThisTurn[index] = target;
+    }
+
+    public void setPlayerHasEnabledSuijin(boolean target,int index) {
+        this.playerHasEnabledSuijin[index] = target;
+    }
+
+    public boolean getPlayerHasEnabledSuijin(int index) {
+        return this.playerHasEnabledSuijin[index];
+    }
+
+    public void setRivalHasEnabledSuijin(boolean target,int index) {
+        this.rivalHasEnabledSuijin[index] = target;
+    }
+
+    public boolean getRivalHasEnabledSuijin(int index) {
+        return this.rivalHasEnabledSuijin[index];
     }
 
     public void setMonsterAttackPlayer(int index,Integer target){
@@ -75,18 +93,24 @@ public class MonsterZone {
         this.hasChangedPositionInThisTurn= new boolean[5];
     }
 
-    public void newAll(){
+    public void newThoseThatResetWithTurn(){
         this.hasSetInThisTurn= new boolean[5];
         this.hasAttackedInThisTurn= new boolean[5];
         this.hasChangedPositionInThisTurn= new boolean[5];
-        Board playerBoard = this.duelController.getPlayer().getBoard();
+        //TODO age chizi joz suijin attack ro na vase ye turn 0 mikard in bayad avaz she(parmida)
+        for (int i = 0; i < 5; i++) {
+            if(this.playerAttackPoints[i]==0 && this.duelController.getPlayer().getBoard().getMonsterByNumber(i).getAttack()!=0){
+                this.playerAttackPoints[i] = this.duelController.getPlayer().getBoard().getMonsterByNumber(i).getAttack();
+            }
+        }
+        /*Board playerBoard = this.duelController.getPlayer().getBoard();
         Board rivalBoard= this.duelController.getRival().getBoard();
         for (int i = 0; i < 5; i++) {
             if(playerBoard.getMonsterByNumber(i)==null) this.playerAttackPoints[i]=null;
             else this.playerAttackPoints[i]=playerBoard.getMonsterByNumber(i).getAttack();
             if(rivalBoard.getMonsterByNumber(i)==null) this.rivalAttackPoints[i]=null;
             else this.rivalAttackPoints[i]=rivalBoard.getMonsterByNumber(i).getAttack();
-        }
+        }*/
     }
 
     public void decreaseAllAttackPointsBy400(){
@@ -105,5 +129,14 @@ public class MonsterZone {
             if(playerBoard.getMonsterByNumber(i)!=null) this.playerAttackPoints[i]=this.playerAttackPoints[i]+400;
             if(rivalBoard.getMonsterByNumber(i)!=null) this.rivalAttackPoints[i]=this.rivalAttackPoints[i]+400;
         }
+    }
+
+    public void changePlayerAndRival(){
+        Integer[] temp = this.playerAttackPoints;
+        this.playerAttackPoints = this.rivalAttackPoints;
+        this.rivalAttackPoints = temp;
+        boolean[] temp1 = this.playerHasEnabledSuijin;
+        this.playerHasEnabledSuijin = this.rivalHasEnabledSuijin;
+        this.rivalHasEnabledSuijin = temp1;
     }
 }

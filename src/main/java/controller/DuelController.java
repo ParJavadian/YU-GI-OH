@@ -247,7 +247,7 @@ public class DuelController {
         MonsterCard monsterCard = (MonsterCard) selectedCard.getCard();
         if (monsterCard.getLevel() <= 4) {
             this.player.getBoard().putMonster(monsterCard, "OO");
-            monsterCard.takeAction(this, TakeActionCase.SUMMONED, this.player);
+            monsterCard.takeAction(this, TakeActionCase.SUMMONED, this.player,this.selectedCard.getNumber());
             this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
             unselectCard();
             DuelView.printText("summoned successfully");
@@ -278,7 +278,7 @@ public class DuelController {
         this.player.getBoard().removeMonster(address);
         removeMonster(address);
         this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
-        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player);
+        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player,this.selectedCard.getNumber());
         this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
         unselectCard();
         DuelView.printText("summoned successfully");
@@ -302,7 +302,7 @@ public class DuelController {
         removeMonster(address1);
         removeMonster(address2);
         this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
-        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player);
+        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player,this.selectedCard.getNumber());
         this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("summoned successfully");
@@ -473,7 +473,7 @@ public class DuelController {
         if (!this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals("DH") || monsterZone.getHasSetInThisTurn(this.selectedCard.getNumber()))
             throw new CanNotFlipSummon();
         this.player.getBoard().changeMonsterPosition(this.selectedCard.getNumber(), "OO");
-        ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.FLIP_SUMMONED, this.player);
+        ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.FLIP_SUMMONED, this.player,this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("flip summoned successfully");
         printBoard();
@@ -482,16 +482,17 @@ public class DuelController {
     public void attackMonster(int monsterNumber) throws Exception {
         monsterNumber = opponentGroundNumbers[monsterNumber - 1];
         if (this.selectedCard == null) throw new NoCardSelected();
-        if (!(this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE) && (this.selectedCard.getCard() instanceof MonsterCard)))
+        if (!(this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE) && (this.selectedCard.getCard() instanceof MonsterCard) && (this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals("OO"))))
             throw new CanNotAttack();
-        if (!(phase.equals(Phase.BATTLE_PHASE)))
+        if (!(this.phase.equals(Phase.BATTLE_PHASE)))
             throw new CantDoActionInThisPhase();
-        if (monsterZone.getHasAttackedInThisTurn(this.selectedCard.getNumber()))
+        if (this.monsterZone.getHasAttackedInThisTurn(this.selectedCard.getNumber()))
             throw new AlreadyAttacked();
         if (getCountOfMonsterCardsInGround(this.rival) == 0)
             throw new NoCardToAttack();
         String targetPosition = this.rival.getBoard().getMonsterConditionByNumber(monsterNumber);
         if (this.rival.getBoard().getMonsterByNumber(monsterNumber).canBeAttacked(this, monsterNumber)) {
+            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this,TakeActionCase.ATTACKED,this.rival,monsterNumber);
             switch (targetPosition) {
                 case "OO":
                     attackMonsterOO(monsterNumber);
@@ -514,13 +515,13 @@ public class DuelController {
             this.rival.decreaseLifePoint(damage);
             this.rival.getBoard().putInGraveYard(this.rival.getBoard().getMonsterByNumber(monsterNumber));
             this.rival.getBoard().removeMonster(monsterNumber);
-            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival);
+            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival,monsterNumber);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("your opponent’s monster is destroyed and your opponent receives " + damage + " battle damage");
         } else if (attackerAttack == targetAttack) {
             this.rival.getBoard().putInGraveYard(this.rival.getBoard().getMonsterByNumber(monsterNumber));
             this.rival.getBoard().removeMonster(monsterNumber);
-            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival);
+            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival,monsterNumber);
             if (this.player.getBoard().getMonsterByNumber(this.selectedCard.getNumber()) != null) {
                 this.player.getBoard().putInGraveYard(this.selectedCard.getCard());
                 this.player.getBoard().removeMonster(this.selectedCard.getNumber());
@@ -531,7 +532,7 @@ public class DuelController {
         } else {
             int damage = targetAttack - attackerAttack;
             this.player.decreaseLifePoint(damage);
-            ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.REMOVE_FROM_MONSTERZONE, this.player);
+            ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.REMOVE_FROM_MONSTERZONE, this.player,this.selectedCard.getNumber());
             this.player.getBoard().putInGraveYard(this.selectedCard.getCard());
             this.player.getBoard().removeMonster(this.selectedCard.getNumber());
             removeMonster(this.selectedCard.getNumber());
@@ -546,7 +547,7 @@ public class DuelController {
         MonsterCard target = this.rival.getBoard().getMonsterByNumber(monsterNumber);
         int attackerAttack = this.monsterZone.getPlayerAttackPoints(this.selectedCard.getNumber());
         if (attackerAttack > target.getDefence()) {
-            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival);
+            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival,monsterNumber);
             this.rival.getBoard().removeMonster(monsterNumber);
             this.rival.getBoard().putInGraveYard(target);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
@@ -571,7 +572,7 @@ public class DuelController {
         this.rival.getBoard().changeMonsterPosition(monsterNumber, "DO");
         if (attackerAttack > target.getDefence()) {
             this.rival.getBoard().removeMonster(monsterNumber);
-            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival);
+            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival,monsterNumber);
             this.rival.getBoard().putInGraveYard(target);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("opponent’s monster card was " + targetName + " and the defense position monster is destroyed");
@@ -858,11 +859,12 @@ public class DuelController {
 
     private void changeTurn() {
         if (this.isStartTurn) this.isStartTurn = false;
+        clearLastTurn();
         //TODO inam hanooz kar dare
         User temp = this.player;
         this.player = rival;
         this.rival = temp;
-        clearLastTurn();
+        monsterZone.changePlayerAndRival();
 
         if (this.player.getUsername().equals("@AI@"))
             handleAITurn();
@@ -1072,7 +1074,7 @@ public class DuelController {
         this.hasSummonedOrSetInThisTurn = false;
         /*this.hasUsedHeraldInThisTurn = false;
         this.hasUsedTexChangerInThisTurn = false;*/
-        monsterZone.newAll();
+        monsterZone.newThoseThatResetWithTurn();
     }
 
     private void printBoard() {
@@ -1155,7 +1157,7 @@ public class DuelController {
         monsterZone.setHasChangedPositionInThisTurn(address, false);
         monsterZone.setHasSetInThisTurn(address, false);
         monsterZone.setMonsterAttackPlayer(address, null);
-        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.REMOVE_FROM_MONSTERZONE, this.player);
+        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.REMOVE_FROM_MONSTERZONE, this.player,this.selectedCard.getNumber());
     }
 
 

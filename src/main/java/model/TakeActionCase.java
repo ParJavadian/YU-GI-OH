@@ -8,6 +8,6 @@ public enum TakeActionCase {
     SPECIAL_SUMMONED,
     DIED_BY_BEING_ATTACKED,
     PUT_IN_MONSTERZONE,
-    TURN_START,
+    TURN_START;
 //    RITUAL_SUMMONED
 }
