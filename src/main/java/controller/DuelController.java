@@ -77,6 +77,10 @@ public class DuelController {
         return this.shouldEndGameForView;
     }
 
+    public static int[] getOpponentGroundNumbers(){
+        return opponentGroundNumbers;
+    }
+
     /*public boolean getHasUsedHeraldInThisTurn() {
         return this.hasUsedHeraldInThisTurn;
     }
