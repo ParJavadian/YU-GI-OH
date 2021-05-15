@@ -65,6 +65,14 @@ public class DuelController {
         return this.rival;
     }
 
+    public void setPlayer(User player){
+        this.player = player;
+    }
+
+    public void setRival(User rival){
+        this.rival = rival;
+    }
+
     public MonsterZone getMonsterZone() {
         return this.monsterZone;
     }
@@ -518,8 +526,8 @@ public class DuelController {
             int damage = attackerAttack - targetAttack;
             this.rival.decreaseLifePoint(damage);
             this.rival.getBoard().putInGraveYard(this.rival.getBoard().getMonsterByNumber(monsterNumber));
-            this.rival.getBoard().removeMonster(monsterNumber);
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival,monsterNumber);
+            this.rival.getBoard().removeMonster(monsterNumber);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("your opponent’s monster is destroyed and your opponent receives " + damage + " battle damage");
         } else if (attackerAttack == targetAttack) {
@@ -575,9 +583,9 @@ public class DuelController {
         String targetName = this.rival.getBoard().getMonsterByNumber(monsterNumber).getName();
         this.rival.getBoard().changeMonsterPosition(monsterNumber, "DO");
         if (attackerAttack > target.getDefence()) {
-            this.rival.getBoard().removeMonster(monsterNumber);
-            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival,monsterNumber);
             this.rival.getBoard().putInGraveYard(target);
+            this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival,monsterNumber);
+            this.rival.getBoard().removeMonster(monsterNumber);
             monsterZone.setHasAttackedInThisTurn(this.selectedCard.getNumber(), true);
             DuelView.printText("opponent’s monster card was " + targetName + " and the defense position monster is destroyed");
         } else if (attackerAttack == target.getDefence()) {
@@ -875,7 +883,7 @@ public class DuelController {
 
     }
 
-    private void handleAITurn() {
+    public void handleAITurn() {
         setMonsterCardInAI();
         setSpellOrTrapInAI();
         //TODO go next phase?
