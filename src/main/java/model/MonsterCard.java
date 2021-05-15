@@ -1,5 +1,7 @@
 package model;
 
+import controller.DuelController;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -7,7 +9,29 @@ public enum MonsterCard implements Card {
     COMMAND_KNIGHT(4, Attribute.FIRE, MonsterType.WARRIOR, CardType.EFFECT, 1000, 1000,
             "All Warrior-Type monsters you control gain 400 ATK. If you control another monster, monsters your " +
                     "opponent controls cannot target this card for an attack.",
-            2100),
+            2100) {
+        public void takeAction(DuelController duelController, TakeActionCase takeActionCase) {
+            MonsterZone monsterZone = duelController.getMonsterZone();
+            if (takeActionCase.equals(TakeActionCase.SUMMONED)) {
+                monsterZone.increaseAllAttackPointsBy400();
+            } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_MONSTERZONE)) {
+                monsterZone.decreaseAllAttackPointsBy400();
+            }
+        }
+
+        public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
+            if (!duelController.getRival().getBoard().getMonsterConditionByNumber(monsterNumber).equals("DH")) {
+                for (int i = 0; i < 5; i++) {
+                    if(i!=monsterNumber){
+                        if(duelController.getRival().getBoard().getMonsterByNumber(i)!=null && !duelController.getRival().getBoard().getMonsterByNumber(i).equals(MonsterCard.COMMAND_KNIGHT))
+                            return false;
+                    }
+                }
+                return true;
+            }
+            return true;
+        }
+    },
 
     BATTLE_OX(4, Attribute.EARTH, MonsterType.BEAST_WARRIOR, CardType.NORMAL, 1700, 1000,
             "A monster with tremendous power, it destroys enemies with a swing of its axe.", 2900),
@@ -220,6 +244,10 @@ public enum MonsterCard implements Card {
         name = name.replaceAll("_", " ");
         return name;
     }
+
+    public abstract void takeAction(DuelController duelController, TakeActionCase takeActionCase);
+
+    public abstract boolean canBeAttacked(DuelController duelController, int monsterNumber);
 
     @Override
     public String toString() {

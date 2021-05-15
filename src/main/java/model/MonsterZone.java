@@ -38,6 +38,14 @@ public class MonsterZone {
         this.hasChangedPositionInThisTurn[index] = target;
     }
 
+    public void setMonsterAttackPlayer(int index,Integer target){
+        this.playerAttackPoints[index] = target;
+    }
+
+    public void setMonsterAttackRival(int index,Integer target){
+        this.playerAttackPoints[index] = target;
+    }
+
     public boolean getHasSetInThisTurn(int index) {
         return this.hasSetInThisTurn[index];
     }
