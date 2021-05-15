@@ -99,7 +99,7 @@ public class MonsterZone {
         this.hasChangedPositionInThisTurn= new boolean[5];
         //TODO age chizi joz suijin attack ro na vase ye turn 0 mikard in bayad avaz she(parmida)
         for (int i = 0; i < 5; i++) {
-            if(this.playerAttackPoints[i]==0 && this.duelController.getPlayer().getBoard().getMonsterByNumber(i).getAttack()!=0){
+            if(this.playerAttackPoints[i]!=null && this.playerAttackPoints[i]==0 && this.duelController.getPlayer().getBoard().getMonsterByNumber(i).getAttack()!=0){
                 this.playerAttackPoints[i] = this.duelController.getPlayer().getBoard().getMonsterByNumber(i).getAttack();
             }
         }
