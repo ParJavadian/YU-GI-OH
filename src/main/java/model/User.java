@@ -82,11 +82,11 @@ public class User {
     }
 
     public void increaseMoney(int amount) {
-        this.money -= amount;
+        this.money += amount;
     }
 
     public void decreaseMoney(int amount) {
-        this.money += amount;
+        this.money -= amount;
     }
 
     public static List<User> getAllUsers() {

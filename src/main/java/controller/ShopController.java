@@ -27,7 +27,7 @@ public class ShopController {
     }
 
     public void buyCard(String name) throws Exception {
-        Card card = this.user.getCardByName(name);
+        Card card = DeckController.getInstance(user).getCardByName(name);
         if (card != null) {
             if (this.user.getMoney() >= card.getPrice()) {
                 this.user.decreaseMoney(card.getPrice());
@@ -39,19 +39,14 @@ public class ShopController {
     }
 
     public void showAll() {
-        List<Card> allCards = new ArrayList<>();
-        Collections.addAll(allCards, MonsterCard.values());
-        Collections.addAll(allCards, TrapCard.values());
-        Collections.addAll(allCards, SpellCard.values());
-        Comparator<Card> cardComparator = Comparator.comparing(Card::getName);
-        allCards.sort(cardComparator);
+        List<Card> allCards =  DeckController.getInstance(user).getAllCardsOfGame();
         //TODO harja string=null bood ="" konim
         String toPrint = "";
         for (Card card : allCards){
             if (allCards.indexOf(card) == allCards.size()-1){
-                toPrint += card.getName()+":"+card.getDescription();
+                toPrint += card.getNamePascalCase()+":"+card.getDescription();
             } else
-                toPrint += card.getName()+":"+card.getDescription()+"\n";
+                toPrint += card.getNamePascalCase()+":"+card.getDescription()+"\n";
         }
         ShopView.getInstance(this.user).printText(toPrint);
     }
