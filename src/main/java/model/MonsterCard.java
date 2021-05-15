@@ -267,7 +267,13 @@ public enum MonsterCard implements Card {
             "FLIP: Target 1 monster on the field; destroy that target.", 600) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.FLIP_SUMMONED)) {
-                if (duelController.getCountOfMonsterCardsInGround(duelController.getRival()) != 0) {
+                User temp = duelController.getPlayer();
+                duelController.setPlayer(duelController.getRival());
+                duelController.setRival(temp);
+                duelController.getMonsterZone().changePlayerAndRival();
+                if (duelController.getPlayer().getUsername().equals("@AI@"))
+                    duelController.handleAITurn();
+                else if (duelController.getCountOfMonsterCardsInGround(duelController.getRival()) != 0) {
                     DuelView.printText("select one of opponent's monster cards by number to destroy");
                     String givenNumber = DuelView.scan();
                     int monsterNumber = DuelController.getOpponentGroundNumbers()[Integer.parseInt(givenNumber)];
@@ -278,6 +284,7 @@ public enum MonsterCard implements Card {
                     }
                     duelController.getRival().getBoard().getMonsterByNumber(monsterNumber).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), duelController.getSelectedCard().getNumber());
                     duelController.getRival().getBoard().removeMonster(monsterNumber);
+                    duelController.getRival().getBoard().putInGraveYard(duelController.getRival().getBoard().getMonsterByNumber(monsterNumber));
                 }
             }
         }
