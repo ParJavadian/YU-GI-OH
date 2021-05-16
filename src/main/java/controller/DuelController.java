@@ -1033,6 +1033,17 @@ public class DuelController {
                     exception.printStackTrace();
                 }
             }
+            int indexOfSecondStrongestAttackerOnRival = monsterCardWithSecondMostAttackPointOnRivalBoard(monsterCardWithMostAttackPointOnRivalBoard());
+                    MonsterCard secondStrongestRivalAttacker = this.rival.getBoard().getMonsterByNumber(indexOfSecondStrongestAttackerOnRival);
+            if (secondStrongestRivalAttacker.getAttack() < strongestPlayerAttacker.getAttack())
+                //fixme selectCard o in chiza ke alan vaghan halesho nadaram
+            {
+                try {
+                    attackMonsterOO(indexOfSecondStrongestAttackerOnRival);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            }
         }
     }
 
