@@ -797,26 +797,37 @@ public class DuelController {
     private void exchangeCardBetweenMainAndSide(User user) {
         DuelView.printText("Do you want to exchange a card between main and side deck " + user.getNickname() + "?");
         String answer = DuelView.scan().toLowerCase(Locale.ROOT);
-        if (answer.equals("yes")) { //todo balayi ro tolowercase kardam va ino bardashtam :  || answer.equals("Yes")
-            DuelView.printText("enter card name from main and side");
+        if (answer.equals("yes")) {
+            DuelView.printText("in the first line enter card name from main and in the first line enter card name from side");
             String main = DuelView.scan();
-            Card mainCard = user.getCardByName(main);
+            Card mainCard = DeckController.getInstance(user).getCardByName(main);
             while (mainCard == null || !user.getGameDeck().getMainDeck().contains(mainCard)) {
                 DuelView.printText("Please enter a card you have in your main deck!");
                 main = DuelView.scan();
                 mainCard = user.getCardByName(main);
             }
             String side = DuelView.scan();
-            Card sideCard = user.getCardByName(side);
+            Card sideCard = DeckController.getInstance(user).getCardByName(side);
             while (sideCard == null || !user.getGameDeck().getSideDeck().contains(sideCard)) {
                 DuelView.printText("Please enter a card you have in your side deck!");
                 side = DuelView.scan();
                 sideCard = user.getCardByName(side);
             }
+//            List<Card> newSideDeck = user.getGameDeck().getSideDeck();
+//            newSideDeck.remove(sideCard);
+//            newSideDeck.add(mainCard);
+//            user.getGameDeck().setSideDeck(newSideDeck);
+//            List<Card> newMainDeck = user.getGameDeck().getMainDeck();
+//            newMainDeck.remove(mainCard);
+//            newMainDeck.add(sideCard);
+//            user.getGameDeck().setMainDeck(newMainDeck);
+
             user.getGameDeck().getSideDeck().remove(sideCard);
             user.getGameDeck().getMainDeck().remove(mainCard);
             user.getGameDeck().getSideDeck().add(mainCard);
             user.getGameDeck().getMainDeck().add(sideCard);
+
+
         }
     }
 
