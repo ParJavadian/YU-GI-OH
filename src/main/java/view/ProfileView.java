@@ -22,7 +22,7 @@ public class ProfileView {
 
     public void getCommandForProfile() {
         String command;
-        while (true) {
+        while (ScannerClassForView.getScanner().hasNext()) {
             command = ScannerClassForView.getScanner().nextLine();
             if (processCommand(command)) break;
         }

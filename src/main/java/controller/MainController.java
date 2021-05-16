@@ -19,7 +19,6 @@ public class MainController {
     }
 
     public void goToMenu(String menu) {
-
         switch (menu) {
             case "Deck":
                 DeckView.getInstance(this.user).getCommandForDeck();
@@ -29,7 +28,7 @@ public class MainController {
                 break;
             case "Profile":
                 ProfileView.getInstance(this.user).getCommandForProfile();
-                break;
+                return;
             case "Shop":
                 ShopView.getInstance(this.user).getCommandForShop();
                 break;

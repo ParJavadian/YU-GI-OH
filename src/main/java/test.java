@@ -255,32 +255,32 @@ public class test {
     @Test
     @DisplayName("get player and rival test")
     public void getPlayerAndRivalTest() {
-        DuelController duelController = new DuelController(player,rival,1);
+        DuelController duelController = new DuelController(player, rival, 1);
         User expectedRival = duelController.getRival();
         User expectedPlayer = duelController.getPlayer();
-        Assertions.assertEquals(expectedPlayer,player);
-        Assertions.assertEquals(expectedRival,rival);
+        Assertions.assertEquals(expectedPlayer, player);
+        Assertions.assertEquals(expectedRival, rival);
     }
 
     @Test
     @DisplayName("set player and rival test")
     public void setPlayerAndRivalTest() {
-        DuelController duelController = new DuelController(player,rival,1);
-        User naghi = new User("naghi","naghi","naghi");
-        User taghi = new User("taghi","taghi","taghi");
+        DuelController duelController = new DuelController(player, rival, 1);
+        User naghi = new User("naghi", "naghi", "naghi");
+        User taghi = new User("taghi", "taghi", "taghi");
         duelController.setPlayer(naghi);
         duelController.setRival(taghi);
         User expectedRival = duelController.getRival();
         User expectedPlayer = duelController.getPlayer();
         MonsterZone monsterZone = duelController.getMonsterZone();
         SelectedCard selectedCard = duelController.getSelectedCard();
-        Assertions.assertEquals(expectedPlayer,naghi);
-        Assertions.assertEquals(expectedRival,taghi);
+        Assertions.assertEquals(expectedPlayer, naghi);
+        Assertions.assertEquals(expectedRival, taghi);
         duelController.setPlayer(player);
         duelController.setRival(rival);
     }
 
-    @Test
+    /*@Test
     @DisplayName("manage end game test")
     public void manageEndGameTest(){
         User hossein = new User("hossein","hossein","hossein");
@@ -299,8 +299,7 @@ public class test {
         duelController.manageEndGame();
 //        hasan.setLifePoint(0);
 //        duelController.manageEndGame();
-    }
-
+    }*/
 
 
 //    @Test
@@ -309,7 +308,7 @@ public class test {
     @Test
     @DisplayName("go to menu test")
     public void goToMenuTestDeck() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu enter Deck\nmenu exit\nuser logout".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("menu enter Deck\nmenu exit\nuser logout\n".getBytes());
         System.setIn(in);
         MainView.getInstance(player).getCommandForMain();
         //MainController.getInstance(player).goToMenu("Deck");
@@ -318,7 +317,7 @@ public class test {
     @Test
     @DisplayName("go to menu test")
     public void goToMenuTestScoreBoard() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu exit\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("menu exit\nuser logout\n".getBytes());
         System.setIn(in);
         MainController.getInstance(player).goToMenu("ScoreBoard");
     }
@@ -327,7 +326,7 @@ public class test {
     @Test
     @DisplayName("go to menu test")
     public void goToMenuTestProfile() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu exit\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("menu exit\nuser logout\n".getBytes());
         System.setIn(in);
         MainController.getInstance(player).goToMenu("Profile");
     }
@@ -336,7 +335,7 @@ public class test {
     @Test
     @DisplayName("go to menu test")
     public void goToMenuTestShop() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu exit\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("menu exit\nuser logout\n".getBytes());
         System.setIn(in);
         MainController.getInstance(player).goToMenu("Shop");
     }
@@ -345,7 +344,7 @@ public class test {
     @Test
     @DisplayName("go to menu test")
     public void goToMenuTestImportExport() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu exit\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("menu exit\nuser logout\n".getBytes());
         System.setIn(in);
         MainController.getInstance(player).goToMenu("ImportExport");
     }
@@ -558,6 +557,7 @@ public class test {
         DeckController.getInstance(player).addCardToDeck(MonsterCard.AXE_RAIDER.getNamePascalCase(), "deck of kiana", false, false);
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream sysOutBackup = System.out;
+        System.setOut(new PrintStream(outContent));
         DeckController.getInstance(player).removeCardFromDeck(MonsterCard.AXE_RAIDER.getNamePascalCase(), "deck of kiana", false);
         Assertions.assertEquals("card removed form deck successfully\r\n", outContent.toString());
         System.setOut(sysOutBackup);
@@ -903,12 +903,12 @@ public class test {
         });
     }
 
-    @Test
+    /*@Test
     @DisplayName("test menu enter")
     public void testMenuEnter() {
         InputStream sysInBackup = System.in; // backup System.in to restore it later
         PrintStream sysOutBackup = System.out;
-        ByteArrayInputStream in = new ByteArrayInputStream("menu enter \nmenu exit\n".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("\nmenu enter Deck\nmenu exit\n".getBytes());
         System.setIn(in);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
@@ -916,7 +916,8 @@ public class test {
         Assertions.assertEquals("please login first\r\n", out.toString());
         System.setIn(sysInBackup);
         System.setOut(sysOutBackup);
-    }
+        System.out.println("5");
+    }*/
 
     @Test
     @DisplayName("createUser everything is fine")

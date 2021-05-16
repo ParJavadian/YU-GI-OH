@@ -18,9 +18,15 @@ public class LogInView {
 
     public void getCommandForLogin() {
         String command;
-        while (true) {
+        System.out.println("8");
+        while (ScannerClassForView.getScanner().hasNext()) {
+            System.out.println("4");
             command = ScannerClassForView.getScanner().nextLine();
-            if (processCommand(command)) return;
+            System.out.println("5");
+            if (processCommand(command)) {
+                System.out.println("6");
+                break;
+            }
         }
     }
 
@@ -45,6 +51,7 @@ public class LogInView {
                     printText(exception.getMessage());
                 }
             }
+            System.out.println("1");
             return false;
         }
         if (command.startsWith("user login ") && command.matches("[\\w -]+")) {
@@ -57,9 +64,13 @@ public class LogInView {
                     printText(exception.getMessage());
                 }
             }
+            System.out.println("2");
             return false;
         }
-        if (command.equals("menu exit")) return true;
+        if (command.equals("menu exit")) {
+            System.out.println("3");
+            return true;
+        }
         printText("invalid command");
         return false;
     }

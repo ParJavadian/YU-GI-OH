@@ -23,7 +23,7 @@ public class ShopView {
 
     public void getCommandForShop() {
         String command;
-        while (true) {
+        while (ScannerClassForView.getScanner().hasNext()) {
             command = ScannerClassForView.getScanner().nextLine();
             if (processCommand(command)) break;
         }

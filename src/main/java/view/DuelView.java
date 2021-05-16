@@ -23,7 +23,7 @@ public class DuelView {
 
     public void getCommandForDuel() {
         String command;
-        while (true) {
+        while (ScannerClassForView.getScanner().hasNext()) {
             command = ScannerClassForView.getScanner().nextLine();
             if (processCommand(command) ) break;
             if(duelController.getShouldEndGameForView()) break;

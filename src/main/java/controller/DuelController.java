@@ -250,7 +250,7 @@ public class DuelController {
             throw new NoCardSelected();
         }
         //TODO in exception payinie halate "مد نظر قابلیت احضار عادی را نداشته باشد monster" ro nadare hanooz(fekr konam dare alan)
-        if (!(this.selectedCard.getCard() instanceof MonsterCard && this.selectedCard.getBoardZone().equals(BoardZone.HAND) && ((MonsterCard) this.selectedCard.getCard()).getCanBeNormalSummoned())) {
+        if (!(this.selectedCard.getCard() instanceof MonsterCard && this.selectedCard.getBoardZone().equals(BoardZone.HAND) /*&& ((MonsterCard) this.selectedCard.getCard()).getCanBeNormalSummoned()*/)) {
             throw new CanNotSummon();
         }
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
