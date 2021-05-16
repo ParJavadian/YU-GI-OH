@@ -7,6 +7,7 @@ import view.DuelView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class DuelController {
 
@@ -794,9 +795,9 @@ public class DuelController {
     }
 
     private void exchangeCardBetweenMainAndSide(User user) {
-        DuelView.printText("Do you want to exchange a card between main and side deck" + user.getNickname() + "?");
-        String answer = DuelView.scan();
-        if (answer.equals("yes") || answer.equals("Yes")) {
+        DuelView.printText("Do you want to exchange a card between main and side deck " + user.getNickname() + "?");
+        String answer = DuelView.scan().toLowerCase(Locale.ROOT);
+        if (answer.equals("yes")) { //todo balayi ro tolowercase kardam va ino bardashtam :  || answer.equals("Yes")
             DuelView.printText("enter card name from main and side");
             String main = DuelView.scan();
             Card mainCard = user.getCardByName(main);
