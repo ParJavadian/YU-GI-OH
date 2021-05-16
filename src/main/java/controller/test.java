@@ -249,92 +249,92 @@ public class test {
           //todo Assertions.assertEquals("");
 
       }
-//    @Test
-//    @DisplayName("test for show all in shopController")
-//    public void shopControllerShowAllTest(){
-//        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(outContent));
-//        ShopController.getInstance(player).showAll();
-//        Assertions.assertEquals("Advanced Ritual Art:This card can be used to Ritual Summon any 1 Ritual Monster. You must also send Normal Monsters from your Deck to the Graveyard whose total Levels equal the Level of that Ritual Monster.\\n\" +\n" +
-//                "                \"Alexandrite Dragon:Many of the czars' lost jewels can be found in the scales of this priceless dragon. Its creator remains a mystery, along with how they acquired the imperial treasures. But whosoever finds this dragon has hit the jackpot... whether they know it or not.\\n\" +\n" +
-//                "                \"Axe Raider:An axe-wielding monster of tremendous strength and agility.\\n\" +\n" +
-//                "                \"Baby Dragon:Much more than just a child, this dragon is gifted with untapped power.\\n\" +\n" +
-//                "                \"Battle Ox:A monster with tremendous power, it destroys enemies with a swing of its axe.\\n\" +\n" +
-//                "                \"Battle Warrior:A warrior that fights with his bare hands!!!\\n\" +\n" +
-//                "                \"Beast King Barbaros:You can Normal Summon/Set this card without Tributing, but its original ATK becomes 1900. You can Tribute 3 monsters to Tribute Summon (but not Set) this card. If Summoned this way: Destroy all cards your opponent controls.\\n\" +\n" +
-//                "                \"Bitron:A new species found in electronic space. There's not much information on it.\\n\" +\n" +
-//                "                \"Black Pendant:The equipped monster gains 500 ATK. When this card is sent from the field to the Graveyard: Inflict 500 damage to your opponent.\\n\" +\n" +
-//                "                \"Blue Eyes White Dragon:This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.\\n\" +\n" +
-//                "                \"Call Of The Haunted:Activate this card by targeting 1 monster in your GY; Special Summon that target in Attack Position. When this card leaves the field, destroy that monster. When that monster is destroyed, destroy this card.\\n\" +\n" +
-//                "                \"Change Of Heart:Target 1 monster your opponent controls; take control of it until the End Phase.\\n\" +\n" +
-//                "                \"Closed Forest:All Beast-Type monsters you control gain 100 ATK for each monster in your Graveyard. Field Spell Cards cannot be activated. Field Spell Cards cannot be activated during the turn this card is destroyed.\\n\" +\n" +
-//                "                \"Command Knight:All Warrior-Type monsters you control gain 400 ATK. If you control another monster, monsters your opponent controls cannot target this card for an attack.\\n\" +\n" +
-//                "                \"Crab Turtle:This monster can only be Ritual Summoned with the Ritual Spell Card, \\\"Turtle Oath\\\". You must also offer monsters whose total Level Stars equal 8 or more as a Tribute from the field or your hand.\\n\" +\n" +
-//                "                \"Crawling Dragon:This weakened dragon can no longer fly, but is still a deadly force to be reckoned with.\\n\" +\n" +
-//                "                \"Curtain Of Dark Ones:A curtain that a spellcaster made, it is said to raise a dark power.\\n\" +\n" +
-//                "                \"Dark Blade:They say he is a dragon-manipulating warrior from the dark world. His attack is tremendous, using his great swords with vicious power.\\n\" +\n" +
-//                "                \"Dark Hole:Destroy all monsters on the field.\\n\" +\n" +
-//                "                \"Dark Magician:The ultimate wizard in terms of attack and defense.\\n\" +\n" +
-//                "                \"Exploder Dragon:If this card is destroyed by battle and sent to the Graveyard: Destroy the monster that destroyed it. Neither player takes any battle damage from attacks involving this attacking card.\\n\" +\n" +
-//                "                \"Feral Imp:A playful little fiend that lurks in the dark, waiting to attack an unwary enemy.\\n\" +\n" +
-//                "                \"Fireyarou:A malevolent creature wrapped in flames that attacks enemies with intense fire.\\n\" +\n" +
-//                "                \"Flame Manipulator:This Spellcaster attacks enemies with fire-related spells such as \\\"Sea of Flames\\\" and \\\"Wall of Fire\\\".\\n\" +\n" +
-//                "                \"Forest:All Insect, Beast, Plant, and Beast-Warrior monsters on the field gain 200 ATK/DEF.\\n\" +\n" +
-//                "                \"Gate Guardian:Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 \\\"Sanga of the Thunder\\\", \\\"Kazejin\\\", and \\\"Suijin\\\".\\n\" +\n" +
-//                "                \"Haniwa:An earthen figure that protects the tomb of an ancient ruler.\\n\" +\n" +
-//                "                \"Harpies Feather Dust:Destroy all Spells and Traps your opponent controls.\\n\" +\n" +
-//                "                \"Herald Of Creation:Once per turn: You can discard 1 card, then target 1 Level 7 or higher monster in your Graveyard; add that target to your hand.\\n\" +\n" +
-//                "                \"Hero Of The East:Feel da strength ah dis sword-swinging samurai from da Far East.\\n\" +\n" +
-//                "                \"Horn Imp:A small fiend that dwells in the dark, its single horn makes it a formidable opponent.\\n\" +\n" +
-//                "                \"Leotron:A territorial electronic monster that guards its own domain.\\n\" +\n" +
-//                "                \"Magic Cylinder:When an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.\\n\" +\n" +
-//                "                \"Magic Jammer:When a Spell Card is activated: Discard 1 card; negate the activation, and if you do, destroy it.\\n\" +\n" +
-//                "                \"Magnum Shield:Equip only to a Warrior-Type monster. Apply this effect, depending on its battle position.\\n\" +\n" +
-//                "                \"â—\u008F Attack Position: It gains ATK equal to its original DEF.\\n\" +\n" +
-//                "                \"â—\u008F Defense Position: It gains DEF equal to its original ATK.\\n\" +\n" +
-//                "                \"Man Eater Bug:FLIP: Target 1 monster on the field; destroy that target.\\n\" +\n" +
-//                "                \"Marshmallon:Cannot be destroyed by battle. After damage calculation, if this card was attacked, and was face-down at the start of the Damage Step: The attacking player takes 1000 damage.\\n\" +\n" +
-//                "                \"Messenger Of Peace:Monsters with 1500 or more ATK cannot declare an attack. Once per turn, during your Standby Phase, pay 100 LP or destroy this card.\\n\" +\n" +
-//                "                \"Mind Crush:Declare 1 card name; if that card is in your opponent's hand, they must discard all copies of it, otherwise you discard 1 random card.\\n\" +\n" +
-//                "                \"Mirage Dragon:Your opponent cannot activate Trap Cards during the Battle Phase.\\n\" +\n" +
-//                "                \"Mirror Force:When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.\\n\" +\n" +
-//                "                \"Monster Reborn:When your opponent Normal or Flip Summons 1 monster with 1000 or more ATK: Target that monster; destroy that target.\\n\" +\n" +
-//                "                \"Mystical Spcae Typhoon:Target 1 Spell/Trap on the field; destroy that target.\\n\" +\n" +
-//                "                \"Negate Attack:When an opponent's monster declares an attack: Target the attacking monster; negate the attack, then end the Battle Phase\\n\" +\n" +
-//                "                \"Pot Of Greed:Draw 2 cards.\\n\" +\n" +
-//                "                \"Raigeki:Destroy all monsters your opponent controls.\\n\" +\n" +
-//                "                \"Ring Of Defense:When a Trap effect that inflicts damage is activated: Make that effect damage 0.\\n\" +\n" +
-//                "                \"Scanner:Once per turn, you can select 1 of your opponent's monsters that is removed from play. Until the End Phase, this card's name is treated as the selected monster's name, and this card has the same Attribute, Level, ATK, and DEF as the selected monster. If this card is removed from the field while this effect is applied, remove it from play.\\n\" +\n" +
-//                "                \"Silver Fang:A snow wolf that's beautiful to the eye, but absolutely vicious in battle.\\n\" +\n" +
-//                "                \"Skull Guardian:This monster can only be Ritual Summoned with the Ritual Spell Card, \\\"Novox's Prayer\\\". You must also offer monsters whose total Level Stars equal 7 or more as a Tribute from the field or your hand.\\n\" +\n" +
-//                "                \"Slot Machine:The machine's ability is said to vary according to its slot results.\\n\" +\n" +
-//                "                \"Solemn Warning:When a monster(s) would be Summoned, OR when a Spell/Trap Card, or monster effect, is activated that includes an effect that Special Summons a monster(s): Pay 2000 LP; negate the Summon or activation, and if you do, destroy it.\\n\" +\n" +
-//                "                \"Spell Absorption:Each time a Spell Card is activated, gain 500 Life Points immediately after it resolves.\\n\" +\n" +
-//                "                \"Spiral Serpent:When huge whirlpools lay cities asunder, it is the hunger of this sea serpent at work. No one has ever escaped its dreaded Spiral Wave to accurately describe the terror they experienced.\\n\" +\n" +
-//                "                \"Suijin:During damage calculation in your opponent's turn, if this card is being attacked: You can target the attacking monster; make that target's ATK 0 during damage calculation only (this is a Quick Effect). This effect can only be used once while this card is face-up on the field.\\n\" +\n" +
-//                "                \"Supply Squad:Once per turn, if a monster(s) you control is destroyed by battle or card effect: Draw 1 card.\\n\" +\n" +
-//                "                \"Sword Of Dark Destruction:A DARK monster equipped with this card increases its ATK by 400 points and decreases its DEF by 200 points.\\n\" +\n" +
-//                "                \"Sword Of Revealing Light:After this card's activation, it remains on the field, but destroy it during the End Phase of your opponent's 3rd turn. When this card is activated: If your opponent controls a face-down monster, flip all monsters they control face-up. While this card is face-up on the field, your opponent's monsters cannot declare an attack.\\n\" +\n" +
-//                "                \"Terraforming:Add 1 Field Spell from your Deck to your hand.\\n\" +\n" +
-//                "                \"Terratiger The Empowered Warrior:When this card is Normal Summoned: You can Special Summon 1 Level 4 or lower Normal Monster from your hand in Defense Position.\\n\" +\n" +
-//                "                \"Texchanger:Once per turn, when your monster is targeted for an attack: You can negate that attack, then Special Summon 1 Cyberse Normal Monster from your hand, Deck, or GY.\\n\" +\n" +
-//                "                \"The Calculator:The ATK of this card is the combined Levels of all face-up monsters you control x 300.\\n\" +\n" +
-//                "                \"The Tricky:You can Special Summon this card (from your hand) by discarding 1 card.\\n\" +\n" +
-//                "                \"Time Seal:Skip the Draw Phase of your opponent's next turn.\\n\" +\n" +
-//                "                \"Torrential Tribute:When a monster(s) is Summoned: Destroy all monsters on the field.\\n\" +\n" +
-//                "                \"Trap Hole:When your opponent Normal or Flip Summons 1 monster with 1000 or more ATK: Target that monster; destroy that target.\\n\" +\n" +
-//                "                \"Twin Twister:Discard 1 card, then target up to 2 Spells/Traps on the field; destroy them.\\n\" +\n" +
-//                "                \"Umiiruka:Increase the ATK of all WATER monsters by 500 points and decrease their DEF by 400 points.\\n\" +\n" +
-//                "                \"United We Stand:The equipped monster gains 800 ATK/DEF for each face-up monster you control.\\n\" +\n" +
-//                "                \"Vanitys Emptiness:Neither player can Special Summon monsters. If a card is sent from the Deck or the field to your Graveyard: Destroy this card.\\n\" +\n" +
-//                "                \"Wall Of Revealing Light:Neither player can Special Summon monsters. If a card is sent from the Deck or the field to your Graveyard: Destroy this card.\\n\" +\n" +
-//                "                \"Warrior Dai Grepher:The warrior who can manipulate dragons. Nobody knows his mysterious past.\\n\" +\n" +
-//                "                \"Wattaildragon:Capable of indefinite flight. Attacks by wrapping its body with electricity and ramming into opponents.\\n\" +\n" +
-//                "                \"IMPORTANT: Capturing the \\\"Wattaildragon\\\" is forbidden by the Ancient Rules and is a Level 6 offense, the minimum sentence for which is imprisonment for no less than 2500 heliocycles.\\n\" +\n" +
-//                "                \"Wattkid:A creature that electrocutes opponents with bolts of lightning.\\n\" +\n" +
-//                "                \"Yami:All Fiend and Spellcaster monsters on the field gain 200 ATK/DEF, also all Fairy monsters on the field lose 200 ATK/DEF.\\n\" +\n" +
-//                "                \"Yomi Ship:If this card is destroyed by battle and sent to the GY: Destroy the monster that destroyed this card.\n".replaceAll("\n","\r\n"),outContent.toString());
-//    }
+    @Test
+    @DisplayName("test for show all in shopController")
+    public void shopControllerShowAllTest(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        ShopController.getInstance(player).showAll();
+        Assertions.assertEquals("Advanced Ritual Art:This card can be used to Ritual Summon any 1 Ritual Monster. You must also send Normal Monsters from your Deck to the Graveyard whose total Levels equal the Level of that Ritual Monster.\n" +
+                "Alexandrite Dragon:Many of the czars' lost jewels can be found in the scales of this priceless dragon. Its creator remains a mystery, along with how they acquired the imperial treasures. But whosoever finds this dragon has hit the jackpot... whether they know it or not.\n" +
+                "Axe Raider:An axe-wielding monster of tremendous strength and agility.\n" +
+                "Baby Dragon:Much more than just a child, this dragon is gifted with untapped power.\n" +
+                "Battle Ox:A monster with tremendous power, it destroys enemies with a swing of its axe.\n" +
+                "Battle Warrior:A warrior that fights with his bare hands!!!\n" +
+                "Beast King Barbaros:You can Normal Summon/Set this card without Tributing, but its original ATK becomes 1900. You can Tribute 3 monsters to Tribute Summon (but not Set) this card. If Summoned this way: Destroy all cards your opponent controls.\n" +
+                "Bitron:A new species found in electronic space. There's not much information on it.\n" +
+                "Black Pendant:The equipped monster gains 500 ATK. When this card is sent from the field to the Graveyard: Inflict 500 damage to your opponent.\n" +
+                "Blue Eyes White Dragon:This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.\n" +
+                "Call Of The Haunted:Activate this card by targeting 1 monster in your GY; Special Summon that target in Attack Position. When this card leaves the field, destroy that monster. When that monster is destroyed, destroy this card.\n" +
+                "Change Of Heart:Target 1 monster your opponent controls; take control of it until the End Phase.\n" +
+                "Closed Forest:All Beast-Type monsters you control gain 100 ATK for each monster in your Graveyard. Field Spell Cards cannot be activated. Field Spell Cards cannot be activated during the turn this card is destroyed.\n" +
+                "Command Knight:All Warrior-Type monsters you control gain 400 ATK. If you control another monster, monsters your opponent controls cannot target this card for an attack.\n" +
+                "Crab Turtle:This monster can only be Ritual Summoned with the Ritual Spell Card, \"Turtle Oath\". You must also offer monsters whose total Level Stars equal 8 or more as a Tribute from the field or your hand.\n" +
+                "Crawling Dragon:This weakened dragon can no longer fly, but is still a deadly force to be reckoned with.\n" +
+                "Curtain Of Dark Ones:A curtain that a spellcaster made, it is said to raise a dark power.\n" +
+                "Dark Blade:They say he is a dragon-manipulating warrior from the dark world. His attack is tremendous, using his great swords with vicious power.\n" +
+                "Dark Hole:Destroy all monsters on the field.\n" +
+                "Dark Magician:The ultimate wizard in terms of attack and defense.\n" +
+                "Exploder Dragon:If this card is destroyed by battle and sent to the Graveyard: Destroy the monster that destroyed it. Neither player takes any battle damage from attacks involving this attacking card.\n" +
+                "Feral Imp:A playful little fiend that lurks in the dark, waiting to attack an unwary enemy.\n" +
+                "Fireyarou:A malevolent creature wrapped in flames that attacks enemies with intense fire.\n" +
+                "Flame Manipulator:This Spellcaster attacks enemies with fire-related spells such as \"Sea of Flames\" and \"Wall of Fire\".\n" +
+                "Forest:All Insect, Beast, Plant, and Beast-Warrior monsters on the field gain 200 ATK/DEF.\n" +
+                "Gate Guardian:Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 \"Sanga of the Thunder\", \"Kazejin\", and \"Suijin\".\n" +
+                "Haniwa:An earthen figure that protects the tomb of an ancient ruler.\n" +
+                "Harpies Feather Dust:Destroy all Spells and Traps your opponent controls.\n" +
+                "Herald Of Creation:Once per turn: You can discard 1 card, then target 1 Level 7 or higher monster in your Graveyard; add that target to your hand.\n" +
+                "Hero Of The East:Feel da strength ah dis sword-swinging samurai from da Far East.\n" +
+                "Horn Imp:A small fiend that dwells in the dark, its single horn makes it a formidable opponent.\n" +
+                "Leotron:A territorial electronic monster that guards its own domain.\n" +
+                "Magic Cylinder:When an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.\n" +
+                "Magic Jammer:When a Spell Card is activated: Discard 1 card; negate the activation, and if you do, destroy it.\n" +
+                "Magnum Shield:Equip only to a Warrior-Type monster. Apply this effect, depending on its battle position.\n" +
+                "Attack Position: It gains ATK equal to its original DEF.\n" +
+                "Defense Position: It gains DEF equal to its original ATK.\n" +
+                "Man Eater Bug:FLIP: Target 1 monster on the field; destroy that target.\n" +
+                "Marshmallon:Cannot be destroyed by battle. After damage calculation, if this card was attacked, and was face-down at the start of the Damage Step: The attacking player takes 1000 damage.\n" +
+                "Messenger Of Peace:Monsters with 1500 or more ATK cannot declare an attack. Once per turn, during your Standby Phase, pay 100 LP or destroy this card.\n" +
+                "Mind Crush:Declare 1 card name; if that card is in your opponent's hand, they must discard all copies of it, otherwise you discard 1 random card.\n" +
+                "Mirage Dragon:Your opponent cannot activate Trap Cards during the Battle Phase.\n" +
+                "Mirror Force:When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.\n" +
+                "Monster Reborn:When your opponent Normal or Flip Summons 1 monster with 1000 or more ATK: Target that monster; destroy that target.\n" +
+                "Mystical Spcae Typhoon:Target 1 Spell/Trap on the field; destroy that target.\n" +
+                "Negate Attack:When an opponent's monster declares an attack: Target the attacking monster; negate the attack, then end the Battle Phase\n" +
+                "Pot Of Greed:Draw 2 cards.\n" +
+                "Raigeki:Destroy all monsters your opponent controls.\n" +
+                "Ring Of Defense:When a Trap effect that inflicts damage is activated: Make that effect damage 0.\n" +
+                "Scanner:Once per turn, you can select 1 of your opponent's monsters that is removed from play. Until the End Phase, this card's name is treated as the selected monster's name, and this card has the same Attribute, Level, ATK, and DEF as the selected monster. If this card is removed from the field while this effect is applied, remove it from play.\n" +
+                "Silver Fang:A snow wolf that's beautiful to the eye, but absolutely vicious in battle.\n" +
+                "Skull Guardian:This monster can only be Ritual Summoned with the Ritual Spell Card, \"Novox's Prayer\". You must also offer monsters whose total Level Stars equal 7 or more as a Tribute from the field or your hand.\n" +
+                "Slot Machine:The machine's ability is said to vary according to its slot results.\n" +
+                "Solemn Warning:When a monster(s) would be Summoned, OR when a Spell/Trap Card, or monster effect, is activated that includes an effect that Special Summons a monster(s): Pay 2000 LP; negate the Summon or activation, and if you do, destroy it.\n" +
+                "Spell Absorption:Each time a Spell Card is activated, gain 500 Life Points immediately after it resolves.\n" +
+                "Spiral Serpent:When huge whirlpools lay cities asunder, it is the hunger of this sea serpent at work. No one has ever escaped its dreaded Spiral Wave to accurately describe the terror they experienced.\n" +
+                "Suijin:During damage calculation in your opponent's turn, if this card is being attacked: You can target the attacking monster; make that target's ATK 0 during damage calculation only (this is a Quick Effect). This effect can only be used once while this card is face-up on the field.\n" +
+                "Supply Squad:Once per turn, if a monster(s) you control is destroyed by battle or card effect: Draw 1 card.\n" +
+                "Sword Of Dark Destruction:A DARK monster equipped with this card increases its ATK by 400 points and decreases its DEF by 200 points.\n" +
+                "Sword Of Revealing Light:After this card's activation, it remains on the field, but destroy it during the End Phase of your opponent's 3rd turn. When this card is activated: If your opponent controls a face-down monster, flip all monsters they control face-up. While this card is face-up on the field, your opponent's monsters cannot declare an attack.\n" +
+                "Terraforming:Add 1 Field Spell from your Deck to your hand.\n" +
+                "Terratiger The Empowered Warrior:When this card is Normal Summoned: You can Special Summon 1 Level 4 or lower Normal Monster from your hand in Defense Position.\n" +
+                "Texchanger:Once per turn, when your monster is targeted for an attack: You can negate that attack, then Special Summon 1 Cyberse Normal Monster from your hand, Deck, or GY.\n" +
+                "The Calculator:The ATK of this card is the combined Levels of all face-up monsters you control x 300.\n" +
+                "The Tricky:You can Special Summon this card (from your hand) by discarding 1 card.\n" +
+                "Time Seal:Skip the Draw Phase of your opponent's next turn.\n" +
+                "Torrential Tribute:When a monster(s) is Summoned: Destroy all monsters on the field.\n" +
+                "Trap Hole:When your opponent Normal or Flip Summons 1 monster with 1000 or more ATK: Target that monster; destroy that target.\n" +
+                "Twin Twister:Discard 1 card, then target up to 2 Spells/Traps on the field; destroy them.\n" +
+                "Umiiruka:Increase the ATK of all WATER monsters by 500 points and decrease their DEF by 400 points.\n" +
+                "United We Stand:The equipped monster gains 800 ATK/DEF for each face-up monster you control.\n" +
+                "Vanitys Emptiness:Neither player can Special Summon monsters. If a card is sent from the Deck or the field to your Graveyard: Destroy this card.\n" +
+                "Wall Of Revealing Light:Neither player can Special Summon monsters. If a card is sent from the Deck or the field to your Graveyard: Destroy this card.\n" +
+                "Warrior Dai Grepher:The warrior who can manipulate dragons. Nobody knows his mysterious past.\n" +
+                "Wattaildragon:Capable of indefinite flight. Attacks by wrapping its body with electricity and ramming into opponents.\n" +
+                "IMPORTANT: Capturing the \"Wattaildragon\" is forbidden by the Ancient Rules and is a Level 6 offense, the minimum sentence for which is imprisonment for no less than 2500 heliocycles.\n" +
+                "Wattkid:A creature that electrocutes opponents with bolts of lightning.\n" +
+                "Yami:All Fiend and Spellcaster monsters on the field gain 200 ATK/DEF, also all Fairy monsters on the field lose 200 ATK/DEF.\n" +
+                "Yomi Ship:If this card is destroyed by battle and sent to the GY: Destroy the monster that destroyed this card.\n".replaceAll("\n","\r\n"),outContent.toString());
+    }
 
 
     @Test
