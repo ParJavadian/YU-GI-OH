@@ -27,6 +27,14 @@ public class Deck {
         return this.sideDeck;
     }
 
+    public void setMainDeck(List<Card> mainDeck) {
+        this.mainDeck = mainDeck;
+    }
+
+    public void setSideDeck(List<Card> sideDeck) {
+        this.sideDeck = sideDeck;
+    }
+
     public int getSideSize() {
         return this.sideDeck.size();
     }

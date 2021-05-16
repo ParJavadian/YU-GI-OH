@@ -69,8 +69,8 @@ public enum SpellCard implements Card {
             Status.UNLIMITED, 4300),
 
     MAGNUM_SHIELD(Icon.EQUIP, "Equip only to a Warrior-Type monster. Apply this effect, depending on its battle position.\n" +
-            "â—\u008F Attack Position: It gains ATK equal to its original DEF.\n" +
-            "â—\u008F Defense Position: It gains DEF equal to its original ATK.", Status.UNLIMITED, 4300),
+            "Attack Position: It gains ATK equal to its original DEF.\n" +
+            "Defense Position: It gains DEF equal to its original ATK.", Status.UNLIMITED, 4300),
 
     ADVANCED_RITUAL_ART(Icon.RITUAL, "This card can be used to Ritual Summon any 1 Ritual Monster. You must " +
             "also send Normal Monsters from your Deck to the Graveyard whose total Levels equal the Level of that Ritual" +
