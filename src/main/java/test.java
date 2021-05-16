@@ -234,6 +234,60 @@ public class test {
     }
 
 //    @Test
+//    @DisplayName("game")
+//    public void gameTest(){
+//        DuelController duelController = new DuelController(player,rival,3);
+//        //duelController.startNewGame(null);
+//        //duelController.startNewGame(player);
+////        duelController.startNewGame(rival);
+//    }
+
+//    @Test
+//    @DisplayName("startDrawPhaseTest")
+//    public void startDrawPhaseTest(){
+//        DuelController duelController = new DuelController(player,rival,3);
+//        duelController.startDrawPhase(false);
+//    }
+
+    @Test
+    @DisplayName("testForMinFinder")
+    public void testForMinFinder(){
+        DuelController duelController = new DuelController(player,rival,1);
+        Assertions.assertEquals(4,duelController.minFinder(5,4));
+        Assertions.assertEquals(0,duelController.minFinder(0,5));
+    }
+
+
+    @Test
+    @DisplayName("unselect card check")
+    public void unselectCardCheck() {
+        //BoardZone boardZone = new BoardZone();
+        SelectedCard selectedCard = new SelectedCard(MonsterCard.BITRON,BoardZone.MONSTERZONE,3,player);
+        Card beforeChanging = selectedCard.getCard();
+        Assertions.assertEquals(MonsterCard.BITRON,beforeChanging);
+        selectedCard.setCard(MonsterCard.AXE_RAIDER);
+        Card afterChanging = selectedCard.getCard();
+        Assertions.assertEquals(MonsterCard.AXE_RAIDER,afterChanging);
+        BoardZone beforeChangingBoardZone = selectedCard.getBoardZone();
+        Assertions.assertEquals(BoardZone.MONSTERZONE,beforeChangingBoardZone);
+        selectedCard.setBoardZone(BoardZone.FIELDZONE);
+        Assertions.assertEquals(BoardZone.FIELDZONE,selectedCard.getBoardZone());
+        Integer number = selectedCard.getNumber();
+        Assertions.assertEquals(3,selectedCard.getNumber());
+        selectedCard.setNumber(4);
+        Assertions.assertEquals(4,selectedCard.getNumber());
+        User ownerBeforeChanging = selectedCard.getOwner();
+        Assertions.assertEquals(player,ownerBeforeChanging);
+        selectedCard.setOwner(rival);
+        Assertions.assertEquals(rival,selectedCard.getOwner());
+
+
+
+    }
+
+
+
+//    @Test
 //    @DisplayName("test for exchange card between main and side")
 //    public void testExchangeCardBetweenMainAndSide() throws Exception {
 //        player.addCardToUsersAllCards(MonsterCard.CRAWLING_DRAGON);

@@ -111,7 +111,9 @@ public class DuelController {
         this.hasUsedTexChangerInThisTurn = true;
     }*/
 
-    private void startNewGame(User winner) {
+    //todo payini ro public kardam test benevisam
+
+    public void startNewGame(User winner) {
         if (winner != null) {
             User loser;
             if (winner.equals(this.player)) {
@@ -864,7 +866,9 @@ public class DuelController {
         }
     }
 
-    private void startDrawPhase(boolean isFirstTime) {
+    //todo payini public shod vase test
+
+    public void startDrawPhase(boolean isFirstTime) {
         this.phase = Phase.DRAW_PHASE;
         ArrayList<Card> playerMainCards = (ArrayList<Card>) this.player.getGameDeck().getMainDeck();
         ArrayList<Card> rivalMainCards = (ArrayList<Card>) this.rival.getGameDeck().getMainDeck();
@@ -1364,11 +1368,11 @@ public class DuelController {
         ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.REMOVE_FROM_MONSTERZONE, this.player,this.selectedCard.getNumber());
     }
 
-    private int minFinder(int firstNumber, int secondNumber){
+    public int minFinder(int firstNumber, int secondNumber){
         if (firstNumber >= secondNumber)
             return secondNumber;
         else return firstNumber;
-    }
+    } //todo ba ejazat publicesh kardam test benevisam vasash
 
 
 }
