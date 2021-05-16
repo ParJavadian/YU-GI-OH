@@ -373,6 +373,7 @@ public class test {
     @DisplayName("test for show all in shopController")
     public void shopControllerShowAllTest() {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
         System.setOut(new PrintStream(outContent));
         ShopController.getInstance(player).showAll();
         Assertions.assertEquals("Advanced Ritual Art:This card can be used to Ritual Summon any 1 Ritual Monster. You must also send Normal Monsters from your Deck to the Graveyard whose total Levels equal the Level of that Ritual Monster.\n" +
@@ -454,6 +455,7 @@ public class test {
                 "Wattkid:A creature that electrocutes opponents with bolts of lightning.\n" +
                 "Yami:All Fiend and Spellcaster monsters on the field gain 200 ATK/DEF, also all Fairy monsters on the field lose 200 ATK/DEF.\n" +
                 "Yomi Ship:If this card is destroyed by battle and sent to the GY: Destroy the monster that destroyed this card.\n".replaceAll("\n", "\r\n"), outContent.toString());
+        System.setOut(sysOutBackup);
     }
 
 
@@ -499,9 +501,11 @@ public class test {
             }
         });
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
         System.setOut(new PrintStream(outContent));
         ProfileController.getInstance(player).changePassword("12345", "1234");
         Assertions.assertEquals("password changed successfully!\r\n", outContent.toString());
+        System.setOut(sysOutBackup);
     }
 
     @Test
@@ -514,9 +518,11 @@ public class test {
             }
         });
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
         System.setOut(new PrintStream(outContent));
         ProfileController.getInstance(player).changeNickname("kiaanaa");
         Assertions.assertEquals("nickname changed successfully!\r\n", outContent.toString());
+        System.setOut(sysOutBackup);
     }
 
 
@@ -551,9 +557,10 @@ public class test {
         });
         DeckController.getInstance(player).addCardToDeck(MonsterCard.AXE_RAIDER.getNamePascalCase(), "deck of kiana", false, false);
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
+        PrintStream sysOutBackup = System.out;
         DeckController.getInstance(player).removeCardFromDeck(MonsterCard.AXE_RAIDER.getNamePascalCase(), "deck of kiana", false);
         Assertions.assertEquals("card removed form deck successfully\r\n", outContent.toString());
+        System.setOut(sysOutBackup);
 
     }
 
@@ -701,6 +708,7 @@ public class test {
         DeckController.getInstance(player).createDeck("deck to check add card");
         player.setActiveDeck(player.getDeckByName("deck to check add card"));
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
         System.setOut(new PrintStream(outContent));
         player.addCardToUsersAllCards(MonsterCard.SUIJIN);
         player.addCardToUsersAllCards(MonsterCard.SUIJIN);
@@ -727,12 +735,14 @@ public class test {
         Assertions.assertEquals(2, player.getActiveDeck().getMainDeck().size());
         Assertions.assertEquals("card added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\ncard added to deck successfully\r\n", outContent.toString());
         player.setActiveDeck(player.getDeckByName("deck of kiana"));
+        System.setOut(sysOutBackup);
     }
 
     @Test
     @DisplayName("delete deck")
     public void deleteDeck() throws Exception {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
         System.setOut(new PrintStream(outContent));
         int firstSize = player.getAllDecks().size();
         DeckController.getInstance(player).deleteDeck("third deck");
@@ -747,12 +757,14 @@ public class test {
         int thirdSize = player.getAllDecks().size();
         Assertions.assertEquals(0, thirdSize - secondSize);
         Assertions.assertEquals("deck deleted successfully\r\n", outContent.toString());
+        System.setOut(sysOutBackup);
     }
 
     @Test
     @DisplayName("activateDeck")
     public void activateDeck() throws Exception {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
         System.setOut(new PrintStream(outContent));
         DeckController.getInstance(player).activateDeck("second deck");
         Assertions.assertEquals("deck activated successfully\r\n", outContent.toString());
@@ -763,6 +775,7 @@ public class test {
             }
         });
         DeckController.getInstance(player).activateDeck("deck of kiana");
+        System.setOut(sysOutBackup);
     }
 
 
@@ -782,12 +795,14 @@ public class test {
     public void createDeckFine() throws Exception {
         int firstSize = player.getAllDecks().size();
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
         System.setOut(new PrintStream(outContent));
         DeckController.getInstance(player).createDeck("deck molayi");
         //player.addDeck(player.getDeckByName("deck molayi"));
         int secondSize = player.getAllDecks().size();
         Assertions.assertEquals(1, secondSize - firstSize);
         Assertions.assertEquals("deck created successfully!\r\n", outContent.toString());
+        System.setOut(sysOutBackup);
     }
 
 
@@ -907,9 +922,11 @@ public class test {
     @DisplayName("createUser everything is fine")
     public void createUserFine() throws Exception {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
         System.setOut(new PrintStream(outContent));
         LogInController.getInstance().createUser("CHECK", "check", "ChEcK");
         Assertions.assertEquals("user created successfully!\r\n", outContent.toString());
+        System.setOut(sysOutBackup);
     }
 
 //    @Test
