@@ -90,6 +90,11 @@ public class DuelController {
         return opponentGroundNumbers;
     }
 
+    public static int[] getPlayerGroundNumbers(){
+        return playerGroundNumbers;
+    }
+
+
     /*public boolean getHasUsedHeraldInThisTurn() {
         return this.hasUsedHeraldInThisTurn;
     }
@@ -244,8 +249,8 @@ public class DuelController {
         if (this.selectedCard == null) {
             throw new NoCardSelected();
         }
-        //TODO in exception payinie halate "مد نظر قابلیت احضار عادی را نداشته باشد monster" ro nadare hanooz
-        if (!(this.selectedCard.getCard() instanceof MonsterCard && this.selectedCard.getBoardZone().equals(BoardZone.HAND))) {
+        //TODO in exception payinie halate "مد نظر قابلیت احضار عادی را نداشته باشد monster" ro nadare hanooz(fekr konam dare alan)
+        if (!(this.selectedCard.getCard() instanceof MonsterCard && this.selectedCard.getBoardZone().equals(BoardZone.HAND) && ((MonsterCard) this.selectedCard.getCard()).getCanBeNormalSummoned())) {
             throw new CanNotSummon();
         }
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
@@ -302,12 +307,12 @@ public class DuelController {
         String input1 = DuelView.scan();
         if (input1.equals("cancel")) return;
         int address1 = Integer.parseInt(input1) - 1;
-        address1 = playerGroundNumbers[address1];
+        address1 = playerGroundNumbers[address1]-1;
         if (this.player.getBoard().getMonsterByNumber(address1) == null) throw new NoMonsterHere1();
         String input2 = DuelView.scan();
         if (input2.equals("cancel")) return;
         int address2 = Integer.parseInt(input2) - 1;
-        address2 = playerGroundNumbers[address2];
+        address2 = playerGroundNumbers[address2]-1;
         if (this.player.getBoard().getMonsterByNumber(address2) == null) throw new NoMonsterHere1();
         if (address1 == address2) throw new sameAddresses();
         this.player.getBoard().removeMonster(address1);
@@ -493,7 +498,7 @@ public class DuelController {
     }
 
     public void attackMonster(int monsterNumber) throws Exception {
-        monsterNumber = opponentGroundNumbers[monsterNumber - 1];
+        monsterNumber = opponentGroundNumbers[monsterNumber - 1]-1;
         if (this.selectedCard == null) throw new NoCardSelected();
         if (!(this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE) && (this.selectedCard.getCard() instanceof MonsterCard) && (this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals("OO"))))
             throw new CanNotAttack();
