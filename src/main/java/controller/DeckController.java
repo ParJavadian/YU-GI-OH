@@ -4,6 +4,7 @@ import controller.exeption.*;
 import model.*;
 import view.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -18,6 +19,25 @@ public class DeckController {
         if (instance == null) instance = new DeckController(user);
         else if (!instance.user.equals(user)) instance.user = user;
         return instance;
+    }
+
+    public List<Card> getAllCardsOfGame(){
+        List<Card> allCards = new ArrayList<>();
+        Collections.addAll(allCards, MonsterCard.values());
+        Collections.addAll(allCards, TrapCard.values());
+        Collections.addAll(allCards, SpellCard.values());
+        Comparator<Card> cardComparator = Comparator.comparing(Card::getName);
+        allCards.sort(cardComparator);
+        return allCards;
+    }
+
+    public Card getCardByName(String name){
+        List<Card> allCards = getAllCardsOfGame();
+        for (Card card : allCards) {
+            if (card.getNamePascalCase().equals(name))
+                return card;
+        }
+        return null;
     }
 
     private DeckController(User user) {
@@ -105,17 +125,19 @@ public class DeckController {
     public void removeCardFromDeck(String cardName, String deckName, boolean isSide) throws Exception {
         Deck deck = user.getDeckByName(deckName);
         if (deck != null) {
-            Card card = user.getCardByName(cardName);
+            Card card = DeckController.getInstance(user).getCardByName(cardName);
             if (card != null) {
                 if (isSide) {
                     if (deck.cardExistsInDeck(card, true)) {
                         deck.removeCardFromSideDeck(card);
                         this.user.addCardToUsersAllCards(card);
+                        DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "side");
                 } else {
                     if (deck.cardExistsInDeck(card, false)) {
                         deck.removeCardFromMainDeck(card);
                         this.user.addCardToUsersAllCards(card);
+                        DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "main");
                 }
             } else

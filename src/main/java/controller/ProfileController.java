@@ -34,5 +34,6 @@ public class ProfileController {
         if(this.user.getPassword().equals(newPassword))
             throw new SamePassword();
         this.user.setPassword(newPassword);
+        ProfileView.getInstance(this.user).printText("password changed successfully!");
     }
 }
