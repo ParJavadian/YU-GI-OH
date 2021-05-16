@@ -759,7 +759,7 @@ public class DuelController {
             winner.increaseMoney(1000 + winner.getLifePoint());
             loser.increaseMoney(100);
             shouldEndGameForView = true;
-            DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+            DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
         }
         if (roundNumber == 3) {
             this.rounds[this.roundCounter - 1] = new Round(winner, loser, winner.getLifePoint(), loser.getLifePoint());
@@ -771,8 +771,8 @@ public class DuelController {
                 winner.increaseMoney(3000 + (3 * maxLP));
                 loser.increaseMoney(300);
                 shouldEndGameForView = true;
-                DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-                DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+                DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                DuelView.printText(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else if (roundCounter == 3) {
                 int winnerLP1 = this.rounds[0].getLifePointByUser(winner);
                 int winnerLP2 = this.rounds[1].getLifePointByUser(winner);
@@ -783,10 +783,10 @@ public class DuelController {
                 winner.increaseMoney(3000 + (3 * maxLP));
                 loser.increaseMoney(300);
                 shouldEndGameForView = true;
-                DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-                DuelView.printText(loser.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+                DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                DuelView.printText(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else {
-                DuelView.printText(loser.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 exchangeCardBetweenMainAndSide(this.player);
                 exchangeCardBetweenMainAndSide(this.rival);
                 startNewGame(winner);
