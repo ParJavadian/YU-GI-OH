@@ -953,8 +953,7 @@ public class DuelController {
         }
     }
 
-    //TODO ba max attacher bezane be hidden
-
+    //TODO biad bad az har bar attack alamat bezanatesh ke ta hala bahash atack zade
     private void attackInAI(){
         if (numberOfMonstersOnPlayerBoard() > 0) {
             ArrayList<Integer> hasAttacked = new ArrayList<>();
@@ -963,10 +962,15 @@ public class DuelController {
             if (allCardsOnRivalAreDH()) {
                 int numberOfAttacks = minFinder(numberOfMonstersOnRivalBoard(),numberOfMonstersOnPlayerBoard());
                 for (int i = 0; i < numberOfAttacks; i++) {
+                    //TODO if already bahash attack nazade
                     attackAllDHInAI();
                 }
             }
-
+            if (monsterCardWithMostAttackPointOnPlayerBoard() != 10 && monsterCardWithMostAttackPointOnRivalBoard() != 10) {
+               attackOOInAI();
+                if (numberOfMonstersOnRivalBoard() == 0)
+                    directAttackInAI();
+            }
         }
     }
 
@@ -1014,6 +1018,21 @@ public class DuelController {
             attackMonsterDH(wantedMonster);
         } catch (Exception exception) {
             exception.printStackTrace();
+        }
+    }
+
+    private void attackOOInAI(){
+        if (this.rival.getBoard().getMonsterConditionByNumber(monsterCardWithMostAttackPointOnRivalBoard()).equals("OO")) {
+            MonsterCard strongestRivalAttacker = this.rival.getBoard().getMonsterByNumber(monsterCardWithLeaseAttackPointOnRivalBoard());
+            MonsterCard strongestPlayerAttacker = this.player.getBoard().getMonsterByNumber(monsterCardWithMostAttackPointOnPlayerBoard());
+            if (strongestPlayerAttacker.getAttack() > strongestRivalAttacker.getAttack()){
+                //TODO exception already attacked
+                try {
+                    attackMonsterOO(monsterCardWithMostAttackPointOnRivalBoard());
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            }
         }
     }
 
@@ -1364,12 +1383,11 @@ public class DuelController {
         ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.REMOVE_FROM_MONSTERZONE, this.player,this.selectedCard.getNumber());
     }
 
-    private int minFinder(int firstNumber, int secondNumber){
+    public int minFinder(int firstNumber, int secondNumber){
         if (firstNumber >= secondNumber)
             return secondNumber;
         else return firstNumber;
     }
-
 
 }
 
