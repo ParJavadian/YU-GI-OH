@@ -24,7 +24,7 @@ public class DeckView {
 
     public void getCommandForDeck() {
         String command;
-        while (true) {
+        while (ScannerClassForView.getScanner().hasNext()) {
             command = ScannerClassForView.getScanner().nextLine();
             if (processCommand(command)) break;
         }
