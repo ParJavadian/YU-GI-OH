@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum MonsterCard implements Cardable {
-    COMMAND_KNIGHT(4, Attribute.FIRE, MonsterType.WARRIOR, CardType.EFFECT, 1000, 1000,
+    COMMAND_KNIGHT(4, Attribute.FIRE, MonsterType.WARRIOR, CardType.EFFECT, 1200, 1900,
             "All Warrior-Type monsters you control gain 400 ATK. If you control another monster, monsters your " +
                     "opponent controls cannot target this card for an attack.",
             2100,true) {
