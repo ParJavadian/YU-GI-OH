@@ -2,7 +2,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class User {
 
@@ -11,7 +10,7 @@ public class User {
     private String password;
     private String nickname;
     private int score;
-    private List<Card> allCards;
+    private List<Cardable> allCards;
     private List<Deck> allDecks;
     private Deck currentActiveDeck;
     private Deck currentGameDeck;
@@ -154,8 +153,8 @@ public class User {
     }
 
     //TODO age lazem bood jaye pascalcase aadish kon
-    public Card getCardByName(String name) {
-        for (Card card : allCards) {
+    public Cardable getCardByName(String name) {
+        for (Cardable card : allCards) {
             if (card.getNamePascalCase().equals(name)) {
                 return card;
             }
@@ -167,7 +166,7 @@ public class User {
         return this.allDecks;
     }
 
-    public List<Card> getAllCards() {
+    public List<Cardable> getAllCards() {
         return this.allCards;
     }
 
@@ -183,7 +182,7 @@ public class User {
         this.allDecks.add(deck);
     }
 
-    public void addCardToUsersAllCards(Card card) {
+    public void addCardToUsersAllCards(Cardable card) {
         this.allCards.add(card);
     }
 

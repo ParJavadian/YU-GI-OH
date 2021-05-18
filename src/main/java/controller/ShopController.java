@@ -5,11 +5,7 @@ import model.*;
 import view.ShopView;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.regex.Matcher;
 
 public class ShopController {
 
@@ -27,7 +23,7 @@ public class ShopController {
     }
 
     public void buyCard(String name) throws Exception {
-        Card card = DeckController.getInstance(user).getCardByName(name);
+        Cardable card = DeckController.getInstance(user).getCardByName(name);
         if (card != null) {
             if (this.user.getMoney() >= card.getPrice()) {
                 this.user.decreaseMoney(card.getPrice());
@@ -39,10 +35,10 @@ public class ShopController {
     }
 
     public void showAll() {
-        List<Card> allCards =  DeckController.getInstance(user).getAllCardsOfGame();
+        List<Cardable> allCards =  DeckController.getInstance(user).getAllCardsOfGame();
         //TODO harja string=null bood ="" konim
         String toPrint = "";
-        for (Card card : allCards){
+        for (Cardable card : allCards){
             if (allCards.indexOf(card) == allCards.size()-1){
                 toPrint += card.getNamePascalCase()+":"+card.getDescription();
             } else

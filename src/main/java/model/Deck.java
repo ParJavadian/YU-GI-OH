@@ -1,13 +1,11 @@
 package model;
 
-import controller.DeckController;
-
 import java.util.*;
 
 public class Deck {
     private String deckName;
-    private List<Card> mainDeck;
-    private List<Card> sideDeck;
+    private List<Cardable> mainDeck;
+    private List<Cardable> sideDeck;
 
     public Deck(String deckName) {
         this.deckName = deckName;
@@ -19,19 +17,19 @@ public class Deck {
         return this.deckName;
     }
 
-    public List<Card> getMainDeck() {
+    public List<Cardable> getMainDeck() {
         return this.mainDeck;
     }
 
-    public List<Card> getSideDeck() {
+    public List<Cardable> getSideDeck() {
         return this.sideDeck;
     }
 
-    public void setMainDeck(List<Card> mainDeck) {
+    public void setMainDeck(List<Cardable> mainDeck) {
         this.mainDeck = mainDeck;
     }
 
-    public void setSideDeck(List<Card> sideDeck) {
+    public void setSideDeck(List<Cardable> sideDeck) {
         this.sideDeck = sideDeck;
     }
 
@@ -43,34 +41,34 @@ public class Deck {
         return this.mainDeck.size();
     }
 
-    public void addCardToMainDeck(Card card) {
+    public void addCardToMainDeck(Cardable card) {
         this.mainDeck.add(card);
     }
 
-    public void addCardToSideDeck(Card card) {
+    public void addCardToSideDeck(Cardable card) {
         this.sideDeck.add(card);
     }
 
-    public void setDeck(ArrayList<Card> mainCards,ArrayList<Card> sideCards){
+    public void setDeck(ArrayList<Cardable> mainCards, ArrayList<Cardable> sideCards){
         this.mainDeck = mainCards;
         this.sideDeck = sideCards;
     }
 
-    public void removeCardFromMainDeck(Card card) {
+    public void removeCardFromMainDeck(Cardable card) {
         this.mainDeck.remove(card);
     }
 
-    public void removeCardFromSideDeck(Card card) {
+    public void removeCardFromSideDeck(Cardable card) {
         this.sideDeck.remove(card);
     }
 
-    public int numberOfWantedCard(Card wantedCard) {
+    public int numberOfWantedCard(Cardable wantedCard) {
         int number = 0;
-        for (Card eachCard : this.sideDeck) {
+        for (Cardable eachCard : this.sideDeck) {
             if (eachCard.equals(wantedCard))
                 number++;
         }
-        for (Card eachCard : this.mainDeck) {
+        for (Cardable eachCard : this.mainDeck) {
             if (eachCard.equals(wantedCard))
                 number++;
         }
@@ -83,7 +81,7 @@ public class Deck {
                 (this.sideDeck.size() <= 15));
     }
 
-    public boolean cardExistsInDeck(Card card, boolean isSide) {
+    public boolean cardExistsInDeck(Cardable card, boolean isSide) {
         if (isSide) {
             return this.sideDeck.contains(card);
         } else {
@@ -95,7 +93,7 @@ public class Deck {
         String toBeReturned = "Deck: " + this.deckName + "\nMain deck:\nMonsters:\n";
         ArrayList<String> monsters = new ArrayList<>();
         ArrayList<String> spellAndTraps = new ArrayList<>();
-        for (Card card : this.mainDeck) {
+        for (Cardable card : this.mainDeck) {
             if (card instanceof MonsterCard)
                 monsters.add(card.getNamePascalCase() + ": " + card.getDescription());
             else if ((card instanceof SpellCard) || (card instanceof TrapCard))
@@ -117,7 +115,7 @@ public class Deck {
         String toBeReturned = "Deck: " + this.deckName + "\nSide deck:\nMonsters:\n";
         ArrayList<String> monsters = new ArrayList<>();
         ArrayList<String> spellAndTraps = new ArrayList<>();
-        for (Card card : this.sideDeck) {
+        for (Cardable card : this.sideDeck) {
             if (card instanceof MonsterCard)
                 monsters.add(card.getNamePascalCase() + ": " + card.getDescription());
             else if ((card instanceof SpellCard) || (card instanceof TrapCard))

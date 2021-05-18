@@ -1,10 +1,9 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public enum SpellCard implements Card {
+public enum SpellCard implements Cardable {
 
 
     MONSTER_REBORN(Icon.NORMAL, "When your opponent Normal or Flip Summons 1 monster with 1000 or more ATK: " +

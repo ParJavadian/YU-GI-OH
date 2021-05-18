@@ -1,9 +1,7 @@
 package controller;
 
-import model.Card;
+import model.Cardable;
 import model.User;
-
-import java.util.regex.Matcher;
 
 public class ImportExportController {
     private static ImportExportController instance = null;
@@ -19,11 +17,11 @@ public class ImportExportController {
     this.user = user;
     }
 
-    public void importCard(Card card){
+    public void importCard(Cardable card){
 
     }
 
-    public void exportCard(Card card){
+    public void exportCard(Cardable card){
 
     }
 

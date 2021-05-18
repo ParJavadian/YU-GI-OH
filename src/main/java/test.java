@@ -12,14 +12,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import view.DeckView;
 import view.LogInView;
-
-import javax.accessibility.AccessibleStateSet;
-import javax.jws.soap.SOAPBinding;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 
@@ -263,10 +259,10 @@ public class test {
     public void unselectCardCheck() {
         //BoardZone boardZone = new BoardZone();
         SelectedCard selectedCard = new SelectedCard(MonsterCard.BITRON,BoardZone.MONSTERZONE,3,player);
-        Card beforeChanging = selectedCard.getCard();
+        Cardable beforeChanging = selectedCard.getCard();
         Assertions.assertEquals(MonsterCard.BITRON,beforeChanging);
         selectedCard.setCard(MonsterCard.AXE_RAIDER);
-        Card afterChanging = selectedCard.getCard();
+        Cardable afterChanging = selectedCard.getCard();
         Assertions.assertEquals(MonsterCard.AXE_RAIDER,afterChanging);
         BoardZone beforeChangingBoardZone = selectedCard.getBoardZone();
         Assertions.assertEquals(BoardZone.MONSTERZONE,beforeChangingBoardZone);

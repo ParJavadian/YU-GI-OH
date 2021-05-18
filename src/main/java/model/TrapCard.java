@@ -3,7 +3,7 @@ package model;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public enum TrapCard implements Card {
+public enum TrapCard implements Cardable {
 
     TRAP_HOLE(Icon.NORMAL, "When your opponent Normal or Flip Summons 1 monster with 1000 or more ATK: " +
             "Target that monster; destroy that target.", Status.UNLIMITED, 2000),
