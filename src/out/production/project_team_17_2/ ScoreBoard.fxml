@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScoreBoardViewGraphic">
+<!--   <children>-->
+<!--&lt;!&ndash;      <ImageView fitHeight="600.0" fitWidth="900.0" layoutY="-2.0">&ndash;&gt;-->
+<!--&lt;!&ndash;         <image>&ndash;&gt;-->
+<!--&lt;!&ndash;            <Image url="@21.jpg" />&ndash;&gt;-->
+<!--&lt;!&ndash;         </image>&ndash;&gt;-->
+<!--&lt;!&ndash;      </ImageView>&ndash;&gt;-->
+<!--&lt;!&ndash;      <Label fx:id="label" layoutX="106.0" layoutY="83.0" textFill="#0900ff" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;      <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="113.0"&ndash;&gt;-->
+<!--&lt;!&ndash;             prefHeight="276.0" prefWidth="358.0" text="34sdf" textFill="#3db7d9">&ndash;&gt;-->
+<!--&lt;!&ndash;         <font>&ndash;&gt;-->
+<!--&lt;!&ndash;            <Font name="Agency FB" size="22.0"/>&ndash;&gt;-->
+<!--&lt;!&ndash;         </font>&ndash;&gt;-->
+<!--&lt;!&ndash;      </Label>&ndash;&gt;-->
+
+<!--   </children>-->
+</AnchorPane>
