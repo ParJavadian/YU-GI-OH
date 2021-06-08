@@ -7,6 +7,8 @@ import view.LogInViewGraphic;
 import view.MainViewGraphic;
 import view.SignUpViewGraphic;
 
+import java.util.List;
+
 public class SignUpControllerGraphic {
     public static void login(Stage stage) throws Exception {
         LogInViewGraphic.getInstance().start(stage);
@@ -28,11 +30,17 @@ public class SignUpControllerGraphic {
         if (!passwordsAreEqual(password,checkPassword)) {
             throw new DifferentPasswords();
         }
-        User user = User.getUserByUsername(username);
-        if (user != null) {
-            throw new TakenUsername();
+        List<User> allUsers = User.getAllUsers();
+        if (allUsers != null) {
+            for (User eachUser : allUsers) {
+                if (eachUser.getUsername().equals(username)) {
+                    throw new RepetitiveUsername(username);
+                } else if (eachUser.getNickname().equals(nickname)) {
+                    throw new RepetitiveNickname(nickname);
+                }
+            }
         }
-        user = new User(username,nickname,password);
+        User user = new User(username, nickname, password);
         SignUpViewGraphic.getInstance().showAccountCreatedPopUp();
         MainViewGraphic.getInstance().setCurrentUser(user);
         MainViewGraphic.getInstance().start(stage);

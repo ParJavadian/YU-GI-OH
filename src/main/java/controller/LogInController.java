@@ -8,7 +8,6 @@ import model.User;
 import view.LogInView;
 import view.MainView;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 public class LogInController {
@@ -50,6 +49,5 @@ public class LogInController {
             MainView.getInstance(User.getUserByUsername(userName)).getCommandForMain();
         }
     }
-
 
 }

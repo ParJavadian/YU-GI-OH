@@ -36,4 +36,8 @@ public class MainViewGraphic extends Application {
         stage.setTitle("YU GI OH");
         stage.show();
     }
+
+    public void logout() throws Exception {
+        LogInViewGraphic.getInstance().start(stage);
+    }
 }
