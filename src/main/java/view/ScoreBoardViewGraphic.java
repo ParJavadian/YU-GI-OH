@@ -1,6 +1,5 @@
 package view;
 
-import controller.ScoreBoardController;
 import controller.ScoreBoardControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -11,15 +10,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ScoreBoardViewGraphic extends Application  {
+public class ScoreBoardViewGraphic extends Application implements Initializable{
     private static Stage stage;
-    static SignUpViewGraphic instance = null;
-//    @FXML
-//    Label label = new Label();
+    private static SignUpViewGraphic instance = null;
+    @FXML
+    Label label = new Label();
 
     public static SignUpViewGraphic getInstance() {
         if (instance == null) instance = new SignUpViewGraphic();
@@ -38,8 +36,8 @@ public class ScoreBoardViewGraphic extends Application  {
         stage.show();
     }
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        label.setText(ScoreBoardControllerGraphic.getInstance().showScoreboard());
-//    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        label.setText(ScoreBoardControllerGraphic.getInstance().showScoreboard());
+    }
 }
