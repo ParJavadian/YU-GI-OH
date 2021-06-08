@@ -58,8 +58,8 @@ public class LogInViewGraphic extends Application {
         try {
             LogInControllerGraphic.login(username.getText(), password.getText(), stage);
         } catch (Exception e) {
-            Alert error = new Alert(Alert.AlertType.WARNING);
-            error.setHeaderText("Error");
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setHeaderText("");
             error.setContentText(e.getMessage());
             error.showAndWait();
         }

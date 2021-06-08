@@ -22,11 +22,11 @@ public class SignUpViewGraphic extends Application {
     @FXML
     private TextField username;
     @FXML
+    private TextField nickname;
+    @FXML
     private TextField password;
     @FXML
     private TextField checkPassword;
-    @FXML
-    private TextField nickname;
 
     public static SignUpViewGraphic getInstance() {
         if (instance == null) instance = new SignUpViewGraphic();
@@ -59,8 +59,8 @@ public class SignUpViewGraphic extends Application {
         try {
             SignUpControllerGraphic.createAccount(username.getText(),nickname.getText(), password.getText(), checkPassword.getText(),stage);
         } catch (Exception e) {
-            Alert error = new Alert(Alert.AlertType.WARNING);
-            error.setHeaderText("LANAT BEHET"); //TODO AGE KAR KARD JAYE LANAT BEHET BENEVISIN ERROR. TAZE NA TANHA MATN NEMINEVISE BALKE HATTA AGE HAMECHI DOROST BASHE BAZAM ERROR MIDE BISHOOR
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setHeaderText("");
             error.setContentText(e.getMessage());
             error.showAndWait();
 //            Alert error = new Alert(Alert.AlertType.WARNING);
