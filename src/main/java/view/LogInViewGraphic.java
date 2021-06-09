@@ -64,4 +64,6 @@ public class LogInViewGraphic extends Application {
             error.showAndWait();
         }
     }
+
+
 }

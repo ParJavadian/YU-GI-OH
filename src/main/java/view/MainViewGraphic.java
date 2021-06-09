@@ -40,4 +40,8 @@ public class MainViewGraphic extends Application {
     public void logout() throws Exception {
         LogInViewGraphic.getInstance().start(stage);
     }
+
+    public void scoreBoard() throws Exception {
+        ScoreBoardViewGraphic.getInstance().start(stage);
+    }
 }

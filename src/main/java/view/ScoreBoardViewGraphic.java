@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ScoreBoardViewGraphic extends Application implements Initializable{
+public class ScoreBoardViewGraphic extends Application implements Initializable {
     private static Stage stage;
     private static SignUpViewGraphic instance = null;
     @FXML

@@ -27,7 +27,7 @@ public class LogInControllerGraphic {
             throw new UsernameNotFound();
         } else {
             MainViewGraphic.getInstance().setCurrentUser(user);
-            MainView.getInstance(User.getUserByUsername(username)).getCommandForMain();
+            MainViewGraphic.getInstance().start(stage);
         }
 
 
