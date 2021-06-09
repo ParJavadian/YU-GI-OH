@@ -15,12 +15,12 @@ import java.util.ResourceBundle;
 
 public class ScoreBoardViewGraphic extends Application implements Initializable {
     private static Stage stage;
-    private static SignUpViewGraphic instance = null;
+    private static ScoreBoardViewGraphic instance = null;
     @FXML
     Label label = new Label();
 
-    public static SignUpViewGraphic getInstance() {
-        if (instance == null) instance = new SignUpViewGraphic();
+    public static ScoreBoardViewGraphic getInstance() {
+        if (instance == null) instance = new ScoreBoardViewGraphic();
         return instance;
     }
 
