@@ -10,8 +10,6 @@
     <ImageView fitHeight="600.0" fitWidth="900.0">
         <Image url="@21.jpg" />
     </ImageView>
-
-
     <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="6.0" prefHeight="590.0" prefWidth="343.0" textFill="#3db7d9">
         <font>
            <Font name="Agency FB" size="22.0" />

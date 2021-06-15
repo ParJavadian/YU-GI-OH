@@ -2,15 +2,20 @@ package model;
 
 import controller.*;
 
+import java.util.ArrayList;
+
 public class MonsterZone {
+
     private DuelController duelController;
-    private boolean[] hasChangedPositionInThisTurn;
+private boolean[] hasChangedPositionInThisTurn;
     private boolean[] hasSetInThisTurn;
     private boolean[] hasAttackedInThisTurn;
+
     private Integer[] playerAttackPoints;
     private Integer[] rivalAttackPoints;
-    private boolean[] playerHasEnabledSuijin;
+private boolean[] playerHasEnabledSuijin;
     private boolean[] rivalHasEnabledSuijin;
+
 
     public MonsterZone(DuelController duelController){
         this.duelController = duelController;
@@ -107,14 +112,15 @@ public class MonsterZone {
                 this.playerAttackPoints[i] = this.duelController.getPlayer().getBoard().getMonsterByNumber(i).getAttack();
             }
         }
-        /*Board playerBoard = this.duelController.getPlayer().getBoard();
+Board playerBoard = this.duelController.getPlayer().getBoard();
         Board rivalBoard= this.duelController.getRival().getBoard();
         for (int i = 0; i < 5; i++) {
             if(playerBoard.getMonsterByNumber(i)==null) this.playerAttackPoints[i]=null;
             else this.playerAttackPoints[i]=playerBoard.getMonsterByNumber(i).getAttack();
             if(rivalBoard.getMonsterByNumber(i)==null) this.rivalAttackPoints[i]=null;
             else this.rivalAttackPoints[i]=rivalBoard.getMonsterByNumber(i).getAttack();
-        }*/
+        }
+
     }
 
     public void decreaseAllAttackPointsBy400(){

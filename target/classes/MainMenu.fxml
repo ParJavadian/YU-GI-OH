@@ -24,7 +24,7 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="434.0" layoutY="251.0" mnemonicParsing="false" text="ScoreBoard" textFill="#c800ff">
+      <Button layoutX="434.0" layoutY="251.0" text="ScoreBoard" onMouseClicked="#scoreBoard" textFill="#c800ff">
          <font>
             <Font name="Agency FB Bold" size="18.0" />
          </font>

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 
@@ -41,7 +42,11 @@ public class MainViewGraphic extends Application {
         LogInViewGraphic.getInstance().start(stage);
     }
 
-    public void scoreBoard() throws Exception {
+    public void scoreBoard(MouseEvent mouseEvent) throws Exception{
         ScoreBoardViewGraphic.getInstance().start(stage);
     }
+
+    /*public void scoreBoard(MouseEvent mouseEvent) throws Exception {
+        ScoreBoardViewGraphic.getInstance().start(stage);
+    }*/
 }

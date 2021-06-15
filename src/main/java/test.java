@@ -322,7 +322,6 @@ public class test {
         duelController.setRival(taghi);
         User expectedRival = duelController.getRival();
         User expectedPlayer = duelController.getPlayer();
-        MonsterZone monsterZone = duelController.getMonsterZone();
         SelectedCard selectedCard = duelController.getSelectedCard();
         Assertions.assertEquals(expectedPlayer, naghi);
         Assertions.assertEquals(expectedRival, taghi);

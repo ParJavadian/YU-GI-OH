@@ -12,11 +12,10 @@ public enum MonsterCard implements Cardable {
                     "opponent controls cannot target this card for an attack.",
             2100,true) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
-            MonsterZone monsterZone = duelController.getMonsterZone();
             if (takeActionCase.equals(TakeActionCase.SUMMONED) || takeActionCase.equals(TakeActionCase.FLIP_SUMMONED) || takeActionCase.equals(TakeActionCase.PUT_IN_MONSTERZONE)) {
-                monsterZone.increaseAllAttackPointsBy400();
+                duelController.changeAllAttackPointsBy400(1);
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_MONSTERZONE) || takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED)) {
-                monsterZone.decreaseAllAttackPointsBy400();
+                duelController.changeAllAttackPointsBy400(-1);
             }
         }
 
@@ -96,8 +95,8 @@ public enum MonsterCard implements Cardable {
                     "This effect can only be used once while this card is face-up on the field.", 8700,true) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.ATTACKED)) {
-                if (!duelController.getMonsterZone().getRivalHasEnabledSuijin(targetNumber)) {
-                    duelController.getMonsterZone().setMonsterAttackPlayer(targetNumber, 0);
+                if (!duelController.getRivalHasEnabledSuijin(targetNumber)) {
+                    duelController.setMonsterAttackPlayer(targetNumber, 0);
                 }
             }
         }
@@ -270,7 +269,7 @@ public enum MonsterCard implements Cardable {
                 User temp = duelController.getPlayer();
                 duelController.setPlayer(duelController.getRival());
                 duelController.setRival(temp);
-                duelController.getMonsterZone().changePlayerAndRival();
+                duelController.changePlayerAndRival();
                 if (duelController.getPlayer().getUsername().equals("@AI@"))
                     duelController.handleAITurn();
                 else if (duelController.getCountOfMonsterCardsInGround(duelController.getRival()) != 0) {
