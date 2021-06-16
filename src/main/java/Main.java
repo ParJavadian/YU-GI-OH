@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.importAllUsers();
+        importExportUserController.importAllCards();
         importExportUserController.importAllDecks();
         LogInView.getInstance().getCommandForLogin();
         /*ArrayList<MonsterTypes> types = new ArrayList<>();

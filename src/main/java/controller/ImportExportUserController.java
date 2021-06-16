@@ -186,6 +186,20 @@ public class ImportExportUserController {
     }
 
     public void importAllCards(){
-
+        for (User user: User.getAllUsers()) {
+            String username = user.getUsername();
+            File file = new File("allCards" + username + ".txt");
+            if (file.exists()){
+                try {
+                    Scanner scanner = new Scanner(file);
+                    while (scanner.hasNext()){
+                        String cardName = scanner.nextLine();
+                        user.addCardToUsersAllCards(DeckController.getInstance(user).getCardByName(cardName));
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
