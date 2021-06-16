@@ -1,7 +1,11 @@
+import controller.ImportExportUserController;
 import view.LogInView;
 public class Main {
 
     public static void main(String[] args) {
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.importAllUsers();
+        importExportUserController.importAllDecks();
         LogInView.getInstance().getCommandForLogin();
         /*ArrayList<MonsterTypes> types = new ArrayList<>();
         types.add(MonsterTypes.BEAST);

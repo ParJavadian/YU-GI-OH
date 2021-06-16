@@ -47,6 +47,8 @@ public class DeckController {
         if (this.user.getDeckByName(name) == null) {
             Deck deck = new Deck(name);
             this.user.addDeck(deck);
+            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+            importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
             DeckView.getInstance(this.user).printText("deck created successfully!");
         } else {
             DeckView.getInstance(this.user).printText("deck with name " + name + " already exists");
@@ -75,6 +77,8 @@ public class DeckController {
     public void deleteDeck(String name) throws Exception {
         if (this.user.getDeckByName(name) != null) {
             this.user.deleteDeck(name);
+            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+            importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
             DeckView.getInstance(this.user).printText("deck deleted successfully");
         } else
             throw new DeckNotFound(name);
@@ -103,8 +107,12 @@ public class DeckController {
                 else {
                     if (isSide) {
                         deck.addCardToSideDeck(card);
+                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
                     } else {
                         deck.addCardToMainDeck(card);
+                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
                     }
                     this.user.deleteCard(cardName);
                     DeckView.getInstance(this.user).printText("card added to deck successfully");
@@ -130,12 +138,16 @@ public class DeckController {
                     if (deck.cardExistsInDeck(card, true)) {
                         deck.removeCardFromSideDeck(card);
                         this.user.addCardToUsersAllCards(card);
+                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
                         DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "side");
                 } else {
                     if (deck.cardExistsInDeck(card, false)) {
                         deck.removeCardFromMainDeck(card);
                         this.user.addCardToUsersAllCards(card);
+                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
                         DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "main");
                 }
