@@ -19,15 +19,15 @@ public class ProfileViewForGraphic extends Application {
     private static ProfileViewForGraphic instance = null;
     private User user;
 
-    private ProfileViewForGraphic(User user) {
-        this.user = user;
-    }
+//    private ProfileViewForGraphic(User user) {
+//        this.user = user;
+//    }
 
-    public static ProfileViewForGraphic getInstance(User user) {
-        if (instance == null) instance = new ProfileViewForGraphic(user);
-        else if (!instance.user.equals(user)) instance.user = user;
-        return instance;
-    }
+//    public static ProfileViewForGraphic getInstance(User user) {
+//        if (instance == null) instance = new ProfileViewForGraphic(user);
+//        else if (!instance.user.equals(user)) instance.user = user;
+//        return instance;
+//    }
 
     @Override
     public void start(Stage stage) throws Exception {
