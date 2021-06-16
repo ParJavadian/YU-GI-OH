@@ -11,8 +11,8 @@ import java.util.Locale;
 
 public class DuelController {
 
-    private static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
-    private static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
+    public static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
+    public static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
     private User player;
     private User rival;
     private Round[] rounds;
@@ -123,6 +123,7 @@ public class DuelController {
         this.hasUsedTexChangerInThisTurn = true;
     }*/
 
+    //TODO age vaght shod choose first player random
     private void startNewGame(User winner) {
         if (winner != null) {
             User loser;
@@ -347,7 +348,7 @@ public class DuelController {
         hasSummonedOrSetInThisTurn = true;
     }
 
-    private void specialSummonNormal() throws Exception {
+    public void specialSummonNormal() throws Exception {
         ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.SPECIAL_SUMMONED, this.player, this.selectedCard.getNumber());
 
     }
@@ -755,13 +756,13 @@ public class DuelController {
         endGame(this.rival);
     }
 
-    private void checkForChangesWhenAttackedMonster(int monsterNumber) {
+    /*private void checkForChangesWhenAttackedMonster(int monsterNumber) {
         switch (this.rival.getBoard().getMonsterByNumber(monsterNumber)) {
             case COMMAND_KNIGHT:
                 changeAllAttackPointsBy400(-1);
                 break;
         }
-    }
+    }*/
 
     public void changeAllAttackPointsBy400(int increaseOrDecrease){
         Board playerBoard = this.player.getBoard();

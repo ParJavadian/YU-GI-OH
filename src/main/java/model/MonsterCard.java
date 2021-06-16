@@ -354,8 +354,8 @@ public enum MonsterCard implements Cardable {
                         position = "DO";
                         break;
                 }
-                duelController.getPlayer().getBoard().putMonster((MonsterCard) duelController.getSelectedCard().getCard(), position);
-                ((MonsterCard) duelController.getSelectedCard().getCard()).takeAction(duelController, TakeActionCase.PUT_IN_MONSTERZONE, duelController.getPlayer(),duelController.getSelectedCard().getNumber());
+                int targetPlace = duelController.getPlayer().getBoard().putMonster((MonsterCard) duelController.getSelectedCard().getCard(), position);
+                ((MonsterCard) duelController.getSelectedCard().getCard()).takeAction(duelController, TakeActionCase.PUT_IN_MONSTERZONE, duelController.getPlayer(),targetPlace);
                 duelController.getPlayer().getBoard().getCardsInHand().remove((int) duelController.getSelectedCard().getNumber());
                 duelController.setSelectedCard(null);
                 DuelView.printText("special summoned successfully");

@@ -41,7 +41,6 @@ public class User {
         this.currentGameDeck = currentGameDeck;
     }
 
-
     public static User getUserByUsername(String username) {
         if (allUsers != null) {
             for (User user : allUsers) {
