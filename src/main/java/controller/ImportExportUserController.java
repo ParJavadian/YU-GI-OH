@@ -53,14 +53,14 @@ public class ImportExportUserController {
         String nickname = "";
         String highScore = "";
         String balance = "";
-        int counter = 5;
         File file = new File("allUsers.txt");
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNext()) {
                 username = scanner.nextLine();
                 File userFile = new File("Users/" + username + ".txt");
-                Scanner userScanner = new Scanner(file);
+                Scanner userScanner = new Scanner(userFile);
+                int counter = 5;
                 while (userScanner.hasNext()){
                     if (counter == 5)
                         username = userScanner.nextLine();
