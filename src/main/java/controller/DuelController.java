@@ -755,13 +755,13 @@ public class DuelController {
         endGame(this.rival);
     }
 
-    private void checkForChangesWhenAttackedMonster(int monsterNumber) {
+/*    private void checkForChangesWhenAttackedMonster(int monsterNumber) {
         switch (this.rival.getBoard().getMonsterByNumber(monsterNumber)) {
             case COMMAND_KNIGHT:
                 changeAllAttackPointsBy400(-1);
                 break;
         }
-    }
+    }*/
 
     public void changeAllAttackPointsBy400(int increaseOrDecrease){
         Board playerBoard = this.player.getBoard();

@@ -1,6 +1,6 @@
 package view;
 
-import controller.ImportExportController;
+import controller.ImportExportCardController;
 import model.*;
 
 import java.util.regex.Matcher;
@@ -30,7 +30,7 @@ public class ImportExportView {
     }
 
     private boolean processCommand(String command) {
-        ImportExportController importExportController = ImportExportController.getInstance(this.user);
+        ImportExportCardController importExportController = ImportExportCardController.getInstance(this.user);
         Matcher matcher = getCommandMatcher(command, "import card ([\\w ]+)");
         if (matcher.matches()) {
             importExportController.importCard(this.user.getCardByName(matcher.group(1)));

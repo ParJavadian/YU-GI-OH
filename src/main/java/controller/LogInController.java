@@ -34,7 +34,9 @@ public class LogInController {
                 }
             }
         }
-        new User(username, nickname, password);
+        User newUser = new User(username, nickname, password);
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(newUser);
         LogInView.getInstance().printText("user created successfully!");
     }
 

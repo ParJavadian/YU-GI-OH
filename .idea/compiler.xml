@@ -7,8 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="project_team_17_2" />
-        <module name="MavenFaze1_2" />
-        <module name="MavenFaze1_1" />
+        <module name="project_team_17" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
