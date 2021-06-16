@@ -4,6 +4,7 @@ import controller.exeption.*;
 import model.*;
 import view.DuelView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -791,7 +792,7 @@ public class DuelController {
         }
     }
 
-    private void endGame(User loser) {
+    private void endGame(User loser){
         User winner;
         if (loser.equals(rival)) {
             winner = player;
@@ -803,6 +804,11 @@ public class DuelController {
             winner.increaseScore(1000);
             winner.increaseMoney(1000 + winner.getLifePoint());
             loser.increaseMoney(100);
+            try {
+                ExportNewHighScoreAndBalance(loser, winner);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             shouldEndGameForView = true;
             DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
         }
@@ -815,6 +821,11 @@ public class DuelController {
                 winner.increaseScore(3000);
                 winner.increaseMoney(3000 + (3 * maxLP));
                 loser.increaseMoney(300);
+                try {
+                    ExportNewHighScoreAndBalance(loser, winner);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 shouldEndGameForView = true;
                 DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 DuelView.printText(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
@@ -827,6 +838,11 @@ public class DuelController {
                 winner.increaseScore(3000);
                 winner.increaseMoney(3000 + (3 * maxLP));
                 loser.increaseMoney(300);
+                try {
+                    ExportNewHighScoreAndBalance(loser, winner);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 shouldEndGameForView = true;
                 DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 DuelView.printText(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
@@ -836,6 +852,17 @@ public class DuelController {
                 exchangeCardBetweenMainAndSide(this.rival);
                 startNewGame(winner);
             }
+        }
+    }
+
+    private void ExportNewHighScoreAndBalance(User loser, User winner) throws IOException {
+        if (!winner.getUsername().equals("@AI@")) {
+            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+            importExportUserController.exportNewUser(winner);
+        }
+        if (!loser.getUsername().equals("@AI@")){
+            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+            importExportUserController.exportNewUser(loser);
         }
     }
 
