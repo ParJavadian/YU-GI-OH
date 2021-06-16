@@ -172,9 +172,20 @@ public class ImportExportUserController {
         }
     }
 
-    public void exportAllCards(List<Cardable> allCards) {
+    public void exportAllCards(User user) {
+        for (Cardable card : user.getAllCards()) {
+            String cardName = card.getName();
+            try {
+                FileWriter writer = new FileWriter("allCards" + user.getUsername() + ".txt");
+                writer.write(cardName + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
+        }
     }
 
-    public void importAllCards(){}
+    public void importAllCards(){
+
+    }
 }

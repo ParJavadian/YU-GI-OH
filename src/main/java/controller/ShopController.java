@@ -30,6 +30,7 @@ public class ShopController {
                 ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
                 importExportUserController.exportNewUser(user);
                 this.user.addCardToUsersAllCards(card);
+                importExportUserController.exportAllCards(this.user);
             } else
                 throw new NotEnoughMoney();
         } else

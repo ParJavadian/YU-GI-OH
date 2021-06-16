@@ -140,6 +140,7 @@ public class DeckController {
                         this.user.addCardToUsersAllCards(card);
                         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
                         importExportUserController.exportCardsInSideDeck(this.user,deckName);
+                        importExportUserController.exportAllCards(this.user);
                         DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "side");
                 } else {
@@ -148,6 +149,7 @@ public class DeckController {
                         this.user.addCardToUsersAllCards(card);
                         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
                         importExportUserController.exportCardsInMainDeck(this.user,deckName);
+                        importExportUserController.exportAllCards(this.user);
                         DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "main");
                 }
