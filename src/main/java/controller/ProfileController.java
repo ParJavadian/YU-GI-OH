@@ -25,6 +25,8 @@ public class ProfileController {
             throw new RepetitiveNickname(nickname);
         }
         this.user.setNickname(nickname);
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(this.user);
         ProfileView.getInstance(this.user).printText("nickname changed successfully!");
     }
 
@@ -34,6 +36,8 @@ public class ProfileController {
         if(this.user.getPassword().equals(newPassword))
             throw new SamePassword();
         this.user.setPassword(newPassword);
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(this.user);
         ProfileView.getInstance(this.user).printText("password changed successfully!");
     }
 }

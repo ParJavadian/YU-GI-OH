@@ -32,7 +32,6 @@ public class User {
         allUsers.add(this);
     }
 
-
     public Deck getGameDeck() {
         return this.currentGameDeck;
     }
@@ -199,9 +198,6 @@ public class User {
         User user = (User) o;
         return  (this.username.equals(user.username));
     }
-
-
-
 
 //    @Override
 //    public boolean equals(Object o) {
