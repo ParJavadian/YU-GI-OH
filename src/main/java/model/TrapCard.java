@@ -47,7 +47,7 @@ public enum TrapCard implements Cardable {
     private String description;
     private int price;
 
-    TrapCard(Icon icon, String description, Status status, int price) {
+    public TrapCard(Icon icon, String description, Status status, int price) {
         this.icon = icon;
         this.status = status;
         this.description = description;
