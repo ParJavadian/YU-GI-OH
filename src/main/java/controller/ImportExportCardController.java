@@ -135,35 +135,44 @@ public class ImportExportCardController {
     }
 
     public void exportCard(Cardable card) {
-        if (card instanceof MonsterCard) {
-            try {
-                FileWriter writer = new FileWriter("Cards/" + card.getName() + "MonsterCard.txt");
-                writer.write(((MonsterCard) card).getLevel() + "\n" + ((MonsterCard) card).getAttribute() + "\n" +
-                        ((MonsterCard) card).getMonsterType() + "\n" + ((MonsterCard) card).getCardType() + "\n" +
-                        ((MonsterCard) card).getAttack() + "\n" + ((MonsterCard) card).getDefence() + "\n" +
-                        card.getPrice() + "\n" + ((MonsterCard) card).getCanBeNormalSummoned() +
-                        "\n" + card.getDescription());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        if (card instanceof MonsterCard)
+            exportMonsterCard(card);
+        if (card instanceof SpellCard)
+            ExportSpellCard(card);
+        if (card instanceof TrapCard)
+            ExportTrapCard(card);
+    }
+
+    private void ExportTrapCard(Cardable card) {
+        try {
+            FileWriter writer = new FileWriter("Cards/" + card.getName() + "TrapCard.txt");
+            writer.write(((TrapCard) card).getIcon() + "\n" + ((TrapCard) card).getStatus() + "\n"
+            + card.getPrice() + "\n" + card.getDescription());
+        }catch (IOException e){
+            e.printStackTrace();
         }
-        if (card instanceof SpellCard) {
-            try {
-                FileWriter writer = new FileWriter("Cards/" + card.getName() + "SpellCard.txt");
-                writer.write(((SpellCard) card).getIcon() + "\n" + ((SpellCard) card).getStatus() + "\n"
-                        + card.getPrice() + "\n" + card.getDescription());
-            }catch (IOException e){
-                e.printStackTrace();
-            }
+    }
+
+    private void ExportSpellCard(Cardable card) {
+        try {
+            FileWriter writer = new FileWriter("Cards/" + card.getName() + "SpellCard.txt");
+            writer.write(((SpellCard) card).getIcon() + "\n" + ((SpellCard) card).getStatus() + "\n"
+                    + card.getPrice() + "\n" + card.getDescription());
+        }catch (IOException e){
+            e.printStackTrace();
         }
-        if (card instanceof TrapCard) {
-            try {
-                FileWriter writer = new FileWriter("Cards/" + card.getName() + "TrapCard.txt");
-                writer.write(((TrapCard) card).getIcon() + "\n" + ((TrapCard) card).getStatus() + "\n"
-                + card.getPrice() + "\n" + card.getDescription());
-            }catch (IOException e){
-                e.printStackTrace();
-            }
+    }
+
+    private void exportMonsterCard(Cardable card) {
+        try {
+            FileWriter writer = new FileWriter("Cards/" + card.getName() + "MonsterCard.txt");
+            writer.write(((MonsterCard) card).getLevel() + "\n" + ((MonsterCard) card).getAttribute() + "\n" +
+                    ((MonsterCard) card).getMonsterType() + "\n" + ((MonsterCard) card).getCardType() + "\n" +
+                    ((MonsterCard) card).getAttack() + "\n" + ((MonsterCard) card).getDefence() + "\n" +
+                    card.getPrice() + "\n" + ((MonsterCard) card).getCanBeNormalSummoned() +
+                    "\n" + card.getDescription());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
