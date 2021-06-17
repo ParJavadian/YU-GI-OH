@@ -33,7 +33,7 @@ public class ImportExportView {
         ImportExportCardController importExportController = ImportExportCardController.getInstance(this.user);
         Matcher matcher = getCommandMatcher(command, "import card ([\\w ]+)");
         if (matcher.matches()) {
-            importExportController.importCard(this.user.getCardByName(matcher.group(1)));
+            importExportController.importCard(matcher.group(1));
             return false;
         }
         matcher = getCommandMatcher(command, "export card ([\\w ]+)");

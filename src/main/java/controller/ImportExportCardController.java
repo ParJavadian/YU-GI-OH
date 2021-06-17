@@ -1,7 +1,10 @@
 package controller;
 
-import model.Cardable;
-import model.User;
+import model.*;
+
+import java.io.*;
+import java.util.List;
+import java.util.Scanner;
 
 public class ImportExportCardController {
     private static ImportExportCardController instance = null;
@@ -9,20 +12,159 @@ public class ImportExportCardController {
 
     public static ImportExportCardController getInstance(User user) {
         if (instance == null) instance = new ImportExportCardController(user);
-        else if(!instance.user.equals(user)) instance.user = user;
+        else if (!instance.user.equals(user)) instance.user = user;
         return instance;
     }
 
-    private ImportExportCardController(User user){
-    this.user = user;
+    private ImportExportCardController(User user) {
+        this.user = user;
     }
 
-    public void importCard(Cardable card){
+    public void importCard(String cardName) {
+        int level = 0, attackPoint = 0, defencePoint = 0, price = 0, counter;
+        String attribute = "";
+        String monsterType = "";
+        String cardType = "";
+        String icon = "";
+        String status = "";
+        String description = "";
+        boolean canBeNormalSummoned = false;
+
+        File monsterFile = new File("Cards/" + cardName + "MonsterCard.txt");
+        File trapFile = new File("Cards/" + cardName + "TrapCard.txt");
+        File spellFile = new File("Cards/" + cardName + "SpellCard.txt");
+        Scanner scanner = null;
+        try {
+            if (monsterFile.exists()) {
+                counter = 9;
+                scanner = new Scanner(monsterFile);
+                while (scanner.hasNextLine()) {
+                    if (counter == 9)
+                        level = Integer.parseInt(scanner.nextLine());
+                    if (counter == 8)
+                        attribute = scanner.nextLine();
+                    if (counter == 7)
+                        monsterType = scanner.nextLine();
+                    if (counter == 6)
+                        cardType = scanner.nextLine();
+                    if (counter == 5)
+                        attackPoint = Integer.parseInt(scanner.nextLine());
+                    if (counter == 4)
+                        defencePoint = Integer.parseInt(scanner.nextLine());
+                    if (counter == 3)
+                        price = Integer.parseInt(scanner.nextLine());
+                    if (counter == 2)
+                        canBeNormalSummoned = Boolean.parseBoolean(scanner.nextLine());
+                    if (counter == 1) {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        while (scanner.hasNextLine()) {
+                            stringBuilder.append(scanner.nextLine());
+                        }
+                        description = String.valueOf(stringBuilder);
+                    }
+                    if (counter == 0)
+                        break;
+                    counter--;
+                }
+/*                MonsterCard monsterCard = new MonsterCard(level, attribute, monsterType, cardType, attackPoint, defencePoint, description, price, canBeNormalSummoned) {
+                    @Override
+                    public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
+
+                    }
+
+                    @Override
+                    public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
+                        return false;
+                    }
+                };*/
+            }
+            if (trapFile.exists()) {
+                counter = 4;
+                scanner = new Scanner(trapFile);
+                while (scanner.hasNextLine()) {
+                    if (counter == 4)
+                        icon = scanner.nextLine();
+                    if (counter == 3)
+                        status = scanner.nextLine();
+                    if (counter == 2)
+                        price = Integer.parseInt(scanner.nextLine());
+                    if (counter == 1) {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        while (scanner.hasNextLine()) {
+                            stringBuilder.append(scanner.nextLine());
+                        }
+                        description = String.valueOf(stringBuilder);
+                    }
+                    if (counter == 0)
+                        break;
+                    counter--;
+                }
+/*
+                TrapCard trapCard = new TrapCard(icon,description,status,price);
+*/
+            }
+            if (spellFile.exists()) {
+                counter = 4;
+                scanner = new Scanner(spellFile);
+                while (scanner.hasNextLine()) {
+                    if (counter == 4)
+                        icon = scanner.nextLine();
+                    if (counter == 3)
+                        status = scanner.nextLine();
+                    if (counter == 2)
+                        price = Integer.parseInt(scanner.nextLine());
+                    if (counter == 1) {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        while (scanner.hasNextLine()) {
+                            stringBuilder.append(scanner.nextLine());
+                        }
+                        description = String.valueOf(stringBuilder);
+                    }
+                    if (counter == 0)
+                        break;
+                    counter--;
+                }
+/*
+                SpellCard spellCard = new SpellCard(icon,description,status,price)
+*/
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void exportCard(Cardable card){
-
+    public void exportCard(Cardable card) {
+        if (card instanceof MonsterCard) {
+            try {
+                FileWriter writer = new FileWriter("Cards/" + card.getName() + "MonsterCard.txt");
+                writer.write(((MonsterCard) card).getLevel() + "\n" + ((MonsterCard) card).getAttribute() + "\n" +
+                        ((MonsterCard) card).getMonsterType() + "\n" + ((MonsterCard) card).getCardType() + "\n" +
+                        ((MonsterCard) card).getAttack() + "\n" + ((MonsterCard) card).getDefence() + "\n" +
+                        card.getPrice() + "\n" + ((MonsterCard) card).getCanBeNormalSummoned() +
+                        "\n" + card.getDescription());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (card instanceof SpellCard) {
+            try {
+                FileWriter writer = new FileWriter("Cards/" + card.getName() + "SpellCard.txt");
+                writer.write(((SpellCard) card).getIcon() + "\n" + ((SpellCard) card).getStatus() + "\n"
+                        + card.getPrice() + "\n" + card.getDescription());
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        if (card instanceof TrapCard) {
+            try {
+                FileWriter writer = new FileWriter("Cards/" + card.getName() + "TrapCard.txt");
+                writer.write(((TrapCard) card).getIcon() + "\n" + ((TrapCard) card).getStatus() + "\n"
+                + card.getPrice() + "\n" + card.getDescription());
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 
 }

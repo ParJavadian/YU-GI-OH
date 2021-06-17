@@ -61,12 +61,12 @@ public class ImportExportUserController {
         File file = new File("allUsers.txt");
         try {
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNext()) {
+            while (scanner.hasNextLine()) {
                 username = scanner.nextLine();
                 File userFile = new File("Users/" + username + ".txt");
                 Scanner userScanner = new Scanner(userFile);
                 int counter = 5;
-                while (userScanner.hasNext()){
+                while (userScanner.hasNextLine()){
                     if (counter == 5)
                         username = userScanner.nextLine();
                     if (counter == 4)
@@ -144,14 +144,14 @@ public class ImportExportUserController {
             String deckName;
             try {
                 Scanner scanner = new Scanner(file);
-                while (scanner.hasNext()) {
+                while (scanner.hasNextLine()) {
                     deckName = scanner.nextLine();
                     File mainDeckFile = new File("Deck" + user.getUsername() + deckName + "mainDeck.txt");
                     File sideDeckFile = new File("Deck" + user.getUsername() + deckName + "sideDeck.txt");
                     if (mainDeckFile.exists()){
                         Scanner mainDeckScanner = new Scanner(mainDeckFile);
                         Deck deck = new Deck(deckName);
-                        while (mainDeckScanner.hasNext()){
+                        while (mainDeckScanner.hasNextLine()){
                             String cardName = mainDeckScanner.nextLine();
                             deck.addCardToMainDeck(DeckController.getInstance(user).getCardByName(cardName));
                         }
@@ -159,7 +159,7 @@ public class ImportExportUserController {
                     }if (sideDeckFile.exists()){
                         Scanner sideDeckScanner = new Scanner(sideDeckFile);
                         Deck deck = new Deck(deckName);
-                        while (sideDeckScanner.hasNext()){
+                        while (sideDeckScanner.hasNextLine()){
                             String cardName = sideDeckScanner.nextLine();
                             deck.addCardToSideDeck(DeckController.getInstance(user).getCardByName(cardName));
                         }
@@ -192,7 +192,7 @@ public class ImportExportUserController {
             if (file.exists()){
                 try {
                     Scanner scanner = new Scanner(file);
-                    while (scanner.hasNext()){
+                    while (scanner.hasNextLine()){
                         String cardName = scanner.nextLine();
                         user.addCardToUsersAllCards(DeckController.getInstance(user).getCardByName(cardName));
                     }
