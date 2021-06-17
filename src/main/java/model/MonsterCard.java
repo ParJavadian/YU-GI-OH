@@ -70,7 +70,7 @@ public enum MonsterCard implements Cardable {
             if (takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED)) {
                 duelController.getPlayer().getBoard().putInGraveYard(duelController.getSelectedCard().getCard());
                 duelController.getPlayer().getBoard().removeMonster(duelController.getSelectedCard().getNumber());
-                duelController.removeMonster(duelController.getSelectedCard().getNumber());
+                duelController.removeMonsterPlayer(duelController.getSelectedCard().getNumber());
             }
         }
 
@@ -95,8 +95,10 @@ public enum MonsterCard implements Cardable {
                     "This effect can only be used once while this card is face-up on the field.", 8700,true) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.ATTACKED)) {
-                if (!duelController.getRivalHasEnabledSuijin(targetNumber)) {
+                int place = duelController.getSelectedCard().getNumber();
+                if (!duelController.getHasEnabledSuijin(place)) {
                     duelController.setMonsterAttackPlayer(targetNumber, 0);
+                    duelController.setHasEnabledSuijinTrue(place);
                 }
             }
         }
@@ -335,9 +337,9 @@ public enum MonsterCard implements Cardable {
                 duelController.getPlayer().getBoard().removeMonster(address1);
                 duelController.getPlayer().getBoard().removeMonster(address2);
                 duelController.getPlayer().getBoard().removeMonster(address3);
-                duelController.removeMonster(address1);
-                duelController.removeMonster(address2);
-                duelController.removeMonster(address3);
+                duelController.removeMonsterPlayer(address1);
+                duelController.removeMonsterPlayer(address2);
+                duelController.removeMonsterPlayer(address3);
                 DuelView.printText("enter the position you want to summon monster in(attack or defence)");
                 String position = DuelView.scan();
                 if(position.equals("cancel")) return;
@@ -491,7 +493,7 @@ public enum MonsterCard implements Cardable {
             if (takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED)) {
                 duelController.getPlayer().getBoard().putInGraveYard(duelController.getSelectedCard().getCard());
                 duelController.getPlayer().getBoard().removeMonster(duelController.getSelectedCard().getNumber());
-                duelController.removeMonster(duelController.getSelectedCard().getNumber());
+                duelController.removeMonsterPlayer(duelController.getSelectedCard().getNumber());
             }
         }
 
