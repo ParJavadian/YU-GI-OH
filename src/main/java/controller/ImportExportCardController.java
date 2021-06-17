@@ -36,36 +36,122 @@ public class ImportExportCardController {
         Scanner scanner = null;
         try {
             if (monsterFile.exists()) {
-                counter = 9;
-                scanner = new Scanner(monsterFile);
+                importMonsterCard(monsterFile);
+            }
+            if (trapFile.exists()) {
+                importTrapCard(trapFile);
+            }
+            if (spellFile.exists()) {
+                importSpellCard(spellFile);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void importSpellCard(File spellFile) throws FileNotFoundException {
+        String icon;
+        String status;
+        int price;
+        String description;
+        int counter = 4;
+        Scanner scanner = new Scanner(spellFile);
+        while (scanner.hasNextLine()) {
+            if (counter == 4)
+                icon = scanner.nextLine();
+            if (counter == 3)
+                status = scanner.nextLine();
+            if (counter == 2)
+                price = Integer.parseInt(scanner.nextLine());
+            if (counter == 1) {
+                StringBuilder stringBuilder = new StringBuilder();
                 while (scanner.hasNextLine()) {
-                    if (counter == 9)
-                        level = Integer.parseInt(scanner.nextLine());
-                    if (counter == 8)
-                        attribute = scanner.nextLine();
-                    if (counter == 7)
-                        monsterType = scanner.nextLine();
-                    if (counter == 6)
-                        cardType = scanner.nextLine();
-                    if (counter == 5)
-                        attackPoint = Integer.parseInt(scanner.nextLine());
-                    if (counter == 4)
-                        defencePoint = Integer.parseInt(scanner.nextLine());
-                    if (counter == 3)
-                        price = Integer.parseInt(scanner.nextLine());
-                    if (counter == 2)
-                        canBeNormalSummoned = Boolean.parseBoolean(scanner.nextLine());
-                    if (counter == 1) {
-                        StringBuilder stringBuilder = new StringBuilder();
-                        while (scanner.hasNextLine()) {
-                            stringBuilder.append(scanner.nextLine());
-                        }
-                        description = String.valueOf(stringBuilder);
-                    }
-                    if (counter == 0)
-                        break;
-                    counter--;
+                    stringBuilder.append(scanner.nextLine());
                 }
+                description = String.valueOf(stringBuilder);
+            }
+            if (counter == 0)
+                break;
+            counter--;
+        }
+/*
+                SpellCard spellCard = new SpellCard(icon,description,status,price)
+*/
+    }
+
+    private void importTrapCard(File trapFile) throws FileNotFoundException {
+        String icon;
+        String status;
+        int price;
+        String description;
+        int counter = 4;
+        Scanner scanner = new Scanner(trapFile);
+        while (scanner.hasNextLine()) {
+            if (counter == 4)
+                icon = scanner.nextLine();
+            if (counter == 3)
+                status = scanner.nextLine();
+            if (counter == 2)
+                price = Integer.parseInt(scanner.nextLine());
+            if (counter == 1) {
+                StringBuilder stringBuilder = new StringBuilder();
+                while (scanner.hasNextLine()) {
+                    stringBuilder.append(scanner.nextLine());
+                }
+                description = String.valueOf(stringBuilder);
+            }
+            if (counter == 0)
+                break;
+            counter--;
+        }
+/*
+                TrapCard trapCard = new TrapCard(icon,description,status,price);
+*/
+    }
+
+    private void importMonsterCard(File monsterFile) throws FileNotFoundException {
+        int counter;
+        String monsterType;
+        String cardType;
+        int defencePoint;
+        Scanner scanner;
+        int price;
+        int level;
+        boolean canBeNormalSummoned;
+        String attribute;
+        int attackPoint;
+        String description;
+        counter = 9;
+        scanner = new Scanner(monsterFile);
+        while (scanner.hasNextLine()) {
+            if (counter == 9)
+                level = Integer.parseInt(scanner.nextLine());
+            if (counter == 8)
+                attribute = scanner.nextLine();
+            if (counter == 7)
+                monsterType = scanner.nextLine();
+            if (counter == 6)
+                cardType = scanner.nextLine();
+            if (counter == 5)
+                attackPoint = Integer.parseInt(scanner.nextLine());
+            if (counter == 4)
+                defencePoint = Integer.parseInt(scanner.nextLine());
+            if (counter == 3)
+                price = Integer.parseInt(scanner.nextLine());
+            if (counter == 2)
+                canBeNormalSummoned = Boolean.parseBoolean(scanner.nextLine());
+            if (counter == 1) {
+                StringBuilder stringBuilder = new StringBuilder();
+                while (scanner.hasNextLine()) {
+                    stringBuilder.append(scanner.nextLine());
+                }
+                description = String.valueOf(stringBuilder);
+            }
+            if (counter == 0)
+                break;
+            counter--;
+        }
 /*                MonsterCard monsterCard = new MonsterCard(level, attribute, monsterType, cardType, attackPoint, defencePoint, description, price, canBeNormalSummoned) {
                     @Override
                     public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -77,61 +163,6 @@ public class ImportExportCardController {
                         return false;
                     }
                 };*/
-            }
-            if (trapFile.exists()) {
-                counter = 4;
-                scanner = new Scanner(trapFile);
-                while (scanner.hasNextLine()) {
-                    if (counter == 4)
-                        icon = scanner.nextLine();
-                    if (counter == 3)
-                        status = scanner.nextLine();
-                    if (counter == 2)
-                        price = Integer.parseInt(scanner.nextLine());
-                    if (counter == 1) {
-                        StringBuilder stringBuilder = new StringBuilder();
-                        while (scanner.hasNextLine()) {
-                            stringBuilder.append(scanner.nextLine());
-                        }
-                        description = String.valueOf(stringBuilder);
-                    }
-                    if (counter == 0)
-                        break;
-                    counter--;
-                }
-/*
-                TrapCard trapCard = new TrapCard(icon,description,status,price);
-*/
-            }
-            if (spellFile.exists()) {
-                counter = 4;
-                scanner = new Scanner(spellFile);
-                while (scanner.hasNextLine()) {
-                    if (counter == 4)
-                        icon = scanner.nextLine();
-                    if (counter == 3)
-                        status = scanner.nextLine();
-                    if (counter == 2)
-                        price = Integer.parseInt(scanner.nextLine());
-                    if (counter == 1) {
-                        StringBuilder stringBuilder = new StringBuilder();
-                        while (scanner.hasNextLine()) {
-                            stringBuilder.append(scanner.nextLine());
-                        }
-                        description = String.valueOf(stringBuilder);
-                    }
-                    if (counter == 0)
-                        break;
-                    counter--;
-                }
-/*
-                SpellCard spellCard = new SpellCard(icon,description,status,price)
-*/
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
     }
 
     public void exportCard(Cardable card) {
