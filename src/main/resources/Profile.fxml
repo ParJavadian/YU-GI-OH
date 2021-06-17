@@ -14,12 +14,12 @@
             <Image url="@profile.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="121.0" layoutY="181.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" text="Change Nickname" textFill="RED">
+      <Button layoutX="121.0" layoutY="181.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" text="Change Nickname" onMouseClicked="#changeNickname" textFill="RED">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="121.0" layoutY="249.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" text="Change Password" textFill="RED">
+      <Button layoutX="121.0" layoutY="249.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" text="Change Password" onMouseClicked="#changePassword" textFill="RED">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font>

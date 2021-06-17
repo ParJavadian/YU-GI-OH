@@ -22,6 +22,16 @@ public class MainViewGraphic extends Application {
         return instance;
     }
 
+//    public static MainViewGraphic getInstance(User user) {
+//        if (instance == null) instance = new MainViewGraphic(user);
+//        else if (!instance.user.equals(user)) instance.user = user;
+//        return instance;
+//    }
+
+//    private MainViewGraphic(User user) {
+//        this.user = user;
+//    }
+
     public void setCurrentUser(User user) {
         MainViewGraphic.user = user;
     }
@@ -44,6 +54,11 @@ public class MainViewGraphic extends Application {
 
     public void scoreBoard(MouseEvent mouseEvent) throws Exception{
         ScoreBoardViewGraphic.getInstance().start(stage);
+    }
+
+    public void profileMenu() throws Exception {
+        ProfileViewForGraphic.getInstance().setCurrentUser(user);
+        ProfileViewForGraphic.getInstance().start(stage);
     }
 
     /*public void scoreBoard(MouseEvent mouseEvent) throws Exception {

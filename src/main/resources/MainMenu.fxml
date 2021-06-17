@@ -29,7 +29,7 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="450.0" layoutY="308.0" mnemonicParsing="false" text="Profile" textFill="#c800ff">
+      <Button layoutX="450.0" layoutY="308.0" mnemonicParsing="false" text="Profile" onMouseClicked="#profileMenu" textFill="#c800ff">
          <font>
             <Font name="Agency FB Bold" size="18.0" />
          </font>
