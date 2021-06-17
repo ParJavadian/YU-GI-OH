@@ -772,12 +772,12 @@ public class DuelController {
         }
     }*/
 
-    public void changeAllAttackPointsBy400(int increaseOrDecrease){
+    public void changeAllAttackPoints(int increaseOrDecrease,int amount){
         Board playerBoard = this.player.getBoard();
         Board rivalBoard= this.rival.getBoard();
         for (int i = 0; i < 5; i++) {
-            if(playerBoard.getMonsterByNumber(i)!=null) this.playerAttackPoints[i]=this.playerAttackPoints[i]+increaseOrDecrease*400;
-            if(rivalBoard.getMonsterByNumber(i)!=null) this.rivalAttackPoints[i]=this.rivalAttackPoints[i]+increaseOrDecrease*400;
+            if(playerBoard.getMonsterByNumber(i)!=null) this.playerAttackPoints[i]=this.playerAttackPoints[i]+increaseOrDecrease*amount;
+            if(rivalBoard.getMonsterByNumber(i)!=null) this.rivalAttackPoints[i]=this.rivalAttackPoints[i]+increaseOrDecrease*amount;
         }
     }
 

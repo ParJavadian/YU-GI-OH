@@ -231,11 +231,13 @@ public enum SpellCard implements Cardable {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 for (int i = 0; i < 5; i++) {
-                    duelController.getPlayer().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
-                    duelController.getPlayer().getBoard().removeMonster(i);
-                    duelController.setMonsterAttackRival(i, null);
-                    duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
+                    if(duelController.getPlayer().getBoard().getMonsterByNumber(i)!=null) {
+                        duelController.getPlayer().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
+                        duelController.getPlayer().getBoard().removeMonster(i);
+                        duelController.setMonsterAttackRival(i, null);
+                    }
                 }
+                duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
         }
