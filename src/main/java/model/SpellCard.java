@@ -246,14 +246,47 @@ public enum SpellCard implements Cardable {
     CHANGE_OF_HEART(Icon.NORMAL, "Target 1 monster your opponent controls; take control of it until the End Phase.",
             Status.LIMITED, 2500),
 
-    HARPIES_FEATHER_DUST(Icon.NORMAL, "Destroy all Spells and Traps your opponent controls.", Status.LIMITED, 2500),
+    HARPIES_FEATHER_DUST(Icon.NORMAL, "Destroy all Spells and Traps your opponent controls.", Status.LIMITED, 2500){
+        public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
+            if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
+                for (int i = 0; i < 5; i++) {
+                    if(duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i) !=null) {
+                        duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_SPELLTRAPZONE, duelController.getRival(), i);
+                        duelController.getPlayer().getBoard().removeSpellOrTrap(i);
+                        duelController.setMonsterAttackRival(i, null);
+                    }
+                }
+                duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
+            }
+            return true;
+        }
+    },
 
     SWORD_OF_REVEALING_LIGHT(Icon.NORMAL, "After this card's activation, it remains on the field, but destroy " +
             "it during the End Phase of your opponent's 3rd turn. When this card is activated: If your opponent controls" +
             " a face-down monster, flip all monsters they control face-up. While this card is face-up on the field, your" +
             " opponent's monsters cannot declare an attack.", Status.UNLIMITED, 2500),
 
-    DARK_HOLE(Icon.NORMAL, "Destroy all monsters on the field.", Status.UNLIMITED, 2500),
+    DARK_HOLE(Icon.NORMAL, "Destroy all monsters on the field.", Status.UNLIMITED, 2500){
+        public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
+            if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
+                for (int i = 0; i < 5; i++) {
+                    if(duelController.getPlayer().getBoard().getMonsterByNumber(i)!=null) {
+                        duelController.getPlayer().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
+                        duelController.getPlayer().getBoard().removeMonster(i);
+                        duelController.setMonsterAttackRival(i, null);
+                    }
+                    if (duelController.getRival().getBoard().getMonsterByNumber(i) != null){
+                        duelController.getRival().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE,duelController.getRival(),i);
+                        duelController.getRival().getBoard().removeMonster(i);
+                        duelController.setMonsterAttackPlayer(i,null);
+                    }
+                }
+                duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
+            }
+            return true;
+        }
+    },
 
     SUPPLY_SQUAD(Icon.CONTINUOUS, "Once per turn, if a monster(s) you control is destroyed by battle or card" +
             " effect: Draw 1 card.", Status.UNLIMITED, 4000),
