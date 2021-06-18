@@ -439,7 +439,47 @@ public enum SpellCard implements Cardable {
     },
 
     UMIIRUKA(Icon.FIELD, "Increase the ATK of all WATER monsters by 500 points and decrease their DEF by 400 " +
-            "points.", Status.UNLIMITED, 4300),
+            "points.", Status.UNLIMITED, 4300){
+        public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
+            if (takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)) {
+                for (int i = 0; i < 5; i++) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
+                    MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(i);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.AQUA)) {
+                            duelController.changePlayerAttackPoint(i, 500);
+                            duelController.changePlayerDefencePoint(i, -400);
+                        }
+                    }
+                    if (rivalMonster != null) {
+                        if (rivalMonster.getMonsterType().equals(MonsterType.AQUA)) {
+                            duelController.changeRivalAttackPoint(i, 500);
+                            duelController.changeRivalDefencePoint(i, -400);
+                        }
+                    }
+                }
+            } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
+                for (int i = 0; i < 5; i++) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
+                    MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(i);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.AQUA)) {
+                            duelController.changePlayerAttackPoint(i, -500);
+                            duelController.changePlayerDefencePoint(i, 400);
+                        }
+                    }
+                    if (rivalMonster != null) {
+                        if (rivalMonster.getMonsterType().equals(MonsterType.AQUA)) {
+                            duelController.changeRivalAttackPoint(i, -500);
+                            duelController.changeRivalDefencePoint(i, 400);
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+    },
 
     SWORD_OF_DARK_DESTRUCTION(Icon.EQUIP, "A DARK monster equipped with this card increases its ATK by 400 " +
             "points and decreases its DEF by 200 points.", Status.UNLIMITED, 4300),
