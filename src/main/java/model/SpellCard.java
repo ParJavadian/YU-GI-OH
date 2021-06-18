@@ -319,7 +319,6 @@ public enum SpellCard implements Cardable {
                 int numberOfCardsInHand = duelController.getPlayer().getBoard().getCardsInHand().size();
                 if (numberOfCardsInHand == 0) {
                     DuelView.printText("you don't have enough card in your hand to use this spell");
-                    return false;
                 }
                 else {
                     numberOfCardsInHand -= 1;
@@ -353,15 +352,31 @@ public enum SpellCard implements Cardable {
                             destroySpellOrTrap(duelController, field);
                         }
                     }
+                }
+                return false;
+            }
+            return false;
+        }
+    },
+
+    MYSTICAL_SPACE_TYPHOON(Icon.QUICK_PLAY, "Target 1 Spell/Trap on the field; destroy that target.",
+            Status.UNLIMITED, 3500) {
+        public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
+            if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
+                DuelView.printText("please type the word \"My\" or \"Rival\" to choose a field to destroy the trap or spell");
+                String field = DuelView.scan();
+                while (!field.equals("cancel") && !field.equals("My") && !field.equals("Rival")) {
+                    DuelView.printText("enter \"My\" or \"Rival\" to select field");
+                    field = DuelView.scan();
+                }
+                if (field.equals("My") || field.equals("Rival")) {
+                    destroySpellOrTrap(duelController, field);
                     return false;
                 }
             }
             return false;
         }
     },
-
-    MYSTICAL_SPCAE_TYPHOON(Icon.QUICK_PLAY, "Target 1 Spell/Trap on the field; destroy that target.",
-            Status.UNLIMITED, 3500),
 
     RING_OF_DEFENSE(Icon.QUICK_PLAY, "When a Trap effect that inflicts damage is activated: Make that effect " +
             "damage 0.", Status.UNLIMITED, 3500),
@@ -563,49 +578,12 @@ public enum SpellCard implements Cardable {
             "also send Normal Monsters from your Deck to the Graveyard whose total Levels equal the Level of that Ritual" +
             " Monster.", Status.UNLIMITED, 3000);
 
-    private static void destroySpellOrTrap(DuelController duelController, String field) {
-        ArrayList<Integer> updatedOnBoardSpellOrTrap = new ArrayList<>();
-        if (field.equals("My")) {
-            for (int i = 1; i <= 5; i++) {
-                Cardable notNullSpellOrTrap = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i);
-                if (!(notNullSpellOrTrap == null))
-                    updatedOnBoardSpellOrTrap.add(i);
-            }
-            DuelView.printText("please type the spell or trap's address from your spell zone to be destroyed");
-            int myAddress = Integer.parseInt(DuelView.scan());
-            if (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
-                while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
-                    DuelView.printText("the chosen address is empty");
-                    myAddress = Integer.parseInt(DuelView.scan());
-                }
-                Cardable numberOne = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(myAddress);
-                DuelView.printText("the chosen spell or trap was destroyed");
-            }
-        } else {
-            for (int i = 1; i <= 5; i++) {
-                Cardable notNullSpellOrTrap = duelController.getRival().getBoard().getSpellAndTrapByNumber(i);
-                if (!(notNullSpellOrTrap == null))
-                    updatedOnBoardSpellOrTrap.add(i);
-            }
-            DuelView.printText("please type the spell or trap's address from your rival's spell zone to be destroyed");
-            int myAddress = Integer.parseInt(DuelView.scan());
-            if (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
-                while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
-                    DuelView.printText("the chosen address is empty");
-                    myAddress = Integer.parseInt(DuelView.scan());
-                }
-                Cardable numberOne = duelController.getRival().getBoard().getSpellAndTrapByNumber(myAddress);
-                DuelView.printText("the chosen spell or trap was destroyed");
-            }
-        }
-    }
-
 
     private final Icon icon;
+
     private final Status status;
     private final String description;
     private final int price;
-
     SpellCard(Icon icon, String description, Status status, int price) {
         this.icon = icon;
         this.status = status;
@@ -654,5 +632,42 @@ public enum SpellCard implements Cardable {
         toReturn = toReturn + "Type: " + type + "\n" +
                 "Description: " + this.description;
         return toReturn;
+    }
+
+    private static void destroySpellOrTrap(DuelController duelController, String field) {
+        ArrayList<Integer> updatedOnBoardSpellOrTrap = new ArrayList<>();
+        if (field.equals("My")) {
+            for (int i = 1; i <= 5; i++) {
+                Cardable notNullSpellOrTrap = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i);
+                if (!(notNullSpellOrTrap == null))
+                    updatedOnBoardSpellOrTrap.add(i);
+            }
+            DuelView.printText("please type the spell or trap's address from your spell zone to be destroyed");
+            int myAddress = Integer.parseInt(DuelView.scan());
+            if (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
+                while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
+                    DuelView.printText("the chosen address is empty");
+                    myAddress = Integer.parseInt(DuelView.scan());
+                }
+                Cardable numberOne = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(myAddress);
+                DuelView.printText("the chosen spell or trap was destroyed");
+            }
+        } else {
+            for (int i = 1; i <= 5; i++) {
+                Cardable notNullSpellOrTrap = duelController.getRival().getBoard().getSpellAndTrapByNumber(i);
+                if (!(notNullSpellOrTrap == null))
+                    updatedOnBoardSpellOrTrap.add(i);
+            }
+            DuelView.printText("please type the spell or trap's address from your rival's spell zone to be destroyed");
+            int myAddress = Integer.parseInt(DuelView.scan());
+            if (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
+                while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
+                    DuelView.printText("the chosen address is empty");
+                    myAddress = Integer.parseInt(DuelView.scan());
+                }
+                Cardable numberOne = duelController.getRival().getBoard().getSpellAndTrapByNumber(myAddress);
+                DuelView.printText("the chosen spell or trap was destroyed");
+            }
+        }
     }
 }
