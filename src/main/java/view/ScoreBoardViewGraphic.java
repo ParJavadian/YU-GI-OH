@@ -1,5 +1,6 @@
 package view;
 
+import controller.ProfileControllerGraphic;
 import controller.ScoreBoardControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -39,5 +40,9 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         label.setText(ScoreBoardControllerGraphic.getInstance().showScoreboard());
+    }
+
+    public void goBack(){
+        ScoreBoardControllerGraphic.goBack(stage);
     }
 }

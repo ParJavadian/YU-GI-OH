@@ -1,5 +1,8 @@
 package view;
 
+import controller.MainControllerGraphic;
+import controller.MenuTypesGraphic;
+import controller.ProfileControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,14 +42,15 @@ public class MainViewGraphic extends Application {
     }
 
     public void logout() throws Exception {
-        LogInViewGraphic.getInstance().start(stage);
+        MainControllerGraphic.logout(stage);
     }
 
-    public void scoreBoard(MouseEvent mouseEvent) throws Exception{
-        ScoreBoardViewGraphic.getInstance().start(stage);
+    public void showScoreboard(MouseEvent mouseEvent) throws Exception{
+        MainControllerGraphic.showScoreBoard(stage);
     }
 
-    /*public void scoreBoard(MouseEvent mouseEvent) throws Exception {
-        ScoreBoardViewGraphic.getInstance().start(stage);
-    }*/
+    public void profileMenu() throws Exception {
+        MainControllerGraphic.showProfileMenu(user,stage);
+    }
+
 }
