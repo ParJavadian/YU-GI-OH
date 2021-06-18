@@ -1,23 +1,27 @@
 package controller;
 
+import javafx.stage.Stage;
 import model.User;
 import view.ScoreBoardView;
 
+import javax.swing.*;
 import java.util.Comparator;
 import java.util.List;
 
 public class ScoreBoardControllerGraphic {
 
+    private static MenuTypesGraphic previousMenu;
     static ScoreBoardControllerGraphic instance = null;
-//    private static User user;
+
+
+    public static void setPreviousMenu(MenuTypesGraphic previousMenu) {
+        ScoreBoardControllerGraphic.previousMenu = previousMenu;
+    }
 
     public static ScoreBoardControllerGraphic getInstance() {
         if (instance == null) instance = new ScoreBoardControllerGraphic();
         return instance;
     }
-
-//    public void setCurrentUser(User user) { ScoreBoardControllerGraphic.user = user;
-//    }
 
 
     public String showScoreboard() {
@@ -50,5 +54,9 @@ public class ScoreBoardControllerGraphic {
             return toPrint.toString();
         }
         return "";
+    }
+
+    public static void goBack(Stage stage){
+        PreviousMenuControllerGraphic.goBack(previousMenu,stage);
     }
 }

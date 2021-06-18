@@ -1,6 +1,6 @@
 package view;
 
-import controller.ProfileControllerGraphic;
+import controller.ChangeNicknameControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,25 +11,26 @@ import model.User;
 
 import java.net.URL;
 
-public class ProfileViewForGraphic extends Application {
+public class ChangeNicknameViewGraphic extends Application {
 
     private static Stage stage;
-    private static ProfileViewForGraphic instance = null;
+    static ChangeNicknameViewGraphic instance = null;
     private static User user;
 
-    public static ProfileViewForGraphic getInstance() {
-        if (instance == null) instance = new ProfileViewForGraphic();
+    public static ChangeNicknameViewGraphic getInstance() {
+        if (instance == null) instance = new ChangeNicknameViewGraphic();
         return instance;
     }
 
+
     public void setCurrentUser(User user) {
-        ProfileViewForGraphic.user = user;
+        ChangeNicknameViewGraphic.user = user;
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        ProfileViewForGraphic.stage = stage;
-        URL url = getClass().getResource("/Profile.fxml");
+        ChangeNicknameViewGraphic.stage = stage;
+        URL url = getClass().getResource("/ChangeNickname.fxml");
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -38,16 +39,8 @@ public class ProfileViewForGraphic extends Application {
         stage.show();
     }
 
-    public void changePassword() throws Exception {
-        ProfileControllerGraphic.changePassword(user,stage);
-    }
-
-    public void changeNickname() throws Exception {
-        ProfileControllerGraphic.changeNickname(user,stage);
-    }
-
     public void goBack() throws Exception {
-        ProfileControllerGraphic.goBack(stage);
+        ChangeNicknameControllerGraphic.goBack(stage);
     }
 
 }
