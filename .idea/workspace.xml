@@ -24,9 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Yami SpellCard.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/TakeActionCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TakeActionCase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623946393997</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Yami SpellCard.java">
+      <created>1624002906129</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624002906129</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,7 +194,8 @@
     <MESSAGE value="Error sign up" />
     <MESSAGE value="model.SpellCard.java&#10;Monster Reborn + Terraforming" />
     <MESSAGE value="model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED" />
-    <option name="LAST_COMMIT_MESSAGE" value="model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED" />
+    <MESSAGE value="Yami SpellCard.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Yami SpellCard.java" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1237" height="170" key="GridCell.Tab.0.bottom" timestamp="1623766526113">
@@ -224,10 +230,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1623148484919" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1623946400386">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624002909750">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1623946400386" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624002909750" />
     <state x="247" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1623936514260">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

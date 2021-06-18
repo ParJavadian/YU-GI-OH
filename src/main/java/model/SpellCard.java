@@ -246,11 +246,11 @@ public enum SpellCard implements Cardable {
     CHANGE_OF_HEART(Icon.NORMAL, "Target 1 monster your opponent controls; take control of it until the End Phase.",
             Status.LIMITED, 2500),
 
-    HARPIES_FEATHER_DUST(Icon.NORMAL, "Destroy all Spells and Traps your opponent controls.", Status.LIMITED, 2500){
+    HARPIES_FEATHER_DUST(Icon.NORMAL, "Destroy all Spells and Traps your opponent controls.", Status.LIMITED, 2500) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 for (int i = 0; i < 5; i++) {
-                    if(duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i) !=null) {
+                    if (duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i) != null) {
                         duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_SPELLTRAPZONE, duelController.getRival(), i);
                         duelController.getPlayer().getBoard().removeSpellOrTrap(i);
                     }
@@ -266,19 +266,19 @@ public enum SpellCard implements Cardable {
             " a face-down monster, flip all monsters they control face-up. While this card is face-up on the field, your" +
             " opponent's monsters cannot declare an attack.", Status.UNLIMITED, 2500),
 
-    DARK_HOLE(Icon.NORMAL, "Destroy all monsters on the field.", Status.UNLIMITED, 2500){
+    DARK_HOLE(Icon.NORMAL, "Destroy all monsters on the field.", Status.UNLIMITED, 2500) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 for (int i = 0; i < 5; i++) {
-                    if(duelController.getPlayer().getBoard().getMonsterByNumber(i)!=null) {
+                    if (duelController.getPlayer().getBoard().getMonsterByNumber(i) != null) {
                         duelController.getPlayer().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
                         duelController.getPlayer().getBoard().removeMonster(i);
                         duelController.setMonsterAttackRival(i, null);
                     }
-                    if (duelController.getRival().getBoard().getMonsterByNumber(i) != null){
-                        duelController.getRival().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE,duelController.getRival(),i);
+                    if (duelController.getRival().getBoard().getMonsterByNumber(i) != null) {
+                        duelController.getRival().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
                         duelController.getRival().getBoard().removeMonster(i);
-                        duelController.setMonsterAttackPlayer(i,null);
+                        duelController.setMonsterAttackPlayer(i, null);
                     }
                 }
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
@@ -306,69 +306,137 @@ public enum SpellCard implements Cardable {
             "damage 0.", Status.UNLIMITED, 3500),
 
     YAMI(Icon.FIELD, "All Fiend and Spellcaster monsters on the field gain 200 ATK/DEF, also all Fairy monsters" +
-            " on the field lose 200 ATK/DEF.", Status.UNLIMITED, 4300){
+            " on the field lose 200 ATK/DEF.", Status.UNLIMITED, 4300) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
-            if(takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)){
+            if (takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
                     MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(i);
-                    if(playerMonster!=null){
-                        if(playerMonster.getMonsterType().equals(MonsterType.FIEND) || playerMonster.getMonsterType().equals(MonsterType.SPELLCASTER)){
-                            duelController.changePlayerAttackPoint(i,200);
-                            duelController.changePlayerDefencePoint(i,200);
-                        }
-                        else if(playerMonster.getMonsterType().equals(MonsterType.FAIRY)){
-                            duelController.changePlayerAttackPoint(i,-200);
-                            duelController.changePlayerDefencePoint(i,-200);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.FIEND) || playerMonster.getMonsterType().equals(MonsterType.SPELLCASTER)) {
+                            duelController.changePlayerAttackPoint(i, 200);
+                            duelController.changePlayerDefencePoint(i, 200);
+                        } else if (playerMonster.getMonsterType().equals(MonsterType.FAIRY)) {
+                            duelController.changePlayerAttackPoint(i, -200);
+                            duelController.changePlayerDefencePoint(i, -200);
                         }
                     }
-                    if(rivalMonster!=null){
-                        if(rivalMonster.getMonsterType().equals(MonsterType.FIEND) || rivalMonster.getMonsterType().equals(MonsterType.SPELLCASTER)){
-                            duelController.changeRivalAttackPoint(i,200);
-                            duelController.changeRivalDefencePoint(i,200);
+                    if (rivalMonster != null) {
+                        if (rivalMonster.getMonsterType().equals(MonsterType.FIEND) || rivalMonster.getMonsterType().equals(MonsterType.SPELLCASTER)) {
+                            duelController.changeRivalAttackPoint(i, 200);
+                            duelController.changeRivalDefencePoint(i, 200);
+                        } else if (rivalMonster.getMonsterType().equals(MonsterType.FAIRY)) {
+                            duelController.changeRivalAttackPoint(i, -200);
+                            duelController.changeRivalDefencePoint(i, -200);
                         }
-                        else if(rivalMonster.getMonsterType().equals(MonsterType.FAIRY)){
-                            duelController.changeRivalAttackPoint(i,-200);
-                            duelController.changeRivalDefencePoint(i,-200);
+                    }
+                }
+            } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
+                for (int i = 0; i < 5; i++) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
+                    MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(i);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.FIEND) || playerMonster.getMonsterType().equals(MonsterType.SPELLCASTER)) {
+                            duelController.changePlayerAttackPoint(i, -200);
+                            duelController.changePlayerDefencePoint(i, -200);
+                        } else if (playerMonster.getMonsterType().equals(MonsterType.FAIRY)) {
+                            duelController.changePlayerAttackPoint(i, 200);
+                            duelController.changePlayerDefencePoint(i, 200);
+                        }
+                    }
+                    if (rivalMonster != null) {
+                        if (rivalMonster.getMonsterType().equals(MonsterType.FIEND) || rivalMonster.getMonsterType().equals(MonsterType.SPELLCASTER)) {
+                            duelController.changeRivalAttackPoint(i, -200);
+                            duelController.changeRivalDefencePoint(i, -200);
+                        } else if (rivalMonster.getMonsterType().equals(MonsterType.FAIRY)) {
+                            duelController.changeRivalAttackPoint(i, 200);
+                            duelController.changeRivalDefencePoint(i, 200);
                         }
                     }
                 }
             }
-            else if(takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)){
-                for (int i = 0; i < 5; i++) {
-                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
-                    MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(i);
-                    if(playerMonster!=null){
-                        if(playerMonster.getMonsterType().equals(MonsterType.FIEND) || playerMonster.getMonsterType().equals(MonsterType.SPELLCASTER)){
-                            duelController.changePlayerAttackPoint(i,-200);
-                            duelController.changePlayerDefencePoint(i,-200);
-                        }
-                        else if(playerMonster.getMonsterType().equals(MonsterType.FAIRY)){
-                            duelController.changePlayerAttackPoint(i,200);
-                            duelController.changePlayerDefencePoint(i,200);
-                        }
-                    }
-                    if(rivalMonster!=null){
-                        if(rivalMonster.getMonsterType().equals(MonsterType.FIEND) || rivalMonster.getMonsterType().equals(MonsterType.SPELLCASTER)){
-                            duelController.changeRivalAttackPoint(i,-200);
-                            duelController.changeRivalDefencePoint(i,-200);
-                        }
-                        else if(rivalMonster.getMonsterType().equals(MonsterType.FAIRY)){
-                            duelController.changeRivalAttackPoint(i,200);
-                            duelController.changeRivalDefencePoint(i,200);
-                        }
-                    }
-                }
-            }
+            return true;
         }
     },
 
     FOREST(Icon.FIELD, "All Insect, Beast, Plant, and Beast-Warrior monsters on the field gain 200 ATK/DEF.",
-            Status.UNLIMITED, 4300),
+            Status.UNLIMITED, 4300) {
+        public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
+            if (takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)) {
+                for (int i = 0; i < 5; i++) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
+                    MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(i);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.INSECT) || playerMonster.getMonsterType().equals(MonsterType.BEAST) || playerMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
+                            duelController.changePlayerAttackPoint(i, 200);
+                            duelController.changePlayerDefencePoint(i, 200);
+                        }
+                    }
+                    if (rivalMonster != null) {
+                        if (rivalMonster.getMonsterType().equals(MonsterType.INSECT) || rivalMonster.getMonsterType().equals(MonsterType.BEAST) || rivalMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
+                            duelController.changeRivalAttackPoint(i, 200);
+                            duelController.changeRivalDefencePoint(i, 200);
+                        }
+                    }
+                }
+            } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
+                for (int i = 0; i < 5; i++) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
+                    MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(i);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.INSECT) || playerMonster.getMonsterType().equals(MonsterType.BEAST) || playerMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
+                            duelController.changePlayerAttackPoint(i, -200);
+                            duelController.changePlayerDefencePoint(i, -200);
+                        }
+                    }
+                    if (rivalMonster != null) {
+                        if (rivalMonster.getMonsterType().equals(MonsterType.INSECT) || rivalMonster.getMonsterType().equals(MonsterType.BEAST) || rivalMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
+                            duelController.changeRivalAttackPoint(i, -200);
+                            duelController.changeRivalDefencePoint(i, -200);
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+    },
 
     CLOSED_FOREST(Icon.FIELD, "All Beast-Type monsters you control gain 100 ATK for each monster in your " +
             "Graveyard. Field Spell Cards cannot be activated. Field Spell Cards cannot be activated during the turn " +
-            "this card is destroyed.", Status.UNLIMITED, 4300),
+            "this card is destroyed.", Status.UNLIMITED, 4300) {
+        //TODO change graveyard if necessary
+        public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
+            int amount = 0;
+            for (Cardable card : duelController.getPlayer().getBoard().getCardsInGraveyard()) {
+                if (card instanceof MonsterCard) {
+                    amount++;
+                }
+            }
+            amount = amount * 100;
+            if (takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)) {
+                for (int i = 0; i < 5; i++) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.BEAST) || playerMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
+                            duelController.changePlayerAttackPoint(i, amount);
+                        }
+                    }
+                }
+            } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
+                for (int i = 0; i < 5; i++) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.BEAST) || playerMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
+                            duelController.changePlayerAttackPoint(i, -1 * amount);
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+    },
 
     UMIIRUKA(Icon.FIELD, "Increase the ATK of all WATER monsters by 500 points and decrease their DEF by 400 " +
             "points.", Status.UNLIMITED, 4300),
