@@ -396,7 +396,6 @@ public enum SpellCard implements Cardable {
                     }
                 }
                 SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
-
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
