@@ -25,6 +25,8 @@ public class DuelController {
 //    private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardRival=new ArrayList<>(5);
     private Integer[] playerAttackPoints;
     private Integer[] rivalAttackPoints;
+    private Integer[] playerDefencePoints;
+    private Integer[] rivalDefencePoints;
     /*private boolean hasUsedHeraldInThisTurn;
     private boolean hasUsedTexChangerInThisTurn;*/
     /*boolean[] hasChangedPositionInThisTurn;
@@ -779,6 +781,22 @@ public class DuelController {
             if(playerBoard.getMonsterByNumber(i)!=null) this.playerAttackPoints[i]=this.playerAttackPoints[i]+increaseOrDecrease*amount;
             if(rivalBoard.getMonsterByNumber(i)!=null) this.rivalAttackPoints[i]=this.rivalAttackPoints[i]+increaseOrDecrease*amount;
         }
+    }
+
+    public void changePlayerAttackPoint(int address,int amount){
+        this.playerAttackPoints[address]+=amount;
+    }
+
+    public void changeRivalAttackPoint(int address,int amount){
+        this.rivalAttackPoints[address]+=amount;
+    }
+
+    public void changePlayerDefencePoint(int address,int amount){
+        this.playerDefencePoints[address]+=amount;
+    }
+
+    public void changeRivalDefencePoint(int address,int amount){
+        this.rivalDefencePoints[address]+=amount;
     }
 
     public void surrender() {
