@@ -84,6 +84,7 @@ public enum SpellCard implements Cardable {
                         duelController.getPlayer().getBoard().getCardsInGraveyard().remove(i - 1);
                         duelController.setSelectedCard(null);
                         DuelView.printText("special summoned successfully");
+                        SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
                         duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
                         return true;
                     case "Rival":
@@ -149,6 +150,7 @@ public enum SpellCard implements Cardable {
                         duelController.getRival().getBoard().getCardsInGraveyard().remove(i - 1);
                         duelController.setSelectedCard(null);
                         DuelView.printText("special summoned successfully");
+                        SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
                         duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
                         return true;
                     default:
@@ -204,6 +206,7 @@ public enum SpellCard implements Cardable {
                 duelController.getPlayer().getGameDeck().getMainDeck().remove(i - 1);
                 duelController.setSelectedCard(null);
                 DuelView.printText("card added to hand successfully");
+                SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -221,6 +224,7 @@ public enum SpellCard implements Cardable {
                 deck.remove(card1);
                 deck.remove(card2);
                 DuelView.printText("Spell activated successfully");
+                SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -237,6 +241,7 @@ public enum SpellCard implements Cardable {
                         duelController.setMonsterAttackRival(i, null);
                     }
                 }
+                SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -255,6 +260,7 @@ public enum SpellCard implements Cardable {
                         duelController.getPlayer().getBoard().removeSpellOrTrap(i);
                     }
                 }
+                SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -281,6 +287,7 @@ public enum SpellCard implements Cardable {
                         duelController.setMonsterAttackPlayer(i, null);
                     }
                 }
+                SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -291,7 +298,15 @@ public enum SpellCard implements Cardable {
             " effect: Draw 1 card.", Status.UNLIMITED, 4000),
 
     SPELL_ABSORPTION(Icon.CONTINUOUS, "Each time a Spell Card is activated, gain 500 Life Points immediately " +
-            "after it resolves.", Status.UNLIMITED, 4000),
+            "after it resolves.", Status.UNLIMITED, 4000) {
+        public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
+            if (takeActionCase.equals(TakeActionCase.ANY_SPELL_ACTIVATED)) {
+                duelController.getPlayer().increaseLifePoint(500);
+            }
+            return true;
+        }
+
+    },
 
     MESSENGER_OF_PEACE(Icon.CONTINUOUS, "Monsters with 1500 or more ATK cannot declare an attack. Once per turn," +
             " during your Standby Phase, pay 100 LP or destroy this card.", Status.UNLIMITED, 4000),
@@ -331,6 +346,7 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
+                SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
@@ -379,6 +395,8 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
+                SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
+
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
@@ -423,6 +441,7 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
+                SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
@@ -439,7 +458,7 @@ public enum SpellCard implements Cardable {
     },
 
     UMIIRUKA(Icon.FIELD, "Increase the ATK of all WATER monsters by 500 points and decrease their DEF by 400 " +
-            "points.", Status.UNLIMITED, 4300){
+            "points.", Status.UNLIMITED, 4300) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
@@ -458,6 +477,7 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
+                SPELL_ABSORPTION.takeAction(duelController,TakeActionCase.ANY_SPELL_ACTIVATED,owner,targetNumber);
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
