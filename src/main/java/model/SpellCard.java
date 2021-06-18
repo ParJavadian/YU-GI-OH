@@ -3,6 +3,7 @@ package model;
 import controller.DuelController;
 import view.DuelView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -297,7 +298,52 @@ public enum SpellCard implements Cardable {
             " during your Standby Phase, pay 100 LP or destroy this card.", Status.UNLIMITED, 4000),
 
     TWIN_TWISTER(Icon.QUICK_PLAY, "Discard 1 card, then target up to 2 Spells/Traps on the field; destroy them."
-            , Status.UNLIMITED, 3500),
+            , Status.UNLIMITED, 3500) {
+        public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
+            if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
+                int numberOfCardsInHand = duelController.getPlayer().getBoard().getCardsInHand().size();
+                if (numberOfCardsInHand == 0) {
+                    DuelView.printText("you don't have enough card in your hand to use this spell");
+                    return false;
+                }
+                else {
+                    numberOfCardsInHand -= 1;
+                    DuelView.printText("please enter a number between 0 and " + numberOfCardsInHand + " to choose" +
+                            " a card from your hand to be removed.");
+                    String cardNumber = DuelView.scan();
+                    if (cardNumber.equals("cancel")) return false;
+                    while (!cardNumber.matches("\\d+") || Integer.parseInt(cardNumber) < 0
+                            || Integer.parseInt(cardNumber) > numberOfCardsInHand) {
+                        DuelView.printText("please Enter a valid Number!");
+                        cardNumber = DuelView.scan();
+                    }
+                    int address = Integer.parseInt(cardNumber);
+                    Cardable toBeRemoved = duelController.getPlayer().getBoard().getCardInHandByNumber(address);
+                    duelController.getPlayer().getBoard().removeCardFromHand(toBeRemoved);
+                    DuelView.printText("the card was successfully removed from your hand. Now please enter \"My\" or \"Rival\" to select field");
+                    String field = DuelView.scan();
+                    while (!field.equals("cancel") && !field.equals("My") && !field.equals("Rival")) {
+                        DuelView.printText("enter \"My\" or \"Rival\" to select field");
+                        field = DuelView.scan();
+                    }
+                    if (field.equals("My") || field.equals("Rival")) {
+                        destroySpellOrTrap(duelController, field);
+                        DuelView.printText("now, if you want to destroy another spell or trap, type the word \"My\" or \"Rival\", otherwise type the word cancel");
+                        field = DuelView.scan();
+                        while (!field.equals("cancel") && !field.equals("My") && !field.equals("Rival")) {
+                            DuelView.printText("enter \"My\" or \"Rival\" to select field");
+                            field = DuelView.scan();
+                        }
+                        if (field.equals("My") || field.equals("Rival")) {
+                            destroySpellOrTrap(duelController, field);
+                        }
+                    }
+                    return false;
+                }
+            }
+            return false;
+        }
+    },
 
     MYSTICAL_SPCAE_TYPHOON(Icon.QUICK_PLAY, "Target 1 Spell/Trap on the field; destroy that target.",
             Status.UNLIMITED, 3500),
@@ -497,6 +543,43 @@ public enum SpellCard implements Cardable {
     ADVANCED_RITUAL_ART(Icon.RITUAL, "This card can be used to Ritual Summon any 1 Ritual Monster. You must " +
             "also send Normal Monsters from your Deck to the Graveyard whose total Levels equal the Level of that Ritual" +
             " Monster.", Status.UNLIMITED, 3000);
+
+    private static void destroySpellOrTrap(DuelController duelController, String field) {
+        ArrayList<Integer> updatedOnBoardSpellOrTrap = new ArrayList<>();
+        if (field.equals("My")) {
+            for (int i = 1; i <= 5; i++) {
+                Cardable notNullSpellOrTrap = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i);
+                if (!(notNullSpellOrTrap == null))
+                    updatedOnBoardSpellOrTrap.add(i);
+            }
+            DuelView.printText("please type the spell or trap's address from your spell zone to be destroyed");
+            int myAddress = Integer.parseInt(DuelView.scan());
+            if (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
+                while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
+                    DuelView.printText("the chosen address is empty");
+                    myAddress = Integer.parseInt(DuelView.scan());
+                }
+                Cardable numberOne = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(myAddress);
+                DuelView.printText("the chosen spell or trap was destroyed");
+            }
+        } else {
+            for (int i = 1; i <= 5; i++) {
+                Cardable notNullSpellOrTrap = duelController.getRival().getBoard().getSpellAndTrapByNumber(i);
+                if (!(notNullSpellOrTrap == null))
+                    updatedOnBoardSpellOrTrap.add(i);
+            }
+            DuelView.printText("please type the spell or trap's address from your rival's spell zone to be destroyed");
+            int myAddress = Integer.parseInt(DuelView.scan());
+            if (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
+                while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
+                    DuelView.printText("the chosen address is empty");
+                    myAddress = Integer.parseInt(DuelView.scan());
+                }
+                Cardable numberOne = duelController.getRival().getBoard().getSpellAndTrapByNumber(myAddress);
+                DuelView.printText("the chosen spell or trap was destroyed");
+            }
+        }
+    }
 
 
     private final Icon icon;

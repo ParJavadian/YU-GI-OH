@@ -22,7 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Forest &amp; Closed Forest&#10;SpellCard.java">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Yami SpellCard.java">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
     </list>
@@ -56,6 +57,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -204,55 +208,5 @@
     <MESSAGE value="Yami SpellCard.java" />
     <MESSAGE value="Forest &amp; Closed Forest&#10;SpellCard.java" />
     <option name="LAST_COMMIT_MESSAGE" value="Forest &amp; Closed Forest&#10;SpellCard.java" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1237" height="170" key="GridCell.Tab.0.bottom" timestamp="1623766526113">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="170" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1623766526113" />
-    <state width="1237" height="170" key="GridCell.Tab.0.center" timestamp="1623766526113">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="170" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1623766526113" />
-    <state width="1237" height="170" key="GridCell.Tab.0.left" timestamp="1623766526113">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="170" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1623766526113" />
-    <state width="1237" height="170" key="GridCell.Tab.0.right" timestamp="1623766526113">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="170" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1623766526113" />
-    <state x="221" y="84" key="IDE.errors.dialog" timestamp="1623946267253">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="221" y="84" key="IDE.errors.dialog/0.0.1280.680@0.0.1280.680" timestamp="1623946267253" />
-    <state x="121" y="51" key="MergeDialog" timestamp="1623868524101">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="121" y="51" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1623868524101" />
-    <state x="280" y="102" key="MultipleFileMergeDialog" timestamp="1623868524121">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="280" y="102" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1623868524121" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1623148484919">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1623148484919" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624012210240">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624012210240" />
-    <state x="247" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1623936514260">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="247" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680@0.0.1280.680" timestamp="1623936514260" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1623766509277">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1623766509277" />
-    <state x="297" y="151" key="run.anything.popup" timestamp="1623931675250">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1623931675250" />
   </component>
 </project>
