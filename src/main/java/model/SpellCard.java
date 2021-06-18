@@ -264,7 +264,8 @@ public enum SpellCard implements Cardable {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 for (int i = 0; i < 5; i++) {
                     if (duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i) != null) {
-                        duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_SPELLTRAPZONE, duelController.getRival(), i);
+                        //TODO uncomment this:
+//                        duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_SPELLTRAPZONE, duelController.getRival(), i);
                         duelController.getPlayer().getBoard().removeSpellOrTrap(i);
                     }
                 }
