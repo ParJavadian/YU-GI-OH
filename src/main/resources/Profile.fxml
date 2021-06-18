@@ -24,7 +24,7 @@
             <Font name="Agency FB" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="121.0" layoutY="315.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" text="Back" textFill="RED">
+      <Button layoutX="121.0" layoutY="315.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" text="Back" onMouseClicked="#goBack" textFill="RED">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font>

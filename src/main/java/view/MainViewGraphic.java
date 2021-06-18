@@ -1,5 +1,8 @@
 package view;
 
+import controller.MainControllerGraphic;
+import controller.MenuTypesGraphic;
+import controller.ProfileControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,16 +25,6 @@ public class MainViewGraphic extends Application {
         return instance;
     }
 
-//    public static MainViewGraphic getInstance(User user) {
-//        if (instance == null) instance = new MainViewGraphic(user);
-//        else if (!instance.user.equals(user)) instance.user = user;
-//        return instance;
-//    }
-
-//    private MainViewGraphic(User user) {
-//        this.user = user;
-//    }
-
     public void setCurrentUser(User user) {
         MainViewGraphic.user = user;
     }
@@ -49,19 +42,15 @@ public class MainViewGraphic extends Application {
     }
 
     public void logout() throws Exception {
-        LogInViewGraphic.getInstance().start(stage);
+        MainControllerGraphic.logout(stage);
     }
 
-    public void scoreBoard(MouseEvent mouseEvent) throws Exception{
-        ScoreBoardViewGraphic.getInstance().start(stage);
+    public void showScoreboard(MouseEvent mouseEvent) throws Exception{
+        MainControllerGraphic.showScoreBoard(stage);
     }
 
     public void profileMenu() throws Exception {
-        ProfileViewForGraphic.getInstance().setCurrentUser(user);
-        ProfileViewForGraphic.getInstance().start(stage);
+        MainControllerGraphic.showProfileMenu(user,stage);
     }
 
-    /*public void scoreBoard(MouseEvent mouseEvent) throws Exception {
-        ScoreBoardViewGraphic.getInstance().start(stage);
-    }*/
 }

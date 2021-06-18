@@ -16,7 +16,7 @@
            <Font name="Agency FB" size="22.0" />
         </font>
     </Label>
-   <Button layoutX="156.0" layoutY="552.0" mnemonicParsing="false" text="Back">
+   <Button layoutX="156.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back">
       <font>
          <Font name="Agency FB" size="18.0" />
       </font>
