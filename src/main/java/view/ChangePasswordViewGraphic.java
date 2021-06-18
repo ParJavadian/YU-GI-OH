@@ -1,5 +1,6 @@
 package view;
 
+import controller.ChangePasswordControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,6 +37,10 @@ public class ChangePasswordViewGraphic extends Application {
         stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/icon.png"))));
         stage.setTitle("YU GI OH");
         stage.show();
+    }
+
+    public void goBack() throws Exception {
+        ChangePasswordControllerGraphic.goBack(stage);
     }
 
 }

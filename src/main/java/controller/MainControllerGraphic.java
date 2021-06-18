@@ -19,7 +19,7 @@ public class MainControllerGraphic {
     }
 
     public static void showProfileMenu(User user, Stage stage) throws Exception {
-        ProfileControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
+//        ProfileControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
         ProfileViewForGraphic.getInstance().setCurrentUser(user);
         ProfileViewForGraphic.getInstance().start(stage);
     }

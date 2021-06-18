@@ -31,7 +31,7 @@
             <Font name="Agency FB" size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="389.0" layoutY="169.0" mnemonicParsing="false" text="Cancel">
+      <Button layoutX="389.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Cancel">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font>

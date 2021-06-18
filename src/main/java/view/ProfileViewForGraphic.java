@@ -46,7 +46,7 @@ public class ProfileViewForGraphic extends Application {
         ProfileControllerGraphic.changeNickname(user,stage);
     }
 
-    public void goBack(){
+    public void goBack() throws Exception {
         ProfileControllerGraphic.goBack(stage);
     }
 
