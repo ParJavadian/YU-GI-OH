@@ -2,9 +2,12 @@ package view;
 
 import controller.ChangePasswordControllerGraphic;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.User;
@@ -12,6 +15,22 @@ import model.User;
 import java.net.URL;
 
 public class ChangePasswordViewGraphic extends Application {
+
+    @FXML
+    private TextField oldPassword;
+    @FXML
+    private TextField newPassword;
+
+    public void changePassword() {
+        try {
+            ChangePasswordControllerGraphic.changePassword(user, oldPassword.getText(), newPassword.getText());
+        } catch (Exception e) {
+            Alert error = new Alert(Alert.AlertType.WARNING);
+            error.setHeaderText("Error");
+            error.setContentText(e.getMessage());
+            error.showAndWait();
+        }
+    }
 
     private static Stage stage;
     static ChangePasswordViewGraphic instance = null;
