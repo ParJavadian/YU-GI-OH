@@ -1,5 +1,7 @@
 package model;
 
+import controller.ImportExportUserController;
+
 import java.util.*;
 
 public class Deck {

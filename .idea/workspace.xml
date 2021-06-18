@@ -3,16 +3,45 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+<<<<<<< HEAD
   <component name="ChangeListManager">
     <list default="true" id="4d673013-940a-4556-a869-f51cbd1c649d" name="Default Changelist" comment="Graphic" />
+=======
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Yami SpellCard.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
+    </list>
+>>>>>>> origin/master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+=======
+>>>>>>> origin/master
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -24,16 +53,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1tXSckIDGp8lU0ALC8M3zEoHRUx" />
+=======
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1tf7blqKJ2Y0dLvEX2lrUssvKzj" />
+>>>>>>> origin/master
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+<<<<<<< HEAD
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
@@ -41,6 +82,20 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunManager" selected="Application.MainViewGraphic">
+=======
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controller.exeption" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+>>>>>>> origin/master
     <configuration name="LogInViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
       <module name="project_team_17_2" />
@@ -61,8 +116,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="MainViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.MainViewGraphic" />
+=======
+    <configuration name="ScoreBoardViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.ScoreBoardViewGraphic" />
+>>>>>>> origin/master
       <module name="project_team_17_2" />
       <extension name="coverage">
         <pattern>
@@ -89,9 +149,15 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Application.MainViewGraphic" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.SignUpViewGraphic" />
+=======
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.SignUpViewGraphic" />
+        <item itemvalue="Application.ScoreBoardViewGraphic" />
+>>>>>>> origin/master
         <item itemvalue="Application.LogInViewGraphic" />
       </list>
     </recent_temporary>
@@ -99,6 +165,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="4d673013-940a-4556-a869-f51cbd1c649d" name="Default Changelist" comment="" />
       <created>1622914021898</created>
       <option name="number" value="Default" />
@@ -112,6 +179,57 @@
       <updated>1622935317676</updated>
     </task>
     <option name="localTasksCounter" value="2" />
+=======
+      <changelist id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="" />
+      <created>1623148364579</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623148364579</updated>
+    </task>
+    <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
+      <created>1623149665559</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623149665559</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ScoreBoardViewGraphic.java">
+      <created>1623149688409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623149688409</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Error sign up">
+      <created>1623151044078</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623151044078</updated>
+    </task>
+    <task id="LOCAL-00004" summary="model.SpellCard.java&#10;Monster Reborn + Terraforming">
+      <created>1623868346229</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623868346229</updated>
+    </task>
+    <task id="LOCAL-00005" summary="model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED">
+      <created>1623946393997</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623946393997</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Yami SpellCard.java">
+      <created>1624002906129</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624002906129</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+>>>>>>> origin/master
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,9 +242,71 @@
         </entry>
       </map>
     </option>
+<<<<<<< HEAD
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Graphic" />
     <option name="LAST_COMMIT_MESSAGE" value="Graphic" />
+=======
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ScoreBoardViewGraphic.java" />
+    <MESSAGE value="Error sign up" />
+    <MESSAGE value="model.SpellCard.java&#10;Monster Reborn + Terraforming" />
+    <MESSAGE value="model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED" />
+    <MESSAGE value="Yami SpellCard.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Yami SpellCard.java" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="170" key="GridCell.Tab.0.bottom" timestamp="1623766526113">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="170" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1623766526113" />
+    <state width="1237" height="170" key="GridCell.Tab.0.center" timestamp="1623766526113">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="170" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1623766526113" />
+    <state width="1237" height="170" key="GridCell.Tab.0.left" timestamp="1623766526113">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="170" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1623766526113" />
+    <state width="1237" height="170" key="GridCell.Tab.0.right" timestamp="1623766526113">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="170" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1623766526113" />
+    <state x="221" y="84" key="IDE.errors.dialog" timestamp="1623946267253">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="221" y="84" key="IDE.errors.dialog/0.0.1280.680@0.0.1280.680" timestamp="1623946267253" />
+    <state x="121" y="51" key="MergeDialog" timestamp="1623868524101">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="51" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1623868524101" />
+    <state x="280" y="102" key="MultipleFileMergeDialog" timestamp="1623868524121">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="280" y="102" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1623868524121" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1623148484919">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1623148484919" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624002909750">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624002909750" />
+    <state x="247" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1623936514260">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="247" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680@0.0.1280.680" timestamp="1623936514260" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1623766509277">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1623766509277" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1623931675250">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1623931675250" />
+>>>>>>> origin/master
   </component>
 </project>

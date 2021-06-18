@@ -27,7 +27,10 @@ public class ShopController {
         if (card != null) {
             if (this.user.getMoney() >= card.getPrice()) {
                 this.user.decreaseMoney(card.getPrice());
+                ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+                importExportUserController.exportNewUser(user);
                 this.user.addCardToUsersAllCards(card);
+                importExportUserController.exportAllCards(this.user);
             } else
                 throw new NotEnoughMoney();
         } else
