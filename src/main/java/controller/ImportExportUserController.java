@@ -23,17 +23,19 @@ public class ImportExportUserController {
     }
 
     public void exportNewUser(User user){
-        String username = user.getUsername();
-        String password = user.getPassword();
-        String nickname = user.getNickname();
-        int highScore = user.getScore();
-        int balance = user.getMoney();
-        try {
-            FileWriter writer = new FileWriter("Users/" + username + ".txt");
-            writer.write(username + "\n" + password + "\n" + nickname + "\n" + highScore + "\n" + balance);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (user != null) {
+            String username = user.getUsername();
+            String password = user.getPassword();
+            String nickname = user.getNickname();
+            int highScore = user.getScore();
+            int balance = user.getMoney();
+            try {
+                FileWriter writer = new FileWriter("Users/" + username + ".txt");
+                writer.write(username + "\n" + password + "\n" + nickname + "\n" + highScore + "\n" + balance);
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
