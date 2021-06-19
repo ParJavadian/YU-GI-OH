@@ -3,10 +3,6 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-<<<<<<< HEAD
-  <component name="ChangeListManager">
-    <list default="true" id="4d673013-940a-4556-a869-f51cbd1c649d" name="Default Changelist" comment="Graphic" />
-=======
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -27,21 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Forest &amp; Closed Forest&#10;SpellCard.java">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TrapCard.java" afterDir="false" />
     </list>
->>>>>>> origin/master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
-=======
->>>>>>> origin/master
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -53,12 +44,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
-  </component>
-  <component name="ProjectId" id="1tXSckIDGp8lU0ALC8M3zEoHRUx" />
-=======
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -67,22 +52,12 @@
     </option>
   </component>
   <component name="ProjectId" id="1tf7blqKJ2Y0dLvEX2lrUssvKzj" />
->>>>>>> origin/master
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-<<<<<<< HEAD
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.35011992" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-  </component>
-  <component name="RunManager" selected="Application.MainViewGraphic">
-=======
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -95,7 +70,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
->>>>>>> origin/master
     <configuration name="LogInViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
       <module name="project_team_17_2" />
@@ -116,13 +90,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< HEAD
-    <configuration name="MainViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.MainViewGraphic" />
-=======
     <configuration name="ScoreBoardViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.ScoreBoardViewGraphic" />
->>>>>>> origin/master
       <module name="project_team_17_2" />
       <extension name="coverage">
         <pattern>
@@ -149,15 +118,9 @@
     </configuration>
     <recent_temporary>
       <list>
-<<<<<<< HEAD
-        <item itemvalue="Application.MainViewGraphic" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.SignUpViewGraphic" />
-=======
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.ScoreBoardViewGraphic" />
->>>>>>> origin/master
         <item itemvalue="Application.LogInViewGraphic" />
       </list>
     </recent_temporary>
@@ -165,21 +128,6 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="4d673013-940a-4556-a869-f51cbd1c649d" name="Default Changelist" comment="" />
-      <created>1622914021898</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1622914021898</updated>
-    </task>
-    <task id="LOCAL‎۰۰۰۰۱" summary="Graphic">
-      <created>1622935317676</created>
-      <option name="number" value="LOCAL‎۰۰۰۰۱" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۰۱" />
-      <updated>1622935317676</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
-=======
       <changelist id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="" />
       <created>1623148364579</created>
       <option name="number" value="Default" />
@@ -228,10 +176,6 @@
       <option name="project" value="LOCAL" />
       <updated>1624002906129</updated>
     </task>
-<<<<<<< HEAD
-    <option name="localTasksCounter" value="7" />
->>>>>>> origin/master
-=======
     <task id="LOCAL-00007" summary="Forest &amp; Closed Forest&#10;SpellCard.java">
       <created>1624012207305</created>
       <option name="number" value="00007" />
@@ -240,7 +184,6 @@
       <updated>1624012207305</updated>
     </task>
     <option name="localTasksCounter" value="8" />
->>>>>>> origin/master
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -253,12 +196,6 @@
         </entry>
       </map>
     </option>
-<<<<<<< HEAD
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Graphic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Graphic" />
-=======
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -319,6 +256,5 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1623931675250" />
->>>>>>> origin/master
   </component>
 </project>
