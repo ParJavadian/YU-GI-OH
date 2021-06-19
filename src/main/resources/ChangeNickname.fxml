@@ -16,7 +16,7 @@
             <Image url="@28.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="389.0" layoutY="111.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="62.0" text="Save">
+      <Button layoutX="389.0" layoutY="111.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="62.0" onMouseClicked="#changeNickname" text="Save">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font>
@@ -26,7 +26,7 @@
             <Font name="Agency FB" size="21.0" />
          </font>
       </Text>
-      <TextField layoutX="329.0" layoutY="65.0" prefHeight="25.0" prefWidth="192.0" promptText="Please Enter Your New Nickname">
+      <TextField layoutX="329.0" layoutY="65.0" prefHeight="25.0" prefWidth="192.0" fx:id="nickname" promptText="Please Enter Your New Nickname">
          <font>
             <Font name="Agency FB" size="16.0" />
          </font>

@@ -2,6 +2,7 @@ package controller;
 
 import javafx.stage.Stage;
 import model.User;
+import view.MainViewGraphic;
 import view.ScoreBoardView;
 
 import javax.swing.*;
@@ -56,7 +57,8 @@ public class ScoreBoardControllerGraphic {
         return "";
     }
 
-    public static void goBack(Stage stage){
-        PreviousMenuControllerGraphic.goBack(previousMenu,stage);
+    public static void goBack(Stage stage) throws Exception {
+        MainViewGraphic.getInstance().start(stage);
+//        PreviousMenuControllerGraphic.goBack(previousMenu,stage);
     }
 }

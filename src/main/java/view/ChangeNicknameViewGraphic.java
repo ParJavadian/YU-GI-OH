@@ -21,6 +21,9 @@ public class ChangeNicknameViewGraphic extends Application {
     static ChangeNicknameViewGraphic instance = null;
     private static User user;
 
+    @FXML
+    private TextField nickname;
+
 
 
     public static ChangeNicknameViewGraphic getInstance() {
@@ -47,6 +50,25 @@ public class ChangeNicknameViewGraphic extends Application {
 
     public void goBack() throws Exception {
         ChangeNicknameControllerGraphic.goBack(stage);
+    }
+
+    public static void showNicknameChanged(User user) {
+        Alert error = new Alert(Alert.AlertType.INFORMATION);
+        error.setHeaderText("Done");
+        error.setContentText("your nickname was changed successfully!");
+        error.showAndWait();
+    }
+
+
+    public void changeNickname() {
+        try {
+            ChangeNicknameControllerGraphic.changeNickname(nickname.getText(), user,stage);
+        } catch (Exception e) {
+            Alert error = new Alert(Alert.AlertType.WARNING);
+            error.setHeaderText("Error");
+            error.setContentText(e.getMessage());
+            error.showAndWait();
+        }
     }
 
 }

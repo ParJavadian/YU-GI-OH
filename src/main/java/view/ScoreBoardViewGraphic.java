@@ -42,7 +42,7 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
         label.setText(ScoreBoardControllerGraphic.getInstance().showScoreboard());
     }
 
-    public void goBack(){
+    public void goBack() throws Exception {
         ScoreBoardControllerGraphic.goBack(stage);
     }
 }

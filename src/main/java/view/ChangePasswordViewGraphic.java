@@ -23,7 +23,7 @@ public class ChangePasswordViewGraphic extends Application {
 
     public void changePassword() {
         try {
-            ChangePasswordControllerGraphic.changePassword(user, oldPassword.getText(), newPassword.getText());
+            ChangePasswordControllerGraphic.changePassword(user, oldPassword.getText(), newPassword.getText(),stage);
         } catch (Exception e) {
             Alert error = new Alert(Alert.AlertType.WARNING);
             error.setHeaderText("Error");
@@ -60,6 +60,13 @@ public class ChangePasswordViewGraphic extends Application {
 
     public void goBack() throws Exception {
         ChangePasswordControllerGraphic.goBack(stage);
+    }
+
+    public static void showPasswordChanged(User user) {
+        Alert error = new Alert(Alert.AlertType.INFORMATION);
+        error.setHeaderText("Done");
+        error.setContentText("Dear " + user.getNickname() + " your password was changed successfully!");
+        error.showAndWait();
     }
 
 }
