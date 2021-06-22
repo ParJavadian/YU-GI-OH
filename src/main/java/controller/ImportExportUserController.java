@@ -1,16 +1,16 @@
 package controller;
 
+import controller.exeption.RepetitiveNickname;
+import controller.exeption.RepetitiveUsername;
 import model.Cardable;
 import model.Deck;
 import model.User;
 
 import javax.smartcardio.Card;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,7 +22,7 @@ public class ImportExportUserController {
         return instance;
     }
 
-    public void exportNewUser(User user){
+    public void exportNewUser(User user) {
         if (user != null) {
             String username = user.getUsername();
             String password = user.getPassword();
@@ -40,15 +40,15 @@ public class ImportExportUserController {
 
     }
 
-    public void exportAllUsers(List<User> allUsers){
-        System.out.println(allUsers);
+    public void exportAllUsers(List<User> allUsers) {
         try {
             FileWriter writer = new FileWriter("allUsers.txt");
-                for (User user : allUsers) {
-                    String username = user.getUsername();
-                    writer.write(username + "\n");
-                }
-                writer.close();
+            for (User user : allUsers) {
+                String username = user.getUsername();
+                System.out.println(username);
+                writer.write(username + "\n");
+            }
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,11 +84,11 @@ public class ImportExportUserController {
                         if (counter == 0)
                             break;
                         counter--;
-                        User user = new User(username, nickname, password);
-                        if (balance.matches("\\d+") && highScore.matches("\\d+")) {
-                            user.setMoney(Integer.parseInt(balance));
-                            user.setScore(Integer.parseInt(highScore));
-                        }
+                    }
+                    User user = new User(username, nickname, password);
+                    if (balance.matches("\\d+") && highScore.matches("\\d+")) {
+                        user.setMoney(Integer.parseInt(balance));
+                        user.setScore(Integer.parseInt(highScore));
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class ImportExportUserController {
 
     }
 
-    public void exportAllDecksName(List<Deck> allDecks,User user){
+    public void exportAllDecksName(List<Deck> allDecks, User user) {
         String username = user.getUsername();
         FileWriter fileWriter = null;
         try {
@@ -112,7 +112,7 @@ public class ImportExportUserController {
         }
     }
 
-    public void exportCardsInMainDeck(User user, String deckName){
+    public void exportCardsInMainDeck(User user, String deckName) {
         String username = user.getUsername();
         try {
             FileWriter writer = new FileWriter("Deck/" + username + deckName + "mainDeck.txt");
@@ -196,7 +196,7 @@ public class ImportExportUserController {
         }
     }
 
-    public void importAllCards(){
+    public void importAllCards() {
         if (User.getAllUsers() != null) {
             for (User user : User.getAllUsers()) {
                 String username = user.getUsername();
