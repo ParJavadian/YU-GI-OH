@@ -95,7 +95,6 @@ public class ImportExportUserController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     public void exportAllDecksName(List<Deck> allDecks, User user) {
