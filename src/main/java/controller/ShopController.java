@@ -31,10 +31,12 @@ public class ShopController {
                 importExportUserController.exportNewUser(user);
                 this.user.addCardToUsersAllCards(card);
                 importExportUserController.exportAllCards(this.user);
-            } else
+            } else {
                 throw new NotEnoughMoney();
-        } else
+            }
+        } else {
             throw new CardNotFoundForController();
+        }
     }
 
     public void showAll() {
