@@ -4,6 +4,7 @@ import controller.ImportExportUserController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class User {
 
@@ -32,6 +33,9 @@ public class User {
         setScore(0);
         setMoney(100000);
         allUsers.add(this);
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(User.getUserByUsername(username));
+        importExportUserController.exportAllUsers(User.getAllUsers());
     }
 
     public Deck getGameDeck() {
@@ -86,6 +90,8 @@ public class User {
 
     public void decreaseMoney(int amount) {
         this.money -= amount;
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
     }
 
     public static List<User> getAllUsers() {
@@ -142,14 +148,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
     }
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(User.getUserByNickname(nickname));
     }
 
     public void setUsername(String username) {
         this.username = username;
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(User.getUserByUsername(username));
+        importExportUserController.exportAllUsers(User.getAllUsers());
     }
 
     public void setActiveDeck(Deck deck) {
@@ -188,6 +201,9 @@ public class User {
 
     public void addCardToUsersAllCards(Cardable card) {
         this.allCards.add(card);
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportAllCards(Objects.requireNonNull(User.getUserByUsername(this.getUsername())));
+
     }
 
     public Deck getDeckByName(String name) {

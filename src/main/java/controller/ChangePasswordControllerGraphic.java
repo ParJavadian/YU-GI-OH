@@ -25,8 +25,6 @@ public class ChangePasswordControllerGraphic {
         if(user.getPassword().equals(newPassword))
             throw new SamePassword();
         user.setPassword(newPassword);
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportNewUser(user);
         ChangePasswordViewGraphic.showPasswordChanged(user);
         ProfileViewForGraphic.getInstance().start(stage);
         //ProfileView.getInstance(user).printText("password changed successfully!");

@@ -26,8 +26,6 @@ public class ChangeNicknameControllerGraphic {
             throw new RepetitiveNickname(nickname);
         }
         user.setNickname(nickname);
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportNewUser(user);
         ChangeNicknameViewGraphic.showNicknameChanged(user);
         //ChangePasswordViewGraphic.showPasswordChanged(user);
         ProfileViewForGraphic.getInstance().start(stage);
