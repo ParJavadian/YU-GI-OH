@@ -34,7 +34,6 @@ public class ProfileController {
         else if (User.getUserByUsername(username) != null){
             throw new RepetitiveUsername(username);
         }
-
         this.user.setUsername(username);
         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.exportNewUser(this.user);
