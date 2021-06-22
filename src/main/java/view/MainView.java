@@ -69,7 +69,7 @@ public class MainView {
             printText("Main Menu");
             return false;
         }
-        if (command.equals("user logout")) return true;
+        if ((command.equals("user logout"))||(command.equals("menu exit"))) return true;
         printText("invalid command");
         return false;
     }

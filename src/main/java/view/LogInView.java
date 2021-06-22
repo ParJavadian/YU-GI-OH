@@ -47,7 +47,7 @@ public class LogInView {
                     printText(exception.getMessage());
                 }
             }
-            System.out.println("1");
+//            System.out.println("1");
             return false;
         }
         if (command.startsWith("user login ") && command.matches("[\\w -]+")) {

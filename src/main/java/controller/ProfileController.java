@@ -16,12 +16,12 @@ public class ProfileController {
         return instance;
     }
 
-    private ProfileController(User user){
+    private ProfileController(User user) {
         this.user = user;
     }
 
     public void changeNickname (String nickname) throws Exception {
-        if(User.getUserByNickname(nickname)!=null){
+        if(User.getUserByNickname(nickname)!=null) {
             throw new RepetitiveNickname(nickname);
         }
         this.user.setNickname(nickname);
