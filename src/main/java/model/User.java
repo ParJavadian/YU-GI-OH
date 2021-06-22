@@ -148,6 +148,10 @@ public class User {
         this.nickname = nickname;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public void setActiveDeck(Deck deck) {
         this.currentActiveDeck = deck;
     }

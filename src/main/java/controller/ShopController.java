@@ -43,9 +43,9 @@ public class ShopController {
         String toPrint = "";
         for (Cardable card : allCards){
             if (allCards.indexOf(card) == allCards.size()-1){
-                toPrint += card.getNamePascalCase()+":"+card.getDescription();
+                toPrint += card.getNamePascalCase()+":"+card.getPrice();
             } else
-                toPrint += card.getNamePascalCase()+":"+card.getDescription()+"\n";
+                toPrint += card.getNamePascalCase()+":"+card.getPrice()+"\n";
         }
         ShopView.getInstance(this.user).printText(toPrint);
     }

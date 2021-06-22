@@ -1,8 +1,6 @@
 package controller;
 
-import controller.exeption.RepetitiveNickname;
-import controller.exeption.SamePassword;
-import controller.exeption.WrongPassword;
+import controller.exeption.*;
 import view.*;
 import model.*;
 
@@ -21,13 +19,27 @@ public class ProfileController {
     }
 
     public void changeNickname (String nickname) throws Exception {
-        if(User.getUserByNickname(nickname)!=null){
+        if (this.user.getNickname().equals(nickname)) throw new SameNewNickname();
+        else if(User.getUserByNickname(nickname)!=null)
             throw new RepetitiveNickname(nickname);
-        }
+
         this.user.setNickname(nickname);
         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.exportNewUser(this.user);
         ProfileView.getInstance(this.user).printText("nickname changed successfully!");
+    }
+
+    public void changeUsername(String username) throws Exception{
+        if (this.user.getUsername().equals(username)) throw new SameNewUsername();
+        else if (User.getUserByUsername(username) != null){
+            throw new RepetitiveUsername(username);
+        }
+
+        this.user.setUsername(username);
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(this.user);
+        importExportUserController.exportAllUsers(User.getAllUsers());
+        ProfileView.getInstance(this.user).printText("username changed successfully!");
     }
 
     public void changePassword (String oldPassword, String newPassword) throws Exception {

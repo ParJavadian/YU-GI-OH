@@ -39,6 +39,16 @@ public class ProfileView {
             }
             return false;
         }
+
+        matcher = getCommandMatcher(command + " ", "profile change (--username|-u) ([\\w ]+) ");
+        if (matcher.matches()) {
+            try {
+                profileController.changeUsername(matcher.group(2));
+            } catch (Exception exception) {
+                printText(exception.getMessage());
+            }
+            return false;
+        }
         if (command.startsWith("profile change ") && command.matches("[\\w ]+")) {
             Matcher matcher1 = getCommandMatcher(command, "(--password|-p)");
             Matcher matcher2 = getCommandMatcher(command + " ", "(--current|-c) ([\\w ]+) ");
@@ -56,6 +66,12 @@ public class ProfileView {
             printText("menu navigation is not possible");
             return false;
         }
+        matcher = getCommandMatcher(command, "menu show-current");
+        if (matcher.matches()) {
+            printText("Profile Menu");
+            return false;
+        }
+
         if (command.equals("menu exit")) return true;
         printText("invalid command");
         return false;

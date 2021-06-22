@@ -51,7 +51,6 @@ public class DeckController {
             importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
             DeckView.getInstance(this.user).printText("deck created successfully!");
         } else {
-            DeckView.getInstance(this.user).printText("deck with name " + name + " already exists");
             throw new RepetitiveDeckName(name);
         }
     }

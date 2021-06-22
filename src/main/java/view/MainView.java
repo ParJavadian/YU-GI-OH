@@ -59,6 +59,7 @@ public class MainView {
             }
         }
 
+        //TODO MENU ENTER NEMIKONE
         Matcher matcher = getCommandMatcher(command, "menu enter ([\\w ]+)");
         if (matcher.matches()) {
             mainController.goToMenu(matcher.group(1));
