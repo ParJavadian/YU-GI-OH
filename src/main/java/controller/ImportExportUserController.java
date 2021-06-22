@@ -41,14 +41,14 @@ public class ImportExportUserController {
     }
 
     public void exportAllUsers(List<User> allUsers){
+        System.out.println(allUsers);
         try {
             FileWriter writer = new FileWriter("allUsers.txt");
-            if (!(allUsers == null)){
                 for (User user : allUsers) {
                     String username = user.getUsername();
                     writer.write(username + "\n");
                 }
-            }
+                writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -64,7 +64,7 @@ public class ImportExportUserController {
 
         try {
             if (file.exists()) {
-            Scanner scanner = new Scanner(file);
+                Scanner scanner = new Scanner(file);
                 while (scanner.hasNextLine()) {
                     username = scanner.nextLine();
                     File userFile = new File("Users/" + username + ".txt");
@@ -85,8 +85,10 @@ public class ImportExportUserController {
                             break;
                         counter--;
                         User user = new User(username, nickname, password);
-                        user.setMoney(Integer.parseInt(balance));
-                        user.setScore(Integer.parseInt(highScore));
+                        if (balance.matches("\\d+") && highScore.matches("\\d+")) {
+                            user.setMoney(Integer.parseInt(balance));
+                            user.setScore(Integer.parseInt(highScore));
+                        }
                     }
                 }
             }
