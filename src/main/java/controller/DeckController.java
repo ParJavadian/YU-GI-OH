@@ -159,32 +159,35 @@ public class DeckController {
     }
 
     public void showAllDecks() {
-        String toPrint = "Decks:\nActive deck:\n";
-        List<Deck> allDecks = this.user.getAllDecks();
+        StringBuilder toPrint = new StringBuilder("Decks:\nActive deck:\n");
+        List<Deck> allDecks = new ArrayList<>(this.user.getAllDecks());
         Deck activeDeck = null;
+        if (this.user.getActiveDeck() != null) {
         for (Deck deck : allDecks) {
-            if (deck.equals(this.user.getActiveDeck())) {
-                toPrint += deck.toString();
-                if (deck.isValid()) toPrint += ", valid\n";
-                else toPrint += ", invalid\n";
-                activeDeck = deck;
+                if (this.user.getActiveDeck().getDeckName().equals(deck.getDeckName())) {
+                        toPrint.append(deck.toString());
+                        if (deck.isValid()) toPrint.append(", valid\n");
+                        else toPrint.append(", invalid\n");
+                        activeDeck = deck;
+                }
             }
         }
 
+        toPrint.append("Other decks\n");
         allDecks.remove(activeDeck);
         Comparator<Deck> deckComparator = Comparator.comparing(Deck::getDeckName);
         allDecks.sort(deckComparator);
         for (Deck deck : allDecks) {
-            toPrint += deck.toString();
+            toPrint.append(deck.toString());
             if (allDecks.get(allDecks.size() - 1).equals(deck)) {
-                if (deck.isValid()) toPrint += ", valid";
-                else toPrint += ", invalid";
+                if (deck.isValid()) toPrint.append(", valid");
+                else toPrint.append(", invalid");
             } else {
-                if (deck.isValid()) toPrint += ", valid\n";
-                else toPrint += ", invalid\n";
+                if (deck.isValid()) toPrint.append(", valid\n");
+                else toPrint.append(", invalid\n");
             }
         }
-        DeckView.getInstance(this.user).printText(toPrint);
+        DeckView.getInstance(this.user).printText(toPrint.toString());
     }
 
     public void showDeck(String deckName, boolean isSide) throws Exception {
