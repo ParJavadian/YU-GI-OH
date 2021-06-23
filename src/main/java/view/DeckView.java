@@ -67,7 +67,7 @@ public class DeckView {
             if (matcher1.find() && matcher2.find()) {
                 Matcher matcher3 = getCommandMatcher(command, " (--side|-s)");
                 try {
-                    deckController.addCardToDeck(matcher1.group(2), matcher2.group(2), matcher3.find(),false);
+                    deckController.addCardToDeck(matcher1.group(2).trim(), matcher2.group(2), matcher3.find(),false);
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }
