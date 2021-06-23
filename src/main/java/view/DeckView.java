@@ -72,6 +72,7 @@ public class DeckView {
                     printText(exception.getMessage());
                 }
             }
+            return false;
         }
 
         if (command.startsWith("deck rm-card ") && command.matches("[\\w -]+")) {
@@ -85,6 +86,7 @@ public class DeckView {
                     printText(exception.getMessage());
                 }
             }
+            return false;
         }
 
         //TODO in tabe ro ezafe kardam
@@ -99,6 +101,7 @@ public class DeckView {
                     printText(exception.getMessage());
                 }
             }
+            return false;
         }
 
         matcher = getCommandMatcher(command, "deck show --all");
@@ -116,6 +119,7 @@ public class DeckView {
                     printText(exception.getMessage());
                 }
             }
+            return false;
         }
         matcher = getCommandMatcher(command, "deck show (--cards|-c)");
         if (matcher.matches()) {
