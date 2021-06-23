@@ -1,5 +1,0 @@
-CHECK
-check
-ChEcK
-0
-100000

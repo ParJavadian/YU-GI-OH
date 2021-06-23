@@ -553,6 +553,7 @@ public class test {
         System.setOut(new PrintStream(outContent));
         ProfileController.getInstance(player).changePassword("12345", "1234");
         Assertions.assertEquals("password changed successfully!\r\n", outContent.toString());
+        Assertions.assertEquals("1234",player.getPassword());
         System.setOut(sysOutBackup);
     }
 

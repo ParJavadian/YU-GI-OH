@@ -23,32 +23,232 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="debug import export user final">
-      <change afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ok.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hamrazallDecks.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/SameNewNickname.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/SameNewUsername.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allCardskiana.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kiana_mszallDecks.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/hamriouz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/allCardshamriouz.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/exeption/RepetitiveDeckName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/RepetitiveDeckName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ProfileController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ShopController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/ProfileView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ProfileView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/CHECK.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/CHECK.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/ali.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/ali.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/gholi.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/gholi.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/goli.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/goli.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/kholi.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/kholi.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/kiana.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/kiana.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/kiana_msz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/kiana_msz.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/soli.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/soli.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/allCardskiana.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/exeption/SameNewUsername.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/SameNewUsername.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/DeckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/LogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/DeckNotFound.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/DeckNotFound.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/RepetitiveDeckName.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/RepetitiveDeckName.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/DeckView.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/DeckView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DuelController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/LogInController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/LogInControllerGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ProfileController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ScoreBoardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ScoreBoardControllerGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ShopController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/SignUpControllerGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/ActionNotAllowedInThisPhase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/AlreadyActivated.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/AlreadyAttacked.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/AlreadyChangedPosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/AlreadyInWantedPosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/AlreadySummoned.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotActivateEffectOnThisTurn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotAttack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotAttackDirectly.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotAttackThisCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotChangePosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotFlipSummon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotRitualSummon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotSet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotSpecialSummon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CanNotSummon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CantDoActionInThisPhase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CardNotFound.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CardNotFoundForController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CardNotFoundForShop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CardNotFoundFotController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CardNotFoundInDeck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/CardNotFoundInUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/DeckNotFound.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/DifferentPasswords.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/EmptyConfirmPasswordBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/EmptyNicknameBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/EmptyPasswordBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/EmptyUsernameBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/FullMainDeck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/FullMonsterZone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/FullSideDeck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/FullSpellZone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/GraveYardEmpty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/HasAttackedInBattle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/ImproperPhase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/InsufficientForTribute.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/InsufficientMonstersLevel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/InvalidCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/InvalidDeck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/InvalidPassword.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/InvalidSelection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/InvisibleCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/IsNotSpell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/MustRitualSummon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/MustSpecialSummon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/NoActiveDeck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/NoCardFoundInThisPosition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/NoCardSelected.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/NoCardToAttack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/NoMonsterHere1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/NoMonsterHere2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/NotEnoughMoney.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/NotLoggedIn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/NotYourTurnForThisAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/OneCardForLimited.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/PlayerNotFound.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/RepetitiveDeckName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/RepetitiveNickname.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/RepetitiveUsername.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/SamePassword.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/TakenUsername.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/ThreeSameCards.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/UndonePreparationOfSpell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/UnsupportedRoundNumber.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/UserDoesNotExist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/UsernameNotFound.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/WrongMenuNavigation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/WrongPassword.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/WrongPasswordForSignInMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/sameAddresses.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/ActionsDoneInTurn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Attribute.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/BoardZone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/CardType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Cardable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Deck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Icon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$14.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$15.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$16.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$17.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$18.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$19.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$20.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$21.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$22.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$23.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$24.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$25.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$26.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$27.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$28.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$29.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$31.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$32.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$33.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$34.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$35.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$36.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$37.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$38.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$39.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$40.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$41.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterZone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Phase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Round.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SelectedCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/TakeActionCase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/TrapCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$14.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$15.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$16.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$17.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$18.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$19.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$20.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$21.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$22.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$23.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$24.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$25.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$26.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$27.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$28.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$29.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$30.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$31.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$32.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$33.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/DeckView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/DuelView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ImportExportView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ProfileView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ScannerClassForView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ShopView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -69,6 +269,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1tf7blqKJ2Y0dLvEX2lrUssvKzj" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -80,8 +283,11 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -95,16 +301,16 @@
       <recent name="controller.exeption" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="LogInViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
-      <module name="project_team_17_2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager" selected="Application.ScoreBoardViewGraphic">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,26 +363,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+    <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project_team_17_2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ScoreBoardViewGraphic" />
+        <item itemvalue="JUnit.test" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainViewGraphic" />
         <item itemvalue="Application.SignUpViewGraphic" />
-        <item itemvalue="Application.ScoreBoardViewGraphic" />
-        <item itemvalue="Application.LogInViewGraphic" />
       </list>
     </recent_temporary>
   </component>
