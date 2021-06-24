@@ -43,6 +43,7 @@ public class DeckView {
             }
             return false;
         }
+
         matcher = getCommandMatcher(command, "deck delete ([\\w ]+)");
         if (matcher.matches()) {
             try {
@@ -52,6 +53,7 @@ public class DeckView {
             }
             return false;
         }
+
         matcher = getCommandMatcher(command, "deck set-activate ([\\w ]+)");
         if (matcher.matches()) {
             try {
@@ -61,6 +63,7 @@ public class DeckView {
             }
             return false;
         }
+
         if (command.startsWith("deck add-card ") && command.matches("[\\w -]+")) {
             Matcher matcher1 = getCommandMatcher(command + " ", "(--card|-c) ([\\w ]+) ");
             Matcher matcher2 = getCommandMatcher(command + " ", "(--deck|-d) ([\\w ]+) ");
@@ -109,6 +112,13 @@ public class DeckView {
             deckController.showAllDecks();
             return false;
         }
+
+        matcher = getCommandMatcher(command, "deck show (--cards|-c)");
+        if (matcher.matches()) {
+            deckController.showAllCards();
+            return false;
+        }
+
         if (command.startsWith("deck show ") && command.matches("[\\w -]+")) {
             Matcher matcher1 = getCommandMatcher(command + " ", "(--deck-name|-dn) ([\\w ]+) ");
             if (matcher1.find()) {
@@ -121,20 +131,18 @@ public class DeckView {
             }
             return false;
         }
-        matcher = getCommandMatcher(command, "deck show (--cards|-c)");
-        if (matcher.matches()) {
-            deckController.showAllCards();
-            return false;
-        }
+
         matcher = getCommandMatcher(command, "menu show-current");
         if (matcher.matches()) {
             printText("Deck Menu");
             return false;
         }
+
         if (command.startsWith("menu enter ")) {
             printText("menu navigation is not possible");
             return false;
         }
+
         matcher = getCommandMatcher(command, "menu exit");
         if (matcher.matches()) {
             return true;
