@@ -203,8 +203,6 @@ public class User {
 
     public void addCardToUsersAllCards(Cardable card) {
         this.allCards.add(card);
-
-
     }
 
     public Deck getDeckByName(String name) {

@@ -41,3 +41,193 @@ public class Main {
         System.out.println(allDecks);*/
     }
 }
+/*
+user login -u hamraz -p 123
+menu enter Shop
+shop buy Yomi Ship
+shop buy Yomi Ship
+shop buy Yomi Ship
+shop buy Wattaildragon
+shop buy Wattaildragon
+shop buy Wattaildragon
+shop buy Warrior Dai Grepher
+shop buy Warrior Dai Grepher
+shop buy Warrior Dai Grepher
+shop buy Warrior Dai Grepher
+shop buy Bitron
+shop buy Bitron
+shop buy Bitron
+shop buy Bitron
+shop buy Dark Hole
+shop buy Dark Hole
+shop buy Dark Hole
+shop buy Exploder Dragon
+shop buy Exploder Dragon
+shop buy Exploder Dragon
+shop buy Command Knight
+shop buy Command Knight
+shop buy Command Knight
+shop buy Command Knight
+shop buy Curtain Of Dark Ones
+shop buy Curtain Of Dark Ones
+shop buy Curtain Of Dark Ones
+shop buy Curtain Of Dark Ones
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Haniwa
+shop buy Haniwa
+shop buy Haniwa
+shop buy Haniwa
+shop buy Horn Imp
+shop buy Horn Imp
+shop buy Horn Imp
+shop buy Horn Imp
+shop buy Magic Cylinder
+shop buy Magic Cylinder
+shop buy Magic Cylinder
+shop buy Magic Cylinder
+shop buy Mind Crush
+shop buy Mind Crush
+shop buy Mind Crush
+shop buy Mind Crush
+shop buy Man Eater Bug
+shop buy Man Eater Bug
+shop buy Man Eater Bug
+shop buy Man Eater Bug
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Supply Squad
+shop buy Supply Squad
+shop buy Supply Squad
+shop buy Supply Squad
+buy card Sword Of Revealing Light
+shop buy Sword Of Revealing Light
+shop buy Sword Of Revealing Light
+shop buy Sword Of Revealing Light
+shop buy Supply Squad
+shop buy Supply Squad
+shop buy Supply Squad
+shop buy Trap Hole
+shop buy Trap Hole
+shop buy Trap Hole
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Leotron
+shop buy Leotron
+shop buy Leotron
+shop buy Leotron
+shop buy United We Stand
+shop buy United We Stand
+shop buy United We Stand
+menu exit
+menu enter Deck
+deck create one
+deck add-card -c United We Stand -d one
+deck add-card -c United We Stand -d one
+deck add-card -c United We Stand -d one
+deck add-card -c United We Stand -d one
+deck add-card -c Leotron -d one
+deck add-card -c Leotron -d one
+deck add-card -c Leotron -d one
+deck add-card -c Leotron -d one
+deck add-card -c Leotron -d one -s
+deck add-card -c Silver Fang -d one -s
+deck add-card -c Silver Fang -d one –s
+deck add-card -c Silver Fang -d one -s
+deck add-card -c Silver Fang -d one -s
+deck add-card -c Silver Fang -d one -s
+deck add-card -c Spell Absorption -d one -s
+deck add-card -c Spell Absorption -d one -s
+deck add-card -c Spell Absorption -d one -s
+deck add-card -c Spell Absorption -d one -s
+deck add-card -c Trap Hole -d one -s
+deck add-card -c Trap Hole -d one -s
+deck add-card -c Trap Hole -d one -s
+deck add-card -c Trap Hole -d one -s
+deck add-card -c shop buy Supply Squad
+deck add-card -c Supply Squad -d one -s
+deck add-card -c Supply Squad -d one -s
+deck add-card -c Supply Squad -d one -s
+deck add-card -c Sword Of Revealing Light -d one -s
+deck add-card -c Sword Of Revealing Light -d one -s
+deck add-card -c Sword Of Revealing Light -d one -s
+deck add-card -c Sword Of Revealing Light -d one -s
+card with name Sword Of Revealing Light does not exist
+deck add-card -c Supply Squad -d one -s
+deck add-card -c Supply Squad -d one
+deck add-card -c Silver Fang -d one
+deck add-card -c Man Eater Bug -d one
+deck add-card -c Man Eater Bug -d one
+deck add-card -c Man Eater Bug -d one
+deck add-card -c Man Eater Bug -d one
+deck add-card -c Mind Crush -d one
+deck add-card -c Mind Crush -d one
+deck add-card -c Mind Crush -d one
+deck add-card -c Mind Crush -d one
+deck add-card -c Magic Cylinder -d one
+deck add-card -c Magic Cylinder -d one
+deck add-card -c Magic Cylinder -d one
+deck add-card -c Magic Cylinder -d one
+deck show --all
+deck add-card -c Horn Imp -d one
+deck add-card -c Horn Imp -d one
+deck add-card -c Horn Imp -d one
+deck add-card Haniwa -d one
+deck add-card -c Haniwa -d one
+deck add-card -c Haniwa -d one
+deck add-card -c Haniwa -d one
+deck add-card -c Haniwa -d one
+deck show --all
+deck add-card -c Curtain Of Dark Ones -d one
+deck add-card -c Curtain Of Dark Ones -d one
+deck add-card -c Curtain Of Dark Ones -d one
+deck add-card -c Curtain Of Dark Ones -d one
+deck add-card -c Command Knight -d one
+deck add-card -c Command Knight -d one
+deck add-card -c Command Knight -d one
+deck add-card -c Command Knight -d one
+deck add-card -c Exploder Dragon -d one
+deck add-card -c Exploder Dragon -d one
+deck add-card -c Exploder Dragon -d one
+deck add-card -c Exploder Dragon -d one
+deck add-card -c Dark Hole -d one
+deck add-card -c Dark Hole -d one
+deck add-card -c Dark Hole -d one
+deck add-card -c Dark Hole -d one
+deck add-card -c Bitron -d one
+deck add-card -c Bitron -d one
+deck add-card -c Bitron -d one
+deck add-card -c Bitron -d one
+deck add-card -c Bitron -d one
+deck add-card -c Warrior Dai Grepher -d one
+deck add-card -c Warrior Dai Grepher -d one
+deck add-card -c Warrior Dai Grepher -d one
+deck add-card -c Warrior Dai Grepher -d one
+deck add-card -c Wattaildragon -d one
+deck add-card -c Wattaildragon -d one
+deck add-card -c Wattaildragon -d one
+deck show --all
+deck add-card -c Yomi Ship -d one
+deck add-card -c Yomi Ship -d one
+deck add-card -c Yomi Ship -d one
+deck add-card -c Yomi Ship -d one
+deck add-card -c Yami -d one
+deck add-card -c Yami -d one
+deck add-card -c Yami -d one
+deck add-card -c Yami -d one
+deck show --all
+menu exit
+menu enter Shop
+shop buy Yami
+shop buy Yami
+menu exit
+menu enter Deck
+deck add-card -c Yami -d one
+deck show --all
+menu exit
+ */

@@ -137,7 +137,7 @@ public class Deck {
 
     @Override
     public String toString() {
-        return this.deckName + ": main deck " + this.mainDeck.size() + ", side deck" + this.sideDeck.size();
+        return this.deckName + ": main deck " + this.mainDeck.size() + ", side deck " + this.sideDeck.size();
     }
 
     @Override

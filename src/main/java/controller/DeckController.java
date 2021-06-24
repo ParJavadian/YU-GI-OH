@@ -173,7 +173,7 @@ public class DeckController {
             }
         }
 
-        toPrint.append("Other decks\n");
+        toPrint.append("Other decks:\n");
         allDecks.remove(activeDeck);
         Comparator<Deck> deckComparator = Comparator.comparing(Deck::getDeckName);
         allDecks.sort(deckComparator);
