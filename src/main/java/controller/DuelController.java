@@ -938,6 +938,7 @@ public class DuelController {
                 }
             }
         }
+        goNextPhase();
     }
 
     private void changeTurn() {
