@@ -142,7 +142,7 @@ public class DuelController {
     }*/
 
     //TODO age vaght shod choose first player random
-    private void startNewGame(User winner) {
+    public void startNewGame(User winner) {
         if (winner != null) {
             User loser;
             if (winner.equals(this.player)) {

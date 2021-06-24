@@ -24,7 +24,7 @@ public class ImportExportView {
         String command;
         while (ScannerClassForView.getScanner().hasNext()) {
             command = ScannerClassForView.getScanner().nextLine();
-            System.out.println("2");
+//            System.out.println("2");
             if (processCommand(command)) break;
         }
     }
