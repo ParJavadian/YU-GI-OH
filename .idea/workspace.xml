@@ -23,28 +23,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="andaki debug">
-      <change afterPath="$PROJECT_DIR$/Deck/hamrazoneMainDeck.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Deck/hamrazoneSideDeck.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/aha.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/hamriouz.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/kiana.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/kiana_msz.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/ava.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/parmidaonemainDeck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/parmidaonesideDeck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allCardsparmida.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allDecks.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneMainDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneSideDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazmainDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazsideDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainsideDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/aha.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamriouz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kiana.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kiana_msz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardshamraz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardskiana.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hamrazallDecks.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parmidaallDecks.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/allCardskiana_msz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/allUsers.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kiana_mszallDecks.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiana_mszallDecks.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +103,7 @@
       <recent name="controller.exeption" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ScoreBoardViewGraphic">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -129,8 +127,10 @@
       </method>
     </configuration>
     <configuration name="ScoreBoardViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="view.ScoreBoardViewGraphic" />
-      <module name="project_team_17_2" />
+      <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="view.*" />
@@ -154,15 +154,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -178,9 +176,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.ScoreBoardViewGraphic" />
         <item itemvalue="JUnit.test" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainViewGraphic" />
         <item itemvalue="Application.SignUpViewGraphic" />
       </list>
@@ -195,6 +193,7 @@
       <option name="presentableId" value="Default" />
       <updated>1623148364579</updated>
       <workItem from="1624350795175" duration="16526000" />
+      <workItem from="1624483949174" duration="2533000" />
     </task>
     <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
       <created>1623149665559</created>

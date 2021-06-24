@@ -49,18 +49,21 @@ public class ProfileView {
             }
             return false;
         }
-        if (command.startsWith("profile change ") && command.matches("[\\w ]+")) {
-            Matcher matcher1 = getCommandMatcher(command, "(--password|-p)");
+
+        if ((command.startsWith("profile change -p") && command.matches("[\\w -]+")) || (command.startsWith("profile change --password") && command.matches("[\\w -]+"))){
             Matcher matcher2 = getCommandMatcher(command + " ", "(--current|-c) ([\\w ]+) ");
             Matcher matcher3 = getCommandMatcher(command + " ", "(--new|-n) ([\\w ]+) ");
-            if (matcher1.find() && matcher2.find()) {
-                try {
-                    profileController.changePassword(matcher2.group(2), matcher3.group(2));
-                } catch (Exception exception) {
-                    printText(exception.getMessage());
+
+                if (matcher2.find()) {
+                    if (matcher3.find()) {
+                        try {
+                            profileController.changePassword(matcher2.group(2).trim(), matcher3.group(2).trim());
+                        } catch (Exception exception) {
+                            printText(exception.getMessage());
+                        }
+                    }
                 }
-                return false;
-            }
+            return false;
         }
         if (command.startsWith("menu enter ")) {
             printText("menu navigation is not possible");
