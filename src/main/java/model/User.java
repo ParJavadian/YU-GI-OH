@@ -201,8 +201,7 @@ public class User {
 
     public void addCardToUsersAllCards(Cardable card) {
         this.allCards.add(card);
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportAllCards(Objects.requireNonNull(User.getUserByUsername(this.getUsername())));
+
 
     }
 

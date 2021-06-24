@@ -23,10 +23,10 @@ public class DuelController {
     private boolean hasSummonedOrSetInThisTurn;
     private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardPlayer=new ArrayList<>(5);
 //    private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardRival=new ArrayList<>(5);
-    private Integer[] playerAttackPoints;
-    private Integer[] rivalAttackPoints;
-    private Integer[] playerDefencePoints;
-    private Integer[] rivalDefencePoints;
+    private Integer[] playerAttackPoints=new Integer[5];
+    private Integer[] rivalAttackPoints=new Integer[5];
+    private Integer[] playerDefencePoints=new Integer[5];
+    private Integer[] rivalDefencePoints=new Integer[5];
     /*private boolean hasUsedHeraldInThisTurn;
     private boolean hasUsedTexChangerInThisTurn;*/
     /*boolean[] hasChangedPositionInThisTurn;
@@ -46,7 +46,15 @@ public class DuelController {
         this.roundNumber = roundNumber;
         this.roundCounter = 0;
 //        this.monsterZone = new MonsterZone(this);
+        newActionsOnThisCardPlayer();
         startNewGame(null);
+    }
+
+    private void newActionsOnThisCardPlayer() {
+        ArrayList<ActionsDoneInTurn> arrayList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            this.actionsOnThisCardPlayer.add(arrayList);
+        }
     }
 
     private void setGameDeck(User user) {
@@ -693,6 +701,8 @@ public class DuelController {
                 this.player.getBoard().removeFromFieldZone();
             }
             //TODO age lazeme condition ham pas bede
+//            ((SpellCard) this.selectedCard.getCard()).takeAction(this,TakeActionCase.PUT_IN_SPELLTRAPZONE,this.player,)
+
             this.player.getBoard().putInFieldZone(spellCard);
         } else {
             this.player.getBoard().putSpellOrTrap(spellCard, "O");
@@ -972,7 +982,8 @@ public class DuelController {
     private void newThoseThatResetWithTurn(){
         for (int i = 0; i < 5; i++) {
             actionsOnThisCardPlayer.get(i).clear();
-            if(this.playerAttackPoints[i]!=null && this.playerAttackPoints[i]==0 && this.player.getBoard().getMonsterByNumber(i).getAttack()!=0){
+//            System.out.println(this.playerAttackPoints[i]);
+            if(this.player.getBoard().getMonsterByNumber(i)!=null && this.playerAttackPoints[i]!=null && this.playerAttackPoints[i]==0 &&  this.player.getBoard().getMonsterByNumber(i).getAttack()!=0){
                 this.playerAttackPoints[i] = this.player.getBoard().getMonsterByNumber(i).getAttack();
             }
         }
