@@ -22,17 +22,35 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="show all cards debug">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="jabejayie cheat money">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/hamriouz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamriouz.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/kiana_msz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/kiana_msz.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneMainDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneSideDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazmainDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazsideDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainsideDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/CHECK.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/aha.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/ali.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/gholi.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/goli.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamriouz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kholi.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kia.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kian.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kiana.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kiana_msz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/soli.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardshamraz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardshamriouz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardskiana.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardskiana_msz.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiana_mszallDecks.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/DuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DuelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +181,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623148364579</updated>
-      <workItem from="1624545878199" duration="1130000" />
+      <workItem from="1624545878199" duration="3232000" />
     </task>
     <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
       <created>1623149665559</created>
@@ -242,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624546002241</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="jabejayie cheat money">
+      <created>1624547044985</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1624547044985</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +296,7 @@
     <MESSAGE value="debug import user o baghie import ha" />
     <MESSAGE value="kiana test error fix" />
     <MESSAGE value="show all cards debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="show all cards debug" />
+    <MESSAGE value="jabejayie cheat money" />
+    <option name="LAST_COMMIT_MESSAGE" value="jabejayie cheat money" />
   </component>
 </project>
