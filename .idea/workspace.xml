@@ -22,15 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Forest &amp; Closed Forest&#10;SpellCard.java">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="kiana test error fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazmainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazmainDeck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/hamriouz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamriouz.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/kiana_msz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/kiana_msz.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624099929742</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="kiana test error fix">
+      <created>1624533248061</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1624533248061</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,24 +255,33 @@
     <MESSAGE value="Forest &amp; Closed Forest&#10;SpellCard.java" />
     <MESSAGE value="debug import user" />
     <MESSAGE value="debug import user o baghie import ha" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug import user o baghie import ha" />
+    <MESSAGE value="kiana test error fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="kiana test error fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="186" key="GridCell.Tab.0.bottom" timestamp="1624533073697">
+    <state x="121" y="51" key="DiffContextDialog" timestamp="1624533295587">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="186" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624533073697" />
-    <state width="1237" height="186" key="GridCell.Tab.0.center" timestamp="1624533073697">
+    <state x="121" y="51" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1624533295587" />
+    <state width="1237" height="186" key="GridCell.Tab.0.bottom" timestamp="1624535748504">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="186" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624533073697" />
-    <state width="1237" height="186" key="GridCell.Tab.0.left" timestamp="1624533073697">
+    <state width="1237" height="186" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
+    <state width="1237" height="186" key="GridCell.Tab.0.center" timestamp="1624535748504">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="186" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624533073697" />
-    <state width="1237" height="186" key="GridCell.Tab.0.right" timestamp="1624533073697">
+    <state width="1237" height="186" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
+    <state width="1237" height="186" key="GridCell.Tab.0.left" timestamp="1624535748504">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="186" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624533073697" />
+    <state width="1237" height="186" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
+    <state width="1237" height="186" key="GridCell.Tab.0.right" timestamp="1624535748504">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="186" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624533620620">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624533620620" />
   </component>
 </project>

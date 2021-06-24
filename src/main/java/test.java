@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import view.DeckView;
 import view.LogInView;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -247,10 +248,10 @@ public class test {
 
     @Test
     @DisplayName("testForMinFinder")
-    public void testForMinFinder(){
-        DuelController duelController = new DuelController(player,rival,1);
-        Assertions.assertEquals(4,duelController.minFinder(5,4));
-        Assertions.assertEquals(0,duelController.minFinder(0,5));
+    public void testForMinFinder() {
+        DuelController duelController = new DuelController(player, rival, 1);
+        Assertions.assertEquals(4, duelController.minFinder(5, 4));
+        Assertions.assertEquals(0, duelController.minFinder(0, 5));
     }
 
 
@@ -258,29 +259,27 @@ public class test {
     @DisplayName("unselect card check")
     public void unselectCardCheck() {
         //BoardZone boardZone = new BoardZone();
-        SelectedCard selectedCard = new SelectedCard(MonsterCard.BITRON,BoardZone.MONSTERZONE,3,player);
+        SelectedCard selectedCard = new SelectedCard(MonsterCard.BITRON, BoardZone.MONSTERZONE, 3, player);
         Cardable beforeChanging = selectedCard.getCard();
-        Assertions.assertEquals(MonsterCard.BITRON,beforeChanging);
+        Assertions.assertEquals(MonsterCard.BITRON, beforeChanging);
         selectedCard.setCard(MonsterCard.AXE_RAIDER);
         Cardable afterChanging = selectedCard.getCard();
-        Assertions.assertEquals(MonsterCard.AXE_RAIDER,afterChanging);
+        Assertions.assertEquals(MonsterCard.AXE_RAIDER, afterChanging);
         BoardZone beforeChangingBoardZone = selectedCard.getBoardZone();
-        Assertions.assertEquals(BoardZone.MONSTERZONE,beforeChangingBoardZone);
+        Assertions.assertEquals(BoardZone.MONSTERZONE, beforeChangingBoardZone);
         selectedCard.setBoardZone(BoardZone.FIELDZONE);
-        Assertions.assertEquals(BoardZone.FIELDZONE,selectedCard.getBoardZone());
+        Assertions.assertEquals(BoardZone.FIELDZONE, selectedCard.getBoardZone());
         Integer number = selectedCard.getNumber();
-        Assertions.assertEquals(3,selectedCard.getNumber());
+        Assertions.assertEquals(3, selectedCard.getNumber());
         selectedCard.setNumber(4);
-        Assertions.assertEquals(4,selectedCard.getNumber());
+        Assertions.assertEquals(4, selectedCard.getNumber());
         User ownerBeforeChanging = selectedCard.getOwner();
-        Assertions.assertEquals(player,ownerBeforeChanging);
+        Assertions.assertEquals(player, ownerBeforeChanging);
         selectedCard.setOwner(rival);
-        Assertions.assertEquals(rival,selectedCard.getOwner());
-
+        Assertions.assertEquals(rival, selectedCard.getOwner());
 
 
     }
-
 
 
 //    @Test
@@ -553,7 +552,7 @@ public class test {
         System.setOut(new PrintStream(outContent));
         ProfileController.getInstance(player).changePassword("12345", "1234");
         Assertions.assertEquals("password changed successfully!\r\n", outContent.toString());
-        Assertions.assertEquals("1234",player.getPassword());
+        Assertions.assertEquals("1234", player.getPassword());
         System.setOut(sysOutBackup);
     }
 
