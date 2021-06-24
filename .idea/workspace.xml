@@ -22,35 +22,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="andaki debug">
-      <change afterPath="$PROJECT_DIR$/Users/ava.txt" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Forest &amp; Closed Forest&#10;SpellCard.java">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_18_2021_12_08_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneMainDeck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneSideDeck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazmainDeck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazsideDeck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainsideDeck.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/aha.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/hamriouz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/kiana.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/kiana_msz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allCardshamraz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allCardskiana.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazmainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazmainDeck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamriouz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamriouz.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kiana_msz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/kiana_msz.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kiana_mszallDecks.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,33 +48,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1tf7blqKJ2Y0dLvEX2lrUssvKzj" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -103,7 +75,18 @@
       <recent name="controller.exeption" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.test.testForMinFinder">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -127,10 +110,8 @@
       </method>
     </configuration>
     <configuration name="ScoreBoardViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="view.ScoreBoardViewGraphic" />
-      <module name="project_team_17" />
+      <module name="project_team_17_2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="view.*" />
@@ -154,33 +135,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.testForMinFinder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project_team_17_2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="testForMinFinder" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test.testForMinFinder" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.ScoreBoardViewGraphic" />
-        <item itemvalue="JUnit.test" />
         <item itemvalue="Application.MainViewGraphic" />
         <item itemvalue="Application.SignUpViewGraphic" />
+        <item itemvalue="Application.ScoreBoardViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -192,8 +163,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623148364579</updated>
-      <workItem from="1624350795175" duration="16526000" />
-      <workItem from="1624483949174" duration="2533000" />
     </task>
     <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
       <created>1623149665559</created>
@@ -258,39 +227,8 @@
       <option name="project" value="LOCAL" />
       <updated>1624099929742</updated>
     </task>
-    <task id="LOCAL-00010" summary="directories">
-      <created>1624100876995</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1624100876995</updated>
-    </task>
-    <task id="LOCAL-00011" summary="debug import export">
-      <created>1624352453752</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1624352453752</updated>
-    </task>
-    <task id="LOCAL-00012" summary="debug import export user final">
-      <created>1624360580386</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1624360580386</updated>
-    </task>
-    <task id="LOCAL-00013" summary="debug import export user final">
-      <created>1624360649279</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1624360649279</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="10" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -305,7 +243,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="ScoreBoardViewGraphic.java" />
     <MESSAGE value="Error sign up" />
     <MESSAGE value="model.SpellCard.java&#10;Monster Reborn + Terraforming" />
@@ -314,9 +251,24 @@
     <MESSAGE value="Forest &amp; Closed Forest&#10;SpellCard.java" />
     <MESSAGE value="debug import user" />
     <MESSAGE value="debug import user o baghie import ha" />
-    <MESSAGE value="directories" />
-    <MESSAGE value="debug import export" />
-    <MESSAGE value="debug import export user final" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug import export user final" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug import user o baghie import ha" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="186" key="GridCell.Tab.0.bottom" timestamp="1624533073697">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="186" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624533073697" />
+    <state width="1237" height="186" key="GridCell.Tab.0.center" timestamp="1624533073697">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="186" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624533073697" />
+    <state width="1237" height="186" key="GridCell.Tab.0.left" timestamp="1624533073697">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="186" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624533073697" />
+    <state width="1237" height="186" key="GridCell.Tab.0.right" timestamp="1624533073697">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="186" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624533073697" />
   </component>
 </project>
