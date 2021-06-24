@@ -90,14 +90,15 @@ public class Board {
         this.monstersCondition[number] = null;
     }
 
-    public void putSpellOrTrap(Cardable card, String condition) {
+    public int putSpellOrTrap(Cardable card, String condition) {
         for(int i=0;i<5;i++){
             if(this.spellsAndTraps[playerGroundNumbers[i]] == null){
                 this.spellsAndTraps[playerGroundNumbers[i]] =card;
                 this.spellsAndTrapsCondition[playerGroundNumbers[i]] =condition;
-                return;
+                return i;
             }
         }
+        return 0;
     }
 
     public void removeSpellOrTrap(int number) {

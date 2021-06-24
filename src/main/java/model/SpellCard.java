@@ -31,8 +31,9 @@ public enum SpellCard implements Cardable {
                             }
                         }
                         if (!hasMonster) {
-                            duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
-                            return true;
+                            DuelView.printText("Graveyard is empty!");
+//                            duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
+                            return false;
                         }
                         DuelView.printText("select one these cards by number:");
                         int monsterCounter = 1;
@@ -98,8 +99,9 @@ public enum SpellCard implements Cardable {
                             }
                         }
                         if (!hasMonster) {
-                            duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
-                            return true;
+                            DuelView.printText("Graveyard is empty!");
+//                            duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
+                            return false;
                         }
                         DuelView.printText("select one these cards by number:");
                         monsterCounter = 1;
@@ -172,8 +174,9 @@ public enum SpellCard implements Cardable {
                     }
                 }
                 if (!hasFieldSpell) {
-                    duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
-                    return true;
+                    DuelView.printText("You have no field spell card in your deck!!");
+//                            duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
+                    return false;
                 }
                 DuelView.printText("select one of these Field Spell cards from your deck to add to your hand:");
                 int cardCounter = 1;
@@ -264,8 +267,8 @@ public enum SpellCard implements Cardable {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 for (int i = 0; i < 5; i++) {
                     if (duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i) != null) {
-                        //TODO uncomment this:
-//                        duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_SPELLTRAPZONE, duelController.getRival(), i);
+                        if (duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i) instanceof SpellCard)
+                            ((SpellCard) duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i)).takeAction(duelController, TakeActionCase.REMOVE_FROM_SPELLTRAPZONE, duelController.getRival(), i);
                         duelController.getPlayer().getBoard().removeSpellOrTrap(i);
                     }
                 }
