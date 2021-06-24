@@ -69,6 +69,11 @@ public class MainController {
         }
     }
 
+    public void cheatMoney(int amount) {
+        this.user.increaseMoney(amount);
+        DuelView.printText("shame on you for cheating!!!!");
+    }
+
     /*private void logOutUser(){
 
     }*/

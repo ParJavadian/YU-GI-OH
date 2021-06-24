@@ -30,7 +30,7 @@ public class ImportExportUserController {
             int highScore = user.getScore();
             int balance = user.getMoney();
             try {
-                FileWriter writer = new FileWriter("../Users/" + username + ".txt");
+                FileWriter writer = new FileWriter("Users/" + username + ".txt");
                 writer.write(username + "\n" + password + "\n" + nickname + "\n" + highScore + "\n" + balance);
                 writer.close();
             } catch (IOException e) {
@@ -45,6 +45,7 @@ public class ImportExportUserController {
             FileWriter writer = new FileWriter("allUsers.txt");
             for (User user : allUsers) {
                 String username = user.getUsername();
+                System.out.println(username);
                 writer.write(username + "\n");
             }
             writer.close();
@@ -98,13 +99,13 @@ public class ImportExportUserController {
 
     public void exportAllDecksName(List<Deck> allDecks, User user) {
         String username = user.getUsername();
+        FileWriter fileWriter = null;
         try {
-            FileWriter fileWriter = new FileWriter("../UsersDecks/" + username + "AllDecks.txt");
+            fileWriter = new FileWriter(username + "allDecks.txt");
             for (Deck deck : allDecks) {
                 String deckName = deck.getDeckName();
                 fileWriter.write(deckName + "\n");
             }
-            fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -113,13 +114,17 @@ public class ImportExportUserController {
     public void exportCardsInMainDeck(User user, String deckName) {
         String username = user.getUsername();
         try {
-            FileWriter writer = new FileWriter("../Deck/" + username + deckName + "MainDeck.txt");
+            FileWriter writer = new FileWriter("Deck/" + username + deckName + "mainDeck.txt");
             Deck toBeExportedDeck = user.getDeckByName(deckName);
             for (Cardable card : toBeExportedDeck.getMainDeck()) {
                 String cardName = card.getName();
                 writer.write(cardName + "\n");
             }
-            writer.close();
+            FileWriter fileWriter = new FileWriter("Deck/" + username + deckName + "sideDeck.txt");
+            for (Cardable card : toBeExportedDeck.getSideDeck()) {
+                String cardName = card.getName();
+                writer.write(cardName + "\n");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -127,14 +132,14 @@ public class ImportExportUserController {
 
     public void exportCardsInSideDeck(User user, String deckName) {
         String username = user.getUsername();
+        FileWriter writer = null;
         try {
-            FileWriter writer = new FileWriter("Deck/" + username + deckName + "SideDeck.txt");
+            writer = new FileWriter("Deck/" + username + deckName + "sideDeck.txt");
             Deck toBeExportedDeck = user.getDeckByName(deckName);
             for (Cardable card : toBeExportedDeck.getSideDeck()) {
                 String cardName = card.getName();
                 writer.write(cardName + "\n");
             }
-            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -143,37 +148,36 @@ public class ImportExportUserController {
     public void importAllDecks() {
         if (User.getAllUsers() != null) {
             for (User user : User.getAllUsers()) {
-                String username = user.getUsername();
-                File file = new File("UsersDecks/" + username + "AllDecks.txt");
+                File file = new File("allDecks.txt");
                 String deckName;
                 try {
-                    if (file.exists()) {
+                    if (file.exists()){
                         Scanner scanner = new Scanner(file);
-                        while (scanner.hasNextLine()) {
-                            deckName = scanner.nextLine();
-                            File mainDeckFile = new File("Deck/" + user.getUsername() + deckName + "MainDeck.txt");
-                            File sideDeckFile = new File("Deck/" + user.getUsername() + deckName + "SideDeck.txt");
-                            if (mainDeckFile.exists()) {
-                                Scanner mainDeckScanner = new Scanner(mainDeckFile);
-                                Deck deck = new Deck(deckName);
-                                while (mainDeckScanner.hasNextLine()) {
-                                    String cardName = mainDeckScanner.nextLine();
-                                    deck.addCardToMainDeck(DeckController.getInstance(user).getCardByName(cardName));
-                                }
-                                user.addDeck(deck);
+                    while (scanner.hasNextLine()) {
+                        deckName = scanner.nextLine();
+                        File mainDeckFile = new File("Deck" + user.getUsername() + deckName + "mainDeck.txt");
+                        File sideDeckFile = new File("Deck" + user.getUsername() + deckName + "sideDeck.txt");
+                        if (mainDeckFile.exists()) {
+                            Scanner mainDeckScanner = new Scanner(mainDeckFile);
+                            Deck deck = new Deck(deckName);
+                            while (mainDeckScanner.hasNextLine()) {
+                                String cardName = mainDeckScanner.nextLine();
+                                deck.addCardToMainDeck(DeckController.getInstance(user).getCardByName(cardName));
                             }
-                            if (sideDeckFile.exists()) {
-                                Scanner sideDeckScanner = new Scanner(sideDeckFile);
-                                Deck deck = new Deck(deckName);
-                                while (sideDeckScanner.hasNextLine()) {
-                                    String cardName = sideDeckScanner.nextLine();
-                                    deck.addCardToSideDeck(DeckController.getInstance(user).getCardByName(cardName));
-                                }
-                                user.addDeck(deck);
+                            user.addDeck(deck);
+                        }
+                        if (sideDeckFile.exists()) {
+                            Scanner sideDeckScanner = new Scanner(sideDeckFile);
+                            Deck deck = new Deck(deckName);
+                            while (sideDeckScanner.hasNextLine()) {
+                                String cardName = sideDeckScanner.nextLine();
+                                deck.addCardToSideDeck(DeckController.getInstance(user).getCardByName(cardName));
                             }
+                            user.addDeck(deck);
                         }
                     }
-                } catch (FileNotFoundException e) {
+                }
+            }catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
             }
@@ -181,15 +185,15 @@ public class ImportExportUserController {
     }
 
     public void exportAllCards(User user) {
-        try {
-            FileWriter writer = new FileWriter("Cards/" + user.getUsername() + ".txt");
-            for (Cardable card : user.getAllCards()) {
-                String cardName = card.getName();
+        for (Cardable card : user.getAllCards()) {
+            String cardName = card.getName();
+            try {
+                FileWriter writer = new FileWriter("allCards" + user.getUsername() + ".txt");
                 writer.write(cardName + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+
         }
     }
 
@@ -197,7 +201,7 @@ public class ImportExportUserController {
         if (User.getAllUsers() != null) {
             for (User user : User.getAllUsers()) {
                 String username = user.getUsername();
-                File file = new File("Cards/" + username + ".txt");
+                File file = new File("allCards" + username + ".txt");
                 if (file.exists()) {
                     try {
                         Scanner scanner = new Scanner(file);

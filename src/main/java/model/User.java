@@ -86,6 +86,8 @@ public class User {
 
     public void increaseMoney(int amount) {
         this.money += amount;
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
     }
 
     public void decreaseMoney(int amount) {
