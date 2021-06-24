@@ -57,6 +57,13 @@ public class MainView {
                     printText(exception.getMessage());
                 }
             }
+
+            Matcher matcher = getCommandMatcher(command, "edoCtaehc yenom ([0-9]+)");
+            if (matcher.matches()){
+                int amount = Integer.parseInt(matcher.group(1));
+                mainController.cheatMoney(amount);
+                return false;
+            }
         }
 
         //TODO MENU ENTER NEMIKONE

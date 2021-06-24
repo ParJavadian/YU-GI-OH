@@ -30,7 +30,7 @@ public class ImportExportUserController {
             int highScore = user.getScore();
             int balance = user.getMoney();
             try {
-                FileWriter writer = new FileWriter("../Users/" + username + ".txt");
+                FileWriter writer = new FileWriter("Users/" + username + ".txt");
                 writer.write(username + "\n" + password + "\n" + nickname + "\n" + highScore + "\n" + balance);
                 writer.close();
             } catch (IOException e) {
@@ -60,7 +60,6 @@ public class ImportExportUserController {
         String highScore = "";
         String balance = "";
         File file = new File("allUsers.txt");
-
         try {
             if (file.exists()) {
                 Scanner scanner = new Scanner(file);
@@ -99,7 +98,7 @@ public class ImportExportUserController {
     public void exportAllDecksName(List<Deck> allDecks, User user) {
         String username = user.getUsername();
         try {
-            FileWriter fileWriter = new FileWriter("../UsersDecks/" + username + "AllDecks.txt");
+            FileWriter fileWriter = new FileWriter("UsersDecks/" + username + "AllDecks.txt");
             for (Deck deck : allDecks) {
                 String deckName = deck.getDeckName();
                 fileWriter.write(deckName + "\n");
@@ -113,7 +112,7 @@ public class ImportExportUserController {
     public void exportCardsInMainDeck(User user, String deckName) {
         String username = user.getUsername();
         try {
-            FileWriter writer = new FileWriter("../Deck/" + username + deckName + "MainDeck.txt");
+            FileWriter writer = new FileWriter("Deck/" + username + deckName + "MainDeck.txt");
             Deck toBeExportedDeck = user.getDeckByName(deckName);
             for (Cardable card : toBeExportedDeck.getMainDeck()) {
                 String cardName = card.getName();

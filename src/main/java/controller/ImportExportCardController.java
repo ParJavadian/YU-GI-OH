@@ -178,7 +178,7 @@ public class ImportExportCardController {
         try {
             FileWriter writer = new FileWriter("Cards/" + card.getName() + "TrapCard.txt");
             writer.write(((TrapCard) card).getIcon() + "\n" + ((TrapCard) card).getStatus() + "\n"
-            + card.getPrice() + "\n" + card.getDescription());
+                    + card.getPrice() + "\n" + card.getDescription());
         }catch (IOException e){
             e.printStackTrace();
         }

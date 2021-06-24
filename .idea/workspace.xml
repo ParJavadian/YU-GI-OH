@@ -22,12 +22,35 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="kiana test error fix">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="jabejayie cheat money">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneMainDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneSideDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazmainDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/hamriouzdeck of hamrazsideDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainsideDeck.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/CHECK.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/aha.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/ali.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/gholi.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/goli.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamriouz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kholi.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kia.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kian.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kiana.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kiana_msz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/soli.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardshamraz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardshamriouz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardskiana.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allCardskiana_msz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kiana_mszallDecks.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,13 +68,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1tf7blqKJ2Y0dLvEX2lrUssvKzj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -59,6 +75,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../project_team_17_3/src" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -72,18 +91,7 @@
       <recent name="controller.exeption" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test.testForMinFinder">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -132,6 +140,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test.testForMinFinder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project_team_17_2" />
       <option name="PACKAGE_NAME" value="" />
@@ -144,8 +165,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.test.testForMinFinder" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.test.testForMinFinder" />
         <item itemvalue="Application.MainViewGraphic" />
         <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.ScoreBoardViewGraphic" />
@@ -160,6 +181,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623148364579</updated>
+      <workItem from="1624545878199" duration="3232000" />
     </task>
     <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
       <created>1623149665559</created>
@@ -231,8 +253,25 @@
       <option name="project" value="LOCAL" />
       <updated>1624533248061</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="show all cards debug">
+      <created>1624546002241</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1624546002241</updated>
+    </task>
+    <task id="LOCAL-00012" summary="jabejayie cheat money">
+      <created>1624547044985</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1624547044985</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -256,32 +295,8 @@
     <MESSAGE value="debug import user" />
     <MESSAGE value="debug import user o baghie import ha" />
     <MESSAGE value="kiana test error fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="kiana test error fix" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="121" y="51" key="DiffContextDialog" timestamp="1624533295587">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="121" y="51" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1624533295587" />
-    <state width="1237" height="186" key="GridCell.Tab.0.bottom" timestamp="1624535748504">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="186" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
-    <state width="1237" height="186" key="GridCell.Tab.0.center" timestamp="1624535748504">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="186" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
-    <state width="1237" height="186" key="GridCell.Tab.0.left" timestamp="1624535748504">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="186" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
-    <state width="1237" height="186" key="GridCell.Tab.0.right" timestamp="1624535748504">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="186" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624533620620">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624533620620" />
+    <MESSAGE value="show all cards debug" />
+    <MESSAGE value="jabejayie cheat money" />
+    <option name="LAST_COMMIT_MESSAGE" value="jabejayie cheat money" />
   </component>
 </project>
