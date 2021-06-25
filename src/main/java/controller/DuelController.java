@@ -584,6 +584,7 @@ public class DuelController {
 
     public void attackMonster(int monsterNumber) throws Exception {
         monsterNumber = opponentGroundNumbers[monsterNumber - 1] - 1;
+//        System.out.println(monsterNumber + ", " + rival.getBoard().getMonsterByNumber(monsterNumber) + ", " + rival.getBoard().getMonsterByNumber(monsterNumber-1));
         if (this.selectedCard == null) throw new NoCardSelected();
         if (!(this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE) && (this.selectedCard.getCard() instanceof MonsterCard) && (this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals("OO"))))
             throw new CanNotAttack();
@@ -593,7 +594,7 @@ public class DuelController {
             throw new AlreadyAttacked();
         if (getCountOfMonsterCardsInGround(this.rival) == 0)
             throw new NoCardToAttack();
-        if(rival.getBoard().getMonsterByNumber(monsterNumber)!=null)
+        if(rival.getBoard().getMonsterByNumber(monsterNumber)==null)
             throw new NoCardFoundInThisPosition();
         String targetPosition = this.rival.getBoard().getMonsterConditionByNumber(monsterNumber);
         if (this.rival.getBoard().getMonsterByNumber(monsterNumber).canBeAttacked(this, monsterNumber)) {
