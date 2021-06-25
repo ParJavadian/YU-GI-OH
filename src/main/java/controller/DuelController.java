@@ -9,7 +9,7 @@ import java.util.*;
 public class DuelController {
 
     public static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
-//    public static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
+    //    public static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
     private User player;
     private User rival;
     private Round[] rounds;
@@ -43,7 +43,7 @@ public class DuelController {
         this.roundNumber = roundNumber;
         this.roundCounter = 0;
 //        this.monsterZone = new MonsterZone(this);
-        newActionsOnThisCardPlayer();
+//        newActionsOnThisCardPlayer();
         startNewGame(null);
     }
 
@@ -583,6 +583,7 @@ public class DuelController {
             throw new AlreadyInWantedPosition();
         if (actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).contains(ActionsDoneInTurn.CHANGE_POSITION))
             throw new AlreadyChangedPosition();
+        //TODO uncomment if you can debug(bug:if attacked with another monster, it also girs for newly summoned ones)
         if (actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).contains(ActionsDoneInTurn.ATTACK) && this.phase.equals(Phase.MAIN_PHASE2))
             throw new HasAttackedInBattle();
         this.player.getBoard().changeMonsterPosition(this.selectedCard.getNumber(), targetPositionInShort);
@@ -1047,6 +1048,7 @@ public class DuelController {
                 this.playerAttackPoints[i] = this.player.getBoard().getMonsterByNumber(i).getAttack();
             }
         }
+        newActionsOnThisCardPlayer();
     }
 
     private void printBoard() {
@@ -1104,8 +1106,8 @@ public class DuelController {
                 throw new InvisibleCard();
             if (this.selectedCard.getBoardZone().equals(BoardZone.SPELLANDTRAPZONE) && this.rival.getBoard().getSpellAndTrapConditionByNumber(this.selectedCard.getNumber()).equals("H"))
                 throw new InvisibleCard();
-        } else
-            DuelView.printText(this.selectedCard.getCard().toString());
+        }
+        DuelView.printText(this.selectedCard.getCard().toString());
     }
 
     public void showGraveyard() throws Exception {
