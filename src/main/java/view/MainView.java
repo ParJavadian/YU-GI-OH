@@ -36,9 +36,28 @@ public class MainView {
         if (command.startsWith("duel ") && command.matches("[\\w -]+")) {
             Matcher matcher1 = getCommandMatcher(command, "(--new|-n)");
             Matcher matcher2 = getCommandMatcher(command+" ", "(--second-player|-sp) ([\\w ]+) ");
-            Matcher matcher3 = getCommandMatcher(command, "(--rounds|-r) ([0-9]+)");
             Matcher matcher4 = getCommandMatcher(command, "(--ai|-ai)");
-            if (matcher1.find() && matcher2.find() && matcher3.find()) {
+            Matcher matcher3 = getCommandMatcher(command, "(--rounds|-r) ([0-9]+)");
+//            System.out.println("2");
+            if(matcher4.find() && matcher1.find() && matcher3.find()){
+//                System.out.println("1");
+                try{
+                    new User("@AI@","@AIplayer","1234AIPlayer1234");
+//                    System.out.println("1");
+                    Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
+//                    System.out.println(deck);
+                    User.getUserByUsername("@AI@").setActiveDeck(deck);
+//                    System.out.println(User.getUserByUsername("@AI@").getActiveDeck()+" 7");
+//                    printText("Game with AI starter successfully");
+                    mainController.newDuel("@AI@",Integer.parseInt(matcher3.group(2)));
+                }
+                catch (Exception exception){
+//                    System.out.println("kldsjhfgblkjb");
+                    printText(exception.getMessage());
+                }
+                return false;
+            }
+            if (matcher1.find(0) && matcher2.find(0) && matcher3.find(0)) {
                 try {
                     mainController.newDuel(matcher2.group(2), Integer.parseInt(matcher3.group(2)));
                 }
@@ -47,27 +66,16 @@ public class MainView {
                 }
                 return false;
             }
-            if(matcher4.find() && matcher1.find() && matcher3.find()){
-                try{
-                    new User("@AI@","@AIplayer","1234AIPlayer1234");
-                    User.getUserByUsername("@AI@").setActiveDeck(DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI());
-                    mainController.newDuel("@AI@",Integer.parseInt(matcher3.group(2)));
-                }
-                catch (Exception exception){
-                    printText(exception.getMessage());
-                }
-            }
-
-            Matcher matcher = getCommandMatcher(command, "edoCtaehc yenom ([0-9]+)");
-            if (matcher.matches()){
-                int amount = Integer.parseInt(matcher.group(1));
-                mainController.cheatMoney(amount);
-                return false;
-            }
+        }
+        Matcher matcher = getCommandMatcher(command, "edoCtaehc yenom ([0-9]+)");
+        if (matcher.matches()){
+            int amount = Integer.parseInt(matcher.group(1));
+            mainController.cheatMoney(amount);
+            return false;
         }
 
-        //TODO MENU ENTER NEMIKONE
-        Matcher matcher = getCommandMatcher(command, "menu enter ([\\w ]+)");
+        //TO DO MENU ENTER NEMIKONE(mikone alan dige?parmida)
+        matcher = getCommandMatcher(command, "menu enter ([\\w ]+)");
         if (matcher.matches()) {
             mainController.goToMenu(matcher.group(1));
             return false;

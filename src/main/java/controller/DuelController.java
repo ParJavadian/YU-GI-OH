@@ -153,10 +153,12 @@ public class DuelController {
             this.player = loser;
             this.rival = winner;
         } else this.isStartTurn = true;
+        this.player.setLifePoint(8000);
+        this.rival.setLifePoint(8000);
         this.player.setNewBoard();
         this.rival.setNewBoard();
         clearLastTurn();
-        startDrawPhase(true);
+        startDrawPhase();
     }
 
     public void selectCardPlayerMonsterZone(int address) throws Exception {
@@ -179,7 +181,7 @@ public class DuelController {
             throw new InvalidSelection();
         }
         address = opponentGroundNumbers[address - 1] - 1;
-        if (monsters[address - 1] == null) {
+        if (monsters[address] == null) {
             throw new NoCardFoundInThisPosition();
         } else {
             this.selectedCard = new SelectedCard(this.rival.getBoard().getMonsterByNumber(address), BoardZone.MONSTERZONE, address, this.rival);
@@ -193,7 +195,7 @@ public class DuelController {
             throw new InvalidSelection();
         }
         address = playerGroundNumbers[address - 1] - 1;
-        if (spellAndTrap[address - 1] == null) {
+        if (spellAndTrap[address] == null) {
             throw new NoCardFoundInThisPosition();
         } else {
             this.selectedCard = new SelectedCard(this.player.getBoard().getSpellAndTrapByNumber(address), BoardZone.SPELLANDTRAPZONE, address, this.player);
@@ -207,7 +209,7 @@ public class DuelController {
             throw new InvalidSelection();
         }
         address = opponentGroundNumbers[address - 1] - 1;
-        if (spellAndTrap[address - 1] == null) {
+        if (spellAndTrap[address] == null) {
             throw new NoCardFoundInThisPosition();
         } else {
             this.selectedCard = new SelectedCard(this.rival.getBoard().getSpellAndTrapByNumber(address), BoardZone.SPELLANDTRAPZONE, address, this.rival);
@@ -244,6 +246,7 @@ public class DuelController {
             throw new NoCardFoundInThisPosition();
         }
         this.selectedCard = new SelectedCard(this.player.getBoard().getCardInHandByNumber(address - 1), BoardZone.HAND, address - 1, this.player);
+//        System.out.println(selectedCard.getNumber());
         DuelView.printText("card selected");
     }
 
@@ -302,9 +305,10 @@ public class DuelController {
             if (monsterCard.getLevel() <= 4) {
                 this.player.getBoard().putMonster(monsterCard, "OO");
                 monsterCard.takeAction(this, TakeActionCase.SUMMONED, this.player, this.selectedCard.getNumber());
-                this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
+                this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
                 unselectCard();
                 DuelView.printText("summoned successfully");
+                printBoard();
                 hasSummonedOrSetInThisTurn = true;
                 return;
             }
@@ -336,9 +340,10 @@ public class DuelController {
         removeMonsterPlayer(address);
         this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
         ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player, this.selectedCard.getNumber());
-        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
+        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("summoned successfully");
+        printBoard();
         hasSummonedOrSetInThisTurn = true;
     }
 
@@ -363,6 +368,7 @@ public class DuelController {
         this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("summoned successfully");
+        printBoard();
         hasSummonedOrSetInThisTurn = true;
     }
 
@@ -404,7 +410,7 @@ public class DuelController {
         if (monsterCard.getLevel() <= 4) {
             this.actionsOnThisCardPlayer.get(this.player.getBoard().putMonster(monsterCard, "DH")).add(ActionsDoneInTurn.SET);
 //            monsterZone.setHasSetInThisTurn(this.player.getBoard().putMonster(monsterCard, "DH"), true);
-            this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
+            this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
             unselectCard();
             DuelView.printText("set successfully");
             hasSummonedOrSetInThisTurn = true;
@@ -483,7 +489,7 @@ public class DuelController {
             }
             this.player.getBoard().putInFieldZone(spellCard);
         }
-        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
+        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("set successfully");
         printBoard();
@@ -505,7 +511,7 @@ public class DuelController {
             }
             this.player.getBoard().putInFieldZone(trapCard);
         }
-        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
+        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("set successfully");
         printBoard();
@@ -714,7 +720,7 @@ public class DuelController {
                 this.player.getBoard().removeSpellOrTrap(number);
             }
         }
-        this.player.getBoard().getCardsInHand().remove(this.selectedCard.getNumber() - 1);
+        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("spell activated");
         printBoard();
@@ -914,29 +920,30 @@ public class DuelController {
             DuelView.printText("phase: " + phase.getNamePascalCase());
             DuelView.printText("its " + rival.getNickname() + "’s turn");
             changeTurn();
-            startDrawPhase(false);
+            startDrawPhase();
         }
     }
 
-    private void startDrawPhase(boolean isFirstTime) {
+    private void startDrawPhase() {
         this.phase = Phase.DRAW_PHASE;
         ArrayList<Cardable> playerMainCards = (ArrayList<Cardable>) this.player.getGameDeck().getMainDeck();
         ArrayList<Cardable> rivalMainCards = (ArrayList<Cardable>) this.rival.getGameDeck().getMainDeck();
         if (playerMainCards.size() == 0) endGame(this.player);
         else {
-            if (!isFirstTime) {
+            Collections.shuffle(this.player.getGameDeck().getMainDeck());
+            Collections.shuffle(this.rival.getGameDeck().getMainDeck());
+            for (int i = 0; i < 5; i++) {
                 this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
                 this.player.getGameDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
                 Collections.shuffle(this.player.getGameDeck().getMainDeck());
-                DuelView.printText("new card added to the hand : " + playerMainCards.get(playerMainCards.size() - 1).getNamePascalCase());
-            } else {
-                for (int i = 0; i < 5; i++) {
-                    this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
-                    this.player.getGameDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
-                    this.rival.getBoard().addCardToHand(rivalMainCards.get(rivalMainCards.size() - 1));
-                    this.rival.getGameDeck().removeCardFromMainDeck(rivalMainCards.get(rivalMainCards.size() - 1));
-                }
+                this.rival.getBoard().addCardToHand(rivalMainCards.get(rivalMainCards.size() - 1));
+                this.rival.getGameDeck().removeCardFromMainDeck(rivalMainCards.get(rivalMainCards.size() - 1));
+                Collections.shuffle(this.rival.getGameDeck().getMainDeck());
             }
+            this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
+            this.player.getGameDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
+            Collections.shuffle(this.player.getGameDeck().getMainDeck());
+            DuelView.printText("new card added to the hand : " + playerMainCards.get(playerMainCards.size() - 1).getNamePascalCase());
         }
         goNextPhase();
     }
@@ -1013,9 +1020,10 @@ public class DuelController {
             if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
             else toPrint += this.player.getBoard().getSpellAndTrapConditionByNumber(i);
         }
-        toPrint += "\t\t\t\t\t\t" + this.player.getGameDeck().getMainSize() + "\n";
+        toPrint += "\n\t\t\t\t\t\t" + this.player.getGameDeck().getMainSize() + "\n";
         for (Cardable ignored : this.player.getBoard().getCardsInHand()) {
-            toPrint += "c\t";
+            toPrint += ignored.getNamePascalCase() + "\t";
+//            toPrint += "c\t";
         }
         toPrint += "\n" + this.player.getNickname() + ":" + this.player.getLifePoint();
         DuelView.printText(toPrint);

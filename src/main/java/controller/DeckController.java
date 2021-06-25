@@ -20,7 +20,7 @@ public class DeckController {
         return instance;
     }
 
-    public List<Cardable> getAllCardsOfGame(){
+    public List<Cardable> getAllCardsOfGame() {
         List<Cardable> allCards = new ArrayList<>();
         Collections.addAll(allCards, MonsterCard.values());
         Collections.addAll(allCards, TrapCard.values());
@@ -30,7 +30,7 @@ public class DeckController {
         return allCards;
     }
 
-    public Cardable getCardByName(String name){
+    public Cardable getCardByName(String name) {
         List<Cardable> allCards = getAllCardsOfGame();
         for (Cardable card : allCards) {
             if (card.getNamePascalCase().equals(name))
@@ -47,37 +47,50 @@ public class DeckController {
         if (this.user.getDeckByName(name) == null) {
             Deck deck = new Deck(name);
             this.user.addDeck(deck);
-            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-            importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
+//            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//            importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
             DeckView.getInstance(this.user).printText("deck created successfully!");
         } else {
             throw new RepetitiveDeckName(name);
         }
     }
 
-    public Deck createRandomDeckForAI(){
+    public Deck createRandomDeckForAI() {
         Deck deck = new Deck("DeckForAI");
+        this.user.addDeck(deck);
+//        System.out.println("12");
         List<Cardable> allCards = new ArrayList<>();
         Collections.addAll(allCards, MonsterCard.values());
         Collections.addAll(allCards, SpellCard.values());
         Collections.addAll(allCards, TrapCard.values());
-
-        while (user.getDeckByName("DeckForAI").getMainSize() < 46){
+//        System.out.println(user.getDeckByName("DeckForAI")+"8");
+        while (user.getDeckByName("DeckForAI").getMainSize() < 46) {
+//            System.out.println("12");
             int randomNum = ThreadLocalRandom.current().nextInt(0, allCards.size());
+//            int randomNum = getRandomNumber(allCards.size());
             try {
-                addCardToDeck(allCards.get(randomNum).getName(),"DeckForAi",false,false);
+                addCardToDeckAI(allCards.get(randomNum), "DeckForAI", false, false);
             } catch (Exception exception) {
-                exception.printStackTrace();
+//                System.out.println(exception.getMessage());
             }
         }
         return deck;
     }
 
+    private int getRandomNumber(int bound) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < bound; i++) {
+            numbers.add(i);
+        }
+        Collections.shuffle(numbers);
+        return numbers.get(0);
+    }
+
     public void deleteDeck(String name) throws Exception {
         if (this.user.getDeckByName(name) != null) {
             this.user.deleteDeck(name);
-            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-            importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
+//            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//            importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
             DeckView.getInstance(this.user).printText("deck deleted successfully");
         } else
             throw new DeckNotFound(name);
@@ -106,12 +119,12 @@ public class DeckController {
                 else {
                     if (isSide) {
                         deck.addCardToSideDeck(card);
-                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
+//                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
                     } else {
                         deck.addCardToMainDeck(card);
-                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
+//                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
                     }
                     this.user.deleteCard(cardName);
                     DeckView.getInstance(this.user).printText("card added to deck successfully");
@@ -119,6 +132,42 @@ public class DeckController {
             } else throw new DeckNotFound(deckName);
         } else throw new CardNotFoundInUser(cardName);
     }
+
+    public void addCardToDeckAI(Cardable card, String deckName, boolean isSide, boolean isAddedByCheating) throws Exception {
+        String cardName = card.getNamePascalCase();
+        Deck deck = this.user.getDeckByName(deckName);
+        if (deck != null) {
+            if (!isAddedByCheating) {
+                if (isSide && deck.getSideSize() >= 15)
+                    throw new FullSideDeck();
+                else if (!(isSide) && (deck.getMainSize() >= 60))
+                    throw new FullMainDeck();
+            }
+            if ((card instanceof MonsterCard ||
+                    (card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.UNLIMITED))
+                    || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.UNLIMITED)))
+                    && deck.numberOfWantedCard(card) == 3)
+                throw new ThreeSameCards(cardName, deckName);
+            else if (((card instanceof SpellCard && ((SpellCard) card).getStatus().equals(Status.LIMITED))
+                    || (card instanceof TrapCard && ((TrapCard) card).getStatus().equals(Status.LIMITED)))
+                    && deck.numberOfWantedCard(card) == 1)
+                throw new OneCardForLimited(cardName, deckName);
+            else {
+                if (isSide) {
+                    deck.addCardToSideDeck(card);
+//                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
+                } else {
+                    deck.addCardToMainDeck(card);
+//                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
+                }
+                this.user.deleteCard(cardName);
+//                DeckView.getInstance(this.user).printText("card added to deck successfully");
+            }
+        } else throw new DeckNotFound(deckName);
+    }
+
 
     public void activateDeck(String name) throws Exception {
         if (this.user.getDeckByName(name) != null) {
@@ -137,18 +186,18 @@ public class DeckController {
                     if (deck.cardExistsInDeck(card, true)) {
                         deck.removeCardFromSideDeck(card);
                         this.user.addCardToUsersAllCards(card);
-                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
-                        importExportUserController.exportAllCards(this.user);
+//                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
+//                        importExportUserController.exportAllCards(this.user);
                         DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "side");
                 } else {
                     if (deck.cardExistsInDeck(card, false)) {
                         deck.removeCardFromMainDeck(card);
                         this.user.addCardToUsersAllCards(card);
-                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
-                        importExportUserController.exportAllCards(this.user);
+//                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
+//                        importExportUserController.exportAllCards(this.user);
                         DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "main");
                 }
@@ -163,12 +212,12 @@ public class DeckController {
         List<Deck> allDecks = new ArrayList<>(this.user.getAllDecks());
         Deck activeDeck = null;
         if (this.user.getActiveDeck() != null) {
-        for (Deck deck : allDecks) {
+            for (Deck deck : allDecks) {
                 if (this.user.getActiveDeck().getDeckName().equals(deck.getDeckName())) {
-                        toPrint.append(deck.toString());
-                        if (deck.isValid()) toPrint.append(", valid\n");
-                        else toPrint.append(", invalid\n");
-                        activeDeck = deck;
+                    toPrint.append(deck.toString());
+                    if (deck.isValid()) toPrint.append(", valid\n");
+                    else toPrint.append(", invalid\n");
+                    activeDeck = deck;
                 }
             }
         }

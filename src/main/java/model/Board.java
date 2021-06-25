@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    private static final int[] playerGroundNumbers = {3,4,2,5,1};
-    private static final int[] opponentGroundNumbers = {3,2,4,1,5};
+    /*private static final int[] playerGroundNumbers = {3,4,2,5,1};
+    private static final int[] opponentGroundNumbers = {3,2,4,1,5};*/
+    private static final int[] playerGroundNumbers = {2,3,1,4,0};
+    private static final int[] opponentGroundNumbers = {2,1,3,0,4};
     private List<Cardable> cardsInHand;
     private List<Cardable> cardsInGraveyard;
     private MonsterCard[] monsters;

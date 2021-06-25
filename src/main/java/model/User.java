@@ -1,6 +1,6 @@
 package model;
 
-import controller.ImportExportUserController;
+//import controller.ImportExportUserController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +33,9 @@ public class User {
         setScore(0);
         setMoney(100000);
         allUsers.add(this);
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportNewUser(User.getUserByUsername(username));
-        importExportUserController.exportAllUsers(User.getAllUsers());
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.exportNewUser(User.getUserByUsername(username));
+//        importExportUserController.exportAllUsers(User.getAllUsers());
     }
 
     public Deck getGameDeck() {
@@ -86,14 +86,15 @@ public class User {
 
     public void increaseMoney(int amount) {
         this.money += amount;
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
     }
 
     public void decreaseMoney(int amount) {
-        this.money -= amount;
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
+        //TODO put back
+//        this.money -= amount;
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
     }
 
     public static List<User> getAllUsers() {
@@ -139,9 +140,9 @@ public class User {
     public void setScore(int score) {
         this.score = score;
     }
-
+    //TODO put back
     public void setMoney(int money) {
-        this.money = money;
+//        this.money = money;
     }
 
     public int getMoney() {
@@ -150,21 +151,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
     }
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportNewUser(User.getUserByNickname(nickname));
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.exportNewUser(User.getUserByNickname(nickname));
     }
 
     public void setUsername(String username) {
         this.username = username;
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportNewUser(User.getUserByUsername(username));
-        importExportUserController.exportAllUsers(User.getAllUsers());
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.exportNewUser(User.getUserByUsername(username));
+//        importExportUserController.exportAllUsers(User.getAllUsers());
     }
 
     public void setActiveDeck(Deck deck) {

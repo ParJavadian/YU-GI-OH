@@ -1,12 +1,12 @@
-import controller.ImportExportUserController;
+//import controller.ImportExportUserController;
 import view.LogInView;
 public class Main {
 
     public static void main(String[] args) {
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.importAllUsers();
-        importExportUserController.importAllCards();
-        importExportUserController.importAllDecks();
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.importAllUsers();
+//        importExportUserController.importAllCards();
+//        importExportUserController.importAllDecks();
         LogInView.getInstance().getCommandForLogin();
         /*ArrayList<MonsterTypes> types = new ArrayList<>();
         types.add(MonsterTypes.BEAST);
@@ -42,7 +42,10 @@ public class Main {
     }
 }
 /*
+user create -u hamraz -p 123 -n hamraz
+user create -u parmida -p 1234 -n parmida
 user login -u hamraz -p 123
+edoCtaehc yenom 1000000
 menu enter Shop
 shop buy Yomi Ship
 shop buy Yomi Ship
@@ -228,6 +231,203 @@ shop buy Yami
 menu exit
 menu enter Deck
 deck add-card -c Yami -d one
+deck show –-all
+deck set-activate one
+menu exit
+user logout
+user login -u parmida -p 1234
+edoCtaehc yenom 1000000
+menu enter Shop
+shop buy Yomi Ship
+shop buy Yomi Ship
+shop buy Yomi Ship
+shop buy Wattaildragon
+shop buy Wattaildragon
+shop buy Wattaildragon
+shop buy Warrior Dai Grepher
+shop buy Warrior Dai Grepher
+shop buy Warrior Dai Grepher
+shop buy Warrior Dai Grepher
+shop buy Bitron
+shop buy Bitron
+shop buy Bitron
+shop buy Bitron
+shop buy Dark Hole
+shop buy Dark Hole
+shop buy Dark Hole
+shop buy Exploder Dragon
+shop buy Exploder Dragon
+shop buy Exploder Dragon
+shop buy Command Knight
+shop buy Command Knight
+shop buy Command Knight
+shop buy Command Knight
+shop buy Curtain Of Dark Ones
+shop buy Curtain Of Dark Ones
+shop buy Curtain Of Dark Ones
+shop buy Curtain Of Dark Ones
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Haniwa
+shop buy Haniwa
+shop buy Haniwa
+shop buy Haniwa
+shop buy Horn Imp
+shop buy Horn Imp
+shop buy Horn Imp
+shop buy Horn Imp
+shop buy Magic Cylinder
+shop buy Magic Cylinder
+shop buy Magic Cylinder
+shop buy Magic Cylinder
+shop buy Mind Crush
+shop buy Mind Crush
+shop buy Mind Crush
+shop buy Mind Crush
+shop buy Man Eater Bug
+shop buy Man Eater Bug
+shop buy Man Eater Bug
+shop buy Man Eater Bug
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Silver Fang
+shop buy Supply Squad
+shop buy Supply Squad
+shop buy Supply Squad
+shop buy Supply Squad
+buy card Sword Of Revealing Light
+shop buy Sword Of Revealing Light
+shop buy Sword Of Revealing Light
+shop buy Sword Of Revealing Light
+shop buy Supply Squad
+shop buy Supply Squad
+shop buy Supply Squad
+shop buy Trap Hole
+shop buy Trap Hole
+shop buy Trap Hole
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Leotron
+shop buy Leotron
+shop buy Leotron
+shop buy Leotron
+shop buy United We Stand
+shop buy United We Stand
+shop buy United We Stand
+menu exit
+menu enter Deck
+deck create oneParmida
+deck add-card -c United We Stand -d oneParmida
+deck add-card -c United We Stand -d oneParmida
+deck add-card -c United We Stand -d oneParmida
+deck add-card -c United We Stand -d oneParmida
+deck add-card -c Leotron -d oneParmida
+deck add-card -c Leotron -d oneParmida
+deck add-card -c Leotron -d oneParmida
+deck add-card -c Leotron -d oneParmida
+deck add-card -c Leotron -d oneParmida -s
+deck add-card -c Silver Fang -d oneParmida -s
+deck add-card -c Silver Fang -d oneParmida –s
+deck add-card -c Silver Fang -d oneParmida -s
+deck add-card -c Silver Fang -d oneParmida -s
+deck add-card -c Silver Fang -d oneParmida -s
+deck add-card -c Spell Absorption -d oneParmida -s
+deck add-card -c Spell Absorption -d oneParmida -s
+deck add-card -c Spell Absorption -d oneParmida -s
+deck add-card -c Spell Absorption -d oneParmida -s
+deck add-card -c Trap Hole -d oneParmida -s
+deck add-card -c Trap Hole -d oneParmida -s
+deck add-card -c Trap Hole -d oneParmida -s
+deck add-card -c Trap Hole -d oneParmida -s
+deck add-card -c Supply Squad -d oneParmida -s
+deck add-card -c Supply Squad -d oneParmida -s
+deck add-card -c Supply Squad -d oneParmida -s
+deck add-card -c Sword Of Revealing Light -d oneParmida -s
+deck add-card -c Sword Of Revealing Light -d oneParmida -s
+deck add-card -c Sword Of Revealing Light -d oneParmida -s
+deck add-card -c Sword Of Revealing Light -d oneParmida -s
+deck add-card -c Supply Squad -d oneParmida -s
+deck add-card -c Supply Squad -d oneParmida
+deck add-card -c Silver Fang -d oneParmida
+deck add-card -c Man Eater Bug -d oneParmida
+deck add-card -c Man Eater Bug -d oneParmida
+deck add-card -c Man Eater Bug -d oneParmida
+deck add-card -c Man Eater Bug -d oneParmida
+deck add-card -c Mind Crush -d oneParmida
+deck add-card -c Mind Crush -d oneParmida
+deck add-card -c Mind Crush -d oneParmida
+deck add-card -c Mind Crush -d oneParmida
+deck add-card -c Magic Cylinder -d oneParmida
+deck add-card -c Magic Cylinder -d oneParmida
+deck add-card -c Magic Cylinder -d oneParmida
+deck add-card -c Magic Cylinder -d oneParmida
+deck show --all
+deck add-card -c Horn Imp -d oneParmida
+deck add-card -c Horn Imp -d oneParmida
+deck add-card -c Horn Imp -d oneParmida
+deck add-card Haniwa -d oneParmida
+deck add-card -c Haniwa -d oneParmida
+deck add-card -c Haniwa -d oneParmida
+deck add-card -c Haniwa -d oneParmida
+deck add-card -c Haniwa -d oneParmida
+deck show --all
+deck add-card -c Curtain Of Dark Ones -d oneParmida
+deck add-card -c Curtain Of Dark Ones -d oneParmida
+deck add-card -c Curtain Of Dark Ones -d oneParmida
+deck add-card -c Curtain Of Dark Ones -d oneParmida
+deck add-card -c Command Knight -d oneParmida
+deck add-card -c Command Knight -d oneParmida
+deck add-card -c Command Knight -d oneParmida
+deck add-card -c Command Knight -d oneParmida
+deck add-card -c Exploder Dragon -d oneParmida
+deck add-card -c Exploder Dragon -d oneParmida
+deck add-card -c Exploder Dragon -d oneParmida
+deck add-card -c Exploder Dragon -d oneParmida
+deck add-card -c Dark Hole -d oneParmida
+deck add-card -c Dark Hole -d oneParmida
+deck add-card -c Dark Hole -d oneParmida
+deck add-card -c Dark Hole -d oneParmida
+deck add-card -c Bitron -d oneParmida
+deck add-card -c Bitron -d oneParmida
+deck add-card -c Bitron -d oneParmida
+deck add-card -c Bitron -d oneParmida
+deck add-card -c Bitron -d oneParmida
+deck add-card -c Warrior Dai Grepher -d oneParmida
+deck add-card -c Warrior Dai Grepher -d oneParmida
+deck add-card -c Warrior Dai Grepher -d oneParmida
+deck add-card -c Warrior Dai Grepher -d oneParmida
+deck add-card -c Wattaildragon -d oneParmida
+deck add-card -c Wattaildragon -d oneParmida
+deck add-card -c Wattaildragon -d oneParmida
+deck show --all
+deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Yami -d oneParmida
+deck add-card -c Yami -d oneParmida
+deck add-card -c Yami -d oneParmida
+deck add-card -c Yami -d oneParmida
 deck show --all
 menu exit
+menu enter Shop
+shop buy Yami
+shop buy Yami
+menu exit
+menu enter Deck
+deck add-card -c Yami -d oneParmida
+menu show-current
+deck show --all
+deck set-activate oneParmida
+menu exit
+duel -n -r 3 -sp hamraz
+next phase
+select -h 2
+set
+select -m 1
+card show -s
  */

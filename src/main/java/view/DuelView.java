@@ -49,43 +49,44 @@ public class DuelView {
             Matcher isFieldZone = getCommandMatcher(matcher.group(1), "(--field|-f)");
             Matcher isHand = getCommandMatcher(matcher.group(1), "(--hand|-h)");
             Matcher numberMatcher = getCommandMatcher(matcher.group(1), "[0-9]+");
-            if (isMonster.find() && isOpponent.find() && numberMatcher.find()) {
+            if (isMonster.find(0) && isOpponent.find(0) && numberMatcher.find(0)) {
                 try {
                     duelController.selectCardOpponentMonsterZone(Integer.parseInt(numberMatcher.group()));
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }
-            } else if (isMonster.find() && numberMatcher.find()) {
+            } else if (isMonster.find(0) && numberMatcher.find(0)) {
                 try {
                     duelController.selectCardPlayerMonsterZone(Integer.parseInt(numberMatcher.group()));
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }
-            } else if (isSpellAndTrap.find() && isOpponent.find() && numberMatcher.find()) {
+            } else if (isSpellAndTrap.find(0) && isOpponent.find(0) && numberMatcher.find(0)) {
                 try {
                     duelController.selectCardOpponentTrapAndSpellZone(Integer.parseInt(numberMatcher.group()));
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }
-            } else if (isSpellAndTrap.find() && numberMatcher.find()) {
+            } else if (isSpellAndTrap.find(0) && numberMatcher.find(0)) {
                 try {
+//                    System.out.println("kj");
                     duelController.selectCardPlayerTrapAndSpellZone(Integer.parseInt(numberMatcher.group()));
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }
-            } else if (isFieldZone.find() && isOpponent.find()) {
+            } else if (isFieldZone.find(0) && isOpponent.find(0)) {
                 try {
                     duelController.selectCardOpponentFieldZone();
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }
-            } else if (isFieldZone.find()) {
+            } else if (isFieldZone.find(0)) {
                 try {
                     duelController.selectCardPlayerFieldZone();
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }
-            } else if (isHand.find() && numberMatcher.find()) {
+            } else if (isHand.find(0) && numberMatcher.find(0)) {
                 try {
                     duelController.selectCardPlayerHand(Integer.parseInt(numberMatcher.group()));
                 } catch (Exception exception) {
