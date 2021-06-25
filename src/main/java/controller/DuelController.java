@@ -460,7 +460,7 @@ public class DuelController {
     private void tributeOneMonsterForSet() throws Exception {
         String input = DuelView.scan();
         if (input.equals("cancel")) return;
-        while (!input.matches("[\\d]+")) {
+        while (!(input.matches("[\\d]+") && Integer.parseInt(input)<6)) {
             DuelView.printText("please enter a valid number!");
             input = DuelView.scan();
             if (input.equals("cancel")) return;
