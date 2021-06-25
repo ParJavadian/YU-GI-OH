@@ -60,6 +60,7 @@ public class ImportExportUserController {
         String highScore = "";
         String balance = "";
         File file = new File("allUsers.txt");
+
         try {
             if (file.exists()) {
                 Scanner scanner = new Scanner(file);
