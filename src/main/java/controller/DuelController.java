@@ -234,7 +234,7 @@ public class DuelController {
     }
 
     public void selectCardOpponentFieldZone() throws Exception {
-        Cardable fieldZone = this.player.getBoard().getFieldZone();
+        Cardable fieldZone = this.rival.getBoard().getFieldZone();
         if (fieldZone == null) {
             throw new NoCardFoundInThisPosition();
         } else {
@@ -614,6 +614,7 @@ public class DuelController {
     }
 
     private void attackMonsterOO(int monsterNumber) throws Exception {
+        System.out.println("i understand that target is OO");
         int attackerAttack = this.playerAttackPoints[this.selectedCard.getNumber()];
         int targetAttack = this.rivalAttackPoints[monsterNumber];
         if (attackerAttack > targetAttack) {
@@ -629,10 +630,12 @@ public class DuelController {
             this.rival.getBoard().putInGraveYard(this.rival.getBoard().getMonsterByNumber(monsterNumber));
             this.rival.getBoard().removeMonster(monsterNumber,this,rival);
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
+            System.out.println("rival removed");
             if (this.player.getBoard().getMonsterByNumber(this.selectedCard.getNumber()) != null) {
                 this.player.getBoard().putInGraveYard(this.selectedCard.getCard());
                 this.player.getBoard().removeMonster(this.selectedCard.getNumber(),this,player);
                 removeMonsterPlayer(this.selectedCard.getNumber());
+                System.out.println("player removed");
             }
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("both you and your opponent monster cards are destroyed and no one receives damage");
@@ -644,7 +647,7 @@ public class DuelController {
             this.player.getBoard().removeMonster(this.selectedCard.getNumber(),this,player);
             removeMonsterPlayer(this.selectedCard.getNumber());
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-            DuelView.printText("Your monster card is destroyed and you received " + damage + "battle damage");
+            DuelView.printText("Your monster card is destroyed and you received " + damage + " battle damage");
         }
         unselectCard();
         printBoard();
@@ -926,7 +929,7 @@ public class DuelController {
 
     public void goNextPhase() {
         //shayad to do in kar dare hala
-        printBoard();
+//        printBoard();
         if (this.phase.equals(Phase.DRAW_PHASE)) {
             this.phase = Phase.STANDBY_PHASE;
             DuelView.printText("phase: " + this.phase.getNamePascalCase());
