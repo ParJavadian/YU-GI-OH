@@ -131,7 +131,7 @@ public class ImportExportUserController {
             FileWriter writer = new FileWriter("Deck/" + username + deckName + "SideDeck.txt");
             Deck toBeExportedDeck = user.getDeckByName(deckName);
             for (Cardable card : toBeExportedDeck.getSideDeck()) {
-                String cardName = card.getName();
+                String cardName = card.getNamePascalCase();
                 writer.write(cardName + "\n");
             }
             writer.close();
@@ -184,7 +184,7 @@ public class ImportExportUserController {
         try {
             FileWriter writer = new FileWriter("Cards/" + user.getUsername() + ".txt");
             for (Cardable card : user.getAllCards()) {
-                String cardName = card.getName();
+                String cardName = card.getNamePascalCase();
                 writer.write(cardName + "\n");
             }
             writer.close();
