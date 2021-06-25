@@ -9,6 +9,7 @@ import java.util.*;
 public class DuelController {
 
     public static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
+    private DuelView duelView=null;
     //    public static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
     private User player;
     private User rival;
@@ -42,9 +43,13 @@ public class DuelController {
         this.rounds = new Round[roundNumber];
         this.roundNumber = roundNumber;
         this.roundCounter = 0;
-//        this.monsterZone = new MonsterZone(this);
+        //        this.monsterZone = new MonsterZone(this);
 //        newActionsOnThisCardPlayer();
         startNewGame(null);
+    }
+
+    public void setDuelView(DuelView duelView){
+        this.duelView = duelView;
     }
 
     private void newActionsOnThisCardPlayer() {
@@ -925,6 +930,7 @@ public class DuelController {
                 exchangeCardBetweenMainAndSide(this.player);
                 exchangeCardBetweenMainAndSide(this.rival);
                 startNewGame(winner);
+                duelView.getCommandForDuel();
             }
         }
     }
@@ -1042,13 +1048,13 @@ public class DuelController {
     }
 
     private void newThoseThatResetWithTurn() {
+        newActionsOnThisCardPlayer();
         for (int i = 0; i < 5; i++) {
             actionsOnThisCardPlayer.get(i).clear();
             if (this.player.getBoard().getMonsterByNumber(i) != null && this.playerAttackPoints[i] != null && this.playerAttackPoints[i] == 0 && this.player.getBoard().getMonsterByNumber(i).getAttack() != 0) {
                 this.playerAttackPoints[i] = this.player.getBoard().getMonsterByNumber(i).getAttack();
             }
         }
-        newActionsOnThisCardPlayer();
     }
 
     private void printBoard() {
