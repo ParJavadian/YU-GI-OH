@@ -116,7 +116,7 @@ public class ImportExportUserController {
             FileWriter writer = new FileWriter("Deck/" + username + deckName + "MainDeck.txt");
             Deck toBeExportedDeck = user.getDeckByName(deckName);
             for (Cardable card : toBeExportedDeck.getMainDeck()) {
-                String cardName = card.getName();
+                String cardName = card.getNamePascalCase();
                 writer.write(cardName + "\n");
             }
             writer.close();
