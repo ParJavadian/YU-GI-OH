@@ -1,5 +1,7 @@
 package model;
 
+import controller.DuelController;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,15 +83,23 @@ public class Board {
             if(this.monsters[playerGroundNumbers[i]] == null){
                 this.monsters[playerGroundNumbers[i]] =monsterCard;
                 this.monstersCondition[playerGroundNumbers[i]] =condition;
-                return i;
+                return playerGroundNumbers[i];
             }
         }
         return 0;
     }
 
-    public void removeMonster(int number) {
+    public void removeMonster(int number, DuelController duelController,User owner) {
         this.monsters[number] = null;
         this.monstersCondition[number] = null;
+        if(owner.getUsername().equals(duelController.getPlayer().getUsername())){
+            duelController.setMonsterAttackPlayer(number,null);
+            duelController.setMonsterDefencePlayer(number,null);
+        }
+        else {
+            duelController.setMonsterAttackRival(number,null);
+            duelController.setMonsterDefenceRival(number,null);
+        }
     }
 
     public int putSpellOrTrap(Cardable card, String condition) {
@@ -117,6 +127,7 @@ public class Board {
     }
 
     public void changeMonsterPosition(int index,String target){
+
         this.monstersCondition[index] = target;
     }
 

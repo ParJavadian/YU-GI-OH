@@ -92,7 +92,7 @@ public class User {
 
     public void decreaseMoney(int amount) {
         //TODO put back
-//        this.money -= amount;
+        this.money -= amount;
 //        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
 //        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
     }
@@ -140,9 +140,10 @@ public class User {
     public void setScore(int score) {
         this.score = score;
     }
+
     //TODO put back
     public void setMoney(int money) {
-//        this.money = money;
+        this.money = money;
     }
 
     public int getMoney() {

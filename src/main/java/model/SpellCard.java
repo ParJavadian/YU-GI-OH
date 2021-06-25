@@ -241,7 +241,7 @@ public enum SpellCard implements Cardable {
                 for (int i = 0; i < 5; i++) {
                     if (duelController.getPlayer().getBoard().getMonsterByNumber(i) != null) {
                         duelController.getPlayer().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
-                        duelController.getPlayer().getBoard().removeMonster(i);
+                        duelController.getPlayer().getBoard().removeMonster(i,duelController,duelController.getPlayer());
                         duelController.setMonsterAttackRival(i, null);
                     }
                 }
@@ -297,12 +297,12 @@ public enum SpellCard implements Cardable {
                 for (int i = 0; i < 5; i++) {
                     if (duelController.getPlayer().getBoard().getMonsterByNumber(i) != null) {
                         duelController.getPlayer().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
-                        duelController.getPlayer().getBoard().removeMonster(i);
+                        duelController.getPlayer().getBoard().removeMonster(i,duelController,duelController.getPlayer());
                         duelController.setMonsterAttackRival(i, null);
                     }
                     if (duelController.getRival().getBoard().getMonsterByNumber(i) != null) {
                         duelController.getRival().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
-                        duelController.getRival().getBoard().removeMonster(i);
+                        duelController.getRival().getBoard().removeMonster(i,duelController,duelController.getRival());
                         duelController.setMonsterAttackPlayer(i, null);
                     }
                 }

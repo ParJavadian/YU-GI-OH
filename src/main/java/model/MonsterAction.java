@@ -34,7 +34,7 @@ public class MonsterAction {
     public void destroyAttackerYomiShip(DuelController duelController,TakeActionCase takeActionCase){
         if (takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED)) {
             duelController.getPlayer().getBoard().putInGraveYard(duelController.getSelectedCard().getCard());
-            duelController.getPlayer().getBoard().removeMonster(duelController.getSelectedCard().getNumber());
+            duelController.getPlayer().getBoard().removeMonster(duelController.getSelectedCard().getNumber(),duelController,duelController.getPlayer());
             duelController.removeMonsterPlayer(duelController.getSelectedCard().getNumber());
         }
     }

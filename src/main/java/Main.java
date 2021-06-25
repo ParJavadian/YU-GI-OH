@@ -1,12 +1,12 @@
-import controller.ImportExportUserController;
+//import controller.ImportExportUserController;
 import view.LogInView;
 public class Main {
 
     public static void main(String[] args) {
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.importAllUsers();
-        importExportUserController.importAllCards();
-        importExportUserController.importAllDecks();
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.importAllUsers();
+//        importExportUserController.importAllCards();
+//        importExportUserController.importAllDecks();
         LogInView.getInstance().getCommandForLogin();
         /*ArrayList<MonsterTypes> types = new ArrayList<>();
         types.add(MonsterTypes.BEAST);
@@ -42,7 +42,10 @@ public class Main {
     }
 }
 /*
+user create -u hamraz -p 123 -n hamraz
+user create -u parmida -p 1234 -n parmida
 user login -u hamraz -p 123
+edoCtaehc yenom 1000000
 menu enter Shop
 shop buy Yomi Ship
 shop buy Yomi Ship
@@ -421,10 +424,6 @@ menu show-current
 deck show --all
 deck set-activate oneParmida
 menu exit
-duel -n -r 3 -sp hamraz
+duel -n -sp hamraz -r 3
 next phase
-select -h 2
-set
-select -m 1
-card show -s
  */
