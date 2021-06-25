@@ -254,11 +254,11 @@ public enum MonsterCard implements Cardable {
                 else if (duelController.getCountOfMonsterCardsInGround(duelController.getRival()) != 0) {
                     DuelView.printText("select one of opponent's monster cards by number to destroy");
                     String givenNumber = DuelView.scan();
-                    int monsterNumber = DuelController.getOpponentGroundNumbers()[Integer.parseInt(givenNumber) - 1] - 1;
+                    int monsterNumber = DuelController.getPlayerGroundNumbers()[Integer.parseInt(givenNumber) - 1] - 1;
                     while (duelController.getRival().getBoard().getMonsterByNumber(monsterNumber) == null) {
                         DuelView.printText("there is no monster in this place. enter another number");
                         givenNumber = DuelView.scan();
-                        monsterNumber = DuelController.getOpponentGroundNumbers()[Integer.parseInt(givenNumber) - 1] - 1;
+                        monsterNumber = DuelController.getPlayerGroundNumbers()[Integer.parseInt(givenNumber) - 1] - 1;
                     }
                     duelController.getRival().getBoard().getMonsterByNumber(monsterNumber).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), duelController.getSelectedCard().getNumber());
                     duelController.getRival().getBoard().removeMonster(monsterNumber,duelController,duelController.getRival());

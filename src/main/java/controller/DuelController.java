@@ -9,7 +9,7 @@ import java.util.*;
 public class DuelController {
 
     public static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
-    public static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
+//    public static final int[] opponentGroundNumbers = {3, 2, 4, 1, 5};
     private User player;
     private User rival;
     private Round[] rounds;
@@ -121,10 +121,6 @@ public class DuelController {
         return this.shouldEndGameForView;
     }
 
-    public static int[] getOpponentGroundNumbers() {
-        return opponentGroundNumbers;
-    }
-
     public static int[] getPlayerGroundNumbers() {
         return playerGroundNumbers;
     }
@@ -185,7 +181,7 @@ public class DuelController {
         if ((address > 5) || (address < 1)) {
             throw new InvalidSelection();
         }
-        address = opponentGroundNumbers[address - 1] - 1;
+        address = playerGroundNumbers[address - 1] - 1;
         if (monsters[address] == null) {
             throw new NoCardFoundInThisPosition();
         } else {
@@ -213,7 +209,7 @@ public class DuelController {
         if ((address > 5) || (address < 1)) {
             throw new InvalidSelection();
         }
-        address = opponentGroundNumbers[address - 1] - 1;
+        address = playerGroundNumbers[address - 1] - 1;
         if (spellAndTrap[address] == null) {
             throw new NoCardFoundInThisPosition();
         } else {
@@ -340,6 +336,11 @@ public class DuelController {
     private void tributeOneMonsterForSummon() throws Exception {
         String input = DuelView.scan();
         if (input.equals("cancel")) return;
+        while (!input.matches("[\\d]+")) {
+            DuelView.printText("please enter a valid number!");
+            input = DuelView.scan();
+            if (input.equals("cancel")) return;
+        }
         int address = Integer.parseInt(input);
         address = playerGroundNumbers[address - 1] - 1;
         if (this.player.getBoard().getMonsterByNumber(address) == null) throw new NoMonsterHere1();
@@ -359,11 +360,21 @@ public class DuelController {
     private void tributeTwoMonstersForSummon() throws Exception {
         String input1 = DuelView.scan();
         if (input1.equals("cancel")) return;
+        while (!input1.matches("[\\d]+")) {
+            DuelView.printText("please enter a valid number!");
+            input1 = DuelView.scan();
+            if (input1.equals("cancel")) return;
+        }
         int address1 = Integer.parseInt(input1) - 1;
         address1 = playerGroundNumbers[address1] - 1;
         if (this.player.getBoard().getMonsterByNumber(address1) == null) throw new NoMonsterHere1();
         String input2 = DuelView.scan();
         if (input2.equals("cancel")) return;
+        while (!input2.matches("[\\d]+")) {
+            DuelView.printText("please enter a valid number!");
+            input2 = DuelView.scan();
+            if (input2.equals("cancel")) return;
+        }
         int address2 = Integer.parseInt(input2) - 1;
         address2 = playerGroundNumbers[address2] - 1;
         if (this.player.getBoard().getMonsterByNumber(address2) == null) throw new NoMonsterHere1();
@@ -449,6 +460,11 @@ public class DuelController {
     private void tributeOneMonsterForSet() throws Exception {
         String input = DuelView.scan();
         if (input.equals("cancel")) return;
+        while (!input.matches("[\\d]+")) {
+            DuelView.printText("please enter a valid number!");
+            input = DuelView.scan();
+            if (input.equals("cancel")) return;
+        }
         int address = Integer.parseInt(input);
         address = playerGroundNumbers[address - 1] - 1;
         if (this.player.getBoard().getMonsterByNumber(address) == null) throw new NoMonsterHere1();
@@ -469,11 +485,21 @@ public class DuelController {
     private void tributeTwoMonstersForSet() throws Exception {
         String input1 = DuelView.scan();
         if (input1.equals("cancel")) return;
+        while (!input1.matches("[\\d]+")) {
+            DuelView.printText("please enter a valid number!");
+            input1 = DuelView.scan();
+            if (input1.equals("cancel")) return;
+        }
         int address1 = Integer.parseInt(input1);
         address1 = playerGroundNumbers[address1 - 1] - 1;
         if (this.player.getBoard().getMonsterByNumber(address1) == null) throw new NoMonsterHere1();
         String input2 = DuelView.scan();
         if (input2.equals("cancel")) return;
+        while (!input2.matches("[\\d]+")) {
+            DuelView.printText("please enter a valid number!");
+            input2 = DuelView.scan();
+            if (input2.equals("cancel")) return;
+        }
         int address2 = Integer.parseInt(input2);
         address2 = playerGroundNumbers[address2 - 1] - 1;
         if (this.player.getBoard().getMonsterByNumber(address2) == null) throw new NoMonsterHere1();
@@ -583,7 +609,8 @@ public class DuelController {
     }
 
     public void attackMonster(int monsterNumber) throws Exception {
-        monsterNumber = opponentGroundNumbers[monsterNumber - 1] - 1;
+
+        monsterNumber = playerGroundNumbers[monsterNumber - 1] - 1;
 //        System.out.println(monsterNumber + ", " + rival.getBoard().getMonsterByNumber(monsterNumber) + ", " + rival.getBoard().getMonsterByNumber(monsterNumber-1));
         if (this.selectedCard == null) throw new NoCardSelected();
         if (!(this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE) && (this.selectedCard.getCard() instanceof MonsterCard) && (this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals("OO"))))
@@ -614,10 +641,10 @@ public class DuelController {
     }
 
     private void attackMonsterOO(int monsterNumber) throws Exception {
-        System.out.println("i understand that target is OO");
+//        System.out.println("i understand that target is OO");
         int attackerAttack = this.playerAttackPoints[this.selectedCard.getNumber()];
         int targetAttack = this.rivalAttackPoints[monsterNumber];
-        System.out.println("attackerAttack: " + attackerAttack + ", targetAttack:" + targetAttack);
+//        System.out.println("attackerAttack: " + attackerAttack + ", targetAttack:" + targetAttack);
         if (attackerAttack > targetAttack) {
             int damage = attackerAttack - targetAttack;
             if (!this.rival.getBoard().getMonsterByNumber(monsterNumber).equals(MonsterCard.EXPLODER_DRAGON))
@@ -626,20 +653,17 @@ public class DuelController {
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
             this.rival.getBoard().removeMonster(monsterNumber, this, rival);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-            DuelView.printText("your opponent’s monster is destroyed and your opponent receives " + damage + " battle damage");
+//            DuelView.printText("your opponent’s monster is destroyed and your opponent receives " + damage + " battle damage");
         } else if (attackerAttack == targetAttack) {
-            System.out.println("1");
             this.rival.getBoard().putInGraveYard(this.rival.getBoard().getMonsterByNumber(monsterNumber));
-            System.out.println("2");
-            this.rival.getBoard().removeMonster(monsterNumber, this, rival);
-            System.out.println("3");
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
-            System.out.println("rival removed");
+            this.rival.getBoard().removeMonster(monsterNumber, this, rival);
+//            System.out.println("rival removed");
             if (this.player.getBoard().getMonsterByNumber(this.selectedCard.getNumber()) != null) {
                 this.player.getBoard().putInGraveYard(this.selectedCard.getCard());
                 this.player.getBoard().removeMonster(this.selectedCard.getNumber(), this, player);
                 removeMonsterPlayer(this.selectedCard.getNumber());
-                System.out.println("player removed");
+//                System.out.println("player removed");
             }
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("both you and your opponent monster cards are destroyed and no one receives damage");
@@ -979,10 +1003,12 @@ public class DuelController {
                     Collections.shuffle(this.rival.getGameDeck().getMainDeck());
                 }
             }
-            this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
-            this.player.getGameDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
+            if (this.player.getBoard().getCardsInHand().size() < 6) {
+                this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
+                this.player.getGameDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
+                DuelView.printText("new card added to the hand : " + playerMainCards.get(playerMainCards.size() - 1).getNamePascalCase());
+            }
             Collections.shuffle(this.player.getGameDeck().getMainDeck());
-            DuelView.printText("new card added to the hand : " + playerMainCards.get(playerMainCards.size() - 1).getNamePascalCase());
         }
         goNextPhase();
     }
