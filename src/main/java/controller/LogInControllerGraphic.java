@@ -32,19 +32,19 @@ public class LogInControllerGraphic {
 
 
 
-//        LogInController.getInstance().createUser(username,password,nickn);
-//        if (username.equals("")) {
-//            throw new EmptyUsernameBox();
-//        }
-//        if (password.equals("")) {
-//            throw new EmptyPasswordBox();
-//        }
-//        User user = User.getUserByUsername(username);
-//        if (User.getUserByUsername(username) == null || (!user.getPassword().equals(password))) {
-//            throw new WrongPasswordForSignInMenu();
-//        }
-//        MainViewGraphic.getInstance().setCurrentUser(user);
-//        MainViewGraphic.getInstance().start(stage);
+        /*LogInController.getInstance().createUser(username,password,nickn);
+        if (username.equals("")) {
+            throw new EmptyUsernameBox();
+        }
+        if (password.equals("")) {
+            throw new EmptyPasswordBox();
+        }
+        User user = User.getUserByUsername(username);
+        if (User.getUserByUsername(username) == null || (!user.getPassword().equals(password))) {
+            throw new WrongPasswordForSignInMenu();
+        }
+        MainViewGraphic.getInstance().setCurrentUser(user);
+        MainViewGraphic.getInstance().start(stage);*/
     }
 
 }

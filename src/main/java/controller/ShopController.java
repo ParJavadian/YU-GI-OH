@@ -53,8 +53,4 @@ public class ShopController {
     }
 
 
-    /*private void logOUtUser() {
-
-    }*/
-
 }

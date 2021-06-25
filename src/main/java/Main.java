@@ -1,12 +1,12 @@
-//import controller.ImportExportUserController;
+import controller.ImportExportUserController;
 import view.LogInView;
 public class Main {
 
     public static void main(String[] args) {
-//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-//        importExportUserController.importAllUsers();
-//        importExportUserController.importAllCards();
-//        importExportUserController.importAllDecks();
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.importAllUsers();
+        importExportUserController.importAllCards();
+        importExportUserController.importAllDecks();
         LogInView.getInstance().getCommandForLogin();
         /*ArrayList<MonsterTypes> types = new ArrayList<>();
         types.add(MonsterTypes.BEAST);
@@ -42,10 +42,7 @@ public class Main {
     }
 }
 /*
-user create -u hamraz -p 123 -n hamraz
-user create -u parmida -p 1234 -n parmida
 user login -u hamraz -p 123
-edoCtaehc yenom 1000000
 menu enter Shop
 shop buy Yomi Ship
 shop buy Yomi Ship

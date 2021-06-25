@@ -3,6 +3,7 @@
 import controller.DeckController;
 import controller.exeption.*;
 import model.*;
+
 import controller.*;
 import view.*;
 import org.junit.jupiter.api.Assertions;
@@ -740,15 +741,15 @@ public class test {
         DeckController.getInstance(player).showAllDecks();
         Assertions.assertEquals("Decks:\n" +
                 "Active deck:\n" +
-                "deck to check full side: main deck 0, side deck15, invalid\n" +
-                "Other decks\n" +
-                "@deck of kiana: main deck 0, side deck0, invalid\n" +
-                "@deck to check full main: main deck 52, side deck0, valid\n" +
-                "deck of kiana: main deck 0, side deck0, invalid\n" +
-                "deck to check add card: main deck 2, side deck2, invalid\n" +
-                "deck to check full main: main deck 60, side deck0, valid\n" +
-                "second deck: main deck 0, side deck0, invalid\n" +
-                "third deck: main deck 0, side deck0, invalid\n".replaceAll("\n","\r\n"),outContent.toString());
+                "deck to check full side: main deck 0, side deck 15, invalid\n" +
+                "Other decks:\n" +
+                "@deck of kiana: main deck 0, side deck 0, invalid\n" +
+                "@deck to check full main: main deck 52, side deck 0, valid\n" +
+                "deck of kiana: main deck 0, side deck 0, invalid\n" +
+                "deck to check add card: main deck 2, side deck 2, invalid\n" +
+                "deck to check full main: main deck 60, side deck 0, valid\n" +
+                "second deck: main deck 0, side deck 0, invalid\n" +
+                "third deck: main deck 0, side deck 0, invalid\n".replaceAll("\n","\r\n"),outContent.toString());
         System.setOut(sysOutBackup);
     }
 
