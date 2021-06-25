@@ -5,6 +5,7 @@ import controller.MainController;
 import controller.ShopController;
 import model.*;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -50,7 +51,7 @@ public class MainView {
             if(matcher4.find() && matcher1.find() && matcher3.find()){
                 try{
                     new User("@AI@","@AIplayer","1234AIPlayer1234");
-                    User.getUserByUsername("@AI@").setActiveDeck(DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI());
+                    Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI());
                     mainController.newDuel("@AI@",Integer.parseInt(matcher3.group(2)));
                 }
                 catch (Exception exception){

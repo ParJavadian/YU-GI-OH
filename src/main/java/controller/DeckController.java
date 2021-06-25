@@ -180,13 +180,8 @@ public class DeckController {
         allDecks.sort(deckComparator);
         for (Deck deck : allDecks) {
             toPrint.append(deck.toString());
-            if (allDecks.get(allDecks.size() - 1).equals(deck)) {
-                if (deck.isValid()) toPrint.append(", valid");
-                else toPrint.append(", invalid");
-            } else {
-                if (deck.isValid()) toPrint.append(", valid\n");
-                else toPrint.append(", invalid\n");
-            }
+            if (deck.isValid()) toPrint.append(", valid\n");
+            else toPrint.append(", invalid\n");
         }
         DeckView.getInstance(this.user).printText(toPrint.toString());
     }

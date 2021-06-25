@@ -67,27 +67,29 @@ public class ImportExportUserController {
                 while (scanner.hasNextLine()) {
                     username = scanner.nextLine();
                     File userFile = new File("Users/" + username + ".txt");
-                    Scanner userScanner = new Scanner(userFile);
-                    int counter = 5;
-                    while (userScanner.hasNextLine()) {
-                        if (counter == 5)
-                            username = userScanner.nextLine();
-                        if (counter == 4)
-                            password = userScanner.nextLine();
-                        if (counter == 3)
-                            nickname = userScanner.nextLine();
-                        if (counter == 2)
-                            highScore = userScanner.nextLine();
-                        if (counter == 1)
-                            balance = userScanner.nextLine();
-                        if (counter == 0)
-                            break;
-                        counter--;
-                    }
-                    User user = new User(username, nickname, password);
-                    if (balance.matches("\\d+") && highScore.matches("\\d+")) {
-                        user.setMoney(Integer.parseInt(balance));
-                        user.setScore(Integer.parseInt(highScore));
+                    if (userFile.exists()) {
+                        Scanner userScanner = new Scanner(userFile);
+                        int counter = 5;
+                        while (userScanner.hasNextLine()) {
+                            if (counter == 5)
+                                username = userScanner.nextLine();
+                            if (counter == 4)
+                                password = userScanner.nextLine();
+                            if (counter == 3)
+                                nickname = userScanner.nextLine();
+                            if (counter == 2)
+                                highScore = userScanner.nextLine();
+                            if (counter == 1)
+                                balance = userScanner.nextLine();
+                            if (counter == 0)
+                                break;
+                            counter--;
+                        }
+                        User user = new User(username, nickname, password);
+                        if (balance.matches("\\d+") && highScore.matches("\\d+")) {
+                            user.setMoney(Integer.parseInt(balance));
+                            user.setScore(Integer.parseInt(highScore));
+                        }
                     }
                 }
             }
@@ -151,26 +153,25 @@ public class ImportExportUserController {
                         Scanner scanner = new Scanner(file);
                         while (scanner.hasNextLine()) {
                             deckName = scanner.nextLine();
+                            Deck deck = new Deck(deckName);
                             File mainDeckFile = new File("Deck/" + user.getUsername() + deckName + "MainDeck.txt");
                             File sideDeckFile = new File("Deck/" + user.getUsername() + deckName + "SideDeck.txt");
                             if (mainDeckFile.exists()) {
                                 Scanner mainDeckScanner = new Scanner(mainDeckFile);
-                                Deck deck = new Deck(deckName);
+
                                 while (mainDeckScanner.hasNextLine()) {
                                     String cardName = mainDeckScanner.nextLine();
                                     deck.addCardToMainDeck(DeckController.getInstance(user).getCardByName(cardName));
                                 }
-                                user.addDeck(deck);
                             }
                             if (sideDeckFile.exists()) {
                                 Scanner sideDeckScanner = new Scanner(sideDeckFile);
-                                Deck deck = new Deck(deckName);
                                 while (sideDeckScanner.hasNextLine()) {
                                     String cardName = sideDeckScanner.nextLine();
                                     deck.addCardToSideDeck(DeckController.getInstance(user).getCardByName(cardName));
                                 }
-                                user.addDeck(deck);
                             }
+                            user.addDeck(deck);
                         }
                     }
                 } catch (FileNotFoundException e) {
