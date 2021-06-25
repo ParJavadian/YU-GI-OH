@@ -91,6 +91,7 @@ public class User {
     }
 
     public void decreaseMoney(int amount) {
+        //TODO put back
         this.money -= amount;
         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
@@ -139,7 +140,7 @@ public class User {
     public void setScore(int score) {
         this.score = score;
     }
-
+    //TODO put back
     public void setMoney(int money) {
         this.money = money;
     }
@@ -220,25 +221,25 @@ public class User {
         return  (this.username.equals(user.username));
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        User user = (User) o;
-//        return Objects.equals(this.username, user.username);
-//    }
+/*    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(this.username, user.username);
+    }
 
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        User user = (User) o;
-//        return Objects.equals(username, user.username);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(username);
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username);
+    }*/
 }

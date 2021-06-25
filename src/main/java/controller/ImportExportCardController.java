@@ -75,9 +75,7 @@ public class ImportExportCardController {
                 break;
             counter--;
         }
-/*
-                SpellCard spellCard = new SpellCard(icon,description,status,price)
-*/
+//                SpellCard spellCard = new SpellCard(icon,description,status,price)
     }
 
     private void importTrapCard(File trapFile) throws FileNotFoundException {

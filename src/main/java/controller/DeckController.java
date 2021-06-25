@@ -47,6 +47,8 @@ public class DeckController {
         if (this.user.getDeckByName(name) == null) {
             Deck deck = new Deck(name);
             this.user.addDeck(deck);
+            //TODO remove this
+            System.out.println("deck created!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
             DeckView.getInstance(this.user).printText("deck created successfully!");
@@ -61,7 +63,6 @@ public class DeckController {
         Collections.addAll(allCards, MonsterCard.values());
         Collections.addAll(allCards, SpellCard.values());
         Collections.addAll(allCards, TrapCard.values());
-
         while (user.getDeckByName("DeckForAI").getMainSize() < 46){
             int randomNum = ThreadLocalRandom.current().nextInt(0, allCards.size());
             try {

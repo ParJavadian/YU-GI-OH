@@ -57,17 +57,16 @@ public class MainView {
                     printText(exception.getMessage());
                 }
             }
-
-            Matcher matcher = getCommandMatcher(command, "edoCtaehc yenom ([0-9]+)");
-            if (matcher.matches()){
-                int amount = Integer.parseInt(matcher.group(1));
-                mainController.cheatMoney(amount);
-                return false;
-            }
+        }
+        Matcher matcher = getCommandMatcher(command, "edoCtaehc yenom ([0-9]+)");
+        if (matcher.matches()){
+            int amount = Integer.parseInt(matcher.group(1));
+            mainController.cheatMoney(amount);
+            return false;
         }
 
-        //TODO MENU ENTER NEMIKONE
-        Matcher matcher = getCommandMatcher(command, "menu enter ([\\w ]+)");
+        //TO DO MENU ENTER NEMIKONE(mikone alan dige?parmida)
+        matcher = getCommandMatcher(command, "menu enter ([\\w ]+)");
         if (matcher.matches()) {
             mainController.goToMenu(matcher.group(1));
             return false;
