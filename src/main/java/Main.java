@@ -83,10 +83,10 @@ shop buy Haniwa
 shop buy Haniwa
 shop buy Haniwa
 shop buy Haniwa
-shop buy Horn Imp
-shop buy Horn Imp
-shop buy Horn Imp
-shop buy Horn Imp
+shop buy Gate Guardian
+shop buy Gate Guardian
+shop buy Gate Guardian
+shop buy Gate Guardian
 shop buy Magic Cylinder
 shop buy Magic Cylinder
 shop buy Magic Cylinder
@@ -177,9 +177,9 @@ deck add-card -c Magic Cylinder -d one
 deck add-card -c Magic Cylinder -d one
 deck add-card -c Magic Cylinder -d one
 deck show --all
-deck add-card -c Horn Imp -d one
-deck add-card -c Horn Imp -d one
-deck add-card -c Horn Imp -d one
+deck add-card -c Gate Guardian -d one
+deck add-card -c Gate Guardian -d one
+deck add-card -c Gate Guardian -d one
 deck add-card Haniwa -d one
 deck add-card -c Haniwa -d one
 deck add-card -c Haniwa -d one
@@ -274,10 +274,10 @@ shop buy Haniwa
 shop buy Haniwa
 shop buy Haniwa
 shop buy Haniwa
-shop buy Horn Imp
-shop buy Horn Imp
-shop buy Horn Imp
-shop buy Horn Imp
+shop buy Gate Guardian
+shop buy Gate Guardian
+shop buy Gate Guardian
+shop buy Gate Guardian
 shop buy Magic Cylinder
 shop buy Magic Cylinder
 shop buy Magic Cylinder
@@ -366,9 +366,9 @@ deck add-card -c Magic Cylinder -d oneParmida
 deck add-card -c Magic Cylinder -d oneParmida
 deck add-card -c Magic Cylinder -d oneParmida
 deck show --all
-deck add-card -c Horn Imp -d oneParmida
-deck add-card -c Horn Imp -d oneParmida
-deck add-card -c Horn Imp -d oneParmida
+deck add-card -c Gate Guardian -d oneParmida
+deck add-card -c Gate Guardian -d oneParmida
+deck add-card -c Gate Guardian -d oneParmida
 deck add-card Haniwa -d oneParmida
 deck add-card -c Haniwa -d oneParmida
 deck add-card -c Haniwa -d oneParmida

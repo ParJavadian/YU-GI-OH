@@ -82,7 +82,7 @@ public enum SpellCard implements Cardable {
                                 break;
                         }
                         int targetPlace = duelController.getPlayer().getBoard().putMonster((MonsterCard) card, position);
-                        ((MonsterCard) card).takeAction(duelController, TakeActionCase.PUT_IN_MONSTERZONE, duelController.getPlayer(), targetPlace);
+                        ((MonsterCard) card).takeAction(duelController, TakeActionCase.SUMMONED, duelController.getPlayer(), targetPlace);
                         duelController.getPlayer().getBoard().getCardsInGraveyard().remove(i - 1);
                         duelController.setSelectedCard(null);
                         DuelView.printText("special summoned successfully");
@@ -149,7 +149,7 @@ public enum SpellCard implements Cardable {
                                 break;
                         }
                         targetPlace = duelController.getRival().getBoard().putMonster((MonsterCard) card, position);
-                        ((MonsterCard) card).takeAction(duelController, TakeActionCase.PUT_IN_MONSTERZONE, duelController.getPlayer(), targetPlace);
+                        ((MonsterCard) card).takeAction(duelController, TakeActionCase.SUMMONED, duelController.getPlayer(), targetPlace);
                         duelController.getRival().getBoard().getCardsInGraveyard().remove(i - 1);
                         duelController.setSelectedCard(null);
                         DuelView.printText("special summoned successfully");

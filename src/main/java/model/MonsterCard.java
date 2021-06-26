@@ -12,7 +12,7 @@ public enum MonsterCard implements Cardable {
                     "opponent controls cannot target this card for an attack.",
             2100, true) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
-            MonsterAction.getInstance().addToMonsterAttackPoints(duelController, 400, takeActionCase);
+            MonsterAction.getInstance().addToMonsterAttackPoints(duelController, 400, takeActionCase,owner,targetNumber);
         }
 
         public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
@@ -277,6 +277,10 @@ public enum MonsterCard implements Cardable {
                     "\"Sanga of the Thunder\", \"Kazejin\", and \"Suijin\".", 20000, false) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.SPECIAL_SUMMONED)) {
+                if(duelController.getCountOfMonsterCardsInGround(owner)<3){
+                    DuelView.printText("there is no way you could special summon a monster");
+                    return;
+                }
                 DuelView.printText("select 3 monsters from ground to tribute");
                 String input1 = DuelView.scan();
                 if (input1.equals("cancel")) return;
@@ -334,7 +338,7 @@ public enum MonsterCard implements Cardable {
                         break;
                 }
                 int targetPlace = duelController.getPlayer().getBoard().putMonster((MonsterCard) duelController.getSelectedCard().getCard(), position);
-                ((MonsterCard) duelController.getSelectedCard().getCard()).takeAction(duelController, TakeActionCase.PUT_IN_MONSTERZONE, duelController.getPlayer(), targetPlace);
+                ((MonsterCard) duelController.getSelectedCard().getCard()).takeAction(duelController, TakeActionCase.SUMMONED, duelController.getPlayer(), targetPlace);
                 duelController.getPlayer().getBoard().getCardsInHand().remove((int) duelController.getSelectedCard().getNumber());
                 duelController.setSelectedCard(null);
                 DuelView.printText("special summoned successfully");

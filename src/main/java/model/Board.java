@@ -95,6 +95,7 @@ public class Board {
         if(owner.getUsername().equals(duelController.getPlayer().getUsername())){
             duelController.setMonsterAttackPlayer(number,null);
             duelController.setMonsterDefencePlayer(number,null);
+            duelController.getActionsOnThisCardPlayer(number).clear();
         }
         else {
             duelController.setMonsterAttackRival(number,null);
@@ -107,7 +108,7 @@ public class Board {
             if(this.spellsAndTraps[playerGroundNumbers[i]] == null){
                 this.spellsAndTraps[playerGroundNumbers[i]] =card;
                 this.spellsAndTrapsCondition[playerGroundNumbers[i]] =condition;
-                return i;
+                return playerGroundNumbers[i];
             }
         }
         return 0;

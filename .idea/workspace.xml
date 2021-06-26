@@ -22,19 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="debug1">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="debug show card2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotActivateEffectOnThisTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotActivateEffectInThisPhase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ActionsDoneInTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ActionsDoneInTurn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/MonsterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MonsterAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MonsterCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/DuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DuelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TakeActionCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TakeActionCase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +66,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -271,7 +269,63 @@
       <option name="project" value="LOCAL" />
       <updated>1624625286861</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="debug2">
+      <created>1624639165113</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1624639165113</updated>
+    </task>
+    <task id="LOCAL-00016" summary="ai">
+      <created>1624641323564</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1624641323564</updated>
+    </task>
+    <task id="LOCAL-00017" summary="debug attack1">
+      <created>1624643600247</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1624643600247</updated>
+    </task>
+    <task id="LOCAL-00018" summary="debug attack2">
+      <created>1624645817335</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1624645817335</updated>
+    </task>
+    <task id="LOCAL-00019" summary="debug attack3">
+      <created>1624646566864</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1624646566864</updated>
+    </task>
+    <task id="LOCAL-00020" summary="debug attack4">
+      <created>1624650239704</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1624650239704</updated>
+    </task>
+    <task id="LOCAL-00021" summary="debug show card">
+      <created>1624653667478</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1624653667478</updated>
+    </task>
+    <task id="LOCAL-00022" summary="debug show card2">
+      <created>1624654145122</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1624654145122</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +357,15 @@
     <MESSAGE value="jabejayie cheat money" />
     <MESSAGE value="draw phase automatic" />
     <MESSAGE value="debug1" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug1" />
+    <MESSAGE value="debug2" />
+    <MESSAGE value="ai" />
+    <MESSAGE value="debug attack1" />
+    <MESSAGE value="debug attack2" />
+    <MESSAGE value="debug attack3" />
+    <MESSAGE value="debug attack4" />
+    <MESSAGE value="debug show card" />
+    <MESSAGE value="debug show card2" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug show card2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1624635190568">
@@ -314,22 +376,38 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="170" y="166" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1624627910544" />
-    <state width="1237" height="234" key="GridCell.Tab.0.bottom" timestamp="1624636032484">
+    <state width="1237" height="175" key="GridCell.Tab.0.bottom" timestamp="1624701283398">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="234" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624636032484" />
-    <state width="1237" height="234" key="GridCell.Tab.0.center" timestamp="1624636032484">
+    <state width="1237" height="175" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624701283398" />
+    <state width="1237" height="175" key="GridCell.Tab.0.center" timestamp="1624701283398">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="234" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624636032484" />
-    <state width="1237" height="234" key="GridCell.Tab.0.left" timestamp="1624636032484">
+    <state width="1237" height="175" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624701283398" />
+    <state width="1237" height="175" key="GridCell.Tab.0.left" timestamp="1624701283398">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="234" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624636032484" />
-    <state width="1237" height="234" key="GridCell.Tab.0.right" timestamp="1624636032484">
+    <state width="1237" height="175" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624701283398" />
+    <state width="1237" height="175" key="GridCell.Tab.0.right" timestamp="1624701283398">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="234" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624636032484" />
+    <state width="1237" height="175" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624701283398" />
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1624645265744">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624645265744" />
+    <state width="1237" height="204" key="GridCell.Tab.1.center" timestamp="1624645265744">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1624645265744" />
+    <state width="1237" height="204" key="GridCell.Tab.1.left" timestamp="1624645265744">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1624645265744" />
+    <state width="1237" height="204" key="GridCell.Tab.1.right" timestamp="1624645265744">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1624645265744" />
     <state x="121" y="51" key="MergeDialog" timestamp="1624625355990">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -338,10 +416,18 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="280" y="102" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1624625366881" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624625379373">
+    <state x="142" y="0" key="SettingsEditor" timestamp="1624653799626">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624625379373" />
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1624653799626" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624654149478">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624654149478" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624639103809">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1624639103809" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1624560055229">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -350,5 +436,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1624623432354" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
