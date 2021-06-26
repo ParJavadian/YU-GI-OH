@@ -23,7 +23,7 @@ public enum SpellCard implements Cardable {
                 switch (graveyard) {
                     case "My":
                         boolean hasMonster = false;
-                        for (int i = 1; i <= duelController.getPlayer().getBoard().getCardsInGraveyard().size(); i++) {
+                        for (int i = 0; i < duelController.getPlayer().getBoard().getCardsInGraveyard().size(); i++) {
                             Cardable card = duelController.getPlayer().getBoard().getCardsInGraveyard().get(i);
                             if (card instanceof MonsterCard) {
                                 hasMonster = true;
@@ -37,7 +37,7 @@ public enum SpellCard implements Cardable {
                         }
                         DuelView.printText("select one these cards by number:");
                         int monsterCounter = 1;
-                        for (int i = 1; i <= duelController.getPlayer().getBoard().getCardsInGraveyard().size(); i++) {
+                        for (int i = 0; i < duelController.getPlayer().getBoard().getCardsInGraveyard().size(); i++) {
                             Cardable card = duelController.getPlayer().getBoard().getCardsInGraveyard().get(i);
                             if (card instanceof MonsterCard) {
                                 DuelView.printText(monsterCounter + ": " + card.getNamePascalCase() + ": " + card.getDescription());
@@ -55,7 +55,7 @@ public enum SpellCard implements Cardable {
                         }
                         monsterCounter = 1;
                         int i;
-                        for (i = 1; i <= duelController.getPlayer().getBoard().getCardsInGraveyard().size(); i++) {
+                        for (i = 0; i < duelController.getPlayer().getBoard().getCardsInGraveyard().size(); i++) {
                             Cardable card = duelController.getPlayer().getBoard().getCardsInGraveyard().get(i);
                             if (card instanceof MonsterCard) {
                                 if (monsterCounter == Integer.parseInt(cardNumber))
@@ -64,7 +64,7 @@ public enum SpellCard implements Cardable {
                                     monsterCounter++;
                             }
                         }
-                        Cardable card = duelController.getPlayer().getBoard().getCardsInGraveyard().get(i - 1);
+                        Cardable card = duelController.getPlayer().getBoard().getCardsInGraveyard().get(i);
                         DuelView.printText("enter the position you want to summon monster in(attack or defence)");
                         String position = DuelView.scan();
                         if (position.equals("cancel")) return false;
@@ -83,15 +83,14 @@ public enum SpellCard implements Cardable {
                         }
                         int targetPlace = duelController.getPlayer().getBoard().putMonster((MonsterCard) card, position);
                         ((MonsterCard) card).takeAction(duelController, TakeActionCase.SUMMONED, duelController.getPlayer(), targetPlace);
-                        duelController.getPlayer().getBoard().getCardsInGraveyard().remove(i - 1);
-                        duelController.setSelectedCard(null);
+                        duelController.getPlayer().getBoard().getCardsInGraveyard().remove(i);
                         DuelView.printText("special summoned successfully");
                         SpellAction.getInstance().enableSpellAbsorptions(duelController);
                         duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
                         return true;
                     case "Rival":
                         hasMonster = false;
-                        for (i = 1; i <= duelController.getRival().getBoard().getCardsInGraveyard().size(); i++) {
+                        for (i = 0; i < duelController.getRival().getBoard().getCardsInGraveyard().size(); i++) {
                             card = duelController.getRival().getBoard().getCardsInGraveyard().get(i);
                             if (card instanceof MonsterCard) {
                                 hasMonster = true;
@@ -105,7 +104,7 @@ public enum SpellCard implements Cardable {
                         }
                         DuelView.printText("select one these cards by number:");
                         monsterCounter = 1;
-                        for (i = 1; i <= duelController.getRival().getBoard().getCardsInGraveyard().size(); i++) {
+                        for (i = 0; i < duelController.getRival().getBoard().getCardsInGraveyard().size(); i++) {
                             card = duelController.getRival().getBoard().getCardsInGraveyard().get(i);
                             if (card instanceof MonsterCard) {
                                 DuelView.printText(monsterCounter + ": " + card.getNamePascalCase() + ": " + card.getDescription());
@@ -122,7 +121,7 @@ public enum SpellCard implements Cardable {
                             if (cardNumber.equals("cancel")) return false;
                         }
                         monsterCounter = 1;
-                        for (i = 1; i <= duelController.getRival().getBoard().getCardsInGraveyard().size(); i++) {
+                        for (i = 0; i < duelController.getRival().getBoard().getCardsInGraveyard().size(); i++) {
                             card = duelController.getRival().getBoard().getCardsInGraveyard().get(i);
                             if (card instanceof MonsterCard) {
                                 if (monsterCounter == Integer.parseInt(cardNumber))
@@ -131,7 +130,7 @@ public enum SpellCard implements Cardable {
                                     monsterCounter++;
                             }
                         }
-                        card = duelController.getRival().getBoard().getCardsInGraveyard().get(i - 1);
+                        card = duelController.getRival().getBoard().getCardsInGraveyard().get(i);
                         DuelView.printText("enter the position you want to summon monster in(attack or defence)");
                         position = DuelView.scan();
                         if (position.equals("cancel")) return false;
@@ -148,10 +147,9 @@ public enum SpellCard implements Cardable {
                                 position = "DO";
                                 break;
                         }
-                        targetPlace = duelController.getRival().getBoard().putMonster((MonsterCard) card, position);
+                        targetPlace = duelController.getPlayer().getBoard().putMonster((MonsterCard) card, position);
                         ((MonsterCard) card).takeAction(duelController, TakeActionCase.SUMMONED, duelController.getPlayer(), targetPlace);
-                        duelController.getRival().getBoard().getCardsInGraveyard().remove(i - 1);
-                        duelController.setSelectedCard(null);
+                        duelController.getRival().getBoard().getCardsInGraveyard().remove(i);
                         DuelView.printText("special summoned successfully");
                         SpellAction.getInstance().enableSpellAbsorptions(duelController);
                         duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
@@ -208,7 +206,6 @@ public enum SpellCard implements Cardable {
                 Cardable card = duelController.getPlayer().getGameDeck().getMainDeck().get(i - 1);
                 duelController.getPlayer().getBoard().getCardsInHand().add(card);
                 duelController.getPlayer().getGameDeck().getMainDeck().remove(i - 1);
-                duelController.setSelectedCard(null);
                 DuelView.printText("card added to hand successfully");
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);

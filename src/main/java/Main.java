@@ -53,10 +53,10 @@ shop buy Yomi Ship
 shop buy Wattaildragon
 shop buy Wattaildragon
 shop buy Wattaildragon
-shop buy Warrior Dai Grepher
-shop buy Warrior Dai Grepher
-shop buy Warrior Dai Grepher
-shop buy Warrior Dai Grepher
+shop buy Monster Reborn
+shop buy Monster Reborn
+shop buy Monster Reborn
+shop buy Monster Reborn
 shop buy Bitron
 shop buy Bitron
 shop buy Bitron
@@ -207,10 +207,10 @@ deck add-card -c Bitron -d one
 deck add-card -c Bitron -d one
 deck add-card -c Bitron -d one
 deck add-card -c Bitron -d one
-deck add-card -c Warrior Dai Grepher -d one
-deck add-card -c Warrior Dai Grepher -d one
-deck add-card -c Warrior Dai Grepher -d one
-deck add-card -c Warrior Dai Grepher -d one
+deck add-card -c Monster Reborn -d one
+deck add-card -c Monster Reborn -d one
+deck add-card -c Monster Reborn -d one
+deck add-card -c Monster Reborn -d one
 deck add-card -c Wattaildragon -d one
 deck add-card -c Wattaildragon -d one
 deck add-card -c Wattaildragon -d one
@@ -244,10 +244,10 @@ shop buy Yomi Ship
 shop buy Wattaildragon
 shop buy Wattaildragon
 shop buy Wattaildragon
-shop buy Warrior Dai Grepher
-shop buy Warrior Dai Grepher
-shop buy Warrior Dai Grepher
-shop buy Warrior Dai Grepher
+shop buy Monster Reborn
+shop buy Monster Reborn
+shop buy Monster Reborn
+shop buy Monster Reborn
 shop buy Bitron
 shop buy Bitron
 shop buy Bitron
@@ -396,10 +396,10 @@ deck add-card -c Bitron -d oneParmida
 deck add-card -c Bitron -d oneParmida
 deck add-card -c Bitron -d oneParmida
 deck add-card -c Bitron -d oneParmida
-deck add-card -c Warrior Dai Grepher -d oneParmida
-deck add-card -c Warrior Dai Grepher -d oneParmida
-deck add-card -c Warrior Dai Grepher -d oneParmida
-deck add-card -c Warrior Dai Grepher -d oneParmida
+deck add-card -c Monster Reborn -d oneParmida
+deck add-card -c Monster Reborn -d oneParmida
+deck add-card -c Monster Reborn -d oneParmida
+deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Wattaildragon -d oneParmida
 deck add-card -c Wattaildragon -d oneParmida
 deck add-card -c Wattaildragon -d oneParmida
