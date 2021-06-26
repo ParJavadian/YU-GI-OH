@@ -463,7 +463,7 @@ public class test {
                 "Time Seal:2000\n" +
                 "Torrential Tribute:2000\n" +
                 "Trap Hole:2000\n" +
-                "Twin Twister:3500\n" +
+                "Twin Twisters:3500\n" +
                 "Umiiruka:4300\n" +
                 "United We Stand:4300\n" +
                 "Vanitys Emptiness:3500\n" +

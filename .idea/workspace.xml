@@ -22,11 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="activate spell debug 1">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="AIFullDebug + monster reborn">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MonsterZone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,8 +105,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScoreBoardViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.ScoreBoardViewGraphic" />
+    <configuration name="SignUpViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.SignUpViewGraphic" />
       <module name="project_team_17_2" />
       <extension name="coverage">
         <pattern>
@@ -116,15 +118,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SignUpViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.SignUpViewGraphic" />
-      <module name="project_team_17_2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project_team_17" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,10 +140,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
         <item itemvalue="Application.MainViewGraphic" />
         <item itemvalue="Application.SignUpViewGraphic" />
-        <item itemvalue="Application.ScoreBoardViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -403,7 +401,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624725085666</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="AIFullDebug + monster reborn">
+      <created>1624729177752</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1624729177752</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +427,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="kiana test error fix" />
     <MESSAGE value="show all cards debug" />
     <MESSAGE value="jabejayie cheat money" />
     <MESSAGE value="draw phase automatic" />
@@ -447,9 +451,14 @@
     <MESSAGE value="suijin debug 2" />
     <MESSAGE value="gate gaurdian debug" />
     <MESSAGE value="activate spell debug 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="activate spell debug 1" />
+    <MESSAGE value="AIFullDebug + monster reborn" />
+    <option name="LAST_COMMIT_MESSAGE" value="AIFullDebug + monster reborn" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="93" y="93" width="1095" height="495" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1624733420279">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="93" y="93" width="1095" height="495" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.680@0.0.1280.680" timestamp="1624733420279" />
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1624635190568">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -458,22 +467,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="170" y="166" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1624627910544" />
-    <state width="1237" height="412" key="GridCell.Tab.0.bottom" timestamp="1624729033169">
+    <state width="1237" height="117" key="GridCell.Tab.0.bottom" timestamp="1624737298272">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="412" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624729033169" />
-    <state width="1237" height="412" key="GridCell.Tab.0.center" timestamp="1624729033169">
+    <state width="1237" height="117" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624737298272" />
+    <state width="1237" height="117" key="GridCell.Tab.0.center" timestamp="1624737298271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="412" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624729033169" />
-    <state width="1237" height="412" key="GridCell.Tab.0.left" timestamp="1624729033169">
+    <state width="1237" height="117" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624737298271" />
+    <state width="1237" height="117" key="GridCell.Tab.0.left" timestamp="1624737298271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="412" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624729033168" />
-    <state width="1237" height="412" key="GridCell.Tab.0.right" timestamp="1624729033169">
+    <state width="1237" height="117" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624737298271" />
+    <state width="1237" height="117" key="GridCell.Tab.0.right" timestamp="1624737298271">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="412" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624729033169" />
+    <state width="1237" height="117" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624737298271" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1624645265744">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -502,10 +511,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1624653799626" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624725087635">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624729179699">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624725087635" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624729179699" />
     <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624639103809">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

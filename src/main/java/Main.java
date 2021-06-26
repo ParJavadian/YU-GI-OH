@@ -1,5 +1,7 @@
 //import controller.ImportExportUserController;
+
 import view.LogInView;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -50,17 +52,17 @@ menu enter Shop
 shop buy Yomi Ship
 shop buy Yomi Ship
 shop buy Yomi Ship
-shop buy Wattaildragon
-shop buy Wattaildragon
-shop buy Wattaildragon
+shop buy Pot Of Greed
+shop buy Pot Of Greed
+shop buy Pot Of Greed
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
-shop buy Bitron
-shop buy Bitron
-shop buy Bitron
-shop buy Bitron
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
 shop buy Dark Hole
 shop buy Dark Hole
 shop buy Dark Hole
@@ -144,10 +146,6 @@ deck add-card -c Silver Fang -d one –s
 deck add-card -c Silver Fang -d one -s
 deck add-card -c Silver Fang -d one -s
 deck add-card -c Silver Fang -d one -s
-deck add-card -c Spell Absorption -d one -s
-deck add-card -c Spell Absorption -d one -s
-deck add-card -c Spell Absorption -d one -s
-deck add-card -c Spell Absorption -d one -s
 deck add-card -c Trap Hole -d one -s
 deck add-card -c Trap Hole -d one -s
 deck add-card -c Trap Hole -d one -s
@@ -202,18 +200,18 @@ deck add-card -c Dark Hole -d one
 deck add-card -c Dark Hole -d one
 deck add-card -c Dark Hole -d one
 deck add-card -c Dark Hole -d one
-deck add-card -c Bitron -d one
-deck add-card -c Bitron -d one
-deck add-card -c Bitron -d one
-deck add-card -c Bitron -d one
-deck add-card -c Bitron -d one
+deck add-card -c Spell Absorption -d one
+deck add-card -c Spell Absorption -d one
+deck add-card -c Spell Absorption -d one
+deck add-card -c Spell Absorption -d one
+deck add-card -c Spell Absorption -d one
 deck add-card -c Monster Reborn -d one
 deck add-card -c Monster Reborn -d one
 deck add-card -c Monster Reborn -d one
 deck add-card -c Monster Reborn -d one
-deck add-card -c Wattaildragon -d one
-deck add-card -c Wattaildragon -d one
-deck add-card -c Wattaildragon -d one
+deck add-card -c Pot Of Greed -d one
+deck add-card -c Pot Of Greed -d one
+deck add-card -c Pot Of Greed -d one
 deck show --all
 deck add-card -c Yomi Ship -d one
 deck add-card -c Yomi Ship -d one
@@ -241,17 +239,17 @@ menu enter Shop
 shop buy Yomi Ship
 shop buy Yomi Ship
 shop buy Yomi Ship
-shop buy Wattaildragon
-shop buy Wattaildragon
-shop buy Wattaildragon
+shop buy Pot Of Greed
+shop buy Pot Of Greed
+shop buy Pot Of Greed
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
-shop buy Bitron
-shop buy Bitron
-shop buy Bitron
-shop buy Bitron
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
 shop buy Dark Hole
 shop buy Dark Hole
 shop buy Dark Hole
@@ -335,10 +333,6 @@ deck add-card -c Silver Fang -d oneParmida –s
 deck add-card -c Silver Fang -d oneParmida -s
 deck add-card -c Silver Fang -d oneParmida -s
 deck add-card -c Silver Fang -d oneParmida -s
-deck add-card -c Spell Absorption -d oneParmida -s
-deck add-card -c Spell Absorption -d oneParmida -s
-deck add-card -c Spell Absorption -d oneParmida -s
-deck add-card -c Spell Absorption -d oneParmida -s
 deck add-card -c Trap Hole -d oneParmida -s
 deck add-card -c Trap Hole -d oneParmida -s
 deck add-card -c Trap Hole -d oneParmida -s
@@ -391,18 +385,18 @@ deck add-card -c Dark Hole -d oneParmida
 deck add-card -c Dark Hole -d oneParmida
 deck add-card -c Dark Hole -d oneParmida
 deck add-card -c Dark Hole -d oneParmida
-deck add-card -c Bitron -d oneParmida
-deck add-card -c Bitron -d oneParmida
-deck add-card -c Bitron -d oneParmida
-deck add-card -c Bitron -d oneParmida
-deck add-card -c Bitron -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
-deck add-card -c Wattaildragon -d oneParmida
-deck add-card -c Wattaildragon -d oneParmida
-deck add-card -c Wattaildragon -d oneParmida
+deck add-card -c Pot Of Greed -d oneParmida
+deck add-card -c Pot Of Greed -d oneParmida
+deck add-card -c Pot Of Greed -d oneParmida
 deck show --all
 deck add-card -c Yomi Ship -d oneParmida
 deck add-card -c Yomi Ship -d oneParmida
