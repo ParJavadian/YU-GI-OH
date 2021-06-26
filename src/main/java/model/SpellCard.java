@@ -241,7 +241,7 @@ public enum SpellCard implements Cardable {
                 for (int i = 0; i < 5; i++) {
                     if (duelController.getPlayer().getBoard().getMonsterByNumber(i) != null) {
                         duelController.getPlayer().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
-                        duelController.getPlayer().getBoard().removeMonster(i,duelController,duelController.getPlayer());
+                        duelController.getPlayer().getBoard().removeMonster(i, duelController, duelController.getPlayer());
                         duelController.setMonsterAttackRival(i, null);
                     }
                 }
@@ -297,12 +297,12 @@ public enum SpellCard implements Cardable {
                 for (int i = 0; i < 5; i++) {
                     if (duelController.getPlayer().getBoard().getMonsterByNumber(i) != null) {
                         duelController.getPlayer().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
-                        duelController.getPlayer().getBoard().removeMonster(i,duelController,duelController.getPlayer());
+                        duelController.getPlayer().getBoard().removeMonster(i, duelController, duelController.getPlayer());
                         duelController.setMonsterAttackRival(i, null);
                     }
                     if (duelController.getRival().getBoard().getMonsterByNumber(i) != null) {
                         duelController.getRival().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
-                        duelController.getRival().getBoard().removeMonster(i,duelController,duelController.getRival());
+                        duelController.getRival().getBoard().removeMonster(i, duelController, duelController.getRival());
                         duelController.setMonsterAttackPlayer(i, null);
                     }
                 }
@@ -471,6 +471,30 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
+            } else if (takeActionCase.equals(TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE)) {
+                if (owner.getUsername().equals(duelController.getPlayer().getUsername())) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(targetNumber);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.FIEND) || playerMonster.getMonsterType().equals(MonsterType.SPELLCASTER)) {
+                            duelController.changePlayerAttackPoint(targetNumber, 200);
+                            duelController.changePlayerDefencePoint(targetNumber, 200);
+                        } else if (playerMonster.getMonsterType().equals(MonsterType.FAIRY)) {
+                            duelController.changePlayerAttackPoint(targetNumber, -200);
+                            duelController.changePlayerDefencePoint(targetNumber, -200);
+                        }
+                    }
+                } else {
+                    MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(targetNumber);
+                    if (rivalMonster != null) {
+                        if (rivalMonster.getMonsterType().equals(MonsterType.FIEND) || rivalMonster.getMonsterType().equals(MonsterType.SPELLCASTER)) {
+                            duelController.changeRivalAttackPoint(targetNumber, 200);
+                            duelController.changeRivalDefencePoint(targetNumber, 200);
+                        } else if (rivalMonster.getMonsterType().equals(MonsterType.FAIRY)) {
+                            duelController.changeRivalAttackPoint(targetNumber, -200);
+                            duelController.changeRivalDefencePoint(targetNumber, -200);
+                        }
+                    }
+                }
             }
             return true;
         }
@@ -514,6 +538,24 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
+            } else if (takeActionCase.equals(TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE)) {
+                if (owner.getUsername().equals(duelController.getPlayer().getUsername())) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(targetNumber);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.INSECT) || playerMonster.getMonsterType().equals(MonsterType.BEAST) || playerMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
+                            duelController.changePlayerAttackPoint(targetNumber, 200);
+                            duelController.changePlayerDefencePoint(targetNumber, 200);
+                        }
+                    }
+                } else {
+                    MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(targetNumber);
+                    if (rivalMonster != null) {
+                        if (rivalMonster.getMonsterType().equals(MonsterType.INSECT) || rivalMonster.getMonsterType().equals(MonsterType.BEAST) || rivalMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
+                            duelController.changeRivalAttackPoint(targetNumber, 200);
+                            duelController.changeRivalDefencePoint(targetNumber, 200);
+                        }
+                    }
+                }
             }
             return true;
         }
@@ -548,6 +590,15 @@ public enum SpellCard implements Cardable {
                     if (playerMonster != null) {
                         if (playerMonster.getMonsterType().equals(MonsterType.BEAST) || playerMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
                             duelController.changePlayerAttackPoint(i, -1 * amount);
+                        }
+                    }
+                }
+            } else if (takeActionCase.equals(TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE)) {
+                if (owner.getUsername().equals(duelController.getPlayer().getUsername())) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(targetNumber);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.BEAST) || playerMonster.getMonsterType().equals(MonsterType.BEAST_WARRIOR)) {
+                            duelController.changePlayerAttackPoint(targetNumber, amount);
                         }
                     }
                 }
@@ -592,6 +643,24 @@ public enum SpellCard implements Cardable {
                         if (rivalMonster.getMonsterType().equals(MonsterType.AQUA)) {
                             duelController.changeRivalAttackPoint(i, -500);
                             duelController.changeRivalDefencePoint(i, 400);
+                        }
+                    }
+                }
+            } else if (takeActionCase.equals(TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE)) {
+                if (owner.getUsername().equals(duelController.getPlayer().getUsername())) {
+                    MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(targetNumber);
+                    if (playerMonster != null) {
+                        if (playerMonster.getMonsterType().equals(MonsterType.AQUA)) {
+                            duelController.changePlayerAttackPoint(targetNumber, 500);
+                            duelController.changePlayerDefencePoint(targetNumber, -400);
+                        }
+                    }
+                } else {
+                    MonsterCard rivalMonster = duelController.getRival().getBoard().getMonsterByNumber(targetNumber);
+                    if (rivalMonster != null) {
+                        if (rivalMonster.getMonsterType().equals(MonsterType.AQUA)) {
+                            duelController.changeRivalAttackPoint(targetNumber, 500);
+                            duelController.changeRivalDefencePoint(targetNumber, -400);
                         }
                     }
                 }
