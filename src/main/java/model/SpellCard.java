@@ -86,7 +86,7 @@ public enum SpellCard implements Cardable {
                         duelController.getPlayer().getBoard().getCardsInGraveyard().remove(i - 1);
                         duelController.setSelectedCard(null);
                         DuelView.printText("special summoned successfully");
-                        SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                        SpellAction.getInstance().enableSpellAbsorptions(duelController);
                         duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
                         return true;
                     case "Rival":
@@ -153,7 +153,7 @@ public enum SpellCard implements Cardable {
                         duelController.getRival().getBoard().getCardsInGraveyard().remove(i - 1);
                         duelController.setSelectedCard(null);
                         DuelView.printText("special summoned successfully");
-                        SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                        SpellAction.getInstance().enableSpellAbsorptions(duelController);
                         duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
                         return true;
                     default:
@@ -210,7 +210,7 @@ public enum SpellCard implements Cardable {
                 duelController.getPlayer().getGameDeck().getMainDeck().remove(i - 1);
                 duelController.setSelectedCard(null);
                 DuelView.printText("card added to hand successfully");
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -228,7 +228,7 @@ public enum SpellCard implements Cardable {
                 deck.remove(card1);
                 deck.remove(card2);
                 DuelView.printText("Spell activated successfully");
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -245,7 +245,7 @@ public enum SpellCard implements Cardable {
                         duelController.setMonsterAttackRival(i, null);
                     }
                 }
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -272,7 +272,7 @@ public enum SpellCard implements Cardable {
                         duelController.getPlayer().getBoard().removeSpellOrTrap(i);
                     }
                 }
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -306,7 +306,7 @@ public enum SpellCard implements Cardable {
                         duelController.setMonsterAttackPlayer(i, null);
                     }
                 }
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -383,7 +383,7 @@ public enum SpellCard implements Cardable {
                     if (field.equals("My") || field.equals("Rival")) {
                         destroySpellOrTrap(duelController, field);
                     }
-                    SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                    SpellAction.getInstance().enableSpellAbsorptions(duelController);
                     duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
                 }
             }
@@ -403,7 +403,7 @@ public enum SpellCard implements Cardable {
                 }
                 if (field.equals("cancel")) return false;
                 destroySpellOrTrap(duelController, field);
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
             return true;
@@ -446,7 +446,7 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
@@ -495,7 +495,7 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
@@ -540,7 +540,7 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);
@@ -576,7 +576,7 @@ public enum SpellCard implements Cardable {
                         }
                     }
                 }
-                SPELL_ABSORPTION.takeAction(duelController, TakeActionCase.ANY_SPELL_ACTIVATED, owner, targetNumber);
+                SpellAction.getInstance().enableSpellAbsorptions(duelController);
             } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
                     MonsterCard playerMonster = duelController.getPlayer().getBoard().getMonsterByNumber(i);

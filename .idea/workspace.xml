@@ -22,9 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="nothing">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="GATE_GUARDIAN">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/SpellAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MonsterCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624704514853</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="GATE_GUARDIAN">
+      <created>1624709705904</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1624709705904</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,7 +389,8 @@
     <MESSAGE value="debug takeAction1" />
     <MESSAGE value="debug command knight2" />
     <MESSAGE value="nothing" />
-    <option name="LAST_COMMIT_MESSAGE" value="nothing" />
+    <MESSAGE value="GATE_GUARDIAN" />
+    <option name="LAST_COMMIT_MESSAGE" value="GATE_GUARDIAN" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1624635190568">
@@ -392,22 +401,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="170" y="166" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1624627910544" />
-    <state width="1237" height="241" key="GridCell.Tab.0.bottom" timestamp="1624703629856">
+    <state width="1237" height="241" key="GridCell.Tab.0.bottom" timestamp="1624710706107">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="241" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624703629856" />
-    <state width="1237" height="241" key="GridCell.Tab.0.center" timestamp="1624703629856">
+    <state width="1237" height="241" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624710706107" />
+    <state width="1237" height="241" key="GridCell.Tab.0.center" timestamp="1624710706107">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="241" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624703629856" />
-    <state width="1237" height="241" key="GridCell.Tab.0.left" timestamp="1624703629856">
+    <state width="1237" height="241" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624710706107" />
+    <state width="1237" height="241" key="GridCell.Tab.0.left" timestamp="1624710706107">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="241" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624703629856" />
-    <state width="1237" height="241" key="GridCell.Tab.0.right" timestamp="1624703629856">
+    <state width="1237" height="241" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624710706107" />
+    <state width="1237" height="241" key="GridCell.Tab.0.right" timestamp="1624710706107">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="241" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624703629856" />
+    <state width="1237" height="241" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624710706107" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1624645265744">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -436,10 +445,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1624653799626" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624704517019">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624709707816">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624704517019" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624709707816" />
     <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624639103809">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
