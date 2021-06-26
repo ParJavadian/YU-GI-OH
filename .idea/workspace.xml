@@ -22,17 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="debug show card2">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="debug takeAction1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotActivateEffectOnThisTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotActivateEffectInThisPhase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/ActionsDoneInTurn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/ActionsDoneInTurn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/MonsterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MonsterAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MonsterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/TakeActionCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TakeActionCase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624654145122</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="debug takeAction1">
+      <created>1624702088038</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1624702088038</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,7 +365,8 @@
     <MESSAGE value="debug attack4" />
     <MESSAGE value="debug show card" />
     <MESSAGE value="debug show card2" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug show card2" />
+    <MESSAGE value="debug takeAction1" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug takeAction1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1624635190568">
@@ -376,22 +377,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="170" y="166" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1624627910544" />
-    <state width="1237" height="175" key="GridCell.Tab.0.bottom" timestamp="1624701283398">
+    <state width="1237" height="241" key="GridCell.Tab.0.bottom" timestamp="1624703629856">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="175" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624701283398" />
-    <state width="1237" height="175" key="GridCell.Tab.0.center" timestamp="1624701283398">
+    <state width="1237" height="241" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624703629856" />
+    <state width="1237" height="241" key="GridCell.Tab.0.center" timestamp="1624703629856">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="175" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624701283398" />
-    <state width="1237" height="175" key="GridCell.Tab.0.left" timestamp="1624701283398">
+    <state width="1237" height="241" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624703629856" />
+    <state width="1237" height="241" key="GridCell.Tab.0.left" timestamp="1624703629856">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="175" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624701283398" />
-    <state width="1237" height="175" key="GridCell.Tab.0.right" timestamp="1624701283398">
+    <state width="1237" height="241" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624703629856" />
+    <state width="1237" height="241" key="GridCell.Tab.0.right" timestamp="1624703629856">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="175" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624701283398" />
+    <state width="1237" height="241" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624703629856" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1624645265744">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -420,10 +421,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1624653799626" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624654149478">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624702090715">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624654149478" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624702090715" />
     <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624639103809">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

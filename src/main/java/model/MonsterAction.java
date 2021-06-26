@@ -16,12 +16,12 @@ public class MonsterAction {
         } else if (takeActionCase.equals(TakeActionCase.REMOVE_FROM_MONSTERZONE) || takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED)) {
             duelController.changeAllAttackPoints(-1, amount);
         } else if (takeActionCase.equals(TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE)) {
-            if (owner.getUsername().equals(duelController.getPlayer().getUsername())){
-                System.out.println("2");
-                duelController.changePlayerAttackPoint(targetNumber, amount);
-                System.out.println("2");
-            }
-            else duelController.changeRivalAttackPoint(targetNumber, amount);
+            System.out.println(owner.getUsername().equals(duelController.getPlayer().getUsername()) && !duelController.getPlayer().getBoard().getMonsterByNumber(targetNumber).equals(MonsterCard.COMMAND_KNIGHT));
+            if (owner.getUsername().equals(duelController.getPlayer().getUsername())) {
+                if(!duelController.getPlayer().getBoard().getMonsterByNumber(targetNumber).equals(MonsterCard.COMMAND_KNIGHT)) {
+                    duelController.changePlayerAttackPoint(targetNumber, amount);
+                }
+            } else duelController.changeRivalAttackPoint(targetNumber, amount);
         }
     }
 

@@ -294,11 +294,13 @@ public class DuelController {
 
     private void addToAttackDefenceOfPutCard(int place, User owner) {
         for (int i = 0; i < 5; i++) {
-            this.player.getBoard().getMonsterByNumber(i).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
-            this.rival.getBoard().getMonsterByNumber(i).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
-            if (this.player.getBoard().getSpellAndTrapByNumber(i) instanceof SpellCard)
+            if (this.player.getBoard().getMonsterByNumber(i) != null)
+                this.player.getBoard().getMonsterByNumber(i).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
+            if (this.rival.getBoard().getMonsterByNumber(i) != null)
+                this.rival.getBoard().getMonsterByNumber(i).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
+            if (this.player.getBoard().getSpellAndTrapByNumber(i) != null && this.player.getBoard().getSpellAndTrapByNumber(i) instanceof SpellCard)
                 ((SpellCard) this.player.getBoard().getSpellAndTrapByNumber(i)).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
-            if (this.rival.getBoard().getSpellAndTrapByNumber(i) instanceof SpellCard)
+            if (this.rival.getBoard().getSpellAndTrapByNumber(i) != null && this.rival.getBoard().getSpellAndTrapByNumber(i) instanceof SpellCard)
                 ((SpellCard) this.rival.getBoard().getSpellAndTrapByNumber(i)).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
         }
     }
@@ -328,9 +330,7 @@ public class DuelController {
                 setMonsterAttackPlayer(place, monsterCard.getAttack());
                 this.playerDefencePoints[place] = monsterCard.getAttack();
                 monsterCard.takeAction(this, TakeActionCase.SUMMONED, this.player, place);
-                System.out.println("1");
-                monsterCard.takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
-                System.out.println("1");
+                addToAttackDefenceOfPutCard(place, this.player);
                 this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
                 unselectCard();
                 DuelView.printText("summoned successfully");
@@ -374,7 +374,8 @@ public class DuelController {
         setMonsterAttackPlayer(place, ((MonsterCard) selectedCard.getCard()).getAttack());
         this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
         ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player, place);
-        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
+        addToAttackDefenceOfPutCard(place, this.player);
+//        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
         this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("summoned successfully");
@@ -413,7 +414,8 @@ public class DuelController {
         setMonsterAttackPlayer(place, ((MonsterCard) selectedCard.getCard()).getAttack());
         this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
         ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player, place);
-        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
+        addToAttackDefenceOfPutCard(place, this.player);
+//        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
         this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("summoned successfully");
@@ -460,7 +462,8 @@ public class DuelController {
             int place = this.player.getBoard().putMonster(monsterCard, "DH");
             setMonsterAttackPlayer(place, ((MonsterCard) selectedCard.getCard()).getAttack());
             this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
-            ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
+            addToAttackDefenceOfPutCard(place, this.player);
+//            ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
             this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
 //            monsterZone.setHasSetInThisTurn(this.player.getBoard().putMonster(monsterCard, "DH"), true);
             this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
@@ -502,7 +505,8 @@ public class DuelController {
         int place = this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "DH");
         setMonsterAttackPlayer(place, ((MonsterCard) selectedCard.getCard()).getAttack());
         this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
-        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
+        addToAttackDefenceOfPutCard(place, this.player);
+//        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
         this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
 //        monsterZone.setHasSetInThisTurn(this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "DH"), true);
         this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
@@ -543,7 +547,8 @@ public class DuelController {
         int place = this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "DH");
         setMonsterAttackPlayer(place, ((MonsterCard) selectedCard.getCard()).getAttack());
         this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
-        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
+        addToAttackDefenceOfPutCard(place, this.player);
+//        ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
         this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
 //        monsterZone.setHasSetInThisTurn(this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "DH"), true);
         unselectCard();
@@ -1216,7 +1221,8 @@ public class DuelController {
             setMonsterAttackPlayer(place, (Objects.requireNonNull(monsterCardWithTwoTributesWithMaxAttackPointInHand()).getAttack()));
             this.playerDefencePoints[place] = (Objects.requireNonNull(monsterCardWithTwoTributesWithMaxAttackPointInHand()).getAttack());
             monsterCardWithTwoTributesWithMaxAttackPointInHand().takeAction(this, TakeActionCase.SUMMONED, this.player, place);
-            monsterCardWithTwoTributesWithMaxAttackPointInHand().takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
+            addToAttackDefenceOfPutCard(place, this.player);
+//            monsterCardWithTwoTributesWithMaxAttackPointInHand().takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
             this.player.getBoard().removeCardFromHand(monsterCardWithTwoTributesWithMaxAttackPointInHand());
         }
     }
@@ -1228,7 +1234,8 @@ public class DuelController {
             setMonsterAttackPlayer(place, (Objects.requireNonNull(monsterCardWithOneTributeWithMaxAttackPointInHand()).getAttack()));
             this.playerDefencePoints[place] = (Objects.requireNonNull(monsterCardWithOneTributeWithMaxAttackPointInHand()).getAttack());
             monsterCardWithOneTributeWithMaxAttackPointInHand().takeAction(this, TakeActionCase.SUMMONED, this.player, place);
-            monsterCardWithOneTributeWithMaxAttackPointInHand().takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
+            addToAttackDefenceOfPutCard(place, this.player);
+//            monsterCardWithOneTributeWithMaxAttackPointInHand().takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
             this.player.getBoard().removeCardFromHand(monsterCardWithOneTributeWithMaxAttackPointInHand());
         }
     }
@@ -1241,7 +1248,8 @@ public class DuelController {
                     setMonsterAttackPlayer(place, (Objects.requireNonNull(monsterCardWithMaxDefenseInHand()).getAttack()));
                     this.playerDefencePoints[place] = (Objects.requireNonNull(monsterCardWithMaxDefenseInHand()).getAttack());
                     monsterCardWithMaxDefenseInHand().takeAction(this, TakeActionCase.SUMMONED, this.player, place);
-                    monsterCardWithMaxDefenseInHand().takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
+                    addToAttackDefenceOfPutCard(place, this.player);
+//                    monsterCardWithMaxDefenseInHand().takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
                     this.player.getBoard().removeCardFromHand(monsterCardWithMaxDefenseInHand());
                 }
             } else if (numberOfMonstersOnPlayerBoard() < 5) {
@@ -1250,7 +1258,8 @@ public class DuelController {
                 setMonsterAttackPlayer(place, (Objects.requireNonNull(wantedMonster).getAttack()));
                 this.playerDefencePoints[place] = (wantedMonster.getAttack());
                 wantedMonster.takeAction(this, TakeActionCase.SUMMONED, this.player, place);
-                wantedMonster.takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
+                addToAttackDefenceOfPutCard(place, this.player);
+//                wantedMonster.takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
                 this.player.getBoard().removeCardFromHand(wantedMonster);
             }
             System.out.println("0 tribute vared");
