@@ -282,11 +282,11 @@ public class DuelController {
                 this.player.getBoard().getMonsterByNumber(i).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
             if (this.rival.getBoard().getMonsterByNumber(i) != null)
                 this.rival.getBoard().getMonsterByNumber(i).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
-            if (this.player.getBoard().getSpellAndTrapByNumber(i) != null && this.player.getBoard().getSpellAndTrapByNumber(i) instanceof SpellCard)
-                ((SpellCard) this.player.getBoard().getSpellAndTrapByNumber(i)).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
-            if (this.rival.getBoard().getSpellAndTrapByNumber(i) != null && this.rival.getBoard().getSpellAndTrapByNumber(i) instanceof SpellCard)
-                ((SpellCard) this.rival.getBoard().getSpellAndTrapByNumber(i)).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
         }
+        if (this.player.getBoard().getFieldZone() != null)
+            ((SpellCard) this.player.getBoard().getFieldZone()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
+        if (this.rival.getBoard().getFieldZone() != null)
+            ((SpellCard) this.rival.getBoard().getFieldZone()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
     }
 
     public void summonMonster() throws Exception {
@@ -796,6 +796,7 @@ public class DuelController {
             //TODO age lazeme condition ham pas bede
             if (((SpellCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.PUT_IN_FIELDZONE_FACE_UP, this.player, 1))
                 this.player.getBoard().putInFieldZone(spellCard);
+            this.player.getBoard().getCardsInHand().remove((int) selectedCard.getNumber());
         } else {
             if (selectedCard.getBoardZone().equals(BoardZone.SPELLANDTRAPZONE)) {
                 this.player.getBoard().changeSpellAndTrapPosition(selectedCard.getNumber(), "O");
@@ -1098,7 +1099,7 @@ public class DuelController {
         for (int i = 4; i > -1; i--) {
             toPrint += "\t";
             if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.rival.getBoard().getMonsterConditionByNumber(i);
+            else toPrint += this.rival.getBoard().getMonsterConditionByNumber(i) + this.rivalAttackPoints[i];
         }
         toPrint += "\n" + this.rival.getBoard().getCardsInGraveyard().size() + "\t\t\t\t\t\t";
         if (this.rival.getBoard().getFieldZone() == null) toPrint += "E\n";
@@ -1110,7 +1111,7 @@ public class DuelController {
         for (int i = 0; i < 5; i++) {
             toPrint += "\t";
             if (this.player.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.player.getBoard().getMonsterConditionByNumber(i);
+            else toPrint += this.player.getBoard().getMonsterConditionByNumber(i) + this.playerAttackPoints[i];
         }
         toPrint += "\n";
         for (int i = 0; i < 5; i++) {
@@ -1251,8 +1252,8 @@ public class DuelController {
                 toBeRemoved.add(i);
             }
         }
-        if (toBeRemoved.size() > 0){
-            for (int i = toBeRemoved.size() - 1 ; i >= 0; i--) {
+        if (toBeRemoved.size() > 0) {
+            for (int i = toBeRemoved.size() - 1; i >= 0; i--) {
                 this.player.getBoard().removeCardFromHand(this.player.getBoard().getCardInHandByNumber(toBeRemoved.get(i)));
             }
         }

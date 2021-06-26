@@ -166,42 +166,5 @@ public class Board {
         this.cardsInGraveyard.remove(card);
     }
 
-    //TODO man ino ye kam avaz kardam bana be dalayeli ke tozih midam va dige in tabe lazem nabood-parmida
-    /*//TODO hamraz ino ezafe kard:
-    public boolean doesHaveMonsterInHand(){
-        int counterOfMonsters = 0;
-        for (Card card : cardsInHand) {
-            if (card instanceof MonsterCard)
-                counterOfMonsters ++;
-        }
-        return counterOfMonsters > 0;
-    }*/
-
-    /*public String toStringForPlayer() {
-        String toReturn = "--------------------------\n" +
-                "\n";
-        if (fieldZone.equals(null))
-            toReturn += "E";
-        else toReturn += "O";
-        toReturn += "                     " + this.cardsInGraveyard.size() + "\n";
-        for (int index = 0; index < 5; index++) {
-            if (this.monsters[index].equals(null)) {
-                toReturn += "   E";
-            } else {
-                toReturn += "   " + this.monstersCondition[index];
-            }
-
-        }
-        return toReturn;
-    }
-
-    public String toStringForRival(){
-        String toReturn = "";
-        for(int i=0;i<cardsInHand.size()-1;i++){
-            toReturn += "c\t";
-        }
-        toReturn+="c\n";
-        toReturn+=this.
-    }*/
 
 }

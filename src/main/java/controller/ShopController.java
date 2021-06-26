@@ -41,7 +41,6 @@ public class ShopController {
 
     public void showAll() {
         List<Cardable> allCards =  DeckController.getInstance(user).getAllCardsOfGame();
-        //TODO harja string=null bood ="" konim
         String toPrint = "";
         for (Cardable card : allCards){
             if (allCards.indexOf(card) == allCards.size()-1){

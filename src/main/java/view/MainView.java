@@ -38,21 +38,14 @@ public class MainView {
             Matcher matcher2 = getCommandMatcher(command+" ", "(--second-player|-sp) ([\\w ]+) ");
             Matcher matcher4 = getCommandMatcher(command, "(--ai|-ai)");
             Matcher matcher3 = getCommandMatcher(command, "(--rounds|-r) ([0-9]+)");
-//            System.out.println("2");
             if(matcher4.find() && matcher1.find() && matcher3.find()){
-//                System.out.println("1");
                 try{
                     new User("@AI@","@AIplayer","1234AIPlayer1234");
-//                    System.out.println("1");
                     Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
-//                    System.out.println(deck);
                     User.getUserByUsername("@AI@").setActiveDeck(deck);
-//                    System.out.println(User.getUserByUsername("@AI@").getActiveDeck()+" 7");
-//                    printText("Game with AI starter successfully");
                     mainController.newDuel("@AI@",Integer.parseInt(matcher3.group(2)));
                 }
                 catch (Exception exception){
-//                    System.out.println("kldsjhfgblkjb");
                     printText(exception.getMessage());
                 }
                 return false;
@@ -74,7 +67,6 @@ public class MainView {
             return false;
         }
 
-        //TO DO MENU ENTER NEMIKONE(mikone alan dige?parmida)
         matcher = getCommandMatcher(command, "menu enter ([\\w ]+)");
         if (matcher.matches()) {
             mainController.goToMenu(matcher.group(1));

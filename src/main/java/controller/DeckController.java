@@ -14,6 +14,10 @@ public class DeckController {
     private static DeckController instance = null;
     private User user;
 
+    private DeckController(User user) {
+        this.user = user;
+    }
+
     public static DeckController getInstance(User user) {
         if (instance == null) instance = new DeckController(user);
         else if (!instance.user.equals(user)) instance.user = user;
@@ -39,10 +43,6 @@ public class DeckController {
         return null;
     }
 
-    private DeckController(User user) {
-        this.user = user;
-    }
-
     public void createDeck(String name) throws Exception {
         if (this.user.getDeckByName(name) == null) {
             Deck deck = new Deck(name);
@@ -58,14 +58,11 @@ public class DeckController {
     public Deck createRandomDeckForAI() {
         Deck deck = new Deck("DeckForAI");
         this.user.addDeck(deck);
-//        System.out.println("12");
         List<Cardable> allCards = new ArrayList<>();
         Collections.addAll(allCards, MonsterCard.values());
         Collections.addAll(allCards, SpellCard.values());
         Collections.addAll(allCards, TrapCard.values());
-//        System.out.println(user.getDeckByName("DeckForAI")+"8");
         while (user.getDeckByName("DeckForAI").getMainSize() < 46) {
-//            System.out.println("12");
             int randomNum = ThreadLocalRandom.current().nextInt(0, allCards.size());
 //            int randomNum = getRandomNumber(allCards.size());
             try {
@@ -75,15 +72,6 @@ public class DeckController {
             }
         }
         return deck;
-    }
-
-    private int getRandomNumber(int bound) {
-        ArrayList<Integer> numbers = new ArrayList<>();
-        for (int i = 0; i < bound; i++) {
-            numbers.add(i);
-        }
-        Collections.shuffle(numbers);
-        return numbers.get(0);
     }
 
     public void deleteDeck(String name) throws Exception {
@@ -167,7 +155,6 @@ public class DeckController {
             }
         } else throw new DeckNotFound(deckName);
     }
-
 
     public void activateDeck(String name) throws Exception {
         if (this.user.getDeckByName(name) != null) {
@@ -268,7 +255,6 @@ public class DeckController {
             toPrint += "\n" + eachCard.getNamePascalCase() + ":" + eachCard.getDescription();
         }
         DeckView.getInstance(this.user).printText(toPrint);
-//        return toPrint;
     }
 
     public void showAllCards() {

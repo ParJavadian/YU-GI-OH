@@ -38,14 +38,6 @@ public class User {
 //        importExportUserController.exportAllUsers(User.getAllUsers());
     }
 
-    public Deck getGameDeck() {
-        return this.currentGameDeck;
-    }
-
-    public void setGameDeck(Deck currentGameDeck) {
-        this.currentGameDeck = currentGameDeck;
-    }
-
     public static User getUserByUsername(String username) {
         if (allUsers != null) {
             for (User user : allUsers) {
@@ -64,41 +56,42 @@ public class User {
         return null;
     }
 
-    public void removeDeck(Deck deck){
-        this.allDecks.remove(deck);
-    }
-
-    public void increaseScore(int amount) {
-        this.score += amount;
-    }
-
-    public void decreaseScore(int amount) {
-        this.score -= amount;
-    }
-
-    public void increaseLifePoint(int amount) {
-        this.lifePoint += amount;
-    }
-
-    public void decreaseLifePoint(int amount) {
-        this.lifePoint -= amount;
-    }
-
-    public void increaseMoney(int amount) {
-        this.money += amount;
-//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-//        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
-    }
-
-    public void decreaseMoney(int amount) {
-        //TODO put back
-        this.money -= amount;
-//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-//        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
-    }
-
     public static List<User> getAllUsers() {
         return allUsers;
+    }
+
+    public List<Deck> getAllDecks() {
+        return this.allDecks;
+    }
+
+    public List<Cardable> getAllCards() {
+        return this.allCards;
+    }
+
+    public Deck getDeckByName(String name) {
+        for (Deck deck : allDecks) {
+            if (deck.getDeckName().equals(name)) {
+                return deck;
+            }
+        }
+        return null;
+    }
+
+    public Deck getGameDeck() {
+        return this.currentGameDeck;
+    }
+
+    public Cardable getCardByName(String name) {
+        for (Cardable card : allCards) {
+            if (card.getNamePascalCase().equals(name)) {
+                return card;
+            }
+        }
+        return null;
+    }
+
+    public void setGameDeck(Deck currentGameDeck) {
+        this.currentGameDeck = currentGameDeck;
     }
 
     public String getUsername() {
@@ -141,7 +134,6 @@ public class User {
         this.score = score;
     }
 
-    //TODO put back
     public void setMoney(int money) {
         this.money = money;
     }
@@ -173,24 +165,6 @@ public class User {
         this.currentActiveDeck = deck;
     }
 
-    //TODO age lazem bood jaye pascalcase aadish kon
-    public Cardable getCardByName(String name) {
-        for (Cardable card : allCards) {
-            if (card.getNamePascalCase().equals(name)) {
-                return card;
-            }
-        }
-        return null;
-    }
-
-    public List<Deck> getAllDecks() {
-        return this.allDecks;
-    }
-
-    public List<Cardable> getAllCards() {
-        return this.allCards;
-    }
-
     public void deleteDeck(String name) {
         this.allDecks.remove(getDeckByName(name));
     }
@@ -207,13 +181,37 @@ public class User {
         this.allCards.add(card);
     }
 
-    public Deck getDeckByName(String name) {
-        for (Deck deck : allDecks) {
-            if (deck.getDeckName().equals(name)) {
-                return deck;
-            }
-        }
-        return null;
+    public void removeDeck(Deck deck){
+        this.allDecks.remove(deck);
+    }
+
+    public void increaseScore(int amount) {
+        this.score += amount;
+    }
+
+    public void decreaseScore(int amount) {
+        this.score -= amount;
+    }
+
+    public void increaseLifePoint(int amount) {
+        this.lifePoint += amount;
+    }
+
+    public void decreaseLifePoint(int amount) {
+        this.lifePoint -= amount;
+    }
+
+    public void increaseMoney(int amount) {
+        this.money += amount;
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
+    }
+
+    public void decreaseMoney(int amount) {
+        //TODO put back
+        this.money -= amount;
+//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+//        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
     }
 
     @Override
@@ -222,25 +220,4 @@ public class User {
         return  (this.username.equals(user.username));
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        User user = (User) o;
-//        return Objects.equals(this.username, user.username);
-//    }
-
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        User user = (User) o;
-//        return Objects.equals(username, user.username);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(username);
-//    }
 }

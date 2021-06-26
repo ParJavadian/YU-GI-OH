@@ -50,6 +50,9 @@ menu enter Shop
 shop buy Yomi Ship
 shop buy Yomi Ship
 shop buy Yomi Ship
+shop buy Terraforming
+shop buy Terraforming
+shop buy Terraforming
 shop buy Wattaildragon
 shop buy Wattaildragon
 shop buy Wattaildragon
@@ -134,6 +137,9 @@ deck add-card -c United We Stand -d one
 deck add-card -c United We Stand -d one
 deck add-card -c United We Stand -d one
 deck add-card -c United We Stand -d one
+deck add-card - Terraforming -d one
+deck add-card - Terraforming -d one
+deck add-card - Terraforming -d one
 deck add-card -c Leotron -d one
 deck add-card -c Leotron -d one
 deck add-card -c Leotron -d one
@@ -228,6 +234,7 @@ menu exit
 menu enter Shop
 shop buy Yami
 shop buy Yami
+
 menu exit
 menu enter Deck
 deck add-card -c Yami -d one

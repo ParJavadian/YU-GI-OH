@@ -74,7 +74,4 @@ public class MainController {
         DuelView.printText("shame on you for cheating!!!!");
     }
 
-    /*private void logOutUser(){
-
-    }*/
 }

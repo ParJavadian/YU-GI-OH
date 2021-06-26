@@ -1,15 +1,17 @@
 package view;
 
 import controller.DuelController;
+import model.Cardable;
 import model.User;
 
+import javax.smartcardio.Card;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DuelView {
     private DuelController duelController;
 
-    static public void printText(String output) {
+    public static void printText(String output) {
         System.out.println(output);
     }
 
@@ -70,7 +72,6 @@ public class DuelView {
                 }
             } else if (isSpellAndTrap.find(0) && numberMatcher.find(0)) {
                 try {
-//                    System.out.println("kj");
                     duelController.selectCardPlayerTrapAndSpellZone(Integer.parseInt(numberMatcher.group()));
                 } catch (Exception exception) {
                     printText(exception.getMessage());
@@ -161,7 +162,6 @@ public class DuelView {
             }
             return false;
         }
-        //TODO aya bayad un faal sazie spell tu nobate harif ro tu view bezanim?
         if (command.equals("show graveyard")) {
             try {
                 duelController.showGraveyard();

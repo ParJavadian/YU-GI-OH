@@ -43,17 +43,17 @@ public class Deck {
         return this.mainDeck.size();
     }
 
+    public void setDeck(ArrayList<Cardable> mainCards, ArrayList<Cardable> sideCards){
+        this.mainDeck = mainCards;
+        this.sideDeck = sideCards;
+    }
+
     public void addCardToMainDeck(Cardable card) {
         this.mainDeck.add(card);
     }
 
     public void addCardToSideDeck(Cardable card) {
         this.sideDeck.add(card);
-    }
-
-    public void setDeck(ArrayList<Cardable> mainCards, ArrayList<Cardable> sideCards){
-        this.mainDeck = mainCards;
-        this.sideDeck = sideCards;
     }
 
     public void removeCardFromMainDeck(Cardable card) {

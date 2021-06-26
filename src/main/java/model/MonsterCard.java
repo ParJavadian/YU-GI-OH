@@ -604,10 +604,6 @@ public enum MonsterCard implements Cardable {
         return this.canBeNormalSummoned;
     }
 
-    private void setDefence(int defence) {
-        this.defence = defence;
-    }
-
     public MonsterType getMonsterType() {
         return this.monsterType;
     }
@@ -615,10 +611,6 @@ public enum MonsterCard implements Cardable {
     public String getName() {
         return this.name();
     }
-
-    public abstract void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber);
-
-    public abstract boolean canBeAttacked(DuelController duelController, int monsterNumber);
 
     public String getNamePascalCase() {
         String name = this.name().charAt(0) + this.name().substring(1).toLowerCase();
@@ -629,6 +621,10 @@ public enum MonsterCard implements Cardable {
         name = name.replaceAll("_", " ");
         return name;
     }
+
+    public abstract void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber);
+
+    public abstract boolean canBeAttacked(DuelController duelController, int monsterNumber);
 
     @Override
     public String toString() {
