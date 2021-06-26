@@ -1,10 +1,8 @@
 package view;
 
 import controller.DuelController;
-import model.Cardable;
 import model.User;
 
-import javax.smartcardio.Card;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

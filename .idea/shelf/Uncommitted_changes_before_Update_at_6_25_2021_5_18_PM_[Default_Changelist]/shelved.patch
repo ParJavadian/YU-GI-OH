@@ -1,0 +1,11 @@
+Index: allUsers.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- allUsers.txt	(revision 22932e90e451dcc040c0fc24093b3d8906b64c53)
++++ allUsers.txt	(revision 22932e90e451dcc040c0fc24093b3d8906b64c53)
+@@ -1,3 +0,0 @@
+-kiana_msz
+-parmida
+-hamraz

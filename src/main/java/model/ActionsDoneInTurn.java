@@ -4,5 +4,5 @@ public enum ActionsDoneInTurn {
     SET,
     CHANGE_POSITION,
     ATTACK,
-    ENABLE_SUIJIN,
+    ENABLE_SUIJIN
 }

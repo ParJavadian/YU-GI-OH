@@ -1,23 +1,23 @@
 package model;
 
 public class SelectedCard {
-    private Cardable card;
+    private Card card;
     private BoardZone boardZone;
     private Integer number;
     private User owner;
 
-    public SelectedCard(Cardable card, BoardZone boardZone, Integer number, User owner){
+    public SelectedCard(Card card, BoardZone boardZone, Integer number, User owner){
         this.card = card;
         this.boardZone = boardZone;
         this.number = number;
         this.owner = owner;
     }
 
-    public Cardable getCard() {
+    public Card getCard() {
         return this.card;
     }
 
-    public void setCard(Cardable card) {
+    public void setCard(Card card) {
         this.card = card;
     }
 

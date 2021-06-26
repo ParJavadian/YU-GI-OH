@@ -5,6 +5,5 @@ public enum Attribute {
     EARTH,
     WATER,
     LIGHT,
-    WIND;
-
+    WIND
 }

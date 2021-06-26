@@ -2,7 +2,6 @@ package view;
 
 import controller.DeckController;
 import controller.MainController;
-import controller.ShopController;
 import model.*;
 
 import java.util.regex.Matcher;

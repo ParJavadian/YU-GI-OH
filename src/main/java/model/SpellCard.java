@@ -3,12 +3,11 @@ package model;
 import controller.DuelController;
 import view.DuelView;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public enum SpellCard implements Cardable {
+public enum SpellCard implements Card {
 
 
     MONSTER_REBORN(Icon.NORMAL, "Target 1 monster in either GY; Special Summon it.", Status.UNLIMITED, 2000) {
@@ -22,138 +21,9 @@ public enum SpellCard implements Cardable {
                 }
                 switch (graveyard) {
                     case "My":
-                        boolean hasMonster = false;
-                        for (int i = 0; i < duelController.getPlayer().getBoard().getCardsInGraveyard().size(); i++) {
-                            Cardable card = duelController.getPlayer().getBoard().getCardsInGraveyard().get(i);
-                            if (card instanceof MonsterCard) {
-                                hasMonster = true;
-                                break;
-                            }
-                        }
-                        if (!hasMonster) {
-                            DuelView.printText("Graveyard is empty!");
-//                            duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
-                            return false;
-                        }
-                        DuelView.printText("select one these cards by number:");
-                        int monsterCounter = 1;
-                        for (int i = 0; i < duelController.getPlayer().getBoard().getCardsInGraveyard().size(); i++) {
-                            Cardable card = duelController.getPlayer().getBoard().getCardsInGraveyard().get(i);
-                            if (card instanceof MonsterCard) {
-                                DuelView.printText(monsterCounter + ": " + card.getNamePascalCase() + ": " + card.getDescription());
-                                monsterCounter++;
-                                break;
-                            }
-                        }
-                        String cardNumber = DuelView.scan();
-                        if (cardNumber.equals("cancel")) return false;
-                        while (!cardNumber.matches("\\d+") || Integer.parseInt(cardNumber) < 1
-                                || Integer.parseInt(cardNumber) > monsterCounter - 1) {
-                            DuelView.printText("please Enter a valid Number!");
-                            cardNumber = DuelView.scan();
-                            if (cardNumber.equals("cancel")) return false;
-                        }
-                        monsterCounter = 1;
-                        int i;
-                        for (i = 0; i < duelController.getPlayer().getBoard().getCardsInGraveyard().size(); i++) {
-                            Cardable card = duelController.getPlayer().getBoard().getCardsInGraveyard().get(i);
-                            if (card instanceof MonsterCard) {
-                                if (monsterCounter == Integer.parseInt(cardNumber))
-                                    break;
-                                else
-                                    monsterCounter++;
-                            }
-                        }
-                        Cardable card = duelController.getPlayer().getBoard().getCardsInGraveyard().get(i);
-                        DuelView.printText("enter the position you want to summon monster in(attack or defence)");
-                        String position = DuelView.scan();
-                        if (position.equals("cancel")) return false;
-                        while (!(position.equals("attack") || position.equals("defence"))) {
-                            DuelView.printText("please enter a valid position!");
-                            position = DuelView.scan();
-                            if (position.equals("cancel")) return false;
-                        }
-                        switch (position) {
-                            case "attack":
-                                position = "OO";
-                                break;
-                            case "defence":
-                                position = "DO";
-                                break;
-                        }
-                        int targetPlace = duelController.getPlayer().getBoard().putMonster((MonsterCard) card, position);
-                        ((MonsterCard) card).takeAction(duelController, TakeActionCase.SUMMONED, duelController.getPlayer(), targetPlace);
-                        duelController.getPlayer().getBoard().getCardsInGraveyard().remove(i);
-                        DuelView.printText("special summoned successfully");
-                        SpellAction.getInstance().enableSpellAbsorptions(duelController);
-                        duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
-                        return true;
+                        return SpellAction.getInstance().actionMonsterReborn(duelController,targetNumber,duelController.getPlayer());
                     case "Rival":
-                        hasMonster = false;
-                        for (i = 0; i < duelController.getRival().getBoard().getCardsInGraveyard().size(); i++) {
-                            card = duelController.getRival().getBoard().getCardsInGraveyard().get(i);
-                            if (card instanceof MonsterCard) {
-                                hasMonster = true;
-                                break;
-                            }
-                        }
-                        if (!hasMonster) {
-                            DuelView.printText("Graveyard is empty!");
-//                            duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
-                            return false;
-                        }
-                        DuelView.printText("select one these cards by number:");
-                        monsterCounter = 1;
-                        for (i = 0; i < duelController.getRival().getBoard().getCardsInGraveyard().size(); i++) {
-                            card = duelController.getRival().getBoard().getCardsInGraveyard().get(i);
-                            if (card instanceof MonsterCard) {
-                                DuelView.printText(monsterCounter + ": " + card.getNamePascalCase() + ": " + card.getDescription());
-                                monsterCounter++;
-                                break;
-                            }
-                        }
-                        cardNumber = DuelView.scan();
-                        if (cardNumber.equals("cancel")) return false;
-                        while (!cardNumber.matches("\\d+") || Integer.parseInt(cardNumber) < 1
-                                || Integer.parseInt(cardNumber) > monsterCounter - 1) {
-                            DuelView.printText("please Enter a valid Number!");
-                            cardNumber = DuelView.scan();
-                            if (cardNumber.equals("cancel")) return false;
-                        }
-                        monsterCounter = 1;
-                        for (i = 0; i < duelController.getRival().getBoard().getCardsInGraveyard().size(); i++) {
-                            card = duelController.getRival().getBoard().getCardsInGraveyard().get(i);
-                            if (card instanceof MonsterCard) {
-                                if (monsterCounter == Integer.parseInt(cardNumber))
-                                    break;
-                                else
-                                    monsterCounter++;
-                            }
-                        }
-                        card = duelController.getRival().getBoard().getCardsInGraveyard().get(i);
-                        DuelView.printText("enter the position you want to summon monster in(attack or defence)");
-                        position = DuelView.scan();
-                        if (position.equals("cancel")) return false;
-                        while (!(position.equals("attack") || position.equals("defence"))) {
-                            DuelView.printText("please enter a valid position!");
-                            position = DuelView.scan();
-                            if (position.equals("cancel")) return false;
-                        }
-                        switch (position) {
-                            case "attack":
-                                position = "OO";
-                                break;
-                            case "defence":
-                                position = "DO";
-                                break;
-                        }
-                        targetPlace = duelController.getPlayer().getBoard().putMonster((MonsterCard) card, position);
-                        ((MonsterCard) card).takeAction(duelController, TakeActionCase.SUMMONED, duelController.getPlayer(), targetPlace);
-                        duelController.getRival().getBoard().getCardsInGraveyard().remove(i);
-                        DuelView.printText("special summoned successfully");
-                        SpellAction.getInstance().enableSpellAbsorptions(duelController);
-                        duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
-                        return true;
+                        return SpellAction.getInstance().actionMonsterReborn(duelController,targetNumber,duelController.getRival());
                     default:
                         return false;
                 }
@@ -165,7 +35,7 @@ public enum SpellCard implements Cardable {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 boolean hasFieldSpell = false;
-                for (Cardable card : duelController.getPlayer().getGameDeck().getMainDeck()) {
+                for (Card card : duelController.getPlayer().getGameDeck().getMainDeck()) {
                     if (card instanceof SpellCard && ((SpellCard) card).getIcon().equals(Icon.FIELD)) {
                         hasFieldSpell = true;
                         break;
@@ -173,12 +43,11 @@ public enum SpellCard implements Cardable {
                 }
                 if (!hasFieldSpell) {
                     DuelView.printText("You have no field spell card in your deck!!");
-//                            duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
                     return false;
                 }
                 DuelView.printText("select one of these Field Spell cards from your deck to add to your hand:");
                 int cardCounter = 1;
-                for (Cardable card : duelController.getPlayer().getGameDeck().getMainDeck()) {
+                for (Card card : duelController.getPlayer().getGameDeck().getMainDeck()) {
                     if (card instanceof SpellCard && ((SpellCard) card).getIcon().equals(Icon.FIELD)) {
                         DuelView.printText(cardCounter + ": " + card.getName() + ": " + card.getDescription());
                         cardCounter++;
@@ -195,7 +64,7 @@ public enum SpellCard implements Cardable {
                 cardCounter = 1;
                 int i;
                 for (i = 0; i < duelController.getPlayer().getGameDeck().getMainDeck().size(); i++) {
-                    Cardable card = duelController.getPlayer().getGameDeck().getMainDeck().get(i);
+                    Card card = duelController.getPlayer().getGameDeck().getMainDeck().get(i);
                     if (card instanceof SpellCard && ((SpellCard) card).getIcon().equals(Icon.FIELD)) {
                         if (cardCounter == Integer.parseInt(choice)) {
                             System.out.println(cardCounter + " " + i);
@@ -204,7 +73,7 @@ public enum SpellCard implements Cardable {
                             cardCounter++;
                     }
                 }
-                Cardable card = duelController.getPlayer().getGameDeck().getMainDeck().get(i);
+                Card card = duelController.getPlayer().getGameDeck().getMainDeck().get(i);
                 duelController.getPlayer().getBoard().getCardsInHand().add(card);
                 duelController.getPlayer().getGameDeck().getMainDeck().remove(i);
                 DuelView.printText("card added to hand successfully");
@@ -218,9 +87,9 @@ public enum SpellCard implements Cardable {
     POT_OF_GREED(Icon.NORMAL, "Draw 2 cards.", Status.LIMITED, 2500) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
-                List<Cardable> deck = duelController.getPlayer().getGameDeck().getMainDeck();
-                Cardable card1 = deck.get(deck.size() - 1);
-                Cardable card2 = deck.get(deck.size() - 2);
+                List<Card> deck = duelController.getPlayer().getGameDeck().getMainDeck();
+                Card card1 = deck.get(deck.size() - 1);
+                Card card2 = deck.get(deck.size() - 2);
                 duelController.getPlayer().getBoard().getCardsInHand().add(card1);
                 duelController.getPlayer().getBoard().getCardsInHand().add(card2);
                 deck.remove(card1);
@@ -250,7 +119,6 @@ public enum SpellCard implements Cardable {
         }
     },
 
-    //FIXME
     CHANGE_OF_HEART(Icon.NORMAL, "Target 1 monster your opponent controls; take control of it until the End Phase.",
             Status.LIMITED, 2500) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -278,7 +146,6 @@ public enum SpellCard implements Cardable {
         }
     },
 
-    //FIXME
     SWORD_OF_REVEALING_LIGHT(Icon.NORMAL, "After this card's activation, it remains on the field, but destroy " +
             "it during the End Phase of your opponent's 3rd turn. When this card is activated: If your opponent controls" +
             " a face-down monster, flip all monsters they control face-up. While this card is face-up on the field, your" +
@@ -311,7 +178,6 @@ public enum SpellCard implements Cardable {
         }
     },
 
-    //FIXME
     SUPPLY_SQUAD(Icon.CONTINUOUS, "Once per turn, if a monster(s) you control is destroyed by battle or card" +
             " effect: Draw 1 card.", Status.UNLIMITED, 4000) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -336,7 +202,6 @@ public enum SpellCard implements Cardable {
 
     },
 
-    //FIXME
     MESSENGER_OF_PEACE(Icon.CONTINUOUS, "Monsters with 1500 or more ATK cannot declare an attack. Once per turn," +
             " during your Standby Phase, pay 100 LP or destroy this card.", Status.UNLIMITED, 4000) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -368,7 +233,7 @@ public enum SpellCard implements Cardable {
                         if (cardNumber.equals("cancel")) return false;
                     }
                     int address = Integer.parseInt(cardNumber) - 1;
-                    Cardable toBeRemoved = duelController.getPlayer().getBoard().getCardInHandByNumber(address);
+                    Card toBeRemoved = duelController.getPlayer().getBoard().getCardInHandByNumber(address);
                     duelController.getPlayer().getBoard().removeCardFromHand(toBeRemoved);
                     DuelView.printText("the card was successfully removed from your hand. Now please enter \"My\" or \"Rival\" to select field");
                     String field = DuelView.scan();
@@ -377,7 +242,7 @@ public enum SpellCard implements Cardable {
                         field = DuelView.scan();
                     }
                     if (field.equals("cancel")) return false;
-                    destroySpellOrTrap(duelController, field);
+                    SpellAction.getInstance().destroySpellOrTrap(duelController, field);
                     DuelView.printText("now, if you want to destroy another spell or trap, type the word \"My\" or \"Rival\", otherwise type the word continue");
                     field = DuelView.scan();
                     while (!field.equals("continue") && !field.equals("My") && !field.equals("Rival")) {
@@ -385,7 +250,7 @@ public enum SpellCard implements Cardable {
                         field = DuelView.scan();
                     }
                     if (field.equals("My") || field.equals("Rival")) {
-                        destroySpellOrTrap(duelController, field);
+                        SpellAction.getInstance().destroySpellOrTrap(duelController, field);
                     }
                     SpellAction.getInstance().enableSpellAbsorptions(duelController);
                     duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
@@ -406,7 +271,7 @@ public enum SpellCard implements Cardable {
                     field = DuelView.scan();
                 }
                 if (field.equals("cancel")) return false;
-                destroySpellOrTrap(duelController, field);
+                SpellAction.getInstance().destroySpellOrTrap(duelController, field);
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
                 duelController.getPlayer().getBoard().removeSpellOrTrap(targetNumber);
             }
@@ -414,7 +279,6 @@ public enum SpellCard implements Cardable {
         }
     },
 
-    //FIXME
     RING_OF_DEFENSE(Icon.QUICK_PLAY, "When a Trap effect that inflicts damage is activated: Make that effect " +
             "damage 0.", Status.UNLIMITED, 3500) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -569,10 +433,9 @@ public enum SpellCard implements Cardable {
     CLOSED_FOREST(Icon.FIELD, "All Beast-Type monsters you control gain 100 ATK for each monster in your " +
             "Graveyard. Field Spell Cards cannot be activated. Field Spell Cards cannot be activated during the turn " +
             "this card is destroyed.", Status.UNLIMITED, 4300) {
-        //TODO change graveyard if necessary
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             int amount = 0;
-            for (Cardable card : duelController.getPlayer().getBoard().getCardsInGraveyard()) {
+            for (Card card : duelController.getPlayer().getBoard().getCardsInGraveyard()) {
                 if (card instanceof MonsterCard) {
                     amount++;
                 }
@@ -674,7 +537,6 @@ public enum SpellCard implements Cardable {
 
     },
 
-    //FIXME
     SWORD_OF_DARK_DESTRUCTION(Icon.EQUIP, "A DARK monster equipped with this card increases its ATK by 400 " +
             "points and decreases its DEF by 200 points.", Status.UNLIMITED, 4300) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -685,7 +547,6 @@ public enum SpellCard implements Cardable {
         }
     },
 
-    //FIXME
     BLACK_PENDANT(Icon.EQUIP, "The equipped monster gains 500 ATK. When this card is sent from the field to the" +
             " Graveyard: Inflict 500 damage to your opponent.", Status.UNLIMITED, 4300) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -696,7 +557,6 @@ public enum SpellCard implements Cardable {
         }
     },
 
-    //FIXME
     UNITED_WE_STAND(Icon.EQUIP, "The equipped monster gains 800 ATK/DEF for each face-up monster you control.",
             Status.UNLIMITED, 4300) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -707,7 +567,6 @@ public enum SpellCard implements Cardable {
         }
     },
 
-    //FIXME
     MAGNUM_SHIELD(Icon.EQUIP, "Equip only to a Warrior-Type monster. Apply this effect, depending on its battle position.\n" +
             "Attack Position: It gains ATK equal to its original DEF.\n" +
             "Defense Position: It gains DEF equal to its original ATK.", Status.UNLIMITED, 4300) {
@@ -719,7 +578,6 @@ public enum SpellCard implements Cardable {
         }
     },
 
-    //FIXME
     ADVANCED_RITUAL_ART(Icon.RITUAL, "This card can be used to Ritual Summon any 1 Ritual Monster. You must " +
             "also send Normal Monsters from your Deck to the Graveyard whose total Levels equal the Level of that Ritual" +
             " Monster.", Status.UNLIMITED, 3000) {
@@ -788,55 +646,4 @@ public enum SpellCard implements Cardable {
         return toReturn;
     }
 
-    private static void destroySpellOrTrap(DuelController duelController, String field) {
-        ArrayList<Integer> updatedOnBoardSpellOrTrap = new ArrayList<>();
-        if (field.equals("My")) {
-            for (int i = 0; i < 5; i++) {
-                Cardable notNullSpellOrTrap = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i);
-                if (notNullSpellOrTrap != null)
-                    updatedOnBoardSpellOrTrap.add(i);
-            }
-            DuelView.printText("please type the spell or trap's address from spell zone to be destroyed");
-            String input = DuelView.scan();
-            while (!input.matches("\\d+") || Integer.parseInt(input) < 1 || Integer.parseInt(input) > 5) {
-                DuelView.printText("please type the spell or trap's address from spell zone to be destroyed, between 1 and 5");
-                input = DuelView.scan();
-            }
-            int myAddress = DuelController.getPlayerGroundNumbers()[Integer.parseInt(input) - 1] - 1;
-            while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
-                DuelView.printText("the chosen address is empty");
-                input = DuelView.scan();
-                while (!input.matches("\\d+") || Integer.parseInt(input) < 1 || Integer.parseInt(input) > 5) {
-                    DuelView.printText("please type the spell or trap's address from spell zone to be destroyed");
-                    input = DuelView.scan();
-                }
-                myAddress = DuelController.getPlayerGroundNumbers()[Integer.parseInt(input) - 1] - 1;
-            }
-            duelController.getPlayer().getBoard().removeSpellOrTrap(myAddress);
-        } else {
-            for (int i = 0; i < 5; i++) {
-                Cardable notNullSpellOrTrap = duelController.getRival().getBoard().getSpellAndTrapByNumber(i);
-                if (notNullSpellOrTrap != null)
-                    updatedOnBoardSpellOrTrap.add(i);
-            }
-            DuelView.printText("please type the spell or trap's address from spell zone to be destroyed");
-            String input = DuelView.scan();
-            while (!input.matches("\\d+") || Integer.parseInt(input) < 1 || Integer.parseInt(input) > 5) {
-                DuelView.printText("please type the spell or trap's address from spell zone to be destroyed, between 1 and 5");
-                input = DuelView.scan();
-            }
-            int myAddress = DuelController.getPlayerGroundNumbers()[Integer.parseInt(input) - 1] - 1;
-            while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
-                DuelView.printText("the chosen address is empty");
-                input = DuelView.scan();
-                while (!input.matches("\\d+") || Integer.parseInt(input) < 1 || Integer.parseInt(input) > 5) {
-                    DuelView.printText("please type the spell or trap's address from spell zone to be destroyed");
-                    input = DuelView.scan();
-                }
-                myAddress = DuelController.getPlayerGroundNumbers()[Integer.parseInt(input) - 1] - 1;
-            }
-            duelController.getRival().getBoard().removeSpellOrTrap(myAddress);
-        }
-        DuelView.printText("the chosen spell or trap was destroyed");
-    }
 }

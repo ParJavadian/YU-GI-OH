@@ -1,0 +1,185 @@
+Index: src/main/java/controller/ImportExportUserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package controller;\r\n\r\nimport controller.exeption.RepetitiveNickname;\r\nimport controller.exeption.RepetitiveUsername;\r\nimport model.Cardable;\r\nimport model.Deck;\r\nimport model.User;\r\n\r\nimport javax.smartcardio.Card;\r\nimport java.io.*;\r\nimport java.nio.file.Files;\r\nimport java.nio.file.Paths;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Scanner;\r\n\r\npublic class ImportExportUserController {\r\n    private static ImportExportUserController instance = null;\r\n\r\n    public static ImportExportUserController getInstance() {\r\n        if (instance == null) instance = new ImportExportUserController();\r\n        return instance;\r\n    }\r\n\r\n    public void exportNewUser(User user) {\r\n        if (user != null) {\r\n            String username = user.getUsername();\r\n            String password = user.getPassword();\r\n            String nickname = user.getNickname();\r\n            int highScore = user.getScore();\r\n            int balance = user.getMoney();\r\n            try {\r\n                FileWriter writer = new FileWriter(\"../Users/\" + username + \".txt\");\r\n                writer.write(username + \"\\n\" + password + \"\\n\" + nickname + \"\\n\" + highScore + \"\\n\" + balance);\r\n                writer.close();\r\n            } catch (IOException e) {\r\n                e.printStackTrace();\r\n            }\r\n        }\r\n\r\n    }\r\n\r\n    public void exportAllUsers(List<User> allUsers) {\r\n        try {\r\n            FileWriter writer = new FileWriter(\"allUsers.txt\");\r\n            for (User user : allUsers) {\r\n                String username = user.getUsername();\r\n                writer.write(username + \"\\n\");\r\n            }\r\n            writer.close();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void importAllUsers() {\r\n        String username = \"\";\r\n        String password = \"\";\r\n        String nickname = \"\";\r\n        String highScore = \"\";\r\n        String balance = \"\";\r\n        File file = new File(\"allUsers.txt\");\r\n\r\n        try {\r\n            if (file.exists()) {\r\n                Scanner scanner = new Scanner(file);\r\n                while (scanner.hasNextLine()) {\r\n                    username = scanner.nextLine();\r\n                    File userFile = new File(\"Users/\" + username + \".txt\");\r\n                    Scanner userScanner = new Scanner(userFile);\r\n                    int counter = 5;\r\n                    while (userScanner.hasNextLine()) {\r\n                        if (counter == 5)\r\n                            username = userScanner.nextLine();\r\n                        if (counter == 4)\r\n                            password = userScanner.nextLine();\r\n                        if (counter == 3)\r\n                            nickname = userScanner.nextLine();\r\n                        if (counter == 2)\r\n                            highScore = userScanner.nextLine();\r\n                        if (counter == 1)\r\n                            balance = userScanner.nextLine();\r\n                        if (counter == 0)\r\n                            break;\r\n                        counter--;\r\n                    }\r\n                    User user = new User(username, nickname, password);\r\n                    if (balance.matches(\"\\\\d+\") && highScore.matches(\"\\\\d+\")) {\r\n                        user.setMoney(Integer.parseInt(balance));\r\n                        user.setScore(Integer.parseInt(highScore));\r\n                    }\r\n                }\r\n            }\r\n        } catch (FileNotFoundException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void exportAllDecksName(List<Deck> allDecks, User user) {\r\n        String username = user.getUsername();\r\n        try {\r\n            FileWriter fileWriter = new FileWriter(\"../UsersDecks/\" + username + \"AllDecks.txt\");\r\n            for (Deck deck : allDecks) {\r\n                String deckName = deck.getDeckName();\r\n                fileWriter.write(deckName + \"\\n\");\r\n            }\r\n            fileWriter.close();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void exportCardsInMainDeck(User user, String deckName) {\r\n        String username = user.getUsername();\r\n        try {\r\n            FileWriter writer = new FileWriter(\"../Deck/\" + username + deckName + \"MainDeck.txt\");\r\n            Deck toBeExportedDeck = user.getDeckByName(deckName);\r\n            for (Cardable card : toBeExportedDeck.getMainDeck()) {\r\n                String cardName = card.getName();\r\n                writer.write(cardName + \"\\n\");\r\n            }\r\n            writer.close();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void exportCardsInSideDeck(User user, String deckName) {\r\n        String username = user.getUsername();\r\n        try {\r\n            FileWriter writer = new FileWriter(\"Deck/\" + username + deckName + \"SideDeck.txt\");\r\n            Deck toBeExportedDeck = user.getDeckByName(deckName);\r\n            for (Cardable card : toBeExportedDeck.getSideDeck()) {\r\n                String cardName = card.getName();\r\n                writer.write(cardName + \"\\n\");\r\n            }\r\n            writer.close();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void importAllDecks() {\r\n        if (User.getAllUsers() != null) {\r\n            for (User user : User.getAllUsers()) {\r\n                String username = user.getUsername();\r\n                File file = new File(\"UsersDecks/\" + username + \"AllDecks.txt\");\r\n                String deckName;\r\n                try {\r\n                    if (file.exists()) {\r\n                        Scanner scanner = new Scanner(file);\r\n                        while (scanner.hasNextLine()) {\r\n                            deckName = scanner.nextLine();\r\n                            File mainDeckFile = new File(\"Deck/\" + user.getUsername() + deckName + \"MainDeck.txt\");\r\n                            File sideDeckFile = new File(\"Deck/\" + user.getUsername() + deckName + \"SideDeck.txt\");\r\n                            if (mainDeckFile.exists()) {\r\n                                Scanner mainDeckScanner = new Scanner(mainDeckFile);\r\n                                Deck deck = new Deck(deckName);\r\n                                while (mainDeckScanner.hasNextLine()) {\r\n                                    String cardName = mainDeckScanner.nextLine();\r\n                                    deck.addCardToMainDeck(DeckController.getInstance(user).getCardByName(cardName));\r\n                                }\r\n                                user.addDeck(deck);\r\n                            }\r\n                            if (sideDeckFile.exists()) {\r\n                                Scanner sideDeckScanner = new Scanner(sideDeckFile);\r\n                                Deck deck = new Deck(deckName);\r\n                                while (sideDeckScanner.hasNextLine()) {\r\n                                    String cardName = sideDeckScanner.nextLine();\r\n                                    deck.addCardToSideDeck(DeckController.getInstance(user).getCardByName(cardName));\r\n                                }\r\n                                user.addDeck(deck);\r\n                            }\r\n                        }\r\n                    }\r\n                } catch (FileNotFoundException e) {\r\n                    e.printStackTrace();\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    public void exportAllCards(User user) {\r\n        try {\r\n            FileWriter writer = new FileWriter(\"Cards/\" + user.getUsername() + \".txt\");\r\n            for (Cardable card : user.getAllCards()) {\r\n                String cardName = card.getName();\r\n                writer.write(cardName + \"\\n\");\r\n            }\r\n            writer.close();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void importAllCards() {\r\n        if (User.getAllUsers() != null) {\r\n            for (User user : User.getAllUsers()) {\r\n                String username = user.getUsername();\r\n                File file = new File(\"Cards/\" + username + \".txt\");\r\n                if (file.exists()) {\r\n                    try {\r\n                        Scanner scanner = new Scanner(file);\r\n                        while (scanner.hasNextLine()) {\r\n                            String cardName = scanner.nextLine();\r\n                            user.addCardToUsersAllCards(DeckController.getInstance(user).getCardByName(cardName));\r\n                        }\r\n                    } catch (FileNotFoundException e) {\r\n                        e.printStackTrace();\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/controller/ImportExportUserController.java	(revision 814f295bd1143251fec7b59b551be1f0ffb150f9)
++++ src/main/java/controller/ImportExportUserController.java	(date 1624550172213)
+@@ -30,7 +30,7 @@
+             int highScore = user.getScore();
+             int balance = user.getMoney();
+             try {
+-                FileWriter writer = new FileWriter("../Users/" + username + ".txt");
++                FileWriter writer = new FileWriter("Users/" + username + ".txt");
+                 writer.write(username + "\n" + password + "\n" + nickname + "\n" + highScore + "\n" + balance);
+                 writer.close();
+             } catch (IOException e) {
+@@ -60,7 +60,6 @@
+         String highScore = "";
+         String balance = "";
+         File file = new File("allUsers.txt");
+-
+         try {
+             if (file.exists()) {
+                 Scanner scanner = new Scanner(file);
+@@ -99,7 +98,7 @@
+     public void exportAllDecksName(List<Deck> allDecks, User user) {
+         String username = user.getUsername();
+         try {
+-            FileWriter fileWriter = new FileWriter("../UsersDecks/" + username + "AllDecks.txt");
++            FileWriter fileWriter = new FileWriter("UsersDecks/" + username + "AllDecks.txt");
+             for (Deck deck : allDecks) {
+                 String deckName = deck.getDeckName();
+                 fileWriter.write(deckName + "\n");
+@@ -113,7 +112,7 @@
+     public void exportCardsInMainDeck(User user, String deckName) {
+         String username = user.getUsername();
+         try {
+-            FileWriter writer = new FileWriter("../Deck/" + username + deckName + "MainDeck.txt");
++            FileWriter writer = new FileWriter("Deck/" + username + deckName + "MainDeck.txt");
+             Deck toBeExportedDeck = user.getDeckByName(deckName);
+             for (Cardable card : toBeExportedDeck.getMainDeck()) {
+                 String cardName = card.getName();
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0b1707ad-3e75-4310-9619-956ec670ae1a\" name=\"Default Changelist\" comment=\"kiana test error fix\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/controller/DuelController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/controller/DuelController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/model/Board.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/model/Board.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/model/SpellCard.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/model/SpellCard.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/test.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/test.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2020.2\\plugins\\maven\\lib\\maven3\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1tf7blqKJ2Y0dLvEX2lrUssvKzj\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"project.structure.last.edited\" value=\"SDKs\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"restartRequiresConfirmation\" value=\"false\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.projectsettings.compiler.javacompiler\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"controller.exeption\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"JUnit.test.testForMinFinder\">\r\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"1.8\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"project_team_17\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MainViewGraphic\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.MainViewGraphic\" />\r\n      <module name=\"project_team_17\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ScoreBoardViewGraphic\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.ScoreBoardViewGraphic\" />\r\n      <module name=\"project_team_17_2\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SignUpViewGraphic\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.SignUpViewGraphic\" />\r\n      <module name=\"project_team_17_2\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test.testForMinFinder\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"project_team_17_2\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testForMinFinder\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.test.testForMinFinder\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.MainViewGraphic\" />\r\n        <item itemvalue=\"Application.SignUpViewGraphic\" />\r\n        <item itemvalue=\"Application.ScoreBoardViewGraphic\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0b1707ad-3e75-4310-9619-956ec670ae1a\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1623148364579</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1623148364579</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"ScoreBoardViewGraphic.java\">\r\n      <created>1623149665559</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623149665559</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"ScoreBoardViewGraphic.java\">\r\n      <created>1623149688409</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623149688409</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Error sign up\">\r\n      <created>1623151044078</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623151044078</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"model.SpellCard.java&#10;Monster Reborn + Terraforming\">\r\n      <created>1623868346229</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623868346229</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED\">\r\n      <created>1623946393997</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623946393997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Yami SpellCard.java\">\r\n      <created>1624002906129</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624002906129</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Forest &amp; Closed Forest&#10;SpellCard.java\">\r\n      <created>1624012207305</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624012207305</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"debug import user\">\r\n      <created>1624093680512</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624093680512</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"debug import user o baghie import ha\">\r\n      <created>1624099929742</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624099929742</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"kiana test error fix\">\r\n      <created>1624533248061</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624533248061</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"11\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"ScoreBoardViewGraphic.java\" />\r\n    <MESSAGE value=\"Error sign up\" />\r\n    <MESSAGE value=\"model.SpellCard.java&#10;Monster Reborn + Terraforming\" />\r\n    <MESSAGE value=\"model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED\" />\r\n    <MESSAGE value=\"Yami SpellCard.java\" />\r\n    <MESSAGE value=\"Forest &amp; Closed Forest&#10;SpellCard.java\" />\r\n    <MESSAGE value=\"debug import user\" />\r\n    <MESSAGE value=\"debug import user o baghie import ha\" />\r\n    <MESSAGE value=\"kiana test error fix\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"kiana test error fix\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"121\" y=\"51\" key=\"DiffContextDialog\" timestamp=\"1624533295587\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state x=\"121\" y=\"51\" key=\"DiffContextDialog/0.0.1280.680@0.0.1280.680\" timestamp=\"1624533295587\" />\r\n    <state width=\"1237\" height=\"186\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1624535748504\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state width=\"1237\" height=\"186\" key=\"GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680\" timestamp=\"1624535748504\" />\r\n    <state width=\"1237\" height=\"186\" key=\"GridCell.Tab.0.center\" timestamp=\"1624535748504\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state width=\"1237\" height=\"186\" key=\"GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680\" timestamp=\"1624535748504\" />\r\n    <state width=\"1237\" height=\"186\" key=\"GridCell.Tab.0.left\" timestamp=\"1624535748504\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state width=\"1237\" height=\"186\" key=\"GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680\" timestamp=\"1624535748504\" />\r\n    <state width=\"1237\" height=\"186\" key=\"GridCell.Tab.0.right\" timestamp=\"1624535748504\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state width=\"1237\" height=\"186\" key=\"GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680\" timestamp=\"1624535748504\" />\r\n    <state x=\"233\" y=\"74\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1624533620620\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state x=\"233\" y=\"74\" key=\"Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680\" timestamp=\"1624533620620\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 814f295bd1143251fec7b59b551be1f0ffb150f9)
++++ .idea/workspace.xml	(date 1624552279965)
+@@ -22,12 +22,12 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="kiana test error fix">
++    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="call SpellCard takeAction in DuelController">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -72,7 +72,7 @@
+       <recent name="controller.exeption" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="JUnit.test.testForMinFinder">
++  <component name="RunManager" selected="Application.Main">
+     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+       <option name="arquillianRunConfiguration">
+         <value>
+@@ -88,7 +88,7 @@
+       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+       <option name="MAIN_CLASS_NAME" value="Main" />
+-      <module name="project_team_17" />
++      <module name="project_team_17_2" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -144,8 +144,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.Main" />
+         <item itemvalue="JUnit.test.testForMinFinder" />
+-        <item itemvalue="Application.Main" />
+         <item itemvalue="Application.MainViewGraphic" />
+         <item itemvalue="Application.SignUpViewGraphic" />
+         <item itemvalue="Application.ScoreBoardViewGraphic" />
+@@ -231,7 +231,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1624533248061</updated>
+     </task>
+-    <option name="localTasksCounter" value="11" />
++    <task id="LOCAL-00011" summary="call SpellCard takeAction in DuelController">
++      <created>1624544824497</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1624544824498</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -256,32 +263,41 @@
+     <MESSAGE value="debug import user" />
+     <MESSAGE value="debug import user o baghie import ha" />
+     <MESSAGE value="kiana test error fix" />
+-    <option name="LAST_COMMIT_MESSAGE" value="kiana test error fix" />
++    <MESSAGE value="call SpellCard takeAction in DuelController" />
++    <option name="LAST_COMMIT_MESSAGE" value="call SpellCard takeAction in DuelController" />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="121" y="51" key="DiffContextDialog" timestamp="1624533295587">
+       <screen x="0" y="0" width="1280" height="680" />
+     </state>
+     <state x="121" y="51" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1624533295587" />
+-    <state width="1237" height="186" key="GridCell.Tab.0.bottom" timestamp="1624535748504">
++    <state width="1237" height="186" key="GridCell.Tab.0.bottom" timestamp="1624549482391">
+       <screen x="0" y="0" width="1280" height="680" />
+     </state>
+-    <state width="1237" height="186" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
+-    <state width="1237" height="186" key="GridCell.Tab.0.center" timestamp="1624535748504">
++    <state width="1237" height="186" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624549482391" />
++    <state width="1237" height="186" key="GridCell.Tab.0.center" timestamp="1624549482391">
+       <screen x="0" y="0" width="1280" height="680" />
+     </state>
+-    <state width="1237" height="186" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
+-    <state width="1237" height="186" key="GridCell.Tab.0.left" timestamp="1624535748504">
++    <state width="1237" height="186" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624549482391" />
++    <state width="1237" height="186" key="GridCell.Tab.0.left" timestamp="1624549482391">
+       <screen x="0" y="0" width="1280" height="680" />
+     </state>
+-    <state width="1237" height="186" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
+-    <state width="1237" height="186" key="GridCell.Tab.0.right" timestamp="1624535748504">
++    <state width="1237" height="186" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624549482391" />
++    <state width="1237" height="186" key="GridCell.Tab.0.right" timestamp="1624549482391">
+       <screen x="0" y="0" width="1280" height="680" />
+     </state>
+-    <state width="1237" height="186" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624535748504" />
+-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624533620620">
++    <state width="1237" height="186" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624549482391" />
++    <state x="280" y="102" key="MultipleFileMergeDialog" timestamp="1624545036278">
+       <screen x="0" y="0" width="1280" height="680" />
+     </state>
+-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624533620620" />
++    <state x="280" y="102" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1624545036278" />
++    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624545062047">
++      <screen x="0" y="0" width="1280" height="680" />
++    </state>
++    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624545062047" />
++    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624552279905">
++      <screen x="0" y="0" width="1280" height="680" />
++    </state>
++    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1624552279905" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: allUsers.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>kiana_msz\r\nhamriouz\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- allUsers.txt	(revision 814f295bd1143251fec7b59b551be1f0ffb150f9)
++++ allUsers.txt	(date 1624549799544)
+@@ -1,2 +1,4 @@
+ kiana_msz
+ hamriouz
++parmida
++123
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml
+diff --git Users/parmida.txt Users/parmida.txt

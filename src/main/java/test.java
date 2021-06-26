@@ -1,21 +1,16 @@
-//package controller;
-
 import controller.DeckController;
 import controller.exeption.*;
 import model.*;
 
 import controller.*;
-import view.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
-import view.DeckView;
-import view.LogInView;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Objects;
 
@@ -24,17 +19,49 @@ public class test {
 
     static User player;
     static User rival;
+    static User checker;
 
     @BeforeAll
     static void toBeDoneBefore() throws Exception {
         player = new User("kiana_msz", "kiana", "12345");
-        Deck deck = new Deck("deck of kiana");
-        Deck deck1 = new Deck("deck of hamraz");
-        player.addDeck(deck);
-        player.setActiveDeck(deck);
+        Deck deckOfKiana = new Deck("deck of kiana");
+        Deck deckOfHamraz = new Deck("deck of hamraz");
+        player.addDeck(deckOfKiana);
+        player.setActiveDeck(deckOfKiana);
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.HANIWA);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.CURTAIN_OF_DARK_ONES);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.GATE_GUARDIAN);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.HERO_OF_THE_EAST);
+        }
+        for (int i = 0; i < 4; i++) {
+            player.addCardToUsersAllCards(MonsterCard.SCANNER);
+        }
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.HANIWA.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+        }
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.CURTAIN_OF_DARK_ONES.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+        }
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.GATE_GUARDIAN.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+        }
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.HERO_OF_THE_EAST.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            DeckController.getInstance(player).addCardToDeck(MonsterCard.SCANNER.getNamePascalCase(), player.getActiveDeck().getDeckName(), false, false);
+        }
         rival = new User("hamriouz", "hamraz", "12345");
-        rival.addDeck(deck1);
-        rival.setActiveDeck(deck1);
+        rival.addDeck(deckOfHamraz);
+        rival.setActiveDeck(deckOfHamraz);
         for (int i = 0; i < 3; i++) {
             rival.addCardToUsersAllCards(MonsterCard.YOMI_SHIP);
             DeckController.getInstance(rival).addCardToDeck(MonsterCard.YOMI_SHIP.getNamePascalCase(), "deck of hamraz", false, false);
@@ -49,10 +76,11 @@ public class test {
         }
         rival.addCardToUsersAllCards(MonsterCard.ALEXANDRITE_DRAGON);
         DeckController.getInstance(rival).addCardToDeck(MonsterCard.ALEXANDRITE_DRAGON.getNamePascalCase(), "deck of hamraz", false, false);
-        deck = new Deck("second deck");
-        player.addDeck(deck);
-        deck = new Deck("third deck");
-        player.addDeck(deck);
+        Deck secondDeckOfKiana = new Deck("second deck");
+        player.addDeck(deckOfKiana);
+        Deck thirdDeckOfKiana = new Deck("third deck");
+        player.addDeck(secondDeckOfKiana);
+        player.addDeck(thirdDeckOfKiana);
         {
             DeckController.getInstance(player).createDeck("deck to check full main");
             player.setActiveDeck(player.getDeckByName("deck to check full main"));
@@ -227,7 +255,12 @@ public class test {
 
 
         }
-        player.setActiveDeck(player.getDeckByName("deck of kiana"));
+        player.setActiveDeck(deckOfKiana);
+        checker = new User("checkMolayi","molayitarinCheck","bemolaKeCheck");
+        checker.addDeck(player.getDeckByName("deck of kiana"));
+        checker.setScore(500);
+        checker.addDeck(rival.getDeckByName(rival.getActiveDeck().getDeckName()));
+        checker.setActiveDeck(checker.getDeckByName("deck of kiana"));
     }
 
 
@@ -244,10 +277,10 @@ public class test {
     @DisplayName("unselect card check")
     public void unselectCardCheck() {
         SelectedCard selectedCard = new SelectedCard(MonsterCard.BITRON,BoardZone.MONSTERZONE,3,player);
-        Cardable beforeChanging = selectedCard.getCard();
+        Card beforeChanging = selectedCard.getCard();
         Assertions.assertEquals(MonsterCard.BITRON,beforeChanging);
         selectedCard.setCard(MonsterCard.AXE_RAIDER);
-        Cardable afterChanging = selectedCard.getCard();
+        Card afterChanging = selectedCard.getCard();
         Assertions.assertEquals(MonsterCard.AXE_RAIDER,afterChanging);
         BoardZone beforeChangingBoardZone = selectedCard.getBoardZone();
         Assertions.assertEquals(BoardZone.MONSTERZONE,beforeChangingBoardZone);
@@ -292,75 +325,6 @@ public class test {
         duelController.setRival(rival);
     }
 
-
-    @Test
-    @DisplayName("go to menu test")
-    public void goToMenuTestDeck() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
-        System.setIn(in);
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream sysOutBackup = System.out;
-        System.setOut(new PrintStream(outContent));
-        MainController.getInstance(player).goToMenu("Deck");
-        //Assertions.assertEquals("Deck Menu\r\n",outContent.toString());
-        System.setOut(sysOutBackup);
-    }
-
-    @Test
-    @DisplayName("go to menu test")
-    public void goToMenuTestScoreBoard() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
-        System.setIn(in);
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream sysOutBackup = System.out;
-        System.setOut(new PrintStream(outContent));
-        MainController.getInstance(player).goToMenu("ScoreBoard");
-        //Assertions.assertEquals("Scoreboard Menu\r\n",outContent.toString());
-        System.setOut(sysOutBackup);
-    }
-
-
-    @Test
-    @DisplayName("go to menu test")
-    public void goToMenuTestProfile() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
-        System.setIn(in);
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream sysOutBackup = System.out;
-        System.setOut(new PrintStream(outContent));
-        MainController.getInstance(player).goToMenu("Profile");
-        //Assertions.assertEquals("Profile Menu\r\n",outContent.toString());
-        System.setOut(sysOutBackup);
-    }
-
-
-    @Test
-    @DisplayName("go to menu test")
-    public void goToMenuTestShop() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
-        System.setIn(in);
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream sysOutBackup = System.out;
-        System.setOut(new PrintStream(outContent));
-        MainController.getInstance(player).goToMenu("Shop");
-        //Assertions.assertEquals("Shop Menu\r\n",outContent.toString());
-        System.setOut(sysOutBackup);
-    }
-
-
-    @Test
-    @DisplayName("go to menu test")
-    public void goToMenuTestImportExport() {
-        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
-        System.setIn(in);
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream sysOutBackup = System.out;
-        System.setOut(new PrintStream(outContent));
-        MainController.getInstance(player).goToMenu("ImportExport");
-        //Assertions.assertEquals("Import-Export Menu\r\n",outContent.toString());
-        System.setOut(sysOutBackup);
-    }
-
     @Test
     @DisplayName("test for scoreboard")
     public void testForScoreBoard() throws Exception {
@@ -381,11 +345,12 @@ public class test {
         System.setOut(new PrintStream(outContent));
         ScoreBoardController.getInstance(player).showScoreboard();
         Assertions.assertEquals("1- gholi: 3000\n" +
-                "1- hamraz: 3000\n" +
                 "1- kholi: 3000\n" +
-                "4- soli: 2000\n" +
-                "5- ali: 1000\n" +
-                "5- goli: 1000\n" +
+                "3- soli: 2000\n" +
+                "4- ali: 1000\n" +
+                "4- goli: 1000\n" +
+                "6- molayitarinCheck: 500\n" +
+                "7- hamraz: 0\n" +
                 "7- kiana: 0\n".replaceAll("\n","\r\n"),outContent.toString());
         System.setOut(sysOutBackup);
     }
@@ -635,16 +600,20 @@ public class test {
                 "Change Of Heart:Target 1 monster your opponent controls; take control of it until the End Phase.\n" +
                 "Closed Forest:All Beast-Type monsters you control gain 100 ATK for each monster in your Graveyard. Field Spell Cards cannot be activated. Field Spell Cards cannot be activated during the turn this card is destroyed.\n" +
                 "Curtain Of Dark Ones:A curtain that a spellcaster made, it is said to raise a dark power.\n" +
+                "Curtain Of Dark Ones:A curtain that a spellcaster made, it is said to raise a dark power.\n" +
                 "Dark Hole:Destroy all monsters on the field.\n" +
                 "Fireyarou:A malevolent creature wrapped in flames that attacks enemies with intense fire.\n" +
                 "Fireyarou:A malevolent creature wrapped in flames that attacks enemies with intense fire.\n" +
                 "Fireyarou:A malevolent creature wrapped in flames that attacks enemies with intense fire.\n" +
                 "Forest:All Insect, Beast, Plant, and Beast-Warrior monsters on the field gain 200 ATK/DEF.\n" +
                 "Gate Guardian:Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 \"Sanga of the Thunder\", \"Kazejin\", and \"Suijin\".\n" +
+                "Gate Guardian:Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 \"Sanga of the Thunder\", \"Kazejin\", and \"Suijin\".\n" +
+                "Haniwa:An earthen figure that protects the tomb of an ancient ruler.\n" +
                 "Haniwa:An earthen figure that protects the tomb of an ancient ruler.\n" +
                 "Harpies Feather Dust:Destroy all Spells and Traps your opponent controls.\n" +
                 "Harpies Feather Dust:Destroy all Spells and Traps your opponent controls.\n" +
                 "Harpies Feather Dust:Destroy all Spells and Traps your opponent controls.\n" +
+                "Hero Of The East:Feel da strength ah dis sword-swinging samurai from da Far East.\n" +
                 "Hero Of The East:Feel da strength ah dis sword-swinging samurai from da Far East.\n" +
                 "Magic Cylinder:When an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.\n" +
                 "Magic Cylinder:When an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.\n" +
@@ -662,6 +631,7 @@ public class test {
                 "Raigeki:Destroy all monsters your opponent controls.\n" +
                 "Raigeki:Destroy all monsters your opponent controls.\n" +
                 "Raigeki:Destroy all monsters your opponent controls.\n" +
+                "Scanner:Once per turn, you can select 1 of your opponent's monsters that is removed from play. Until the End Phase, this card's name is treated as the selected monster's name, and this card has the same Attribute, Level, ATK, and DEF as the selected monster. If this card is removed from the field while this effect is applied, remove it from play.\n" +
                 "Scanner:Once per turn, you can select 1 of your opponent's monsters that is removed from play. Until the End Phase, this card's name is treated as the selected monster's name, and this card has the same Attribute, Level, ATK, and DEF as the selected monster. If this card is removed from the field while this effect is applied, remove it from play.\n" +
                 "Silver Fang:A snow wolf that's beautiful to the eye, but absolutely vicious in battle.\n" +
                 "Silver Fang:A snow wolf that's beautiful to the eye, but absolutely vicious in battle.\n" +
@@ -731,28 +701,6 @@ public class test {
         System.setOut(sysOutBackup);
 
     }
-
-    @Test
-    @DisplayName("showAllDecksTest")
-    public void showAllDecksTest() {
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        PrintStream sysOutBackup = System.out;
-        System.setOut(new PrintStream(outContent));
-        DeckController.getInstance(player).showAllDecks();
-        Assertions.assertEquals("Decks:\n" +
-                "Active deck:\n" +
-                "deck to check full side: main deck 0, side deck 15, invalid\n" +
-                "Other decks:\n" +
-                "@deck of kiana: main deck 0, side deck 0, invalid\n" +
-                "@deck to check full main: main deck 52, side deck 0, valid\n" +
-                "deck of kiana: main deck 0, side deck 0, invalid\n" +
-                "deck to check add card: main deck 2, side deck 2, invalid\n" +
-                "deck to check full main: main deck 60, side deck 0, valid\n" +
-                "second deck: main deck 0, side deck 0, invalid\n" +
-                "third deck: main deck 0, side deck 0, invalid\n".replaceAll("\n","\r\n"),outContent.toString());
-        System.setOut(sysOutBackup);
-    }
-
 
     @Test
     @DisplayName("showMainDeckTest")
@@ -1116,10 +1064,6 @@ public class test {
     @DisplayName("testSelectCardPlayerTrapAndSpellZone with input less than 1 which should throw InvalidSelection")
     public void testSelectCardPlayerTrapAndSpellZoneLessThan1() throws Exception {
         player.setActiveDeck(player.getDeckByName("deck to check full main"));
-        /*ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        System.out.println(player.getActiveDeck().getMainSize() + " " + player.getUsername());
-        Assertions.assertEquals("60 kiana_msz\r\n", outContent.toString());*/
         final DuelController duelController = new DuelController(player, rival, 1);
         Assertions.assertThrows(InvalidSelection.class, new Executable() {
             public void execute() throws Throwable {
@@ -1207,90 +1151,86 @@ public class test {
         });
     }
 
-    //    @Test
-    //    @DisplayName("game")
-    //    public void gameTest(){
-    //        DuelController duelController = new DuelController(player,rival,3);
-    //        //duelController.startNewGame(null);
-    //        duelController.startNewGame(player);
-    //        duelController.startNewGame(rival);
-    //    }
-
-    //    @Test
-    //    @DisplayName("startDrawPhaseTest")
-    //    public void startDrawPhaseTest(){
-    //        DuelController duelController = new DuelController(player,rival,3);
-    //        duelController.startDrawPhase(false);
-    //    }
 
 
-
-    //    @Test
-//    @DisplayName("test for exchange card between main and side")
-//    public void testExchangeCardBetweenMainAndSide() throws Exception {
-//        player.addCardToUsersAllCards(MonsterCard.CRAWLING_DRAGON);
-//        DeckController.getInstance(player).addCardToDeck(MonsterCard.CRAWLING_DRAGON.getNamePascalCase(),"deck to check full main",true, false );
-//        DeckController.getInstance(player).showDeck("deck to check full main",false);
-//        DeckController.getInstance(player).showDeck(player.getActiveDeck().getDeckName(),true);
-//        DuelController duelController = new DuelController(player,rival,3);
-//        ByteArrayInputStream in = new ByteArrayInputStream("YES\nMonster Reborn\nCrawling Dragon".getBytes());
-//        System.setIn(in);
-//        rival.setLifePoint(0);
-//
-//        duelController.manageEndGame();
-//
-//
-//
-//
-//    }
-
-
-     /*@Test
-    @DisplayName("manage end game test")
-    public void manageEndGameTest(){
-        User hossein = new User("hossein","hossein","hossein");
-        User hasan = new User("hasan","hasan","hasan");
-        //Deck deckMolayi = new Deck("deck molayi");
-        hasan.addDeck(player.getDeckByName("deck to check full main"));
-        hossein.addDeck(player.getDeckByName("deck to check full main"));
-        hasan.setActiveDeck(hasan.getDeckByName("deck to check full main"));
-        hossein.setActiveDeck(hossein.getDeckByName("deck to check full main"));
-        ByteArrayInputStream in = new ByteArrayInputStream("no\nno\nno\n".getBytes());
-        System.setIn(in);
-        DuelController duelController = new DuelController(hasan,hossein,3);
-        hasan.setLifePoint(0);
-        duelController.manageEndGame();
-        hasan.setLifePoint(0);
-        duelController.manageEndGame();
-//        hasan.setLifePoint(0);
-//        duelController.manageEndGame();
-    }*/
-
-    /*@Test
-    @DisplayName("test menu enter")
-    public void testMenuEnter() {
-        InputStream sysInBackup = System.in; // backup System.in to restore it later
+    @Test
+    @DisplayName("showAllDecksTest")
+    public void showAllDecksTest() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream sysOutBackup = System.out;
-        ByteArrayInputStream in = new ByteArrayInputStream("\nmenu enter Deck\nmenu exit\n".getBytes());
-        System.setIn(in);
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-        LogInView.getInstance().getCommandForLogin();
-        Assertions.assertEquals("please login first\r\n", out.toString());
-        System.setIn(sysInBackup);
+        System.setOut(new PrintStream(outContent));
+        DeckController.getInstance(checker).showAllDecks();
+        Assertions.assertEquals("Decks:\n" +
+                "Active deck:\n" +
+                "deck of kiana: main deck 15, side deck 0, invalid\n" +
+                "Other decks:\n" +
+                "deck of hamraz: main deck 10, side deck 0, invalid\n".replaceAll("\n","\r\n"),outContent.toString());
         System.setOut(sysOutBackup);
-        System.out.println("5");
-    }*/
+    }
 
-    //    @Test
-//    @DisplayName("loginUser fine")
-//    public void loginUserFine() throws Exception {
-//        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-//        System.setOut(new PrintStream(outContent));
-//        ByteArrayInputStream in = new ByteArrayInputStream("user login -u kiana_msz -p 12345\nuser logout\nmenu exit\n".getBytes());
-//        System.setIn(in);
-//        LogInView.getInstance().getCommandForLogin();
-//        Assertions.assertEquals("user logged in successfully!\r\nuser logged out successfully!\r\n",outContent.toString());
-//    }
+
+    @Test
+    @DisplayName("go to menu test")
+    public void goToMenuTestDeck() {
+        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
+        System.setIn(in);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
+        System.setOut(new PrintStream(outContent));
+        MainController.getInstance(player).goToMenu("Deck");
+        System.setOut(sysOutBackup);
+    }
+
+    @Test
+    @DisplayName("go to menu test")
+    public void goToMenuTestScoreBoard() {
+        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
+        System.setIn(in);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
+        System.setOut(new PrintStream(outContent));
+        MainController.getInstance(player).goToMenu("ScoreBoard");
+        System.setOut(sysOutBackup);
+    }
+
+
+    @Test
+    @DisplayName("go to menu test")
+    public void goToMenuTestProfile() {
+        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
+        System.setIn(in);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
+        System.setOut(new PrintStream(outContent));
+        MainController.getInstance(player).goToMenu("Profile");
+        System.setOut(sysOutBackup);
+    }
+
+
+    @Test
+    @DisplayName("go to menu test")
+    public void goToMenuTestShop() {
+        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
+        System.setIn(in);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
+        System.setOut(new PrintStream(outContent));
+        MainController.getInstance(player).goToMenu("Shop");
+        System.setOut(sysOutBackup);
+    }
+
+
+    @Test
+    @DisplayName("go to menu test")
+    public void goToMenuTestImportExport() {
+        ByteArrayInputStream in = new ByteArrayInputStream("menu show-current\nmenu exit\nuser logout\n".getBytes());
+        System.setIn(in);
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        PrintStream sysOutBackup = System.out;
+        System.setOut(new PrintStream(outContent));
+        MainController.getInstance(player).goToMenu("ImportExport");
+        System.setOut(sysOutBackup);
+    }
+
 
 }

@@ -6,7 +6,7 @@ import view.DuelView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public enum MonsterCard implements Cardable {
+public enum MonsterCard implements Card {
     COMMAND_KNIGHT(4, Attribute.FIRE, MonsterType.WARRIOR, CardType.EFFECT, 1200, 1900,
             "All Warrior-Type monsters you control gain 400 ATK. If you control another monster, monsters your " +
                     "opponent controls cannot target this card for an attack.",
@@ -196,7 +196,6 @@ public enum MonsterCard implements Cardable {
             return true;
         }
     },
-    //TODO ritual
     CRAB_TURTLE(8, Attribute.WATER, MonsterType.AQUA, CardType.RITUAL, 2550, 2500,
             "This monster can only be Ritual Summoned with the Ritual Spell Card, \"Turtle Oath\". You must " +
                     "also offer monsters whose total Level Stars equal 8 or more as a Tribute from the field or your hand.",
@@ -208,7 +207,6 @@ public enum MonsterCard implements Cardable {
             return true;
         }
     },
-    //TODO ritual
     SKULL_GUARDIAN(7, Attribute.LIGHT, MonsterType.WARRIOR, CardType.RITUAL, 2050, 2500,
             "This monster can only be Ritual Summoned with the Ritual Spell Card, \"Novox's Prayer\". You must " +
                     "also offer monsters whose total Level Stars equal 7 or more as a Tribute from the field or your hand.",
@@ -245,10 +243,6 @@ public enum MonsterCard implements Cardable {
             "FLIP: Target 1 monster on the field; destroy that target.", 600, true) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.FLIP_SUMMONED)) {
-                /*User temp = duelController.getPlayer();
-                duelController.setPlayer(duelController.getRival());
-                duelController.setRival(temp);
-                duelController.changePlayerAndRival();*/
                 if (duelController.getPlayer().getUsername().equals("@AI@"))
                     duelController.handleAITurn();
                 else if (duelController.getCountOfMonsterCardsInGround(duelController.getRival()) != 0) {
@@ -350,7 +344,6 @@ public enum MonsterCard implements Cardable {
         }
     },
 
-    //FIXME
     SCANNER(1, Attribute.LIGHT, MonsterType.MACHINE, CardType.EFFECT, 0, 0,
             "Once per turn, you can select 1 of your opponent's monsters that is removed from play. Until the" +
                     " End Phase, this card's name is treated as the selected monster's name, and this card has the same " +
@@ -374,7 +367,6 @@ public enum MonsterCard implements Cardable {
         }
     },
 
-    //FIXME
     MARSHMALLON(3, Attribute.LIGHT, MonsterType.FAIRY, CardType.EFFECT, 300, 500,
             "Cannot be destroyed by battle. After damage calculation, if this card was attacked, and was " +
                     "face-down at the start of the Damage Step: The attacking player takes 1000 damage.", 700, true) {
@@ -386,7 +378,6 @@ public enum MonsterCard implements Cardable {
         }
     },
 
-    //FIXME
     BEAST_KING_BARBAROS(8, Attribute.EARTH, MonsterType.BEAST_WARRIOR, CardType.EFFECT, 3000, 1200,
             "You can Normal Summon/Set this card without Tributing, but its original ATK becomes 1900. You can " +
                     "Tribute 3 monsters to Tribute Summon (but not Set) this card. If Summoned this way: Destroy all " +
@@ -399,7 +390,6 @@ public enum MonsterCard implements Cardable {
         }
     },
 
-    //FIXME
     TEXCHANGER(1, Attribute.DARK, MonsterType.CYBERSE, CardType.EFFECT, 100, 100,
             "Once per turn, when your monster is targeted for an attack: You can negate that attack, then " +
                     "Special Summon 1 Cyberse Normal Monster from your hand, Deck, or GY.", 200, true) {
@@ -421,7 +411,6 @@ public enum MonsterCard implements Cardable {
         }
     },
 
-    //FIXME
     THE_CALCULATOR(2, Attribute.LIGHT, MonsterType.THUNDER, CardType.EFFECT, 0, 0,
             "The ATK of this card is the combined Levels of all face-up monsters you control x 300.", 8000, true) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -444,7 +433,6 @@ public enum MonsterCard implements Cardable {
         }
     },
 
-    //FIXME
     MIRAGE_DRAGON(4, Attribute.LIGHT, MonsterType.DRAGON, CardType.EFFECT, 1600, 600,
             "Your opponent cannot activate Trap Cards during the Battle Phase.", 2500, true) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
@@ -455,7 +443,6 @@ public enum MonsterCard implements Cardable {
         }
     },
 
-    //FIXME
     HERALD_OF_CREATION(4, Attribute.LIGHT, MonsterType.SPELLCASTER, CardType.EFFECT, 1800, 600,
             "Once per turn: You can discard 1 card, then target 1 Level 7 or higher monster in your Graveyard; " +
                     "add that target to your hand.", 2700, true) {
@@ -516,7 +503,6 @@ public enum MonsterCard implements Cardable {
         }
     },
 
-    //FIXME
     TERRATIGER_THE_EMPOWERED_WARRIOR(4, Attribute.EARTH, MonsterType.WARRIOR, CardType.EFFECT, 1800, 1200,
             "When this card is Normal Summoned: You can Special Summon 1 Level 4 or lower Normal Monster from" +
                     " your hand in Defense Position.", 3200, true) {
@@ -528,7 +514,6 @@ public enum MonsterCard implements Cardable {
         }
     },
 
-    //FIXME
     THE_TRICKY(5, Attribute.WIND, MonsterType.SPELLCASTER, CardType.EFFECT, 2000, 1200,
             "You can Special Summon this card (from your hand) by discarding 1 card.", 4300, true) {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {

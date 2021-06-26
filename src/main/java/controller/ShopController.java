@@ -23,13 +23,13 @@ public class ShopController {
     }
 
     public void buyCard(String name) throws Exception {
-        Cardable card = DeckController.getInstance(user).getCardByName(name);
+        Card card = DeckController.getInstance(user).getCardByName(name);
         if (card != null) {
             if (this.user.getMoney() >= card.getPrice()) {
                 this.user.decreaseMoney(card.getPrice());
                 this.user.addCardToUsersAllCards(card);
-//                ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-//                importExportUserController.exportAllCards(this.user);
+                ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+                importExportUserController.exportAllCards(this.user);
                 ShopView.getInstance(this.user).printText("The card " + name + " was successfully bought!");
             } else {
                 throw new NotEnoughMoney();
@@ -40,9 +40,9 @@ public class ShopController {
     }
 
     public void showAll() {
-        List<Cardable> allCards =  DeckController.getInstance(user).getAllCardsOfGame();
+        List<Card> allCards =  DeckController.getInstance(user).getAllCardsOfGame();
         String toPrint = "";
-        for (Cardable card : allCards){
+        for (Card card : allCards){
             if (allCards.indexOf(card) == allCards.size()-1){
                 toPrint += card.getNamePascalCase()+":"+card.getPrice();
             } else

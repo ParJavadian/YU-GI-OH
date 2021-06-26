@@ -1,17 +1,10 @@
-/*
 package controller;
 
-import controller.exeption.RepetitiveNickname;
-import controller.exeption.RepetitiveUsername;
-import model.Cardable;
+import model.Card;
 import model.Deck;
 import model.User;
 
-import javax.smartcardio.Card;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -118,7 +111,7 @@ public class ImportExportUserController {
         try {
             FileWriter writer = new FileWriter("Deck/" + username + deckName + "MainDeck.txt");
             Deck toBeExportedDeck = user.getDeckByName(deckName);
-            for (Cardable card : toBeExportedDeck.getMainDeck()) {
+            for (Card card : toBeExportedDeck.getMainDeck()) {
                 String cardName = card.getNamePascalCase();
                 writer.write(cardName + "\n");
             }
@@ -133,7 +126,7 @@ public class ImportExportUserController {
         try {
             FileWriter writer = new FileWriter("Deck/" + username + deckName + "SideDeck.txt");
             Deck toBeExportedDeck = user.getDeckByName(deckName);
-            for (Cardable card : toBeExportedDeck.getSideDeck()) {
+            for (Card card : toBeExportedDeck.getSideDeck()) {
                 String cardName = card.getNamePascalCase();
                 writer.write(cardName + "\n");
             }
@@ -159,7 +152,6 @@ public class ImportExportUserController {
                             File sideDeckFile = new File("Deck/" + user.getUsername() + deckName + "SideDeck.txt");
                             if (mainDeckFile.exists()) {
                                 Scanner mainDeckScanner = new Scanner(mainDeckFile);
-
                                 while (mainDeckScanner.hasNextLine()) {
                                     String cardName = mainDeckScanner.nextLine();
                                     deck.addCardToMainDeck(DeckController.getInstance(user).getCardByName(cardName));
@@ -185,7 +177,7 @@ public class ImportExportUserController {
     public void exportAllCards(User user) {
         try {
             FileWriter writer = new FileWriter("Cards/" + user.getUsername() + ".txt");
-            for (Cardable card : user.getAllCards()) {
+            for (Card card : user.getAllCards()) {
                 String cardName = card.getNamePascalCase();
                 writer.write(cardName + "\n");
             }
@@ -215,4 +207,3 @@ public class ImportExportUserController {
         }
     }
 }
-*/
