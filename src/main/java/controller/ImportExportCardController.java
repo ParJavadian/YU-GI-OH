@@ -3,7 +3,6 @@ package controller;
 import model.*;
 
 import java.io.*;
-import java.util.List;
 import java.util.Scanner;
 
 public class ImportExportCardController {
@@ -30,9 +29,9 @@ public class ImportExportCardController {
         String description = "";
         boolean canBeNormalSummoned = false;
 
-        File monsterFile = new File("Cards/" + cardName + "MonsterCard.txt");
-        File trapFile = new File("Cards/" + cardName + "TrapCard.txt");
-        File spellFile = new File("Cards/" + cardName + "SpellCard.txt");
+        File monsterFile = new File("CardsIE/" + cardName + "MonsterCard.txt");
+        File trapFile = new File("CardsIE/" + cardName + "TrapCard.txt");
+        File spellFile = new File("CardsIE/" + cardName + "SpellCard.txt");
         Scanner scanner = null;
         try {
             if (monsterFile.exists()) {
@@ -51,10 +50,10 @@ public class ImportExportCardController {
     }
 
     private void importSpellCard(File spellFile) throws FileNotFoundException {
-        String icon;
-        String status;
-        int price;
-        String description;
+        String icon = "";
+        String status = "";
+        int price = 0;
+        String description = "";
         int counter = 4;
         Scanner scanner = new Scanner(spellFile);
         while (scanner.hasNextLine()) {
@@ -75,14 +74,16 @@ public class ImportExportCardController {
                 break;
             counter--;
         }
-//                SpellCard spellCard = new SpellCard(icon,description,status,price)
+/*
+        SpellCard spellCard = new SpellCard(icon,description,status,price)
+*/
     }
 
     private void importTrapCard(File trapFile) throws FileNotFoundException {
-        String icon;
-        String status;
-        int price;
-        String description;
+        String icon = "";
+        String status = "";
+        int price = 0;
+        String description = "";
         int counter = 4;
         Scanner scanner = new Scanner(trapFile);
         while (scanner.hasNextLine()) {
@@ -106,6 +107,33 @@ public class ImportExportCardController {
 /*
                 TrapCard trapCard = new TrapCard(icon,description,status,price);
 */
+    }
+
+    private void importSpellOrTrap(File trapFile) throws FileNotFoundException {
+        String icon = "";
+        String status = "";
+        int price = 0;
+        String description = "";
+        int counter = 4;
+        Scanner scanner = new Scanner(trapFile);
+        while (scanner.hasNextLine()) {
+            if (counter == 4)
+                icon = scanner.nextLine();
+            if (counter == 3)
+                status = scanner.nextLine();
+            if (counter == 2)
+                price = Integer.parseInt(scanner.nextLine());
+            if (counter == 1) {
+                StringBuilder stringBuilder = new StringBuilder();
+                while (scanner.hasNextLine()) {
+                    stringBuilder.append(scanner.nextLine());
+                }
+                description = String.valueOf(stringBuilder);
+            }
+            if (counter == 0)
+                break;
+            counter--;
+        }
     }
 
     private void importMonsterCard(File monsterFile) throws FileNotFoundException {
@@ -163,7 +191,7 @@ public class ImportExportCardController {
                 };*/
     }
 
-    public void exportCard(Cardable card) {
+    public void exportCard(Card card) {
         if (card instanceof MonsterCard)
             exportMonsterCard(card);
         if (card instanceof SpellCard)
@@ -172,34 +200,41 @@ public class ImportExportCardController {
             ExportTrapCard(card);
     }
 
-    private void ExportTrapCard(Cardable card) {
+    private void ExportTrapCard(Card card) {
         try {
-            FileWriter writer = new FileWriter("Cards/" + card.getName() + "TrapCard.txt");
+            FileWriter writer = new FileWriter("CardsIE/" + card.getNamePascalCase() + "TrapCard.txt");
             writer.write(((TrapCard) card).getIcon() + "\n" + ((TrapCard) card).getStatus() + "\n"
                     + card.getPrice() + "\n" + card.getDescription());
+            writer.close();
+            System.out.println(card.getNamePascalCase() + "was successfully exported");
         }catch (IOException e){
             e.printStackTrace();
         }
     }
 
-    private void ExportSpellCard(Cardable card) {
+    private void ExportSpellCard(Card card) {
         try {
-            FileWriter writer = new FileWriter("Cards/" + card.getName() + "SpellCard.txt");
+            FileWriter writer = new FileWriter("CardsIE/" + card.getNamePascalCase() + "SpellCard.txt");
             writer.write(((SpellCard) card).getIcon() + "\n" + ((SpellCard) card).getStatus() + "\n"
                     + card.getPrice() + "\n" + card.getDescription());
+            writer.close();
+            System.out.println(card.getNamePascalCase() + "was successfully exported!");
         }catch (IOException e){
             e.printStackTrace();
         }
     }
 
-    private void exportMonsterCard(Cardable card) {
+    private void exportMonsterCard(Card card) {
         try {
-            FileWriter writer = new FileWriter("Cards/" + card.getName() + "MonsterCard.txt");
+            FileWriter writer = new FileWriter("CardsIE/" + card.getNamePascalCase() + "MonsterCard.txt");
             writer.write(((MonsterCard) card).getLevel() + "\n" + ((MonsterCard) card).getAttribute() + "\n" +
                     ((MonsterCard) card).getMonsterType() + "\n" + ((MonsterCard) card).getCardType() + "\n" +
                     ((MonsterCard) card).getAttack() + "\n" + ((MonsterCard) card).getDefence() + "\n" +
                     card.getPrice() + "\n" + ((MonsterCard) card).getCanBeNormalSummoned() +
                     "\n" + card.getDescription());
+            writer.close();
+            System.out.println(card.getNamePascalCase() + "was successfully exported!");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
