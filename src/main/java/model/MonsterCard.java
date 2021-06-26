@@ -278,7 +278,7 @@ public enum MonsterCard implements Cardable {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.SPECIAL_SUMMONED)) {
                 if (duelController.getCountOfMonsterCardsInGround(owner) < 3) {
-                    DuelView.printText("there is no way you could special summon a monster");
+                    DuelView.printText("there is no way you could special summon this monster");
                     return;
                 }
                 DuelView.printText("select 3 monsters from ground to tribute");
