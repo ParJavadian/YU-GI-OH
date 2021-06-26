@@ -1056,6 +1056,7 @@ public class DuelController {
 
     private void newThoseThatResetWithTurn() {
         newActionsOnThisCardPlayer();
+        newActionsOnThisCardRival();
         for (int i = 0; i < 5; i++) {
             actionsOnThisCardPlayer.get(i).clear();
             actionsOnThisCardRival.get(i).clear();
