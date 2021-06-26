@@ -344,13 +344,14 @@ public enum SpellCard implements Cardable {
         }
     },
 
-    TWIN_TWISTER(Icon.QUICK_PLAY, "Discard 1 card, then target up to 2 Spells/Traps on the field; destroy them."
+    TWIN_TWISTERS(Icon.QUICK_PLAY, "Discard 1 card, then target up to 2 Spells/Traps on the field; destroy them."
             , Status.UNLIMITED, 3500) {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 int numberOfCardsInHand = duelController.getPlayer().getBoard().getCardsInHand().size();
                 if (numberOfCardsInHand == 0) {
                     DuelView.printText("you don't have enough card in your hand to use this spell");
+                    return false;
                 } else {
                     numberOfCardsInHand -= 1;
                     DuelView.printText("please enter a number between 1 and " + (numberOfCardsInHand + 1) + " to choose" +
