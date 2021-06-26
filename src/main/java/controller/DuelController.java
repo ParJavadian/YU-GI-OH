@@ -442,33 +442,37 @@ public class DuelController {
             throw new AlreadySummoned();
         }
         MonsterCard monsterCard = (MonsterCard) this.selectedCard.getCard();
-        if (monsterCard.getLevel() <= 4) {
-            int place = this.player.getBoard().putMonster(monsterCard, "DH");
-            setMonsterAttackPlayer(place, ((MonsterCard) selectedCard.getCard()).getAttack());
-            this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
-            addToAttackDefenceOfPutCard(place, this.player);
+        if (monsterCard.getCanBeNormalSummoned()) {
+            if (monsterCard.getLevel() <= 4) {
+                int place = this.player.getBoard().putMonster(monsterCard, "DH");
+                setMonsterAttackPlayer(place, ((MonsterCard) selectedCard.getCard()).getAttack());
+                this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
+                addToAttackDefenceOfPutCard(place, this.player);
 //            ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, this.player, place);
-            this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
+                this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
 //            monsterZone.setHasSetInThisTurn(this.player.getBoard().putMonster(monsterCard, "DH"), true);
-            this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
-            unselectCard();
-            DuelView.printText("set successfully");
-            hasSummonedOrSetInThisTurn = true;
-            printBoard();
-            return;
-        }
-        if (monsterCard.getLevel() < 7) {
-            if (getCountOfMonsterCardsInGround(this.player) < 1) {
-                throw new InsufficientForTribute();
-            } else {
-                tributeOneMonsterForSet();
+                this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
+                unselectCard();
+                DuelView.printText("set successfully");
+                hasSummonedOrSetInThisTurn = true;
+                printBoard();
+                return;
             }
-        } else {
-            if (getCountOfMonsterCardsInGround(this.player) < 2) {
-                throw new InsufficientForTribute();
+            if (monsterCard.getLevel() < 7) {
+                if (getCountOfMonsterCardsInGround(this.player) < 1) {
+                    throw new InsufficientForTribute();
+                } else {
+                    tributeOneMonsterForSet();
+                }
             } else {
-                tributeTwoMonstersForSet();
+                if (getCountOfMonsterCardsInGround(this.player) < 2) {
+                    throw new InsufficientForTribute();
+                } else {
+                    tributeTwoMonstersForSet();
+                }
             }
+        } else if (!((MonsterCard) this.selectedCard.getCard()).getCardType().equals(CardType.RITUAL)) {
+            specialSummonNormal();
         }
     }
 
@@ -644,6 +648,10 @@ public class DuelController {
             throw new NoCardToAttack();
         if (rival.getBoard().getMonsterByNumber(monsterNumber) == null)
             throw new NoCardFoundInThisPosition();
+        findWayAttack(monsterNumber);
+    }
+
+    private void findWayAttack(int monsterNumber) throws Exception {
         String targetPosition = this.rival.getBoard().getMonsterConditionByNumber(monsterNumber);
         if (this.rival.getBoard().getMonsterByNumber(monsterNumber).canBeAttacked(this, monsterNumber)) {
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.ATTACKED, this.rival, monsterNumber);
