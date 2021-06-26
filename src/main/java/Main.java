@@ -95,10 +95,10 @@ shop buy Mind Crush
 shop buy Mind Crush
 shop buy Mind Crush
 shop buy Mind Crush
-shop buy Man Eater Bug
-shop buy Man Eater Bug
-shop buy Man Eater Bug
-shop buy Man Eater Bug
+shop buy Suijin
+shop buy Suijin
+shop buy Suijin
+shop buy Suijin
 shop buy Silver Fang
 shop buy Silver Fang
 shop buy Silver Fang
@@ -164,10 +164,10 @@ card with name Sword Of Revealing Light does not exist
 deck add-card -c Supply Squad -d one -s
 deck add-card -c Supply Squad -d one
 deck add-card -c Silver Fang -d one
-deck add-card -c Man Eater Bug -d one
-deck add-card -c Man Eater Bug -d one
-deck add-card -c Man Eater Bug -d one
-deck add-card -c Man Eater Bug -d one
+deck add-card -c Suijin -d one
+deck add-card -c Suijin -d one
+deck add-card -c Suijin -d one
+deck add-card -c Suijin -d one
 deck add-card -c Mind Crush -d one
 deck add-card -c Mind Crush -d one
 deck add-card -c Mind Crush -d one
@@ -286,10 +286,10 @@ shop buy Mind Crush
 shop buy Mind Crush
 shop buy Mind Crush
 shop buy Mind Crush
-shop buy Man Eater Bug
-shop buy Man Eater Bug
-shop buy Man Eater Bug
-shop buy Man Eater Bug
+shop buy Suijin
+shop buy Suijin
+shop buy Suijin
+shop buy Suijin
 shop buy Silver Fang
 shop buy Silver Fang
 shop buy Silver Fang
@@ -353,10 +353,10 @@ deck add-card -c Sword Of Revealing Light -d oneParmida -s
 deck add-card -c Supply Squad -d oneParmida -s
 deck add-card -c Supply Squad -d oneParmida
 deck add-card -c Silver Fang -d oneParmida
-deck add-card -c Man Eater Bug -d oneParmida
-deck add-card -c Man Eater Bug -d oneParmida
-deck add-card -c Man Eater Bug -d oneParmida
-deck add-card -c Man Eater Bug -d oneParmida
+deck add-card -c Suijin -d oneParmida
+deck add-card -c Suijin -d oneParmida
+deck add-card -c Suijin -d oneParmida
+deck add-card -c Suijin -d oneParmida
 deck add-card -c Mind Crush -d oneParmida
 deck add-card -c Mind Crush -d oneParmida
 deck add-card -c Mind Crush -d oneParmida

@@ -100,6 +100,7 @@ public class Board {
         else {
             duelController.setMonsterAttackRival(number,null);
             duelController.setMonsterDefenceRival(number,null);
+            duelController.getActionsOnThisCardRival(number).clear();
         }
     }
 

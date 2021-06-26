@@ -20,6 +20,7 @@ public class DuelController {
     private Phase phase;
     private boolean hasSummonedOrSetInThisTurn;
     private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardPlayer = new ArrayList<>(5);
+    private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardRival = new ArrayList<>(5);
     private Integer[] playerAttackPoints = new Integer[5];
     private Integer[] rivalAttackPoints = new Integer[5];
     private Integer[] playerDefencePoints = new Integer[5];
@@ -45,6 +46,10 @@ public class DuelController {
         return actionsOnThisCardPlayer.get(i);
     }
 
+    public ArrayList<ActionsDoneInTurn> getActionsOnThisCardRival(int i) {
+        return actionsOnThisCardRival.get(i);
+    }
+
     public void setDuelView(DuelView duelView) {
         this.duelView = duelView;
     }
@@ -53,6 +58,13 @@ public class DuelController {
         ArrayList<ActionsDoneInTurn> arrayList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             this.actionsOnThisCardPlayer.add(arrayList);
+        }
+    }
+
+    private void newActionsOnThisCardRival() {
+        ArrayList<ActionsDoneInTurn> arrayList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            this.actionsOnThisCardRival.add(arrayList);
         }
     }
 
@@ -88,11 +100,11 @@ public class DuelController {
     }
 
     public boolean getHasEnabledSuijin(int i) {
-        return actionsOnThisCardPlayer.get(i).contains(ActionsDoneInTurn.ENABLE_SUIJIN);
+        return actionsOnThisCardRival.get(i).contains(ActionsDoneInTurn.ENABLE_SUIJIN);
     }
 
     public void setHasEnabledSuijinTrue(int i) {
-        actionsOnThisCardPlayer.get(i).add(ActionsDoneInTurn.ENABLE_SUIJIN);
+        actionsOnThisCardRival.get(i).add(ActionsDoneInTurn.ENABLE_SUIJIN);
     }
 
     public void setMonsterAttackPlayer(int i, Integer number) {
@@ -619,7 +631,6 @@ public class DuelController {
     }
 
     public void attackMonster(int monsterNumber) throws Exception {
-
         monsterNumber = playerGroundNumbers[monsterNumber - 1] - 1;
 //        System.out.println(monsterNumber + ", " + rival.getBoard().getMonsterByNumber(monsterNumber) + ", " + rival.getBoard().getMonsterByNumber(monsterNumber-1));
         if (this.selectedCard == null) throw new NoCardSelected();
@@ -1047,6 +1058,7 @@ public class DuelController {
         newActionsOnThisCardPlayer();
         for (int i = 0; i < 5; i++) {
             actionsOnThisCardPlayer.get(i).clear();
+            actionsOnThisCardRival.get(i).clear();
             if (this.player.getBoard().getMonsterByNumber(i) != null && this.playerAttackPoints[i] != null && this.playerAttackPoints[i] == 0 && this.player.getBoard().getMonsterByNumber(i).getAttack() != 0) {
                 this.playerAttackPoints[i] = this.player.getBoard().getMonsterByNumber(i).getAttack();
             }

@@ -17,7 +17,7 @@ public class MonsterAction {
             duelController.changeAllAttackPoints(-1, amount);
         } else if (takeActionCase.equals(TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE)) {
             if (owner.getUsername().equals(duelController.getPlayer().getUsername())) {
-                if(!duelController.getPlayer().getBoard().getMonsterByNumber(targetNumber).equals(MonsterCard.COMMAND_KNIGHT)) {
+                if (!duelController.getPlayer().getBoard().getMonsterByNumber(targetNumber).equals(MonsterCard.COMMAND_KNIGHT)) {
                     duelController.changePlayerAttackPoint(targetNumber, amount);
                 }
             } else duelController.changeRivalAttackPoint(targetNumber, amount);
@@ -47,10 +47,12 @@ public class MonsterAction {
 
     public void makeAttackerAttackPoint0Suijin(DuelController duelController, TakeActionCase takeActionCase, int targetNumber) {
         if (takeActionCase.equals(TakeActionCase.ATTACKED)) {
-            int place = duelController.getSelectedCard().getNumber();
-            if (!duelController.getHasEnabledSuijin(place)) {
-                duelController.setMonsterAttackPlayer(targetNumber, 0);
-                duelController.setHasEnabledSuijinTrue(place);
+            if (!(duelController.getRival().getBoard().getMonsterConditionByNumber(targetNumber).equals("DH") || duelController.getActionsOnThisCardRival(targetNumber).contains(ActionsDoneInTurn.ENABLE_SUIJIN))) {
+                int place = duelController.getSelectedCard().getNumber();
+                if (!duelController.getHasEnabledSuijin(place)) {
+                    duelController.setMonsterAttackPlayer(targetNumber, 0);
+                    duelController.setHasEnabledSuijinTrue(place);
+                }
             }
         }
     }
