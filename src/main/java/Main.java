@@ -49,12 +49,12 @@ user create -u parmida -p 1234 -n parmida
 user login -u hamraz -p 123
 edoCtaehc yenom 1000000
 menu enter Shop
+shop buy Mystical Space Typhoon
+shop buy Mystical Space Typhoon
+shop buy Mystical Space Typhoon
 shop buy Yomi Ship
 shop buy Yomi Ship
 shop buy Yomi Ship
-shop buy Pot Of Greed
-shop buy Pot Of Greed
-shop buy Pot Of Greed
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
@@ -209,14 +209,14 @@ deck add-card -c Monster Reborn -d one
 deck add-card -c Monster Reborn -d one
 deck add-card -c Monster Reborn -d one
 deck add-card -c Monster Reborn -d one
-deck add-card -c Pot Of Greed -d one
-deck add-card -c Pot Of Greed -d one
-deck add-card -c Pot Of Greed -d one
+deck add-card -c Yomi Ship -d one
+deck add-card -c Yomi Ship -d one
+deck add-card -c Yomi Ship -d one
 deck show --all
-deck add-card -c Yomi Ship -d one
-deck add-card -c Yomi Ship -d one
-deck add-card -c Yomi Ship -d one
-deck add-card -c Yomi Ship -d one
+deck add-card -c Mystical Space Typhoon -d one
+deck add-card -c Mystical Space Typhoon -d one
+deck add-card -c Mystical Space Typhoon -d one
+deck add-card -c Mystical Space Typhoon -d one
 deck add-card -c Yami -d one
 deck add-card -c Yami -d one
 deck add-card -c Yami -d one
@@ -236,12 +236,12 @@ user logout
 user login -u parmida -p 1234
 edoCtaehc yenom 1000000
 menu enter Shop
+shop buy Mystical Space Typhoon
+shop buy Mystical Space Typhoon
+shop buy Mystical Space Typhoon
 shop buy Yomi Ship
 shop buy Yomi Ship
 shop buy Yomi Ship
-shop buy Pot Of Greed
-shop buy Pot Of Greed
-shop buy Pot Of Greed
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
@@ -394,14 +394,14 @@ deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
-deck add-card -c Pot Of Greed -d oneParmida
-deck add-card -c Pot Of Greed -d oneParmida
-deck add-card -c Pot Of Greed -d oneParmida
+deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Yomi Ship -d oneParmida
 deck show --all
-deck add-card -c Yomi Ship -d oneParmida
-deck add-card -c Yomi Ship -d oneParmida
-deck add-card -c Yomi Ship -d oneParmida
-deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Mystical Space Typhoon -d oneParmida
+deck add-card -c Mystical Space Typhoon -d oneParmida
+deck add-card -c Mystical Space Typhoon -d oneParmida
+deck add-card -c Mystical Space Typhoon -d oneParmida
 deck add-card -c Yami -d oneParmida
 deck add-card -c Yami -d oneParmida
 deck add-card -c Yami -d oneParmida

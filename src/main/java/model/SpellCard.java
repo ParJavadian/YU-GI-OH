@@ -361,13 +361,13 @@ public enum SpellCard implements Cardable {
                             " a card from your hand to be removed.");
                     String cardNumber = DuelView.scan();
                     if (cardNumber.equals("cancel")) return false;
-                    while (!cardNumber.matches("\\d+") || Integer.parseInt(cardNumber) < 0
+                    while (!cardNumber.matches("\\d+") || Integer.parseInt(cardNumber) < 1
                             || Integer.parseInt(cardNumber) > numberOfCardsInHand + 1) {
                         DuelView.printText("please Enter a valid Number!");
                         cardNumber = DuelView.scan();
                         if (cardNumber.equals("cancel")) return false;
                     }
-                    int address = DuelController.getPlayerGroundNumbers()[Integer.parseInt(cardNumber) - 1]-1;
+                    int address = Integer.parseInt(cardNumber) - 1;
                     Cardable toBeRemoved = duelController.getPlayer().getBoard().getCardInHandByNumber(address);
                     duelController.getPlayer().getBoard().removeCardFromHand(toBeRemoved);
                     DuelView.printText("the card was successfully removed from your hand. Now please enter \"My\" or \"Rival\" to select field");
@@ -791,8 +791,8 @@ public enum SpellCard implements Cardable {
     private static void destroySpellOrTrap(DuelController duelController, String field) {
         ArrayList<Integer> updatedOnBoardSpellOrTrap = new ArrayList<>();
         if (field.equals("My")) {
-            for (int i = 1; i <= 5; i++) {
-                Cardable notNullSpellOrTrap = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i - 1);
+            for (int i = 0; i < 5; i++) {
+                Cardable notNullSpellOrTrap = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(i);
                 if (notNullSpellOrTrap != null)
                     updatedOnBoardSpellOrTrap.add(i);
             }
@@ -802,7 +802,7 @@ public enum SpellCard implements Cardable {
                 DuelView.printText("please type the spell or trap's address from spell zone to be destroyed, between 1 and 5");
                 input = DuelView.scan();
             }
-            int myAddress = Integer.parseInt(input);
+            int myAddress = DuelController.getPlayerGroundNumbers()[Integer.parseInt(input) - 1] - 1;
             while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
                 DuelView.printText("the chosen address is empty");
                 input = DuelView.scan();
@@ -810,13 +810,12 @@ public enum SpellCard implements Cardable {
                     DuelView.printText("please type the spell or trap's address from spell zone to be destroyed");
                     input = DuelView.scan();
                 }
-                myAddress = Integer.parseInt(input);
+                myAddress = DuelController.getPlayerGroundNumbers()[Integer.parseInt(input) - 1] - 1;
             }
-//            Cardable numberOne = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(myAddress);
-            duelController.getPlayer().getBoard().removeSpellOrTrap(myAddress - 1);
+            duelController.getPlayer().getBoard().removeSpellOrTrap(myAddress);
         } else {
-            for (int i = 1; i <= 5; i++) {
-                Cardable notNullSpellOrTrap = duelController.getRival().getBoard().getSpellAndTrapByNumber(i - 1);
+            for (int i = 0; i < 5; i++) {
+                Cardable notNullSpellOrTrap = duelController.getRival().getBoard().getSpellAndTrapByNumber(i);
                 if (notNullSpellOrTrap != null)
                     updatedOnBoardSpellOrTrap.add(i);
             }
@@ -826,7 +825,7 @@ public enum SpellCard implements Cardable {
                 DuelView.printText("please type the spell or trap's address from spell zone to be destroyed, between 1 and 5");
                 input = DuelView.scan();
             }
-            int myAddress = Integer.parseInt(input);
+            int myAddress = DuelController.getPlayerGroundNumbers()[Integer.parseInt(input) - 1] - 1;
             while (!(updatedOnBoardSpellOrTrap.contains(myAddress))) {
                 DuelView.printText("the chosen address is empty");
                 input = DuelView.scan();
@@ -834,10 +833,9 @@ public enum SpellCard implements Cardable {
                     DuelView.printText("please type the spell or trap's address from spell zone to be destroyed");
                     input = DuelView.scan();
                 }
-                myAddress = Integer.parseInt(input);
+                myAddress = DuelController.getPlayerGroundNumbers()[Integer.parseInt(input) - 1] - 1;
             }
-//            Cardable numberOne = duelController.getPlayer().getBoard().getSpellAndTrapByNumber(myAddress);
-            duelController.getRival().getBoard().removeSpellOrTrap(myAddress - 1);
+            duelController.getRival().getBoard().removeSpellOrTrap(myAddress);
         }
         DuelView.printText("the chosen spell or trap was destroyed");
     }

@@ -22,13 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="AIFullDebug + monster reborn">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="twin twister + spell absorption">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MonsterZone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TakeActionCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TakeActionCase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624729177752</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="twin twister + spell absorption">
+      <created>1624737729186</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1624737729186</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +434,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="show all cards debug" />
     <MESSAGE value="jabejayie cheat money" />
     <MESSAGE value="draw phase automatic" />
     <MESSAGE value="debug1" />
@@ -452,7 +458,8 @@
     <MESSAGE value="gate gaurdian debug" />
     <MESSAGE value="activate spell debug 1" />
     <MESSAGE value="AIFullDebug + monster reborn" />
-    <option name="LAST_COMMIT_MESSAGE" value="AIFullDebug + monster reborn" />
+    <MESSAGE value="twin twister + spell absorption" />
+    <option name="LAST_COMMIT_MESSAGE" value="twin twister + spell absorption" />
   </component>
   <component name="WindowStateProjectService">
     <state x="93" y="93" width="1095" height="495" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1624733420279">
@@ -467,22 +474,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="170" y="166" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1624627910544" />
-    <state width="1237" height="117" key="GridCell.Tab.0.bottom" timestamp="1624737298272">
+    <state width="1237" height="168" key="GridCell.Tab.0.bottom" timestamp="1624739421847">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="117" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624737298272" />
-    <state width="1237" height="117" key="GridCell.Tab.0.center" timestamp="1624737298271">
+    <state width="1237" height="168" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1624739421847" />
+    <state width="1237" height="168" key="GridCell.Tab.0.center" timestamp="1624739421847">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="117" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624737298271" />
-    <state width="1237" height="117" key="GridCell.Tab.0.left" timestamp="1624737298271">
+    <state width="1237" height="168" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1624739421847" />
+    <state width="1237" height="168" key="GridCell.Tab.0.left" timestamp="1624739421847">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="117" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624737298271" />
-    <state width="1237" height="117" key="GridCell.Tab.0.right" timestamp="1624737298271">
+    <state width="1237" height="168" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1624739421847" />
+    <state width="1237" height="168" key="GridCell.Tab.0.right" timestamp="1624739421847">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="117" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624737298271" />
+    <state width="1237" height="168" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1624739421847" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1624645265744">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -511,10 +518,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1624653799626" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624729179699">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1624737731479">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624729179699" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1624737731479" />
     <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624639103809">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
