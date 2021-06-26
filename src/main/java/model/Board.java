@@ -129,8 +129,11 @@ public class Board {
     }
 
     public void changeMonsterPosition(int index,String target){
-
         this.monstersCondition[index] = target;
+    }
+
+    public void changeSpellAndTrapPosition(int index,String target){
+        this.spellsAndTrapsCondition[index] = target;
     }
 
     public boolean isFullSpellAndTrapZone(){

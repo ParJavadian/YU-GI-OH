@@ -298,12 +298,14 @@ public enum SpellCard implements Cardable {
                     if (duelController.getPlayer().getBoard().getMonsterByNumber(i) != null) {
                         duelController.getPlayer().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
                         duelController.getPlayer().getBoard().removeMonster(i, duelController, duelController.getPlayer());
-                        duelController.setMonsterAttackRival(i, null);
+                        System.out.println("player :" + i);
+//                        duelController.setMonsterAttackRival(i, null);
                     }
                     if (duelController.getRival().getBoard().getMonsterByNumber(i) != null) {
                         duelController.getRival().getBoard().getMonsterByNumber(i).takeAction(duelController, TakeActionCase.REMOVE_FROM_MONSTERZONE, duelController.getRival(), i);
                         duelController.getRival().getBoard().removeMonster(i, duelController, duelController.getRival());
-                        duelController.setMonsterAttackPlayer(i, null);
+                        System.out.println("rival :" + i);
+//                        duelController.setMonsterAttackPlayer(i, null);
                     }
                 }
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);

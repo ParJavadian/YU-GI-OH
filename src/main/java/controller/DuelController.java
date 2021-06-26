@@ -796,14 +796,22 @@ public class DuelController {
             //TODO age lazeme condition ham pas bede
             if (((SpellCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.PUT_IN_FIELDZONE_FACE_UP, this.player, 1))
                 this.player.getBoard().putInFieldZone(spellCard);
-
         } else {
-            int number = this.player.getBoard().putSpellOrTrap(spellCard, "O");
-            if (!((SpellCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.PUT_IN_SPELLTRAPZONE, this.player, number)) {
-                this.player.getBoard().removeSpellOrTrap(number);
+            if (selectedCard.getBoardZone().equals(BoardZone.SPELLANDTRAPZONE)) {
+                this.player.getBoard().changeSpellAndTrapPosition(selectedCard.getNumber(), "O");
+                boolean wasSuccessful = ((SpellCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.PUT_IN_SPELLTRAPZONE, this.player, selectedCard.getNumber());
+                if (!wasSuccessful) {
+                    this.player.getBoard().removeSpellOrTrap(selectedCard.getNumber());
+                }
+            } else if (selectedCard.getBoardZone().equals(BoardZone.HAND)) {
+                int number = this.player.getBoard().putSpellOrTrap(selectedCard.getCard(), "O");
+                boolean wasSuccessful = ((SpellCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.PUT_IN_SPELLTRAPZONE, this.player, number);
+                if (!wasSuccessful) {
+                    this.player.getBoard().removeSpellOrTrap(selectedCard.getNumber());
+                }
+                this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
             }
         }
-        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("spell activated");
         printBoard();
