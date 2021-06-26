@@ -24,19 +24,19 @@ public class DeckController {
         return instance;
     }
 
-    public List<Cardable> getAllCardsOfGame() {
-        List<Cardable> allCards = new ArrayList<>();
+    public List<Card> getAllCardsOfGame() {
+        List<Card> allCards = new ArrayList<>();
         Collections.addAll(allCards, MonsterCard.values());
         Collections.addAll(allCards, TrapCard.values());
         Collections.addAll(allCards, SpellCard.values());
-        Comparator<Cardable> cardComparator = Comparator.comparing(Cardable::getName);
+        Comparator<Card> cardComparator = Comparator.comparing(Card::getName);
         allCards.sort(cardComparator);
         return allCards;
     }
 
-    public Cardable getCardByName(String name) {
-        List<Cardable> allCards = getAllCardsOfGame();
-        for (Cardable card : allCards) {
+    public Card getCardByName(String name) {
+        List<Card> allCards = getAllCardsOfGame();
+        for (Card card : allCards) {
             if (card.getNamePascalCase().equals(name))
                 return card;
         }
@@ -58,13 +58,12 @@ public class DeckController {
     public Deck createRandomDeckForAI() {
         Deck deck = new Deck("DeckForAI");
         this.user.addDeck(deck);
-        List<Cardable> allCards = new ArrayList<>();
+        List<Card> allCards = new ArrayList<>();
         Collections.addAll(allCards, MonsterCard.values());
         Collections.addAll(allCards, SpellCard.values());
         Collections.addAll(allCards, TrapCard.values());
         while (user.getDeckByName("DeckForAI").getMainSize() < 46) {
             int randomNum = ThreadLocalRandom.current().nextInt(0, allCards.size());
-//            int randomNum = getRandomNumber(allCards.size());
             try {
                 addCardToDeckAI(allCards.get(randomNum), "DeckForAI", false, false);
             } catch (Exception exception) {
@@ -85,7 +84,7 @@ public class DeckController {
     }
 
     public void addCardToDeck(String cardName, String deckName, boolean isSide, boolean isAddedByCheating) throws Exception {
-        Cardable card = this.user.getCardByName(cardName);
+        Card card = this.user.getCardByName(cardName);
         if (card != null) {
             Deck deck = this.user.getDeckByName(deckName);
             if (deck != null) {
@@ -121,7 +120,7 @@ public class DeckController {
         } else throw new CardNotFoundInUser(cardName);
     }
 
-    public void addCardToDeckAI(Cardable card, String deckName, boolean isSide, boolean isAddedByCheating) throws Exception {
+    public void addCardToDeckAI(Card card, String deckName, boolean isSide, boolean isAddedByCheating) throws Exception {
         String cardName = card.getNamePascalCase();
         Deck deck = this.user.getDeckByName(deckName);
         if (deck != null) {
@@ -151,7 +150,6 @@ public class DeckController {
 //                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
                 }
                 this.user.deleteCard(cardName);
-//                DeckView.getInstance(this.user).printText("card added to deck successfully");
             }
         } else throw new DeckNotFound(deckName);
     }
@@ -167,7 +165,7 @@ public class DeckController {
     public void removeCardFromDeck(String cardName, String deckName, boolean isSide) throws Exception {
         Deck deck = user.getDeckByName(deckName);
         if (deck != null) {
-            Cardable card = DeckController.getInstance(user).getCardByName(cardName);
+            Card card = DeckController.getInstance(user).getCardByName(cardName);
             if (card != null) {
                 if (isSide) {
                     if (deck.cardExistsInDeck(card, true)) {
@@ -231,27 +229,27 @@ public class DeckController {
         String toPrint = "Deck: " + deckName + "\n";
         if (isSide) toPrint += "Side deck:\nMonsters:\n";
         else toPrint += "Main deck:\nMonsters:\n";
-        ArrayList<Cardable> monsterCards = new ArrayList<>();
-        ArrayList<Cardable> spellAndTrapCards = new ArrayList<>();
+        ArrayList<Card> monsterCards = new ArrayList<>();
+        ArrayList<Card> spellAndTrapCards = new ArrayList<>();
         if (!isSide) {
-            for (Cardable eachCard : this.user.getDeckByName(deckName).getMainDeck()) {
+            for (Card eachCard : this.user.getDeckByName(deckName).getMainDeck()) {
                 if (eachCard instanceof MonsterCard) monsterCards.add(eachCard);
                 else spellAndTrapCards.add(eachCard);
             }
         } else {
-            for (Cardable eachCard : this.user.getDeckByName(deckName).getSideDeck()) {
+            for (Card eachCard : this.user.getDeckByName(deckName).getSideDeck()) {
                 if (eachCard instanceof MonsterCard) monsterCards.add(eachCard);
                 else spellAndTrapCards.add(eachCard);
             }
         }
-        Comparator<Cardable> cardComparator = Comparator.comparing(Cardable::getNamePascalCase);
+        Comparator<Card> cardComparator = Comparator.comparing(Card::getNamePascalCase);
         monsterCards.sort(cardComparator);
         spellAndTrapCards.sort(cardComparator);
-        for (Cardable eachCard : monsterCards) {
+        for (Card eachCard : monsterCards) {
             toPrint += eachCard.getNamePascalCase() + ":" + eachCard.getDescription() + "\n";
         }
         toPrint += "Spell and Traps:";
-        for (Cardable eachCard : spellAndTrapCards) {
+        for (Card eachCard : spellAndTrapCards) {
             toPrint += "\n" + eachCard.getNamePascalCase() + ":" + eachCard.getDescription();
         }
         DeckView.getInstance(this.user).printText(toPrint);
@@ -259,10 +257,10 @@ public class DeckController {
 
     public void showAllCards() {
         String toPrint = "";
-        List<Cardable> allCards = this.user.getAllCards();
-        Comparator<Cardable> cardComparator = Comparator.comparing(Cardable::getNamePascalCase);
+        List<Card> allCards = this.user.getAllCards();
+        Comparator<Card> cardComparator = Comparator.comparing(Card::getNamePascalCase);
         allCards.sort(cardComparator);
-        for (Cardable card : allCards) {
+        for (Card card : allCards) {
             toPrint += card.getNamePascalCase() + ":" + card.getDescription() + "\n";
         }
         DeckView.getInstance(this.user).printText(toPrint);

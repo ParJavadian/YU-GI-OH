@@ -2,10 +2,8 @@ package view;
 
 import controller.DeckController;
 //import controller.ImportExportUserController;
-import model.Deck;
 import model.User;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -92,7 +90,6 @@ public class DeckView {
             return false;
         }
 
-        //TODO in tabe ro ezafe kardam
         if (command.startsWith("taehc deck add-card taehc ") && command.matches("[\\w -]+")) {
             Matcher matcher1 = getCommandMatcher(command + " ", "(--card|-c) ([\\w ]+) ");
             Matcher matcher2 = getCommandMatcher(command + " ", "(--deck|-d) ([\\w ]+) ");

@@ -6,33 +6,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    /*private static final int[] playerGroundNumbers = {3,4,2,5,1};
-    private static final int[] opponentGroundNumbers = {3,2,4,1,5};*/
     private static final int[] playerGroundNumbers = {2,3,1,4,0};
-    private static final int[] opponentGroundNumbers = {2,1,3,0,4};
-    private List<Cardable> cardsInHand;
-    private List<Cardable> cardsInGraveyard;
+    private List<Card> cardsInHand;
+    private List<Card> cardsInGraveyard;
     private MonsterCard[] monsters;
     private String[] monstersCondition;
-    private Cardable[] spellsAndTraps;
+    private Card[] spellsAndTraps;
     private String[] spellsAndTrapsCondition;
-    private Cardable fieldZone;
+    private Card fieldZone;
 
     public Board() {
         this.cardsInHand = new ArrayList<>();
         this.cardsInGraveyard = new ArrayList<>();
         this.monsters = new MonsterCard[5];
         this.monstersCondition = new String[5];
-        this.spellsAndTraps = new Cardable[5];
+        this.spellsAndTraps = new Card[5];
         this.spellsAndTrapsCondition = new String[5];
         this.fieldZone = null;
     }
 
-    public List<Cardable> getCardsInHand() {
+    public List<Card> getCardsInHand() {
         return this.cardsInHand;
     }
 
-    public Cardable getFieldZone() {
+    public Card getFieldZone() {
         if (this.fieldZone==null) {
             return null;
         } else return this.fieldZone;
@@ -42,7 +39,7 @@ public class Board {
         return this.monsters;
     }
 
-    public Cardable[] getSpellsAndTraps() {
+    public Card[] getSpellsAndTraps() {
         return this.spellsAndTraps;
     }
 
@@ -50,7 +47,7 @@ public class Board {
         return this.monsters[number];
     }
 
-    public Cardable getSpellAndTrapByNumber(int number) {
+    public Card getSpellAndTrapByNumber(int number) {
         return this.spellsAndTraps[number];
     }
 
@@ -62,19 +59,19 @@ public class Board {
         return this.spellsAndTrapsCondition[number];
     }
 
-    public List<Cardable> getCardsInGraveyard() {
+    public List<Card> getCardsInGraveyard() {
         return this.cardsInGraveyard;
     }
 
-    public Cardable getCardInHandByNumber(int number) {
+    public Card getCardInHandByNumber(int number) {
         return this.cardsInHand.get(number);
     }
 
-    public void removeCardFromHand(Cardable card) {
+    public void removeCardFromHand(Card card) {
         this.cardsInHand.remove(card);
     }
 
-    public void addCardToHand(Cardable card) {
+    public void addCardToHand(Card card) {
         this.cardsInHand.add(card);
     }
 
@@ -104,7 +101,7 @@ public class Board {
         }
     }
 
-    public int putSpellOrTrap(Cardable card, String condition) {
+    public int putSpellOrTrap(Card card, String condition) {
         for(int i=0;i<5;i++){
             if(this.spellsAndTraps[playerGroundNumbers[i]] == null){
                 this.spellsAndTraps[playerGroundNumbers[i]] =card;
@@ -118,14 +115,6 @@ public class Board {
     public void removeSpellOrTrap(int number) {
         this.spellsAndTraps[number] = null;
         this.spellsAndTrapsCondition[number] = null;
-    }
-
-    public boolean existsOnBoard(Cardable card) {
-        for (int i = 0; i < 5; i++) {
-            if (this.monsters[i].equals(card)) return true;
-            if (this.spellsAndTraps[i].equals(card)) return true;
-        }
-        return false;
     }
 
     public void changeMonsterPosition(int index,String target){
@@ -150,7 +139,7 @@ public class Board {
         return true;
     }
 
-    public void putInFieldZone(Cardable card) {
+    public void putInFieldZone(Card card) {
         this.fieldZone = card;
     }
 
@@ -158,13 +147,8 @@ public class Board {
         this.fieldZone = null;
     }
 
-    public void putInGraveYard(Cardable card) {
+    public void putInGraveYard(Card card) {
         this.cardsInGraveyard.add(card);
     }
-
-    public void removeFromGraveYard(Cardable card) {
-        this.cardsInGraveyard.remove(card);
-    }
-
 
 }

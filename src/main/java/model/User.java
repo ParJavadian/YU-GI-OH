@@ -4,7 +4,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class User {
 
@@ -13,7 +12,7 @@ public class User {
     private String password;
     private String nickname;
     private int score;
-    private List<Cardable> allCards;
+    private List<Card> allCards;
     private List<Deck> allDecks;
     private Deck currentActiveDeck;
     private Deck currentGameDeck;
@@ -64,7 +63,7 @@ public class User {
         return this.allDecks;
     }
 
-    public List<Cardable> getAllCards() {
+    public List<Card> getAllCards() {
         return this.allCards;
     }
 
@@ -81,8 +80,8 @@ public class User {
         return this.currentGameDeck;
     }
 
-    public Cardable getCardByName(String name) {
-        for (Cardable card : allCards) {
+    public Card getCardByName(String name) {
+        for (Card card : allCards) {
             if (card.getNamePascalCase().equals(name)) {
                 return card;
             }
@@ -177,7 +176,7 @@ public class User {
         this.allDecks.add(deck);
     }
 
-    public void addCardToUsersAllCards(Cardable card) {
+    public void addCardToUsersAllCards(Card card) {
         this.allCards.add(card);
     }
 
@@ -208,7 +207,6 @@ public class User {
     }
 
     public void decreaseMoney(int amount) {
-        //TODO put back
         this.money -= amount;
 //        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
 //        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));
