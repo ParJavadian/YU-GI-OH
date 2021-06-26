@@ -1,5 +1,7 @@
 //import controller.ImportExportUserController;
+
 import view.LogInView;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -47,23 +49,20 @@ user create -u parmida -p 1234 -n parmida
 user login -u hamraz -p 123
 edoCtaehc yenom 1000000
 menu enter Shop
+shop buy Mystical Space Typhoon
+shop buy Mystical Space Typhoon
+shop buy Mystical Space Typhoon
 shop buy Yomi Ship
 shop buy Yomi Ship
 shop buy Yomi Ship
-shop buy Terraforming
-shop buy Terraforming
-shop buy Terraforming
-shop buy Wattaildragon
-shop buy Wattaildragon
-shop buy Wattaildragon
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
-shop buy Bitron
-shop buy Bitron
-shop buy Bitron
-shop buy Bitron
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
 shop buy Dark Hole
 shop buy Dark Hole
 shop buy Dark Hole
@@ -137,9 +136,6 @@ deck add-card -c United We Stand -d one
 deck add-card -c United We Stand -d one
 deck add-card -c United We Stand -d one
 deck add-card -c United We Stand -d one
-deck add-card - Terraforming -d one
-deck add-card - Terraforming -d one
-deck add-card - Terraforming -d one
 deck add-card -c Leotron -d one
 deck add-card -c Leotron -d one
 deck add-card -c Leotron -d one
@@ -150,10 +146,6 @@ deck add-card -c Silver Fang -d one –s
 deck add-card -c Silver Fang -d one -s
 deck add-card -c Silver Fang -d one -s
 deck add-card -c Silver Fang -d one -s
-deck add-card -c Spell Absorption -d one -s
-deck add-card -c Spell Absorption -d one -s
-deck add-card -c Spell Absorption -d one -s
-deck add-card -c Spell Absorption -d one -s
 deck add-card -c Trap Hole -d one -s
 deck add-card -c Trap Hole -d one -s
 deck add-card -c Trap Hole -d one -s
@@ -208,23 +200,23 @@ deck add-card -c Dark Hole -d one
 deck add-card -c Dark Hole -d one
 deck add-card -c Dark Hole -d one
 deck add-card -c Dark Hole -d one
-deck add-card -c Bitron -d one
-deck add-card -c Bitron -d one
-deck add-card -c Bitron -d one
-deck add-card -c Bitron -d one
-deck add-card -c Bitron -d one
+deck add-card -c Spell Absorption -d one
+deck add-card -c Spell Absorption -d one
+deck add-card -c Spell Absorption -d one
+deck add-card -c Spell Absorption -d one
+deck add-card -c Spell Absorption -d one
 deck add-card -c Monster Reborn -d one
 deck add-card -c Monster Reborn -d one
 deck add-card -c Monster Reborn -d one
 deck add-card -c Monster Reborn -d one
-deck add-card -c Wattaildragon -d one
-deck add-card -c Wattaildragon -d one
-deck add-card -c Wattaildragon -d one
+deck add-card -c Yomi Ship -d one
+deck add-card -c Yomi Ship -d one
+deck add-card -c Yomi Ship -d one
 deck show --all
-deck add-card -c Yomi Ship -d one
-deck add-card -c Yomi Ship -d one
-deck add-card -c Yomi Ship -d one
-deck add-card -c Yomi Ship -d one
+deck add-card -c Mystical Space Typhoon -d one
+deck add-card -c Mystical Space Typhoon -d one
+deck add-card -c Mystical Space Typhoon -d one
+deck add-card -c Mystical Space Typhoon -d one
 deck add-card -c Yami -d one
 deck add-card -c Yami -d one
 deck add-card -c Yami -d one
@@ -234,7 +226,6 @@ menu exit
 menu enter Shop
 shop buy Yami
 shop buy Yami
-
 menu exit
 menu enter Deck
 deck add-card -c Yami -d one
@@ -245,20 +236,20 @@ user logout
 user login -u parmida -p 1234
 edoCtaehc yenom 1000000
 menu enter Shop
+shop buy Mystical Space Typhoon
+shop buy Mystical Space Typhoon
+shop buy Mystical Space Typhoon
 shop buy Yomi Ship
 shop buy Yomi Ship
 shop buy Yomi Ship
-shop buy Wattaildragon
-shop buy Wattaildragon
-shop buy Wattaildragon
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
 shop buy Monster Reborn
-shop buy Bitron
-shop buy Bitron
-shop buy Bitron
-shop buy Bitron
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
+shop buy Spell Absorption
 shop buy Dark Hole
 shop buy Dark Hole
 shop buy Dark Hole
@@ -342,10 +333,6 @@ deck add-card -c Silver Fang -d oneParmida –s
 deck add-card -c Silver Fang -d oneParmida -s
 deck add-card -c Silver Fang -d oneParmida -s
 deck add-card -c Silver Fang -d oneParmida -s
-deck add-card -c Spell Absorption -d oneParmida -s
-deck add-card -c Spell Absorption -d oneParmida -s
-deck add-card -c Spell Absorption -d oneParmida -s
-deck add-card -c Spell Absorption -d oneParmida -s
 deck add-card -c Trap Hole -d oneParmida -s
 deck add-card -c Trap Hole -d oneParmida -s
 deck add-card -c Trap Hole -d oneParmida -s
@@ -398,23 +385,23 @@ deck add-card -c Dark Hole -d oneParmida
 deck add-card -c Dark Hole -d oneParmida
 deck add-card -c Dark Hole -d oneParmida
 deck add-card -c Dark Hole -d oneParmida
-deck add-card -c Bitron -d oneParmida
-deck add-card -c Bitron -d oneParmida
-deck add-card -c Bitron -d oneParmida
-deck add-card -c Bitron -d oneParmida
-deck add-card -c Bitron -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
+deck add-card -c Spell Absorption -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
 deck add-card -c Monster Reborn -d oneParmida
-deck add-card -c Wattaildragon -d oneParmida
-deck add-card -c Wattaildragon -d oneParmida
-deck add-card -c Wattaildragon -d oneParmida
+deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Yomi Ship -d oneParmida
 deck show --all
-deck add-card -c Yomi Ship -d oneParmida
-deck add-card -c Yomi Ship -d oneParmida
-deck add-card -c Yomi Ship -d oneParmida
-deck add-card -c Yomi Ship -d oneParmida
+deck add-card -c Mystical Space Typhoon -d oneParmida
+deck add-card -c Mystical Space Typhoon -d oneParmida
+deck add-card -c Mystical Space Typhoon -d oneParmida
+deck add-card -c Mystical Space Typhoon -d oneParmida
 deck add-card -c Yami -d oneParmida
 deck add-card -c Yami -d oneParmida
 deck add-card -c Yami -d oneParmida
