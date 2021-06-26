@@ -20,17 +20,10 @@ public class DuelController {
     private Phase phase;
     private boolean hasSummonedOrSetInThisTurn;
     private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardPlayer = new ArrayList<>(5);
-    //    private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardRival=new ArrayList<>(5);
     private Integer[] playerAttackPoints = new Integer[5];
     private Integer[] rivalAttackPoints = new Integer[5];
     private Integer[] playerDefencePoints = new Integer[5];
     private Integer[] rivalDefencePoints = new Integer[5];
-    /*private boolean hasUsedHeraldInThisTurn;
-    private boolean hasUsedTexChangerInThisTurn;*/
-    /*boolean[] hasChangedPositionInThisTurn;
-    boolean[] hasSetInThisTurn;
-    boolean[] hasAttackedInThisTurn;*/
-//    MonsterZone monsterZone;
     boolean isStartTurn;
     private boolean shouldEndGameForView;
     //TODO check frequently: cancel, unselect, printBoard
@@ -118,10 +111,6 @@ public class DuelController {
         this.rivalDefencePoints[i] = number;
     }
 
-    /*public MonsterZone getMonsterZone() {
-        return this.monsterZone;
-    }*/
-
     public SelectedCard getSelectedCard() {
         return this.selectedCard;
     }
@@ -133,23 +122,6 @@ public class DuelController {
     public static int[] getPlayerGroundNumbers() {
         return playerGroundNumbers;
     }
-
-
-    /*public boolean getHasUsedHeraldInThisTurn() {
-        return this.hasUsedHeraldInThisTurn;
-    }
-
-    public void setHasHasUsedHeraldInThisTurnTrue() {
-        this.hasUsedHeraldInThisTurn = true;
-    }
-
-    public boolean getHasUsedTexChangerInThisTurn() {
-        return this.hasUsedTexChangerInThisTurn;
-    }
-
-    public void setHasUsedTexChangerInThisTurn() {
-        this.hasUsedTexChangerInThisTurn = true;
-    }*/
 
     //TODO age vaght shod choose first player random
     public void startNewGame(User winner) {
@@ -859,15 +831,6 @@ public class DuelController {
         DuelView.printText("this is not a good way to win the game, but ok. Shame on you!");
         endGame(this.rival);
     }
-
-    /*private void checkForChangesWhenAttackedMonster(int monsterNumber) {
-        switch (this.rival.getBoard().getMonsterByNumber(monsterNumber)) {
-            case COMMAND_KNIGHT:
-                changeAllAttackPointsBy400(-1);
-                break;
-        }
-    }*/
-
 
     public void changeAllAttackPoints(int increaseOrDecrease, int amount) {
         Board playerBoard = this.player.getBoard();

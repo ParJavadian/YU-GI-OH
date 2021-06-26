@@ -78,9 +78,9 @@ public class Deck {
     }
 
     public boolean isValid() {
-        return ((this.mainDeck.size() >= 40) &&
+        return ((this.mainDeck.size() >= 40)/* &&
                 (this.mainDeck.size() <= 60) &&
-                (this.sideDeck.size() <= 15));
+                (this.sideDeck.size() <= 15)*/);
     }
 
     public boolean cardExistsInDeck(Cardable card, boolean isSide) {
