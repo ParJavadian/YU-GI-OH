@@ -1,15 +1,19 @@
 package controller;
 
 import controller.exeption.*;
+import javafx.scene.image.Image;
 import model.*;
 import view.ShopView;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ShopController {
 
     private static ShopController instance = null;
+    private static ArrayList<Image> images;
     private User user;
 
     public static ShopController getInstance(User user) {
@@ -20,6 +24,7 @@ public class ShopController {
 
     private ShopController(User user) {
         this.user = user;
+        initImages();
     }
 
     public void buyCard(String name) throws Exception {
@@ -41,14 +46,35 @@ public class ShopController {
 
     public void showAll() {
         List<Card> allCards =  DeckController.getInstance(user).getAllCardsOfGame();
-        String toPrint = "";
+        StringBuilder toPrint = new StringBuilder();
         for (Card card : allCards){
             if (allCards.indexOf(card) == allCards.size()-1){
-                toPrint += card.getNamePascalCase()+":"+card.getPrice();
+                toPrint.append(card.getNamePascalCase()).append(":").append(card.getPrice());
             } else
-                toPrint += card.getNamePascalCase()+":"+card.getPrice()+"\n";
+                toPrint.append(card.getNamePascalCase()).append(":").append(card.getPrice()).append("\n");
         }
-        ShopView.getInstance(this.user).printText(toPrint);
+        ShopView.getInstance(this.user).printText(toPrint.toString());
+    }
+
+    private void initImages(){
+        ArrayList<Card> cards = new ArrayList<>(Arrays.asList(MonsterCard.values()));
+        cards.addAll(Arrays.asList(SpellCard.values()));
+        cards.addAll(Arrays.asList(TrapCard.values()));
+        for (Card card : cards) {
+            images.add(card.getImage());
+        }
+    }
+
+    public ArrayList<Image> getImages(int start){
+        ArrayList<Image> images = new ArrayList<>(4);
+        for (int i = start; i < start+4; i++) {
+            images.add(images.get(i));
+        }
+        return images;
+    }
+
+    public int getTotalCardsNumber(){
+        return images.size();
     }
 
 
