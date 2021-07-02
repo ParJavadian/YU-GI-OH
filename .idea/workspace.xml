@@ -22,30 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="activate spell debug 1">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_19_2021_5_33_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_19_2021_5_33_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_3_12_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_3_12_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_1_49_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_1_49_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_5_18_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_5_18_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_9_08_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_9_08_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۳_۰۶_۲۰۲۱_۱۸_۵۳_[Default_Changelist]/Deck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۳_۰۶_۲۰۲۱_۱۸_۵۳_[Default_Changelist]/DeckController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۳_۰۶_۲۰۲۱_۱۸_۵۳_[Default_Changelist]/DeckNotFound.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۳_۰۶_۲۰۲۱_۱۸_۵۳_[Default_Changelist]/LogInController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۳_۰۶_۲۰۲۱_۱۸_۵۳_[Default_Changelist]/ProfileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۳_۰۶_۲۰۲۱_۱۸_۵۳_[Default_Changelist]/RepetitiveDeckName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۳_۰۶_۲۰۲۱_۱۸_۵۳_[Default_Changelist]/ShopController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۳_۰۶_۲۰۲۱_۱۸_۵۳_[Default_Changelist]/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۲۳_۰۶_۲۰۲۱_۱۸_۵۳_[Default_Changelist]/shelved.patch" beforeDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment=":|">
+      <change afterPath="$PROJECT_DIR$/Users/Kiana.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/k.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/k`k`k.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Profile.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,11 +57,15 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1tf7blqKJ2Y0dLvEX2lrUssvKzj" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -92,7 +83,7 @@
       <recent name="controller.exeption" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.SignUpViewGraphic">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -116,8 +107,10 @@
       </method>
     </configuration>
     <configuration name="SignUpViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="view.SignUpViewGraphic" />
-      <module name="project_team_17_2" />
+      <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="view.*" />
@@ -149,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
         <item itemvalue="Application.MainViewGraphic" />
-        <item itemvalue="Application.SignUpViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -432,7 +425,13 @@
       <option name="project" value="LOCAL" />
       <updated>1624739906446</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL‎۰۰۰۳۸" summary=":|">
+      <created>1625245993391</created>
+      <option name="number" value="LOCAL‎۰۰۰۳۸" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۳۸" />
+      <updated>1625245993391</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +450,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="kiana test error fix" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="show all cards debug" />
     <MESSAGE value="jabejayie cheat money" />
     <MESSAGE value="draw phase automatic" />
@@ -479,7 +478,8 @@
     <MESSAGE value="AIFullDebug + monster reborn" />
     <MESSAGE value="twin twister + spell absorption" />
     <MESSAGE value="mystical space typhoon&#10;twin twisters" />
-    <option name="LAST_COMMIT_MESSAGE" value="mystical space typhoon&#10;twin twisters" />
+    <MESSAGE value=":|" />
+    <option name="LAST_COMMIT_MESSAGE" value=":|" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
