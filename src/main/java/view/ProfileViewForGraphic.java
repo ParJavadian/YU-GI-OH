@@ -40,8 +40,6 @@ public class ProfileViewForGraphic extends Application implements Initializable 
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/icon.png"))));
-        stage.setTitle("YU GI OH");
         stage.show();
     }
 
