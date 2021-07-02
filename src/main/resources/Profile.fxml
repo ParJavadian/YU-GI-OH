@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProfileViewForGraphic">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="907.0" layoutX="-1.0">
+      <ImageView id="label" fitHeight="600.0" fitWidth="907.0" layoutX="-1.0">
          <image>
             <Image url="@profile.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="121.0" layoutY="181.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" text="Change Nickname" onMouseClicked="#changeNickname" textFill="RED">
+      <Button layoutX="121.0" layoutY="181.0" mnemonicParsing="false" onMouseClicked="#changeNickname" prefHeight="34.0" prefWidth="148.0" text="Change Nickname" textFill="RED">
          <font>
-            <Font name="Agency FB" size="18.0" />
+            <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="121.0" layoutY="249.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" text="Change Password" onMouseClicked="#changePassword" textFill="RED">
+      <Button layoutX="121.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#changePassword" prefHeight="34.0" prefWidth="148.0" text="Change Password" textFill="RED">
          <font>
-            <Font name="Agency FB" size="18.0" />
+            <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="121.0" layoutY="315.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" text="Back" onMouseClicked="#goBack" textFill="RED">
+      <Button layoutX="121.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="34.0" prefWidth="148.0" text="Back" textFill="RED">
          <font>
-            <Font name="Agency FB" size="18.0" />
+            <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Button>
+      <Label fx:id="label" text="hello" alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="55.0" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
