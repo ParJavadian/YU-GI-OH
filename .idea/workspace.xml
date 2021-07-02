@@ -22,17 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment=":|">
-      <change afterPath="$PROJECT_DIR$/Users/Kiana.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/k.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/k`k`k.txt" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="profile and scoreboard edited">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TrapCard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -431,7 +424,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۳۸" />
       <updated>1625245993391</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL‎۰۰۰۳۹" summary="profile and scoreboard edited">
+      <created>1625252163631</created>
+      <option name="number" value="LOCAL‎۰۰۰۳۹" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۳۹" />
+      <updated>1625252163631</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +450,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="show all cards debug" />
     <MESSAGE value="jabejayie cheat money" />
     <MESSAGE value="draw phase automatic" />
     <MESSAGE value="debug1" />
@@ -479,7 +477,8 @@
     <MESSAGE value="twin twister + spell absorption" />
     <MESSAGE value="mystical space typhoon&#10;twin twisters" />
     <MESSAGE value=":|" />
-    <option name="LAST_COMMIT_MESSAGE" value=":|" />
+    <MESSAGE value="profile and scoreboard edited" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile and scoreboard edited" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
