@@ -22,10 +22,84 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="profile and scoreboard edited">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment=".">
+      <change afterPath="$PROJECT_DIR$/Users/k.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/TrapCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/TrapCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$34.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$34.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$35.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$35.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$36.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$36.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$37.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$37.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$38.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$38.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$39.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$39.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$40.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$40.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$41.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$41.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/TrapCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/TrapCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,8 +160,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.MainViewGraphic" />
+    <configuration name="ShopViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.ShopViewGraphic" />
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
@@ -136,10 +210,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SignUpViewGraphic" />
+        <item itemvalue="Application.ShopViewGraphic" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
-        <item itemvalue="Application.MainViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -430,7 +504,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۳۹" />
       <updated>1625252163631</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL‎۰۰۰۴۰" summary=".">
+      <created>1625255449328</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۰" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۰" />
+      <updated>1625255449328</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +530,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="jabejayie cheat money" />
     <MESSAGE value="draw phase automatic" />
     <MESSAGE value="debug1" />
     <MESSAGE value="debug2" />
@@ -478,7 +557,19 @@
     <MESSAGE value="mystical space typhoon&#10;twin twisters" />
     <MESSAGE value=":|" />
     <MESSAGE value="profile and scoreboard edited" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile and scoreboard edited" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -6,6 +6,7 @@ import model.User;
 import view.LogInViewGraphic;
 import view.ProfileViewForGraphic;
 import view.ScoreBoardViewGraphic;
+import view.ShopViewGraphic;
 
 public class MainControllerGraphic {
 
@@ -22,5 +23,11 @@ public class MainControllerGraphic {
 //        ProfileControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
         ProfileViewForGraphic.getInstance().setCurrentUser(user);
         ProfileViewForGraphic.getInstance().start(stage);
+    }
+
+    public static void showShopMenu(User user, Stage stage) throws Exception {
+//        ProfileControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
+        ShopViewGraphic.getInstance().setCurrentUser(user);
+        ShopViewGraphic.getInstance().start(stage);
     }
 }
