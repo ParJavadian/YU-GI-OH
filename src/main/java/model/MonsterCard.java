@@ -354,7 +354,7 @@ public enum MonsterCard implements Card {
                     " End Phase, this card's name is treated as the selected monster's name, and this card has the same " +
                     "Attribute, Level, ATK, and DEF as the selected monster. If this card is removed from the field " +
                     "while this effect is applied, remove it from play.", 8000, true
-            , "/Cards/Scaner.jpg") {
+            , "/Cards/Scanner.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 

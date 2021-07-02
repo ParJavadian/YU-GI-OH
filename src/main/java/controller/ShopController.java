@@ -7,13 +7,12 @@ import view.ShopView;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ShopController {
 
     private static ShopController instance = null;
-    private static ArrayList<Image> images;
+    private final static ArrayList<Image> images = new ArrayList<>();
+    private final static ArrayList<Card> allCards = (ArrayList<Card>)DeckController.getInstance(null).getAllCardsOfGame();
     private User user;
 
     public static ShopController getInstance(User user) {
@@ -45,7 +44,6 @@ public class ShopController {
     }
 
     public void showAll() {
-        List<Card> allCards =  DeckController.getInstance(user).getAllCardsOfGame();
         StringBuilder toPrint = new StringBuilder();
         for (Card card : allCards){
             if (allCards.indexOf(card) == allCards.size()-1){
@@ -57,20 +55,25 @@ public class ShopController {
     }
 
     private void initImages(){
-        ArrayList<Card> cards = new ArrayList<>(Arrays.asList(MonsterCard.values()));
-        cards.addAll(Arrays.asList(SpellCard.values()));
-        cards.addAll(Arrays.asList(TrapCard.values()));
-        for (Card card : cards) {
+        for (Card card : allCards) {
             images.add(card.getImage());
         }
     }
 
     public ArrayList<Image> getImages(int start){
-        ArrayList<Image> images = new ArrayList<>(4);
+        ArrayList<Image> myImages = new ArrayList<>(4);
         for (int i = start; i < start+4; i++) {
-            images.add(images.get(i));
+            myImages.add(images.get(i));
         }
-        return images;
+        return myImages;
+    }
+
+    public ArrayList<Card> getCards(int start){
+        ArrayList<Card> cards = new ArrayList<>(4);
+        for (int i = start; i < start+4; i++) {
+            cards.add(cards.get(i));
+        }
+        return cards;
     }
 
     public int getTotalCardsNumber(){
