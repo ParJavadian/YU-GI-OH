@@ -24,14 +24,12 @@ public class SignUpControllerGraphic {
         if (password.equals("")) {
             throw new EmptyPasswordBox();
         }
-        System.out.println("1");
         if (checkPassword.equals("")) {
             throw new EmptyConfirmPasswordBox();
         }
         if (!passwordsAreEqual(password,checkPassword)) {
             throw new DifferentPasswords();
         }
-        System.out.println("2");
         List<User> allUsers = User.getAllUsers();
         if (allUsers != null) {
             for (User eachUser : allUsers) {
@@ -42,12 +40,10 @@ public class SignUpControllerGraphic {
                 }
             }
         }
-        System.out.println("3");
         User user = new User(username, nickname, password);
         SignUpViewGraphic.getInstance().showAccountCreatedPopUp();
         MainViewGraphic.getInstance().setCurrentUser(user);
         MainViewGraphic.getInstance().start(stage);
-        System.out.println("4");
     }
 
     public static boolean passwordsAreEqual(String firstPassword,String secondPassword) {

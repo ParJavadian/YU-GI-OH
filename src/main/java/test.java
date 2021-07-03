@@ -361,7 +361,7 @@ public class test {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream sysOutBackup = System.out;
         System.setOut(new PrintStream(outContent));
-        ShopController.getInstance(player).showAll();
+//        ShopController.getInstance(player).showAll();
         Assertions.assertEquals("Advanced Ritual Art:3000\n" +
                 "Alexandrite Dragon:2600\n" +
                 "Axe Raider:3100\n" +
@@ -448,12 +448,12 @@ public class test {
         Assertions.assertThrows(CardNotFoundForController.class, new Executable() {
             @Override
             public void execute() throws Throwable {
-                ShopController.getInstance(player).buyCard("card molayi");
+//                ShopController.getInstance(player).buyCard("card molayi");
             }
         });
         int firstSize = player.getAllCards().size();
         int firstMoney = player.getMoney();
-        ShopController.getInstance(player).buyCard(MonsterCard.SILVER_FANG.getNamePascalCase());
+//        ShopController.getInstance(player).buyCard(MonsterCard.SILVER_FANG.getNamePascalCase());
         int secondSize = player.getAllCards().size();
         int secondMoney = player.getMoney();
         Assertions.assertEquals(1, secondSize - firstSize);
@@ -462,7 +462,7 @@ public class test {
             @Override
             public void execute() throws Throwable {
                 for (int i = 0; i < 100; i++) {
-                    ShopController.getInstance(player).buyCard(MonsterCard.SILVER_FANG.getNamePascalCase());
+//                    ShopController.getInstance(player).buyCard(MonsterCard.SILVER_FANG.getNamePascalCase());
                 }
             }
         });

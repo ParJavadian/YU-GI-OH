@@ -17,7 +17,7 @@ public class ShopController {
 
     public static ShopController getInstance(User user) {
         if (instance == null) instance = new ShopController(user);
-        else if (!instance.user.equals(user)) instance.user = user;
+        instance.user = user;
         return instance;
     }
 
@@ -71,7 +71,7 @@ public class ShopController {
     public ArrayList<Card> getCards(int start){
         ArrayList<Card> cards = new ArrayList<>(4);
         for (int i = start; i < start+4; i++) {
-            cards.add(cards.get(i));
+            cards.add(allCards.get(i));
         }
         return cards;
     }

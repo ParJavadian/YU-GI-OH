@@ -5,6 +5,7 @@ import controller.ShopController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -22,8 +23,8 @@ public class ShopViewGraphic extends Application {
     private static User user;
     private static ArrayList<Image> images = new ArrayList<>(4);
     @FXML
-    ImageView image1,image2,image3,image4;
-    Card card1,card2,card3,card4;
+    ImageView image1, image2, image3, image4;
+    Card card1, card2, card3, card4;
     private static int totalCardsNumber;
     private static int firstCardNumber = 0;
 
@@ -46,8 +47,9 @@ public class ShopViewGraphic extends Application {
         URL url = getClass().getResource("/ShopMenu.fxml");
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
+        setImagesAndCards();
         stage.setScene(scene);
-        stage.show();
+        System.out.println(image1.getImage() + "\t5");
     }
 
     public void goBack() throws Exception {
@@ -82,8 +84,9 @@ public class ShopViewGraphic extends Application {
         setImagesAndCards();
     }
 
-    private void setImagesAndCards(){
+    private void setImagesAndCards() {
         images = ShopController.getInstance(user).getImages(firstCardNumber);
+//        image1.setImage(images.get(0));
         image1 = new ImageView(images.get(0));
         image2 = new ImageView(images.get(1));
         image3 = new ImageView(images.get(2));
@@ -92,5 +95,6 @@ public class ShopViewGraphic extends Application {
         card2 = ShopController.getInstance(user).getCards(firstCardNumber).get(1);
         card3 = ShopController.getInstance(user).getCards(firstCardNumber).get(2);
         card4 = ShopController.getInstance(user).getCards(firstCardNumber).get(3);
+        System.out.println(image1.getImage());
     }
 }

@@ -5,105 +5,112 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: f5deb3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ShopViewGraphic">
-    <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="89.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: 12;" fx:id="image1"/>
-    <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="680.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: 12;" fx:id="image2"/>
-    <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="483.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: 12;" fx:id="image3"/>
-    <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="283.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: 12;" fx:id="image4"/>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="900.0" style="-fx-background-color: f5deb3;" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ShopViewGraphic">
+    <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="89.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true"
+               fx:id="image1"/>
+    <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="680.0" layoutY="64.0" pickOnBounds="true"
+               preserveRatio="true" fx:id="image2"/>
+    <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="483.0" layoutY="64.0" pickOnBounds="true"
+               preserveRatio="true" fx:id="image3"/>
+    <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="283.0" layoutY="64.0" pickOnBounds="true"
+               preserveRatio="true" fx:id="image4"/>
     <AnchorPane layoutX="278.0" layoutY="290.0" onMouseClicked="#buy2" prefHeight="115.0" prefWidth="150.0">
         <Label layoutX="68.0" layoutY="13.0" text="1">
             <font>
-                <Font name="Agency FB Bold" size="21.0" />
+                <Font name="Agency FB Bold" size="21.0"/>
             </font>
         </Label>
         <Button layoutX="52.0" layoutY="68.0" mnemonicParsing="false" text="Buy" onAction="#buy2">
             <font>
-                <Font name="Agency FB Bold" size="18.0" />
+                <Font name="Agency FB Bold" size="18.0"/>
             </font>
         </Button>
         <Label layoutX="14.0" layoutY="14.0" text="Price:">
             <font>
-                <Font name="Agency FB" size="20.0" />
+                <Font name="Agency FB" size="20.0"/>
             </font>
         </Label>
     </AnchorPane>
     <AnchorPane layoutX="84.0" layoutY="290.0" prefHeight="115.0" prefWidth="150.0">
         <Label layoutX="68.0" layoutY="13.0" text="1">
             <font>
-                <Font name="Agency FB Bold" size="21.0" />
+                <Font name="Agency FB Bold" size="21.0"/>
             </font>
         </Label>
         <Button layoutX="52.0" layoutY="68.0" mnemonicParsing="false" onMouseClicked="#buy1" text="Buy">
             <font>
-                <Font name="Agency FB Bold" size="18.0" />
+                <Font name="Agency FB Bold" size="18.0"/>
             </font>
         </Button>
         <Label layoutX="14.0" layoutY="14.0" text="Price:">
             <font>
-                <Font name="Agency FB" size="20.0" />
+                <Font name="Agency FB" size="20.0"/>
             </font>
         </Label>
     </AnchorPane>
     <AnchorPane layoutX="675.0" layoutY="290.0" onMouseClicked="#buy3" prefHeight="115.0" prefWidth="150.0">
         <Label layoutX="68.0" layoutY="13.0" text="1">
             <font>
-                <Font name="Agency FB Bold" size="21.0" />
+                <Font name="Agency FB Bold" size="21.0"/>
             </font>
         </Label>
         <Button layoutX="52.0" layoutY="68.0" mnemonicParsing="false" text="Buy" onAction="#buy4">
             <font>
-                <Font name="Agency FB Bold" size="18.0" />
+                <Font name="Agency FB Bold" size="18.0"/>
             </font>
         </Button>
         <Label layoutX="14.0" layoutY="14.0" text="Price:">
             <font>
-                <Font name="Agency FB" size="20.0" />
+                <Font name="Agency FB" size="20.0"/>
             </font>
         </Label>
     </AnchorPane>
     <AnchorPane layoutX="478.0" layoutY="290.0" onMouseClicked="#buy3" prefHeight="115.0" prefWidth="150.0">
         <Label layoutX="68.0" layoutY="13.0" text="1">
             <font>
-                <Font name="Agency FB Bold" size="21.0" />
+                <Font name="Agency FB Bold" size="21.0"/>
             </font>
         </Label>
         <Button layoutX="52.0" layoutY="68.0" mnemonicParsing="false" text="Buy" onAction="#buy3">
             <font>
-                <Font name="Agency FB Bold" size="18.0" />
+                <Font name="Agency FB Bold" size="18.0"/>
             </font>
         </Button>
         <Label layoutX="14.0" layoutY="14.0" text="Price:">
             <font>
-                <Font name="Agency FB" size="20.0" />
+                <Font name="Agency FB" size="20.0"/>
             </font>
         </Label>
     </AnchorPane>
     <Button layoutX="725.0" layoutY="429.0" mnemonicParsing="false" onAction="#goNextPage" text="Next Page">
         <font>
-            <Font name="Agency FB Bold" size="21.0" />
+            <Font name="Agency FB Bold" size="21.0"/>
         </font>
     </Button>
     <Button layoutX="66.0" layoutY="429.0" mnemonicParsing="false" onAction="#goPreviousPage" text="Previous Page">
         <font>
-            <Font name="Agency FB Bold" size="21.0" />
+            <Font name="Agency FB Bold" size="21.0"/>
         </font>
     </Button>
     <Label layoutX="337.0" layoutY="433.0" text="Your Money:">
         <font>
-            <Font name="Agency FB" size="27.0" />
+            <Font name="Agency FB" size="27.0"/>
         </font>
     </Label>
     <Label layoutX="462.0" layoutY="433.0" text="100000">
         <font>
-            <Font name="Agency FB Bold" size="27.0" />
+            <Font name="Agency FB Bold" size="27.0"/>
         </font>
     </Label>
-    <ImageView fitHeight="33.0" fitWidth="26.0" layoutX="311.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@circle-cropped.png" />
+    <ImageView fitHeight="33.0" fitWidth="26.0" layoutX="311.0" layoutY="436.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@circle-cropped.png"/>
     </ImageView>
     <Button layoutX="63.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back">
         <font>
-            <Font name="Agency FB Bold" size="17.0" />
+            <Font name="Agency FB Bold" size="17.0"/>
         </font>
     </Button>
 </AnchorPane>
