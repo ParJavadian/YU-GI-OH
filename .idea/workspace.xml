@@ -22,14 +22,27 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ShopGraphic4">
-      <change afterPath="$PROJECT_DIR$/all2.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src.zip" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="vasl shop">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ShowAllDecksController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/CreateNewDeckView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ShowAllDecksGraphic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ShowDeckDetailsViewGraphic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/DeckView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ShowAllDecks.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/deckView.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/showAllDecks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/showDeckDetails.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/q.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,18 +93,9 @@
       <recent name="controller.exeption" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SignUpViewGraphic">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="project_team_17" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.MainViewGraphic" />
+  <component name="RunManager" selected="Application.CreateNewDeckView">
+    <configuration name="CreateNewDeckView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.CreateNewDeckView" />
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
@@ -99,6 +103,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="project_team_17" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -139,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CreateNewDeckView" />
         <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
-        <item itemvalue="Application.MainViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -434,21 +447,7 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۳۹" />
       <updated>1625252163631</updated>
     </task>
-    <task id="LOCAL-00040" summary="ShopGraphic3">
-      <created>1625304651482</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1625304651482</updated>
-    </task>
-    <task id="LOCAL-00041" summary="ShopGraphic4">
-      <created>1625313201854</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1625313201854</updated>
-    </task>
-    <option name="localTasksCounter" value="42" />
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,6 +467,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="jabejayie cheat money" />
+    <MESSAGE value="draw phase automatic" />
     <MESSAGE value="debug1" />
     <MESSAGE value="debug2" />
     <MESSAGE value="ai" />
@@ -494,39 +495,7 @@
     <MESSAGE value="mystical space typhoon&#10;twin twisters" />
     <MESSAGE value=":|" />
     <MESSAGE value="profile and scoreboard edited" />
-    <MESSAGE value="ShopGraphic3" />
-    <MESSAGE value="ShopGraphic4" />
-    <option name="LAST_COMMIT_MESSAGE" value="ShopGraphic4" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1625313624867">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1625313624867" />
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1625323013884">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625323013884" />
-    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1625323013884">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625323013884" />
-    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1625323013884">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625323013884" />
-    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1625323013884">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625323013884" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1625298369486">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1625298369486" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625313225807">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625313225807" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile and scoreboard edited" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

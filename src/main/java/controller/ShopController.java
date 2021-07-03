@@ -55,7 +55,7 @@ public class ShopController {
         ShopView.getInstance(this.user).printText(toPrint.toString());
     }
 
-    private void initImages(){
+    private void initImages() {
         for (Card card : allCards) {
             allImages.add(card.getImage());
         }
