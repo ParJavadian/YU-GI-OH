@@ -3,10 +3,7 @@ package controller;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
-import view.LogInViewGraphic;
-import view.ProfileViewForGraphic;
-import view.ScoreBoardViewGraphic;
-import view.ShopViewGraphic;
+import view.*;
 
 public class MainControllerGraphic {
 
@@ -29,5 +26,11 @@ public class MainControllerGraphic {
 //        ProfileControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
         ShopViewGraphic.getInstance().setCurrentUser(user);
         ShopViewGraphic.getInstance().start(stage);
+    }
+
+    public static void showDeckMenu(User user, Stage stage) throws Exception {
+//        ProfileControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
+        DeckViewGraphic.getInstance().setCurrentUser(user);
+        DeckViewGraphic.getInstance().start(stage);
     }
 }

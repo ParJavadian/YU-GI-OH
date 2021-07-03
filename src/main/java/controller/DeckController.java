@@ -1,6 +1,7 @@
 package controller;
 
 import controller.exeption.*;
+import javafx.scene.image.Image;
 import model.*;
 import view.*;
 
@@ -13,6 +14,9 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DeckController {
     private static DeckController instance = null;
     private User user;
+
+    private final static ArrayList<Image> allImages = new ArrayList<>();
+    private static ArrayList<Card> allCards = new ArrayList<>();
 
     private DeckController(User user) {
         this.user = user;
@@ -264,4 +268,16 @@ public class DeckController {
         }
         DeckView.getInstance(this.user).printText(toPrint);
     }
+
+
+
+
+
+
+
+    public void getUsersCards(Deck deck){
+        allCards = (ArrayList<Card>) user.getAllCards();
+    }
+
+
 }

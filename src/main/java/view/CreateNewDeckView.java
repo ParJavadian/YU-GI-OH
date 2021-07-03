@@ -1,5 +1,6 @@
 package view;
 
+import controller.DeckController;
 import controller.ShopController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -55,6 +56,7 @@ public class CreateNewDeckView extends Application  {
 
     @Override
     public void start(Stage stage) throws Exception {
+        DeckController.getInstance(user).getUsersCards(deck);
         CreateNewDeckView.stage = stage;
         URL url = getClass().getResource("/CreateNewDeck.fxml");
         root = FXMLLoader.load(url);

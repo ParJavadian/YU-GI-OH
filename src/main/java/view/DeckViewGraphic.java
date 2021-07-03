@@ -40,7 +40,7 @@ public class DeckViewGraphic extends Application {
     }
 
 
-    public void showAllDecksAndSetActiveDeck(MouseEvent event) throws Exception{
+    public void showAllDecksAndSetActiveDeck(MouseEvent event) throws Exception {
         ShowAllDecksGraphic.getInstance().setCurrentUser(user);
         ShowAllDecksGraphic.getInstance().start(stage);
     }
@@ -48,10 +48,17 @@ public class DeckViewGraphic extends Application {
     public void editAndDeleteDeck(MouseEvent event) {
     }
 
-    public void createDeck(MouseEvent event) {
+    public void createDeck(MouseEvent event) throws Exception {
+
+        CreateNewDeckView.getInstance().setCurrentUser(user);//todo befrest to controller
+        CreateNewDeckView.getInstance().setCurrentDeck(user.getActiveDeck());
+        CreateNewDeckView.getInstance().start(stage);
+
     }
 
-    public void goBack(MouseEvent event) throws Exception{
+    public void goBack(MouseEvent event) throws Exception {
         MainViewGraphic.getInstance().start(stage);
     }
+
+
 }

@@ -57,4 +57,8 @@ public class MainViewGraphic extends Application {
         MainControllerGraphic.showShopMenu(user,stage);
     }
 
+    public void deckMenu() throws Exception {
+        MainControllerGraphic.showDeckMenu(user,stage);
+    }
+
 }

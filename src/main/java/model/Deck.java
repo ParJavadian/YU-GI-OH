@@ -40,7 +40,6 @@ public class Deck {
         this.sideDeck = sideCards;
     }
 
-
     public int getCountOfCardInDeck(Card card) {
         int counter =0;
         for (Card eachCard : this.sideDeck) {

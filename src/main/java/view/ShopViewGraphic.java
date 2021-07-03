@@ -197,4 +197,17 @@ public class ShopViewGraphic extends Application implements Initializable {
         alert.setTitle("");
         alert.showAndWait();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

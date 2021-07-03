@@ -19,7 +19,7 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="429.0" layoutY="196.0" mnemonicParsing="false" text="Deck Settings" textFill="#c800ff">
+      <Button layoutX="429.0" layoutY="196.0" mnemonicParsing="false" text="Deck Settings" onMouseClicked="#deckMenu" textFill="#c800ff">
          <font>
             <Font name="Agency FB Bold" size="18.0" />
          </font>
