@@ -2,6 +2,7 @@ package controller;
 
 import controller.exeption.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.*;
 import view.ShopView;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 public class ShopController {
 
     private static ShopController instance = null;
-    private final static ArrayList<Image> images = new ArrayList<>();
+    private final static ArrayList<Image> allImages = new ArrayList<>();
     private final static ArrayList<Card> allCards = (ArrayList<Card>)DeckController.getInstance(null).getAllCardsOfGame();
     private User user;
 
@@ -56,14 +57,14 @@ public class ShopController {
 
     private void initImages(){
         for (Card card : allCards) {
-            images.add(card.getImage());
+            allImages.add(card.getImage());
         }
     }
 
     public ArrayList<Image> getImages(int start){
         ArrayList<Image> myImages = new ArrayList<>(4);
         for (int i = start; i < start+4; i++) {
-            myImages.add(images.get(i));
+            myImages.add(allImages.get(i));
         }
         return myImages;
     }
@@ -77,7 +78,7 @@ public class ShopController {
     }
 
     public int getTotalCardsNumber(){
-        return images.size();
+        return allImages.size();
     }
 
 

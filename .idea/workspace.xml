@@ -22,30 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ShopGraphic2">
-      <change afterPath="$PROJECT_DIR$/Users/ض.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_5_18_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_5_18_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_9_08_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_25_2021_9_08_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ShopGraphic3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/k.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/k.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SignUpControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SignUpControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Profile.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ChangeNickname.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChangeNickname.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ScoreBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ScoreBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Profile.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ShopController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/SignUpControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/SignUpControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -450,7 +437,14 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۳۹" />
       <updated>1625252163631</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="ShopGraphic3">
+      <created>1625304651482</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1625304651482</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +464,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="jabejayie cheat money" />
     <MESSAGE value="draw phase automatic" />
     <MESSAGE value="debug1" />
     <MESSAGE value="debug2" />
@@ -498,29 +491,38 @@
     <MESSAGE value="mystical space typhoon&#10;twin twisters" />
     <MESSAGE value=":|" />
     <MESSAGE value="profile and scoreboard edited" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile and scoreboard edited" />
+    <MESSAGE value="ShopGraphic3" />
+    <option name="LAST_COMMIT_MESSAGE" value="ShopGraphic3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="196" key="GridCell.Tab.0.bottom" timestamp="1625304375317">
+    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1625305770504">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="196" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625304375317" />
-    <state width="1237" height="196" key="GridCell.Tab.0.center" timestamp="1625304375317">
+    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1625305770504" />
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1625312982324">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="196" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625304375317" />
-    <state width="1237" height="196" key="GridCell.Tab.0.left" timestamp="1625304375317">
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625312982324" />
+    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1625312982324">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="196" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625304375317" />
-    <state width="1237" height="196" key="GridCell.Tab.0.right" timestamp="1625304375317">
+    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625312982324" />
+    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1625312982324">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="196" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625304375317" />
+    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625312982324" />
+    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1625312982324">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625312982324" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1625298369486">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1625298369486" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625304668930">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625304668930" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

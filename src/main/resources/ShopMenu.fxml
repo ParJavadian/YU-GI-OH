@@ -8,14 +8,14 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
             prefWidth="900.0" style="-fx-background-color: f5deb3;" xmlns="http://javafx.com/javafx/8.0.171"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ShopViewGraphic">
-    <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="89.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true"
+    <!--<ImageView fitHeight="204.0" fitWidth="140.0" layoutX="83.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true"
                fx:id="image1"/>
     <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="680.0" layoutY="64.0" pickOnBounds="true"
                preserveRatio="true" fx:id="image2"/>
     <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="483.0" layoutY="64.0" pickOnBounds="true"
                preserveRatio="true" fx:id="image3"/>
     <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="283.0" layoutY="64.0" pickOnBounds="true"
-               preserveRatio="true" fx:id="image4"/>
+               preserveRatio="true" fx:id="image4"/>-->
     <AnchorPane layoutX="278.0" layoutY="290.0" onMouseClicked="#buy2" prefHeight="115.0" prefWidth="150.0">
         <Label layoutX="68.0" layoutY="13.0" text="1">
             <font>
