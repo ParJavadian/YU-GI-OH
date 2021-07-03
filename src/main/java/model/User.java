@@ -164,6 +164,15 @@ public class User {
         this.currentActiveDeck = deck;
     }
 
+    public int getCountOfCardInAllCards(Card card){
+        int counter =0;
+        for (Card eachCard : allCards) {
+            if (card.getName().equals(eachCard.getName()))
+                counter++;
+        }
+        return counter;
+    }
+
     public void deleteDeck(String name) {
         this.allDecks.remove(getDeckByName(name));
     }

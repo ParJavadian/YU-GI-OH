@@ -6,8 +6,11 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -18,17 +21,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ShopViewGraphic extends Application {
+public class ShopViewGraphic extends Application implements Initializable {
 
     private static Stage stage;
     private static ShopViewGraphic instance = null;
     private static User user;
     private static ArrayList<Image> images = new ArrayList<>(4);
-    Card card1, card2, card3, card4;
+    private static Card card1, card2, card3, card4;
     public static ImageView image1, image2, image3, image4;
     private static int totalCardsNumber;
     private static int firstCardNumber = 0;
     private static AnchorPane root;
+    @FXML
+    private Label money, youHave1, youHave2, youHave3, youHave4;
+    @FXML
+    private Button buyButton1, buyButton2, buyButton3, buyButton4;
 
     public static ShopViewGraphic getInstance() {
         if (instance == null) instance = new ShopViewGraphic();
@@ -59,60 +66,66 @@ public class ShopViewGraphic extends Application {
     }
 
     public void buy1() {
-
+        user.decreaseMoney(card1.getPrice());
+        user.getAllCards().add(card1);
+        setAll();
+        printText("Card added successfully");
     }
 
     public void buy2() {
-
+        user.decreaseMoney(card2.getPrice());
+        user.getAllCards().add(card2);
+        setAll();
+        printText("Card added successfully");
     }
 
     public void buy3() {
-
+        user.decreaseMoney(card3.getPrice());
+        user.getAllCards().add(card3);
+        setAll();
+        printText("Card added successfully");
     }
 
     public void buy4() {
-
+        user.decreaseMoney(card4.getPrice());
+        user.getAllCards().add(card4);
+        setAll();
+        printText("Card added successfully");
     }
 
     public void goNextPage() {
         if (firstCardNumber + 4 >= totalCardsNumber) return;
         firstCardNumber += 4;
         setOnlyImagesAndCards();
+        setInStocks();
     }
 
     public void goPreviousPage() {
         if (firstCardNumber - 4 < 0) return;
         firstCardNumber -= 4;
         setOnlyImagesAndCards();
+        setInStocks();
     }
 
     private void setImagesAndCards() {
         images = ShopController.getInstance(user).getImages(firstCardNumber);
-//        image1.setImage(images.get(0));
-        image1 = new ImageView(images.get(0));
-        image1.setFitWidth(140);
-        image1.setFitHeight(204);
-        image1.setX(83);
-        image1.setY(64);
-        image2 = new ImageView(images.get(1));
-        image2.setFitWidth(140);
-        image2.setFitHeight(204);
-        image2.setX(283);
-        image2.setY(64);
-        image3 = new ImageView(images.get(2));
-        image3.setFitWidth(140);
-        image3.setFitHeight(204);
-        image3.setX(483);
-        image3.setY(64);
-        image4 = new ImageView(images.get(3));
-        image4.setFitWidth(140);
-        image4.setFitHeight(204);
-        image4.setX(683);
-        image4.setY(64);
+        image1 = setImageView(images.get(0), 83);
+        image2 = setImageView(images.get(1), 283);
+        image3 = setImageView(images.get(2), 483);
+        image4 = setImageView(images.get(3), 683);
         card1 = ShopController.getInstance(user).getCards(firstCardNumber).get(0);
         card2 = ShopController.getInstance(user).getCards(firstCardNumber).get(1);
         card3 = ShopController.getInstance(user).getCards(firstCardNumber).get(2);
         card4 = ShopController.getInstance(user).getCards(firstCardNumber).get(3);
+    }
+
+    private ImageView setImageView(Image image, int x) {
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(140);
+        imageView.setFitHeight(204);
+        imageView.setX(x);
+        imageView.setY(64);
+        return imageView;
     }
 
     private void setOnlyImagesAndCards() {
@@ -141,5 +154,40 @@ public class ShopViewGraphic extends Application {
         root.getChildren().add(image2);
         root.getChildren().add(image3);
         root.getChildren().add(image4);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setAll();
+    }
+
+    private void setAll() {
+        money.setText(String.valueOf(user.getMoney()));
+        buyButton1.setDisable(card1 != null && card1.getPrice() > user.getMoney());
+        buyButton2.setDisable(card2 != null && card2.getPrice() > user.getMoney());
+        buyButton3.setDisable(card3 != null && card3.getPrice() > user.getMoney());
+        buyButton4.setDisable(card4 != null && card4.getPrice() > user.getMoney());
+        setInStocks();
+    }
+
+    private void setInStocks() {
+        youHave1.setText(getTextForInStock(card1));
+        youHave2.setText(getTextForInStock(card2));
+        youHave3.setText(getTextForInStock(card3));
+        youHave4.setText(getTextForInStock(card4));
+    }
+
+    private String getTextForInStock(Card card) {
+        if (user.getAllCards().contains(card))
+            return "You have " + user.getCountOfCardInAllCards(card) + " cards of this type";
+        else
+            return "";
+    }
+
+    public void printText(String output) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, output, ButtonType.OK);
+        alert.setHeaderText("");
+        alert.setTitle("");
+        alert.showAndWait();
     }
 }
