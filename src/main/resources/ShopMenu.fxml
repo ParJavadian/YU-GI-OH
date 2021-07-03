@@ -17,7 +17,7 @@
     <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="283.0" layoutY="64.0" pickOnBounds="true"
                preserveRatio="true" fx:id="image4"/>-->
     <AnchorPane layoutX="278.0" layoutY="290.0" prefHeight="169.0" prefWidth="150.0">
-        <Label layoutX="68.0" layoutY="13.0" text="1">
+        <Label fx:id="price2" layoutX="68.0" layoutY="13.0" text="1">
             <font>
                 <Font name="Agency FB Bold" size="21.0" />
             </font>
@@ -39,7 +39,7 @@
       </Label>
     </AnchorPane>
     <AnchorPane layoutX="84.0" layoutY="290.0" prefHeight="169.0" prefWidth="150.0">
-        <Label layoutX="68.0" layoutY="13.0" text="1">
+        <Label fx:id="price1" layoutX="68.0" layoutY="13.0" text="1">
             <font>
                 <Font name="Agency FB Bold" size="21.0" />
             </font>
@@ -61,7 +61,7 @@
       </Label>
     </AnchorPane>
     <AnchorPane layoutX="675.0" layoutY="290.0" prefHeight="169.0" prefWidth="150.0">
-        <Label layoutX="68.0" layoutY="13.0" text="1">
+        <Label fx:id="price4" layoutX="68.0" layoutY="13.0" text="1">
             <font>
                 <Font name="Agency FB Bold" size="21.0" />
             </font>
@@ -83,7 +83,7 @@
       </Label>
     </AnchorPane>
     <AnchorPane layoutX="478.0" layoutY="290.0" prefHeight="169.0" prefWidth="151.0">
-        <Label layoutX="68.0" layoutY="13.0" text="1">
+        <Label fx:id="price3" layoutX="68.0" layoutY="13.0" text="1">
             <font>
                 <Font name="Agency FB Bold" size="21.0" />
             </font>

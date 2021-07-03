@@ -33,7 +33,7 @@ public class ShopViewGraphic extends Application implements Initializable {
     private static int firstCardNumber = 0;
     private static AnchorPane root;
     @FXML
-    private Label money, youHave1, youHave2, youHave3, youHave4;
+    private Label money, youHave1, youHave2, youHave3, youHave4, price1, price2, price3, price4;
     @FXML
     private Button buyButton1, buyButton2, buyButton3, buyButton4;
 
@@ -97,14 +97,14 @@ public class ShopViewGraphic extends Application implements Initializable {
         if (firstCardNumber + 4 >= totalCardsNumber) return;
         firstCardNumber += 4;
         setOnlyImagesAndCards();
-        setInStocks();
+        setInStocksAndPrices();
     }
 
     public void goPreviousPage() {
         if (firstCardNumber - 4 < 0) return;
         firstCardNumber -= 4;
         setOnlyImagesAndCards();
-        setInStocks();
+        setInStocksAndPrices();
     }
 
     private void setImagesAndCards() {
@@ -158,28 +158,35 @@ public class ShopViewGraphic extends Application implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setImagesAndCards();
         setAll();
     }
 
-    private void setAll() {
+    public void setAll() {
         money.setText(String.valueOf(user.getMoney()));
         buyButton1.setDisable(card1 != null && card1.getPrice() > user.getMoney());
         buyButton2.setDisable(card2 != null && card2.getPrice() > user.getMoney());
         buyButton3.setDisable(card3 != null && card3.getPrice() > user.getMoney());
         buyButton4.setDisable(card4 != null && card4.getPrice() > user.getMoney());
-        setInStocks();
+        setInStocksAndPrices();
     }
 
-    private void setInStocks() {
+    private void setInStocksAndPrices() {
         youHave1.setText(getTextForInStock(card1));
         youHave2.setText(getTextForInStock(card2));
         youHave3.setText(getTextForInStock(card3));
         youHave4.setText(getTextForInStock(card4));
+        price1.setText(String.valueOf(card1.getPrice()));
+        price2.setText(String.valueOf(card2.getPrice()));
+        price3.setText(String.valueOf(card3.getPrice()));
+        price4.setText(String.valueOf(card4.getPrice()));
     }
 
     private String getTextForInStock(Card card) {
-        if (user.getAllCards().contains(card))
+        if (user.getCountOfCardInAllCards(card)>1)
             return "You have " + user.getCountOfCardInAllCards(card) + " cards of this type";
+        else if(user.getCountOfCardInAllCards(card)==1)
+            return "You have " + user.getCountOfCardInAllCards(card) + " card of this type";
         else
             return "";
     }
