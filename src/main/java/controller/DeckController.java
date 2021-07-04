@@ -1,6 +1,7 @@
 package controller;
 
 import controller.exeption.*;
+import javafx.scene.image.Image;
 import model.*;
 import view.*;
 
@@ -14,8 +15,12 @@ public class DeckController {
     private static DeckController instance = null;
     private User user;
 
+    private final static ArrayList<Image> allImages = new ArrayList<>();
+    private static ArrayList<Card> allCards = new ArrayList<>();
+
     private DeckController(User user) {
         this.user = user;
+        initImages();
     }
 
     public static DeckController getInstance(User user) {
@@ -264,4 +269,39 @@ public class DeckController {
         }
         DeckView.getInstance(this.user).printText(toPrint);
     }
+
+
+
+
+
+
+
+    public void getUsersCards(Deck deck){
+        allCards = (ArrayList<Card>) user.getAllCards();
+    }
+
+
+    private void initImages() {
+        for (Card card : allCards) {
+            allImages.add(card.getImage());
+        }
+    }
+
+    public ArrayList<Image> getImages(int start){
+        ArrayList<Image> myImages = new ArrayList<>(4);
+        for (int i = start; i < start+4; i++) {
+            myImages.add(allImages.get(i));
+        }
+        return myImages;
+    }
+
+    public ArrayList<Card> getCards(int start){
+        ArrayList<Card> cards = new ArrayList<>(4);
+        for (int i = start; i < start+4; i++) {
+            cards.add(allCards.get(i));
+        }
+        return cards;
+    }
+
+
 }

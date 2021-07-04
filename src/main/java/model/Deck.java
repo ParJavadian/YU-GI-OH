@@ -40,6 +40,19 @@ public class Deck {
         this.sideDeck = sideCards;
     }
 
+    public int getCountOfCardInDeck(Card card) {
+        int counter =0;
+        for (Card eachCard : this.sideDeck) {
+            if (card.getName().equals(eachCard.getName()))
+                counter++;
+        }
+        for (Card eachCard : this.mainDeck) {
+            if (card.getName().equals(eachCard.getName()))
+                counter++;
+        }
+        return counter;
+    }
+
     public void addCardToMainDeck(Card card) {
         this.mainDeck.add(card);
     }
