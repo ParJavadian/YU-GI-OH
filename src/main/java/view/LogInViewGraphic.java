@@ -1,5 +1,6 @@
 package view;
 
+import controller.ImportExportUserController;
 import controller.LogInControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -40,6 +41,8 @@ public class LogInViewGraphic extends Application {
 //            mediaPlayer.play();
 //            current = "play";
 //        }
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.importAllUsers();
         LogInViewGraphic.stage = stage;
         URL url = getClass().getResource("/Login.fxml");
         Parent root = FXMLLoader.load(url);

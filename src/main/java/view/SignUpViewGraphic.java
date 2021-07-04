@@ -1,5 +1,6 @@
 package view;
 
+import controller.ImportExportUserController;
 import controller.SignUpControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -41,6 +42,8 @@ public class SignUpViewGraphic extends Application {
 //            mp.setCycleCount(AudioClip.INDEFINITE);
 //            mp.play();
 //        }
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.importAllUsers();
         SignUpViewGraphic.stage = stage;
         URL url = getClass().getResource("/SignUp.fxml");
         Parent root = FXMLLoader.load(url);
