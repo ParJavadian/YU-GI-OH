@@ -49,10 +49,14 @@ public class DeckViewGraphic extends Application {
     }
 
     public void createDeck(MouseEvent event) throws Exception {
+        CreateDeckGraphic.getInstance().setCurrentUser(user);
+        CreateDeckGraphic.getInstance().start(stage);
 
-        CreateNewDeckView.getInstance().setCurrentUser(user);//todo befrest to controller
-//        CreateNewDeckView.getInstance().setCurrentDeck(user.getActiveDeck());
-        CreateNewDeckView.getInstance().start(stage);
+
+
+//        CreateNewDeckView.getInstance().setCurrentUser(user);//todo befrest to controller
+//        CreateNewDeckView.getInstance().setCurrentDeck();
+//        CreateNewDeckView.getInstance().start(stage);
 
     }
 

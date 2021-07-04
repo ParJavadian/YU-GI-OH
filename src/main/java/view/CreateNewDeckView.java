@@ -119,7 +119,7 @@ public class CreateNewDeckView extends Application  {
 
     public void addCardToDeck(Card card, boolean isSide){
         if (deck.getCountOfCardInDeck(card) > 2) {
-            printText("you already have 3 cards of this type in this deck");
+            printText("you already have 3 cards of this type in this deck"); //todo exception kon
         } else {
             if (isSide) {
                 user.getAllCards().remove(card);
@@ -150,15 +150,15 @@ public class CreateNewDeckView extends Application  {
     }
 
     private void setImagesAndCards() {
-        images = ShopController.getInstance(user).getImages(firstCardNumber); //todo
+        images = DeckController.getInstance(user).getImages(firstCardNumber); //todo
         image1 = setImageView(images.get(0), 83);
         image2 = setImageView(images.get(1), 283);
         image3 = setImageView(images.get(2), 483);
         image4 = setImageView(images.get(3), 683);
-        card1 = ShopController.getInstance(user).getCards(firstCardNumber).get(0);
-        card2 = ShopController.getInstance(user).getCards(firstCardNumber).get(1);
-        card3 = ShopController.getInstance(user).getCards(firstCardNumber).get(2);
-        card4 = ShopController.getInstance(user).getCards(firstCardNumber).get(3);
+        card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
+        card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
+        card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
+        card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
     }
 
     private ImageView setImageView(Image image, int x) {
@@ -171,17 +171,17 @@ public class CreateNewDeckView extends Application  {
     }
 
     private void setOnlyImagesAndCards() {
-        images = ShopController.getInstance(user).getImages(firstCardNumber);
+        images = DeckController.getInstance(user).getImages(firstCardNumber);
         removeImages();
         image1.setImage(images.get(0));
         image2.setImage(images.get(1));
         image3.setImage(images.get(2));
         image4.setImage(images.get(3));
         addImages();
-        card1 = ShopController.getInstance(user).getCards(firstCardNumber).get(0);
-        card2 = ShopController.getInstance(user).getCards(firstCardNumber).get(1);
-        card3 = ShopController.getInstance(user).getCards(firstCardNumber).get(2);
-        card4 = ShopController.getInstance(user).getCards(firstCardNumber).get(3);
+        card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
+        card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
+        card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
+        card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
     }
 
     private void removeImages() {
