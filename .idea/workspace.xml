@@ -22,24 +22,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ShopGraphic6">
-      <change afterPath="$PROJECT_DIR$/Users/1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/all2.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/ShowAllDecksGraphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AllDecksMenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/DeckView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="vasl shod">
+      <change afterPath="$PROJECT_DIR$/Users/22k.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/;.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/KK.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/N.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/l.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/ll.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/oO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/ppp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/ت.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/م.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromDeckView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/q.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AlexandriteDragon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/CreateNewDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ProfileView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ProfileView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +99,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.SignUpViewGraphic">
-    <configuration name="AllDecksViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.AllDecksViewGraphic" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="project_team_17" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.MainViewGraphic" />
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
@@ -100,15 +117,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="project_team_17" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,9 +159,9 @@
       <list>
         <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.AllDecksViewGraphic" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
+        <item itemvalue="Application.MainViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -458,19 +466,17 @@
       <option name="project" value="LOCAL" />
       <updated>1625313201854</updated>
     </task>
-    <task id="LOCAL-00042" summary="ShopGraphic5">
-      <created>1625323414021</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1625323414021</updated>
+    <task id="LOCAL‎۰۰۰۴۲" summary="create deck">
+      <created>1625349222305</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۲" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۲" />
+      <updated>1625349222305</updated>
     </task>
-    <task id="LOCAL-00043" summary="ShopGraphic6">
-      <created>1625329659088</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1625329659088</updated>
+    <task id="LOCAL‎۰۰۰۴۳" summary="profile photo">
+      <created>1625407690499</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۳" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۳" />
+      <updated>1625407690499</updated>
     </task>
     <option name="localTasksCounter" value="44" />
     <servers />
@@ -518,43 +524,9 @@
     <MESSAGE value="profile and scoreboard edited" />
     <MESSAGE value="ShopGraphic3" />
     <MESSAGE value="ShopGraphic4" />
-    <MESSAGE value="ShopGraphic5" />
-    <MESSAGE value="ShopGraphic6" />
-    <option name="LAST_COMMIT_MESSAGE" value="ShopGraphic6" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1625391008495">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1625391008495" />
-    <state width="1237" height="157" key="GridCell.Tab.0.bottom" timestamp="1625406967046">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
-    <state width="1237" height="157" key="GridCell.Tab.0.center" timestamp="1625406967046">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
-    <state width="1237" height="157" key="GridCell.Tab.0.left" timestamp="1625406967046">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
-    <state width="1237" height="157" key="GridCell.Tab.0.right" timestamp="1625406967046">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1625298369486">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1625298369486" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625329662626">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625329662626" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1625340378374">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1625340378374" />
+    <MESSAGE value="create deck" />
+    <MESSAGE value="profile photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile photo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

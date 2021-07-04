@@ -83,6 +83,9 @@ public class AllDecksViewGraphic extends Application implements Initializable {
         label.setTextFill(Color.WHITE);
         anchorPane1.getChildren().add(label);
         Button editButton = new Button("Edit Deck");
+//        editButton.setOnMouseClicked(edit());
+//        editButton.getOnMouseClicked();
+//        editButton.onMouseClickedProperty();
         editButton.setLayoutX(240);
         editButton.setOnAction(this::editDeck);
         anchorPane1.getChildren().add(editButton);
@@ -112,6 +115,14 @@ public class AllDecksViewGraphic extends Application implements Initializable {
             if (button.equals(actionEvent.getSource())) {
                 RadioButton radioButton = (RadioButton) anchorPane.getChildren().get(0);
                 Deck deck = user.getDeckByName(radioButton.getText());
+                AddCardToDeckView.getInstance().setCurrentUser(user);
+                AddCardToDeckView.getInstance().setCurrentDeck(deck);
+                try {
+                    AddCardToDeckView.getInstance().start(stage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 //TODO call edit menu of kiana
             }
         }
@@ -183,5 +194,9 @@ public class AllDecksViewGraphic extends Application implements Initializable {
         alert.setTitle("Error");
         alert.setHeaderText("");
         alert.showAndWait();
+    }
+
+    public void edit(){
+
     }
 }

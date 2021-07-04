@@ -28,7 +28,12 @@ public class MainControllerGraphic {
     }
 
     public static void showDeckMenu(User user, Stage stage) throws Exception {
-        DeckViewGraphic.getInstance().setCurrentUser(user);
-        DeckViewGraphic.getInstance().start(stage);
+        AllDecksViewGraphic.getInstance().setCurrentUser(user);
+        AllDecksViewGraphic.getInstance().start(stage);
     }
+
+//    public static void showDeckMenu(User user, Stage stage) throws Exception {
+//        DeckViewGraphic.getInstance().setCurrentUser(user);
+//        DeckViewGraphic.getInstance().start(stage);
+//    }
 }

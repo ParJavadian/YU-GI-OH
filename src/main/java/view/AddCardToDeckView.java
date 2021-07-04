@@ -1,11 +1,9 @@
 package view;
 
 import controller.DeckController;
-import controller.ShopController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -22,11 +20,11 @@ import model.User;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class CreateNewDeckView extends Application  {
+public class AddCardToDeckView extends Application  {
 
     private static Stage stage;
     private static Deck deck;
-    private static CreateNewDeckView instance = null;
+    private static AddCardToDeckView instance = null;
     private static User user;
     private static ArrayList<Image> images = new ArrayList<>(4);
     private static Card card1, card2, card3, card4;
@@ -41,23 +39,23 @@ public class CreateNewDeckView extends Application  {
 
 
 
-    public static CreateNewDeckView getInstance() {
-        if (instance == null) instance = new CreateNewDeckView();
+    public static AddCardToDeckView getInstance() {
+        if (instance == null) instance = new AddCardToDeckView();
         return instance;
     }
 
     public void setCurrentUser(User user) {
-        CreateNewDeckView.user = user;
+        AddCardToDeckView.user = user;
     }
 
     public void setCurrentDeck(Deck deck) {
-        CreateNewDeckView.deck = deck;
+        AddCardToDeckView.deck = deck;
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        DeckController.getInstance(user).getUsersCards(deck);
-        CreateNewDeckView.stage = stage;
+        DeckController.getInstance(user).setUsersCards(deck);
+        AddCardToDeckView.stage = stage;
         URL url = getClass().getResource("/CreateNewDeck.fxml");
         root = FXMLLoader.load(url);
         setImagesAndCards();
@@ -151,14 +149,26 @@ public class CreateNewDeckView extends Application  {
 
     private void setImagesAndCards() {
         images = DeckController.getInstance(user).getImages(firstCardNumber); //todo
-        image1 = setImageView(images.get(0), 83);
-        image2 = setImageView(images.get(1), 283);
-        image3 = setImageView(images.get(2), 483);
-        image4 = setImageView(images.get(3), 683);
-        card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
-        card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
-        card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
-        card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
+        if (images.size()>0) {
+            image1 = setImageView(images.get(0), 83);
+            card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
+        }
+        if (images.size()>1) {
+            image2 = setImageView(images.get(1), 283);
+            card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
+        }
+        if (images.size()>2) {
+            image3 = setImageView(images.get(2), 483);
+            card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
+        }
+        if (images.size()>3) {
+            image4 = setImageView(images.get(3), 683);
+            card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
+        }
+
+
+
+
     }
 
     private ImageView setImageView(Image image, int x) {
@@ -192,10 +202,10 @@ public class CreateNewDeckView extends Application  {
     }
 
     private void addImages() {
-        root.getChildren().add(image1);
-        root.getChildren().add(image2);
-        root.getChildren().add(image3);
-        root.getChildren().add(image4);
+        if (image1 != null) root.getChildren().add(image1);
+        if (image2 != null) root.getChildren().add(image2);
+        if (image3 != null) root.getChildren().add(image3);
+        if (image4 != null) root.getChildren().add(image4);
     }
 
     public void printText(String output) {

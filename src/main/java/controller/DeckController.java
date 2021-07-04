@@ -13,19 +13,20 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class DeckController {
     private static DeckController instance = null;
-    private User user;
+    private static User user;
 
     private final static ArrayList<Image> allImages = new ArrayList<>();
     private static ArrayList<Card> allCards = new ArrayList<>();
 
     private DeckController(User user) {
-        this.user = user;
+        DeckController.user = user;
         initImages();
     }
 
     public static DeckController getInstance(User user) {
         if (instance == null) instance = new DeckController(user);
-        else if (!instance.user.equals(user)) instance.user = user;
+        else if (DeckController.user == null) DeckController.user = user;
+        else if (!DeckController.user.equals(user)) instance.user = user;
         return instance;
     }
 
@@ -271,12 +272,7 @@ public class DeckController {
     }
 
 
-
-
-
-
-
-    public void getUsersCards(Deck deck){
+    public void setUsersCards(Deck deck){
         allCards = (ArrayList<Card>) user.getAllCards();
     }
 
@@ -290,7 +286,9 @@ public class DeckController {
     public ArrayList<Image> getImages(int start){
         ArrayList<Image> myImages = new ArrayList<>(4);
         for (int i = start; i < start+4; i++) {
-            myImages.add(allImages.get(i));
+            if (i<allImages.size()) {
+                myImages.add(allImages.get(i));
+            }
         }
         return myImages;
     }
@@ -298,7 +296,7 @@ public class DeckController {
     public ArrayList<Card> getCards(int start){
         ArrayList<Card> cards = new ArrayList<>(4);
         for (int i = start; i < start+4; i++) {
-            cards.add(allCards.get(i));
+            if (allCards.size()>i) cards.add(allCards.get(i));
         }
         return cards;
     }
