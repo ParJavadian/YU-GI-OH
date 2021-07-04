@@ -28,7 +28,7 @@ public class MainControllerGraphic {
     }
 
     public static void showDeckMenu(User user, Stage stage) throws Exception {
-        AllDecksViewGraphic.getInstance().setCurrentUser(user);
-        AllDecksViewGraphic.getInstance().start(stage);
+        DeckViewGraphic.getInstance().setCurrentUser(user);
+        DeckViewGraphic.getInstance().start(stage);
     }
 }
