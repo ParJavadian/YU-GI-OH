@@ -2,13 +2,11 @@ package view;
 
 import controller.DeckController;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -19,23 +17,25 @@ import model.User;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class AddCardToDeckView extends Application {
+public class AddCardToDeckView extends Application  implements Initializable {
 
-    private static Stage stage;
     private static Deck deck;
+    private static Stage stage;
     private static AddCardToDeckView instance = null;
-    private User user;
+    private static User user;
     private static ArrayList<Image> images = new ArrayList<>(4);
     private static Card card1, card2, card3, card4;
     public static ImageView image1, image2, image3, image4;
     private static int totalCardsNumber;
     private static int firstCardNumber = 0;
     private static AnchorPane root;
-    @FXML
+    /*@FXML
     private Label money, youHave1, youHave2, youHave3, youHave4;
     @FXML
-    private Button addButton1Main, addButton2Main, addButton3Main, addButton4Main;
+    private Button addButton1Main, addButton2Main, addButton3Main, addButton4Main;*/
+
 
 
     public static AddCardToDeckView getInstance() {
@@ -44,7 +44,7 @@ public class AddCardToDeckView extends Application {
     }
 
     public void setCurrentUser(User user) {
-        instance.user = user;
+        AddCardToDeckView.user = user;
     }
 
     public void setCurrentDeck(Deck deck) {
@@ -53,66 +53,17 @@ public class AddCardToDeckView extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        DeckController.getInstance(user).setUsersCards(deck);
         AddCardToDeckView.stage = stage;
         URL url = getClass().getResource("/CreateNewDeck.fxml");
         root = FXMLLoader.load(url);
+        DeckController.getInstance(user).setUsersCards();
         setImagesAndCards();
         addImages();
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
 
-    public void addToMainDeck1() {
-        addCardToDeck(card1, false);
-    }
 
-    public void addToMainDeck2() {
-        addCardToDeck(card2, false);
-    }
-
-    public void addToMainDeck3() {
-        addCardToDeck(card3, false);
-    }
-
-    public void addToMainDeck4() {
-        addCardToDeck(card4, false);
-    }
-
-    public void addToSideDeck1() {
-        addCardToDeck(card1, true);
-    }
-
-    public void addToSideDeck2() {
-        addCardToDeck(card2, true);
-    }
-
-    public void addToSideDeck3() {
-        addCardToDeck(card3, true);
-    }
-
-    public void addToSideDeck4() {
-        addCardToDeck(card4, true);
-    }
-
-
-//    public void buy2() {
-//        user.getAllCards().add(card2);
-//        //setAll();
-//        printText("Card added successfully");
-//    }
-//
-//    public void buy3() {
-//        user.getAllCards().add(card3);
-//        //setAll();
-//        printText("Card added successfully");
-//    }
-//
-//    public void buy4() {
-//        user.getAllCards().add(card4);
-//        //setAll();
-//        printText("Card added successfully");
-//    }
 
     public void addCardToDeck(Card card, boolean isSide) {
         if (deck.getCountOfCardInDeck(card) > 2) {
@@ -127,7 +78,7 @@ public class AddCardToDeckView extends Application {
                 deck.addCardToMainDeck(card);
                 printTextInformation("Card added to main deck successfully");
             }
-            setOnlyImagesAndCards();
+            resetImagesAndCards();
         }
     }
 
@@ -135,20 +86,19 @@ public class AddCardToDeckView extends Application {
     public void goNextPage() {
         if (firstCardNumber + 4 >= totalCardsNumber) return;
         firstCardNumber += 4;
-        setOnlyImagesAndCards();
-        //setInStocks();
+        resetImagesAndCards();
     }
 
     public void goPreviousPage() {
         if (firstCardNumber - 4 < 0) return;
         firstCardNumber -= 4;
-        setOnlyImagesAndCards();
-        //setInStocks();
+        resetImagesAndCards();
     }
 
     private void setImagesAndCards() {
-        images = DeckController.getInstance(user).getImages(firstCardNumber); //todo
-        if (images.size() > 0) {
+        images = DeckController.getInstance(user).getImages(firstCardNumber);
+        /*
+        if (images.size()>0) {
             image1 = setImageView(images.get(0), 83);
             card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
         }
@@ -164,6 +114,15 @@ public class AddCardToDeckView extends Application {
             image4 = setImageView(images.get(3), 683);
             card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
         }
+        addImages();*/
+        if (images.size()>0) image1 = setImageView(images.get(0),100);
+        if (images.size()>1) image2 = setImageView(images.get(1),240);
+        if (images.size()>2) image3 = setImageView(images.get(2),380);
+        if (images.size()>3) image4 = setImageView(images.get(3),520);
+        if (images.size()>0) card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
+        if (images.size()>1) card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
+        if (images.size()>2) card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
+        if (images.size()>3) card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
     }
 
     private ImageView setImageView(Image image, int x) {
@@ -175,18 +134,20 @@ public class AddCardToDeckView extends Application {
         return imageView;
     }
 
-    private void setOnlyImagesAndCards() {
+    private void resetImagesAndCards() {
         images = DeckController.getInstance(user).getImages(firstCardNumber);
+        /*System.out.println(user.getAllCards() + "\tuser");
+        System.out.println(images + "\timages");*/
         removeImages();
-        image1.setImage(images.get(0));
-        image2.setImage(images.get(1));
-        image3.setImage(images.get(2));
-        image4.setImage(images.get(3));
+        if (images.size()>0) image1 = setImageView(images.get(0),100);
+        if (images.size()>1) image2 = setImageView(images.get(1),240);
+        if (images.size()>2) image3 = setImageView(images.get(2),380);
+        if (images.size()>3) image4 = setImageView(images.get(3),520);
         addImages();
-        card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
-        card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
-        card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
-        card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
+        if (images.size()>0) card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
+        if (images.size()>1) card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
+        if (images.size()>2) card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
+        if (images.size()>3) card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
     }
 
     private void removeImages() {
@@ -210,6 +171,43 @@ public class AddCardToDeckView extends Application {
         alert.showAndWait();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setImagesAndCards();
+        addImages();
+    }
+
+    public void addToMainDeck1() {
+        addCardToDeck(card1,false);
+    }
+
+    public void addToMainDeck2() {
+        addCardToDeck(card2,false);
+    }
+
+    public void addToMainDeck3() {
+        addCardToDeck(card3,false);
+    }
+
+    public void addToMainDeck4() {
+        addCardToDeck(card4,false);
+    }
+
+    public void addToSideDeck1() {
+        addCardToDeck(card1,true);
+    }
+
+    public void addToSideDeck2() {
+        addCardToDeck(card2,true);
+    }
+
+    public void addToSideDeck3() {
+        addCardToDeck(card3,true);
+    }
+
+    public void addToSideDeck4() {
+        addCardToDeck(card4,true);
+    }
     public void printTextError(String output) {
         Alert alert = new Alert(Alert.AlertType.ERROR, output, ButtonType.OK);
         alert.setHeaderText("");

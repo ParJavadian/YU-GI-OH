@@ -60,7 +60,6 @@ public class AllDecksViewGraphic extends Application implements Initializable {
             addDeck(deck);
             if (user.getActiveDeck() != null && deck.getDeckName().equals(user.getActiveDeck().getDeckName())) {
                 setActiveDeckInitialize(deck);
-                System.out.println("1");
             }
         }
     }
