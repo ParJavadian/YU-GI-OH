@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 import view.*;
@@ -29,8 +28,7 @@ public class MainControllerGraphic {
     }
 
     public static void showDeckMenu(User user, Stage stage) throws Exception {
-//        ProfileControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
-        DeckViewGraphic.getInstance().setCurrentUser(user);
-        DeckViewGraphic.getInstance().start(stage);
+        AllDecksViewGraphic.getInstance().setCurrentUser(user);
+        AllDecksViewGraphic.getInstance().start(stage);
     }
 }

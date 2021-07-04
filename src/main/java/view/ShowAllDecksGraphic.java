@@ -1,3 +1,4 @@
+/*
 package view;
 
 import controller.ScoreBoardControllerGraphic;
@@ -53,3 +54,4 @@ public class ShowAllDecksGraphic extends Application implements Initializable {
         DeckViewGraphic.getInstance().start(stage);
     }
 }
+*/

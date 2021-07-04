@@ -1,3 +1,4 @@
+<!--
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
@@ -5,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DeckViewGraphic">
    <children>
@@ -14,30 +15,26 @@
             <Image url="@deckView.png" />
          </image>
       </ImageView>
-      <Button layoutX="74.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#showAllDecksAndSetActiveDeck" text="Show All Decks and Set Active Deck" textFill="#6e145e">
+      <Button layoutX="74.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#showAllDecksAndSetActiveDeck" text="Show All Decks and Set Active Deck" textFill="#136f4d">
          <font>
-            <Font name="Agency FB Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="74.0" layoutY="214.0" mnemonicParsing="false" onMouseClicked="#editAndDeleteDeck" prefHeight="34.0" prefWidth="241.0" text="Edit or Delete a Deck" textFill="#6e145e">
+      <Button layoutX="120.0" layoutY="209.0" mnemonicParsing="false" onMouseClicked="#editAndDeleteDeck" text="Edit or Delete a Deck" textFill="#136f4d">
          <font>
-            <Font name="Agency FB Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="74.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#createDeck" prefHeight="34.0" prefWidth="241.0" text="Create New Deck" textFill="#6e145e">
+      <Button layoutX="131.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#createDeck" text="Create New Deck" textFill="#136f4d">
          <font>
-            <Font name="Agency FB Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="153.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="34.0" prefWidth="84.0" text="Back" textFill="#6e145e">
+      <Button layoutX="170.0" layoutY="523.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" textFill="#136f4d">
          <font>
-            <Font name="Agency FB Bold" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Button>
-      <Text fill="#b0b56c" layoutX="384.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deck Setting">
-         <font>
-            <Font name="Agency FB Bold" size="31.0" />
-         </font>
-      </Text>
    </children>
 </AnchorPane>
+-->

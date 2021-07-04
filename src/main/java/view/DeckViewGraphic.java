@@ -1,3 +1,4 @@
+/*
 package view;
 
 import javafx.application.Application;
@@ -40,7 +41,7 @@ public class DeckViewGraphic extends Application {
     }
 
 
-    public void showAllDecksAndSetActiveDeck(MouseEvent event) throws Exception {
+    public void showAllDecksAndSetActiveDeck(MouseEvent event) throws Exception{
         ShowAllDecksGraphic.getInstance().setCurrentUser(user);
         ShowAllDecksGraphic.getInstance().start(stage);
     }
@@ -48,21 +49,11 @@ public class DeckViewGraphic extends Application {
     public void editAndDeleteDeck(MouseEvent event) {
     }
 
-    public void createDeck(MouseEvent event) throws Exception {
-        CreateDeckGraphic.getInstance().setCurrentUser(user);
-        CreateDeckGraphic.getInstance().start(stage);
-
-
-
-//        CreateNewDeckView.getInstance().setCurrentUser(user);//todo befrest to controller
-//        CreateNewDeckView.getInstance().setCurrentDeck();
-//        CreateNewDeckView.getInstance().start(stage);
-
+    public void createDeck(MouseEvent event) {
     }
 
-    public void goBack(MouseEvent event) throws Exception {
+    public void goBack(MouseEvent event) throws Exception{
         MainViewGraphic.getInstance().start(stage);
     }
-
-
 }
+*/
