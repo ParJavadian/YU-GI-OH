@@ -22,32 +22,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="vasl shod">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="...">
       <change afterPath="$PROJECT_DIR$/Users/22k.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/;.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/KK.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/MOHAMMAD TAHA.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/N.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/P.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/l.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ll.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/oO.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/ppp.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/ت.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/م.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromDeckView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/CreateNewDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ScoreBoardControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ScoreBoardControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeckController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/ProfileView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ProfileView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -478,7 +469,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۳" />
       <updated>1625407690499</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL‎۰۰۰۴۴" summary="...">
+      <created>1625420301025</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۴" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۴" />
+      <updated>1625420301025</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +495,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ai" />
     <MESSAGE value="debug attack1" />
     <MESSAGE value="debug attack2" />
     <MESSAGE value="debug attack3" />
@@ -526,7 +522,8 @@
     <MESSAGE value="ShopGraphic4" />
     <MESSAGE value="create deck" />
     <MESSAGE value="profile photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile photo" />
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

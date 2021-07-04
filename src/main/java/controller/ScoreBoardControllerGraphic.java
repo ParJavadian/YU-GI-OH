@@ -25,7 +25,7 @@ public class ScoreBoardControllerGraphic {
     }
 
 
-    public String showScoreboard() {
+    public String showScoreboard(User user) {
         List<User> allUsers = User.getAllUsers();
         Comparator<User> userComparator = Comparator.comparing(User::getScore, Comparator.reverseOrder()).thenComparing(User::getNickname);
         if (allUsers != null) {
@@ -36,7 +36,10 @@ public class ScoreBoardControllerGraphic {
             int i = 1;
             int userCounter = 0;
             for (User eachUser : allUsers) {
-                if (userCounter >= 10) {
+                if (eachUser.equals(user)) {
+
+                }
+                if (userCounter >= 20) {
                     return toPrint.toString();
                 } else {
                     if (previousUser != null) {
