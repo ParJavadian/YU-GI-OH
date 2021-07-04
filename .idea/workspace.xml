@@ -22,16 +22,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ShopGraphic5">
-      <change afterPath="$PROJECT_DIR$/Users/w.txt" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ShopGraphic6">
+      <change afterPath="$PROJECT_DIR$/Users/1.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/all2.zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ShowAllDecksGraphic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AllDecksMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/DeckView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/q.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AlexandriteDragon.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,17 +91,8 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.SignUpViewGraphic">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="project_team_17" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.MainViewGraphic" />
+    <configuration name="AllDecksViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.AllDecksViewGraphic" />
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
@@ -101,6 +100,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="project_team_17" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,9 +151,9 @@
       <list>
         <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.AllDecksViewGraphic" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
-        <item itemvalue="Application.MainViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -457,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625323414021</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="ShopGraphic6">
+      <created>1625329659088</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1625329659088</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +492,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug2" />
     <MESSAGE value="ai" />
     <MESSAGE value="debug attack1" />
     <MESSAGE value="debug attack2" />
@@ -505,37 +519,42 @@
     <MESSAGE value="ShopGraphic3" />
     <MESSAGE value="ShopGraphic4" />
     <MESSAGE value="ShopGraphic5" />
-    <option name="LAST_COMMIT_MESSAGE" value="ShopGraphic5" />
+    <MESSAGE value="ShopGraphic6" />
+    <option name="LAST_COMMIT_MESSAGE" value="ShopGraphic6" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1625313624867">
+    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1625391008495">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1625313624867" />
-    <state width="1237" height="157" key="GridCell.Tab.0.bottom" timestamp="1625329436680">
+    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1625391008495" />
+    <state width="1237" height="157" key="GridCell.Tab.0.bottom" timestamp="1625406967046">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625329436680" />
-    <state width="1237" height="157" key="GridCell.Tab.0.center" timestamp="1625329436680">
+    <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
+    <state width="1237" height="157" key="GridCell.Tab.0.center" timestamp="1625406967046">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625329436680" />
-    <state width="1237" height="157" key="GridCell.Tab.0.left" timestamp="1625329436680">
+    <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
+    <state width="1237" height="157" key="GridCell.Tab.0.left" timestamp="1625406967046">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625329436680" />
-    <state width="1237" height="157" key="GridCell.Tab.0.right" timestamp="1625329436680">
+    <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
+    <state width="1237" height="157" key="GridCell.Tab.0.right" timestamp="1625406967046">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625329436680" />
+    <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1625298369486">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1625298369486" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625323424007">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625329662626">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625323424007" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625329662626" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1625340378374">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1625340378374" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
