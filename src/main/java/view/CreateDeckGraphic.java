@@ -61,7 +61,7 @@ public class CreateDeckGraphic extends Application {
 
     public static void confirmCreatedDeck () {
         Alert error = new Alert(Alert.AlertType.INFORMATION);
-        error.setHeaderText("Done");
+        error.setHeaderText("Deck created successfully!");
         error.showAndWait();
     }
 
