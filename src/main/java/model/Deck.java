@@ -41,13 +41,13 @@ public class Deck {
     }
 
     public int getCountOfCardInDeck(Card card) {
-        int counter =0;
+        int counter = 0;
         for (Card eachCard : this.sideDeck) {
-            if (card.getName().equals(eachCard.getName()))
+            if (eachCard != null && card.getName().equals(eachCard.getName()))
                 counter++;
         }
         for (Card eachCard : this.mainDeck) {
-            if (card.getName().equals(eachCard.getName()))
+            if (eachCard != null && card.getName().equals(eachCard.getName()))
                 counter++;
         }
         return counter;

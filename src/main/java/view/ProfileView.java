@@ -6,7 +6,11 @@ import model.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ProfileView {
+public class
+
+
+
+ProfileView {
     private static ProfileView instance = null;
     private User user;
 

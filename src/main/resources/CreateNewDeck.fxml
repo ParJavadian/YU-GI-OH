@@ -12,7 +12,7 @@
 
 </AnchorPane>-->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ccccff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CreateNewDeckView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ccccff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AddCardToDeckView">
     <Button layoutX="725.0" layoutY="469.0" mnemonicParsing="false" onAction="#goNextPage" text="Next Page">
         <font>
             <Font name="Agency FB Bold" size="21.0" />
@@ -28,7 +28,7 @@
             <Font name="Agency FB Bold" size="27.0" />
         </font>
     </Label>
-    <Button layoutX="63.0" layoutY="528.0" mnemonicParsing="false" text="Back">
+    <Button layoutX="63.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#back" text="Back">
         <font>
             <Font name="Agency FB Bold" size="17.0" />
         </font>

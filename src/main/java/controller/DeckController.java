@@ -13,19 +13,19 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class DeckController {
     private static DeckController instance = null;
-    private User user;
+    private static User user;
 
-    private final static ArrayList<Image> allImages = new ArrayList<>();
+    private static ArrayList<Image> allImages = new ArrayList<>();
     private static ArrayList<Card> allCards = new ArrayList<>();
 
     private DeckController(User user) {
-        this.user = user;
-        initImages();
+        DeckController.user = user;
     }
 
     public static DeckController getInstance(User user) {
         if (instance == null) instance = new DeckController(user);
-        else if (!instance.user.equals(user)) instance.user = user;
+        else if (DeckController.user == null || !DeckController.user.equals(user))
+            DeckController.user = user;
         return instance;
     }
 
@@ -49,12 +49,12 @@ public class DeckController {
     }
 
     public void createDeck(String name) throws Exception {
-        if (this.user.getDeckByName(name) == null) {
+        if (DeckController.user.getDeckByName(name) == null) {
             Deck deck = new Deck(name);
-            this.user.addDeck(deck);
+            DeckController.user.addDeck(deck);
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-            importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
-            DeckView.getInstance(this.user).printText("deck created successfully!");
+            importExportUserController.exportAllDecksName(DeckController.user.getAllDecks(), DeckController.user);
+            DeckView.getInstance(DeckController.user).printText("deck created successfully!");
         } else {
             throw new RepetitiveDeckName(name);
         }
@@ -62,7 +62,7 @@ public class DeckController {
 
     public Deck createRandomDeckForAI() {
         Deck deck = new Deck("DeckForAI");
-        this.user.addDeck(deck);
+        DeckController.user.addDeck(deck);
         List<Card> allCards = new ArrayList<>();
         Collections.addAll(allCards, MonsterCard.values());
         Collections.addAll(allCards, SpellCard.values());
@@ -71,26 +71,26 @@ public class DeckController {
             int randomNum = ThreadLocalRandom.current().nextInt(0, allCards.size());
             try {
                 addCardToDeckAI(allCards.get(randomNum), "DeckForAI", false, false);
-            } catch (Exception exception) {
+            } catch (Exception ignored) {
             }
         }
         return deck;
     }
 
     public void deleteDeck(String name) throws Exception {
-        if (this.user.getDeckByName(name) != null) {
-            this.user.deleteDeck(name);
+        if (DeckController.user.getDeckByName(name) != null) {
+            DeckController.user.deleteDeck(name);
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-            importExportUserController.exportAllDecksName(this.user.getAllDecks(),this.user);
-            DeckView.getInstance(this.user).printText("deck deleted successfully");
+            importExportUserController.exportAllDecksName(DeckController.user.getAllDecks(), DeckController.user);
+            DeckView.getInstance(DeckController.user).printText("deck deleted successfully");
         } else
             throw new DeckNotFound(name);
     }
 
     public void addCardToDeck(String cardName, String deckName, boolean isSide, boolean isAddedByCheating) throws Exception {
-        Card card = this.user.getCardByName(cardName);
+        Card card = DeckController.user.getCardByName(cardName);
         if (card != null) {
-            Deck deck = this.user.getDeckByName(deckName);
+            Deck deck = DeckController.user.getDeckByName(deckName);
             if (deck != null) {
                 if (!isAddedByCheating) {
                     if (isSide && deck.getSideSize() >= 15)
@@ -111,14 +111,14 @@ public class DeckController {
                     if (isSide) {
                         deck.addCardToSideDeck(card);
                         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
+                        importExportUserController.exportCardsInSideDeck(DeckController.user, deckName);
                     } else {
                         deck.addCardToMainDeck(card);
                         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
+                        importExportUserController.exportCardsInMainDeck(DeckController.user, deckName);
                     }
-                    this.user.deleteCard(cardName);
-                    DeckView.getInstance(this.user).printText("card added to deck successfully");
+                    DeckController.user.deleteCard(cardName);
+                    DeckView.getInstance(DeckController.user).printText("card added to deck successfully");
                 }
             } else throw new DeckNotFound(deckName);
         } else throw new CardNotFoundInUser(cardName);
@@ -126,7 +126,7 @@ public class DeckController {
 
     public void addCardToDeckAI(Card card, String deckName, boolean isSide, boolean isAddedByCheating) throws Exception {
         String cardName = card.getNamePascalCase();
-        Deck deck = this.user.getDeckByName(deckName);
+        Deck deck = DeckController.user.getDeckByName(deckName);
         if (deck != null) {
             if (!isAddedByCheating) {
                 if (isSide && deck.getSideSize() >= 15)
@@ -146,22 +146,22 @@ public class DeckController {
             else {
                 if (isSide) {
                     deck.addCardToSideDeck(card);
-                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
+                    ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+                    importExportUserController.exportCardsInSideDeck(DeckController.user, deckName);
                 } else {
                     deck.addCardToMainDeck(card);
-                        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
+                    ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+                    importExportUserController.exportCardsInMainDeck(DeckController.user, deckName);
                 }
-                this.user.deleteCard(cardName);
+                DeckController.user.deleteCard(cardName);
             }
         } else throw new DeckNotFound(deckName);
     }
 
     public void activateDeck(String name) throws Exception {
-        if (this.user.getDeckByName(name) != null) {
-            this.user.setActiveDeck(this.user.getDeckByName(name));
-            DeckView.getInstance(this.user).printText("deck activated successfully");
+        if (DeckController.user.getDeckByName(name) != null) {
+            DeckController.user.setActiveDeck(DeckController.user.getDeckByName(name));
+            DeckView.getInstance(DeckController.user).printText("deck activated successfully");
         } else
             throw new DeckNotFound(name);
     }
@@ -174,19 +174,19 @@ public class DeckController {
                 if (isSide) {
                     if (deck.cardExistsInDeck(card, true)) {
                         deck.removeCardFromSideDeck(card);
-                        this.user.addCardToUsersAllCards(card);
+                        DeckController.user.addCardToUsersAllCards(card);
                         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInSideDeck(this.user,deckName);
-                        importExportUserController.exportAllCards(this.user);
+                        importExportUserController.exportCardsInSideDeck(DeckController.user, deckName);
+                        importExportUserController.exportAllCards(DeckController.user);
                         DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "side");
                 } else {
                     if (deck.cardExistsInDeck(card, false)) {
                         deck.removeCardFromMainDeck(card);
-                        this.user.addCardToUsersAllCards(card);
+                        DeckController.user.addCardToUsersAllCards(card);
                         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                        importExportUserController.exportCardsInMainDeck(this.user,deckName);
-                        importExportUserController.exportAllCards(this.user);
+                        importExportUserController.exportCardsInMainDeck(DeckController.user, deckName);
+                        importExportUserController.exportAllCards(DeckController.user);
                         DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "main");
                 }
@@ -198,11 +198,11 @@ public class DeckController {
 
     public void showAllDecks() {
         StringBuilder toPrint = new StringBuilder("Decks:\nActive deck:\n");
-        List<Deck> allDecks = new ArrayList<>(this.user.getAllDecks());
+        List<Deck> allDecks = new ArrayList<>(DeckController.user.getAllDecks());
         Deck activeDeck = null;
-        if (this.user.getActiveDeck() != null) {
+        if (DeckController.user.getActiveDeck() != null) {
             for (Deck deck : allDecks) {
-                if (this.user.getActiveDeck().getDeckName().equals(deck.getDeckName())) {
+                if (DeckController.user.getActiveDeck().getDeckName().equals(deck.getDeckName())) {
                     toPrint.append(deck.toString());
                     if (deck.isValid()) toPrint.append(", valid\n");
                     else toPrint.append(", invalid\n");
@@ -225,23 +225,23 @@ public class DeckController {
                 else toPrint.append(", invalid\n");
             }
         }
-        DeckView.getInstance(this.user).printText(toPrint.toString());
+        DeckView.getInstance(DeckController.user).printText(toPrint.toString());
     }
 
     public void showDeck(String deckName, boolean isSide) throws Exception {
-        if (this.user.getDeckByName(deckName) == null) throw new DeckNotFound(deckName);
-        String toPrint = "Deck: " + deckName + "\n";
-        if (isSide) toPrint += "Side deck:\nMonsters:\n";
-        else toPrint += "Main deck:\nMonsters:\n";
+        if (DeckController.user.getDeckByName(deckName) == null) throw new DeckNotFound(deckName);
+        StringBuilder toPrint = new StringBuilder("Deck: " + deckName + "\n");
+        if (isSide) toPrint.append("Side deck:\nMonsters:\n");
+        else toPrint.append("Main deck:\nMonsters:\n");
         ArrayList<Card> monsterCards = new ArrayList<>();
         ArrayList<Card> spellAndTrapCards = new ArrayList<>();
         if (!isSide) {
-            for (Card eachCard : this.user.getDeckByName(deckName).getMainDeck()) {
+            for (Card eachCard : DeckController.user.getDeckByName(deckName).getMainDeck()) {
                 if (eachCard instanceof MonsterCard) monsterCards.add(eachCard);
                 else spellAndTrapCards.add(eachCard);
             }
         } else {
-            for (Card eachCard : this.user.getDeckByName(deckName).getSideDeck()) {
+            for (Card eachCard : DeckController.user.getDeckByName(deckName).getSideDeck()) {
                 if (eachCard instanceof MonsterCard) monsterCards.add(eachCard);
                 else spellAndTrapCards.add(eachCard);
             }
@@ -250,55 +250,51 @@ public class DeckController {
         monsterCards.sort(cardComparator);
         spellAndTrapCards.sort(cardComparator);
         for (Card eachCard : monsterCards) {
-            toPrint += eachCard.getNamePascalCase() + ":" + eachCard.getDescription() + "\n";
+            toPrint.append(eachCard.getNamePascalCase()).append(":").append(eachCard.getDescription()).append("\n");
         }
-        toPrint += "Spell and Traps:";
+        toPrint.append("Spell and Traps:");
         for (Card eachCard : spellAndTrapCards) {
-            toPrint += "\n" + eachCard.getNamePascalCase() + ":" + eachCard.getDescription();
+            toPrint.append("\n").append(eachCard.getNamePascalCase()).append(":").append(eachCard.getDescription());
         }
-        DeckView.getInstance(this.user).printText(toPrint);
+        DeckView.getInstance(DeckController.user).printText(toPrint.toString());
     }
 
     public void showAllCards() {
-        String toPrint = "";
-        List<Card> allCards = this.user.getAllCards();
+        StringBuilder toPrint = new StringBuilder();
+        List<Card> allCards = DeckController.user.getAllCards();
         Comparator<Card> cardComparator = Comparator.comparing(Card::getNamePascalCase);
         allCards.sort(cardComparator);
         for (Card card : allCards) {
-            toPrint += card.getNamePascalCase() + ":" + card.getDescription() + "\n";
+            toPrint.append(card.getNamePascalCase()).append(":").append(card.getDescription()).append("\n");
         }
-        DeckView.getInstance(this.user).printText(toPrint);
+        DeckView.getInstance(DeckController.user).printText(toPrint.toString());
     }
 
-
-
-
-
-
-
-    public void getUsersCards(Deck deck){
+    public void setUsersCards() {
         allCards = (ArrayList<Card>) user.getAllCards();
+        initImages();
     }
 
-
-    private void initImages() {
+    public static void initImages() {
         for (Card card : allCards) {
             allImages.add(card.getImage());
         }
     }
 
-    public ArrayList<Image> getImages(int start){
+    public ArrayList<Image> getImages(int start) {
         ArrayList<Image> myImages = new ArrayList<>(4);
-        for (int i = start; i < start+4; i++) {
-            myImages.add(allImages.get(i));
+        for (int i = start; i < start + 4; i++) {
+            if (i < allImages.size()) {
+                myImages.add(allImages.get(i));
+            }
         }
         return myImages;
     }
 
-    public ArrayList<Card> getCards(int start){
+    public ArrayList<Card> getCards(int start) {
         ArrayList<Card> cards = new ArrayList<>(4);
-        for (int i = start; i < start+4; i++) {
-            cards.add(allCards.get(i));
+        for (int i = start; i < start + 4; i++) {
+            if (allCards.size() > i) cards.add(allCards.get(i));
         }
         return cards;
     }

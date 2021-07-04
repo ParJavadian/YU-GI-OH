@@ -1,14 +1,11 @@
 package view;
 
 import controller.MainControllerGraphic;
-import controller.MenuTypesGraphic;
-import controller.ProfileControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 
@@ -45,7 +42,7 @@ public class MainViewGraphic extends Application {
         MainControllerGraphic.logout(stage);
     }
 
-    public void showScoreboard(MouseEvent mouseEvent) throws Exception{
+    public void showScoreboard() throws Exception{
         MainControllerGraphic.showScoreBoard(stage);
     }
 
@@ -57,8 +54,7 @@ public class MainViewGraphic extends Application {
         MainControllerGraphic.showShopMenu(user,stage);
     }
 
-    public void deckMenu() throws Exception {
+    public void goToDeckMenu() throws Exception {
         MainControllerGraphic.showDeckMenu(user,stage);
     }
-
 }

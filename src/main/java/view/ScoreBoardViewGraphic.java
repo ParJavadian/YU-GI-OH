@@ -39,7 +39,7 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        label.setText(ScoreBoardControllerGraphic.getInstance().showScoreboard());
+//        label.setText(ScoreBoardControllerGraphic.getInstance().showScoreboard());
     }
 
     public void goBack() throws Exception {
