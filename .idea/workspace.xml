@@ -22,13 +22,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="create deck">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="profile photo">
+      <change afterPath="$PROJECT_DIR$/Users/22k.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/;.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/KK.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/N.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/l.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/oO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/ppp.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/CreateNewDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/CreateNewDeckView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShowAllDecksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShowAllDecksController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/DeckView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DeckView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Deck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -454,7 +464,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۲" />
       <updated>1625349222305</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL‎۰۰۰۴۳" summary="profile photo">
+      <created>1625407690499</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۳" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۳" />
+      <updated>1625407690499</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug2" />
     <MESSAGE value="ai" />
     <MESSAGE value="debug attack1" />
     <MESSAGE value="debug attack2" />
@@ -502,7 +517,8 @@
     <MESSAGE value="ShopGraphic3" />
     <MESSAGE value="ShopGraphic4" />
     <MESSAGE value="create deck" />
-    <option name="LAST_COMMIT_MESSAGE" value="create deck" />
+    <MESSAGE value="profile photo" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile photo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
