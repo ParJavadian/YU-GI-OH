@@ -4,6 +4,7 @@ import controller.ImportExportUserController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class User {
 
@@ -19,6 +20,7 @@ public class User {
     private int lifePoint;
     private Board board;
     private int money;
+    private int profileNumber;
 
     public User(String username, String nickname, String password) {
         if (allUsers == null)
@@ -29,6 +31,7 @@ public class User {
         this.nickname = nickname;
         this.password = password;
         this.currentActiveDeck = null;
+        this.profileNumber = getRandomProfileNumber();
         setScore(0);
         setMoney(100000);
         allUsers.add(this);
@@ -103,6 +106,10 @@ public class User {
 
     public String getNickname() {
         return this.nickname;
+    }
+
+    public int getProfileNumber() {
+        return this.profileNumber;
     }
 
     public int getScore() {
@@ -225,6 +232,13 @@ public class User {
     public boolean equals(Object o){
         User user = (User) o;
         return  (this.username.equals(user.username));
+    }
+
+    public int getRandomProfileNumber(){
+            Random random = new Random();
+            int diretion = ((random.nextInt(36) + 1));
+            return diretion;
+
     }
 
 }

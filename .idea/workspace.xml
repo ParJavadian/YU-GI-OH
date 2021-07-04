@@ -23,13 +23,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="create deck">
+      <change afterPath="$PROJECT_DIR$/Users/22k.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/;.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/KK.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/N.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/Z.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/l.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/oO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/ppp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (10).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (11).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (12).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (13).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (14).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (15).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (16).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (17).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (18).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (19).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (20).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (21).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (22).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (23).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (24).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (25).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (26).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (27).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (28).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (29).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (3).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (30).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (31).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (32).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (33).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (34).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (35).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (36).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (4).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (5).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (6).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (7).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (8).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile (9).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/profile5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/CreateNewDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/CreateNewDeckView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Deck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ProfileViewForGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ProfileViewForGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
