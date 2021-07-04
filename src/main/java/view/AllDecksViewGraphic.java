@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 public class AllDecksViewGraphic extends Application implements Initializable {
     private static Stage stage;
     private static AllDecksViewGraphic instance = null;
-    private static User user;
+    private static User user /*= new User("1","1","1")*/;
     @FXML
     public TextField deckName;
     @FXML
@@ -42,6 +42,9 @@ public class AllDecksViewGraphic extends Application implements Initializable {
 
     @Override
     public void start(Stage stage) throws Exception {
+        /*Deck deck = new Deck("hi");
+        user.addDeck(deck);
+        user.setActiveDeck(deck);*/
         AllDecksViewGraphic.stage = stage;
         URL url = getClass().getResource("/AllDecksMenu.fxml");
         AnchorPane root = FXMLLoader.load(url);
@@ -55,8 +58,10 @@ public class AllDecksViewGraphic extends Application implements Initializable {
         ArrayList<Deck> userAllDecks = (ArrayList<Deck>) user.getAllDecks();
         for (Deck deck : userAllDecks) {
             addDeck(deck);
-            if (user.getActiveDeck() != null && deck.getDeckName().equals(user.getActiveDeck().getDeckName()))
+            if (user.getActiveDeck() != null && deck.getDeckName().equals(user.getActiveDeck().getDeckName())) {
                 setActiveDeckInitialize(deck);
+                System.out.println("1");
+            }
         }
     }
 
@@ -149,9 +154,11 @@ public class AllDecksViewGraphic extends Application implements Initializable {
     }
 
     private void setActiveDeckInitialize(Deck deck) {
-        for (AnchorPane anchorPane : decks) {
+        for (int i = 0; i < decks.size(); i++) {
+            AnchorPane anchorPane = (AnchorPane)vBox.getChildren().get(i);
             RadioButton radioButton = (RadioButton) anchorPane.getChildren().get(0);
             if (radioButton.getText().equals(deck.getDeckName())) {
+                toggleGroup.getToggles().get(i).setSelected(true);
                 toggleGroup.selectToggle(radioButton);
                 return;
             }
@@ -161,10 +168,13 @@ public class AllDecksViewGraphic extends Application implements Initializable {
     public void createNewDeck() {
         if (user.getDeckByName(deckName.getText()) != null)
             printError("deck with name " + deckName.getText() + " already exists");
+        else if (deckName.getText().equals(""))
+            printError("fill in the box");
         else {
             Deck deck = new Deck(deckName.getText());
             user.addDeck(deck);
             addDeck(deck);
+            deckName.clear();
         }
     }
 

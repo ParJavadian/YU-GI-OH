@@ -22,24 +22,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ShopGraphic6">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="AllDecksView">
       <change afterPath="$PROJECT_DIR$/Users/1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/a.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/all2.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (2).zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/ShowAllDecksGraphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AllDecksMenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/DeckView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_27_2021_1_18_AM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/q.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AlexandriteDragon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CreateDeckGraphicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CreateDeckGraphicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShowAllDecksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShowAllDecksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/CreateDeckGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/CreateDeckGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,8 +150,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SignUpViewGraphic" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.AllDecksViewGraphic" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
       </list>
@@ -472,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625329659088</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="AllDecksView">
+      <created>1625407190405</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1625407190405</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,10 +499,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ai" />
-    <MESSAGE value="debug attack1" />
-    <MESSAGE value="debug attack2" />
-    <MESSAGE value="debug attack3" />
     <MESSAGE value="debug attack4" />
     <MESSAGE value="debug show card" />
     <MESSAGE value="debug show card2" />
@@ -520,37 +523,46 @@
     <MESSAGE value="ShopGraphic4" />
     <MESSAGE value="ShopGraphic5" />
     <MESSAGE value="ShopGraphic6" />
-    <option name="LAST_COMMIT_MESSAGE" value="ShopGraphic6" />
+    <MESSAGE value="AllDecksView" />
+    <option name="LAST_COMMIT_MESSAGE" value="AllDecksView" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1625391008495">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1625391008495" />
-    <state width="1237" height="157" key="GridCell.Tab.0.bottom" timestamp="1625406967046">
+    <state width="1237" height="157" key="GridCell.Tab.0.bottom" timestamp="1625415884644">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
-    <state width="1237" height="157" key="GridCell.Tab.0.center" timestamp="1625406967046">
+    <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625415884644" />
+    <state width="1237" height="157" key="GridCell.Tab.0.center" timestamp="1625415884643">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
-    <state width="1237" height="157" key="GridCell.Tab.0.left" timestamp="1625406967046">
+    <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625415884643" />
+    <state width="1237" height="157" key="GridCell.Tab.0.left" timestamp="1625415884643">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
-    <state width="1237" height="157" key="GridCell.Tab.0.right" timestamp="1625406967046">
+    <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625415884643" />
+    <state width="1237" height="157" key="GridCell.Tab.0.right" timestamp="1625415884643">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625406967046" />
+    <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625415884643" />
+    <state x="121" y="51" key="MergeDialog" timestamp="1625407407571">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="51" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1625407407571" />
+    <state x="280" y="102" key="MultipleFileMergeDialog" timestamp="1625407377166">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="280" y="102" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1625407377166" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1625298369486">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1625298369486" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625329662626">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625407451007">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625329662626" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625407451007" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1625340378374">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

@@ -98,6 +98,7 @@ public class ShopViewGraphic extends Application implements Initializable {
         firstCardNumber += 4;
         setOnlyImagesAndCards();
         setInStocksAndPrices();
+        setAll();
     }
 
     public void goPreviousPage() {
@@ -105,6 +106,7 @@ public class ShopViewGraphic extends Application implements Initializable {
         firstCardNumber -= 4;
         setOnlyImagesAndCards();
         setInStocksAndPrices();
+        setAll();
     }
 
     private void setImagesAndCards() {

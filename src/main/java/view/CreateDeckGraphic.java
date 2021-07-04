@@ -1,3 +1,4 @@
+/*
 package view;
 
 import controller.ChangeNicknameControllerGraphic;
@@ -66,3 +67,4 @@ public class CreateDeckGraphic extends Application {
     }
 
 }
+*/

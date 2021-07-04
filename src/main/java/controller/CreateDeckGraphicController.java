@@ -1,3 +1,4 @@
+/*
 package controller;
 
 import controller.exeption.*;
@@ -6,7 +7,7 @@ import model.Deck;
 import model.User;
 import view.ChangePasswordViewGraphic;
 import view.CreateDeckGraphic;
-import view.DeckViewGraphic;
+//import view.DeckViewGraphic;
 import view.ProfileViewForGraphic;
 
 public class CreateDeckGraphicController {
@@ -20,3 +21,4 @@ public class CreateDeckGraphicController {
         CreateDeckGraphic.confirmCreatedDeck();
     }
 }
+*/
