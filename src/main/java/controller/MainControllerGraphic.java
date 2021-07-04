@@ -10,8 +10,9 @@ public class MainControllerGraphic {
         LogInViewGraphic.getInstance().start(stage);
     }
 
-    public static void showScoreBoard(Stage stage) throws Exception{
+    public static void showScoreBoard(User user,Stage stage) throws Exception{
         ScoreBoardControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
+        ScoreBoardViewGraphic.getInstance().setCurrentUser(user);
         ScoreBoardViewGraphic.getInstance().start(stage);
     }
 

@@ -43,7 +43,7 @@ public class MainViewGraphic extends Application {
     }
 
     public void showScoreboard() throws Exception{
-        MainControllerGraphic.showScoreBoard(stage);
+        MainControllerGraphic.showScoreBoard(user,stage);
     }
 
     public void profileMenu() throws Exception {

@@ -22,23 +22,39 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ShopGraphic6">
-      <change afterPath="$PROJECT_DIR$/Users/1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/all2.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src (2).zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src.zip" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="...">
+      <change afterPath="$PROJECT_DIR$/Users/22k.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/;.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/KK.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/MOHAMMAD TAHA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/N.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/P.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/i.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/l.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/oO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/ppp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/ت.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/م.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/divarNesfe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fie_normal.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/wall.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/wallUdeer.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/q.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ScoreBoardControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ScoreBoardControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ScoreBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ScoreBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ScoreBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ScoreBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/ScoreBoardControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ScoreBoardControllerGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -469,7 +485,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۳" />
       <updated>1625407690499</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL‎۰۰۰۴۴" summary="...">
+      <created>1625420301025</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۴" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۴" />
+      <updated>1625420301025</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +511,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ai" />
     <MESSAGE value="debug attack1" />
     <MESSAGE value="debug attack2" />
     <MESSAGE value="debug attack3" />
@@ -517,25 +538,8 @@
     <MESSAGE value="ShopGraphic4" />
     <MESSAGE value="create deck" />
     <MESSAGE value="profile photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile photo" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1237" height="224" key="GridCell.Tab.0.bottom" timestamp="1625425881943">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="224" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625425881943" />
-    <state width="1237" height="224" key="GridCell.Tab.0.center" timestamp="1625425881943">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="224" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625425881943" />
-    <state width="1237" height="224" key="GridCell.Tab.0.left" timestamp="1625425881943">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="224" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625425881943" />
-    <state width="1237" height="224" key="GridCell.Tab.0.right" timestamp="1625425881943">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="224" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625425881943" />
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
