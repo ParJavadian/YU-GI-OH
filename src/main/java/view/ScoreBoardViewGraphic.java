@@ -11,9 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.scene.text.TextFlow;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 import model.User;
 
@@ -94,13 +92,20 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
                     i = 1;
                 }
             }
-            text1 = new Text(rank + "-  NickName:" + eachUser.getNickname() + "      Score: " + eachUser.getScore());
+            text1 = new Text(rank + "-          NickName:" + eachUser.getNickname() + "          Score: " + eachUser.getScore() + "\n");
             previousUser = eachUser;
             userCounter++;
+
+
+
             if (eachUser.equals(user)) {
                 text1.setFill(Color.RED);
+                Font font1 = Font.font("Agency FB", FontWeight.BOLD, 18);
+                text1.setFont(font1);
             } else {
                 text1.setFill(Color.BLUE);
+                Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
+                text1.setFont(font1);
             }
             textFlow.getChildren().add(text1);
         }

@@ -36,14 +36,16 @@ public class SignUpViewGraphic extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-//        if (LogInViewGraphic.instance == null && (SignUpViewGraphic.instance == null)){
+        if (LogInViewGraphic.instance == null && (SignUpViewGraphic.instance == null)){
+
+            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+            importExportUserController.importAllUsers();
 //            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
 //            MediaPlayer mp = new MediaPlayer(media);
 //            mp.setCycleCount(AudioClip.INDEFINITE);
 //            mp.play();
-//        }
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.importAllUsers();
+        }
+
         SignUpViewGraphic.stage = stage;
         URL url = getClass().getResource("/SignUp.fxml");
         Parent root = FXMLLoader.load(url);

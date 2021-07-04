@@ -33,44 +33,60 @@
             <Font name="Agency FB Bold" size="17.0" />
         </font>
     </Button>
-   <Button fx:id="addToMain1" onMouseClicked="#addToMainDeck1" layoutX="73.0" layoutY="341.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="111.0" text="add to main deck">
-      <font>
-         <Font name="Agency FB" size="16.0" />
-      </font>
-   </Button>
-   <Button fx:id="addToSide1" onMouseClicked="#addToSideDeck1" layoutX="73.0" layoutY="404.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="111.0" text="add to side deck">
-      <font>
-         <Font name="Agency FB" size="16.0" />
-      </font>
-   </Button>
-   <Button fx:id="addToMain2" onMouseClicked="#addToMainDeck2" layoutX="318.0" layoutY="341.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="111.0" text="add to main deck">
-      <font>
-         <Font name="Agency FB" size="16.0" />
-      </font>
-   </Button>
-   <Button fx:id="addToSide3" layoutX="529.0" onMouseClicked="#addToSideDeck3" layoutY="404.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="111.0" text="add to side deck">
-      <font>
-         <Font name="Agency FB" size="16.0" />
-      </font>
-   </Button>
-   <Button fx:id="addToMain3" onMouseClicked="#addToMainDeck3" layoutX="529.0" layoutY="341.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="111.0" text="add to main deck">
-      <font>
-         <Font name="Agency FB" size="16.0" />
-      </font>
-   </Button>
-   <Button fx:id="addToMain4" onMouseClicked="#addToMainDeck4" layoutX="720.0" layoutY="341.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="111.0" text="add to main deck">
-      <font>
-         <Font name="Agency FB" size="16.0" />
-      </font>
-   </Button>
-   <Button fx:id="addToSide2" onMouseClicked="#addToSideDeck2" layoutX="318.0" layoutY="404.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="111.0" text="add to side deck">
-      <font>
-         <Font name="Agency FB" size="16.0" />
-      </font>
-   </Button>
-   <Button fx:id="addToSide4" onMouseClicked="#addToSideDeck4" layoutX="720.0" layoutY="404.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="111.0" text="add to side deck">
-      <font>
-         <Font name="Agency FB" size="16.0" />
-      </font>
-   </Button>
+   <AnchorPane layoutX="45.0" layoutY="322.0" prefHeight="131.0" prefWidth="173.0">
+      <children>
+         <Button fx:id="addToMain1" layoutX="52.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#addToMainDeck1" prefHeight="34.0" prefWidth="111.0" text="add to main deck">
+            <font>
+               <Font name="Agency FB" size="16.0" />
+            </font>
+         </Button>
+         <Button fx:id="addToSide1" layoutX="52.0" layoutY="76.0" mnemonicParsing="false" onMouseClicked="#addToSideDeck1" prefHeight="34.0" prefWidth="111.0" text="add to side deck">
+            <font>
+               <Font name="Agency FB" size="16.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
+   <AnchorPane layoutX="254.0" layoutY="330.0" prefHeight="131.0" prefWidth="166.0">
+      <children>
+         <Button fx:id="addToSide2" layoutX="45.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#addToSideDeck2" prefHeight="34.0" prefWidth="111.0" text="add to side deck">
+            <font>
+               <Font name="Agency FB" size="16.0" />
+            </font>
+         </Button>
+         <Button fx:id="addToMain2" layoutX="45.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#addToMainDeck2" prefHeight="34.0" prefWidth="111.0" text="add to main deck">
+            <font>
+               <Font name="Agency FB" size="16.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
+   <AnchorPane layoutX="450.0" layoutY="322.0" prefHeight="131.0" prefWidth="166.0">
+      <children>
+         <Button fx:id="addToSide3" layoutX="45.0" layoutY="72.0" mnemonicParsing="false" onMouseClicked="#addToSideDeck3" prefHeight="34.0" prefWidth="111.0" text="add to side deck">
+            <font>
+               <Font name="Agency FB" size="16.0" />
+            </font>
+         </Button>
+         <Button fx:id="addToMain3" layoutX="45.0" layoutY="23.0" mnemonicParsing="false" onMouseClicked="#addToMainDeck3" prefHeight="34.0" prefWidth="111.0" text="add to main deck">
+            <font>
+               <Font name="Agency FB" size="16.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
+   <AnchorPane layoutX="678.0" layoutY="322.0" prefHeight="131.0" prefWidth="138.0">
+      <children>
+         <Button fx:id="addToSide4" layoutX="24.0" layoutY="73.0" mnemonicParsing="false" onMouseClicked="#addToSideDeck4" prefHeight="34.0" prefWidth="111.0" text="add to side deck">
+            <font>
+               <Font name="Agency FB" size="16.0" />
+            </font>
+         </Button>
+         <Button fx:id="addToMain4" layoutX="24.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#addToMainDeck4" prefHeight="34.0" prefWidth="111.0" text="add to main deck">
+            <font>
+               <Font name="Agency FB" size="16.0" />
+            </font>
+         </Button>
+      </children>
+   </AnchorPane>
 </AnchorPane>

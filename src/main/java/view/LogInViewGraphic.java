@@ -34,15 +34,17 @@ public class LogInViewGraphic extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-//        if ((LogInViewGraphic.instance == null) && (SignUpViewGraphic.instance == null)) {
+        if ((LogInViewGraphic.instance == null) && (SignUpViewGraphic.instance == null)) {
+            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+            importExportUserController.importAllUsers();
 //            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
 //            mediaPlayer = new MediaPlayer(media);
 //            mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
 //            mediaPlayer.play();
 //            current = "play";
-//        }
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.importAllUsers();
+        }
+
+
         LogInViewGraphic.stage = stage;
         URL url = getClass().getResource("/Login.fxml");
         Parent root = FXMLLoader.load(url);

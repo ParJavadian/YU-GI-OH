@@ -241,4 +241,8 @@ public class User {
 
     }
 
+    public void removeCard(Card card){
+        this.allCards.remove(card);
+    }
+
 }

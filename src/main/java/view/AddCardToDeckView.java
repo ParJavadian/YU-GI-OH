@@ -70,11 +70,13 @@ public class AddCardToDeckView extends Application  implements Initializable {
             printTextError("you already have 3 cards of this type in this deck");
         } else {
             if (isSide) {
-                user.getAllCards().remove(card);
+                user.removeCard(card);
+                //user.getAllCards().remove(card);
                 deck.addCardToSideDeck(card);
                 printTextInformation("Card added to side deck successfully");
             } else {
-                user.getAllCards().remove(card);
+                user.removeCard(card);
+                //user.getAllCards().remove(card);
                 deck.addCardToMainDeck(card);
                 printTextInformation("Card added to main deck successfully");
             }
@@ -84,14 +86,14 @@ public class AddCardToDeckView extends Application  implements Initializable {
 
 
     public void goNextPage() {
-        if (firstCardNumber + 4 >= totalCardsNumber) return;
-        firstCardNumber += 4;
+        if (firstCardNumber + 1 >= totalCardsNumber) return;
+        firstCardNumber += 1;
         resetImagesAndCards();
     }
 
     public void goPreviousPage() {
-        if (firstCardNumber - 4 < 0) return;
-        firstCardNumber -= 4;
+        if (firstCardNumber - 1 < 0) return;
+        firstCardNumber -= 1;
         resetImagesAndCards();
     }
 
@@ -115,10 +117,10 @@ public class AddCardToDeckView extends Application  implements Initializable {
             card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
         }
         addImages();*/
-        if (images.size()>0) image1 = setImageView(images.get(0),100);
-        if (images.size()>1) image2 = setImageView(images.get(1),240);
-        if (images.size()>2) image3 = setImageView(images.get(2),380);
-        if (images.size()>3) image4 = setImageView(images.get(3),520);
+        if (images.size()>0) image1 = setImageView(images.get(0),83);
+        if (images.size()>1) image2 = setImageView(images.get(1),283);
+        if (images.size()>2) image3 = setImageView(images.get(2),483);
+        if (images.size()>3) image4 = setImageView(images.get(3),683);
         if (images.size()>0) card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
         if (images.size()>1) card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
         if (images.size()>2) card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
@@ -139,10 +141,10 @@ public class AddCardToDeckView extends Application  implements Initializable {
         /*System.out.println(user.getAllCards() + "\tuser");
         System.out.println(images + "\timages");*/
         removeImages();
-        if (images.size()>0) image1 = setImageView(images.get(0),100);
-        if (images.size()>1) image2 = setImageView(images.get(1),240);
-        if (images.size()>2) image3 = setImageView(images.get(2),380);
-        if (images.size()>3) image4 = setImageView(images.get(3),520);
+        if (images.size()>0) image1 = setImageView(images.get(0),83);
+        if (images.size()>1) image2 = setImageView(images.get(1),283);
+        if (images.size()>2) image3 = setImageView(images.get(2),483);
+        if (images.size()>3) image4 = setImageView(images.get(3),683);
         addImages();
         if (images.size()>0) card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
         if (images.size()>1) card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
@@ -208,6 +210,7 @@ public class AddCardToDeckView extends Application  implements Initializable {
     public void addToSideDeck4() {
         addCardToDeck(card4,true);
     }
+
     public void printTextError(String output) {
         Alert alert = new Alert(Alert.AlertType.ERROR, output, ButtonType.OK);
         alert.setHeaderText("");
