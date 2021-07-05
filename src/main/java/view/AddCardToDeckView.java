@@ -304,5 +304,11 @@ public class AddCardToDeckView extends Application implements Initializable {
         AllDecksViewGraphic.getInstance().start(stage); //todo
     }
 
+    public void removeCardFromDeck() throws Exception {
+        RemoveCardFromDeckView.getInstance().setCurrentUser(user);
+        RemoveCardFromDeckView.getInstance().setCurrentDeck(deck);
+        RemoveCardFromDeckView.getInstance().start(stage); //todo
+    }
+
 
 }

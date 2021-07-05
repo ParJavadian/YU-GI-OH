@@ -269,6 +269,23 @@ public class RemoveCardFromDeckView extends Application implements Initializable
         removeBadAnchorPanes();
     }
 
+    public void back() throws Exception {
+//        AllDecksViewGraphic.getInstance().setCurrentUser(user);
+        AddCardToDeckView.getInstance().start(stage); //todo
+    }
+
+    public void goNextPage() {
+        if (firstCardNumber + 4 >= user.getAllCards().size()) return;
+        firstCardNumber += 4;
+        resetImagesAndCards();
+    }
+
+    public void goPreviousPage() {
+        if (firstCardNumber - 4 < 0) return;
+        firstCardNumber -= 4;
+        resetImagesAndCards();
+    }
+
 
 
 

@@ -22,17 +22,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="add card to deck">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="remove card from deck">
       <change afterPath="$PROJECT_DIR$/Deck/kghMainDeck.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Deck/kghSideDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deck/میبسMainDeck.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/ki.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/م.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/RemoveCardFromDeck.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/k.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/k.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/p.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/p.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromDeckView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeckController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -476,7 +481,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۵" />
       <updated>1625435400560</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL‎۰۰۰۴۶" summary="remove card from deck">
+      <created>1625499028578</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۶" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۶" />
+      <updated>1625499028578</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,7 +507,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug attack2" />
     <MESSAGE value="debug attack3" />
     <MESSAGE value="debug attack4" />
     <MESSAGE value="debug show card" />
@@ -524,7 +534,8 @@
     <MESSAGE value="profile photo" />
     <MESSAGE value="..." />
     <MESSAGE value="ScoreBoard" />
-    <option name="LAST_COMMIT_MESSAGE" value="ScoreBoard" />
+    <MESSAGE value="remove card from deck" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove card from deck" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
