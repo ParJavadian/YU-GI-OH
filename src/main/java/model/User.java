@@ -171,8 +171,8 @@ public class User {
         this.currentActiveDeck = deck;
     }
 
-    public int getCountOfCardInAllCards(Card card){
-        int counter =0;
+    public int getCountOfCardInAllCards(Card card) {
+        int counter = 0;
         for (Card eachCard : allCards) {
             if (card.getName().equals(eachCard.getName()))
                 counter++;
@@ -196,7 +196,7 @@ public class User {
         this.allCards.add(card);
     }
 
-    public void removeDeck(Deck deck){
+    public void removeDeck(Deck deck) {
         this.allDecks.remove(deck);
     }
 
@@ -229,20 +229,25 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         User user = (User) o;
-        return  (this.username.equals(user.username));
+        return (this.username.equals(user.username));
     }
 
-    public int getRandomProfileNumber(){
-            Random random = new Random();
-            int diretion = ((random.nextInt(36) + 1));
-            return diretion;
-
+    public int getRandomProfileNumber() {
+        Random random = new Random();
+        return ((random.nextInt(36) + 1));
     }
 
-    public void removeCard(Card card){
-        this.allCards.remove(card);
+    public void removeCard(Card card) {
+        Card cardToBeDeleted = null;
+        for (Card eachCard : this.allCards) {
+            if (eachCard.getName().equals(card.getName())) {
+                cardToBeDeleted = eachCard;
+                break;
+            }
+        }
+        this.allCards.remove(cardToBeDeleted);
     }
 
 }

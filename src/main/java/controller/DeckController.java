@@ -24,7 +24,7 @@ public class DeckController {
 
     public static DeckController getInstance(User user) {
         if (instance == null) instance = new DeckController(user);
-        else if (DeckController.user == null || !DeckController.user.equals(user))
+        else if (user!=null && (DeckController.user == null || !DeckController.user.getUsername().equals(user.getUsername())))
             DeckController.user = user;
         return instance;
     }
@@ -272,10 +272,10 @@ public class DeckController {
 
     public void setUsersCards() {
         allCards = (ArrayList<Card>) user.getAllCards();
-        initImages();
     }
 
     public static void initImages() {
+        allImages.clear();
         for (Card card : allCards) {
             allImages.add(card.getImage());
         }
@@ -294,7 +294,8 @@ public class DeckController {
     public ArrayList<Card> getCards(int start) {
         ArrayList<Card> cards = new ArrayList<>(4);
         for (int i = start; i < start + 4; i++) {
-            if (allCards.size() > i) cards.add(allCards.get(i));
+            if (allCards.size() > i)
+                cards.add(allCards.get(i));
         }
         return cards;
     }

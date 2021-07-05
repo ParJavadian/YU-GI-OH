@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class AddCardToDeckView extends Application  implements Initializable {
+public class AddCardToDeckView extends Application implements Initializable {
 
     private static Deck deck;
     private static Stage stage;
@@ -35,7 +35,6 @@ public class AddCardToDeckView extends Application  implements Initializable {
     private Label money, youHave1, youHave2, youHave3, youHave4;
     @FXML
     private Button addButton1Main, addButton2Main, addButton3Main, addButton4Main;*/
-
 
 
     public static AddCardToDeckView getInstance() {
@@ -57,12 +56,12 @@ public class AddCardToDeckView extends Application  implements Initializable {
         URL url = getClass().getResource("/CreateNewDeck.fxml");
         root = FXMLLoader.load(url);
         DeckController.getInstance(user).setUsersCards();
+        DeckController.initImages();
         setImagesAndCards();
         addImages();
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
-
 
 
     public void addCardToDeck(Card card, boolean isSide) {
@@ -99,32 +98,15 @@ public class AddCardToDeckView extends Application  implements Initializable {
 
     private void setImagesAndCards() {
         images = DeckController.getInstance(user).getImages(firstCardNumber);
-        /*
-        if (images.size()>0) {
-            image1 = setImageView(images.get(0), 83);
-            card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
-        }
-        if (images.size() > 1) {
-            image2 = setImageView(images.get(1), 283);
-            card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
-        }
-        if (images.size() > 2) {
-            image3 = setImageView(images.get(2), 483);
-            card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
-        }
-        if (images.size() > 3) {
-            image4 = setImageView(images.get(3), 683);
-            card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
-        }
-        addImages();*/
-        if (images.size()>0) image1 = setImageView(images.get(0),83);
-        if (images.size()>1) image2 = setImageView(images.get(1),283);
-        if (images.size()>2) image3 = setImageView(images.get(2),483);
-        if (images.size()>3) image4 = setImageView(images.get(3),683);
-        if (images.size()>0) card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
-        if (images.size()>1) card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
-        if (images.size()>2) card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
-        if (images.size()>3) card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
+        if (images.size() > 0) image1 = setImageView(images.get(0), 83);
+        if (images.size() > 1) image2 = setImageView(images.get(1), 283);
+        if (images.size() > 2) image3 = setImageView(images.get(2), 483);
+        if (images.size() > 3) image4 = setImageView(images.get(3), 683);
+        ArrayList<Card> cards = DeckController.getInstance(user).getCards(firstCardNumber);
+        if (cards.size() > 0) card1 = cards.get(0);
+        if (cards.size() > 1) card2 = cards.get(1);
+        if (cards.size() > 2) card3 = cards.get(2);
+        if (cards.size() > 3) card4 = cards.get(3);
     }
 
     private ImageView setImageView(Image image, int x) {
@@ -137,33 +119,47 @@ public class AddCardToDeckView extends Application  implements Initializable {
     }
 
     private void resetImagesAndCards() {
+        DeckController.getInstance(user).setUsersCards();
+        DeckController.initImages();
         images = DeckController.getInstance(user).getImages(firstCardNumber);
-        /*System.out.println(user.getAllCards() + "\tuser");
-        System.out.println(images + "\timages");*/
+        ArrayList<Card> cards = DeckController.getInstance(user).getCards(firstCardNumber);
         removeImages();
-        if (images.size()>0) image1 = setImageView(images.get(0),83);
-        if (images.size()>1) image2 = setImageView(images.get(1),283);
-        if (images.size()>2) image3 = setImageView(images.get(2),483);
-        if (images.size()>3) image4 = setImageView(images.get(3),683);
+        if (images.size() > 0) image1 = setImageView(images.get(0), 83);
+        else if(image1!=null) image1.setImage(null);
+        if (images.size() > 1) image2 = setImageView(images.get(1), 283);
+        else if(image2!=null) image2.setImage(null);
+        if (images.size() > 2) image3 = setImageView(images.get(2), 483);
+        else if(image3!=null) image3.setImage(null);
+        if (images.size() > 3) image4 = setImageView(images.get(3), 683);
+        else if(image4!=null) image4.setImage(null);
         addImages();
-        if (images.size()>0) card1 = DeckController.getInstance(user).getCards(firstCardNumber).get(0);
-        if (images.size()>1) card2 = DeckController.getInstance(user).getCards(firstCardNumber).get(1);
-        if (images.size()>2) card3 = DeckController.getInstance(user).getCards(firstCardNumber).get(2);
-        if (images.size()>3) card4 = DeckController.getInstance(user).getCards(firstCardNumber).get(3);
+        if (cards.size() > 0) card1 = cards.get(0);
+        else card1 = null;
+        if (cards.size() > 1) card2 = cards.get(1);
+        else card2 = null;
+        if (cards.size() > 2) card3 = cards.get(2);
+        else card3 = null;
+        if (cards.size() > 3) card4 = cards.get(3);
+        else card4 = null;
+
     }
 
     private void removeImages() {
-        root.getChildren().remove(image1);
-        root.getChildren().remove(image2);
-        root.getChildren().remove(image3);
-        root.getChildren().remove(image4);
+        if (root != null) {
+            if (image1 != null) root.getChildren().remove(image1);
+            if (image2 != null) root.getChildren().remove(image2);
+            if (image3 != null) root.getChildren().remove(image3);
+            if (image4 != null) root.getChildren().remove(image4);
+        }
     }
 
     private void addImages() {
-        if (image1 != null) root.getChildren().add(image1);
-        if (image2 != null) root.getChildren().add(image2);
-        if (image3 != null) root.getChildren().add(image3);
-        if (image4 != null) root.getChildren().add(image4);
+        if (root != null) {
+            if (image1 != null) root.getChildren().add(image1);
+            if (image2 != null) root.getChildren().add(image2);
+            if (image3 != null) root.getChildren().add(image3);
+            if (image4 != null) root.getChildren().add(image4);
+        }
     }
 
     public void printTextInformation(String output) {
@@ -175,40 +171,41 @@ public class AddCardToDeckView extends Application  implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        DeckController.getInstance(user).setUsersCards();
         setImagesAndCards();
         addImages();
     }
 
     public void addToMainDeck1() {
-        addCardToDeck(card1,false);
+        addCardToDeck(card1, false);
     }
 
     public void addToMainDeck2() {
-        addCardToDeck(card2,false);
+        addCardToDeck(card2, false);
     }
 
     public void addToMainDeck3() {
-        addCardToDeck(card3,false);
+        addCardToDeck(card3, false);
     }
 
     public void addToMainDeck4() {
-        addCardToDeck(card4,false);
+        addCardToDeck(card4, false);
     }
 
     public void addToSideDeck1() {
-        addCardToDeck(card1,true);
+        addCardToDeck(card1, true);
     }
 
     public void addToSideDeck2() {
-        addCardToDeck(card2,true);
+        addCardToDeck(card2, true);
     }
 
     public void addToSideDeck3() {
-        addCardToDeck(card3,true);
+        addCardToDeck(card3, true);
     }
 
     public void addToSideDeck4() {
-        addCardToDeck(card4,true);
+        addCardToDeck(card4, true);
     }
 
     public void printTextError(String output) {

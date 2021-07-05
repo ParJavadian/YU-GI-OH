@@ -74,10 +74,11 @@ public class AllDecksViewGraphic extends Application implements Initializable {
         radioButton.setMaxWidth(180);
         anchorPane1.getChildren().add(radioButton);
         Label label = new Label();
-        if (deck.isValid())
+        label.setText(String.valueOf(deck.getMainSize()+deck.getSideSize()));
+        /*if (deck.isValid())
             label.setText(" : Valid");
         else
-            label.setText(" : Invalid");
+            label.setText(" : Invalid");*/
         label.setLayoutX(184);
         label.setTextFill(Color.WHITE);
         anchorPane1.getChildren().add(label);

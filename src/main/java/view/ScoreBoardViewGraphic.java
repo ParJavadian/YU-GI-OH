@@ -1,6 +1,5 @@
 package view;
 
-import controller.ProfileControllerGraphic;
 import controller.ScoreBoardControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -8,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
@@ -26,14 +24,14 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
     private static User user;
     @FXML
     TextFlow textFlow = new TextFlow();
-//    Label label = new Label();
+
 
     public static ScoreBoardViewGraphic getInstance() {
         if (instance == null) instance = new ScoreBoardViewGraphic();
         return instance;
     }
 
-    public void setCurrentUser(User user){
+    public void setCurrentUser(User user) {
         ScoreBoardViewGraphic.user = user;
     }
 
@@ -69,8 +67,6 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
         //Text text2 = new Text();
 
 
-
-
         List<User> allUsers = User.getAllUsers();
         Comparator<User> userComparator = Comparator.comparing(User::getScore, Comparator.reverseOrder()).thenComparing(User::getNickname);
 //        if (allUsers != null) {
@@ -97,9 +93,8 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
             userCounter++;
 
 
-
             if (eachUser.equals(user)) {
-                text1.setFill(Color.RED);
+                text1.setFill(Color.PURPLE);
                 Font font1 = Font.font("Agency FB", FontWeight.BOLD, 18);
                 text1.setFont(font1);
             } else {
@@ -107,19 +102,14 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
                 Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
                 text1.setFont(font1);
             }
+            textFlow.setLineSpacing(1.5);
             textFlow.getChildren().add(text1);
         }
 
 
-
-
-
-
-
-
 //        textFlow.setTextAlignment(TextAlignment.CENTER);
 //        textFlow.getChildren().add(new Text("ya hagh"));
-                //ScoreBoardControllerGraphic.getInstance().showScoreboard(user);
+        //ScoreBoardControllerGraphic.getInstance().showScoreboard(user);
         //label.setText(ScoreBoardControllerGraphic.getInstance().showScoreboard(user));
     }
 
