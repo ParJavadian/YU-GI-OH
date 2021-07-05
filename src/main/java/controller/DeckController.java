@@ -117,8 +117,8 @@ public class DeckController {
                         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
                         importExportUserController.exportCardsInMainDeck(DeckController.user, deckName);
                     }
-                    DeckController.user.deleteCard(cardName);
-                    DeckView.getInstance(DeckController.user).printText("card added to deck successfully");
+                    DeckController.user.removeCard(card);
+                    AddCardToDeckView.getInstance().printTextInformation("card added to deck successfully");
                 }
             } else throw new DeckNotFound(deckName);
         } else throw new CardNotFoundInUser(cardName);

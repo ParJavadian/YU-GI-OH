@@ -66,7 +66,14 @@ public class AddCardToDeckView extends Application implements Initializable {
 
 
     public void addCardToDeck(Card card, boolean isSide) {
-        if (deck.getCountOfCardInDeck(card) > 2) {
+        try{
+            DeckController.getInstance(user).addCardToDeck(card.getName(), deck.getDeckName(), isSide,false);
+            resetImagesAndCards();
+        }
+        catch (Exception e){
+            printTextError(e.getMessage());
+        }
+        /*if (deck.getCountOfCardInDeck(card) > 2) {
             printTextError("you already have 3 cards of this type in this deck");
         } else {
             if (isSide) {
@@ -81,7 +88,7 @@ public class AddCardToDeckView extends Application implements Initializable {
                 printTextInformation("Card added to main deck successfully");
             }
             resetImagesAndCards();
-        }
+        }*/
     }
 
 
