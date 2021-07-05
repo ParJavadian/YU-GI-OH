@@ -1,12 +1,15 @@
 package view;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.User;
 
@@ -22,6 +25,9 @@ public class BoardGamePlayerOne extends Application implements Initializable {
     public Label rivalLifePoint;
     public Label playerLifePoint;
     public int numberOfRounds;
+    @FXML
+    ImageView imageViewPlayer, imageViewRival;
+    private static AnchorPane root;
 
     public void setPlayer(User player) {
         BoardGamePlayerOne.player = player;
@@ -44,7 +50,8 @@ public class BoardGamePlayerOne extends Application implements Initializable {
     public void start(Stage stage) throws Exception {
         BoardGamePlayerOne.stage = stage;
         URL url = getClass().getResource("/BoardGamePlayerOne.fxml");
-        Parent root = FXMLLoader.load(url);
+        root = FXMLLoader.load(url);
+        setImageView();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -55,6 +62,20 @@ public class BoardGamePlayerOne extends Application implements Initializable {
         playerLifePoint.setText(String.valueOf(player.getLifePoint()));
         rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
 
+
+    }
+
+    private void setImageView() {
+        URL url = getClass().getResource("/images/profiles/profile ("+player.getProfileNumber()+").png");
+        Image image = new Image(String.valueOf(url));
+        imageViewPlayer = new ImageView(image);
+        imageViewPlayer.setImage(image);
+        root.getChildren().add(imageViewPlayer);
+        url = getClass().getResource("/images/profiles/profile ("+rival.getProfileNumber()+").png");
+        image = new Image(String.valueOf(url));
+        imageViewRival = new ImageView(image);
+        imageViewRival.setImage(image);
+        root.getChildren().add(imageViewRival);
     }
 
 

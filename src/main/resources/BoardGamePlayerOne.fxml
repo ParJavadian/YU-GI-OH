@@ -176,5 +176,6 @@
         </font>
     </Label>
     <Button layoutX="934.0" layoutY="7.0" mnemonicParsing="false" text="Pause" />
-    <Label layoutX="37.0" layoutY="322.0" text="Label" />
+   <ImageView fitHeight="155.0" fx:id="imageViewRival" fitWidth="155.0" layoutX="23.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" />
+   <ImageView fitHeight="155.0" fx:id="imageViewPlayer" fitWidth="155.0" layoutX="25.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true" />
 </AnchorPane>
