@@ -22,41 +22,54 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ScoreBoard">
-      <change afterPath="$PROJECT_DIR$/src/Users/n.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/ChooseSecondPlayer.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/RockPaperScissorAi.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/RockPaperScissorPlayerTwo.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/WallRPS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_cyo_1.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_cyo_2.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_cyo_3.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_cyo_4.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_gu_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_gu_2.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_gu_3.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_gu_4.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_pa_1.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_pa_2.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_pa_3.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/jya_pa_4.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/selectHand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/RockPaperScissor/unknown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/chooseDuelist.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ChooseDuelView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ChooseSecondPlayerViewGraphic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/RockPaperScissorAIView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/RockPaperScissorPlayerTwoView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/RockPaperScissorView.class" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="rock paper scissor">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ChooseSecondPlayerViewGraphic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorAIView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorPlayerTwoView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ChooseSecondPlayer.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissorAi.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissorPlayerTwo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/WallRPS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_cyo_1.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_cyo_2.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_cyo_3.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_cyo_4.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_gu_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_gu_2.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_gu_3.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_gu_4.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_pa_1.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_pa_2.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_pa_3.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_pa_4.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/selectHand.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/unknown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/backgrounds/chooseDuelist.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/[.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/[.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/a.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/b.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/b.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/g.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/g.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/j.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/j.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/k.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/k.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/m.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/m.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/p.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/p.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/s.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/s.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/u.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/u.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/w.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/w.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/ا.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/ا.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/پ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/پ.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChooseDuelControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseDuelControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/RockPaperScissor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/RockPaperScissor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ChooseDuelControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ChooseDuelControllerGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/MainControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +82,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
       </list>
@@ -101,7 +115,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hw4_q1_try1/src" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -111,22 +126,17 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hamri\Desktop\AP\project_team_17_9\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hamri\Desktop\AP\project_team_17_9\src\main\resources\images" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="controller.exeption" />
     </key>
   </component>
   <component name="RunManager" selected="Application.SignUpViewGraphic">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -160,6 +170,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -519,7 +540,14 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۵" />
       <updated>1625435400560</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="rock paper scissor">
+      <created>1625502701825</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1625502701825</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,8 +567,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug attack2" />
-    <MESSAGE value="debug attack3" />
     <MESSAGE value="debug attack4" />
     <MESSAGE value="debug show card" />
     <MESSAGE value="debug show card2" />
@@ -567,7 +593,8 @@
     <MESSAGE value="profile photo" />
     <MESSAGE value="..." />
     <MESSAGE value="ScoreBoard" />
-    <option name="LAST_COMMIT_MESSAGE" value="ScoreBoard" />
+    <MESSAGE value="rock paper scissor" />
+    <option name="LAST_COMMIT_MESSAGE" value="rock paper scissor" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -23,10 +23,12 @@ public class ChooseDuelView extends Application {
     }
 
     public void setCurrentUser(User user) {
+
         ChooseDuelView.playerOne = user;
     }
 
     public void setPlayerTwoName(String playerTwoName) {
+
         ChooseDuelView.playerTwoName = playerTwoName;
     }
 
