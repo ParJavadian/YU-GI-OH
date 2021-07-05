@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RemoveCardFromDeckView">
+    <Button layoutX="722.0" layoutY="469.0" mnemonicParsing="false" onAction="#goNextPage" text="Next Page">
+        <font>
+            <Font name="Agency FB Bold" size="21.0" />
+        </font>
+    </Button>
+    <Button layoutX="63.0" layoutY="469.0" mnemonicParsing="false" onAction="#goPreviousPage" text="Previous Page">
+        <font>
+            <Font name="Agency FB Bold" size="21.0" />
+        </font>
+    </Button>
+    <Button layoutX="63.0" layoutY="528.0" mnemonicParsing="false" onMouseClicked="#back" text="Back">
+        <font>
+            <Font name="Agency FB Bold" size="17.0" />
+        </font>
+    </Button>
+    <AnchorPane fx:id="anchorPane1" layoutX="45.0" layoutY="322.0" prefHeight="131.0" prefWidth="173.0">
+        <children>
+            <Button layoutX="52.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#removeCardFromDeck1" prefHeight="34.0" prefWidth="111.0" text="Remove Card From Deck">
+                <font>
+                    <Font name="Agency FB" size="16.0" />
+                </font>
+            </Button>
+
+        </children>
+    </AnchorPane>
+    <AnchorPane fx:id="anchorPane2" layoutX="254.0" layoutY="330.0" prefHeight="131.0" prefWidth="166.0">
+        <children>
+
+            <Button layoutX="45.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#removeCardFromDeck2" prefHeight="34.0" prefWidth="111.0" text="Remove Card From Deck">
+                <font>
+                    <Font name="Agency FB" size="16.0" />
+                </font>
+            </Button>
+        </children>
+    </AnchorPane>
+    <AnchorPane fx:id="anchorPane3" layoutX="450.0" layoutY="322.0" prefHeight="131.0" prefWidth="166.0">
+        <children>
+
+            <Button layoutX="45.0" layoutY="23.0" mnemonicParsing="false" onMouseClicked="#removeCardFromDeck3" prefHeight="34.0" prefWidth="111.0" text="Remove Card From Deck">
+                <font>
+                    <Font name="Agency FB" size="16.0" />
+                </font>
+            </Button>
+        </children>
+    </AnchorPane>
+    <AnchorPane fx:id="anchorPane4" layoutX="678.0" layoutY="322.0" prefHeight="131.0" prefWidth="138.0">
+
+        <Button layoutX="24.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#removeCardFromDeck4" prefHeight="34.0" prefWidth="111.0" text="Remove Card From Deck">
+            <font>
+                <Font name="Agency FB" size="16.0" />
+            </font>
+        </Button>
+    </AnchorPane>
+   <Button layoutX="360.0" layoutY="469.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Add Card To Deck">
+      <font>
+         <Font name="Agency FB Bold" size="21.0" />
+      </font>
+   </Button>
+
+</AnchorPane>
