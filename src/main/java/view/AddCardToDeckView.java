@@ -255,6 +255,7 @@ public class AddCardToDeckView extends Application implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DeckController.getInstance(user).setUsersCards();
+        DeckController.initImages();
         setImagesAndCards();
         addImages();
         removeBadAnchorPanes();
@@ -300,8 +301,9 @@ public class AddCardToDeckView extends Application implements Initializable {
     }
 
     public void back() throws Exception {
-        AllDecksViewGraphic.getInstance().setCurrentUser(user);
-        AllDecksViewGraphic.getInstance().start(stage); //todo
+        RemoveCardFromDeckView.getInstance().setCurrentUser(user);
+        RemoveCardFromDeckView.getInstance().setCurrentDeck(deck);
+        RemoveCardFromDeckView.getInstance().start(stage); //todo
     }
 
     public void removeCardFromDeck() throws Exception {

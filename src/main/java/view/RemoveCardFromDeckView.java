@@ -2,6 +2,7 @@ package view;
 
 import controller.DeckController;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +10,8 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -233,14 +236,16 @@ public class RemoveCardFromDeckView extends Application implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DeckController.getInstance(user).setMainDeckCards(deck);
+        DeckController.initImages();
         setImagesAndCards();
         addImages();
         removeBadAnchorPanes();
     }
 
     public void back() throws Exception {
-//        AllDecksViewGraphic.getInstance().setCurrentUser(user);
-        AddCardToDeckView.getInstance().start(stage); //todo
+        AllDecksViewGraphic.getInstance().setCurrentUser(user);
+        AllDecksViewGraphic.getInstance().start(stage); //todo
+
     }
 
     public void goNextPage() {
@@ -277,5 +282,17 @@ public class RemoveCardFromDeckView extends Application implements Initializable
         AddCardToDeckView.getInstance().setCurrentUser(user);
         AddCardToDeckView.getInstance().setCurrentDeck(deck);
         AddCardToDeckView.getInstance().start(stage);
+    }
+
+    private ComboBox<String> choiceBox;
+    private void hi(){
+        String one = "one";
+        String two = "two";
+        String three = "three";
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add(one);
+        strings.add(two);
+        strings.add(three);
+        choiceBox.setItems((ObservableList<String>) strings);
     }
 }
