@@ -34,8 +34,8 @@ public class MainControllerGraphic {
     }
 
     public static void showNewDuelMenu(User user, Stage stage) throws Exception{
-        ChooseDuelView.getInstance().setCurrentUser(user);
-        ChooseDuelView.getInstance().start(stage);
+        /*ChooseDuelView.getInstance().setCurrentUser(user);
+        ChooseDuelView.getInstance().start(stage);*/
     }
 
 //    public static void showDeckMenu(User user, Stage stage) throws Exception {

@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Card;
@@ -272,4 +273,9 @@ public class RemoveCardFromDeckView extends Application implements Initializable
     }
 
 
+    public void addCardToDeck() throws Exception {
+        AddCardToDeckView.getInstance().setCurrentUser(user);
+        AddCardToDeckView.getInstance().setCurrentDeck(deck);
+        AddCardToDeckView.getInstance().start(stage);
+    }
 }
