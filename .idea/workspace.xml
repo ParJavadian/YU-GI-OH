@@ -22,41 +22,34 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ScoreBoard">
-      <change afterPath="$PROJECT_DIR$/Users/,.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/22k.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/;.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/KK.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/MOHAMMAD TAHA.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/N.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/O`O.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/P.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/l.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/lLl.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/nN.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/o.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/oO.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ppp.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/r.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/x.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ya hagh.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ya.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ت.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/م.txt" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ShopGraphic6">
+      <change afterPath="$PROJECT_DIR$/Users/aa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/s.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/all2.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (2).zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/i.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/i.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/Z.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/a.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/i.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/k.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/k.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/lLl.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/ll.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/q.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/ض.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeckController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +62,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -93,7 +86,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hw4_q1_try1/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -108,17 +101,8 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.SignUpViewGraphic">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="project_team_17" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.MainViewGraphic" />
+    <configuration name="LogInViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
@@ -126,6 +110,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="project_team_17" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -167,10 +160,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SignUpViewGraphic" />
+        <item itemvalue="Application.LogInViewGraphic" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
-        <item itemvalue="Application.MainViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -487,19 +480,7 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۳" />
       <updated>1625407690499</updated>
     </task>
-    <task id="LOCAL‎۰۰۰۴۴" summary="...">
-      <created>1625420301025</created>
-      <option name="number" value="LOCAL‎۰۰۰۴۴" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۴۴" />
-      <updated>1625420301025</updated>
-    </task>
-    <task id="LOCAL‎۰۰۰۴۵" summary="ScoreBoard">
-      <created>1625435400560</created>
-      <option name="number" value="LOCAL‎۰۰۰۴۵" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۴۵" />
-      <updated>1625435400560</updated>
-    </task>
-    <option name="localTasksCounter" value="46" />
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,6 +500,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="ai" />
+    <MESSAGE value="debug attack1" />
     <MESSAGE value="debug attack2" />
     <MESSAGE value="debug attack3" />
     <MESSAGE value="debug attack4" />
@@ -545,9 +528,41 @@
     <MESSAGE value="ShopGraphic4" />
     <MESSAGE value="create deck" />
     <MESSAGE value="profile photo" />
-    <MESSAGE value="..." />
-    <MESSAGE value="ScoreBoard" />
-    <option name="LAST_COMMIT_MESSAGE" value="ScoreBoard" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile photo" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="267" y="19" key="#Inspections" timestamp="1625478119043">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="267" y="19" key="#Inspections/0.0.1280.680@0.0.1280.680" timestamp="1625478119043" />
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1625476953360">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1625476953360" />
+    <state width="1237" height="89" key="GridCell.Tab.0.bottom" timestamp="1625479217754">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="89" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625479217754" />
+    <state width="1237" height="89" key="GridCell.Tab.0.center" timestamp="1625479217754">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="89" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625479217754" />
+    <state width="1237" height="89" key="GridCell.Tab.0.left" timestamp="1625479217754">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="89" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625479217754" />
+    <state width="1237" height="89" key="GridCell.Tab.0.right" timestamp="1625479217754">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="89" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625479217754" />
+    <state x="121" y="51" key="MergeDialog" timestamp="1625474112719">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="51" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1625474112719" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625473746571">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1625473746571" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
