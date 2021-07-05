@@ -23,28 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="rock paper scissor">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/ChooseSecondPlayerViewGraphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorAIView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorPlayerTwoView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ChooseSecondPlayer.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissorAi.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissorPlayerTwo.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/WallRPS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_cyo_1.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_cyo_2.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_cyo_3.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_cyo_4.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_gu_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_gu_2.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_gu_3.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_gu_4.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_pa_1.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_pa_2.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_pa_3.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/jya_pa_4.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/selectHand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RockPaperScissor/unknown.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/backgrounds/chooseDuelist.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/[.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/[.txt" afterDir="false" />
@@ -62,14 +40,8 @@
       <change beforePath="$PROJECT_DIR$/Users/ا.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/ا.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/پ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/پ.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChooseDuelControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseDuelControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeckController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -547,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625502701825</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="rock paper scissor">
+      <created>1625514903733</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1625514903733</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,7 +546,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug attack4" />
     <MESSAGE value="debug show card" />
     <MESSAGE value="debug show card2" />
     <MESSAGE value="debug takeAction1" />
