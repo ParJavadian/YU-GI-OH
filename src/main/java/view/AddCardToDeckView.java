@@ -67,7 +67,7 @@ public class AddCardToDeckView extends Application implements Initializable {
 
     public void addCardToDeck(Card card, boolean isSide) {
         try{
-            DeckController.getInstance(user).addCardToDeck(card.getName(), deck.getDeckName(), isSide,false);
+            DeckController.getInstance(user).addCardToDeck(card.getNamePascalCase(), deck.getDeckName(), isSide,false);
             resetImagesAndCards();
         }
         catch (Exception e){

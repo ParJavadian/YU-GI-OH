@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public enum SpellCard implements Card {
 
 
-    MONSTER_REBORN(Icon.NORMAL, "Target 1 monster in either GY; Special Summon it.", Status.UNLIMITED, 2000, "/Cards/MonsterReborn.jpg") {
+    MONSTER_REBORN(Icon.NORMAL, "Target 1 monster in either GY; Special Summon it.", Status.LIMITED, 2000, "/Cards/MonsterReborn.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 DuelView.printText("enter \"My\" or \"Rival\" to select graveyard");
