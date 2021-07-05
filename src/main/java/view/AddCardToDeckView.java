@@ -141,6 +141,7 @@ public class AddCardToDeckView extends Application implements Initializable {
         else card3 = null;
         if (cards.size() > 3) card4 = cards.get(3);
         else card4 = null;
+
     }
 
     private void removeImages() {
