@@ -1,14 +1,11 @@
 package view;
 
 import controller.ChooseDuelControllerGraphic;
-import controller.MainControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.User;
 
@@ -17,7 +14,8 @@ import java.net.URL;
 public class ChooseDuelView extends Application {
     private static Stage stage;
     static ChooseDuelView instance = null;
-    private static User user;
+    private static User playerOne;
+    private static String playerTwoName;
 
     public static ChooseDuelView getInstance() {
         if (instance == null) instance = new ChooseDuelView();
@@ -25,7 +23,11 @@ public class ChooseDuelView extends Application {
     }
 
     public void setCurrentUser(User user) {
-        ChooseDuelView.user = user;
+        ChooseDuelView.playerOne = user;
+    }
+
+    public void setPlayerTwoName(String playerTwoName) {
+        ChooseDuelView.playerTwoName = playerTwoName;
     }
 
     public void start(Stage stage) throws Exception {
@@ -38,16 +40,31 @@ public class ChooseDuelView extends Application {
     }
 
     public void threeRoundsGame(MouseEvent event) throws Exception{
-        RockPaperScissorView.getInstance().setCurrentUser(user);
-        RockPaperScissorView.getInstance().start(stage);
+        startNewGame(3);
     }
 
     public void oneRoundGame(MouseEvent event) throws Exception{
-        RockPaperScissorView.getInstance().setCurrentUser(user);
-        RockPaperScissorView.getInstance().start(stage);
+        startNewGame(1);
     }
 
     public void goBack(MouseEvent event) throws Exception {
         ChooseDuelControllerGraphic.goBack(stage);
     }
+
+
+    public void startNewGame(int numberOfRounds) throws Exception{
+        if (playerTwoName.equals("@AI@")){
+            RockPaperScissorAIView.getInstance().setCurrentUser(playerOne);
+            RockPaperScissorAIView.getInstance().setNumberOfRounds(numberOfRounds);
+            RockPaperScissorAIView.getInstance().start(stage);
+        }
+        else {
+            RockPaperScissorView.getInstance().setCurrentUser(playerOne);
+            RockPaperScissorAIView.getInstance().setNumberOfRounds(numberOfRounds);
+            RockPaperScissorView.getInstance().setPlayerTwoName(playerTwoName);
+            RockPaperScissorView.getInstance().start(stage);
+        }
+    }
+
+
 }

@@ -4,18 +4,17 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 
 import java.net.URL;
-import java.util.Random;
 
 public class RockPaperScissorView extends Application {
     private static Stage stage;
     static RockPaperScissorView instance = null;
-    private static User user;
+    private static User playerOne;
+    private static String playerTwoName;
 
     public static RockPaperScissorView getInstance() {
         if (instance == null) instance = new RockPaperScissorView();
@@ -23,7 +22,11 @@ public class RockPaperScissorView extends Application {
     }
 
     public void setCurrentUser(User user) {
-        RockPaperScissorView.user = user;
+        RockPaperScissorView.playerOne = user;
+    }
+
+    public void setPlayerTwoName(String playerTwoName) {
+        RockPaperScissorView.playerTwoName = playerTwoName;
     }
 
     public void start(Stage stage) throws Exception {
@@ -37,19 +40,19 @@ public class RockPaperScissorView extends Application {
 
 
     public void scissorOne(MouseEvent event) throws Exception{
-        RockPaperScissorPlayerTwoView.getInstance().setCurrentUser(user);
+        RockPaperScissorPlayerTwoView.getInstance().setCurrentUser(playerOne);
         RockPaperScissorPlayerTwoView.getInstance().setPreviousHand("scissor");
         RockPaperScissorPlayerTwoView.getInstance().start(stage);
     }
 
     public void paperOne(MouseEvent event) throws Exception{
-        RockPaperScissorPlayerTwoView.getInstance().setCurrentUser(user);
+        RockPaperScissorPlayerTwoView.getInstance().setCurrentUser(playerOne);
         RockPaperScissorPlayerTwoView.getInstance().setPreviousHand("paper");
         RockPaperScissorPlayerTwoView.getInstance().start(stage);
     }
 
     public void rockOne(MouseEvent event) throws Exception{
-        RockPaperScissorPlayerTwoView.getInstance().setCurrentUser(user);
+        RockPaperScissorPlayerTwoView.getInstance().setCurrentUser(playerOne);
         RockPaperScissorPlayerTwoView.getInstance().setPreviousHand("rock");
         RockPaperScissorPlayerTwoView.getInstance().start(stage);
     }
