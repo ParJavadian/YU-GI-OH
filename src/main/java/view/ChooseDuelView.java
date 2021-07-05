@@ -37,10 +37,14 @@ public class ChooseDuelView extends Application {
         stage.show();
     }
 
-    public void threeRoundsGame(MouseEvent event) {
+    public void threeRoundsGame(MouseEvent event) throws Exception{
+        RockPaperScissorView.getInstance().setCurrentUser(user);
+        RockPaperScissorView.getInstance().start(stage);
     }
 
-    public void oneRoundGame(MouseEvent event) {
+    public void oneRoundGame(MouseEvent event) throws Exception{
+        RockPaperScissorView.getInstance().setCurrentUser(user);
+        RockPaperScissorView.getInstance().start(stage);
     }
 
     public void goBack(MouseEvent event) throws Exception {
