@@ -1,5 +1,0 @@
-parmida
-1234
-parmida
-0
-100000

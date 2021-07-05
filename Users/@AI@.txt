@@ -1,5 +1,0 @@
-@AI@
-1234AIPlayer1234
-@AIplayer
-3000
-127000

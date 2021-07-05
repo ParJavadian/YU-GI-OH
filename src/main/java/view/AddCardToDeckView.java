@@ -2,6 +2,7 @@ package view;
 
 import controller.DeckController;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -31,6 +32,8 @@ public class AddCardToDeckView extends Application implements Initializable {
     private static int totalCardsNumber;
     private static int firstCardNumber = 0;
     private static AnchorPane root;
+    @FXML
+    private AnchorPane anchorPane1,anchorPane2,anchorPane3,anchorPane4;
     /*@FXML
     private Label money, youHave1, youHave2, youHave3, youHave4;
     @FXML
@@ -141,7 +144,22 @@ public class AddCardToDeckView extends Application implements Initializable {
         else card3 = null;
         if (cards.size() > 3) card4 = cards.get(3);
         else card4 = null;
+        resetAnchorpanes();
+    }
 
+    private void resetAnchorpanes(){
+        if (image1 == null) {
+            root.getChildren().remove(anchorPane1);
+        }
+        if (image2 == null) {
+            root.getChildren().remove(anchorPane2);
+        }
+        if (image3 == null) {
+            root.getChildren().remove(anchorPane3);
+        }
+        if (image4 == null) {
+            root.getChildren().remove(anchorPane4);
+        }
     }
 
     private void removeImages() {

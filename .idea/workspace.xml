@@ -22,41 +22,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ScoreBoard">
-      <change afterPath="$PROJECT_DIR$/Users/,.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/22k.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/;.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/KK.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/MOHAMMAD TAHA.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/N.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/O`O.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/P.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/l.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/lLl.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/nN.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/o.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/oO.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ppp.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/r.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/x.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ya hagh.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ya.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ت.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/م.txt" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Scoreboard">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/i.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/i.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/a.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/kiana_msz.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/w.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ScoreBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ScoreBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ScoreBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ScoreBoard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +75,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hw4_q1_try1/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hw3_2_q1_try2/src" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -499,7 +481,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۵" />
       <updated>1625435400560</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL‎۰۰۰۴۶" summary="Scoreboard">
+      <created>1625480421636</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۶" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۶" />
+      <updated>1625480421636</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +507,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug attack2" />
     <MESSAGE value="debug attack3" />
     <MESSAGE value="debug attack4" />
     <MESSAGE value="debug show card" />
@@ -547,7 +534,8 @@
     <MESSAGE value="profile photo" />
     <MESSAGE value="..." />
     <MESSAGE value="ScoreBoard" />
-    <option name="LAST_COMMIT_MESSAGE" value="ScoreBoard" />
+    <MESSAGE value="Scoreboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scoreboard" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
