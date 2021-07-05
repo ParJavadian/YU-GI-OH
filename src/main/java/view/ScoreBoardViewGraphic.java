@@ -24,7 +24,7 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
     private static User user;
     @FXML
     TextFlow textFlow = new TextFlow();
-//    Label label = new Label();
+
 
     public static ScoreBoardViewGraphic getInstance() {
         if (instance == null) instance = new ScoreBoardViewGraphic();
@@ -94,7 +94,7 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
 
 
             if (eachUser.equals(user)) {
-                text1.setFill(Color.RED);
+                text1.setFill(Color.PURPLE);
                 Font font1 = Font.font("Agency FB", FontWeight.BOLD, 18);
                 text1.setFont(font1);
             } else {
@@ -102,6 +102,7 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
                 Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
                 text1.setFont(font1);
             }
+            textFlow.setLineSpacing(1.5);
             textFlow.getChildren().add(text1);
         }
 
