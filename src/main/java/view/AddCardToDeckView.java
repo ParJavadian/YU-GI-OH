@@ -60,7 +60,6 @@ public class AddCardToDeckView extends Application implements Initializable {
         setImagesAndCards();
         addImages();
         removeBadAnchorPanes();
-        System.out.println("start");
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
@@ -87,14 +86,14 @@ public class AddCardToDeckView extends Application implements Initializable {
 
 
     public void goNextPage() {
-        if (firstCardNumber + 1 >= totalCardsNumber) return;
-        firstCardNumber += 1;
+        if (firstCardNumber + 4 >= user.getAllCards().size()) return;
+        firstCardNumber += 4;
         resetImagesAndCards();
     }
 
     public void goPreviousPage() {
-        if (firstCardNumber - 1 < 0) return;
-        firstCardNumber -= 1;
+        if (firstCardNumber - 4 < 0) return;
+        firstCardNumber -= 4;
         resetImagesAndCards();
     }
 
@@ -143,45 +142,40 @@ public class AddCardToDeckView extends Application implements Initializable {
         else card3 = null;
         if (cards.size() > 3) card4 = cards.get(3);
         else card4 = null;
+        addGoodAnchorPanes();
         removeBadAnchorPanes();
-        System.out.println("resetImagesAndCards");
     }
 
     private void removeBadAnchorPanes() {
         if (root != null) {
-            System.out.println(root.getChildren());
             if (image1 ==null || image1.getImage() == null) {
                 for (Node child : root.getChildren()) {
                     if(child instanceof AnchorPane && child.getId().equals("anchorPane1")){
-                        child.toBack();
+                        child.setVisible(false);
                         break;
                     }
                 }
             }
             if (image2 ==null || image2.getImage() == null) {
-                System.out.println(anchorPane2);
                 for (Node child : root.getChildren()) {
                     if(child instanceof AnchorPane && child.getId().equals("anchorPane2")){
-                        System.out.println(child.getId());
-                        child.toBack();
+                        child.setVisible(false);
                         break;
                     }
                 }
             }
             if (image3 ==null || image3.getImage() == null) {
-                System.out.println(anchorPane3);
                 for (Node child : root.getChildren()) {
                     if(child instanceof AnchorPane && child.getId().equals("anchorPane3")){
-                        child.toBack();
+                        child.setVisible(false);
                         break;
                     }
                 }
             }
             if (image4 ==null || image4.getImage() == null) {
-                System.out.println(anchorPane4);
                 for (Node child : root.getChildren()) {
                     if(child instanceof AnchorPane && child.getId().equals("anchorPane4")){
-                        child.toBack();
+                        child.setVisible(false);
                         break;
                     }
                 }
@@ -190,17 +184,39 @@ public class AddCardToDeckView extends Application implements Initializable {
     }
 
     private void addGoodAnchorPanes() {
-        if (image1 != null && !root.getChildren().contains(anchorPane1)) {
-            root.getChildren().add(anchorPane1);
-        }
-        if (image2 != null && !root.getChildren().contains(anchorPane2)) {
-            root.getChildren().add(anchorPane2);
-        }
-        if (image3 != null && !root.getChildren().contains(anchorPane3)) {
-            root.getChildren().add(anchorPane3);
-        }
-        if (image4 != null && !root.getChildren().contains(anchorPane4)) {
-            root.getChildren().add(anchorPane4);
+        if (root != null) {
+            if (image1 !=null && image1.getImage() != null) {
+                for (Node child : root.getChildren()) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane1")){
+                        child.setVisible(true);
+                        break;
+                    }
+                }
+            }
+            if (image2 !=null && image2.getImage() != null) {
+                for (Node child : root.getChildren()) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane2")){
+                        child.setVisible(true);
+                        break;
+                    }
+                }
+            }
+            if (image3 !=null && image3.getImage() != null) {
+                for (Node child : root.getChildren()) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane3")){
+                        child.setVisible(true);
+                        break;
+                    }
+                }
+            }
+            if (image4 !=null && image4.getImage() != null) {
+                for (Node child : root.getChildren()) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane4")){
+                        child.setVisible(true);
+                        break;
+                    }
+                }
+            }
         }
     }
 
@@ -215,10 +231,10 @@ public class AddCardToDeckView extends Application implements Initializable {
 
     private void addImages() {
         if (root != null) {
-            if (image1 != null) root.getChildren().add(image1);
-            if (image2 != null) root.getChildren().add(image2);
-            if (image3 != null) root.getChildren().add(image3);
-            if (image4 != null) root.getChildren().add(image4);
+            if (image1 != null && !root.getChildren().contains(image1)) root.getChildren().add(image1);
+            if (image2 != null && !root.getChildren().contains(image2)) root.getChildren().add(image2);
+            if (image3 != null && !root.getChildren().contains(image3)) root.getChildren().add(image3);
+            if (image4 != null && !root.getChildren().contains(image4)) root.getChildren().add(image4);
         }
     }
 
@@ -235,7 +251,6 @@ public class AddCardToDeckView extends Application implements Initializable {
         setImagesAndCards();
         addImages();
         removeBadAnchorPanes();
-        System.out.println("initialize");
     }
 
     public void addToMainDeck1() {
