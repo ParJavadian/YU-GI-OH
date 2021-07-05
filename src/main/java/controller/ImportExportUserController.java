@@ -176,7 +176,7 @@ public class ImportExportUserController {
 
     public void exportAllCards(User user) {
         try {
-            FileWriter writer = new FileWriter("Cards/" + user.getUsername() + ".txt");
+            FileWriter writer = new FileWriter("images/Cards/" + user.getUsername() + ".txt");
             for (Card card : user.getAllCards()) {
                 String cardName = card.getNamePascalCase();
                 writer.write(cardName + "\n");
@@ -191,7 +191,7 @@ public class ImportExportUserController {
         if (User.getAllUsers() != null) {
             for (User user : User.getAllUsers()) {
                 String username = user.getUsername();
-                File file = new File("Cards/" + username + ".txt");
+                File file = new File("images/Cards/" + username + ".txt");
                 if (file.exists()) {
                     try {
                         Scanner scanner = new Scanner(file);

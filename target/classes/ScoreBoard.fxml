@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ScoreBoardViewGraphic">
     <ImageView fitHeight="600.0" fitWidth="900.0">
-        <Image url="@21.jpg" />
+        <Image url="@images/backgrounds/21.jpg" />
     </ImageView>
 
    <Button layoutX="164.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" textFill="#2088a5">

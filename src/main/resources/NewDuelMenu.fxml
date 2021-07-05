@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="14.0" layoutY="69.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@timeToDuel.png" />
+            <Image url="@images/timeToDuel.png" />
          </image>
       </ImageView>
       <Button layoutX="114.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#threeRoundsGame" text="3 rounds" textFill="#1d0dff">

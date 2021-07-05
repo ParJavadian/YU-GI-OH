@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="900.0">
          <image>
-            <Image url="@28.jpg" />
+            <Image url="@images/backgrounds/28.jpg" />
          </image>
       </ImageView>
       <Button layoutX="389.0" layoutY="111.0" mnemonicParsing="false" onMouseClicked="#changeNickname" prefHeight="34.0" prefWidth="62.0" text="Save">

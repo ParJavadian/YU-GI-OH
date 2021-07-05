@@ -83,7 +83,7 @@ public class ProfileViewForGraphic extends Application implements Initializable 
 //    }
 
     private void setImageView() {
-        URL url = getClass().getResource("/profile ("+user.getProfileNumber()+").png");
+        URL url = getClass().getResource("/images/profiles/profile ("+user.getProfileNumber()+").png");
         Image image = new Image(String.valueOf(url));
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(155);

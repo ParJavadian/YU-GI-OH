@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public enum SpellCard implements Card {
 
 
-    MONSTER_REBORN(Icon.NORMAL, "Target 1 monster in either GY; Special Summon it.", Status.LIMITED, 2000, "/Cards/MonsterReborn.jpg") {
+    MONSTER_REBORN(Icon.NORMAL, "Target 1 monster in either GY; Special Summon it.", Status.LIMITED, 2000, "/images/Cards/MonsterReborn.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 DuelView.printText("enter \"My\" or \"Rival\" to select graveyard");
@@ -32,7 +32,7 @@ public enum SpellCard implements Card {
         }
     },
 
-    TERRAFORMING(Icon.NORMAL, "Add 1 Field Spell from your Deck to your hand.", Status.LIMITED, 2500,"/Cards/Terraforming.jpg") {
+    TERRAFORMING(Icon.NORMAL, "Add 1 Field Spell from your Deck to your hand.", Status.LIMITED, 2500, "/images/Cards/Terraforming.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 boolean hasFieldSpell = false;
@@ -85,7 +85,7 @@ public enum SpellCard implements Card {
         }
     },
 
-    POT_OF_GREED(Icon.NORMAL, "Draw 2 cards.", Status.LIMITED, 2500,"/Cards/PotOfGreed.jpg") {
+    POT_OF_GREED(Icon.NORMAL, "Draw 2 cards.", Status.LIMITED, 2500, "/images/Cards/PotOfGreed.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 List<Card> deck = duelController.getPlayer().getGameDeck().getMainDeck();
@@ -103,7 +103,7 @@ public enum SpellCard implements Card {
         }
     },
 
-    RAIGEKI(Icon.NORMAL, "Destroy all monsters your opponent controls.", Status.LIMITED, 2500,"/Cards/Raigeki.jpg") {
+    RAIGEKI(Icon.NORMAL, "Destroy all monsters your opponent controls.", Status.LIMITED, 2500, "/images/Cards/Raigeki.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 for (int i = 0; i < 5; i++) {
@@ -121,7 +121,7 @@ public enum SpellCard implements Card {
     },
 
     CHANGE_OF_HEART(Icon.NORMAL, "Target 1 monster your opponent controls; take control of it until the End Phase.",
-            Status.LIMITED, 2500,"/Cards/ChangeOfHeart.jpg") {
+            Status.LIMITED, 2500, "/images/Cards/ChangeOfHeart.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
@@ -131,7 +131,7 @@ public enum SpellCard implements Card {
     },
 
     HARPIES_FEATHER_DUST(Icon.NORMAL, "Destroy all Spells and Traps your opponent controls.", Status.LIMITED, 2500,
-            "/Cards/HarpiesFeatherDuster.jpg") {
+            "/images/Cards/HarpiesFeatherDuster.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 for (int i = 0; i < 5; i++) {
@@ -151,7 +151,7 @@ public enum SpellCard implements Card {
     SWORD_OF_REVEALING_LIGHT(Icon.NORMAL, "After this card's activation, it remains on the field, but destroy " +
             "it during the End Phase of your opponent's 3rd turn. When this card is activated: If your opponent controls" +
             " a face-down monster, flip all monsters they control face-up. While this card is face-up on the field, your" +
-            " opponent's monsters cannot declare an attack.", Status.UNLIMITED, 2500,"/Cards/SwordOfRevealingLight.jpg") {
+            " opponent's monsters cannot declare an attack.", Status.UNLIMITED, 2500, "/images/Cards/SwordOfRevealingLight.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
@@ -160,7 +160,7 @@ public enum SpellCard implements Card {
         }
     },
 
-    DARK_HOLE(Icon.NORMAL, "Destroy all monsters on the field.", Status.UNLIMITED, 2500,"/Cards/DarkHole.jpg") {
+    DARK_HOLE(Icon.NORMAL, "Destroy all monsters on the field.", Status.UNLIMITED, 2500, "/images/Cards/DarkHole.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 for (int i = 0; i < 5; i++) {
@@ -181,7 +181,7 @@ public enum SpellCard implements Card {
     },
 
     SUPPLY_SQUAD(Icon.CONTINUOUS, "Once per turn, if a monster(s) you control is destroyed by battle or card" +
-            " effect: Draw 1 card.", Status.UNLIMITED, 4000,"/Cards/SupplySquad.jpg") {
+            " effect: Draw 1 card.", Status.UNLIMITED, 4000, "/images/Cards/SupplySquad.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
@@ -191,7 +191,7 @@ public enum SpellCard implements Card {
     },
 
     SPELL_ABSORPTION(Icon.CONTINUOUS, "Each time a Spell Card is activated, gain 500 Life Points immediately " +
-            "after it resolves.", Status.UNLIMITED, 4000,"/Cards/SpellAbsorption.jpg") {
+            "after it resolves.", Status.UNLIMITED, 4000, "/images/Cards/SpellAbsorption.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.ANY_SPELL_ACTIVATED)) {
                 if (owner.equals(duelController.getPlayer()))
@@ -205,7 +205,7 @@ public enum SpellCard implements Card {
     },
 
     MESSENGER_OF_PEACE(Icon.CONTINUOUS, "Monsters with 1500 or more ATK cannot declare an attack. Once per turn," +
-            " during your Standby Phase, pay 100 LP or destroy this card.", Status.UNLIMITED, 4000,"/Cards/MessengerOfPeace.jpg") {
+            " during your Standby Phase, pay 100 LP or destroy this card.", Status.UNLIMITED, 4000, "/images/Cards/MessengerOfPeace.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
@@ -215,7 +215,7 @@ public enum SpellCard implements Card {
     },
 
     TWIN_TWISTERS(Icon.QUICK_PLAY, "Discard 1 card, then target up to 2 Spells/Traps on the field; destroy them."
-            , Status.UNLIMITED, 3500,"/Cards/TwinTwisters.jpg") {
+            , Status.UNLIMITED, 3500, "/images/Cards/TwinTwisters.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 int numberOfCardsInHand = duelController.getPlayer().getBoard().getCardsInHand().size();
@@ -263,7 +263,7 @@ public enum SpellCard implements Card {
     },
 
     MYSTICAL_SPACE_TYPHOON(Icon.QUICK_PLAY, "Target 1 Spell/Trap on the field; destroy that target.",
-            Status.UNLIMITED, 3500,"/Cards/MysticalSpaceTyphoon.jpg") {
+            Status.UNLIMITED, 3500, "/images/Cards/MysticalSpaceTyphoon.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 DuelView.printText("please type the word \"My\" or \"Rival\" to choose a field to destroy the trap or spell");
@@ -282,7 +282,7 @@ public enum SpellCard implements Card {
     },
 
     RING_OF_DEFENSE(Icon.QUICK_PLAY, "When a Trap effect that inflicts damage is activated: Make that effect " +
-            "damage 0.", Status.UNLIMITED, 3500,"/Cards/RingOfDefense.jpg") {
+            "damage 0.", Status.UNLIMITED, 3500, "/images/Cards/RingOfDefense.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
@@ -292,7 +292,7 @@ public enum SpellCard implements Card {
     },
 
     YAMI(Icon.FIELD, "All Fiend and Spellcaster monsters on the field gain 200 ATK/DEF, also all Fairy monsters" +
-            " on the field lose 200 ATK/DEF.", Status.UNLIMITED, 4300,"/Cards/Yami.jpg") {
+            " on the field lose 200 ATK/DEF.", Status.UNLIMITED, 4300, "/images/Cards/Yami.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
@@ -371,7 +371,7 @@ public enum SpellCard implements Card {
     },
 
     FOREST(Icon.FIELD, "All Insect, Beast, Plant, and Beast-Warrior monsters on the field gain 200 ATK/DEF.",
-            Status.UNLIMITED, 4300,"/Cards/Forest.jpg") {
+            Status.UNLIMITED, 4300, "/images/Cards/Forest.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
@@ -434,7 +434,7 @@ public enum SpellCard implements Card {
 
     CLOSED_FOREST(Icon.FIELD, "All Beast-Type monsters you control gain 100 ATK for each monster in your " +
             "Graveyard. Field Spell Cards cannot be activated. Field Spell Cards cannot be activated during the turn " +
-            "this card is destroyed.", Status.UNLIMITED, 4300,"/Cards/ClosedForest.jpg") {
+            "this card is destroyed.", Status.UNLIMITED, 4300, "/images/Cards/ClosedForest.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             int amount = 0;
             for (Card card : duelController.getPlayer().getBoard().getCardsInGraveyard()) {
@@ -478,7 +478,7 @@ public enum SpellCard implements Card {
     },
 
     UMIIRUKA(Icon.FIELD, "Increase the ATK of all WATER monsters by 500 points and decrease their DEF by 400 " +
-            "points.", Status.UNLIMITED, 4300,"/Cards/Umiiruka.jpg") {
+            "points.", Status.UNLIMITED, 4300, "/images/Cards/Umiiruka.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)) {
                 for (int i = 0; i < 5; i++) {
@@ -540,7 +540,7 @@ public enum SpellCard implements Card {
     },
 
     SWORD_OF_DARK_DESTRUCTION(Icon.EQUIP, "A DARK monster equipped with this card increases its ATK by 400 " +
-            "points and decreases its DEF by 200 points.", Status.UNLIMITED, 4300,"/Cards/SwordOfDarkDestruction.jpg") {
+            "points and decreases its DEF by 200 points.", Status.UNLIMITED, 4300, "/images/Cards/SwordOfDarkDestruction.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
@@ -550,7 +550,7 @@ public enum SpellCard implements Card {
     },
 
     BLACK_PENDANT(Icon.EQUIP, "The equipped monster gains 500 ATK. When this card is sent from the field to the" +
-            " Graveyard: Inflict 500 damage to your opponent.", Status.UNLIMITED, 4300,"/Cards/BlackPendant.jpg") {
+            " Graveyard: Inflict 500 damage to your opponent.", Status.UNLIMITED, 4300, "/images/Cards/BlackPendant.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
@@ -560,7 +560,7 @@ public enum SpellCard implements Card {
     },
 
     UNITED_WE_STAND(Icon.EQUIP, "The equipped monster gains 800 ATK/DEF for each face-up monster you control.",
-            Status.UNLIMITED, 4300,"/Cards/UnitedWeStand.jpg") {
+            Status.UNLIMITED, 4300, "/images/Cards/UnitedWeStand.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_FIELDZONE_FACE_UP)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
@@ -571,7 +571,7 @@ public enum SpellCard implements Card {
 
     MAGNUM_SHIELD(Icon.EQUIP, "Equip only to a Warrior-Type monster. Apply this effect, depending on its battle position.\n" +
             "Attack Position: It gains ATK equal to its original DEF.\n" +
-            "Defense Position: It gains DEF equal to its original ATK.", Status.UNLIMITED, 4300,"/Cards/MagnumShield.jpg") {
+            "Defense Position: It gains DEF equal to its original ATK.", Status.UNLIMITED, 4300, "/images/Cards/MagnumShield.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);
@@ -582,7 +582,7 @@ public enum SpellCard implements Card {
 
     ADVANCED_RITUAL_ART(Icon.RITUAL, "This card can be used to Ritual Summon any 1 Ritual Monster. You must " +
             "also send Normal Monsters from your Deck to the Graveyard whose total Levels equal the Level of that Ritual" +
-            " Monster.", Status.UNLIMITED, 3000,"/Cards/AdvancedRitualArt.jpg") {
+            " Monster.", Status.UNLIMITED, 3000, "/images/Cards/AdvancedRitualArt.jpg") {
         public boolean takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.PUT_IN_SPELLTRAPZONE)) {
                 SpellAction.getInstance().enableSpellAbsorptions(duelController);

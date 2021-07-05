@@ -11,7 +11,7 @@ public enum MonsterCard implements Card {
     COMMAND_KNIGHT(4, Attribute.FIRE, MonsterType.WARRIOR, CardType.EFFECT, 1200, 1900,
             "All Warrior-Type monsters you control gain 400 ATK. If you control another monster, monsters your " +
                     "opponent controls cannot target this card for an attack.",
-            2100, true, "/Cards/CommandKnight.jpg") {
+            2100, true, "/images/Cards/CommandKnight.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             MonsterAction.getInstance().addToMonsterAttackPoints(duelController, 400, takeActionCase, owner, targetNumber);
         }
@@ -22,7 +22,7 @@ public enum MonsterCard implements Card {
     },
 
     BATTLE_OX(4, Attribute.EARTH, MonsterType.BEAST_WARRIOR, CardType.NORMAL, 1700, 1000,
-            "A monster with tremendous power, it destroys enemies with a swing of its axe.", 2900, true, "/Cards/BattleOx.jpg") {
+            "A monster with tremendous power, it destroys enemies with a swing of its axe.", 2900, true, "/images/Cards/BattleOx.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -32,7 +32,7 @@ public enum MonsterCard implements Card {
     },
 
     AXE_RAIDER(4, Attribute.EARTH, MonsterType.WARRIOR, CardType.NORMAL, 1700, 1150,
-            "An axe-wielding monster of tremendous strength and agility.", 3100, true, "/Cards/AxeRaider.jpg") {
+            "An axe-wielding monster of tremendous strength and agility.", 3100, true, "/images/Cards/AxeRaider.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -42,7 +42,7 @@ public enum MonsterCard implements Card {
     },
 
     HORN_IMP(4, Attribute.DARK, MonsterType.FIEND, CardType.NORMAL, 1300, 1000,
-            "A small fiend that dwells in the dark, its single horn makes it a formidable opponent.", 2500, true, "/Cards/HornImp.jpg") {
+            "A small fiend that dwells in the dark, its single horn makes it a formidable opponent.", 2500, true, "/images/Cards/HornImp.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -53,7 +53,7 @@ public enum MonsterCard implements Card {
 
     YOMI_SHIP(3, Attribute.WATER, MonsterType.AQUA, CardType.EFFECT, 800, 1400,
             "If this card is destroyed by battle and sent to the GY: Destroy the monster that destroyed this card.",
-            1700, true, "/Cards/YomiShip.jpg") {
+            1700, true, "/images/Cards/YomiShip.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             MonsterAction.getInstance().destroyAttackerYomiShip(duelController, takeActionCase);
         }
@@ -64,7 +64,7 @@ public enum MonsterCard implements Card {
     },
 
     SILVER_FANG(3, Attribute.EARTH, MonsterType.BEAST, CardType.NORMAL, 1200, 800,
-            "A snow wolf that's beautiful to the eye, but absolutely vicious in battle.", 1700, true, "/Cards/SilverFang.jpg") {
+            "A snow wolf that's beautiful to the eye, but absolutely vicious in battle.", 1700, true, "/images/Cards/SilverFang.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -76,7 +76,7 @@ public enum MonsterCard implements Card {
     SUIJIN(7, Attribute.WATER, MonsterType.AQUA, CardType.EFFECT, 2500, 2400,
             "During damage calculation in your opponent's turn, if this card is being attacked: You can target " +
                     "the attacking monster; make that target's ATK 0 during damage calculation only (this is a Quick Effect). " +
-                    "This effect can only be used once while this card is face-up on the field.", 8700, true, "/Cards/Suijin.jpg") {
+                    "This effect can only be used once while this card is face-up on the field.", 8700, true, "/images/Cards/Suijin.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             MonsterAction.getInstance().makeAttackerAttackPoint0Suijin(duelController, takeActionCase, targetNumber);
         }
@@ -87,7 +87,7 @@ public enum MonsterCard implements Card {
     },
 
     FIREYAROU(4, Attribute.FIRE, MonsterType.PYRO, CardType.NORMAL, 1300, 1000,
-            "A malevolent creature wrapped in flames that attacks enemies with intense fire.", 2500, true, "/Cards/Fireyarou.jpg") {
+            "A malevolent creature wrapped in flames that attacks enemies with intense fire.", 2500, true, "/images/Cards/Fireyarou.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -97,7 +97,7 @@ public enum MonsterCard implements Card {
     },
 
     CURTAIN_OF_DARK_ONES(2, Attribute.DARK, MonsterType.SPELLCASTER, CardType.NORMAL, 600, 500,
-            "A curtain that a spellcaster made, it is said to raise a dark power.", 700, true, "/Cards/CurtainOfTheDarkOnes.jpg") {
+            "A curtain that a spellcaster made, it is said to raise a dark power.", 700, true, "/images/Cards/CurtainOfTheDarkOnes.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -107,7 +107,7 @@ public enum MonsterCard implements Card {
     },
 
     FERAL_IMP(4, Attribute.DARK, MonsterType.FIEND, CardType.NORMAL, 1300, 1400,
-            "A playful little fiend that lurks in the dark, waiting to attack an unwary enemy.", 2800, true, "/Cards/FeralImp.jpg") {
+            "A playful little fiend that lurks in the dark, waiting to attack an unwary enemy.", 2800, true, "/images/Cards/FeralImp.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -117,7 +117,7 @@ public enum MonsterCard implements Card {
     },
 
     DARK_MAGICIAN(7, Attribute.DARK, MonsterType.SPELLCASTER, CardType.NORMAL, 2500,
-            2100, "The ultimate wizard in terms of attack and defense.", 8300, true, "/Cards/DarkMagician.jpg") {
+            2100, "The ultimate wizard in terms of attack and defense.", 8300, true, "/images/Cards/DarkMagician.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -127,7 +127,7 @@ public enum MonsterCard implements Card {
     },
 
     WATTKID(3, Attribute.LIGHT, MonsterType.THUNDER, CardType.NORMAL, 1000, 500,
-            "A creature that electrocutes opponents with bolts of lightning.", 1300, true, "/Cards/Wattkid.jpg") {
+            "A creature that electrocutes opponents with bolts of lightning.", 1300, true, "/images/Cards/Wattkid.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -137,7 +137,7 @@ public enum MonsterCard implements Card {
     },
 
     BABY_DRAGON(3, Attribute.WIND, MonsterType.DRAGON, CardType.NORMAL, 1200, 700,
-            "Much more than just a child, this dragon is gifted with untapped power.", 1600, true, "/Cards/BabyDragon.jpg") {
+            "Much more than just a child, this dragon is gifted with untapped power.", 1600, true, "/images/Cards/BabyDragon.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -147,7 +147,7 @@ public enum MonsterCard implements Card {
     },
 
     HERO_OF_THE_EAST(3, Attribute.EARTH, MonsterType.WARRIOR, CardType.NORMAL, 1100, 1000,
-            "Feel da strength ah dis sword-swinging samurai from da Far East.", 1700, true, "/Cards/HeroOfTheEast.jpg") {
+            "Feel da strength ah dis sword-swinging samurai from da Far East.", 1700, true, "/images/Cards/HeroOfTheEast.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -157,7 +157,7 @@ public enum MonsterCard implements Card {
     },
 
     BATTLE_WARRIOR(3, Attribute.EARTH, MonsterType.WARRIOR, CardType.NORMAL, 700, 1000,
-            "A warrior that fights with his bare hands!!!", 1300, true, "/Cards/BattleWarrior.jpg") {
+            "A warrior that fights with his bare hands!!!", 1300, true, "/images/Cards/BattleWarrior.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -167,7 +167,7 @@ public enum MonsterCard implements Card {
     },
 
     CRAWLING_DRAGON(5, Attribute.EARTH, MonsterType.DRAGON, CardType.NORMAL, 1600, 1400,
-            "This weakened dragon can no longer fly, but is still a deadly force to be reckoned with.", 3900, true, "/Cards/CrawlingDragon.jpg") {
+            "This weakened dragon can no longer fly, but is still a deadly force to be reckoned with.", 3900, true, "/images/Cards/CrawlingDragon.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -178,7 +178,7 @@ public enum MonsterCard implements Card {
 
     FLAME_MANIPULATOR(3, Attribute.FIRE, MonsterType.SPELLCASTER, CardType.NORMAL, 900, 1000,
             "This Spellcaster attacks enemies with fire-related spells such as \"Sea of Flames\" and \"Wall of Fire\".",
-            1500, true, "/Cards/FlameManipulator.jpg") {
+            1500, true, "/images/Cards/FlameManipulator.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -189,7 +189,7 @@ public enum MonsterCard implements Card {
 
     BLUE_EYES_WHITE_DRAGON(8, Attribute.LIGHT, MonsterType.DRAGON, CardType.NORMAL, 3000, 2500,
             "This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have " +
-                    "faced this awesome creature and lived to tell the tale.", 11300, true, "/Cards/BlueEyesWhiteDragon.jpg") {
+                    "faced this awesome creature and lived to tell the tale.", 11300, true, "/images/Cards/BlueEyesWhiteDragon.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -200,7 +200,7 @@ public enum MonsterCard implements Card {
     CRAB_TURTLE(8, Attribute.WATER, MonsterType.AQUA, CardType.RITUAL, 2550, 2500,
             "This monster can only be Ritual Summoned with the Ritual Spell Card, \"Turtle Oath\". You must " +
                     "also offer monsters whose total Level Stars equal 8 or more as a Tribute from the field or your hand.",
-            10200, false, "/Cards/CrabTurtle.jpg") {
+            10200, false, "/images/Cards/CrabTurtle.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -211,7 +211,7 @@ public enum MonsterCard implements Card {
     SKULL_GUARDIAN(7, Attribute.LIGHT, MonsterType.WARRIOR, CardType.RITUAL, 2050, 2500,
             "This monster can only be Ritual Summoned with the Ritual Spell Card, \"Novox's Prayer\". You must " +
                     "also offer monsters whose total Level Stars equal 7 or more as a Tribute from the field or your hand.",
-            7900, false, "/Cards/SkullGuardian.jpg") {
+            7900, false, "/images/Cards/SkullGuardian.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -222,7 +222,7 @@ public enum MonsterCard implements Card {
 
     SLOT_MACHINE(7, Attribute.DARK, MonsterType.MACHINE, CardType.NORMAL, 2000, 2300,
             "The machine's ability is said to vary according to its slot results.", 7500, true
-            , "/Cards/SlotMachine.jpg") {
+            , "/images/Cards/SlotMachine.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -233,7 +233,7 @@ public enum MonsterCard implements Card {
 
     HANIWA(2, Attribute.EARTH, MonsterType.ROCK, CardType.NORMAL, 500, 500,
             "An earthen figure that protects the tomb of an ancient ruler.", 600, true
-            , "/Cards/Haniwa.jpg") {
+            , "/images/Cards/Haniwa.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -244,7 +244,7 @@ public enum MonsterCard implements Card {
 
     MAN_EATER_BUG(2, Attribute.EARTH, MonsterType.INSECT, CardType.EFFECT, 450, 600,
             "FLIP: Target 1 monster on the field; destroy that target.", 600, true
-            , "/Cards/ManEaterBug.jpg") {
+            , "/images/Cards/ManEaterBug.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.FLIP_SUMMONED)) {
                 if (duelController.getPlayer().getUsername().equals("@AI@"))
@@ -273,7 +273,7 @@ public enum MonsterCard implements Card {
     GATE_GUARDIAN(11, Attribute.DARK, MonsterType.WARRIOR, CardType.EFFECT, 3750, 3400,
             "Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 " +
                     "\"Sanga of the Thunder\", \"Kazejin\", and \"Suijin\".", 20000, false
-            , "/Cards/GateGuardian.jpg") {
+            , "/images/Cards/GateGuardian.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.SPECIAL_SUMMONED)) {
                 if (duelController.getCountOfMonsterCardsInGround(owner) < 3) {
@@ -354,7 +354,7 @@ public enum MonsterCard implements Card {
                     " End Phase, this card's name is treated as the selected monster's name, and this card has the same " +
                     "Attribute, Level, ATK, and DEF as the selected monster. If this card is removed from the field " +
                     "while this effect is applied, remove it from play.", 8000, true
-            , "/Cards/Scanner.jpg") {
+            , "/images/Cards/Scanner.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -365,7 +365,7 @@ public enum MonsterCard implements Card {
 
     BITRON(2, Attribute.EARTH, MonsterType.CYBERSE, CardType.NORMAL, 200, 2000,
             "A new species found in electronic space. There's not much information on it.", 1000, true
-            , "/Cards/Bitron.jpg") {
+            , "/images/Cards/Bitron.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -377,7 +377,7 @@ public enum MonsterCard implements Card {
     MARSHMALLON(3, Attribute.LIGHT, MonsterType.FAIRY, CardType.EFFECT, 300, 500,
             "Cannot be destroyed by battle. After damage calculation, if this card was attacked, and was " +
                     "face-down at the start of the Damage Step: The attacking player takes 1000 damage.", 700, true
-            , "/Cards/Marshmallon.jpg") {
+            , "/images/Cards/Marshmallon.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -390,7 +390,7 @@ public enum MonsterCard implements Card {
             "You can Normal Summon/Set this card without Tributing, but its original ATK becomes 1900. You can " +
                     "Tribute 3 monsters to Tribute Summon (but not Set) this card. If Summoned this way: Destroy all " +
                     "cards your opponent controls.", 9200, true
-            , "/Cards/BeastKingBarbaros.jpg") {
+            , "/images/Cards/BeastKingBarbaros.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -402,7 +402,7 @@ public enum MonsterCard implements Card {
     TEXCHANGER(1, Attribute.DARK, MonsterType.CYBERSE, CardType.EFFECT, 100, 100,
             "Once per turn, when your monster is targeted for an attack: You can negate that attack, then " +
                     "Special Summon 1 Cyberse Normal Monster from your hand, Deck, or GY.", 200, true
-            , "/Cards/Texchanger.jpg") {
+            , "/images/Cards/Texchanger.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -413,7 +413,7 @@ public enum MonsterCard implements Card {
 
     LEOTRON(4, Attribute.EARTH, MonsterType.CYBERSE, CardType.NORMAL, 2000, 0,
             "A territorial electronic monster that guards its own domain.", 2500, true
-            , "/Cards/Leotron.jpg") {
+            , "/images/Cards/Leotron.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -424,7 +424,7 @@ public enum MonsterCard implements Card {
 
     THE_CALCULATOR(2, Attribute.LIGHT, MonsterType.THUNDER, CardType.EFFECT, 0, 0,
             "The ATK of this card is the combined Levels of all face-up monsters you control x 300.",
-            8000, true, "/Cards/TheCalculator.jpg") {
+            8000, true, "/images/Cards/TheCalculator.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -437,7 +437,7 @@ public enum MonsterCard implements Card {
             "Many of the czars' lost jewels can be found in the scales of this priceless dragon. Its creator " +
                     "remains a mystery, along with how they acquired the imperial treasures. But whosoever finds this" +
                     " dragon has hit the jackpot... whether they know it or not.", 2600, true
-            , "/Cards/AlexandriteDragon.jpg") {
+            , "/images/Cards/AlexandriteDragon.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -448,7 +448,7 @@ public enum MonsterCard implements Card {
 
     MIRAGE_DRAGON(4, Attribute.LIGHT, MonsterType.DRAGON, CardType.EFFECT, 1600, 600,
             "Your opponent cannot activate Trap Cards during the Battle Phase.", 2500, true
-            , "/Cards/MirageDragon.jpg") {
+            , "/images/Cards/MirageDragon.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -460,7 +460,7 @@ public enum MonsterCard implements Card {
     HERALD_OF_CREATION(4, Attribute.LIGHT, MonsterType.SPELLCASTER, CardType.EFFECT, 1800, 600,
             "Once per turn: You can discard 1 card, then target 1 Level 7 or higher monster in your Graveyard; " +
                     "add that target to your hand.", 2700, true
-            , "/Cards/HeraldOfCreation.jpg") {
+            , "/images/Cards/HeraldOfCreation.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -472,7 +472,7 @@ public enum MonsterCard implements Card {
     EXPLODER_DRAGON(3, Attribute.EARTH, MonsterType.DRAGON, CardType.EFFECT, 1000, 0,
             "If this card is destroyed by battle and sent to the Graveyard: Destroy the monster that destroyed" +
                     " it. Neither player takes any battle damage from attacks involving this attacking card.",
-            1000, true, "/Cards/ExploderDragon.jpg") {
+            1000, true, "/images/Cards/ExploderDragon.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
             if (takeActionCase.equals(TakeActionCase.DIED_BY_BEING_ATTACKED)) {
                 duelController.getPlayer().getBoard().putInGraveYard(duelController.getSelectedCard().getCard());
@@ -488,7 +488,7 @@ public enum MonsterCard implements Card {
 
     WARRIOR_DAI_GREPHER(4, Attribute.EARTH, MonsterType.WARRIOR, CardType.NORMAL, 1700, 1600,
             "The warrior who can manipulate dragons. Nobody knows his mysterious past.",
-            3400, true, "/Cards/WarriorDaiGrepher.jpg") {
+            3400, true, "/images/Cards/WarriorDaiGrepher.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -500,7 +500,7 @@ public enum MonsterCard implements Card {
     DARK_BLADE(4, Attribute.DARK, MonsterType.WARRIOR, CardType.NORMAL, 1800, 1500,
             "They say he is a dragon-manipulating warrior from the dark world. His attack is tremendous, using " +
                     "his great swords with vicious power.", 3500, true
-            , "/Cards/DarkBlade.jpg") {
+            , "/images/Cards/DarkBlade.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -513,7 +513,7 @@ public enum MonsterCard implements Card {
             "Capable of indefinite flight. Attacks by wrapping its body with electricity and ramming into opponents.\n" +
                     "IMPORTANT: Capturing the \"Wattaildragon\" is forbidden by the Ancient Rules and is a Level 6 " +
                     "offense, the minimum sentence for which is imprisonment for no less than 2500 heliocycles.",
-            5800, true, "/Cards/Wattaildragon.jpg") {
+            5800, true, "/images/Cards/Wattaildragon.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -525,7 +525,7 @@ public enum MonsterCard implements Card {
     TERRATIGER_THE_EMPOWERED_WARRIOR(4, Attribute.EARTH, MonsterType.WARRIOR, CardType.EFFECT, 1800, 1200,
             "When this card is Normal Summoned: You can Special Summon 1 Level 4 or lower Normal Monster from" +
                     " your hand in Defense Position.", 3200, true,
-            "/Cards/Terratiger.jpg") {
+            "/images/Cards/Terratiger.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -536,7 +536,7 @@ public enum MonsterCard implements Card {
 
     THE_TRICKY(5, Attribute.WIND, MonsterType.SPELLCASTER, CardType.EFFECT, 2000, 1200,
             "You can Special Summon this card (from your hand) by discarding 1 card.", 4300, true
-            , "/Cards/TheTricky.jpg") {
+            , "/images/Cards/TheTricky.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 
@@ -548,7 +548,7 @@ public enum MonsterCard implements Card {
     SPIRAL_SERPENT(8, Attribute.WATER, MonsterType.SEA_SERPENT, CardType.NORMAL, 2900, 2900,
             "When huge whirlpools lay cities asunder, it is the hunger of this sea serpent at work. No one has" +
                     " ever escaped its dreaded Spiral Wave to accurately describe the terror they experienced.", 11700,
-            true, "/Cards/SpiralSerpent.jpg") {
+            true, "/images/Cards/SpiralSerpent.jpg") {
         public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
         }
 

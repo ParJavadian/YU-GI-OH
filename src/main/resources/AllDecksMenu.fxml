@@ -14,7 +14,7 @@
             prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="view.AllDecksViewGraphic">
     <ImageView fitHeight="600.0" fitWidth="900.0">
-        <Image url="@24.jpg"/>
+        <Image url="@images/backgrounds/24.jpg"/>
     </ImageView>
     <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="84.0" layoutY="89.0" maxHeight="366" prefHeight="54.0"
                 prefWidth="415.0" style="-fx-background-color: #183487;">

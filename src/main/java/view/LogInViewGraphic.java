@@ -10,8 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.media.AudioClip;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
@@ -50,7 +48,7 @@ public class LogInViewGraphic extends Application {
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/icon.png"))));
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/images/icon.png"))));
         stage.setTitle("YU GI OH");
         stage.show();
     }

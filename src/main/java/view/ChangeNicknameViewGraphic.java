@@ -1,7 +1,6 @@
 package view;
 
 import controller.ChangeNicknameControllerGraphic;
-import controller.ChangePasswordControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +42,7 @@ public class ChangeNicknameViewGraphic extends Application {
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/icon.png"))));
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/images/icon.png"))));
         stage.setTitle("YU GI OH");
         stage.show();
     }
