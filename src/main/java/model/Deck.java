@@ -15,6 +15,7 @@ public class Deck {
         this.sideDeck = new ArrayList<>();
     }
 
+
     public String getDeckName() {
         return this.deckName;
     }

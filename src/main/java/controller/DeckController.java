@@ -187,7 +187,8 @@ public class DeckController {
                         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
                         importExportUserController.exportCardsInMainDeck(DeckController.user, deckName);
                         importExportUserController.exportAllCards(DeckController.user);
-                        DeckView.getInstance(user).printText("card removed form deck successfully");
+                        RemoveCardFromDeckView.getInstance().printTextInformation("card removed form deck successfully");
+                        //DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "main");
                 }
             } else
@@ -272,6 +273,10 @@ public class DeckController {
 
     public void setUsersCards() {
         allCards = (ArrayList<Card>) user.getAllCards();
+    }
+
+    public void setMainDeckCards(Deck deck) {
+        allCards = (ArrayList<Card>) deck.getMainDeck();
     }
 
     public static void initImages() {
