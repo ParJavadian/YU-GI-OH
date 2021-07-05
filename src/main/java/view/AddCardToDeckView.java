@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -33,11 +34,7 @@ public class AddCardToDeckView extends Application implements Initializable {
     private static int firstCardNumber = 0;
     private static AnchorPane root;
     @FXML
-    private AnchorPane anchorPane1,anchorPane2,anchorPane3,anchorPane4;
-    /*@FXML
-    private Label money, youHave1, youHave2, youHave3, youHave4;
-    @FXML
-    private Button addButton1Main, addButton2Main, addButton3Main, addButton4Main;*/
+    private AnchorPane anchorPane1, anchorPane2, anchorPane3, anchorPane4;
 
 
     public static AddCardToDeckView getInstance() {
@@ -62,6 +59,8 @@ public class AddCardToDeckView extends Application implements Initializable {
         DeckController.initImages();
         setImagesAndCards();
         addImages();
+        removeBadAnchorPanes();
+        System.out.println("start");
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
@@ -128,13 +127,13 @@ public class AddCardToDeckView extends Application implements Initializable {
         ArrayList<Card> cards = DeckController.getInstance(user).getCards(firstCardNumber);
         removeImages();
         if (images.size() > 0) image1 = setImageView(images.get(0), 83);
-        else if(image1!=null) image1.setImage(null);
+        else if (image1 != null) image1.setImage(null);
         if (images.size() > 1) image2 = setImageView(images.get(1), 283);
-        else if(image2!=null) image2.setImage(null);
+        else if (image2 != null) image2.setImage(null);
         if (images.size() > 2) image3 = setImageView(images.get(2), 483);
-        else if(image3!=null) image3.setImage(null);
+        else if (image3 != null) image3.setImage(null);
         if (images.size() > 3) image4 = setImageView(images.get(3), 683);
-        else if(image4!=null) image4.setImage(null);
+        else if (image4 != null) image4.setImage(null);
         addImages();
         if (cards.size() > 0) card1 = cards.get(0);
         else card1 = null;
@@ -144,21 +143,64 @@ public class AddCardToDeckView extends Application implements Initializable {
         else card3 = null;
         if (cards.size() > 3) card4 = cards.get(3);
         else card4 = null;
-        resetAnchorpanes();
+        removeBadAnchorPanes();
+        System.out.println("resetImagesAndCards");
     }
 
-    private void resetAnchorpanes(){
-        if (image1 == null) {
-            root.getChildren().remove(anchorPane1);
+    private void removeBadAnchorPanes() {
+        if (root != null) {
+            System.out.println(root.getChildren());
+            if (image1 ==null || image1.getImage() == null) {
+                for (Node child : root.getChildren()) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane1")){
+                        child.toBack();
+                        break;
+                    }
+                }
+            }
+            if (image2 ==null || image2.getImage() == null) {
+                System.out.println(anchorPane2);
+                for (Node child : root.getChildren()) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane2")){
+                        System.out.println(child.getId());
+                        child.toBack();
+                        break;
+                    }
+                }
+            }
+            if (image3 ==null || image3.getImage() == null) {
+                System.out.println(anchorPane3);
+                for (Node child : root.getChildren()) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane3")){
+                        child.toBack();
+                        break;
+                    }
+                }
+            }
+            if (image4 ==null || image4.getImage() == null) {
+                System.out.println(anchorPane4);
+                for (Node child : root.getChildren()) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane4")){
+                        child.toBack();
+                        break;
+                    }
+                }
+            }
         }
-        if (image2 == null) {
-            root.getChildren().remove(anchorPane2);
+    }
+
+    private void addGoodAnchorPanes() {
+        if (image1 != null && !root.getChildren().contains(anchorPane1)) {
+            root.getChildren().add(anchorPane1);
         }
-        if (image3 == null) {
-            root.getChildren().remove(anchorPane3);
+        if (image2 != null && !root.getChildren().contains(anchorPane2)) {
+            root.getChildren().add(anchorPane2);
         }
-        if (image4 == null) {
-            root.getChildren().remove(anchorPane4);
+        if (image3 != null && !root.getChildren().contains(anchorPane3)) {
+            root.getChildren().add(anchorPane3);
+        }
+        if (image4 != null && !root.getChildren().contains(anchorPane4)) {
+            root.getChildren().add(anchorPane4);
         }
     }
 
@@ -192,6 +234,8 @@ public class AddCardToDeckView extends Application implements Initializable {
         DeckController.getInstance(user).setUsersCards();
         setImagesAndCards();
         addImages();
+        removeBadAnchorPanes();
+        System.out.println("initialize");
     }
 
     public void addToMainDeck1() {
@@ -234,6 +278,7 @@ public class AddCardToDeckView extends Application implements Initializable {
     }
 
     public void back() throws Exception {
+        AllDecksViewGraphic.getInstance().setCurrentUser(user);
         AllDecksViewGraphic.getInstance().start(stage); //todo
     }
 

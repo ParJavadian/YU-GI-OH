@@ -195,8 +195,4 @@ public class AllDecksViewGraphic extends Application implements Initializable {
         alert.setHeaderText("");
         alert.showAndWait();
     }
-
-    public void edit(){
-
-    }
 }
