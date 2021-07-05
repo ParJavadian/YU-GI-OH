@@ -31,7 +31,11 @@
         </font>
     </TextField>
     <Button layoutX="399.0" layoutY="503.0" mnemonicParsing="false" onAction="#createNewDeck" prefHeight="35.0"
-            prefWidth="58.0" text="Create"/>
+            prefWidth="58.0" text="Create">
+        <font>
+            <Font name="Agency FB" size="15.0"/>
+        </font>
+    </Button>
     <Button onAction="#goBack" layoutX="58.0" layoutY="545.0" mnemonicParsing="false" text="Back">
         <font>
             <Font name="Agency FB" size="15.0"/>

@@ -116,15 +116,13 @@ public class AllDecksViewGraphic extends Application implements Initializable {
             if (button.equals(actionEvent.getSource())) {
                 RadioButton radioButton = (RadioButton) anchorPane.getChildren().get(0);
                 Deck deck = user.getDeckByName(radioButton.getText());
-                AddCardToDeckView.getInstance().setCurrentUser(user);
-                AddCardToDeckView.getInstance().setCurrentDeck(deck);
+                RemoveCardFromDeckView.getInstance().setCurrentUser(user);
+                RemoveCardFromDeckView.getInstance().setCurrentDeck(deck);
                 try {
-                    AddCardToDeckView.getInstance().start(stage);
+                    RemoveCardFromDeckView.getInstance().start(stage);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                //TODO call edit menu of kiana
             }
         }
     }

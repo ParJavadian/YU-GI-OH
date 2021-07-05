@@ -179,7 +179,7 @@ public class DeckController {
                         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
                         importExportUserController.exportCardsInSideDeck(DeckController.user, deckName);
                         importExportUserController.exportAllCards(DeckController.user);
-                        DeckView.getInstance(user).printText("card removed form deck successfully");
+                        RemoveCardFromSideDeckView.getInstance().printTextInformation("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "side");
                 } else {
                     if (deck.cardExistsInDeck(card, false)) {
@@ -306,5 +306,7 @@ public class DeckController {
         return cards;
     }
 
-
+    public void setSideDeckCards(Deck deck) {
+        allCards = (ArrayList<Card>) deck.getSideDeck();
+    }
 }

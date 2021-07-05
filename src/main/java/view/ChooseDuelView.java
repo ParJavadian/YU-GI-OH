@@ -1,3 +1,4 @@
+/*
 package view;
 
 import controller.ChooseDuelControllerGraphic;
@@ -68,3 +69,4 @@ public class ChooseDuelView extends Application {
 
 
 }
+*/
