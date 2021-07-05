@@ -7,52 +7,53 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainViewGraphic">
-   <children>
-      <ImageView fitHeight="600.0" fitWidth="900.0">
-         <image>
-            <Image url="@13.jpg" />
-         </image>
-      </ImageView>
-      <Button layoutX="443.0" layoutY="140.0" mnemonicParsing="false" text="New Duel" textFill="#c800ff">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="429.0" layoutY="196.0" mnemonicParsing="false" text="Deck Settings" textFill="#c800ff">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="434.0" layoutY="251.0" text="ScoreBoard" onMouseClicked="#showScoreboard" textFill="#c800ff">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="450.0" layoutY="308.0" mnemonicParsing="false" text="Profile" onMouseClicked="#profileMenu" textFill="#c800ff">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="456.0" layoutY="364.0" mnemonicParsing="false" text="Shop" textFill="#c800ff">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="426.0" layoutY="419.0" mnemonicParsing="false" text="Import/Export" textFill="#c800ff">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="451.0" layoutY="471.0" mnemonicParsing="false" onMouseClicked="#logout" text="Logout" textFill="#c800ff">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
-      <Text fill="#f6f6f6" layoutX="415.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN MENU">
-         <font>
-            <Font name="Agency FB Bold" size="36.0" />
-         </font>
-      </Text>
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainViewGraphic">
+    <ImageView fitHeight="600.0" fitWidth="900.0">
+        <Image url="@images/backgrounds/13.jpg"/>
+    </ImageView>
+    <Button layoutX="443.0" layoutY="140.0" mnemonicParsing="false"  onMouseClicked="#newDuel" text="New Duel" textFill="#c800ff">
+        <font>
+            <Font name="Agency FB Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="429.0" layoutY="196.0" mnemonicParsing="false" text="Deck Settings" textFill="#c800ff"
+            onAction="#goToDeckMenu">
+        <font>
+            <Font name="Agency FB Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="434.0" layoutY="251.0" text="ScoreBoard" onMouseClicked="#showScoreboard" textFill="#c800ff">
+        <font>
+            <Font name="Agency FB Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="450.0" layoutY="308.0" mnemonicParsing="false" text="Profile" onMouseClicked="#profileMenu"
+            textFill="#c800ff">
+        <font>
+            <Font name="Agency FB Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="456.0" layoutY="364.0" mnemonicParsing="false" text="Shop" onMouseClicked="#shopMenu"
+            textFill="#c800ff">
+        <font>
+            <Font name="Agency FB Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="426.0" layoutY="419.0" mnemonicParsing="false" text="Import/Export" textFill="#c800ff">
+        <font>
+            <Font name="Agency FB Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Button layoutX="451.0" layoutY="471.0" mnemonicParsing="false" onMouseClicked="#logout" text="Logout"
+            textFill="#c800ff">
+        <font>
+            <Font name="Agency FB Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Text fill="#f6f6f6" layoutX="415.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN MENU">
+        <font>
+            <Font name="Agency FB Bold" size="36.0"/>
+        </font>
+    </Text>
 </AnchorPane>

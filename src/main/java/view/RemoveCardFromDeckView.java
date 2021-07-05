@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -39,6 +36,8 @@ public class RemoveCardFromDeckView extends Application implements Initializable
     private static AnchorPane root;
     @FXML
     private AnchorPane anchorPane1, anchorPane2, anchorPane3, anchorPane4;
+    @FXML
+    private Label label;
 
 
     public static RemoveCardFromDeckView getInstance() {
@@ -240,6 +239,7 @@ public class RemoveCardFromDeckView extends Application implements Initializable
         setImagesAndCards();
         addImages();
         removeBadAnchorPanes();
+        label.setText(deck.getDeckName());
     }
 
     public void back() throws Exception {

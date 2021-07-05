@@ -23,31 +23,382 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ScoreBoard">
-      <change afterPath="$PROJECT_DIR$/Users/aa.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/p.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/qq.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/r.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseDuelControllerGraphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/NewDuelMenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/timeToDuel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cards/hamraz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cards/l.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cards/parmida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/@AI@DeckForAIMainDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/hamrazoneMainDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/hamrazoneSideDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/kiana_mszdeck to check full mainmainDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/kiana_mszdeck to check full mainsideDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/ksdfMainDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/ksdfSideDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/lfgMainDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/lfgSideDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/parmidaoneParmidaMainDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/parmidaoneParmidaSideDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Deck/pضMainDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/k.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/l.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Users/p.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/allUsers.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/AllDecksMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/BoardGamePlayerOne.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/BoardGamePlayerTwo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/CreateNewDeck.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/NewDuelMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/RemoveCardFromDeck.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/RemoveCardFromSideDeck.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/RockPaperScissor.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/ShopMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/BoardGraphicController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ChangeNicknameControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ChangePasswordControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ChangeUsernameControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ChooseDuelControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ImportExportUserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/LogInControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/MainControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/MenuTypesGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/PreviousMenuControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ProfileControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ScoreBoardControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/SignUpControllerGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/CanNotActivateEffectInThisPhase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/EmptyDeckNameBox.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/NoMonsterHere.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/AdvancedRitualArt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/AlexandriteDragon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/AxeRaider.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/BabyDragon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/BattleOx.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/BattleWarrior.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/BeastKingBarbaros.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Bitron.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/BlackPendant.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/BlueEyesWhiteDragon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Call of the Hunted.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/ChangeOfHeart.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/ClosedForest.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/CommandKnight.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/CrabTurtle.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/CrawlingDragon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/CurtainOfTheDarkOnes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/DarkBlade.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/DarkHole.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/DarkMagician.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/ExploderDragon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/FeralImp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Fireyarou.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/FlameManipulator.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Forest.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/GateGuardian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Haniwa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/HarpiesFeatherDuster.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/HeraldOfCreation.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/HeroOfTheEast.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/HornImp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Leotron.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/MagicCylinder.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/MagicJammer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/MagnumShield.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/ManEaterBug.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Marshmallon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/MessengerOfPeace.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/MindCrush.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/MirageDragon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/MirrorForce.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/MonsterReborn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/MysticalSpaceTyphoon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/NegateAttack.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/PotOfGreed.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Raigeki.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/RingOfDefense.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Scanner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/SilverFang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/SkullGuardian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/SlotMachine.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/SolemnWarning.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/SpellAbsorption.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/SpiralSerpent.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Suijin.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/SupplySquad.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/SwordOfDarkDestruction.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/SwordOfRevealingLight.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Terraforming.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Terratiger.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Texchanger.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/TheCalculator.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/TheTricky.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/TimeSeal.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/TorrentialTribute.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/TrapHole.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/TwinTwisters.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Umiiruka.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/UnitedWeStand.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Unknown.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/VanitysEmptiness.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/WallOfRevealingLight.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/WarriorDaiGrepher.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Wattaildragon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Wattkid.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/Yami.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/Cards/YomiShip.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/23.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/24.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/25.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/27.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/28.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/30.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/deckView.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/backgrounds/showAllDecks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/circle-cropped.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/divarNesfe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/fie_normal.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (10).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (11).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (12).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (13).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (14).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (15).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (16).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (17).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (18).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (19).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (20).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (21).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (22).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (23).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (24).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (25).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (26).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (27).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (28).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (29).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (3).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (30).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (31).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (32).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (33).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (34).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (35).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (36).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (4).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (5).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (6).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (7).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (8).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile (9).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/profiles/profile5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/timeToDuel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/images/wallUdeer.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Card.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/src.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$34.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$35.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$36.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/AddCardToDeckView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/AllDecksViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/BoardGamePlayerOne.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/BoardGamePlayerTwo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ChangeNicknameViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ChangePasswordViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ChangeUsernameViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/LogInViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/MainViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ProfileViewForGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/RemoveCardFromDeckView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/RemoveCardFromSideDeckView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ScoreBoardViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ShopViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ShowDeckDetailsViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/SignUpViewGraphic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/wall.jfif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/Z.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/Z.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/a.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/i.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/i.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/q.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/w.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/w.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/I.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/[.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/a.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/b.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/g.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/j.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/k.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/m.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/p.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/s.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/u.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/w.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/ا.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/پ.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromDeckView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromSideDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromSideDeckView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RemoveCardFromDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RemoveCardFromDeck.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RemoveCardFromSideDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RemoveCardFromSideDeck.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/30.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/ChangeNickname.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/ChangeNickname.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/ChangePassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/ChangePassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/ChangeUsername.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/ChangeUsername.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/Profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/ScoreBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/ScoreBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/SignUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/DeckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/DuelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/DuelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ImportExportCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ImportExportCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/LogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/CardNotFoundForShop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/InsufficientMonstersLevel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/NoMonsterHere1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/controller/exeption/NoMonsterHere2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Cardable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$34.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$34.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$35.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$35.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$36.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$36.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$37.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$37.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$38.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$38.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$39.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$39.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$40.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$40.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$41.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$41.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/MonsterCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Round.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/Round.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SelectedCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SelectedCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/SpellCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/TakeActionCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/TakeActionCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/TrapCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/TrapCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/profile.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$28.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$29.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$30.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$31.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$32.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$33.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/DeckView.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/DeckView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/DuelView.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/DuelView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ImportExportView.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ImportExportView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/MainView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ProfileView.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/view/ProfileView.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +443,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hw4_q1_try1/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -107,6 +458,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.SignUpViewGraphic">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -140,17 +502,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

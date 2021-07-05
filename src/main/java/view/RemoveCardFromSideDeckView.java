@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -37,6 +38,8 @@ public class RemoveCardFromSideDeckView extends Application implements Initializ
     private static AnchorPane root;
     @FXML
     private AnchorPane anchorPane1, anchorPane2, anchorPane3, anchorPane4;
+    @FXML
+    private Label label;
 
     public static RemoveCardFromSideDeckView getInstance() {
         if (instance == null) instance = new RemoveCardFromSideDeckView();
@@ -238,6 +241,7 @@ public class RemoveCardFromSideDeckView extends Application implements Initializ
         setImagesAndCards();
         addImages();
         removeBadAnchorPanes();
+        label.setText(deck.getDeckName());
     }
 
     public void back() throws Exception {
