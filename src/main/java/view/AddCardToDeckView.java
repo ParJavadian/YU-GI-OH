@@ -32,6 +32,7 @@ public class AddCardToDeckView extends Application implements Initializable {
     public static ImageView image1, image2, image3, image4;
     private static int totalCardsNumber;
     private static int firstCardNumber = 0;
+    private static boolean hasComeFromSide;
     private static AnchorPane root;
     @FXML
     private AnchorPane anchorPane1, anchorPane2, anchorPane3, anchorPane4;
@@ -50,6 +51,10 @@ public class AddCardToDeckView extends Application implements Initializable {
         AddCardToDeckView.deck = deck;
     }
 
+    public void setHasComeFromSide(boolean hasComeFromSide) {
+        AddCardToDeckView.hasComeFromSide = hasComeFromSide;
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         AddCardToDeckView.stage = stage;
@@ -66,11 +71,10 @@ public class AddCardToDeckView extends Application implements Initializable {
 
 
     public void addCardToDeck(Card card, boolean isSide) {
-        try{
-            DeckController.getInstance(user).addCardToDeck(card.getNamePascalCase(), deck.getDeckName(), isSide,false);
+        try {
+            DeckController.getInstance(user).addCardToDeck(card.getNamePascalCase(), deck.getDeckName(), isSide, false);
             resetImagesAndCards();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             printTextError(e.getMessage());
         }
         /*if (deck.getCountOfCardInDeck(card) > 2) {
@@ -122,7 +126,7 @@ public class AddCardToDeckView extends Application implements Initializable {
         imageView.setFitWidth(140);
         imageView.setFitHeight(204);
         imageView.setX(x);
-        imageView.setY(64);
+        imageView.setY(80);
         return imageView;
     }
 
@@ -155,33 +159,33 @@ public class AddCardToDeckView extends Application implements Initializable {
 
     private void removeBadAnchorPanes() {
         if (root != null) {
-            if (image1 ==null || image1.getImage() == null) {
+            if (image1 == null || image1.getImage() == null) {
                 for (Node child : root.getChildren()) {
-                    if(child instanceof AnchorPane && child.getId().equals("anchorPane1")){
+                    if (child instanceof AnchorPane && child.getId().equals("anchorPane1")) {
                         child.setVisible(false);
                         break;
                     }
                 }
             }
-            if (image2 ==null || image2.getImage() == null) {
+            if (image2 == null || image2.getImage() == null) {
                 for (Node child : root.getChildren()) {
-                    if(child instanceof AnchorPane && child.getId().equals("anchorPane2")){
+                    if (child instanceof AnchorPane && child.getId().equals("anchorPane2")) {
                         child.setVisible(false);
                         break;
                     }
                 }
             }
-            if (image3 ==null || image3.getImage() == null) {
+            if (image3 == null || image3.getImage() == null) {
                 for (Node child : root.getChildren()) {
-                    if(child instanceof AnchorPane && child.getId().equals("anchorPane3")){
+                    if (child instanceof AnchorPane && child.getId().equals("anchorPane3")) {
                         child.setVisible(false);
                         break;
                     }
                 }
             }
-            if (image4 ==null || image4.getImage() == null) {
+            if (image4 == null || image4.getImage() == null) {
                 for (Node child : root.getChildren()) {
-                    if(child instanceof AnchorPane && child.getId().equals("anchorPane4")){
+                    if (child instanceof AnchorPane && child.getId().equals("anchorPane4")) {
                         child.setVisible(false);
                         break;
                     }
@@ -192,33 +196,33 @@ public class AddCardToDeckView extends Application implements Initializable {
 
     private void addGoodAnchorPanes() {
         if (root != null) {
-            if (image1 !=null && image1.getImage() != null) {
+            if (image1 != null && image1.getImage() != null) {
                 for (Node child : root.getChildren()) {
-                    if(child instanceof AnchorPane && child.getId().equals("anchorPane1")){
+                    if (child instanceof AnchorPane && child.getId().equals("anchorPane1")) {
                         child.setVisible(true);
                         break;
                     }
                 }
             }
-            if (image2 !=null && image2.getImage() != null) {
+            if (image2 != null && image2.getImage() != null) {
                 for (Node child : root.getChildren()) {
-                    if(child instanceof AnchorPane && child.getId().equals("anchorPane2")){
+                    if (child instanceof AnchorPane && child.getId().equals("anchorPane2")) {
                         child.setVisible(true);
                         break;
                     }
                 }
             }
-            if (image3 !=null && image3.getImage() != null) {
+            if (image3 != null && image3.getImage() != null) {
                 for (Node child : root.getChildren()) {
-                    if(child instanceof AnchorPane && child.getId().equals("anchorPane3")){
+                    if (child instanceof AnchorPane && child.getId().equals("anchorPane3")) {
                         child.setVisible(true);
                         break;
                     }
                 }
             }
-            if (image4 !=null && image4.getImage() != null) {
+            if (image4 != null && image4.getImage() != null) {
                 for (Node child : root.getChildren()) {
-                    if(child instanceof AnchorPane && child.getId().equals("anchorPane4")){
+                    if (child instanceof AnchorPane && child.getId().equals("anchorPane4")) {
                         child.setVisible(true);
                         break;
                     }
@@ -301,16 +305,14 @@ public class AddCardToDeckView extends Application implements Initializable {
     }
 
     public void back() throws Exception {
-        RemoveCardFromDeckView.getInstance().setCurrentUser(user);
-        RemoveCardFromDeckView.getInstance().setCurrentDeck(deck);
-        RemoveCardFromDeckView.getInstance().start(stage); //todo
+        if (hasComeFromSide) {
+            RemoveCardFromSideDeckView.getInstance().setCurrentUser(user);
+            RemoveCardFromSideDeckView.getInstance().setCurrentDeck(deck);
+            RemoveCardFromSideDeckView.getInstance().start(stage);
+        } else {
+            RemoveCardFromDeckView.getInstance().setCurrentUser(user);
+            RemoveCardFromDeckView.getInstance().setCurrentDeck(deck);
+            RemoveCardFromDeckView.getInstance().start(stage);
+        }
     }
-
-    public void removeCardFromDeck() throws Exception {
-        RemoveCardFromDeckView.getInstance().setCurrentUser(user);
-        RemoveCardFromDeckView.getInstance().setCurrentDeck(deck);
-        RemoveCardFromDeckView.getInstance().start(stage); //todo
-    }
-
-
 }

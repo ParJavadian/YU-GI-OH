@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -74,9 +75,9 @@
             </font>
         </Button>
     </AnchorPane>
-   <Button layoutX="345.0" layoutY="469.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="211.0" onMouseClicked="#removeCardFromDeck" text="Remove Card From Deck">
+   <Label layoutX="338.0" layoutY="23.0" text="ALL OF YOUR CARDS" textFill="#01708f">
       <font>
-         <Font name="Agency FB Bold" size="19.0" />
+         <Font name="Agency FB Bold" size="33.0" />
       </font>
-   </Button>
+   </Label>
 </AnchorPane>

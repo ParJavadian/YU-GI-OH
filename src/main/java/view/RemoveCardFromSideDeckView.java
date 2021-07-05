@@ -11,11 +11,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Card;
@@ -26,10 +24,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class RemoveCardFromDeckView extends Application implements Initializable {
+public class RemoveCardFromSideDeckView extends Application implements Initializable {
     private static Stage stage;
     private static Deck deck;
-    private static RemoveCardFromDeckView instance = null;
+    private static RemoveCardFromSideDeckView instance = null;
     private static User user;
     private static ArrayList<Image> images = new ArrayList<>(4);
     private static Card card1, card2, card3, card4;
@@ -40,26 +38,25 @@ public class RemoveCardFromDeckView extends Application implements Initializable
     @FXML
     private AnchorPane anchorPane1, anchorPane2, anchorPane3, anchorPane4;
 
-
-    public static RemoveCardFromDeckView getInstance() {
-        if (instance == null) instance = new RemoveCardFromDeckView();
+    public static RemoveCardFromSideDeckView getInstance() {
+        if (instance == null) instance = new RemoveCardFromSideDeckView();
         return instance;
     }
 
     public void setCurrentUser(User user) {
-        RemoveCardFromDeckView.user = user;
+        RemoveCardFromSideDeckView.user = user;
     }
 
     public void setCurrentDeck(Deck deck) {
-        RemoveCardFromDeckView.deck = deck;
+        RemoveCardFromSideDeckView.deck = deck;
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        RemoveCardFromDeckView.stage = stage;
-        URL url = getClass().getResource("/RemoveCardFromDeck.fxml");
+        RemoveCardFromSideDeckView.stage = stage;
+        URL url = getClass().getResource("/RemoveCardFromSideDeck.fxml");
         root = FXMLLoader.load(url);
-        DeckController.getInstance(user).setMainDeckCards(deck);
+        DeckController.getInstance(user).setSideDeckCards(deck);
         DeckController.initImages();
         setImagesAndCards();
         addImages();
@@ -101,33 +98,33 @@ public class RemoveCardFromDeckView extends Application implements Initializable
 
     private void removeBadAnchorPanes() {
         if (root != null) {
-            if (image1 == null || image1.getImage() == null) {
+            if (image1 ==null || image1.getImage() == null) {
                 for (Node child : root.getChildren()) {
-                    if (child instanceof AnchorPane && child.getId().equals("anchorPane1")) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane1")){
                         child.setVisible(false);
                         break;
                     }
                 }
             }
-            if (image2 == null || image2.getImage() == null) {
+            if (image2 ==null || image2.getImage() == null) {
                 for (Node child : root.getChildren()) {
-                    if (child instanceof AnchorPane && child.getId().equals("anchorPane2")) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane2")){
                         child.setVisible(false);
                         break;
                     }
                 }
             }
-            if (image3 == null || image3.getImage() == null) {
+            if (image3 ==null || image3.getImage() == null) {
                 for (Node child : root.getChildren()) {
-                    if (child instanceof AnchorPane && child.getId().equals("anchorPane3")) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane3")){
                         child.setVisible(false);
                         break;
                     }
                 }
             }
-            if (image4 == null || image4.getImage() == null) {
+            if (image4 ==null || image4.getImage() == null) {
                 for (Node child : root.getChildren()) {
-                    if (child instanceof AnchorPane && child.getId().equals("anchorPane4")) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane4")){
                         child.setVisible(false);
                         break;
                     }
@@ -137,16 +134,17 @@ public class RemoveCardFromDeckView extends Application implements Initializable
     }
 
     public void removeCardFromDeck(Card card, boolean isSide) {
-        try {
+        try{
             DeckController.getInstance(user).removeCardFromDeck(card.getNamePascalCase(), deck.getDeckName(), isSide);
             resetImagesAndCards();
-        } catch (Exception e) {
+        }
+        catch (Exception e){
             printTextError(e.getMessage());
         }
     }
 
     private void resetImagesAndCards() {
-        DeckController.getInstance(user).setMainDeckCards(deck);
+        DeckController.getInstance(user).setSideDeckCards(deck);
         //DeckController.getInstance(user).setUsersCards();
         DeckController.initImages();
         images = DeckController.getInstance(user).getImages(firstCardNumber);
@@ -175,33 +173,33 @@ public class RemoveCardFromDeckView extends Application implements Initializable
 
     private void addGoodAnchorPanes() {
         if (root != null) {
-            if (image1 != null && image1.getImage() != null) {
+            if (image1 !=null && image1.getImage() != null) {
                 for (Node child : root.getChildren()) {
-                    if (child instanceof AnchorPane && child.getId().equals("anchorPane1")) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane1")){
                         child.setVisible(true);
                         break;
                     }
                 }
             }
-            if (image2 != null && image2.getImage() != null) {
+            if (image2 !=null && image2.getImage() != null) {
                 for (Node child : root.getChildren()) {
-                    if (child instanceof AnchorPane && child.getId().equals("anchorPane2")) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane2")){
                         child.setVisible(true);
                         break;
                     }
                 }
             }
-            if (image3 != null && image3.getImage() != null) {
+            if (image3 !=null && image3.getImage() != null) {
                 for (Node child : root.getChildren()) {
-                    if (child instanceof AnchorPane && child.getId().equals("anchorPane3")) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane3")){
                         child.setVisible(true);
                         break;
                     }
                 }
             }
-            if (image4 != null && image4.getImage() != null) {
+            if (image4 !=null && image4.getImage() != null) {
                 for (Node child : root.getChildren()) {
-                    if (child instanceof AnchorPane && child.getId().equals("anchorPane4")) {
+                    if(child instanceof AnchorPane && child.getId().equals("anchorPane4")){
                         child.setVisible(true);
                         break;
                     }
@@ -235,7 +233,7 @@ public class RemoveCardFromDeckView extends Application implements Initializable
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        DeckController.getInstance(user).setMainDeckCards(deck);
+        DeckController.getInstance(user).setSideDeckCards(deck);
         DeckController.initImages();
         setImagesAndCards();
         addImages();
@@ -248,7 +246,7 @@ public class RemoveCardFromDeckView extends Application implements Initializable
     }
 
     public void goNextPage() {
-        if (firstCardNumber + 4 >= deck.getMainDeck().size()) return;
+        if (firstCardNumber + 4 >= deck.getSideDeck().size()) return;
         firstCardNumber += 4;
         resetImagesAndCards();
     }
@@ -261,36 +259,32 @@ public class RemoveCardFromDeckView extends Application implements Initializable
 
 
     public void removeCardFromDeck1() {
-        removeCardFromDeck(card1, false);
+        removeCardFromDeck(card1, true);
     }
 
     public void removeCardFromDeck2() {
-        removeCardFromDeck(card2, false);
+        removeCardFromDeck(card2, true);
     }
 
     public void removeCardFromDeck3() {
-        removeCardFromDeck(card3, false);
+        removeCardFromDeck(card3, true);
     }
 
     public void removeCardFromDeck4() {
-        removeCardFromDeck(card4, false);
+        removeCardFromDeck(card4, true);
     }
 
 
     public void addCardToDeck() throws Exception {
         AddCardToDeckView.getInstance().setCurrentUser(user);
         AddCardToDeckView.getInstance().setCurrentDeck(deck);
-        AddCardToDeckView.getInstance().setHasComeFromSide(false);
+        AddCardToDeckView.getInstance().setHasComeFromSide(true);
         AddCardToDeckView.getInstance().start(stage);
     }
 
-    public void openSideDeckMenu() throws Exception {
-        RemoveCardFromSideDeckView.getInstance().setCurrentUser(user);
-        RemoveCardFromSideDeckView.getInstance().setCurrentDeck(deck);
-        RemoveCardFromSideDeckView.getInstance().start(stage);
-    }
-
-    public void openMainDeckMenu() {
-
+    public void openMainDeckMenu() throws Exception{
+        RemoveCardFromDeckView.getInstance().setCurrentUser(user);
+        RemoveCardFromDeckView.getInstance().setCurrentDeck(deck);
+        RemoveCardFromDeckView.getInstance().start(stage);
     }
 }

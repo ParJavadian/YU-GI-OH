@@ -123,8 +123,6 @@ public class AllDecksViewGraphic extends Application implements Initializable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                //TODO call edit menu of kiana
             }
         }
     }
