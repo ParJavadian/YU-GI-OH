@@ -131,38 +131,6 @@ public class RemoveCardFromDeckView extends Application implements Initializable
         }
     }
 
-    public void removeCardFromDeck1() {
-        removeCardFromDeck(card1, false);
-    }
-
-    public void removeCardFromDeck2() {
-        removeCardFromDeck(card2, false);
-    }
-
-    public void removeCardFromDeck3() {
-        removeCardFromDeck(card3, false);
-    }
-
-    public void removeCardFromDeck4() {
-        removeCardFromDeck(card4, false);
-    }
-
-//    public void addToSideDeck1() {
-//        removeCardFromDeck(card1, true);
-//    }
-//
-//    public void addToSideDeck2() {
-//        removeCardFromDeck(card2, true);
-//    }
-//
-//    public void addToSideDeck3() {
-//        removeCardFromDeck(card3, true);
-//    }
-//
-//    public void addToSideDeck4() {
-//        removeCardFromDeck(card4, true);
-//    }
-
     public void removeCardFromDeck(Card card, boolean isSide) {
         try{
             DeckController.getInstance(user).removeCardFromDeck(card.getNamePascalCase(), deck.getDeckName(), isSide);
@@ -263,7 +231,7 @@ public class RemoveCardFromDeckView extends Application implements Initializable
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        DeckController.getInstance(user).setUsersCards();
+        DeckController.getInstance(user).setMainDeckCards(deck);
         setImagesAndCards();
         addImages();
         removeBadAnchorPanes();
@@ -287,7 +255,21 @@ public class RemoveCardFromDeckView extends Application implements Initializable
     }
 
 
+    public void removeCardFromDeck1() {
+        removeCardFromDeck(card1, false);
+    }
 
+    public void removeCardFromDeck2() {
+        removeCardFromDeck(card2, false);
+    }
+
+    public void removeCardFromDeck3() {
+        removeCardFromDeck(card3, false);
+    }
+
+    public void removeCardFromDeck4() {
+        removeCardFromDeck(card4, false);
+    }
 
 
 }
