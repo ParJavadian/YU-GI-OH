@@ -12,7 +12,7 @@
     <ImageView fitHeight="600.0" fitWidth="900.0">
         <Image url="@13.jpg"/>
     </ImageView>
-    <Button layoutX="443.0" layoutY="140.0" mnemonicParsing="false" text="New Duel" textFill="#c800ff">
+    <Button layoutX="443.0" layoutY="140.0" mnemonicParsing="false"  onMouseClicked="#newDuel" text="New Duel" textFill="#c800ff">
         <font>
             <Font name="Agency FB Bold" size="18.0"/>
         </font>

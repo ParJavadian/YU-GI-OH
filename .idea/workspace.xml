@@ -23,40 +23,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ScoreBoard">
-      <change afterPath="$PROJECT_DIR$/Users/,.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/22k.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/;.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/KK.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/MOHAMMAD TAHA.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/N.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/O`O.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/P.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/l.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/lLl.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/nN.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/o.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/oO.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ppp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/aa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/p.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/qq.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/r.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/x.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ya hagh.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ya.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/ت.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/م.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseDuelControllerGraphic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/NewDuelMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/timeToDuel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/Z.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/Z.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/a.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/i.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/i.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/q.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/q.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/w.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/w.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +68,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -145,6 +145,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project_team_17" />
       <option name="PACKAGE_NAME" value="" />
@@ -189,6 +200,7 @@
       <option name="presentableId" value="Default" />
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
+      <workItem from="1625476998745" duration="2760000" />
     </task>
     <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
       <created>1623149665559</created>

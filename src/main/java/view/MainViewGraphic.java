@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 
@@ -56,5 +57,9 @@ public class MainViewGraphic extends Application {
 
     public void goToDeckMenu() throws Exception {
         MainControllerGraphic.showDeckMenu(user,stage);
+    }
+
+    public void newDuel(MouseEvent event) throws Exception{
+        MainControllerGraphic.showNewDuelMenu(user,stage);
     }
 }

@@ -33,6 +33,11 @@ public class MainControllerGraphic {
         AllDecksViewGraphic.getInstance().start(stage);
     }
 
+    public static void showNewDuelMenu(User user, Stage stage) throws Exception{
+        ChooseDuelView.getInstance().setCurrentUser(user);
+        ChooseDuelView.getInstance().start(stage);
+    }
+
 //    public static void showDeckMenu(User user, Stage stage) throws Exception {
 //        DeckViewGraphic.getInstance().setCurrentUser(user);
 //        DeckViewGraphic.getInstance().start(stage);
