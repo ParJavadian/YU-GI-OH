@@ -79,6 +79,7 @@ public class DeckController {
 
     public void deleteDeck(String name) throws Exception {
         if (DeckController.user.getDeckByName(name) != null) {
+            DeckController.user.addDeckCardsToUserAllCards(name);
             DeckController.user.deleteDeck(name);
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.exportAllDecksName(DeckController.user.getAllDecks(), DeckController.user);

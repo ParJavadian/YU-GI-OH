@@ -1,5 +1,6 @@
 package view;
 
+import controller.DeckController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -74,7 +75,7 @@ public class AllDecksViewGraphic extends Application implements Initializable {
         radioButton.setMaxWidth(180);
         anchorPane1.getChildren().add(radioButton);
         Label label = new Label();
-        label.setText(String.valueOf(deck.getMainSize()+deck.getSideSize()));
+        label.setText(String.valueOf(deck.getMainSize() + deck.getSideSize()));
         /*if (deck.isValid())
             label.setText(" : Valid");
         else
@@ -140,7 +141,12 @@ public class AllDecksViewGraphic extends Application implements Initializable {
             Button button = (Button) anchorPane.getChildren().get(3);
             if (button.equals(actionEvent.getSource())) {
                 RadioButton radioButton = (RadioButton) anchorPane.getChildren().get(0);
-                user.deleteDeck(radioButton.getText());
+                try {
+                    DeckController.getInstance(user).deleteDeck(radioButton.getText());
+                } catch (Exception ignored) {
+
+                }
+//                user.deleteDeck(radioButton.getText());
                 decks.remove(anchorPane);
                 for (int j = 0; j < vBox.getChildren().size(); j++) {
                     AnchorPane anchorPane1 = (AnchorPane) vBox.getChildren().get(j);
@@ -166,7 +172,7 @@ public class AllDecksViewGraphic extends Application implements Initializable {
 
     private void setActiveDeckInitialize(Deck deck) {
         for (int i = 0; i < decks.size(); i++) {
-            AnchorPane anchorPane = (AnchorPane)vBox.getChildren().get(i);
+            AnchorPane anchorPane = (AnchorPane) vBox.getChildren().get(i);
             RadioButton radioButton = (RadioButton) anchorPane.getChildren().get(0);
             if (radioButton.getText().equals(deck.getDeckName())) {
                 toggleGroup.getToggles().get(i).setSelected(true);

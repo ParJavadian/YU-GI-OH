@@ -250,4 +250,9 @@ public class User {
         this.allCards.remove(cardToBeDeleted);
     }
 
+    public void addDeckCardsToUserAllCards(String name) {
+        Deck deck = this.getDeckByName(name);
+        allCards.addAll(deck.getMainDeck());
+        allCards.addAll(deck.getSideDeck());
+    }
 }
