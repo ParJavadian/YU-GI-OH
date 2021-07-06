@@ -22,9 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 3">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 3-2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,13 +186,6 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
-    </task>
-    <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
-      <created>1623149665559</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1623149665559</updated>
     </task>
     <task id="LOCAL-00002" summary="ScoreBoardViewGraphic.java">
       <created>1623149688409</created>
@@ -521,7 +515,14 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۹" />
       <updated>1625571369460</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Duel View 3-2">
+      <created>1625582193704</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1625582193704</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +542,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug takeAction1" />
     <MESSAGE value="debug command knight2" />
     <MESSAGE value="nothing" />
     <MESSAGE value="GATE_GUARDIAN" />
@@ -567,13 +567,30 @@
     <MESSAGE value="rock paper scissor" />
     <MESSAGE value="rock paper scissor names" />
     <MESSAGE value="board cards imageview" />
-    <option name="LAST_COMMIT_MESSAGE" value="board cards imageview" />
+    <MESSAGE value="Duel View 3-2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Duel View 3-2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625581915739">
+    <state width="1237" height="27" key="GridCell.Tab.0.bottom" timestamp="1625586139279">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625581915739" />
+    <state width="1237" height="27" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625586139279" />
+    <state width="1237" height="27" key="GridCell.Tab.0.center" timestamp="1625586139279">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="27" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625586139279" />
+    <state width="1237" height="27" key="GridCell.Tab.0.left" timestamp="1625586139279">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="27" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625586139279" />
+    <state width="1237" height="27" key="GridCell.Tab.0.right" timestamp="1625586139279">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="27" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625586139279" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625582196031">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625582196031" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

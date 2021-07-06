@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 import model.Card;
 import model.User;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -43,10 +45,12 @@ public class GameViewGraphic extends Application implements Initializable {
     public static ImageView imageView1hand1, imageView1hand2, imageView1hand3, imageView1hand4, imageView1hand5, imageView1hand6;
     public static ImageView imageView2hand1, imageView2hand2, imageView2hand3, imageView2hand4, imageView2hand5, imageView2hand6;
     public static ImageView imageView1FieldZone, imageView2FieldZone, imageView1Graveyard, imageView2Graveyard;
+    public ImageView selectedCard;
     @FXML
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
     @FXML
-    private ProgressBar rivalProgressBar,playerProgressBar;
+    private ProgressBar rivalProgressBar, playerProgressBar;
+
     /*public GameViewGraphic(User player,User rival,int numberOfRounds){
         GameViewGraphic.player = player;
         GameViewGraphic.rival = rival;
@@ -210,21 +214,74 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void startMainNoCardSelected() {
-        imageView1hand1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                                 @Override
-                                                 public void handle(MouseEvent event) {
-                                                     showCardDetails(Card.getCardByImage(imageView1hand1.getImage()));
-                                                     imageView1hand1.setEffect(new DropShadow());
-                                                     startMainAHandSelected(imageView1hand1);
-                                                 }
-                                             });
+        Image unknown = new Image("images/Cards/Unknown.jpg");
+        imageView1hand1.setOnMouseClicked(event -> {
+            if(imageView1hand1.getImage()==null) return;
+            if (!imageView1hand1.getImage().equals(unknown))
+                showCardDetails(Card.getCardByImage(imageView1hand1.getImage()));
+            imageView1hand1.setEffect(new DropShadow());
+            try {
+                duelController.selectCardPlayerHand(1);
+            } catch (Exception ignored) {
+
+            }
+            startMainAHandSelected(imageView1hand1);
+        });
+        try {
+            setOnClickSelected(imageView1hand1, duelController.selectCardPlayerHand(1));
+            setOnClickSelected(imageView1hand2);
+            setOnClickSelected(imageView1hand3);
+            setOnClickSelected(imageView1hand4);
+            setOnClickSelected(imageView1hand5);
+            setOnClickSelected(imageView1hand6);
+            setOnClickSelected(imageView1Monster1);
+            setOnClickSelected(imageView1Monster2);
+            setOnClickSelected(imageView1Monster3);
+            setOnClickSelected(imageView1Monster4);
+            setOnClickSelected(imageView1Monster5);
+            setOnClickSelected(imageView2Monster1);
+            setOnClickSelected(imageView2Monster2);
+            setOnClickSelected(imageView2Monster3);
+            setOnClickSelected(imageView2Monster4);
+            setOnClickSelected(imageView2Monster5);
+            setOnClickSelected(imageView1SpellAndTrap1);
+            setOnClickSelected(imageView1SpellAndTrap2);
+            setOnClickSelected(imageView1SpellAndTrap3);
+            setOnClickSelected(imageView1SpellAndTrap4);
+            setOnClickSelected(imageView1SpellAndTrap5);
+            setOnClickSelected(imageView2SpellAndTrap1);
+            setOnClickSelected(imageView2SpellAndTrap2);
+            setOnClickSelected(imageView2SpellAndTrap3);
+            setOnClickSelected(imageView2SpellAndTrap4);
+            setOnClickSelected(imageView2SpellAndTrap5);
+            setOnClickSelected(imageView1FieldZone);
+            setOnClickSelected(imageView2FieldZone);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setOnClickSelected(ImageView imageView, Method method) {
+        Image unknown = new Image("images/Cards/Unknown.jpg");
+        imageView.setOnMouseClicked(event -> {
+            if (!imageView.getImage().equals(unknown))
+                showCardDetails(Card.getCardByImage(imageView.getImage()));
+            imageView.setEffect(new DropShadow());
+            try {
+                method.invoke(null);
+            } catch (Exception e) {
+
+            }
+            startMainAHandSelected(imageView);
+        });
     }
 
     public void showCardDetails(Card card) {
 
     }
 
-    public void startMainAHandSelected(ImageView imageView){
+    public void startMainAHandSelected(ImageView imageView) {
 
     }
 
@@ -234,7 +291,6 @@ public class GameViewGraphic extends Application implements Initializable {
         //playerProgressBar = new ProgressBar(8000);
         playerProgressBar.setProgress(3000);
     }
-
 
 
 }
