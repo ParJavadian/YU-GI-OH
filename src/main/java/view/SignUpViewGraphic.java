@@ -1,5 +1,6 @@
 package view;
 
+import controller.DeckController;
 import controller.ImportExportUserController;
 import controller.SignUpControllerGraphic;
 import javafx.application.Application;
@@ -11,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import model.Deck;
+import model.User;
 
 import java.net.URL;
 
@@ -40,6 +43,8 @@ public class SignUpViewGraphic extends Application {
             importExportUserController.importAllCards();
             importExportUserController.importAllDecks();
             importExportUserController.importActiveDeck();
+            Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
+            User.getUserByUsername("@AI@").setActiveDeck(deck);
 //            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
 //            MediaPlayer mp = new MediaPlayer(media);
 //            mp.setCycleCount(AudioClip.INDEFINITE);

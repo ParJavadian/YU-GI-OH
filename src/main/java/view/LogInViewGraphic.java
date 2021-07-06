@@ -1,5 +1,6 @@
 package view;
 
+import controller.DeckController;
 import controller.ImportExportUserController;
 import controller.LogInControllerGraphic;
 import javafx.application.Application;
@@ -12,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import model.Deck;
+import model.User;
 
 import java.net.URL;
 
@@ -38,6 +41,8 @@ public class LogInViewGraphic extends Application {
             importExportUserController.importAllCards();
             importExportUserController.importAllDecks();
             importExportUserController.importActiveDeck();
+            Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
+            User.getUserByUsername("@AI@").setActiveDeck(deck);
 //            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
 //            mediaPlayer = new MediaPlayer(media);
 //            mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
