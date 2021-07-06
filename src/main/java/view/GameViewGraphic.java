@@ -344,7 +344,7 @@ public class GameViewGraphic extends Application implements Initializable {
                 showCardDetails(Card.getCardByImage(imageView.getImage()));
             imageView.setEffect(new DropShadow());
             try {
-                method.invoke(null);
+//                method.invoke();
             } catch (Exception e) {
                 e.printStackTrace();
             }
