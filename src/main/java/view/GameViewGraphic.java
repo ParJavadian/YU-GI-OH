@@ -33,8 +33,6 @@ public class GameViewGraphic extends Application implements Initializable {
     private static GameViewGraphic instance = null;
     public Label chatBox;
     public int numberOfRounds;
-    //    private static ArrayList<Image> imageOf1Monsters = new ArrayList<>(4);
-//    private static ArrayList<Image> imageOf2Monsters = new ArrayList<>(4);
     private static ArrayList<Image> images = new ArrayList<>();
     private static AnchorPane root;
     public static ImageView imageView1Monster1, imageView1Monster2, imageView1Monster3, imageView1Monster4, imageView1Monster5;
@@ -344,7 +342,7 @@ public class GameViewGraphic extends Application implements Initializable {
                 showCardDetails(Card.getCardByImage(imageView.getImage()));
             imageView.setEffect(new DropShadow());
             try {
-                method.invoke(null);
+                method.invoke(imageView);
             } catch (Exception e) {
                 e.printStackTrace();
             }
