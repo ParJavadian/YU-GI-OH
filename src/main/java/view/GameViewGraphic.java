@@ -33,8 +33,6 @@ public class GameViewGraphic extends Application implements Initializable {
     private static GameViewGraphic instance = null;
     public Label chatBox;
     public int numberOfRounds;
-    //    private static ArrayList<Image> imageOf1Monsters = new ArrayList<>(4);
-//    private static ArrayList<Image> imageOf2Monsters = new ArrayList<>(4);
     private static ArrayList<Image> images = new ArrayList<>();
     private static AnchorPane root;
     public static ImageView imageView1Monster1, imageView1Monster2, imageView1Monster3, imageView1Monster4, imageView1Monster5;
@@ -256,50 +254,11 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void startMainNoCardSelected() throws Exception {
-        Image unknown = new Image("images/Cards/Unknown.jpg");
-        /*Class aClass = Class.forName("controller.DuelController");
-        for (Method declaredMethod : aClass.getDeclaredMethods()) {
-            System.out.println(declaredMethod.getName());
-            if(declaredMethod.getName().equals("selectCardPlayerHand"))
-                setOnClickSelected(imageView1hand1,declaredMethod);
-        }*/
-        setOnClickSelected(imageView1hand1,duelController.selectCardPlayerHand(1));
-        /*imageView1hand1.setOnMouseClicked(event -> {
-            if (imageView1hand1.getImage() == null) return;
-            if (!imageView1hand1.getImage().equals(unknown))
-                showCardDetails(Card.getCardByImage(imageView1hand1.getImage()));
-            imageView1hand1.setEffect(new DropShadow());
-            try {
-                duelController.selectCardPlayerHand(1);
-            } catch (Exception ignored) {
+        setOnClickSelected(imageView1hand1, 1, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1Monster1, 5, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
+        setOnClickSelected(imageView2Monster1, 4, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+//        setOnClickSelected(imageView1hand1,duelController.selectCardPlayerHand(1));
 
-            }
-            startMainAHandSelected(imageView1hand1);
-        });
-        imageView1hand2.setOnMouseClicked(event -> {
-            if (imageView1hand2.getImage() == null) return;
-            if (!imageView1hand2.getImage().equals(unknown))
-                showCardDetails(Card.getCardByImage(imageView1hand2.getImage()));
-            imageView1hand2.setEffect(new DropShadow());
-            try {
-                duelController.selectCardPlayerHand(2);
-            } catch (Exception ignored) {
-
-            }
-            startMainAHandSelected(imageView1hand2);
-        });
-        imageView1hand3.setOnMouseClicked(event -> {
-            if (imageView1hand3.getImage() == null) return;
-            if (!imageView1hand3.getImage().equals(unknown))
-                showCardDetails(Card.getCardByImage(imageView1hand3.getImage()));
-            imageView1hand3.setEffect(new DropShadow());
-            try {
-                duelController.selectCardPlayerHand(3);
-            } catch (Exception ignored) {
-
-            }
-            startMainAHandSelected(imageView1hand3);
-        });*/
         /*
         try {
             setOnClickSelected(imageView1hand1, duelController.selectCardPlayerHand(1));
@@ -330,25 +289,25 @@ public class GameViewGraphic extends Application implements Initializable {
             setOnClickSelected(imageView2SpellAndTrap5);
             setOnClickSelected(imageView1FieldZone);
             setOnClickSelected(imageView2FieldZone);*/
-    }/*
-        catch (Exception e){
-            e.printStackTrace();
-        }*/
+    }
 
 
-    private void setOnClickSelected(ImageView imageView, Method method) {
-        System.out.println(method);
+    private void setOnClickSelected(ImageView imageView, int number, Method duelControllerMethod, Method thisMethod) {
+        if (imageView == null) return;
         Image unknown = new Image("images/Cards/Unknown.jpg");
         imageView.setOnMouseClicked(event -> {
             if (!imageView.getImage().equals(unknown))
                 showCardDetails(Card.getCardByImage(imageView.getImage()));
+            if (selectedCard != null && selectedCard.getEffect() != null)
+                selectedCard.setEffect(null);
             imageView.setEffect(new DropShadow());
             try {
-//                method.invoke();
+                duelControllerMethod.invoke(duelController, number);
+                thisMethod.invoke(this, imageView);
+                selectedCard = imageView;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            startMainAHandSelected(imageView);
         });
     }
 
@@ -362,7 +321,16 @@ public class GameViewGraphic extends Application implements Initializable {
         }
     }
 
-    public void startMainAHandSelected(ImageView imageView) {
+    public void startMainAHandSelected(ImageView imageView) throws Exception {
+        setOnClickSelected(imageView1hand2, 1, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+
+    }
+
+    public void startMainAPlayerMonsterSelected(ImageView imageView) {
+
+    }
+
+    public void doNothing(ImageView imageView) {
 
     }
 
