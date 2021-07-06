@@ -2,15 +2,21 @@ package view;
 
 import controller.DuelController;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Card;
 import model.User;
 
 import java.net.URL;
@@ -76,6 +82,7 @@ public class GameViewGraphic extends Application implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        startMainNoCardSelected();
     }
 
     @Override
@@ -190,6 +197,37 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     public void pauseMenu() {
+
+    }
+
+    public void updateBoard() {
+        addAllImages();
+        setImagesAndCards();
+    }
+
+    public void startMainNoCardSelected() {
+        System.out.println(Card.getCardByImage(imageView1hand1.getImage()));
+        imageView1hand1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                                 @Override
+                                                 public void handle(MouseEvent event) {
+                                                     System.out.println("1");
+                                                     showCardDetails(Card.getCardByImage(imageView1hand1.getImage()));
+                                                     imageView1hand1.setEffect(new DropShadow());
+                                                     startMainAHandSelected(imageView1hand1);
+                                                 }
+                                             });
+        for (Node child : root.getChildren()) {
+            System.out.println(child.getId());
+            if(child.getId()!=null && child instanceof ImageView && child.getId().equals("imageView1hand1"))
+                System.out.println(child.getOnMouseClicked());
+        }
+    }
+
+    public void showCardDetails(Card card) {
+
+    }
+
+    public void startMainAHandSelected(ImageView imageView){
 
     }
 }
