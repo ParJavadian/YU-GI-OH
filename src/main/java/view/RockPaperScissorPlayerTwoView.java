@@ -14,7 +14,9 @@ public class RockPaperScissorPlayerTwoView extends Application {
     private static String previousHand;
     private static Stage stage;
     static RockPaperScissorPlayerTwoView instance = null;
-    private static User user;
+    private static User loginOne;
+    private static User loginTwo;
+    private static int numberOfRounds;
 
     public static RockPaperScissorPlayerTwoView getInstance() {
         if (instance == null) instance = new RockPaperScissorPlayerTwoView();
@@ -22,12 +24,18 @@ public class RockPaperScissorPlayerTwoView extends Application {
     }
 
     public void setCurrentUser(User user) {
-        RockPaperScissorPlayerTwoView.user = user;
+        RockPaperScissorPlayerTwoView.loginOne = user;
     }
+
+    public void setLoginTwo(User user){RockPaperScissorPlayerTwoView.loginTwo = user; }
 
     public void setPreviousHand(String previousHand) {
         RockPaperScissorPlayerTwoView.previousHand = previousHand;
     }
+
+    public void setNumberOfRounds(int numberOfRounds) {RockPaperScissorPlayerTwoView.numberOfRounds = numberOfRounds; }
+
+    public int getNumberOfRounds(){return RockPaperScissorPlayerTwoView.numberOfRounds;}
 
     public void start(Stage stage) throws Exception {
         RockPaperScissorPlayerTwoView.stage = stage;
@@ -59,23 +67,42 @@ public class RockPaperScissorPlayerTwoView extends Application {
             }
 
             if (handPlayerOne.equals("rock")) {
-                if (handPlayerTwo.equals("paper"))
+                if (handPlayerTwo.equals("paper")) {
                     System.out.println("two");
-                if (handPlayerTwo.equals("scissor"))
+                    startNewGame(loginTwo, loginOne);
+                }
+                if (handPlayerTwo.equals("scissor")) {
                     System.out.println("one");
+                    startNewGame(loginOne, loginTwo);
+                }
             }
             if (handPlayerOne.equals("paper")) {
-                if (handPlayerTwo.equals("rock"))
+                if (handPlayerTwo.equals("rock")) {
                     System.out.println("one");
-                if (handPlayerTwo.equals("scissor"))
+                    startNewGame(loginOne, loginTwo);
+                }
+                if (handPlayerTwo.equals("scissor")) {
                     System.out.println("two");
+                    startNewGame(loginTwo, loginOne);
+                }
             }
             if (handPlayerOne.equals("scissor")) {
-                if (handPlayerTwo.equals("rock"))
+                if (handPlayerTwo.equals("rock")) {
                     System.out.println("two");
-                if (handPlayerTwo.equals("paper"))
+                    startNewGame(loginTwo, loginOne);
+                }
+                if (handPlayerTwo.equals("paper")) {
                     System.out.println("one");
+                    startNewGame(loginOne, loginTwo);
+                }
             }
         }
+    }
+
+    public void startNewGame(User firstPlayer, User secondPlayer) throws Exception{
+        BoardGamePlayerOne.getInstance().setPlayer(firstPlayer);
+        BoardGamePlayerOne.getInstance().setRival(secondPlayer);
+        BoardGamePlayerOne.getInstance().setNumberOfRounds(numberOfRounds);
+        BoardGamePlayerOne.getInstance().start(stage);
     }
 }

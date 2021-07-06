@@ -15,6 +15,7 @@ public class RockPaperScissorView extends Application {
     static RockPaperScissorView instance = null;
     private static User playerOne;
     private static String playerTwoName;
+    private static int numberOfRounds;
 
     public static RockPaperScissorView getInstance() {
         if (instance == null) instance = new RockPaperScissorView();
@@ -29,6 +30,8 @@ public class RockPaperScissorView extends Application {
         RockPaperScissorView.playerTwoName = playerTwoName;
     }
 
+    public void setNumberOfRounds(int numberOfRounds){RockPaperScissorView.numberOfRounds = numberOfRounds; }
+
     public void start(Stage stage) throws Exception {
         RockPaperScissorView.stage = stage;
         URL url = getClass().getResource("/RockPaperScissor.fxml");
@@ -40,20 +43,22 @@ public class RockPaperScissorView extends Application {
 
 
     public void scissorOne(MouseEvent event) throws Exception{
-        RockPaperScissorPlayerTwoView.getInstance().setCurrentUser(playerOne);
-        RockPaperScissorPlayerTwoView.getInstance().setPreviousHand("scissor");
-        RockPaperScissorPlayerTwoView.getInstance().start(stage);
+        nextHand("scissor");
     }
 
     public void paperOne(MouseEvent event) throws Exception{
-        RockPaperScissorPlayerTwoView.getInstance().setCurrentUser(playerOne);
-        RockPaperScissorPlayerTwoView.getInstance().setPreviousHand("paper");
-        RockPaperScissorPlayerTwoView.getInstance().start(stage);
+        nextHand("paper");
     }
 
     public void rockOne(MouseEvent event) throws Exception{
+        nextHand("rock");
+    }
+
+    public void nextHand(String thisHand) throws Exception{
         RockPaperScissorPlayerTwoView.getInstance().setCurrentUser(playerOne);
-        RockPaperScissorPlayerTwoView.getInstance().setPreviousHand("rock");
+        RockPaperScissorPlayerTwoView.getInstance().setLoginTwo(User.getUserByUsername(playerTwoName));
+        RockPaperScissorPlayerTwoView.getInstance().setPreviousHand(thisHand);
+        RockPaperScissorPlayerTwoView.getInstance().setNumberOfRounds(numberOfRounds);
         RockPaperScissorPlayerTwoView.getInstance().start(stage);
     }
 

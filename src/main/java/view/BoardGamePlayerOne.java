@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 
@@ -52,10 +53,14 @@ public class BoardGamePlayerOne extends Application implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        playerLifePoint.setText(String.valueOf(player.getLifePoint()));
-        rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
-
+        if (playerLifePoint != null && rivalLifePoint != null && player != null && rival != null) {
+            playerLifePoint.setText(String.valueOf(player.getLifePoint()));
+            rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
+        }
+        else System.out.println("ye ja null has!");
     }
 
 
+    public void pauseMenu(MouseEvent event) {
+    }
 }
