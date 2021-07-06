@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -38,16 +39,25 @@
          <image>
             <Image url="@images/RockPaperScissor/jya_gu_1.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <ImageView fitHeight="194.0" fitWidth="194.0" layoutX="333.0" layoutY="27.0" onMouseClicked="#paperTwo">
          <image>
             <Image url="@images/RockPaperScissor/jya_pa_1.bmp" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <ImageView fitHeight="194.0" fitWidth="200.0" layoutX="644.0" layoutY="27.0" onMouseClicked="#scissorTwo">
          <image>
             <Image url="@images/RockPaperScissor/jya_cyo_1.bmp" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#592d32" height="27.0" layoutX="378.0" stroke="BLACK" strokeType="INSIDE" width="107.0" />
       <Label fx:id="secondPlayerLabel" alignment="CENTER" layoutX="379.0" prefHeight="27.0" prefWidth="107.0" text="Label" textFill="#b8c384">
