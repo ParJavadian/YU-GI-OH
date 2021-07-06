@@ -45,67 +45,63 @@
     </ImageView>
     <TextField layoutX="826.0" layoutY="527.0" />
     <Button layoutX="838.0" layoutY="561.0" mnemonicParsing="false" text="Send" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#98715b" height="72.0" layoutX="7.0" layoutY="526.0" stroke="BLACK" strokeType="INSIDE" width="184.0" />
+    <Label fx:id="rivalLifePoint" layoutX="87.0" layoutY="62.0" prefHeight="22.0" prefWidth="98.0" text="8000" textFill="WHITE">
+        <font>
+            <Font name="Agency FB Bold" size="18.0" />
+        </font>
+    </Label>
     <Label layoutX="14.0" layoutY="7.0" text="Username = " textFill="WHITE">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
-    <Label fx:id="rivalLifePoint" layoutX="108.0" layoutY="66.0" text="8000" textFill="WHITE">
+    <Label layoutX="13.0" layoutY="37.0" text="Nickname = " textFill="WHITE">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
-    <Label layoutX="14.0" layoutY="37.0" text="Nickname = " textFill="WHITE">
+    <Label layoutX="13.0" layoutY="61.0" text="Life Point = " textFill="WHITE">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
-    <Label layoutX="14.0" layoutY="66.0" text="Life Point = " textFill="WHITE">
+    <Label layoutX="14.0" layoutY="572.0" text="Life Point = " textFill="WHITE">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
-    <Label layoutX="14.0" layoutY="581.0" text="Life Point = ">
+    <Label fx:id="playerLifePoint" layoutX="96.0" layoutY="572.0" prefHeight="22.0" prefWidth="79.0" text="8000" textFill="WHITE">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
-    <Label fx:id="playerLifePoint" layoutX="100.0" layoutY="580.0" text="8000">
+    <Label layoutX="13.0" layoutY="550.0" text="Nickname = " textFill="WHITE">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
-    <Label layoutX="14.0" layoutY="555.0" text="Nickname = ">
+    <Label layoutX="14.0" layoutY="529.0" text="Username = " textFill="WHITE">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
-    <Label layoutX="14.0" layoutY="526.0" text="Username = " textFill="#046524">
+    <Label fx:id="rivalNickname" layoutX="87.0" layoutY="37.0" prefHeight="22.0" prefWidth="98.0" text="nickname r" textFill="WHITE">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
-    <Label fx:id="rivalNickname" layoutX="108.0" layoutY="37.0" text="nickname r" textFill="WHITE">
-        <font>
-            <Font name="Agency FB Bold" size="18.0" />
-        </font>
-    </Label>
-    <Label fx:id="rivalUsername" layoutX="108.0" layoutY="7.0" text="username r" textFill="WHITE">
-        <font>
-            <Font name="Agency FB Bold" size="18.0" />
-        </font>
-    </Label>
-    <Label fx:id="playerNickname" layoutX="100.0" layoutY="553.0" text="nickname p">
-        <font>
-            <Font name="Agency FB Bold" size="18.0" />
-        </font>
-    </Label>
-    <Label fx:id="playerUsername" layoutX="102.0" layoutY="528.0" text="username p">
+    <Label fx:id="rivalUsername" layoutX="90.0" layoutY="7.0" prefHeight="22.0" prefWidth="90.0" text="username r" textFill="WHITE">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="88.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+    <Label fx:id="playerNickname" layoutX="95.0" layoutY="550.0" prefHeight="22.0" prefWidth="98.0" text="nickname p" textFill="WHITE">
+        <font>
+            <Font name="Agency FB Bold" size="18.0" />
+        </font>
+    </Label>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="163.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="316.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
@@ -172,8 +168,27 @@
         </font>
     </Label>
     <Button layoutX="934.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#pauseMenu" text="Pause" />
-    <ImageView fx:id="imageViewRival" fitHeight="155.0" fitWidth="155.0" layoutX="23.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" />
-    <ImageView fx:id="imageViewPlayer" fitHeight="155.0" fitWidth="155.0" layoutX="25.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true" />
    <ProgressBar fx:id="rivalProgressBar" layoutX="12.0" layoutY="97.0" prefHeight="18.0" prefWidth="177.0" progress="0.0" />
    <ProgressBar fx:id="playerProgressBar" layoutX="12.0" layoutY="505.0" prefHeight="18.0" prefWidth="177.0" progress="0.0" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="155.0" layoutX="6.0" layoutY="335.0" stroke="BLACK" strokeType="INSIDE" width="177.0" />
+   <Label fx:id="description" alignment="TOP_LEFT" layoutX="12.0" layoutY="338.0" prefHeight="120.0" prefWidth="167.0" text="Description:" textFill="WHITE">
+      <font>
+         <Font name="Agency FB" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="attack" layoutX="12.0" layoutY="457.0" prefHeight="15.0" prefWidth="149.0" text="Attack:" textFill="WHITE">
+      <font>
+         <Font name="Agency FB" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="defence" layoutX="12.0" layoutY="471.0" prefHeight="15.0" prefWidth="149.0" text="Defense:" textFill="WHITE">
+      <font>
+         <Font name="Agency FB" size="14.0" />
+      </font>
+   </Label>
+    <Label fx:id="playerUsername" layoutX="96.0" layoutY="529.0" prefHeight="22.0" prefWidth="98.0" text="username p" textFill="WHITE">
+        <font>
+            <Font name="Agency FB Bold" size="18.0" />
+        </font>
+    </Label>
 </AnchorPane>

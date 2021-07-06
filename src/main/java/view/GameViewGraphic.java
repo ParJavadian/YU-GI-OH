@@ -49,6 +49,9 @@ public class GameViewGraphic extends Application implements Initializable {
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
     @FXML
     private ProgressBar rivalProgressBar, playerProgressBar;
+    @FXML
+    private Label description,attack,defence;
+    private static ImageView selectedCardImageView;
 
     /*public GameViewGraphic(User player,User rival,int numberOfRounds){
         GameViewGraphic.player = player;
@@ -285,8 +288,8 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void setBar() { //todo harja lifepoint taghyir kard bayad update beshe
-        rivalProgressBar.setProgress((double) player.getLifePoint() / 8000);
-        playerProgressBar.setProgress((double) rival.getLifePoint() / 8000);
+        if (rivalProgressBar != null && rival != null) rivalProgressBar.setProgress((double) player.getLifePoint() / 8000);
+        if (playerProgressBar != null && rival != null) playerProgressBar.setProgress((double) rival.getLifePoint() / 8000);
     }
 
 
