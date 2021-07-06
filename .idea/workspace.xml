@@ -22,12 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="board cards imageview">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="not null">
       <change afterPath="$PROJECT_DIR$/Cards/من.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/من.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,13 +190,6 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
-    </task>
-    <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
-      <created>1623149665559</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1623149665559</updated>
     </task>
     <task id="LOCAL-00002" summary="ScoreBoardViewGraphic.java">
       <created>1623149688409</created>
@@ -524,7 +519,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۹" />
       <updated>1625571369460</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL‎۰۰۰۵۰" summary="not null">
+      <created>1625572099676</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۰" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۰" />
+      <updated>1625572099677</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +545,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug takeAction1" />
     <MESSAGE value="debug command knight2" />
     <MESSAGE value="nothing" />
     <MESSAGE value="GATE_GUARDIAN" />
@@ -570,7 +570,8 @@
     <MESSAGE value="rock paper scissor" />
     <MESSAGE value="rock paper scissor names" />
     <MESSAGE value="board cards imageview" />
-    <option name="LAST_COMMIT_MESSAGE" value="board cards imageview" />
+    <MESSAGE value="not null" />
+    <option name="LAST_COMMIT_MESSAGE" value="not null" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
