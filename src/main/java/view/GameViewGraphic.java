@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 import model.Card;
 import model.User;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -45,6 +47,7 @@ public class GameViewGraphic extends Application implements Initializable {
     public static ImageView imageView1FieldZone, imageView2FieldZone, imageView1Graveyard, imageView2Graveyard;
     public static ImageView rivalProfile = new ImageView();
     public static ImageView playerProfile = new ImageView();
+    public ImageView selectedCard;
     @FXML
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
     @FXML
@@ -269,13 +272,66 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void startMainNoCardSelected() {
-        imageView1hand1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+        Image unknown = new Image("images/Cards/Unknown.jpg");
+        imageView1hand1.setOnMouseClicked(event -> {
+            if(imageView1hand1.getImage()==null) return;
+            if (!imageView1hand1.getImage().equals(unknown))
                 showCardDetails(Card.getCardByImage(imageView1hand1.getImage()));
-                imageView1hand1.setEffect(new DropShadow());
-                startMainAHandSelected(imageView1hand1);
+            imageView1hand1.setEffect(new DropShadow());
+            try {
+                duelController.selectCardPlayerHand(1);
+            } catch (Exception ignored) {
+
             }
+            startMainAHandSelected(imageView1hand1);
+        });
+        try {
+            setOnClickSelected(imageView1hand1, duelController.selectCardPlayerHand(1));
+            setOnClickSelected(imageView1hand2);
+            setOnClickSelected(imageView1hand3);
+            setOnClickSelected(imageView1hand4);
+            setOnClickSelected(imageView1hand5);
+            setOnClickSelected(imageView1hand6);
+            setOnClickSelected(imageView1Monster1);
+            setOnClickSelected(imageView1Monster2);
+            setOnClickSelected(imageView1Monster3);
+            setOnClickSelected(imageView1Monster4);
+            setOnClickSelected(imageView1Monster5);
+            setOnClickSelected(imageView2Monster1);
+            setOnClickSelected(imageView2Monster2);
+            setOnClickSelected(imageView2Monster3);
+            setOnClickSelected(imageView2Monster4);
+            setOnClickSelected(imageView2Monster5);
+            setOnClickSelected(imageView1SpellAndTrap1);
+            setOnClickSelected(imageView1SpellAndTrap2);
+            setOnClickSelected(imageView1SpellAndTrap3);
+            setOnClickSelected(imageView1SpellAndTrap4);
+            setOnClickSelected(imageView1SpellAndTrap5);
+            setOnClickSelected(imageView2SpellAndTrap1);
+            setOnClickSelected(imageView2SpellAndTrap2);
+            setOnClickSelected(imageView2SpellAndTrap3);
+            setOnClickSelected(imageView2SpellAndTrap4);
+            setOnClickSelected(imageView2SpellAndTrap5);
+            setOnClickSelected(imageView1FieldZone);
+            setOnClickSelected(imageView2FieldZone);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setOnClickSelected(ImageView imageView, Method method) {
+        Image unknown = new Image("images/Cards/Unknown.jpg");
+        imageView.setOnMouseClicked(event -> {
+            if (!imageView.getImage().equals(unknown))
+                showCardDetails(Card.getCardByImage(imageView.getImage()));
+            imageView.setEffect(new DropShadow());
+            try {
+                method.invoke(null);
+            } catch (Exception e) {
+
+            }
+            startMainAHandSelected(imageView);
         });
     }
 
@@ -291,6 +347,5 @@ public class GameViewGraphic extends Application implements Initializable {
         if (rivalProgressBar != null && rival != null) rivalProgressBar.setProgress((double) player.getLifePoint() / 8000);
         if (playerProgressBar != null && rival != null) playerProgressBar.setProgress((double) rival.getLifePoint() / 8000);
     }
-
 
 }

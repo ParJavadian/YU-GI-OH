@@ -22,14 +22,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="bar">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="scoreboard ai deleted">
       <change afterPath="$PROJECT_DIR$/Cards/من.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/من.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +196,13 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
+    </task>
+    <task id="LOCAL-00003" summary="Error sign up">
+      <created>1623151044078</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623151044078</updated>
     </task>
     <task id="LOCAL-00004" summary="model.SpellCard.java&#10;Monster Reborn + Terraforming">
       <created>1623868346229</created>
@@ -517,13 +530,7 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۱" />
       <updated>1625578121222</updated>
     </task>
-    <task id="LOCAL‎۰۰۰۵۲" summary="bar">
-      <created>1625585082878</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۲" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۲" />
-      <updated>1625585082878</updated>
-    </task>
-    <option name="localTasksCounter" value="53" />
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,6 +550,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="nothing" />
     <MESSAGE value="GATE_GUARDIAN" />
     <MESSAGE value="SPELL_ABSORPTION debug1" />
     <MESSAGE value="tributeForSummon debug" />
@@ -568,8 +576,7 @@
     <MESSAGE value="board cards imageview" />
     <MESSAGE value="not null" />
     <MESSAGE value="scoreboard ai deleted" />
-    <MESSAGE value="bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="scoreboard ai deleted" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
