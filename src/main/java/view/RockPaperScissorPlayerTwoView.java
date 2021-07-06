@@ -19,7 +19,7 @@ public class RockPaperScissorPlayerTwoView extends Application implements Initia
     private static Stage stage;
     static RockPaperScissorPlayerTwoView instance = null;
     @FXML
-    private static Label firstPlayerLabel,secondPlayerLabel;
+    private Label firstPlayerLabel,secondPlayerLabel;
     private static User loginOne;
     private static User loginTwo;
     private static int numberOfRounds;
@@ -47,9 +47,9 @@ public class RockPaperScissorPlayerTwoView extends Application implements Initia
         RockPaperScissorPlayerTwoView.stage = stage;
         URL url = getClass().getResource("/RockPaperScissorPlayerTwo.fxml");
         Parent root = FXMLLoader.load(url);
+        initLabels();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
     }
 
     public void rockTwo(MouseEvent event) throws Exception{
@@ -114,7 +114,13 @@ public class RockPaperScissorPlayerTwoView extends Application implements Initia
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        firstPlayerLabel.setText(loginOne.getUsername());
-        secondPlayerLabel.setText(loginTwo.getUsername());
+        initLabels();
+    }
+
+    private void initLabels(){
+        if(firstPlayerLabel!=null && secondPlayerLabel!=null && loginOne!=null && loginTwo!=null) {
+            firstPlayerLabel.setText(loginOne.getUsername());
+            secondPlayerLabel.setText(loginTwo.getUsername());
+        }
     }
 }

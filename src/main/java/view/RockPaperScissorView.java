@@ -21,7 +21,7 @@ public class RockPaperScissorView extends Application implements Initializable {
     private static String playerTwoName;
     private static int numberOfRounds;
     @FXML
-    private static Label firstPlayerLabel,secondPlayerLabel;
+    private Label firstPlayerLabel,secondPlayerLabel;
 
     public static RockPaperScissorView getInstance() {
         if (instance == null) instance = new RockPaperScissorView();
@@ -43,6 +43,7 @@ public class RockPaperScissorView extends Application implements Initializable {
         URL url = getClass().getResource("/RockPaperScissor.fxml");
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
+        initLabels();
         stage.setScene(scene);
         stage.show();
     }
@@ -70,7 +71,13 @@ public class RockPaperScissorView extends Application implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        firstPlayerLabel.setText(playerOne.getUsername());
-        secondPlayerLabel.setText(playerTwoName);
+        initLabels();
+    }
+
+    private void initLabels(){
+        if(firstPlayerLabel!=null && secondPlayerLabel!=null && playerOne!=null && playerTwoName!=null) {
+            firstPlayerLabel.setText(playerOne.getUsername());
+            secondPlayerLabel.setText(playerTwoName);
+        }
     }
 }
