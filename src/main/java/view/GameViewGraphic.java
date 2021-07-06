@@ -16,11 +16,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class BoardGamePlayerOne extends Application implements Initializable {
+public class GameViewGraphic extends Application implements Initializable {
     private static Stage stage;
     public static User player;
     public static  User rival;
-    private static BoardGamePlayerOne instance = null;
+    private static GameViewGraphic instance = null;
     public Label chatBox;
     public Label rivalLifePoint;
     public Label playerLifePoint;
@@ -37,27 +37,28 @@ public class BoardGamePlayerOne extends Application implements Initializable {
     public static ImageView imageView2hand1,imageView2hand2,imageView2hand3,imageView2hand4,imageView2hand5,imageView2hand6;
 
     public void setPlayer(User player) {
-        BoardGamePlayerOne.player = player;
+        GameViewGraphic.player = player;
     }
 
     public void setRival(User rival) {
-        BoardGamePlayerOne.rival = rival;
+        GameViewGraphic.rival = rival;
     }
 
     public void setNumberOfRounds(int numberOfRounds) {
         this.numberOfRounds = numberOfRounds;
     }
 
-    public static BoardGamePlayerOne getInstance() {
-        if (instance == null) instance = new BoardGamePlayerOne();
+    public static GameViewGraphic getInstance() {
+        if (instance == null) instance = new GameViewGraphic();
         return instance;
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        BoardGamePlayerOne.stage = stage;
+        GameViewGraphic.stage = stage;
         URL url = getClass().getResource("/BoardGamePlayerOne.fxml");
         root = FXMLLoader.load(url);
+        setImagesAndCards();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -69,6 +70,7 @@ public class BoardGamePlayerOne extends Application implements Initializable {
             playerLifePoint.setText(String.valueOf(player.getLifePoint()));
             rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
         }
+        setImagesAndCards();
     }
 
     private void setImagesAndCards() {
@@ -131,7 +133,10 @@ public class BoardGamePlayerOne extends Application implements Initializable {
     }
 
     private void addImagesView(ImageView imageView) {
-        root.getChildren().add(imageView); //todo check shavad
+        if(root!=null){
+            if(imageView!=null && !root.getChildren().contains(imageView))
+                root.getChildren().add(imageView);
+        }
 //        root.getChildren().add(image2);
 //        root.getChildren().add(image3);
 //        root.getChildren().add(image4);

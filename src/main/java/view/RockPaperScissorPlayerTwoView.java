@@ -106,10 +106,10 @@ public class RockPaperScissorPlayerTwoView extends Application implements Initia
     }
 
     public void startNewGame(User firstPlayer, User secondPlayer) throws Exception{
-        BoardGamePlayerOne.getInstance().setPlayer(firstPlayer);
-        BoardGamePlayerOne.getInstance().setRival(secondPlayer);
-        BoardGamePlayerOne.getInstance().setNumberOfRounds(numberOfRounds);
-        BoardGamePlayerOne.getInstance().start(stage);
+        GameViewGraphic.getInstance().setPlayer(firstPlayer);
+        GameViewGraphic.getInstance().setRival(secondPlayer);
+        GameViewGraphic.getInstance().setNumberOfRounds(numberOfRounds);
+        GameViewGraphic.getInstance().start(stage);
     }
 
     @Override

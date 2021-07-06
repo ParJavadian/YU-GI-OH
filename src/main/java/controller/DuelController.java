@@ -714,7 +714,7 @@ public class DuelController {
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("no card is destroyed");
         } else {
-            int damage = target.getDefence() - attackerAttack;
+            int damage = this.rivalDefencePoints[monsterNumber] - attackerAttack;
             this.player.decreaseLifePoint(damage);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("no card is destroyed and you received " + damage + " battle damage");
@@ -739,7 +739,7 @@ public class DuelController {
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed");
         } else {
-            int damage = target.getDefence() - attackerAttack;
+            int damage = this.rivalDefencePoints[monsterNumber] - attackerAttack;
             this.player.decreaseLifePoint(damage);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed and you received " + damage + " battle damage");
