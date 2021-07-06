@@ -40,15 +40,18 @@ public class RockPaperScissorAIView extends Application {
         stage.show();
     }
     public void rock(MouseEvent event) throws Exception {
-        /*String winnerName = */findWinner("rock",randomHand());
+        String winnerName = findWinner("rock",randomHand());
+        startNewGame(User.getUserByUsername(winnerName),findSecondPlayer(winnerName));
     }
 
     public void paper(MouseEvent event) throws Exception{
-        /*String winnerName = */findWinner("paper",randomHand());
+        String winnerName = findWinner("paper",randomHand());
+        startNewGame(User.getUserByUsername(winnerName),findSecondPlayer(winnerName));
     }
 
     public void scissor(MouseEvent event) throws Exception{
-        /*String winnerName = */findWinner("scissor",randomHand());
+        String winnerName = findWinner("scissor",randomHand());
+        startNewGame(User.getUserByUsername(winnerName),findSecondPlayer(winnerName));
     }
 
 
@@ -64,9 +67,9 @@ public class RockPaperScissorAIView extends Application {
         }
     }
 
-    public void findWinner(String handPlayerOne, String handPlayerTwo) throws Exception {
+    public String findWinner(String handPlayerOne, String handPlayerTwo) throws Exception {
         if (handPlayerOne != null) {
-            if (handPlayerOne.equals(handPlayerTwo)){
+            if (handPlayerOne.equals(handPlayerTwo)) {
                 System.out.println("mosavi");
                 RockPaperScissorAIView.getInstance().start(stage);
             }
@@ -74,30 +77,48 @@ public class RockPaperScissorAIView extends Application {
             if (handPlayerOne.equals("rock")) {
                 if (handPlayerTwo.equals("paper")) {
                     System.out.println("ai");
-//                    return "@AI@";
+                    return "@AI@";
                 }
                 if (handPlayerTwo.equals("scissor")) {
                     System.out.println("yaru");
-//                    return user.getUsername();
+                    return user.getUsername();
                 }
             }
             if (handPlayerOne.equals("paper")) {
-                if (handPlayerTwo.equals("rock"))
+                if (handPlayerTwo.equals("rock")) {
                     System.out.println("yaru");
-//                    return user.getUsername();
-                if (handPlayerTwo.equals("scissor"))
+                    return user.getUsername();
+                }
+                if (handPlayerTwo.equals("scissor")) {
                     System.out.println("ai");
-//                    return "@AI@";
+                    return "@AI@";
+                }
             }
             if (handPlayerOne.equals("scissor")) {
-                if (handPlayerTwo.equals("rock"))
+                if (handPlayerTwo.equals("rock")) {
                     System.out.println("ai");
-//                    return "@AI@";
-                if (handPlayerTwo.equals("paper"))
+                    return "@AI@";
+                }
+                if (handPlayerTwo.equals("paper")) {
                     System.out.println("uaru");
-//                    return user.getUsername();
+                    return user.getUsername();
+                }
             }
         }
-//        return "";
+        return "";
     }
+
+    public void startNewGame(User firstPlayer, User secondPlayer) throws Exception{
+        BoardGamePlayerOne.getInstance().setPlayer(firstPlayer);
+        BoardGamePlayerOne.getInstance().setRival(secondPlayer);
+        BoardGamePlayerOne.getInstance().setNumberOfRounds(numberOfRounds);
+        BoardGamePlayerOne.getInstance().start(stage);
+    }
+
+    public User findSecondPlayer(String firstPlayer){
+        if (firstPlayer.equals("@AI@"))
+            return user;
+        else return User.getUserByUsername("@AI@");
+    }
+
 }
