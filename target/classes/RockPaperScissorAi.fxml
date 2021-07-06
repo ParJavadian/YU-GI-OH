@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RockPaperScissorAIView">
+   <children>
+      <ImageView fitHeight="602.0" fitWidth="900.0" layoutX="401.0" layoutY="59.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@images/RockPaperScissor/WallRPS.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="130.0" fitWidth="700.0" layoutX="80.0" layoutY="233.0" AnchorPane.bottomAnchor="237.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="233.0">
+         <image>
+            <Image url="@images/RockPaperScissor/selectHand.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="635.0" layoutY="26.0">
+         <image>
+            <Image url="@images/RockPaperScissor/unknown.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="45.0" layoutY="26.0">
+         <image>
+            <Image url="@images/RockPaperScissor/unknown.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="334.0" layoutY="26.0">
+         <image>
+            <Image url="@images/RockPaperScissor/unknown.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="192.0" layoutX="46.0" layoutY="388.0" onMouseClicked="#rock">
+         <image>
+            <Image url="@images/RockPaperScissor/jya_gu_1.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="194.0" fitWidth="194.0" layoutX="334.0" layoutY="391.0" onMouseClicked="#paper">
+         <image>
+            <Image url="@images/RockPaperScissor/jya_pa_1.bmp" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="194.0" fitWidth="200.0" layoutX="632.0" layoutY="391.0" onMouseClicked="#scissor">
+         <image>
+            <Image url="@images/RockPaperScissor/jya_cyo_1.bmp" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#592d32" height="27.0" layoutX="378.0" stroke="BLACK" strokeType="INSIDE" width="107.0" />
+      <Label fx:id="secondPlayerLabel" alignment="CENTER" layoutX="378.0" layoutY="1.0" prefHeight="27.0" prefWidth="107.0" text="Label" textFill="#b8c384">
+         <font>
+            <Font name="Agency FB Bold" size="22.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#592d32" height="27.0" layoutX="378.0" layoutY="575.0" stroke="BLACK" strokeType="INSIDE" width="107.0" />
+      <Label fx:id="firstPlayerLabel" alignment="CENTER" layoutX="377.0" layoutY="575.0" prefHeight="27.0" prefWidth="107.0" text="Label" textFill="#b8c384">
+         <font>
+            <Font name="Agency FB Bold" size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

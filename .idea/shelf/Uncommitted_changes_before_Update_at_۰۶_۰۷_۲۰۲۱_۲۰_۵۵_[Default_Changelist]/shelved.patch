@@ -1,0 +1,485 @@
+Index: Cards/parmida.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Yomi Ship\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cards/parmida.txt b/Cards/parmida.txt
+--- a/Cards/parmida.txt	(revision 7380dfde34c99654c63c870eb8e36176fc0d1921)
++++ b/Cards/parmida.txt	(date 1625582413029)
+@@ -1,1 +1,427 @@
++Monster Reborn
++Spell Absorption
++Command Knight
++Curtain Of Dark Ones
++Silver Fang
++Haniwa
++Gate Guardian
++Magic Cylinder
++Mind Crush
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
++Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
++Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
++Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
+ Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
++Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
+Index: Cards/من.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cards/من.txt b/Cards/من.txt
+new file mode 100644
+--- /dev/null	(date 1625582413038)
++++ b/Cards/من.txt	(date 1625582413038)
+@@ -0,0 +1,5 @@
++Axe Raider
++Baby Dragon
++Bitron
++Battle Warrior
++Change Of Heart
+Index: Users/من.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Users/من.txt b/Users/من.txt
+new file mode 100644
+--- /dev/null	(date 1625582413046)
++++ b/Users/من.txt	(date 1625582413046)
+@@ -0,0 +1,5 @@
++من
++من
++من
++0
++90500
+\ No newline at end of file
+Index: Users/hamraz.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Users/hamraz.txt b/Users/hamraz.txt
+new file mode 100644
+--- /dev/null	(date 1625586082542)
++++ b/Users/hamraz.txt	(date 1625586082542)
+@@ -0,0 +1,5 @@
++hamraz
++123
++hamraz
++0
++100000
+\ No newline at end of file

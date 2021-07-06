@@ -1,0 +1,517 @@
+Index: Cards/من.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cards/من.txt b/Cards/من.txt
+new file mode 100644
+--- /dev/null	(date 1625588750777)
++++ b/Cards/من.txt	(date 1625588750777)
+@@ -0,0 +1,5 @@
++Axe Raider
++Baby Dragon
++Bitron
++Battle Warrior
++Change Of Heart
+Index: Cards/parmida.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Yomi Ship\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cards/parmida.txt b/Cards/parmida.txt
+--- a/Cards/parmida.txt	(revision 56023bcf98832ba38453b596632c5a9cede9274b)
++++ b/Cards/parmida.txt	(date 1625588750765)
+@@ -1,1 +1,427 @@
++Monster Reborn
++Spell Absorption
++Command Knight
++Curtain Of Dark Ones
++Silver Fang
++Haniwa
++Gate Guardian
++Magic Cylinder
++Mind Crush
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
++Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
++Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
++Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
+ Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
++Mystical Space Typhoon
++Mystical Space Typhoon
++Mystical Space Typhoon
++Yomi Ship
++Yomi Ship
++Yomi Ship
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Monster Reborn
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Dark Hole
++Dark Hole
++Dark Hole
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Command Knight
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Haniwa
++Haniwa
++Haniwa
++Haniwa
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Gate Guardian
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Magic Cylinder
++Mind Crush
++Mind Crush
++Mind Crush
++Mind Crush
++Suijin
++Suijin
++Suijin
++Suijin
++Silver Fang
++Silver Fang
++Silver Fang
++Silver Fang
++Supply Squad
++Supply Squad
++Supply Squad
++Supply Squad
++Sword Of Revealing Light
++Sword Of Revealing Light
++Sword Of Revealing Light
++Supply Squad
++Supply Squad
++Supply Squad
++Trap Hole
++Trap Hole
++Trap Hole
++Spell Absorption
++Spell Absorption
++Spell Absorption
++Leotron
++Leotron
++Leotron
++Leotron
++United We Stand
++United We Stand
++United We Stand
++Yami
++Yami
+Index: Users/hamraz.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Users/hamraz.txt b/Users/hamraz.txt
+new file mode 100644
+--- /dev/null	(date 1625588750796)
++++ b/Users/hamraz.txt	(date 1625588750796)
+@@ -0,0 +1,5 @@
++hamraz
++123
++hamraz
++0
++100000
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0b1707ad-3e75-4310-9619-956ec670ae1a\" name=\"Default Changelist\" comment=\"scoreboard ai deleted\">\r\n      <change afterPath=\"$PROJECT_DIR$/Cards/من.txt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Users/hamraz.txt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Users/من.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Cards/parmida.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Cards/parmida.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Users/@AI@.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Users/@AI@.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Users/h.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Users/h.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Users/parmida.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Users/parmida.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/allUsers.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/allUsers.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1tf7blqKJ2Y0dLvEX2lrUssvKzj\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"extract.method.default.visibility\" value=\"private\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/main/resources\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"restartRequiresConfirmation\" value=\"false\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.project.statistic.project.settings\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hamri\\Desktop\\AP\\project_team_17_9\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hamri\\Desktop\\AP\\project_team_17_9\\src\\main\\resources\\images\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"controller.exeption\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.SignUpViewGraphic\">\r\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"1.8\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"project_team_17\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"MainViewGraphic\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.MainViewGraphic\" />\r\n      <module name=\"project_team_17\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SignUpViewGraphic\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"1.8\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.SignUpViewGraphic\" />\r\n      <module name=\"project_team_17\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"project_team_17\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"test\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test.testForMinFinder\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"project_team_17_2\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testForMinFinder\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.SignUpViewGraphic\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JUnit.test\" />\r\n        <item itemvalue=\"JUnit.test.testForMinFinder\" />\r\n        <item itemvalue=\"Application.MainViewGraphic\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"StructuralSearchPlugin\">\r\n    <searchConfiguration name=\"Unnamed\" created=\"1624744011824\" text=\"/* $CommentContent$ */\" recursive=\"false\" caseInsensitive=\"false\" type=\"JAVA\" pattern_context=\"default\" scope_type=\"PROJECT\" scope_descriptor=\"\" history=\"1\">\r\n      <constraint name=\"__context__\" within=\"\" contains=\"\" />\r\n      <constraint name=\"CommentContent\" within=\"\" contains=\"\" />\r\n    </searchConfiguration>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0b1707ad-3e75-4310-9619-956ec670ae1a\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1623148364579</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1623148364579</updated>\r\n      <workItem from=\"1624545878199\" duration=\"3232000\" />\r\n      <workItem from=\"1625476998745\" duration=\"2760000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Error sign up\">\r\n      <created>1623151044078</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623151044078</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"model.SpellCard.java&#10;Monster Reborn + Terraforming\">\r\n      <created>1623868346229</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623868346229</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED\">\r\n      <created>1623946393997</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623946393997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Yami SpellCard.java\">\r\n      <created>1624002906129</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624002906129</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Forest &amp; Closed Forest&#10;SpellCard.java\">\r\n      <created>1624012207305</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624012207305</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"debug import user\">\r\n      <created>1624093680512</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624093680512</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"debug import user o baghie import ha\">\r\n      <created>1624099929742</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624099929742</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"kiana test error fix\">\r\n      <created>1624533248061</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624533248061</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"show all cards debug\">\r\n      <created>1624546002241</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624546002241</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"jabejayie cheat money\">\r\n      <created>1624547044985</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624547044985</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"draw phase automatic\">\r\n      <created>1624556390073</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624556390073</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"debug1\">\r\n      <created>1624625286861</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624625286861</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"debug2\">\r\n      <created>1624639165113</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624639165113</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"ai\">\r\n      <created>1624641323564</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624641323564</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"debug attack1\">\r\n      <created>1624643600247</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624643600247</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"debug attack2\">\r\n      <created>1624645817335</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624645817335</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"debug attack3\">\r\n      <created>1624646566864</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624646566864</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"debug attack4\">\r\n      <created>1624650239704</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624650239704</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"debug show card\">\r\n      <created>1624653667478</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624653667478</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"debug show card2\">\r\n      <created>1624654145122</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624654145122</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"debug takeAction1\">\r\n      <created>1624702088038</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624702088038</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"debug command knight2\">\r\n      <created>1624703733833</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624703733833</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"nothing\">\r\n      <created>1624704514853</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624704514853</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"GATE_GUARDIAN\">\r\n      <created>1624709705904</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624709705904</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"SPELL_ABSORPTION debug1\">\r\n      <created>1624710730390</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624710730390</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"tributeForSummon debug\">\r\n      <created>1624712073940</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624712073940</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"Full spell and trap zone\">\r\n      <created>1624713959005</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624713959005</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"continuous spell card\">\r\n      <created>1624715726136</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624715726136</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"suijin debug 1\">\r\n      <created>1624717829951</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624717829951</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"suijin debug 2\">\r\n      <created>1624719651615</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624719651615</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"gate gaurdian debug\">\r\n      <created>1624721450582</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624721450582</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"activate spell debug 1\">\r\n      <created>1624725085666</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624725085666</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"AIFullDebug + monster reborn\">\r\n      <created>1624729177752</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624729177752</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"twin twister + spell absorption\">\r\n      <created>1624737729186</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624737729186</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"mystical space typhoon&#10;twin twisters\">\r\n      <created>1624739906446</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624739906446</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۳۸\" summary=\":|\">\r\n      <created>1625245993391</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۳۸\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۳۸\" />\r\n      <updated>1625245993391</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۳۹\" summary=\"profile and scoreboard edited\">\r\n      <created>1625252163631</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۳۹\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۳۹\" />\r\n      <updated>1625252163631</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"ShopGraphic3\">\r\n      <created>1625304651482</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625304651482</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"ShopGraphic4\">\r\n      <created>1625313201854</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625313201854</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۲\" summary=\"create deck\">\r\n      <created>1625349222305</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۲\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۲\" />\r\n      <updated>1625349222305</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۳\" summary=\"profile photo\">\r\n      <created>1625407690499</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۳\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۳\" />\r\n      <updated>1625407690499</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۴\" summary=\"...\">\r\n      <created>1625420301025</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۴\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۴\" />\r\n      <updated>1625420301025</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۵\" summary=\"ScoreBoard\">\r\n      <created>1625435400560</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۵\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۵\" />\r\n      <updated>1625435400560</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00046\" summary=\"rock paper scissor\">\r\n      <created>1625502701825</created>\r\n      <option name=\"number\" value=\"00046\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625502701825</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00047\" summary=\"rock paper scissor\">\r\n      <created>1625514903733</created>\r\n      <option name=\"number\" value=\"00047\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00047\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625514903733</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۸\" summary=\"rock paper scissor names\">\r\n      <created>1625565325571</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۸\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۸\" />\r\n      <updated>1625565325571</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۹\" summary=\"board cards imageview\">\r\n      <created>1625571369460</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۹\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۹\" />\r\n      <updated>1625571369460</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۵۰\" summary=\"not null\">\r\n      <created>1625572099676</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۵۰\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۵۰\" />\r\n      <updated>1625572099677</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۵۱\" summary=\"scoreboard ai deleted\">\r\n      <created>1625578121222</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۵۱\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۵۱\" />\r\n      <updated>1625578121222</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"52\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"nothing\" />\r\n    <MESSAGE value=\"GATE_GUARDIAN\" />\r\n    <MESSAGE value=\"SPELL_ABSORPTION debug1\" />\r\n    <MESSAGE value=\"tributeForSummon debug\" />\r\n    <MESSAGE value=\"Full spell and trap zone\" />\r\n    <MESSAGE value=\"continuous spell card\" />\r\n    <MESSAGE value=\"suijin debug 1\" />\r\n    <MESSAGE value=\"suijin debug 2\" />\r\n    <MESSAGE value=\"gate gaurdian debug\" />\r\n    <MESSAGE value=\"activate spell debug 1\" />\r\n    <MESSAGE value=\"AIFullDebug + monster reborn\" />\r\n    <MESSAGE value=\"twin twister + spell absorption\" />\r\n    <MESSAGE value=\"mystical space typhoon&#10;twin twisters\" />\r\n    <MESSAGE value=\":|\" />\r\n    <MESSAGE value=\"profile and scoreboard edited\" />\r\n    <MESSAGE value=\"ShopGraphic3\" />\r\n    <MESSAGE value=\"ShopGraphic4\" />\r\n    <MESSAGE value=\"create deck\" />\r\n    <MESSAGE value=\"profile photo\" />\r\n    <MESSAGE value=\"...\" />\r\n    <MESSAGE value=\"ScoreBoard\" />\r\n    <MESSAGE value=\"rock paper scissor\" />\r\n    <MESSAGE value=\"rock paper scissor names\" />\r\n    <MESSAGE value=\"board cards imageview\" />\r\n    <MESSAGE value=\"not null\" />\r\n    <MESSAGE value=\"scoreboard ai deleted\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"scoreboard ai deleted\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java</url>\r\n          <line>36</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 56023bcf98832ba38453b596632c5a9cede9274b)
++++ b/.idea/workspace.xml	(date 1625597245449)
+@@ -22,20 +22,12 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="scoreboard ai deleted">
++    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="label and imageview added">
+       <change afterPath="$PROJECT_DIR$/Cards/من.txt" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/Users/من.txt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+Index: Users/من.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Users/من.txt b/Users/من.txt
+new file mode 100644
+--- /dev/null	(date 1625588750786)
++++ b/Users/من.txt	(date 1625588750786)
+@@ -0,0 +1,5 @@
++من
++من
++من
++0
++90500
+\ No newline at end of file
