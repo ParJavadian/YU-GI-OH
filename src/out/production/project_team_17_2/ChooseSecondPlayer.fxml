@@ -30,6 +30,6 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <ComboBox layoutX="616.0" layoutY="439.0" fx:id="choiceBox" prefWidth="150.0" />
+      <ComboBox layoutX="616.0" layoutY="439.0" fx:id="comboBox" prefWidth="150.0" />
    </children>
 </AnchorPane>
