@@ -22,18 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="rock paper scissor">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="rock paper scissor names">
       <change afterPath="$PROJECT_DIR$/Cards/من.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/من.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorAIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorAIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorPlayerTwoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorPlayerTwoView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RockPaperScissorAi.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissorAi.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RockPaperScissorPlayerTwo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissorPlayerTwo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -518,7 +518,13 @@
       <option name="project" value="LOCAL" />
       <updated>1625514903733</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL‎۰۰۰۴۸" summary="rock paper scissor names">
+      <created>1625565325571</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۸" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۸" />
+      <updated>1625565325571</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,7 +544,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug show card" />
     <MESSAGE value="debug show card2" />
     <MESSAGE value="debug takeAction1" />
     <MESSAGE value="debug command knight2" />
@@ -564,14 +569,15 @@
     <MESSAGE value="..." />
     <MESSAGE value="ScoreBoard" />
     <MESSAGE value="rock paper scissor" />
-    <option name="LAST_COMMIT_MESSAGE" value="rock paper scissor" />
+    <MESSAGE value="rock paper scissor names" />
+    <option name="LAST_COMMIT_MESSAGE" value="rock paper scissor names" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java</url>
-          <line>45</line>
+          <line>36</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
