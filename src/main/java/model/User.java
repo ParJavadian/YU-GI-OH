@@ -170,6 +170,7 @@ public class User {
 
     public void setActiveDeck(Deck deck) {
         this.currentActiveDeck = deck;
+        ImportExportUserController.getInstance().exportActiveDeck(Objects.requireNonNull(getUserByUsername(username)),deck.getDeckName());
     }
 
     public int getCountOfCardInAllCards(Card card) {
