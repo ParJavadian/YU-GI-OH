@@ -1,5 +1,7 @@
 package controller;
 
+import controller.exeption.InvalidDeck;
+import controller.exeption.NoActiveDeck;
 import javafx.stage.Stage;
 import model.User;
 import view.*;
@@ -10,7 +12,7 @@ public class MainControllerGraphic {
         LogInViewGraphic.getInstance().start(stage);
     }
 
-    public static void showScoreBoard(User user,Stage stage) throws Exception{
+    public static void showScoreBoard(User user, Stage stage) throws Exception {
         ScoreBoardControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
         ScoreBoardViewGraphic.getInstance().setCurrentUser(user);
         ScoreBoardViewGraphic.getInstance().start(stage);
@@ -33,9 +35,13 @@ public class MainControllerGraphic {
         AllDecksViewGraphic.getInstance().start(stage);
     }
 
-    public static void showNewDuelMenu(User user, Stage stage) throws Exception{
-      ChooseSecondPlayerViewGraphic.getInstance().setCurrentUser(user);
-      ChooseSecondPlayerViewGraphic.getInstance().start(stage);
+    public static void showNewDuelMenu(User user, Stage stage) throws Exception {
+        if (user.getActiveDeck() == null)
+            throw new NoActiveDeck(user.getUsername());
+        if (!user.getActiveDeck().isValid())
+            throw new InvalidDeck(user.getUsername());
+        ChooseSecondPlayerViewGraphic.getInstance().setCurrentUser(user);
+        ChooseSecondPlayerViewGraphic.getInstance().start(stage);
     }
 
 //    public static void showDeckMenu(User user, Stage stage) throws Exception {

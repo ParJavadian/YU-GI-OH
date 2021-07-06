@@ -22,18 +22,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="import export deck">
-      <change afterPath="$PROJECT_DIR$/Cards/a.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/a.txt" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="ChooseSecondPlayer combobox">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseSecondPlayerControllerGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cards/a.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/asalamMainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/parmidaparmida1MainDeck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/a.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/aAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/aAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/aAllDecks.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerTwo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerTwo.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Deck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (2).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src.zip" beforeDir="false" afterPath="$PROJECT_DIR$/src.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChooseSecondPlayerViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseSecondPlayerViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ChooseSecondPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ChooseSecondPlayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/NewDuelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/NewDuelMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/project_team_17_2/ChooseSecondPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/project_team_17_2/ChooseSecondPlayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,18 +110,20 @@
       <recent name="controller.exeption" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SignUpViewGraphic">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="project_team_17" />
+  <component name="RunManager" selected="Application.LogInViewGraphic">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.MainViewGraphic" />
+    <configuration name="LogInViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
@@ -119,6 +131,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="project_team_17" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -134,17 +155,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LogInViewGraphic" />
         <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
-        <item itemvalue="Application.MainViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -518,14 +528,7 @@
       <option name="project" value="LOCAL" />
       <updated>1625514903733</updated>
     </task>
-    <task id="LOCAL-00048" summary="import export deck">
-      <created>1625558984678</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1625558984678</updated>
-    </task>
-    <option name="localTasksCounter" value="49" />
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,6 +548,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="debug show card" />
     <MESSAGE value="debug show card2" />
     <MESSAGE value="debug takeAction1" />
     <MESSAGE value="debug command knight2" />
@@ -570,8 +574,29 @@
     <MESSAGE value="..." />
     <MESSAGE value="ScoreBoard" />
     <MESSAGE value="rock paper scissor" />
-    <MESSAGE value="import export deck" />
-    <option name="LAST_COMMIT_MESSAGE" value="import export deck" />
+    <option name="LAST_COMMIT_MESSAGE" value="rock paper scissor" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="407" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1625563362921">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="407" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1625563362921" />
+    <state width="1237" height="173" key="GridCell.Tab.0.bottom" timestamp="1625564007790">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="173" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625564007790" />
+    <state width="1237" height="173" key="GridCell.Tab.0.center" timestamp="1625564007790">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="173" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625564007790" />
+    <state width="1237" height="173" key="GridCell.Tab.0.left" timestamp="1625564007789">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="173" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625564007789" />
+    <state width="1237" height="173" key="GridCell.Tab.0.right" timestamp="1625564007790">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="173" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625564007790" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

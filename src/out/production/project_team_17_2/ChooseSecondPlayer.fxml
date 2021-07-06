@@ -15,7 +15,7 @@
          </image>
       </ImageView>
       <Button mnemonicParsing="false" text="Button" />
-      <Button layoutX="629.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#onPlayerGame" text="2 player game">
+      <Button layoutX="629.0" layoutY="386.0" mnemonicParsing="false" onMouseClicked="#twoPlayerGame" text="2 player game">
          <font>
             <Font size="16.0" />
          </font>

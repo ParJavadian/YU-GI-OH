@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChooseDuelView">
    <children>
       <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="14.0" layoutY="69.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -14,19 +13,19 @@
             <Image url="@images/timeToDuel.png" />
          </image>
       </ImageView>
-      <Button layoutX="114.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#threeRoundsGame" text="3 rounds" textFill="#1d0dff">
+      <Button layoutX="114.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#threeRoundsGame" prefHeight="57.0" prefWidth="123.0" text="3 rounds" textFill="#1d0dff">
          <font>
-            <Font size="14.0" />
+            <Font name="Agency FB Bold" size="26.0" />
          </font>
       </Button>
-      <Button layoutX="428.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#oneRoundGame" text="1 round" textFill="#1d0dff">
+      <Button layoutX="417.0" layoutY="123.0" mnemonicParsing="false" onMouseClicked="#oneRoundGame" prefHeight="57.0" prefWidth="123.0" text="1 round" textFill="#1d0dff">
          <font>
-            <Font size="14.0" />
+            <Font name="Agency FB Bold" size="26.0" />
          </font>
       </Button>
-      <Button layoutX="279.0" layoutY="454.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" textFill="#1d0dff">
+      <Button layoutX="299.0" layoutY="446.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="36.0" prefWidth="53.0" text="Back" textFill="#1d0dff">
          <font>
-            <Font size="14.0" />
+            <Font name="Agency FB Bold" size="17.0" />
          </font>
       </Button>
    </children>

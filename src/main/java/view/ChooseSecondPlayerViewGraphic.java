@@ -1,10 +1,12 @@
 package view;
 
+import controller.ChooseSecondPlayerControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
@@ -41,13 +43,16 @@ public class ChooseSecondPlayerViewGraphic extends Application implements Initia
     }
 
 
-    public void onPlayerGame(MouseEvent event) throws Exception {
-        ChooseDuelView.getInstance().setCurrentUser(user);
-        ChooseDuelView.getInstance().setPlayerTwoName("do");
-        ChooseDuelView.getInstance().start(stage);
+    public void twoPlayerGame(){
+        try {
+            ChooseSecondPlayerControllerGraphic.twoPlayerGame(comboBox.getValue(),user,stage);
+        }
+        catch (Exception e){
+            printError(e.getMessage());
+        }
     }
 
-    public void playWithAi(MouseEvent event) throws Exception {
+    public void playWithAi() throws Exception {
         ChooseDuelView.getInstance().setCurrentUser(user);
         ChooseDuelView.getInstance().setPlayerTwoName("@AI@");
         ChooseDuelView.getInstance().start(stage);
@@ -71,5 +76,12 @@ public class ChooseSecondPlayerViewGraphic extends Application implements Initia
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fillTheComboBoxWithUsers();
+    }
+
+    private void printError(String command) {
+        Alert alert = new Alert(Alert.AlertType.ERROR, command);
+        alert.setHeaderText("");
+        alert.setTitle("");
+        alert.showAndWait();
     }
 }
