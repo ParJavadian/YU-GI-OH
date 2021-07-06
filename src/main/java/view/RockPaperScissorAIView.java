@@ -21,7 +21,7 @@ public class RockPaperScissorAIView extends Application implements Initializable
     private static User user;
     private static int numberOfRounds;
     @FXML
-    private static Label firstPlayerLabel,secondPlayerLabel;
+    private Label firstPlayerLabel,secondPlayerLabel;
 
     public static RockPaperScissorAIView getInstance() {
         if (instance == null) instance = new RockPaperScissorAIView();
@@ -41,9 +41,9 @@ public class RockPaperScissorAIView extends Application implements Initializable
         RockPaperScissorAIView.stage = stage;
         URL url = getClass().getResource("/RockPaperScissorAi.fxml");
         Parent root = FXMLLoader.load(url);
+        initLabels();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
     }
     public void rock(MouseEvent event) throws Exception {
         String winnerName = findWinner("rock",randomHand());
@@ -130,8 +130,14 @@ public class RockPaperScissorAIView extends Application implements Initializable
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        firstPlayerLabel.setText(user.getUsername());
-        secondPlayerLabel.setText("computer");
+        initLabels();
+    }
+
+    private void initLabels(){
+        if(firstPlayerLabel!=null && secondPlayerLabel!=null && user!=null) {
+            firstPlayerLabel.setText(user.getUsername());
+            secondPlayerLabel.setText("computer");
+        }
     }
 
 
