@@ -22,17 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="rock paper scissor names">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="board cards imageview">
       <change afterPath="$PROJECT_DIR$/Cards/من.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/من.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/BoardGamePlayerOne.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -524,7 +518,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۸" />
       <updated>1625565325571</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL‎۰۰۰۴۹" summary="board cards imageview">
+      <created>1625571369460</created>
+      <option name="number" value="LOCAL‎۰۰۰۴۹" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۴۹" />
+      <updated>1625571369460</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +544,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug show card2" />
     <MESSAGE value="debug takeAction1" />
     <MESSAGE value="debug command knight2" />
     <MESSAGE value="nothing" />
@@ -570,7 +569,8 @@
     <MESSAGE value="ScoreBoard" />
     <MESSAGE value="rock paper scissor" />
     <MESSAGE value="rock paper scissor names" />
-    <option name="LAST_COMMIT_MESSAGE" value="rock paper scissor names" />
+    <MESSAGE value="board cards imageview" />
+    <option name="LAST_COMMIT_MESSAGE" value="board cards imageview" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
