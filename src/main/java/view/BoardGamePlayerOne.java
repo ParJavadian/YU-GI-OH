@@ -57,10 +57,10 @@ public class BoardGamePlayerOne extends Application implements Initializable {
             playerLifePoint.setText(String.valueOf(player.getLifePoint()));
             rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
         }
-        else System.out.println("ye ja null has!");
     }
 
 
     public void pauseMenu(MouseEvent event) {
+
     }
 }
