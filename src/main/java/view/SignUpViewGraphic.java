@@ -37,6 +37,8 @@ public class SignUpViewGraphic extends Application {
 
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();
+            importExportUserController.importAllCards();
+            importExportUserController.importAllDecks();
 //            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
 //            MediaPlayer mp = new MediaPlayer(media);
 //            mp.setCycleCount(AudioClip.INDEFINITE);

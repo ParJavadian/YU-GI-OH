@@ -35,6 +35,8 @@ public class LogInViewGraphic extends Application {
         if ((LogInViewGraphic.instance == null) && (SignUpViewGraphic.instance == null)) {
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();
+            importExportUserController.importAllCards();
+            importExportUserController.importAllDecks();
 //            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
 //            mediaPlayer = new MediaPlayer(media);
 //            mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
