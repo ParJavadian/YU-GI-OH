@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -76,37 +78,36 @@ public class RockPaperScissorAIView extends Application implements Initializable
     public String findWinner(String handPlayerOne, String handPlayerTwo) throws Exception {
         if (handPlayerOne != null) {
             if (handPlayerOne.equals(handPlayerTwo)) {
-                System.out.println("mosavi");
-                RockPaperScissorAIView.getInstance().start(stage);
+                PrintTextEqualRPS();
             }
 
             if (handPlayerOne.equals("rock")) {
                 if (handPlayerTwo.equals("paper")) {
-                    System.out.println("ai");
+                    printTextInformation("Computer");
                     return "@AI@";
                 }
                 if (handPlayerTwo.equals("scissor")) {
-                    System.out.println("yaru");
+                    printTextInformation(user.getUsername());
                     return user.getUsername();
                 }
             }
             if (handPlayerOne.equals("paper")) {
                 if (handPlayerTwo.equals("rock")) {
-                    System.out.println("yaru");
+                    printTextInformation(user.getUsername());
                     return user.getUsername();
                 }
                 if (handPlayerTwo.equals("scissor")) {
-                    System.out.println("ai");
+                    printTextInformation("Computer");
                     return "@AI@";
                 }
             }
             if (handPlayerOne.equals("scissor")) {
                 if (handPlayerTwo.equals("rock")) {
-                    System.out.println("ai");
+                    printTextInformation("Computer");
                     return "@AI@";
                 }
                 if (handPlayerTwo.equals("paper")) {
-                    System.out.println("uaru");
+                    printTextInformation(user.getUsername());
                     return user.getUsername();
                 }
             }
@@ -114,11 +115,16 @@ public class RockPaperScissorAIView extends Application implements Initializable
         return "";
     }
 
-    public void startNewGame(User firstPlayer, User secondPlayer) throws Exception{
-        GameViewGraphic.getInstance().setPlayer(firstPlayer);
-        GameViewGraphic.getInstance().setRival(secondPlayer);
-        GameViewGraphic.getInstance().setNumberOfRounds(numberOfRounds);
-        GameViewGraphic.getInstance().start(stage);
+    public void startNewGame(User firstPlayer, User secondPlayer) throws Exception {
+        if (firstPlayer != null) {
+            BoardGamePlayerOne.getInstance().setPlayer(firstPlayer);
+            BoardGamePlayerOne.getInstance().setRival(secondPlayer);
+            BoardGamePlayerOne.getInstance().setNumberOfRounds(numberOfRounds);
+            BoardGamePlayerOne.getInstance().start(stage);
+        }
+        else
+            RockPaperScissorAIView.getInstance().start(stage);
+
     }
 
     public User findSecondPlayer(String firstPlayer){
@@ -140,5 +146,19 @@ public class RockPaperScissorAIView extends Application implements Initializable
         }
     }
 
+    public void printTextInformation(String winnerName) {
+        String winner = winnerName + " won the Rock paper scissor match and will start the game!";
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, winner, ButtonType.OK);
+        alert.setHeaderText("");
+        alert.setTitle("");
+        alert.showAndWait();
+    }
 
+    public void PrintTextEqualRPS(){
+        String message = "both of you chose the same hand! play again!";
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
+        alert.setHeaderText("");
+        alert.setTitle("");
+        alert.showAndWait();
+    }
 }

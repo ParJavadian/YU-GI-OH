@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -68,37 +70,37 @@ public class RockPaperScissorPlayerTwoView extends Application implements Initia
     public void findWinner(String handPlayerOne, String handPlayerTwo) throws Exception {
         if (handPlayerOne != null) {
             if (handPlayerOne.equals(handPlayerTwo)){
-                System.out.println("mosavi");
+                PrintTextEqualRPS();
                 RockPaperScissorView.getInstance().start(stage);
             }
 
             if (handPlayerOne.equals("rock")) {
                 if (handPlayerTwo.equals("paper")) {
-                    System.out.println("two");
+                    printTextInformation(loginTwo.getUsername());
                     startNewGame(loginTwo, loginOne);
                 }
                 if (handPlayerTwo.equals("scissor")) {
-                    System.out.println("one");
+                    printTextInformation(loginOne.getUsername());
                     startNewGame(loginOne, loginTwo);
                 }
             }
             if (handPlayerOne.equals("paper")) {
                 if (handPlayerTwo.equals("rock")) {
-                    System.out.println("one");
+                    printTextInformation(loginOne.getUsername());
                     startNewGame(loginOne, loginTwo);
                 }
                 if (handPlayerTwo.equals("scissor")) {
-                    System.out.println("two");
+                    printTextInformation(loginTwo.getUsername());
                     startNewGame(loginTwo, loginOne);
                 }
             }
             if (handPlayerOne.equals("scissor")) {
                 if (handPlayerTwo.equals("rock")) {
-                    System.out.println("two");
+                    printTextInformation(loginTwo.getUsername());
                     startNewGame(loginTwo, loginOne);
                 }
                 if (handPlayerTwo.equals("paper")) {
-                    System.out.println("one");
+                    printTextInformation(loginOne.getUsername());
                     startNewGame(loginOne, loginTwo);
                 }
             }
@@ -122,5 +124,21 @@ public class RockPaperScissorPlayerTwoView extends Application implements Initia
             firstPlayerLabel.setText(loginOne.getUsername());
             secondPlayerLabel.setText(loginTwo.getUsername());
         }
+    }
+
+    public void printTextInformation(String winnerName) {
+        String winner = winnerName + " won the Rock paper scissor match and will start the game!";
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, winner, ButtonType.OK);
+        alert.setHeaderText("");
+        alert.setTitle("");
+        alert.showAndWait();
+    }
+
+    public void PrintTextEqualRPS(){
+        String message = "both of you chose the same hand! play again!";
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
+        alert.setHeaderText("");
+        alert.setTitle("");
+        alert.showAndWait();
     }
 }
