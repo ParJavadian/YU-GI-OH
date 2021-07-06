@@ -6,6 +6,7 @@ import model.User;
 
 import java.io.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ImportExportUserController {
@@ -88,6 +89,38 @@ public class ImportExportUserController {
                 }
             }
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void importActiveDeck(){
+        if (User.getAllUsers() != null) {
+            for (User user : User.getAllUsers()) {
+                String username = user.getUsername();
+                String activeDeckName = "";
+                File file = new File("ActivateDecks/" + username + ".txt");
+                try {
+                    if (file.exists()) {
+                        Scanner scanner = new Scanner(file);
+                        if (scanner.hasNextLine()) {
+                            activeDeckName = scanner.nextLine();
+                            Objects.requireNonNull(User.getUserByUsername(username)).setActiveDeck(Objects.requireNonNull(User.getUserByUsername(username)).getDeckByName(activeDeckName));
+                        }
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void exportActiveDeck(User user, String deckName){
+        String username = user.getUsername();
+        try {
+            FileWriter fileWriter = new FileWriter("ActivateDecks/" + username + ".txt");
+            fileWriter.write(deckName);
+            fileWriter.close();
+        }catch (IOException e){
             e.printStackTrace();
         }
     }

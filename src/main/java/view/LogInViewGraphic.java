@@ -37,6 +37,7 @@ public class LogInViewGraphic extends Application {
             importExportUserController.importAllUsers();
             importExportUserController.importAllCards();
             importExportUserController.importAllDecks();
+            importExportUserController.importActiveDeck();
 //            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
 //            mediaPlayer = new MediaPlayer(media);
 //            mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
