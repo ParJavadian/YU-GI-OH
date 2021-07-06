@@ -19,7 +19,7 @@ public class DuelView {
 
     public DuelView(User user, User rival, int roundNumber) {
         duelController = new DuelController(user, rival, roundNumber);
-        duelController.setDuelView(this);
+//        duelController.setDuelView(this);
     }
 
     public void getCommandForDuel() {

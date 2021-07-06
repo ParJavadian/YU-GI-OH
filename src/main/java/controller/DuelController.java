@@ -1,15 +1,17 @@
 package controller;
 
 import controller.exeption.*;
+import javafx.scene.image.Image;
 import model.*;
 import view.DuelView;
+import view.GameViewGraphic;
 
 import java.util.*;
 
 public class DuelController {
 
     public static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
-    private DuelView duelView = null;
+    private GameViewGraphic gameViewGraphic = null;
     private User player;
     private User rival;
     private Round[] rounds;
@@ -46,8 +48,8 @@ public class DuelController {
         return actionsOnThisCardRival.get(i);
     }
 
-    public void setDuelView(DuelView duelView) {
-        this.duelView = duelView;
+    public void setDuelView(GameViewGraphic gameViewGraphic) {
+        this.gameViewGraphic = gameViewGraphic;
     }
 
     private void setGameDeck(User user) {
@@ -335,7 +337,7 @@ public class DuelController {
                 this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
                 unselectCard();
                 DuelView.printText("summoned successfully");
-                printBoard();
+                getBoard();
                 hasSummonedOrSetInThisTurn = true;
                 return;
             }
@@ -379,7 +381,7 @@ public class DuelController {
         this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("summoned successfully");
-        printBoard();
+        getBoard();
         hasSummonedOrSetInThisTurn = true;
     }
 
@@ -418,11 +420,11 @@ public class DuelController {
         this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("summoned successfully");
-        printBoard();
+        getBoard();
         hasSummonedOrSetInThisTurn = true;
     }
 
-    public void specialSummonNormal(){
+    public void specialSummonNormal() {
         ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.SPECIAL_SUMMONED, this.player, this.selectedCard.getNumber());
 
     }
@@ -457,7 +459,7 @@ public class DuelController {
                 unselectCard();
                 DuelView.printText("set successfully");
                 hasSummonedOrSetInThisTurn = true;
-                printBoard();
+                getBoard();
                 return;
             }
             if (monsterCard.getLevel() < 7) {
@@ -501,7 +503,7 @@ public class DuelController {
         unselectCard();
         DuelView.printText("set successfully");
         hasSummonedOrSetInThisTurn = true;
-        printBoard();
+        getBoard();
     }
 
     private void tributeTwoMonstersForSet() throws Exception {
@@ -540,7 +542,7 @@ public class DuelController {
         unselectCard();
         DuelView.printText("set successfully");
         hasSummonedOrSetInThisTurn = true;
-        printBoard();
+        getBoard();
     }
 
     private void setSpell() throws Exception {
@@ -561,7 +563,7 @@ public class DuelController {
         this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("set successfully");
-        printBoard();
+        getBoard();
     }
 
     private void setTrap() throws Exception {
@@ -583,7 +585,7 @@ public class DuelController {
         this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("set successfully");
-        printBoard();
+        getBoard();
     }
 
     public void changePosition(String targetPosition) throws Exception {
@@ -611,7 +613,7 @@ public class DuelController {
         this.player.getBoard().changeMonsterPosition(this.selectedCard.getNumber(), targetPositionInShort);
         actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.CHANGE_POSITION);
         DuelView.printText("monster card position changed successfully");
-        printBoard();
+        getBoard();
     }
 
     public void flipSummon() throws Exception {
@@ -627,7 +629,7 @@ public class DuelController {
         ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.FLIP_SUMMONED, this.player, this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("flip summoned successfully");
-        printBoard();
+        getBoard();
     }
 
     public void attackMonster(int monsterNumber) throws Exception {
@@ -698,7 +700,7 @@ public class DuelController {
             DuelView.printText("Your monster card is destroyed and you received " + damage + " battle damage");
         }
         unselectCard();
-        printBoard();
+        getBoard();
     }
 
     private void attackMonsterDO(int monsterNumber) throws Exception {
@@ -720,7 +722,7 @@ public class DuelController {
             DuelView.printText("no card is destroyed and you received " + damage + " battle damage");
         }
         unselectCard();
-        printBoard();
+        getBoard();
     }
 
     private void attackMonsterDH(int monsterNumber) throws Exception {
@@ -745,7 +747,7 @@ public class DuelController {
             DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed and you received " + damage + " battle damage");
         }
         unselectCard();
-        printBoard();
+        getBoard();
     }
 
     public void directAttack() throws Exception {
@@ -757,9 +759,9 @@ public class DuelController {
             rival.decreaseLifePoint(((MonsterCard) this.selectedCard.getCard()).getAttack());
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             unselectCard();
-            printBoard();
+            getBoard();
         } else throw new CanNotAttackDirectly();
-        printBoard();
+        getBoard();
     }
 
     public void activateSpell() throws Exception {
@@ -804,7 +806,7 @@ public class DuelController {
         }
         unselectCard();
         DuelView.printText("spell activated");
-        printBoard();
+        getBoard();
     }
 
     public void cheatLifePoint(String target, int lifePoint) {
@@ -892,7 +894,8 @@ public class DuelController {
                 exchangeCardBetweenMainAndSide(this.player);
                 exchangeCardBetweenMainAndSide(this.rival);
                 startNewGame(winner);
-                duelView.getCommandForDuel();
+                //TODO connect this
+//                gameViewGraphic.getCommandForDuel();
             }
         }
     }
@@ -930,7 +933,7 @@ public class DuelController {
         } else if (phase.equals(Phase.STANDBY_PHASE)) {
             this.phase = Phase.MAIN_PHASE1;
             DuelView.printText("phase: " + this.phase.getNamePascalCase());
-            printBoard();
+            getBoard();
         } else if (phase.equals(Phase.MAIN_PHASE1)) {
             if (!isStartTurn)
                 this.phase = Phase.BATTLE_PHASE;
@@ -1014,49 +1017,99 @@ public class DuelController {
         }
     }
 
-    private void printBoard() {
-        String toPrint = this.rival.getNickname() + ":" + this.rival.getLifePoint() + "\n";
+    public ArrayList<Image> getBoard() {
+        Image unknown = new Image("images/Cards/Unknown.jpg");
+        ArrayList<Image> images = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            if (this.player.getBoard().getMonsterConditionByNumber(i) == null) images.add(null);
+            else images.add(this.player.getBoard().getMonsterByNumber(i).getImage());
+        }
+        for (int i = 4; i >= 0; i--) {
+            if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) images.add(null);
+            else if (!this.rival.getBoard().getMonsterConditionByNumber(i).equals("DH"))
+                images.add(this.rival.getBoard().getMonsterByNumber(i).getImage());
+            else
+                images.add(unknown);
+        }
+        for (int i = 0; i < 5; i++) {
+            if (this.player.getBoard().getSpellAndTrapByNumber(i) == null) images.add(null);
+            else images.add(this.player.getBoard().getSpellAndTrapByNumber(i).getImage());
+        }
+        for (int i = 4; i >= 0; i--) {
+            if (this.rival.getBoard().getSpellAndTrapByNumber(i) == null) images.add(null);
+            else if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i).equals("O"))
+                images.add(this.rival.getBoard().getSpellAndTrapByNumber(i).getImage());
+            else
+                images.add(unknown);
+        }
+        for (int i = 0; i < 6; i++) {
+            if (this.player.getBoard().getCardsInHand().size()<=i) images.add(null);
+            else images.add(this.player.getBoard().getCardsInHand().get(i).getImage());
+        }
+        for (int i = 5; i >= 0; i--) {
+            if (this.rival.getBoard().getCardsInHand().size()<=i) images.add(null);
+            else images.add(unknown);
+        }
+        if(this.player.getBoard().getFieldZone() == null)
+            images.add(null);
+        else
+            images.add(this.player.getBoard().getFieldZone().getImage());
+        if(this.rival.getBoard().getFieldZone() == null)
+            images.add(null);
+        else
+            images.add(this.rival.getBoard().getFieldZone().getImage());
+        if(this.player.getBoard().getCardsInGraveyard().isEmpty())
+            images.add(null);
+        else
+            images.add(this.player.getBoard().getCardsInGraveyard().get(this.player.getBoard().getCardsInGraveyard().size()-1).getImage());
+        if(this.rival.getBoard().getCardsInGraveyard().isEmpty())
+            images.add(null);
+        else
+            images.add(this.rival.getBoard().getCardsInGraveyard().get(this.rival.getBoard().getCardsInGraveyard().size()-1).getImage());
+        return images;
+
+        /*StringBuilder toPrint = new StringBuilder(this.rival.getNickname() + ":" + this.rival.getLifePoint() + "\n");
         for (Card ignored : this.rival.getBoard().getCardsInHand()) {
-            toPrint += "\tc";
+            toPrint.append("\tc");
         }
-        toPrint += "\n";
-        toPrint += this.rival.getGameDeck().getMainSize() + "\n";
+        toPrint.append("\n");
+        toPrint.append(this.rival.getGameDeck().getMainSize()).append("\n");
         for (int i = 4; i > -1; i--) {
-            toPrint += "\t";
-            if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.rival.getBoard().getSpellAndTrapConditionByNumber(i);
+            toPrint.append("\t");
+            if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint.append("E");
+            else toPrint.append(this.rival.getBoard().getSpellAndTrapConditionByNumber(i));
         }
-        toPrint += "\n";
+        toPrint.append("\n");
         for (int i = 4; i > -1; i--) {
-            toPrint += "\t";
-            if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.rival.getBoard().getMonsterConditionByNumber(i);
+            toPrint.append("\t");
+            if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) toPrint.append("E");
+            else toPrint.append(this.rival.getBoard().getMonsterConditionByNumber(i));
         }
-        toPrint += "\n" + this.rival.getBoard().getCardsInGraveyard().size() + "\t\t\t\t\t\t";
-        if (this.rival.getBoard().getFieldZone() == null) toPrint += "E\n";
-        else toPrint += "O\n";
-        toPrint += "\n--------------------------\n\n";
-        if (this.player.getBoard().getFieldZone() == null) toPrint += "E\t\t\t\t\t\t";
-        else toPrint += "O\t\t\t\t\t\t";
-        toPrint += this.player.getBoard().getCardsInGraveyard().size() + "\n";
+        toPrint.append("\n").append(this.rival.getBoard().getCardsInGraveyard().size()).append("\t\t\t\t\t\t");
+        if (this.rival.getBoard().getFieldZone() == null) toPrint.append("E\n");
+        else toPrint.append("O\n");
+        toPrint.append("\n--------------------------\n\n");
+        if (this.player.getBoard().getFieldZone() == null) toPrint.append("E\t\t\t\t\t\t");
+        else toPrint.append("O\t\t\t\t\t\t");
+        toPrint.append(this.player.getBoard().getCardsInGraveyard().size()).append("\n");
         for (int i = 0; i < 5; i++) {
-            toPrint += "\t";
-            if (this.player.getBoard().getMonsterConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.player.getBoard().getMonsterConditionByNumber(i);
+            toPrint.append("\t");
+            if (this.player.getBoard().getMonsterConditionByNumber(i) == null) toPrint.append("E");
+            else toPrint.append(this.player.getBoard().getMonsterConditionByNumber(i));
         }
-        toPrint += "\n";
+        toPrint.append("\n");
         for (int i = 0; i < 5; i++) {
-            toPrint += "\t";
-            if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint += "E";
-            else toPrint += this.player.getBoard().getSpellAndTrapConditionByNumber(i);
+            toPrint.append("\t");
+            if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint.append("E");
+            else toPrint.append(this.player.getBoard().getSpellAndTrapConditionByNumber(i));
         }
-        toPrint += "\n\t\t\t\t\t\t" + this.player.getGameDeck().getMainSize() + "\n";
+        toPrint.append("\n\t\t\t\t\t\t").append(this.player.getGameDeck().getMainSize()).append("\n");
         for (Card ignored : this.player.getBoard().getCardsInHand()) {
 //            toPrint += ignored.getNamePascalCase() + "\t";
-            toPrint += "c\t";
+            toPrint.append("c\t");
         }
-        toPrint += "\n" + this.player.getNickname() + ":" + this.player.getLifePoint();
-        DuelView.printText(toPrint);
+        toPrint.append("\n").append(this.player.getNickname()).append(":").append(this.player.getLifePoint());
+        DuelView.printText(toPrint.toString());*/
     }
 
     public void showCard() throws Exception {
@@ -1075,19 +1128,19 @@ public class DuelController {
 
     public void showGraveyard() throws Exception {
         List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
-        String toPrint = "";
+        StringBuilder toPrint = new StringBuilder();
         if (graveyard.isEmpty())
             throw new GraveYardEmpty();
         else {
             for (Card cardInGraveyard : graveyard) {
                 if (graveyard.indexOf(cardInGraveyard) == graveyard.size() - 1) {
-                    toPrint += cardInGraveyard.getNamePascalCase() + ":" + cardInGraveyard.getDescription();
+                    toPrint.append(cardInGraveyard.getNamePascalCase()).append(":").append(cardInGraveyard.getDescription());
                 } else {
-                    toPrint += cardInGraveyard.getNamePascalCase() + ":" + cardInGraveyard.getDescription() + "\n";
+                    toPrint.append(cardInGraveyard.getNamePascalCase()).append(":").append(cardInGraveyard.getDescription()).append("\n");
                 }
             }
         }
-        DuelView.printText(toPrint);
+        DuelView.printText(toPrint.toString());
         String input = DuelView.scan();
         while (!input.equals("back")) {
             DuelView.printText("invalid command");
@@ -1121,7 +1174,7 @@ public class DuelController {
             setAOneTributeMonster();
         else if (numberOfMonstersOnPlayerBoard != 5)
             setANoTributeMonster();
-        printBoard();
+        getBoard();
 
     }
 
