@@ -79,8 +79,8 @@ public class GameViewGraphic extends Application implements Initializable {
         GameViewGraphic.stage = stage;
         URL url = getClass().getResource("/BoardGamePlayerOne.fxml");
         root = FXMLLoader.load(url);
-        addAllImages();
         setImagesAndCards();
+        addAllImages();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -98,9 +98,10 @@ public class GameViewGraphic extends Application implements Initializable {
             if (playerUsername != null) playerUsername.setText(player.getUsername());
             if (rivalUsername != null) rivalUsername.setText(rival.getUsername());
         }
-        addAllImages();
-        if (duelController != null)
+        if (duelController != null) {
             setImagesAndCards();
+            addAllImages();
+        }
     }
 
     public void setImagesAndCards() {
@@ -204,26 +205,19 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void updateBoard() {
-        addAllImages();
         setImagesAndCards();
+        addAllImages();
     }
 
     public void startMainNoCardSelected() {
-        System.out.println(Card.getCardByImage(imageView1hand1.getImage()));
         imageView1hand1.setOnMouseClicked(new EventHandler<MouseEvent>() {
                                                  @Override
                                                  public void handle(MouseEvent event) {
-                                                     System.out.println("1");
                                                      showCardDetails(Card.getCardByImage(imageView1hand1.getImage()));
                                                      imageView1hand1.setEffect(new DropShadow());
                                                      startMainAHandSelected(imageView1hand1);
                                                  }
                                              });
-        for (Node child : root.getChildren()) {
-            System.out.println(child.getId());
-            if(child.getId()!=null && child instanceof ImageView && child.getId().equals("imageView1hand1"))
-                System.out.println(child.getOnMouseClicked());
-        }
     }
 
     public void showCardDetails(Card card) {
