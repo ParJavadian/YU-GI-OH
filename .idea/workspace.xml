@@ -22,9 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 5">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DuelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DuelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/DuelView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/DuelView.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,13 +188,6 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
-    </task>
-    <task id="LOCAL-00002" summary="ScoreBoardViewGraphic.java">
-      <created>1623149688409</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1623149688409</updated>
     </task>
     <task id="LOCAL-00003" summary="Error sign up">
       <created>1623151044078</created>
@@ -521,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625596091741</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Duel View 6">
+      <created>1625597954649</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1625597954649</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +544,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="nothing" />
     <MESSAGE value="GATE_GUARDIAN" />
     <MESSAGE value="SPELL_ABSORPTION debug1" />
     <MESSAGE value="tributeForSummon debug" />
@@ -566,29 +568,34 @@
     <MESSAGE value="rock paper scissor names" />
     <MESSAGE value="board cards imageview" />
     <MESSAGE value="Duel View 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Duel View 5" />
+    <MESSAGE value="Duel View 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Duel View 6" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="172" key="GridCell.Tab.0.bottom" timestamp="1625597335851">
+    <state width="1237" height="172" key="GridCell.Tab.0.bottom" timestamp="1625600452292">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625597335851" />
-    <state width="1237" height="172" key="GridCell.Tab.0.center" timestamp="1625597335851">
+    <state width="1237" height="172" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
+    <state width="1237" height="172" key="GridCell.Tab.0.center" timestamp="1625600452292">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625597335851" />
-    <state width="1237" height="172" key="GridCell.Tab.0.left" timestamp="1625597335851">
+    <state width="1237" height="172" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
+    <state width="1237" height="172" key="GridCell.Tab.0.left" timestamp="1625600452292">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625597335851" />
-    <state width="1237" height="172" key="GridCell.Tab.0.right" timestamp="1625597335851">
+    <state width="1237" height="172" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
+    <state width="1237" height="172" key="GridCell.Tab.0.right" timestamp="1625600452292">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625597335851" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625596093641">
+    <state width="1237" height="172" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625597956671">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625596093641" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625597956671" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625598095556">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1625598095556" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1625595291203">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
