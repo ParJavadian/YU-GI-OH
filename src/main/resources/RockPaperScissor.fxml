@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RockPaperScissorView">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="917.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="401.0" layoutY="59.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@images/RockPaperScissor/wallRPS.jpg" />
          </image>
@@ -46,5 +49,17 @@
             <Image url="@images/RockPaperScissor/jya_cyo_1.bmp" />
          </image>
       </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#592d32" height="27.0" layoutX="378.0" stroke="BLACK" strokeType="INSIDE" width="107.0" />
+      <Label layoutX="411.0" fx:id="secondPlayerLabel" text="Label" textFill="#b8c384">
+         <font>
+            <Font name="Agency FB Bold" size="22.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#592d32" height="27.0" layoutX="378.0" layoutY="575.0" stroke="BLACK" strokeType="INSIDE" width="107.0" />
+      <Label layoutX="411.0" fx:id="firstPlayerLabel" layoutY="574.0" text="Label" textFill="#b8c384">
+         <font>
+            <Font name="Agency FB Bold" size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
