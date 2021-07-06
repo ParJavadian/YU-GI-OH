@@ -43,10 +43,13 @@ public class GameViewGraphic extends Application implements Initializable {
     public static ImageView imageView1hand1, imageView1hand2, imageView1hand3, imageView1hand4, imageView1hand5, imageView1hand6;
     public static ImageView imageView2hand1, imageView2hand2, imageView2hand3, imageView2hand4, imageView2hand5, imageView2hand6;
     public static ImageView imageView1FieldZone, imageView2FieldZone, imageView1Graveyard, imageView2Graveyard;
+    public static ImageView rivalProfile = new ImageView();
+    public static ImageView playerProfile = new ImageView();
     @FXML
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
     @FXML
-    private ProgressBar rivalProgressBar,playerProgressBar;
+    private ProgressBar rivalProgressBar, playerProgressBar;
+
     /*public GameViewGraphic(User player,User rival,int numberOfRounds){
         GameViewGraphic.player = player;
         GameViewGraphic.rival = rival;
@@ -80,6 +83,8 @@ public class GameViewGraphic extends Application implements Initializable {
         URL url = getClass().getResource("/BoardGamePlayerOne.fxml");
         root = FXMLLoader.load(url);
         setImagesAndCards();
+        setBar();
+        setImageViewForProfile();
         addAllImages();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -90,6 +95,7 @@ public class GameViewGraphic extends Application implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setBar();
+        setImageViewForProfile();
         if (player != null && rival != null) {
             if (playerLifePoint != null) playerLifePoint.setText(String.valueOf(player.getLifePoint()));
             if (rivalLifePoint != null) rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
@@ -153,6 +159,44 @@ public class GameViewGraphic extends Application implements Initializable {
         return imageView;
     }
 
+    private void setImageViewForProfile() {
+
+        if(playerProfile == null) {
+            System.out.println("player profile is null");
+        } else {
+            URL url = getClass().getResource("/images/profiles/profile (" + player.getProfileNumber() + ").png");
+            Image image = new Image(String.valueOf(url));
+            playerProfile = new ImageView(image);
+            playerProfile.setFitWidth(50);
+            playerProfile.setFitHeight(50);
+            playerProfile.setX(228);
+            playerProfile.setY(442);
+            playerProfile.setImage(image);
+            if (root != null && !root.getChildren().contains(playerProfile))
+            root.getChildren().add(playerProfile);
+        }
+        if (rivalProfile == null) {
+            System.out.println("rival profile is null");
+        } else {
+            URL url = getClass().getResource("/images/profiles/profile (" + rival.getProfileNumber() + ").png");
+            Image image = new Image(String.valueOf(url));
+            rivalProfile = new ImageView(image);
+            rivalProfile.setFitWidth(50);
+            rivalProfile.setFitHeight(50);
+            rivalProfile.setX(737);
+            rivalProfile.setY(112);
+            rivalProfile.setImage(image);
+            if (root != null && !root.getChildren().contains(rivalProfile))
+            root.getChildren().add(rivalProfile);
+        }
+//        ImageView imageView = new ImageView(image);
+//        imageView.setFitWidth(120);
+//        imageView.setFitHeight(120);
+//        imageView.setX(44);
+//        imageView.setY(y);
+//        return imageView;
+    }
+
     private void addAllImages() {
         addImagesView(imageView1hand1);
         addImagesView(imageView1hand2);
@@ -192,12 +236,24 @@ public class GameViewGraphic extends Application implements Initializable {
         addImagesView(imageView2Graveyard);
     }
 
+//    private void addProfileImages(){
+//        addImagesView(playerProfile);
+//        addImagesView(rivalProfile);
+//    }
+
     private void addImagesView(ImageView imageView) {
         if (root != null) {
             if (imageView != null && !root.getChildren().contains(imageView))
                 root.getChildren().add(imageView);
         }
     }
+
+//    private void addImagesViewForProfile(ImageView imageView) {
+//        if (root != null) {
+//            if (imageView != null && !root.getChildren().contains(imageView))
+//                root.getChildren().add(imageView);
+//        }
+//    }
 
 
     public void pauseMenu() {
@@ -211,30 +267,27 @@ public class GameViewGraphic extends Application implements Initializable {
 
     public void startMainNoCardSelected() {
         imageView1hand1.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                                 @Override
-                                                 public void handle(MouseEvent event) {
-                                                     showCardDetails(Card.getCardByImage(imageView1hand1.getImage()));
-                                                     imageView1hand1.setEffect(new DropShadow());
-                                                     startMainAHandSelected(imageView1hand1);
-                                                 }
-                                             });
+            @Override
+            public void handle(MouseEvent event) {
+                showCardDetails(Card.getCardByImage(imageView1hand1.getImage()));
+                imageView1hand1.setEffect(new DropShadow());
+                startMainAHandSelected(imageView1hand1);
+            }
+        });
     }
 
     public void showCardDetails(Card card) {
 
     }
 
-    public void startMainAHandSelected(ImageView imageView){
+    public void startMainAHandSelected(ImageView imageView) {
 
     }
 
-    public void setBar() {
-        //rivalProgressBar = new  ProgressBar(8000);
-        rivalProgressBar.setProgress(6000);
-        //playerProgressBar = new ProgressBar(8000);
-        playerProgressBar.setProgress(3000);
+    public void setBar() { //todo harja lifepoint taghyir kard bayad update beshe
+        rivalProgressBar.setProgress((double) player.getLifePoint() / 8000);
+        playerProgressBar.setProgress((double) rival.getLifePoint() / 8000);
     }
-
 
 
 }
