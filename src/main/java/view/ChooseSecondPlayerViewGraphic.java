@@ -66,7 +66,7 @@ public class ChooseSecondPlayerViewGraphic extends Application implements Initia
         ArrayList<String> choices = new ArrayList<>();
         for (User user : User.getAllUsers()) {
             String username = user.getUsername();
-            if (!username.equals(ChooseSecondPlayerViewGraphic.user.getUsername())) {
+            if (!username.equals(ChooseSecondPlayerViewGraphic.user.getUsername()) && !username.equals("@AI@")) {
                 choices.add(username);
             }
         }
