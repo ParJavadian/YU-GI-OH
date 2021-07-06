@@ -2,25 +2,24 @@ package view;
 
 import controller.DuelController;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.Card;
+import model.MonsterCard;
 import model.User;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
@@ -52,8 +51,7 @@ public class GameViewGraphic extends Application implements Initializable {
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
     @FXML
     private ProgressBar rivalProgressBar, playerProgressBar;
-    @FXML
-    private Label description,attack,defence;
+    private static Label description, attack, defence;
     private static ImageView selectedCardImageView;
 
     /*public GameViewGraphic(User player,User rival,int numberOfRounds){
@@ -86,7 +84,7 @@ public class GameViewGraphic extends Application implements Initializable {
     @Override
     public void start(Stage stage) throws Exception {
         GameViewGraphic.stage = stage;
-        URL url = getClass().getResource("/BoardGamePlayerOne.fxml");
+        URL url = getClass().getResource("/GameMenu.fxml");
         root = FXMLLoader.load(url);
         setImagesAndCards();
         setBar();
@@ -95,6 +93,7 @@ public class GameViewGraphic extends Application implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+//        setSelectedCard();
         startMainNoCardSelected();
     }
 
@@ -154,6 +153,7 @@ public class GameViewGraphic extends Application implements Initializable {
         if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 738, 205);
         if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 738, 328);
         if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 233, 205);
+        setCard();
     }
 
     private ImageView setImageView(Image image, int x, int y) {
@@ -166,41 +166,26 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     private void setImageViewForProfile() {
-
-        if(playerProfile == null) {
-            System.out.println("player profile is null");
-        } else {
-            URL url = getClass().getResource("/images/profiles/profile (" + player.getProfileNumber() + ").png");
-            Image image = new Image(String.valueOf(url));
-            playerProfile = new ImageView(image);
-            playerProfile.setFitWidth(50);
-            playerProfile.setFitHeight(50);
-            playerProfile.setX(228);
-            playerProfile.setY(442);
-            playerProfile.setImage(image);
-            if (root != null && !root.getChildren().contains(playerProfile))
+        URL url = getClass().getResource("/images/profiles/profile (" + player.getProfileNumber() + ").png");
+        Image image = new Image(String.valueOf(url));
+        playerProfile = new ImageView(image);
+        playerProfile.setFitWidth(50);
+        playerProfile.setFitHeight(50);
+        playerProfile.setX(228);
+        playerProfile.setY(442);
+        playerProfile.setImage(image);
+        if (root != null && !root.getChildren().contains(playerProfile))
             root.getChildren().add(playerProfile);
-        }
-        if (rivalProfile == null) {
-            System.out.println("rival profile is null");
-        } else {
-            URL url = getClass().getResource("/images/profiles/profile (" + rival.getProfileNumber() + ").png");
-            Image image = new Image(String.valueOf(url));
-            rivalProfile = new ImageView(image);
-            rivalProfile.setFitWidth(50);
-            rivalProfile.setFitHeight(50);
-            rivalProfile.setX(737);
-            rivalProfile.setY(112);
-            rivalProfile.setImage(image);
-            if (root != null && !root.getChildren().contains(rivalProfile))
+        url = getClass().getResource("/images/profiles/profile (" + rival.getProfileNumber() + ").png");
+        image = new Image(String.valueOf(url));
+        rivalProfile = new ImageView(image);
+        rivalProfile.setFitWidth(50);
+        rivalProfile.setFitHeight(50);
+        rivalProfile.setX(737);
+        rivalProfile.setY(112);
+        rivalProfile.setImage(image);
+        if (root != null && !root.getChildren().contains(rivalProfile))
             root.getChildren().add(rivalProfile);
-        }
-//        ImageView imageView = new ImageView(image);
-//        imageView.setFitWidth(120);
-//        imageView.setFitHeight(120);
-//        imageView.setX(44);
-//        imageView.setY(y);
-//        return imageView;
     }
 
     private void addAllImages() {
@@ -240,12 +225,11 @@ public class GameViewGraphic extends Application implements Initializable {
         addImagesView(imageView2FieldZone);
         addImagesView(imageView1Graveyard);
         addImagesView(imageView2Graveyard);
+        addLabel(description);
+        addLabel(attack);
+        addLabel(defence);
+        addImagesView(selectedCardImageView);
     }
-
-//    private void addProfileImages(){
-//        addImagesView(playerProfile);
-//        addImagesView(rivalProfile);
-//    }
 
     private void addImagesView(ImageView imageView) {
         if (root != null) {
@@ -254,12 +238,12 @@ public class GameViewGraphic extends Application implements Initializable {
         }
     }
 
-//    private void addImagesViewForProfile(ImageView imageView) {
-//        if (root != null) {
-//            if (imageView != null && !root.getChildren().contains(imageView))
-//                root.getChildren().add(imageView);
-//        }
-//    }
+    private void addLabel(Label label) {
+        if (root != null) {
+            if (label != null && !root.getChildren().contains(label))
+                root.getChildren().add(label);
+        }
+    }
 
 
     public void pauseMenu() {
@@ -271,10 +255,17 @@ public class GameViewGraphic extends Application implements Initializable {
         addAllImages();
     }
 
-    public void startMainNoCardSelected() {
+    public void startMainNoCardSelected() throws Exception {
         Image unknown = new Image("images/Cards/Unknown.jpg");
-        imageView1hand1.setOnMouseClicked(event -> {
-            if(imageView1hand1.getImage()==null) return;
+        /*Class aClass = Class.forName("controller.DuelController");
+        for (Method declaredMethod : aClass.getDeclaredMethods()) {
+            System.out.println(declaredMethod.getName());
+            if(declaredMethod.getName().equals("selectCardPlayerHand"))
+                setOnClickSelected(imageView1hand1,declaredMethod);
+        }*/
+        setOnClickSelected(imageView1hand1,duelController.selectCardPlayerHand(1));
+        /*imageView1hand1.setOnMouseClicked(event -> {
+            if (imageView1hand1.getImage() == null) return;
             if (!imageView1hand1.getImage().equals(unknown))
                 showCardDetails(Card.getCardByImage(imageView1hand1.getImage()));
             imageView1hand1.setEffect(new DropShadow());
@@ -285,6 +276,31 @@ public class GameViewGraphic extends Application implements Initializable {
             }
             startMainAHandSelected(imageView1hand1);
         });
+        imageView1hand2.setOnMouseClicked(event -> {
+            if (imageView1hand2.getImage() == null) return;
+            if (!imageView1hand2.getImage().equals(unknown))
+                showCardDetails(Card.getCardByImage(imageView1hand2.getImage()));
+            imageView1hand2.setEffect(new DropShadow());
+            try {
+                duelController.selectCardPlayerHand(2);
+            } catch (Exception ignored) {
+
+            }
+            startMainAHandSelected(imageView1hand2);
+        });
+        imageView1hand3.setOnMouseClicked(event -> {
+            if (imageView1hand3.getImage() == null) return;
+            if (!imageView1hand3.getImage().equals(unknown))
+                showCardDetails(Card.getCardByImage(imageView1hand3.getImage()));
+            imageView1hand3.setEffect(new DropShadow());
+            try {
+                duelController.selectCardPlayerHand(3);
+            } catch (Exception ignored) {
+
+            }
+            startMainAHandSelected(imageView1hand3);
+        });*/
+        /*
         try {
             setOnClickSelected(imageView1hand1, duelController.selectCardPlayerHand(1));
             setOnClickSelected(imageView1hand2);
@@ -313,14 +329,15 @@ public class GameViewGraphic extends Application implements Initializable {
             setOnClickSelected(imageView2SpellAndTrap4);
             setOnClickSelected(imageView2SpellAndTrap5);
             setOnClickSelected(imageView1FieldZone);
-            setOnClickSelected(imageView2FieldZone);
-        }
+            setOnClickSelected(imageView2FieldZone);*/
+    }/*
         catch (Exception e){
             e.printStackTrace();
-        }
-    }
+        }*/
+
 
     private void setOnClickSelected(ImageView imageView, Method method) {
+        System.out.println(method);
         Image unknown = new Image("images/Cards/Unknown.jpg");
         imageView.setOnMouseClicked(event -> {
             if (!imageView.getImage().equals(unknown))
@@ -329,14 +346,20 @@ public class GameViewGraphic extends Application implements Initializable {
             try {
                 method.invoke(null);
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
             startMainAHandSelected(imageView);
         });
     }
 
     public void showCardDetails(Card card) {
-
+        selectedCardImageView.setImage(card.getImage());
+        description.setText("Description:\n" + card.getDescription());
+        if (card instanceof MonsterCard) {
+            MonsterCard monsterCard = (MonsterCard) card;
+            attack.setText("Attack: " + monsterCard.getAttack());
+            defence.setText("Defence: " + monsterCard.getDefence());
+        }
     }
 
     public void startMainAHandSelected(ImageView imageView) {
@@ -344,8 +367,43 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void setBar() { //todo harja lifepoint taghyir kard bayad update beshe
-        if (rivalProgressBar != null && rival != null) rivalProgressBar.setProgress((double) player.getLifePoint() / 8000);
-        if (playerProgressBar != null && rival != null) playerProgressBar.setProgress((double) rival.getLifePoint() / 8000);
+        if (rivalProgressBar != null && rival != null)
+            rivalProgressBar.setProgress((double) player.getLifePoint() / 8000);
+        if (playerProgressBar != null && rival != null)
+            playerProgressBar.setProgress((double) rival.getLifePoint() / 8000);
+    }
+
+    private void setCard() {
+        description = new Label();
+        description.setLayoutX(12);
+        description.setLayoutY(338);
+        description.setPrefWidth(167);
+        description.setPrefHeight(120);
+        description.setTextFill(Color.WHITE);
+        description.setAlignment(Pos.TOP_LEFT);
+        description.setFont(Font.font("Agency FB", 14));
+        description.setWrapText(true);
+        attack = new Label();
+        attack.setLayoutX(12);
+        attack.setLayoutY(457);
+        attack.setPrefWidth(149);
+        attack.setPrefHeight(15);
+        attack.setTextFill(Color.WHITE);
+        attack.setFont(Font.font("Agency FB", 14));
+        defence = new Label();
+        defence.setLayoutX(12);
+        defence.setLayoutY(471);
+        defence.setPrefWidth(149);
+        defence.setPrefHeight(15);
+        defence.setTextFill(Color.WHITE);
+        defence.setFont(Font.font("Agency FB", 14));
+        selectedCardImageView = new ImageView();
+        selectedCardImageView.setY(128);
+        selectedCardImageView.setX(29);
+        selectedCardImageView.setFitHeight(202);
+        selectedCardImageView.setFitWidth(184);
+        selectedCardImageView.setPickOnBounds(true);
+        selectedCardImageView.setPreserveRatio(true);
     }
 
 }

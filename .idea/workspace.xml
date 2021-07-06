@@ -22,20 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="scoreboard ai deleted">
-      <change afterPath="$PROJECT_DIR$/Cards/من.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/من.txt" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GameMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DuelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DuelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/DuelView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/DuelView.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +95,7 @@
       <recent name="controller.exeption" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SignUpViewGraphic">
+  <component name="RunManager" selected="Application.LogInViewGraphic">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -114,17 +107,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="project_team_17" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.MainViewGraphic" />
+    <configuration name="LogInViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
@@ -132,6 +116,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="project_team_17" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -172,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LogInViewGraphic" />
         <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test" />
         <item itemvalue="JUnit.test.testForMinFinder" />
-        <item itemvalue="Application.MainViewGraphic" />
       </list>
     </recent_temporary>
   </component>
@@ -196,6 +189,20 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
+    </task>
+    <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
+      <created>1623149665559</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623149665559</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ScoreBoardViewGraphic.java">
+      <created>1623149688409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623149688409</updated>
     </task>
     <task id="LOCAL-00003" summary="Error sign up">
       <created>1623151044078</created>
@@ -518,19 +525,7 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۴۹" />
       <updated>1625571369460</updated>
     </task>
-    <task id="LOCAL‎۰۰۰۵۰" summary="not null">
-      <created>1625572099676</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۰" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۰" />
-      <updated>1625572099677</updated>
-    </task>
-    <task id="LOCAL‎۰۰۰۵۱" summary="scoreboard ai deleted">
-      <created>1625578121222</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۱" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۱" />
-      <updated>1625578121222</updated>
-    </task>
-    <option name="localTasksCounter" value="52" />
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,6 +545,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="debug takeAction1" />
+    <MESSAGE value="debug command knight2" />
     <MESSAGE value="nothing" />
     <MESSAGE value="GATE_GUARDIAN" />
     <MESSAGE value="SPELL_ABSORPTION debug1" />
@@ -574,9 +571,33 @@
     <MESSAGE value="rock paper scissor" />
     <MESSAGE value="rock paper scissor names" />
     <MESSAGE value="board cards imageview" />
-    <MESSAGE value="not null" />
-    <MESSAGE value="scoreboard ai deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="scoreboard ai deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="board cards imageview" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="247" key="GridCell.Tab.0.bottom" timestamp="1625595983006">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="247" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625595983006" />
+    <state width="1237" height="247" key="GridCell.Tab.0.center" timestamp="1625595983006">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="247" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625595983006" />
+    <state width="1237" height="247" key="GridCell.Tab.0.left" timestamp="1625595983005">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="247" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625595983005" />
+    <state width="1237" height="247" key="GridCell.Tab.0.right" timestamp="1625595983006">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="247" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625595983006" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625581915739">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625581915739" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1625595291203">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1625595291203" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

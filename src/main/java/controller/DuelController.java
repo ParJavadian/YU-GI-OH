@@ -6,6 +6,7 @@ import model.*;
 import view.DuelView;
 import view.GameViewGraphic;
 
+import java.lang.reflect.Method;
 import java.util.*;
 
 public class DuelController {
@@ -258,7 +259,7 @@ public class DuelController {
         }
     }
 
-    public void selectCardPlayerHand(int address) throws Exception {
+    public Method selectCardPlayerHand(int address) throws Exception {
         List<Card> cardsInHand = this.player.getBoard().getCardsInHand();
         if ((address > cardsInHand.size()) || (address < 1)) {
             throw new InvalidSelection();
@@ -267,6 +268,7 @@ public class DuelController {
         }
         this.selectedCard = new SelectedCard(this.player.getBoard().getCardInHandByNumber(address - 1), BoardZone.HAND, address - 1, this.player);
         DuelView.printText("card selected");
+        return null;
     }
 
     private void unselectCard() throws Exception {
