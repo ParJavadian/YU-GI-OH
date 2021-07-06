@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -38,6 +39,8 @@ public class GameViewGraphic extends Application implements Initializable {
     public static ImageView imageView1FieldZone, imageView2FieldZone, imageView1Graveyard, imageView2Graveyard;
     @FXML
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
+    @FXML
+    private ProgressBar rivalProgressBar,playerProgressBar;
 
     /*public GameViewGraphic(User player,User rival,int numberOfRounds){
         GameViewGraphic.player = player;
@@ -80,6 +83,7 @@ public class GameViewGraphic extends Application implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setBar();
         if (player != null && rival != null) {
             if (playerLifePoint != null) playerLifePoint.setText(String.valueOf(player.getLifePoint()));
             if (rivalLifePoint != null) rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
@@ -192,4 +196,14 @@ public class GameViewGraphic extends Application implements Initializable {
     public void pauseMenu() {
 
     }
+
+    public void setBar() {
+        //rivalProgressBar = new  ProgressBar(8000);
+        rivalProgressBar.setProgress(6000);
+        //playerProgressBar = new ProgressBar(8000);
+        playerProgressBar.setProgress(3000);
+    }
+
+
+
 }

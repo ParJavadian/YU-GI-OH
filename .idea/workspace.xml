@@ -22,13 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="not null">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="scoreboard ai deleted">
       <change afterPath="$PROJECT_DIR$/Cards/من.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/من.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/BoardGamePlayerOne.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,13 +195,6 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
-    </task>
-    <task id="LOCAL-00002" summary="ScoreBoardViewGraphic.java">
-      <created>1623149688409</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1623149688409</updated>
     </task>
     <task id="LOCAL-00003" summary="Error sign up">
       <created>1623151044078</created>
@@ -525,7 +523,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۰" />
       <updated>1625572099677</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL‎۰۰۰۵۱" summary="scoreboard ai deleted">
+      <created>1625578121222</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۱" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۱" />
+      <updated>1625578121222</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,7 +549,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="debug command knight2" />
     <MESSAGE value="nothing" />
     <MESSAGE value="GATE_GUARDIAN" />
     <MESSAGE value="SPELL_ABSORPTION debug1" />
@@ -571,7 +574,8 @@
     <MESSAGE value="rock paper scissor names" />
     <MESSAGE value="board cards imageview" />
     <MESSAGE value="not null" />
-    <option name="LAST_COMMIT_MESSAGE" value="not null" />
+    <MESSAGE value="scoreboard ai deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="scoreboard ai deleted" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
