@@ -1,6 +1,8 @@
 package view;
 
 
+import controller.DeckController;
+import controller.ImportExportUserController;
 import controller.ShopController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -68,6 +70,7 @@ public class ShopViewGraphic extends Application implements Initializable {
     public void buy1() {
         user.decreaseMoney(card1.getPrice());
         user.getAllCards().add(card1);
+        ImportExportUserController.getInstance().exportAllCards(ShopViewGraphic.user);
         setAll();
         printText("Card added successfully");
     }
@@ -75,6 +78,7 @@ public class ShopViewGraphic extends Application implements Initializable {
     public void buy2() {
         user.decreaseMoney(card2.getPrice());
         user.getAllCards().add(card2);
+        ImportExportUserController.getInstance().exportAllCards(ShopViewGraphic.user);
         setAll();
         printText("Card added successfully");
     }
@@ -82,6 +86,7 @@ public class ShopViewGraphic extends Application implements Initializable {
     public void buy3() {
         user.decreaseMoney(card3.getPrice());
         user.getAllCards().add(card3);
+        ImportExportUserController.getInstance().exportAllCards(ShopViewGraphic.user);
         setAll();
         printText("Card added successfully");
     }
@@ -89,6 +94,7 @@ public class ShopViewGraphic extends Application implements Initializable {
     public void buy4() {
         user.decreaseMoney(card4.getPrice());
         user.getAllCards().add(card4);
+        ImportExportUserController.getInstance().exportAllCards(ShopViewGraphic.user);
         setAll();
         printText("Card added successfully");
     }

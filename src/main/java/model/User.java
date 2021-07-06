@@ -4,6 +4,7 @@ import controller.ImportExportUserController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class User {
@@ -190,6 +191,8 @@ public class User {
 
     public void addDeck(Deck deck) {
         this.allDecks.add(deck);
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportAllDecksName(this.getAllDecks(), Objects.requireNonNull(User.getUserByUsername(username)));
     }
 
     public void addCardToUsersAllCards(Card card) {
@@ -198,6 +201,8 @@ public class User {
 
     public void removeDeck(Deck deck) {
         this.allDecks.remove(deck);
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportAllDecksName(this.getAllDecks(), Objects.requireNonNull(User.getUserByUsername(username)));
     }
 
     public void increaseScore(int amount) {

@@ -175,7 +175,7 @@
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Label>
-    <Button layoutX="934.0" layoutY="7.0" mnemonicParsing="false" text="Pause" />
+    <Button layoutX="934.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#pauseMenu" text="Pause" />
    <ImageView fitHeight="155.0" fx:id="imageViewRival" fitWidth="155.0" layoutX="23.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" />
    <ImageView fitHeight="155.0" fx:id="imageViewPlayer" fitWidth="155.0" layoutX="25.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true" />
 </AnchorPane>

@@ -1,5 +1,6 @@
 package model;
 
+import controller.DeckController;
 import controller.ImportExportUserController;
 
 import java.util.*;
