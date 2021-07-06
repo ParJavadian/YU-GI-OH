@@ -1,21 +1,27 @@
 package view;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class RockPaperScissorView extends Application {
+public class RockPaperScissorView extends Application implements Initializable {
     private static Stage stage;
     static RockPaperScissorView instance = null;
     private static User playerOne;
     private static String playerTwoName;
     private static int numberOfRounds;
+    @FXML
+    private static Label firstPlayerLabel,secondPlayerLabel;
 
     public static RockPaperScissorView getInstance() {
         if (instance == null) instance = new RockPaperScissorView();
@@ -62,4 +68,9 @@ public class RockPaperScissorView extends Application {
         RockPaperScissorPlayerTwoView.getInstance().start(stage);
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        firstPlayerLabel.setText(playerOne.getUsername());
+        secondPlayerLabel.setText(playerTwoName);
+    }
 }
