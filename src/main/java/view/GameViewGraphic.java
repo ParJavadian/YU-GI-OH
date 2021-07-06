@@ -254,10 +254,54 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void startMainNoCardSelected() throws Exception {
-        setOnClickSelected(imageView1hand1, 1, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
         setOnClickSelected(imageView1Monster1, 5, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
-        setOnClickSelected(imageView2Monster1, 4, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-//        setOnClickSelected(imageView1hand1,duelController.selectCardPlayerHand(1));
+        setOnClickSelected(imageView1Monster2, 3, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
+        setOnClickSelected(imageView1Monster3, 1, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
+        setOnClickSelected(imageView1Monster4, 2, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
+        setOnClickSelected(imageView1Monster5, 4, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
+
+        setOnClickSelected(imageView2Monster1, 4, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2Monster2, 2, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2Monster3, 1, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2Monster4, 3, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2Monster5, 5, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+
+        setOnClickSelected(imageView1SpellAndTrap1,5, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView1SpellAndTrap2,3, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView1SpellAndTrap3,1, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView1SpellAndTrap4,2, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView1SpellAndTrap5,4, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+
+        setOnClickSelected(imageView2SpellAndTrap1,4, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainARivalSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView2SpellAndTrap2,2, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainARivalSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView2SpellAndTrap3,1, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainARivalSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView2SpellAndTrap4,3, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainARivalSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView2SpellAndTrap5,5, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainARivalSpellOrTrapSelected", ImageView.class));
+
+        setOnClickSelected(imageView1hand1, 1, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1hand2, 2, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1hand3, 3, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1hand4, 4, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1hand5, 5, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1hand6, 6, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+
+        //todo select card opponent hand nadarim. benevisam? ya kolan nemikhad?
+        setOnClickSelected(imageView2hand1, 1, DuelController.class.getMethod("selectCardOpponentHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView2hand2, 2, DuelController.class.getMethod("selectCardOpponentHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView2hand3, 3, DuelController.class.getMethod("selectCardOpponentHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView2hand4, 4, DuelController.class.getMethod("selectCardOpponentHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView2hand5, 5, DuelController.class.getMethod("selectCardOpponentHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView2hand6, 6, DuelController.class.getMethod("selectCardOpponentHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+
+        //todo number ro gozashtam 1. chi kar konam?
+        setOnClickSelected(imageView1FieldZone, 1, DuelController.class.getMethod("selectCardPlayerFieldZone"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView2FieldZone, 1, DuelController.class.getMethod("selectCardOpponentFieldZone"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+
+        //todo number ro gozashtam 1. chi kar konam? va show graveyard darim na select graveyard. bezanam?
+        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectPlayerGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectRivalGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+
+        //        setOnClickSelected(imageView1hand1,duelController.selectCardPlayerHand(1));
 
         /*
         try {
@@ -267,6 +311,7 @@ public class GameViewGraphic extends Application implements Initializable {
             setOnClickSelected(imageView1hand4);
             setOnClickSelected(imageView1hand5);
             setOnClickSelected(imageView1hand6);
+
             setOnClickSelected(imageView1Monster1);
             setOnClickSelected(imageView1Monster2);
             setOnClickSelected(imageView1Monster3);
@@ -277,6 +322,7 @@ public class GameViewGraphic extends Application implements Initializable {
             setOnClickSelected(imageView2Monster3);
             setOnClickSelected(imageView2Monster4);
             setOnClickSelected(imageView2Monster5);
+
             setOnClickSelected(imageView1SpellAndTrap1);
             setOnClickSelected(imageView1SpellAndTrap2);
             setOnClickSelected(imageView1SpellAndTrap3);
@@ -287,6 +333,7 @@ public class GameViewGraphic extends Application implements Initializable {
             setOnClickSelected(imageView2SpellAndTrap3);
             setOnClickSelected(imageView2SpellAndTrap4);
             setOnClickSelected(imageView2SpellAndTrap5);
+
             setOnClickSelected(imageView1FieldZone);
             setOnClickSelected(imageView2FieldZone);*/
     }
@@ -331,6 +378,14 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void doNothing(ImageView imageView) {
+
+    }
+
+    public void startMainAPlayerSpellOrTrapSelected(ImageView imageView){
+
+    }
+
+    public void startMainARivalSpellOrTrapSelected(ImageView imageView){
 
     }
 
