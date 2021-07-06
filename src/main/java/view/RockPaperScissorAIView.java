@@ -117,10 +117,10 @@ public class RockPaperScissorAIView extends Application implements Initializable
 
     public void startNewGame(User firstPlayer, User secondPlayer) throws Exception {
         if (firstPlayer != null) {
-            BoardGamePlayerOne.getInstance().setPlayer(firstPlayer);
-            BoardGamePlayerOne.getInstance().setRival(secondPlayer);
-            BoardGamePlayerOne.getInstance().setNumberOfRounds(numberOfRounds);
-            BoardGamePlayerOne.getInstance().start(stage);
+            GameViewGraphic.getInstance().setPlayer(firstPlayer);
+            GameViewGraphic.getInstance().setRival(secondPlayer);
+            GameViewGraphic.getInstance().setNumberOfRounds(numberOfRounds);
+            GameViewGraphic.getInstance().start(stage);
         }
         else
             RockPaperScissorAIView.getInstance().start(stage);
