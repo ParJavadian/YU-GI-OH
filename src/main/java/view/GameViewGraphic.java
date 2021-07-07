@@ -212,6 +212,42 @@ public class GameViewGraphic extends Application implements Initializable {
         if (cards.get(33) != null) card2FieldZone = cards.get(33);
         if (cards.get(34) != null) card1Graveyard = cards.get(34);
         if (cards.get(35) != null) card2Graveyard = cards.get(35);
+        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 324, 329);
+        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 403, 329);
+        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 486, 329);
+        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 569, 329);
+        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 652, 329);
+        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 324, 206);
+        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 403, 206);
+        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 486, 206);
+        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 569, 206);
+        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 652, 206);
+        if (images.get(10) != null) imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432);
+        if (images.get(11) != null) imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432);
+        if (images.get(12) != null) imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432);
+        if (images.get(13) != null) imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432);
+        if (images.get(14) != null) imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432);
+        if (images.get(15) != null) imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104);
+        if (images.get(16) != null) imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104);
+        if (images.get(17) != null) imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104);
+        if (images.get(18) != null) imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104);
+        if (images.get(19) != null) imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104);
+        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538);
+        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538);
+        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538);
+        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538);
+        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538);
+        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538);
+        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16);
+        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16);
+        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16);
+        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16);
+        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16);
+        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16);
+        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 245, 329);
+        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 750, 213);
+        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 750, 336);
+        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 245, 213);
         setCardDetailsPart();
     }
 
@@ -379,10 +415,10 @@ public class GameViewGraphic extends Application implements Initializable {
         setOnClickSelected(imageView1hand4, 4, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
         setOnClickSelected(imageView1hand5, 5, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
         setOnClickSelected(imageView1hand6, 6, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-
-        setOnClickSelected(imageView1FieldZone, 1, DuelController.class.getMethod("selectCardPlayerFieldZone"), this.getClass().getMethod("startMainPlayerFieldZoneSelected", ImageView.class));
-        setOnClickSelected(imageView2FieldZone, 1, DuelController.class.getMethod("selectCardOpponentFieldZone"), this.getClass().getMethod("startMainOpponentFieldZoneSelected", ImageView.class));
 */
+//        setOnClickSelected(imageView1FieldZone, 1, DuelController.class.getMethod("selectCardPlayerFieldZone"), this.getClass().getMethod("startMainPlayerFieldZoneSelected", ImageView.class));
+//        setOnClickSelected(imageView2FieldZone, 1, DuelController.class.getMethod("selectCardOpponentFieldZone"), this.getClass().getMethod("startMainOpponentFieldZoneSelected", ImageView.class));
+
 //        //todo number ro gozashtam 1. chi kar konam? va show graveyard darim na select graveyard. bezanam?
 //        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectPlayerGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
 //        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectRivalGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));

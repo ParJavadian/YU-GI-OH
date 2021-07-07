@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import model.User;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -67,7 +68,7 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
         //Text text2 = new Text();
 
 
-        List<User> allUsers = User.getAllUsers();
+        ArrayList<User> allUsers = new ArrayList<>(User.getAllUsers());
         if (allUsers.contains(User.getUserByUsername("@AI@"))) allUsers.remove(User.getUserByUsername("@AI@"));
         Comparator<User> userComparator = Comparator.comparing(User::getScore, Comparator.reverseOrder()).thenComparing(User::getNickname);
 //        if (allUsers != null) {
