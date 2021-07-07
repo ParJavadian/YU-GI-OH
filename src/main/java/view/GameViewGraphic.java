@@ -396,6 +396,7 @@ public class GameViewGraphic extends Application implements Initializable {
             playerProgressBar.setProgress((double) rival.getLifePoint() / 8000);
     }
 
+
     private void setCard() {
         description = new Label();
         description.setLayoutX(12);

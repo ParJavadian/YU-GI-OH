@@ -22,12 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 6">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="start main no card selected hamraz + kiana">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/DuelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DuelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/DuelView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/DuelView.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,17 +92,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.LogInViewGraphic">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LogInViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
       <module name="project_team_17" />
@@ -139,6 +125,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -517,12 +514,12 @@
       <option name="project" value="LOCAL" />
       <updated>1625596091741</updated>
     </task>
-    <task id="LOCAL-00051" summary="Duel View 6">
-      <created>1625597954649</created>
+    <task id="LOCAL-00051" summary="start main no card selected hamraz + kiana">
+      <created>1625602970454</created>
       <option name="number" value="00051" />
       <option name="presentableId" value="LOCAL-00051" />
       <option name="project" value="LOCAL" />
-      <updated>1625597954649</updated>
+      <updated>1625602970454</updated>
     </task>
     <option name="localTasksCounter" value="52" />
     <servers />
@@ -568,38 +565,8 @@
     <MESSAGE value="rock paper scissor names" />
     <MESSAGE value="board cards imageview" />
     <MESSAGE value="Duel View 5" />
-    <MESSAGE value="Duel View 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Duel View 6" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1237" height="172" key="GridCell.Tab.0.bottom" timestamp="1625600452292">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
-    <state width="1237" height="172" key="GridCell.Tab.0.center" timestamp="1625600452292">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
-    <state width="1237" height="172" key="GridCell.Tab.0.left" timestamp="1625600452292">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
-    <state width="1237" height="172" key="GridCell.Tab.0.right" timestamp="1625600452292">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="172" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625597956671">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625597956671" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625598095556">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1625598095556" />
-    <state x="297" y="151" key="run.anything.popup" timestamp="1625595291203">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1625595291203" />
+    <MESSAGE value="start main no card selected hamraz + kiana" />
+    <option name="LAST_COMMIT_MESSAGE" value="start main no card selected hamraz + kiana" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
