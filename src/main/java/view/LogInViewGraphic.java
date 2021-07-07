@@ -38,6 +38,7 @@ public class LogInViewGraphic extends Application {
         if ((LogInViewGraphic.instance == null) && (SignUpViewGraphic.instance == null)) {
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();
+            importExportUserController.importProfileNumber();
             importExportUserController.importAllCards();
             importExportUserController.importAllDecks();
             importExportUserController.importActiveDeck();

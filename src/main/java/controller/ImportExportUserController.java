@@ -93,6 +93,41 @@ public class ImportExportUserController {
         }
     }
 
+    public void importProfileNumber(){
+        if (User.getAllUsers() != null){
+            for (User user : User.getAllUsers()){
+                String username = user.getUsername();
+                String profileNumber = "";
+                int number;
+                File file = new File("ProfileNumbers/" + username + ".txt");
+                try {
+                    if (file.exists()){
+                        Scanner scanner = new Scanner(file);
+                        if (scanner.hasNextLine()){
+                            profileNumber = scanner.nextLine();
+                            if (profileNumber.matches("\\d+")) {
+                                number = Integer.parseInt(profileNumber);
+                                Objects.requireNonNull(User.getUserByNickname(username)).setProfileNumber(number);
+                            }
+                        }
+                    }
+                }catch (FileNotFoundException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void exportProfileNumber(String username, int number){
+        try {
+            FileWriter fileWriter = new FileWriter("ProfileNumbers/" + username + ".txt");
+            fileWriter.write(number);
+            fileWriter.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     public void importActiveDeck(){
         if (User.getAllUsers() != null) {
             for (User user : User.getAllUsers()) {

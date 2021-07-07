@@ -60,6 +60,10 @@ public class MainViewGraphic extends Application {
         MainControllerGraphic.showDeckMenu(user,stage);
     }
 
+    public void importExport(MouseEvent event) throws Exception{
+        ImportExportGraphic.getInstance().start(stage);
+    }
+
     public void newDuel(){
         try {
             MainControllerGraphic.showNewDuelMenu(user,stage);

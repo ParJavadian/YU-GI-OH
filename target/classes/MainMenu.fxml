@@ -40,7 +40,7 @@
             <Font name="Agency FB Bold" size="18.0"/>
         </font>
     </Button>
-    <Button layoutX="426.0" layoutY="419.0" mnemonicParsing="false" text="Import/Export" textFill="#c800ff">
+    <Button layoutX="426.0" layoutY="419.0" mnemonicParsing="false" text="Import/Export" onMouseClicked="#importExport" textFill="#c800ff">
         <font>
             <Font name="Agency FB Bold" size="18.0"/>
         </font>

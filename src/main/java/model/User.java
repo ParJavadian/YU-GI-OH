@@ -33,10 +33,11 @@ public class User {
         this.password = password;
         this.currentActiveDeck = null;
         this.profileNumber = getRandomProfileNumber();
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportProfileNumber(username, profileNumber);
         setScore(0);
         setMoney(100000);
         allUsers.add(this);
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.exportNewUser(User.getUserByUsername(username));
         importExportUserController.exportAllUsers(User.getAllUsers());
     }
@@ -95,6 +96,10 @@ public class User {
 
     public void setGameDeck(Deck currentGameDeck) {
         this.currentGameDeck = currentGameDeck;
+    }
+
+    public void setProfileNumber(int profileNumber) {
+        this.profileNumber = profileNumber;
     }
 
     public String getUsername() {
