@@ -270,7 +270,7 @@ public class DuelController {
         DuelView.printText("card selected");
     }
 
-    private void unselectCard() throws Exception {
+    public void unselectCard() throws Exception {
         if (this.selectedCard == null) {
             throw new NoCardSelected();
         } else {
@@ -438,7 +438,7 @@ public class DuelController {
         else if (this.selectedCard.getCard() instanceof TrapCard) setTrap();
     }
 
-    private void setMonster() throws Exception {
+    public void setMonster() throws Exception {
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
             throw new ImproperPhase();
         }
