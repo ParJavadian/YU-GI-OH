@@ -22,34 +22,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="phases">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_2_2021_11_13_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_2_2021_11_13_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_12_22_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_12_22_AM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_10_08_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_10_08_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_11_20_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_11_20_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_6_32_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_6_32_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_8_56_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_8_56_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_12_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_12_59_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_4_14_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_4_14_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_4_48_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_4_48_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_15_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_15_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_35_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_35_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_9_32_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_9_32_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_11_28_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_11_28_AM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_1_03_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_1_03_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_1_18_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_1_18_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_29_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_29_PM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 8">
+      <change afterPath="$PROJECT_DIR$/Deck/hamrazDeckForAIMainDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileNumbers/@AI@.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileNumbers/h.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileNumbers/hamraz.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileNumbers/parmida.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_2_58_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_2_58_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_10_58_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_10_58_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_11_29_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_11_29_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_12_14_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_12_14_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_11_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_11_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_31_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_31_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_45_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_45_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_47_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_47_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_07_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_07_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_19_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_19_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_48_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_48_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_51_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_51_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_6_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_6_59_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_9_05_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_9_05_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_13_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_13_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_27_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_27_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_52_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_52_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_8_46_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_8_46_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_12_19_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_12_19_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_2_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_2_59_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_10.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_11.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_12.xml" afterDir="false" />
@@ -64,9 +58,28 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/@AI@DeckForAIMainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/@AI@DeckForAIMainDeck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (2).zip" beforeDir="false" afterPath="$PROJECT_DIR$/src (3).zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src.zip" beforeDir="false" afterPath="$PROJECT_DIR$/src (4).zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/GameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GameMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImportExport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ImportExport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ImportExportUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ImportExportUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ImportExportGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ImportExportGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +147,30 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.LogInViewGraphic">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.GameViewGraphic" />
+      <module name="project_team_17" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LogInViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
       <module name="project_team_17" />
@@ -171,17 +208,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project_team_17" />
       <option name="PACKAGE_NAME" value="" />
@@ -191,23 +217,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testForMinFinder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project_team_17_2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testForMinFinder" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.LogInViewGraphic" />
+        <item itemvalue="Application.GameViewGraphic" />
         <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.test" />
-        <item itemvalue="JUnit.test.testForMinFinder" />
       </list>
     </recent_temporary>
   </component>
@@ -227,6 +243,27 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
+    </task>
+    <task id="LOCAL-00003" summary="Error sign up">
+      <created>1623151044078</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623151044078</updated>
+    </task>
+    <task id="LOCAL-00004" summary="model.SpellCard.java&#10;Monster Reborn + Terraforming">
+      <created>1623868346229</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623868346229</updated>
+    </task>
+    <task id="LOCAL-00005" summary="model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED">
+      <created>1623946393997</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623946393997</updated>
     </task>
     <task id="LOCAL-00006" summary="Yami SpellCard.java">
       <created>1624002906129</created>
@@ -535,35 +572,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625596091741</updated>
     </task>
-    <task id="LOCAL-00051" summary="start main no card selected hamraz + kiana">
-      <created>1625602970454</created>
+    <task id="LOCAL-00051" summary="Duel View 6">
+      <created>1625597954649</created>
       <option name="number" value="00051" />
       <option name="presentableId" value="LOCAL-00051" />
       <option name="project" value="LOCAL" />
-      <updated>1625602970454</updated>
+      <updated>1625597954649</updated>
     </task>
-    <task id="LOCAL-00052" summary="phases">
-      <created>1625654617413</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1625654617413</updated>
-    </task>
-    <task id="LOCAL-00053" summary="phases">
-      <created>1625663231335</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1625663231335</updated>
-    </task>
-    <task id="LOCAL-00054" summary="phases">
-      <created>1625663305284</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1625663305284</updated>
-    </task>
-    <option name="localTasksCounter" value="55" />
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,6 +599,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="GATE_GUARDIAN" />
     <MESSAGE value="SPELL_ABSORPTION debug1" />
     <MESSAGE value="tributeForSummon debug" />
     <MESSAGE value="Full spell and trap zone" />
@@ -606,9 +623,38 @@
     <MESSAGE value="rock paper scissor names" />
     <MESSAGE value="board cards imageview" />
     <MESSAGE value="Duel View 5" />
-    <MESSAGE value="start main no card selected hamraz + kiana" />
-    <MESSAGE value="phases" />
-    <option name="LAST_COMMIT_MESSAGE" value="phases" />
+    <MESSAGE value="Duel View 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Duel View 6" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="184" key="GridCell.Tab.0.bottom" timestamp="1625667285610">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="184" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625667285610" />
+    <state width="1237" height="184" key="GridCell.Tab.0.center" timestamp="1625667285610">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="184" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625667285610" />
+    <state width="1237" height="184" key="GridCell.Tab.0.left" timestamp="1625667285610">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="184" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625667285610" />
+    <state width="1237" height="184" key="GridCell.Tab.0.right" timestamp="1625667285610">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="184" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625667285610" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625597956671">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625597956671" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625638291480">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1625638291480" />
+    <state x="297" y="151" key="run.anything.popup" timestamp="1625595291203">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1625595291203" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

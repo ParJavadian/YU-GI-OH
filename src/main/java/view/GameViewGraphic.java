@@ -1,6 +1,5 @@
 package view;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import controller.DuelController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -25,6 +24,9 @@ import javafx.scene.text.Font;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import model.*;
+import model.Card;
+import model.MonsterCard;
+import model.User;
 
 import java.awt.image.ImageFilter;
 import java.lang.reflect.Method;
@@ -45,13 +47,13 @@ public class GameViewGraphic extends Application implements Initializable {
     private static ArrayList<Card> cards = new ArrayList<>();
     private static ArrayList<Boolean> conditions = new ArrayList<>();
     private static AnchorPane root;
-    public static ImageView imageView1Monster1, imageView1Monster2, imageView1Monster3, imageView1Monster4, imageView1Monster5;
-    public static ImageView imageView2Monster1, imageView2Monster2, imageView2Monster3, imageView2Monster4, imageView2Monster5;
-    public static ImageView imageView1SpellAndTrap1, imageView1SpellAndTrap2, imageView1SpellAndTrap3, imageView1SpellAndTrap4, imageView1SpellAndTrap5;
-    public static ImageView imageView2SpellAndTrap1, imageView2SpellAndTrap2, imageView2SpellAndTrap3, imageView2SpellAndTrap4, imageView2SpellAndTrap5;
-    public static ImageView imageView1hand1, imageView1hand2, imageView1hand3, imageView1hand4, imageView1hand5, imageView1hand6;
-    public static ImageView imageView2hand1, imageView2hand2, imageView2hand3, imageView2hand4, imageView2hand5, imageView2hand6;
-    public static ImageView imageView1FieldZone, imageView2FieldZone, imageView1Graveyard, imageView2Graveyard;
+    public static ImageView imageView1Monster1 = new ImageView(), imageView1Monster2 = new ImageView(), imageView1Monster3 = new ImageView(), imageView1Monster4 = new ImageView(), imageView1Monster5 = new ImageView();
+    public static ImageView imageView2Monster1 = new ImageView(), imageView2Monster2 = new ImageView(), imageView2Monster3 = new ImageView(), imageView2Monster4 = new ImageView(), imageView2Monster5 = new ImageView();
+    public static ImageView imageView1SpellAndTrap1 = new ImageView(), imageView1SpellAndTrap2 = new ImageView(), imageView1SpellAndTrap3 = new ImageView(), imageView1SpellAndTrap4 = new ImageView(), imageView1SpellAndTrap5 = new ImageView();
+    public static ImageView imageView2SpellAndTrap1 = new ImageView(), imageView2SpellAndTrap2 = new ImageView(), imageView2SpellAndTrap3 = new ImageView(), imageView2SpellAndTrap4 = new ImageView(), imageView2SpellAndTrap5 = new ImageView();
+    public static ImageView imageView1hand1 = new ImageView(), imageView1hand2 = new ImageView(), imageView1hand3 = new ImageView(), imageView1hand4 = new ImageView(), imageView1hand5 = new ImageView(), imageView1hand6 = new ImageView();
+    public static ImageView imageView2hand1 = new ImageView(), imageView2hand2 = new ImageView(), imageView2hand3 = new ImageView(), imageView2hand4 = new ImageView(), imageView2hand5 = new ImageView(), imageView2hand6 = new ImageView();
+    public static ImageView imageView1FieldZone = new ImageView(), imageView2FieldZone = new ImageView(), imageView1Graveyard = new ImageView(), imageView2Graveyard = new ImageView();
     private static Card card1Monster1, card1Monster2, card1Monster3, card1Monster4, card1Monster5;
     private static Card card2Monster1, card2Monster2, card2Monster3, card2Monster4, card2Monster5;
     private static Card card1SpellAndTrap1, card1SpellAndTrap2, card1SpellAndTrap3, card1SpellAndTrap4, card1SpellAndTrap5;
@@ -139,42 +141,42 @@ public class GameViewGraphic extends Application implements Initializable {
         images = duelController.getBoard();
         cards = duelController.getCards();
         conditions = duelController.getConditions();
-        imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));
-        imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));
-        imageView1Monster3 = setImageView(images.get(2), 486, 329, conditions.get(2));
-        imageView1Monster4 = setImageView(images.get(3), 569, 329, conditions.get(3));
-        imageView1Monster5 = setImageView(images.get(4), 652, 329, conditions.get(4));
-        imageView2Monster1 = setImageView(images.get(5), 324, 206, conditions.get(5));
-        imageView2Monster2 = setImageView(images.get(6), 403, 206, conditions.get(6));
-        imageView2Monster3 = setImageView(images.get(7), 486, 206, conditions.get(7));
-        imageView2Monster4 = setImageView(images.get(8), 569, 206, conditions.get(8));
-        imageView2Monster5 = setImageView(images.get(9), 652, 206, conditions.get(9));
-        imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432, conditions.get(10));
-        imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432, conditions.get(11));
-        imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432, conditions.get(12));
-        imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432, conditions.get(13));
-        imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432, conditions.get(14));
-        imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104, conditions.get(15));
-        imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104, conditions.get(16));
-        imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104, conditions.get(17));
-        imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104, conditions.get(18));
-        imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104, conditions.get(19));
-        imageView1hand1 = setImageView(images.get(20), 331, 538, conditions.get(20));
-        imageView1hand2 = setImageView(images.get(21), 387, 538, conditions.get(21));
-        imageView1hand3 = setImageView(images.get(22), 443, 538, conditions.get(22));
-        imageView1hand4 = setImageView(images.get(23), 499, 538, conditions.get(23));
-        imageView1hand5 = setImageView(images.get(24), 555, 538, conditions.get(24));
-        imageView1hand6 = setImageView(images.get(25), 611, 538, conditions.get(25));
-        imageView2hand1 = setImageView(images.get(26), 331, -16, conditions.get(26));
-        imageView2hand2 = setImageView(images.get(27), 387, -16, conditions.get(27));
-        imageView2hand3 = setImageView(images.get(28), 443, -16, conditions.get(28));
-        imageView2hand4 = setImageView(images.get(29), 499, -16, conditions.get(29));
-        imageView2hand5 = setImageView(images.get(30), 555, -16, conditions.get(30));
-        imageView2hand6 = setImageView(images.get(31), 611, -16, conditions.get(31));
-        imageView1FieldZone = setImageView(images.get(32), 232, 324, conditions.get(32));
-        imageView2FieldZone = setImageView(images.get(33), 740, 205, conditions.get(33));
-        imageView1Graveyard = setImageView(images.get(34), 750, 328, conditions.get(34));
-        imageView2Graveyard = setImageView(images.get(35), 245, 213, conditions.get(35));
+        setImageView(imageView1Monster1, images.get(0), 324, 329, conditions.get(0));
+        setImageView(imageView1Monster2, images.get(1), 403, 329, conditions.get(1));
+        setImageView(imageView1Monster3, images.get(2), 486, 329, conditions.get(2));
+        setImageView(imageView1Monster4, images.get(3), 569, 329, conditions.get(3));
+        setImageView(imageView1Monster5, images.get(4), 652, 329, conditions.get(4));
+        setImageView(imageView2Monster1, images.get(5), 324, 206, conditions.get(5));
+        setImageView(imageView2Monster2, images.get(6), 403, 206, conditions.get(6));
+        setImageView(imageView2Monster3, images.get(7), 486, 206, conditions.get(7));
+        setImageView(imageView2Monster4, images.get(8), 569, 206, conditions.get(8));
+        setImageView(imageView2Monster5, images.get(9), 652, 206, conditions.get(9));
+        setImageView(imageView1SpellAndTrap1, images.get(10), 324, 432, conditions.get(10));
+        setImageView(imageView1SpellAndTrap2, images.get(11), 403, 432, conditions.get(11));
+        setImageView(imageView1SpellAndTrap3, images.get(12), 486, 432, conditions.get(12));
+        setImageView(imageView1SpellAndTrap4, images.get(13), 569, 432, conditions.get(13));
+        setImageView(imageView1SpellAndTrap5, images.get(14), 652, 432, conditions.get(14));
+        setImageView(imageView2SpellAndTrap1, images.get(15), 324, 104, conditions.get(15));
+        setImageView(imageView2SpellAndTrap2, images.get(16), 403, 104, conditions.get(16));
+        setImageView(imageView2SpellAndTrap3, images.get(17), 486, 104, conditions.get(17));
+        setImageView(imageView2SpellAndTrap4, images.get(18), 569, 104, conditions.get(18));
+        setImageView(imageView2SpellAndTrap5, images.get(19), 652, 104, conditions.get(19));
+        setImageView(imageView1hand1, images.get(20), 331, 538, conditions.get(20));
+        setImageView(imageView1hand2, images.get(21), 387, 538, conditions.get(21));
+        setImageView(imageView1hand3, images.get(22), 443, 538, conditions.get(22));
+        setImageView(imageView1hand4, images.get(23), 499, 538, conditions.get(23));
+        setImageView(imageView1hand5, images.get(24), 555, 538, conditions.get(24));
+        setImageView(imageView1hand6, images.get(25), 611, 538, conditions.get(25));
+        setImageView(imageView2hand1, images.get(26), 331, -16, conditions.get(26));
+        setImageView(imageView2hand2, images.get(27), 387, -16, conditions.get(27));
+        setImageView(imageView2hand3, images.get(28), 443, -16, conditions.get(28));
+        setImageView(imageView2hand4, images.get(29), 499, -16, conditions.get(29));
+        setImageView(imageView2hand5, images.get(30), 555, -16, conditions.get(30));
+        setImageView(imageView2hand6, images.get(31), 611, -16, conditions.get(31));
+        setImageView(imageView1FieldZone, images.get(32), 232, 324, conditions.get(32));
+        setImageView(imageView2FieldZone, images.get(33), 740, 205, conditions.get(33));
+        setImageView(imageView1Graveyard, images.get(34), 750, 328, conditions.get(34));
+        setImageView(imageView2Graveyard, images.get(35), 245, 213, conditions.get(35));
         card1Monster1 = cards.get(0);
         card1Monster2 = cards.get(1);
         card1Monster3 = cards.get(2);
@@ -200,7 +202,6 @@ public class GameViewGraphic extends Application implements Initializable {
         card1Hand3 = cards.get(22);
         card1Hand4 = cards.get(23);
         card1Hand5 = cards.get(24);
-        if (imageView1hand6 != null) System.out.println(imageView1hand6.getImage() + " 25image");
         card1Hand6 = cards.get(25);
         card2Hand1 = cards.get(26);
         card2Hand2 = cards.get(27);
@@ -215,17 +216,16 @@ public class GameViewGraphic extends Application implements Initializable {
         setCardDetailsPart();
     }
 
-    private ImageView setImageView(Image image, int x, int y, Boolean condition) {
-        ImageView imageView = new ImageView(image);
+    private void setImageView(ImageView imageView, Image image, int x, int y, Boolean condition) {
+        imageView.setImage(image);
         imageView.setFitWidth(49);
         imageView.setFitHeight(71);
         imageView.setX(x);
         imageView.setY(y);
-        if (condition.equals(true))
+        if (condition != null && condition.equals(true))
             imageView.setRotate(90);
         else
             imageView.setRotate(0);
-        return imageView;
     }
 
     private void setImageViewForProfile() {
@@ -339,13 +339,14 @@ public class GameViewGraphic extends Application implements Initializable {
             imageView.setFitWidth(70);
             imageView.setFitHeight(102);
             imageView.setX(220);
-            imageView.setY(20 * (i+1) + 102 * (i));
+            imageView.setY(20 * (i + 1) + 102 * (i));
             anchorPane.getChildren().add(imageView);
         }
         popUpPlayerGraveyard.getContent().add(anchorPane);
         popUpPlayerGraveyard.requestFocus();
         System.out.println(anchorPane.getChildren());
-        System.out.println(popUpPlayerGraveyard.getContent());;
+        System.out.println(popUpPlayerGraveyard.getContent());
+        ;
         popUpPlayerGraveyard.show(stage);
         popUpPlayerGraveyard.requestFocus();
         System.out.println(popUpPlayerGraveyard.isShowing());
@@ -432,9 +433,9 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     private void setOnClickSelected(ImageView imageView, User owner, int number1, int numberForGet, Method onMouseEnteredMethod, Method nextMethod, Method onMouseClickedMethodMonster, Method onMouseClickedMethodSpell, Method onMouseRightClickedMethod) {
-        if (imageView == null) return;
         Image unknown = new Image("images/Cards/Unknown.jpg");
         imageView.setOnMouseEntered(event -> {
+            if (imageView.getImage() == null) return;
             if (!imageView.getImage().equals(unknown) || owner.equals(player))
                 showCardDetails(cards.get(numberForGet));
             else if (imageView.getImage().equals(unknown))
@@ -444,13 +445,14 @@ public class GameViewGraphic extends Application implements Initializable {
             imageView.setEffect(new DropShadow());
             try {
                 onMouseEnteredMethod.invoke(duelController, number1);
-                startMainNoCardSelected();
                 selectedCard = imageView;
+                startMainNoCardSelected();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         });
         imageView.setOnMouseExited(event -> {
+            if (imageView.getImage() == null) return;
             if (!imageView.getImage().equals(unknown) || owner.equals(player))
                 clearCardDetails();
             else if (imageView.getImage().equals(unknown))
@@ -465,6 +467,7 @@ public class GameViewGraphic extends Application implements Initializable {
             }
         });
         imageView.setOnMouseClicked(event -> {
+            if (imageView.getImage() == null) return;
             if (event.getButton().equals(MouseButton.PRIMARY)) {
                 try {
                     if (cards.get(numberForGet) instanceof MonsterCard)
@@ -501,7 +504,6 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void showCardDetails(Card card) {
-        System.out.println(card);
         selectedCardImageView.setImage(card.getImage());
         description.setText("Description:\n" + card.getDescription());
         if (card instanceof MonsterCard) {
@@ -590,18 +592,16 @@ public class GameViewGraphic extends Application implements Initializable {
 
     //TODO RANGE MOSTATILE PPHASE AVAZ SHE VAGHTI TUSHE
     public void goToBattlePhase(MouseEvent event) {
-        if(this.phase.equals(Phase.MAIN_PHASE1)) {
+        if (this.phase.equals(Phase.MAIN_PHASE1)) {
             this.phase = Phase.BATTLE_PHASE;
 
-        }
-        else showErrorNotProperPhaseNavigation("BATTLE_PHASE");
+        } else showErrorNotProperPhaseNavigation("BATTLE_PHASE");
     }
 
     public void goToMainTwo(MouseEvent event) {
         if (this.phase.equals(Phase.BATTLE_PHASE)) {
             this.phase = Phase.MAIN_PHASE2;
-        }
-        else showErrorNotProperPhaseNavigation("Main_Phase2");
+        } else showErrorNotProperPhaseNavigation("Main_Phase2");
     }
 
     public void goToEndPhase(MouseEvent event) {
@@ -609,12 +609,13 @@ public class GameViewGraphic extends Application implements Initializable {
             this.phase = Phase.END_PHASE;
     }
 
-    public void showErrorNotProperPhaseNavigation(String phaseNameToEnter){
+    public void showErrorNotProperPhaseNavigation(String phaseNameToEnter) {
         Alert error = new Alert(Alert.AlertType.WARNING);
         error.setHeaderText("Error");
         error.setContentText("You cant go to " + phaseNameToEnter + "from " + this.phase);
         error.showAndWait();
     }
+
     private void showPlayerPopUp() {
 //        System.out.println(popUpPlayerGraveyard);
 //
@@ -650,18 +651,6 @@ public class GameViewGraphic extends Application implements Initializable {
 //
 //        popUpPlayerGraveyard.show(stage);
 //        System.out.println(popUpPlayerGraveyard.isShowing());
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //        for (Card card : playerGraveyard) {
