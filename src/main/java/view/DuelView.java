@@ -111,7 +111,7 @@ public class DuelView {
         matcher = getCommandMatcher(command, "set (--position|-p) (attack|defence)");
         if (matcher.matches()) {
             try {
-                duelController.changePosition(matcher.group(2));
+//                duelController.changePosition(matcher.group(2));
             } catch (Exception exception) {
                 printText(exception.getMessage());
 

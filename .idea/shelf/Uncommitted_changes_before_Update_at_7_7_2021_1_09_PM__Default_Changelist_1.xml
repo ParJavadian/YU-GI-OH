@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM_[Default_Changelist]1" date="1625647189596" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM_[Default_Changelist]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 7/7/2021 1:09 PM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/controller/DuelController.class" />
+    <option name="AFTER_PATH" value="target/classes/controller/DuelController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM_[Default_Changelist]1/DuelController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="json.zip" />
+    <option name="AFTER_PATH" value="json.zip" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM_[Default_Changelist]1/json.zip" />
+  </binary>
+</changelist>

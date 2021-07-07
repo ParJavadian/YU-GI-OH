@@ -270,7 +270,7 @@ public class DuelController {
         DuelView.printText("card selected");
     }
 
-    private void unselectCard() throws Exception {
+    public void unselectCard() throws Exception {
         if (this.selectedCard == null) {
             throw new NoCardSelected();
         } else {
@@ -438,7 +438,7 @@ public class DuelController {
         else if (this.selectedCard.getCard() instanceof TrapCard) setTrap();
     }
 
-    private void setMonster() throws Exception {
+    public void setMonster() throws Exception {
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
             throw new ImproperPhase();
         }
@@ -589,13 +589,13 @@ public class DuelController {
         getBoard();
     }
 
-    public void changePosition(String targetPosition) throws Exception {
+    public void changePosition() throws Exception {
         String targetPositionInShort = "";
-        switch (targetPosition) {
-            case "attack":
+        switch (this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber())) {
+            case "DO":
                 targetPositionInShort = "OO";
                 break;
-            case "defence":
+            case "OO":
                 targetPositionInShort = "DO";
                 break;
         }
@@ -1023,7 +1023,10 @@ public class DuelController {
         ArrayList<Image> images = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             if (this.player.getBoard().getMonsterConditionByNumber(i) == null) images.add(null);
-            else images.add(this.player.getBoard().getMonsterByNumber(i).getImage());
+            else if (!this.player.getBoard().getMonsterConditionByNumber(i).equals("DH"))
+                images.add(this.player.getBoard().getMonsterByNumber(i).getImage());
+            else
+                images.add(unknown);
         }
         for (int i = 4; i >= 0; i--) {
             if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) images.add(null);
@@ -1034,7 +1037,10 @@ public class DuelController {
         }
         for (int i = 0; i < 5; i++) {
             if (this.player.getBoard().getSpellAndTrapByNumber(i) == null) images.add(null);
-            else images.add(this.player.getBoard().getSpellAndTrapByNumber(i).getImage());
+            else if (this.player.getBoard().getSpellAndTrapConditionByNumber(i).equals("O"))
+                images.add(this.player.getBoard().getSpellAndTrapByNumber(i).getImage());
+            else
+                images.add(unknown);
         }
         for (int i = 4; i >= 0; i--) {
             if (this.rival.getBoard().getSpellAndTrapByNumber(i) == null) images.add(null);
@@ -1111,6 +1117,70 @@ public class DuelController {
         }
         toPrint.append("\n").append(this.player.getNickname()).append(":").append(this.player.getLifePoint());
         DuelView.printText(toPrint.toString());*/
+    }
+
+    public ArrayList<Card> getCards(){
+        ArrayList<Card> cards = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            cards.add(player.getBoard().getMonsterByNumber(i));
+        }
+        for (int i = 4; i >= 0; i--) {
+            cards.add(rival.getBoard().getMonsterByNumber(i));
+        }
+        for (int i = 0; i < 5; i++) {
+            cards.add(player.getBoard().getSpellAndTrapByNumber(i));
+        }
+        for (int i = 4; i >= 0; i--) {
+            cards.add(rival.getBoard().getSpellAndTrapByNumber(i));
+        }
+        for (int i = 0; i < 6; i++) {
+            if (this.player.getBoard().getCardsInHand().size()<=i) cards.add(null);
+            else cards.add(this.player.getBoard().getCardInHandByNumber(i));
+        }
+        for (int i = 5; i >= 0; i--) {
+            if (this.rival.getBoard().getCardsInHand().size()<=i) cards.add(null);
+            else cards.add(this.rival.getBoard().getCardInHandByNumber(i));
+        }
+        cards.add(this.player.getBoard().getFieldZone());
+        cards.add(this.rival.getBoard().getFieldZone());
+        if(this.player.getBoard().getCardsInGraveyard().isEmpty())
+            cards.add(null);
+        else
+            cards.add(this.player.getBoard().getCardsInGraveyard().get(this.player.getBoard().getCardsInGraveyard().size()-1));
+        if(this.rival.getBoard().getCardsInGraveyard().isEmpty())
+            cards.add(null);
+        else
+            cards.add(this.rival.getBoard().getCardsInGraveyard().get(this.rival.getBoard().getCardsInGraveyard().size()-1));
+        return cards;
+    }
+
+    public ArrayList<Boolean> getConditions(){
+        ArrayList<Boolean> conditions = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            if(player.getBoard().getMonsterConditionByNumber(i)==null) conditions.add(null);
+            else conditions.add(!player.getBoard().getMonsterConditionByNumber(i).equals("OO"));
+        }
+        for (int i = 4; i >= 0; i--) {
+            if(rival.getBoard().getMonsterConditionByNumber(i)==null) conditions.add(null);
+            else conditions.add(!rival.getBoard().getMonsterConditionByNumber(i).equals("OO"));
+        }
+        for (int i = 0; i < 5; i++) {
+            conditions.add(false);
+        }
+        for (int i = 4; i >= 0; i--) {
+            conditions.add(false);
+        }
+        for (int i = 0; i < 6; i++) {
+            conditions.add(false);
+        }
+        for (int i = 5; i >= 0; i--) {
+            conditions.add(false);
+        }
+        conditions.add(false);
+        conditions.add(false);
+        conditions.add(false);
+        conditions.add(false);
+        return conditions;
     }
 
     public void showCard() throws Exception {
@@ -1581,6 +1651,10 @@ public class DuelController {
 
     public int minFinder(int firstNumber, int secondNumber) {
         return Math.min(firstNumber, secondNumber);
+    }
+
+    public void doNothing(){
+
     }
 }
 
