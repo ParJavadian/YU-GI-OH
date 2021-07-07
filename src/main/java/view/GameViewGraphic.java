@@ -1,16 +1,16 @@
 package view;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import controller.DuelController;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,6 +18,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Popup;
@@ -61,6 +62,9 @@ public class GameViewGraphic extends Application implements Initializable {
     public static Card card1FieldZone, card2FieldZone, card1Graveyard, card2Graveyard;
     public static ImageView rivalProfile = new ImageView();
     public static ImageView playerProfile = new ImageView();
+    private ImageView graveyardFirstCard = new ImageView();
+    private ImageView graveyardSecondCard = new ImageView();
+    private ImageView graveyardThirdCard = new ImageView();
     public ImageView selectedCard;
     @FXML
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
@@ -238,6 +242,19 @@ public class GameViewGraphic extends Application implements Initializable {
             imageView.setRotate(0);
     }
 
+//    private ImageView setImageView(Image image, int x, int y, Boolean condition) {
+//        ImageView imageView = new ImageView(image);
+//        imageView.setFitWidth(49);
+//        imageView.setFitHeight(71);
+//        imageView.setX(x);
+//        imageView.setY(y);
+//        if (condition != null && condition.equals(true))
+//            imageView.setRotate(90);
+//        else
+//            imageView.setRotate(0);
+//        return imageView;
+//    }
+
     private void setImageViewForProfile() {
         URL url = getClass().getResource("/images/profiles/profile (" + player.getProfileNumber() + ").png");
         Image image = new Image(String.valueOf(url));
@@ -320,12 +337,18 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     public void pauseMenu() {
+        int[] i = {0};
+        AnchorPane anchorPane = new AnchorPane();
+        Button previousButton = new Button("Previous");
+        Button nextButton = new Button("Next");
+        Button backButton = new Button("Back");
+        ArrayList<Image> images = duelController.getGraveYard(player);
+        fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
 
-        System.out.println(popUpPlayerGraveyard);
 
-        //ArrayList<Card> playerGraveyard =
-        ArrayList<Image> images = duelController.getBoard();
-        ArrayList<Card> playerGraveyard = duelController.getCards();
+
+        /*//ArrayList<Card> playerGraveyard =
+
 //        ArrayList<Card> playerGraveyard = (ArrayList<Card>) player.getBoard().getCardsInGraveyard();
         //todo image haye card haro az parmida begir
 //        ScrollPane scrollPane = new ScrollPane();
@@ -333,39 +356,194 @@ public class GameViewGraphic extends Application implements Initializable {
         //scrollPane.set(100);
         //scrollPane.setLayoutX(500);
         //scrollPane.setLayoutX(200);
+        //System.out.println(popUpPlayerGraveyard);*/
+//todo
+
+
+
+
+
+
+
+
+        //        Font font = Font.font("Agency FB", 18);
+//        button.setFont();
+//        button.setFont(font);
+
+//        Button button = new Button();
+//        button.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
+
+//        popUpPlayerGraveyard.getContent().add(anchorPane);
+//        if (!popUpPlayerGraveyard.isShowing())
+//            popUpPlayerGraveyard.show(stage);
+//        else
+//            popUpPlayerGraveyard.hide();
+
+
+        //popUpPlayerGraveyard.show(stage);
+
+
+
+
+//        imageView.setImage(image);
+//        imageView.setFitWidth(49);
+//        imageView.setFitHeight(71);
+//        imageView.setX(x);
+//        imageView.setY(y);
+//        for (int i = 0; i < 6; i++) {
+//            ImageView imageView = new ImageView(images.get(i));
+//            imageView.setFitWidth(70);
+//            imageView.setFitHeight(102);
+//            imageView.setX(220);
+//            imageView.setY(20 * (i + 1) + 102 * (i));
+//            anchorPane.getChildren().add(imageView);
+//        }
+//        popUpPlayerGraveyard.getContent().add(anchorPane);
+//        popUpPlayerGraveyard.show(stage);
+////        popUpPlayerGraveyard.requestFocus();
+////        System.out.println(anchorPane.getChildren());
+////        System.out.println(popUpPlayerGraveyard.getContent());
+////        ;
+////        popUpPlayerGraveyard.show(stage);
+////        popUpPlayerGraveyard.requestFocus();
+//        System.out.println(popUpPlayerGraveyard.isShowing());
+
+
+    }
+
+    public void fillPopUp(int[] i, AnchorPane anchorPane, Button previousButton,Button nextButton,Button backButton,ArrayList<Image> images){
+
+
+
+
+
         popUpPlayerGraveyard = new Popup();
-        System.out.println(popUpPlayerGraveyard);
-        AnchorPane anchorPane = new AnchorPane();
-        popUpPlayerGraveyard.setX(10);
-        popUpPlayerGraveyard.setY(10);
-        popUpPlayerGraveyard.setWidth(300);
-        popUpPlayerGraveyard.setHeight(300);
-        anchorPane.setPrefWidth(200);
-        anchorPane.setPrefHeight(200);
-        anchorPane.setLayoutX(50);
-        anchorPane.setLayoutY(50);
-        for (int i = 0; i < 6; i++) {
-            ImageView imageView = new ImageView(images.get(i));
-            imageView.setFitWidth(70);
-            imageView.setFitHeight(102);
-            imageView.setX(220);
-            imageView.setY(20 * (i + 1) + 102 * (i));
-            anchorPane.getChildren().add(imageView);
+
+        anchorPane.setStyle(" -fx-background-color: #174761;");
+        popUpPlayerGraveyard.setX(0);
+        popUpPlayerGraveyard.setY(0);
+        popUpPlayerGraveyard.setWidth(900);
+        popUpPlayerGraveyard.setHeight(600);
+        anchorPane.setPrefWidth(388);
+        anchorPane.setPrefHeight(293);
+        anchorPane.setLayoutX(506);
+        anchorPane.setLayoutY(206);
+//        if (images.get(i[0]) != null) {
+        if (i[0] < images.size()) {
+            graveyardFirstCard.setImage(images.get(i[0]));
+            graveyardFirstCard.setFitWidth(110);
+            graveyardFirstCard.setFitHeight(160);
+            graveyardFirstCard.setX(12);
+            graveyardFirstCard.setY(70);
+            if (anchorPane != null) {
+                if (graveyardFirstCard != null && !anchorPane.getChildren().contains(graveyardFirstCard))
+                    anchorPane.getChildren().add(graveyardFirstCard);
+            }
         }
+
+//        if (images.get(i[0] +1) != null) {
+        if (i[0]+1 < images.size()) {
+            graveyardSecondCard.setImage(images.get(i[0] +1));
+            graveyardSecondCard.setFitWidth(110);
+            graveyardSecondCard.setFitHeight(160);
+            graveyardSecondCard.setX(138);
+            graveyardSecondCard.setY(70);
+            if (anchorPane != null) {
+                if (graveyardSecondCard != null && !anchorPane.getChildren().contains(graveyardSecondCard))
+                    anchorPane.getChildren().add(graveyardSecondCard);
+            }
+        }
+
+
+//        if (images.get(i[0] +2) != null) {
+        if (i[0]+2 < images.size()) {
+            graveyardThirdCard.setImage(images.get(i[0] +2));
+            graveyardThirdCard.setFitWidth(110);
+            graveyardThirdCard.setFitHeight(160);
+            graveyardThirdCard.setX(264);
+            graveyardThirdCard.setY(70);
+            if (anchorPane != null) {
+                if (graveyardThirdCard != null && !anchorPane.getChildren().contains(graveyardThirdCard))
+                    anchorPane.getChildren().add(graveyardThirdCard);
+            }
+        }
+
+
+        previousButton.setLayoutX(160);
+        previousButton.setLayoutY(20);
+        Font font = Font.font("Agency FB", 18);
+        previousButton.setFont(font);
+        previousButton.setTextFill(Paint.valueOf("#174761"));
+        if (!anchorPane.getChildren().contains(previousButton)) {
+            anchorPane.getChildren().add(previousButton);
+        }
+
+
+        nextButton.setLayoutX(170);
+        nextButton.setLayoutY(242);
+        nextButton.setFont(font);
+        nextButton.setTextFill(Paint.valueOf("#174761"));
+        if (!anchorPane.getChildren().contains(nextButton)) {
+            anchorPane.getChildren().add(nextButton);
+        }
+
+
+        backButton.setLayoutX(320);
+        backButton.setLayoutY(242);
+        backButton.setFont(font);
+        backButton.setTextFill(Paint.valueOf("#174761"));
+
+        if (!anchorPane.getChildren().contains(backButton)) {
+            anchorPane.getChildren().add(backButton);
+        }
+
         popUpPlayerGraveyard.getContent().add(anchorPane);
-        popUpPlayerGraveyard.requestFocus();
-        System.out.println(anchorPane.getChildren());
-        System.out.println(popUpPlayerGraveyard.getContent());
-        ;
-        popUpPlayerGraveyard.show(stage);
-        popUpPlayerGraveyard.requestFocus();
-        System.out.println(popUpPlayerGraveyard.isShowing());
+
+
+        if (!popUpPlayerGraveyard.isShowing()) {
+            popUpPlayerGraveyard.show(stage);
+        }
+
+
+        EventHandler<ActionEvent> eventForBackButton =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e) {
+                        popUpPlayerGraveyard.hide();
+                    }
+                };
+        backButton.setOnAction(eventForBackButton);
+
+        EventHandler<ActionEvent> eventForNextButton =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e) {
+                        if( i[0] +1 < images.size() ) {
+                            i[0]++;
+                            fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
+                        }
+                    }
+                };
+        nextButton.setOnAction(eventForNextButton);
+
+        EventHandler<ActionEvent> eventForPreviousButton =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e) {
+                        if( i[0] - 1 >= 0 ) {
+                            i[0]--;
+                            fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
+                        }
+                    }
+                };
+        previousButton.setOnAction(eventForPreviousButton);
+
+
+
+
+
 
 
     }
 
     public void updateBoard() {
-        System.out.println(player + " " + rival);
         setImagesAndCards();
         addAllImages();
     }

@@ -98,9 +98,9 @@ public class User {
         this.currentGameDeck = currentGameDeck;
     }
 
-    public void setProfileNumber(int profileNumber) {
-        this.profileNumber = profileNumber;
-    }
+//    public void setProfileNumber(int profileNumber) {
+//        this.profileNumber = profileNumber;
+//    }
 
     public String getUsername() {
         return this.username;
@@ -116,6 +116,10 @@ public class User {
 
     public int getProfileNumber() {
         return this.profileNumber;
+    }
+
+    public void setProfileNumber(int profileNumber) {
+        this.profileNumber = profileNumber;
     }
 
     public int getScore() {

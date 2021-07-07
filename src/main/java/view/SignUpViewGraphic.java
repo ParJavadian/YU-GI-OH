@@ -9,8 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import model.Deck;
 import model.User;
@@ -63,6 +65,28 @@ public class SignUpViewGraphic extends Application {
     }
 
     public void login() throws Exception {
+
+        //todo pak shavad
+
+//        Label label = new Label("This is a Popup");
+//
+//        // create a popup
+//        Popup popup = new Popup();
+//
+//        // set background
+//        label.setStyle(" -fx-background-color: white;");
+//
+//        // add the label
+//        popup.getContent().add(label);
+//
+//        // set size of label
+//        label.setMinWidth(80);
+//        label.setMinHeight(50);
+//        popup.show(stage);
+
+
+        //todo
+
         SignUpControllerGraphic.login(stage);
     }
 

@@ -107,8 +107,10 @@ public class ImportExportUserController {
                             profileNumber = scanner.nextLine();
                             if (profileNumber.matches("\\d+")) {
                                 number = Integer.parseInt(profileNumber);
-                                Objects.requireNonNull(User.getUserByNickname(username)).setProfileNumber(number);
-                            }
+                                Objects.requireNonNull(User.getUserByUsername(username)).setProfileNumber(number);
+                            } /*else {
+                                System.out.println(profileNumber);
+                            }*/
                         }
                     }
                 }catch (FileNotFoundException e){
@@ -121,7 +123,8 @@ public class ImportExportUserController {
     public void exportProfileNumber(String username, int number){
         try {
             FileWriter fileWriter = new FileWriter("ProfileNumbers/" + username + ".txt");
-            fileWriter.write(number);
+            fileWriter.write(String.valueOf(number));
+//            System.out.println("export profile number" + number);
             fileWriter.close();
         }catch (IOException e){
             e.printStackTrace();
