@@ -8,20 +8,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.Board;
-import model.Card;
-import model.MonsterCard;
-import model.User;
+import model.*;
 
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -36,6 +35,7 @@ public class GameViewGraphic extends Application implements Initializable {
     private static GameViewGraphic instance = null;
     public Label chatBox;
     public int numberOfRounds;
+    private Phase phase;
     private static ArrayList<Image> images = new ArrayList<>();
     private static ArrayList<Card> cards = new ArrayList<>();
     private static ArrayList<Boolean> conditions = new ArrayList<>();
@@ -126,128 +126,86 @@ public class GameViewGraphic extends Application implements Initializable {
         }
     }
 
+
     public void setImagesAndCards() {
         images = duelController.getBoard();
         cards = duelController.getCards();
+        if (imageView1hand6 != null) System.out.println(imageView1hand6.getImage() + " 25image");
+//        System.out.println(cards.get(25) + " 25card");
         conditions = duelController.getConditions();
-        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));
-        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));
-        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 486, 329, conditions.get(2));
-        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 569, 329, conditions.get(3));
-        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 652, 329, conditions.get(4));
-        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 324, 206, conditions.get(5));
-        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 403, 206, conditions.get(6));
-        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 486, 206, conditions.get(7));
-        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 569, 206, conditions.get(8));
-        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 652, 206, conditions.get(9));
-        if (images.get(10) != null)
-            imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432, conditions.get(10));
-        if (images.get(11) != null)
-            imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432, conditions.get(11));
-        if (images.get(12) != null)
-            imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432, conditions.get(12));
-        if (images.get(13) != null)
-            imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432, conditions.get(13));
-        if (images.get(14) != null)
-            imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432, conditions.get(14));
-        if (images.get(15) != null)
-            imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104, conditions.get(15));
-        if (images.get(16) != null)
-            imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104, conditions.get(16));
-        if (images.get(17) != null)
-            imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104, conditions.get(17));
-        if (images.get(18) != null)
-            imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104, conditions.get(18));
-        if (images.get(19) != null)
-            imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104, conditions.get(19));
-        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538, conditions.get(20));
-        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538, conditions.get(21));
-        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538, conditions.get(22));
-        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538, conditions.get(23));
-        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538, conditions.get(24));
-        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538, conditions.get(25));
-        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16, conditions.get(26));
-        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16, conditions.get(27));
-        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16, conditions.get(28));
-        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16, conditions.get(29));
-        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16, conditions.get(30));
-        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16, conditions.get(31));
-        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 232, 324, conditions.get(32));
-        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 740, 205, conditions.get(33));
-        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 750, 328, conditions.get(34));
-        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 245, 213, conditions.get(35));
-        if (cards.get(0) != null) card1Monster1 = cards.get(0);
-        if (cards.get(1) != null) card1Monster2 = cards.get(1);
-        if (cards.get(2) != null) card1Monster3 = cards.get(2);
-        if (cards.get(3) != null) card1Monster4 = cards.get(3);
-        if (cards.get(4) != null) card1Monster5 = cards.get(4);
-        if (cards.get(5) != null) card2Monster1 = cards.get(5);
-        if (cards.get(6) != null) card2Monster2 = cards.get(6);
-        if (cards.get(7) != null) card2Monster3 = cards.get(7);
-        if (cards.get(8) != null) card2Monster4 = cards.get(8);
-        if (cards.get(9) != null) card2Monster5 = cards.get(9);
-        if (cards.get(10) != null) card1SpellAndTrap1 = cards.get(10);
-        if (cards.get(11) != null) card1SpellAndTrap2 = cards.get(11);
-        if (cards.get(12) != null) card1SpellAndTrap3 = cards.get(12);
-        if (cards.get(13) != null) card1SpellAndTrap4 = cards.get(13);
-        if (cards.get(14) != null) card1SpellAndTrap5 = cards.get(14);
-        if (cards.get(15) != null) card2SpellAndTrap1 = cards.get(15);
-        if (cards.get(16) != null) card2SpellAndTrap2 = cards.get(16);
-        if (cards.get(17) != null) card2SpellAndTrap3 = cards.get(17);
-        if (cards.get(18) != null) card2SpellAndTrap4 = cards.get(18);
-        if (cards.get(19) != null) card2SpellAndTrap5 = cards.get(19);
-        if (cards.get(20) != null) card1Hand1 = cards.get(20);
-        if (cards.get(21) != null) card1Hand2 = cards.get(21);
-        if (cards.get(22) != null) card1Hand3 = cards.get(22);
-        if (cards.get(23) != null) card1Hand4 = cards.get(23);
-        if (cards.get(24) != null) card1Hand5 = cards.get(24);
-        if (cards.get(25) != null) card1Hand6 = cards.get(25);
-        if (cards.get(26) != null) card2Hand1 = cards.get(26);
-        if (cards.get(27) != null) card2Hand2 = cards.get(27);
-        if (cards.get(28) != null) card2Hand3 = cards.get(28);
-        if (cards.get(29) != null) card2Hand4 = cards.get(29);
-        if (cards.get(30) != null) card2Hand5 = cards.get(30);
-        if (cards.get(31) != null) card2Hand6 = cards.get(31);
-        if (cards.get(32) != null) card1FieldZone = cards.get(32);
-        if (cards.get(33) != null) card2FieldZone = cards.get(33);
-        if (cards.get(34) != null) card1Graveyard = cards.get(34);
-        if (cards.get(35) != null) card2Graveyard = cards.get(35);
-        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 324, 329);
-        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 403, 329);
-        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 486, 329);
-        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 569, 329);
-        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 652, 329);
-        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 324, 206);
-        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 403, 206);
-        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 486, 206);
-        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 569, 206);
-        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 652, 206);
-        if (images.get(10) != null) imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432);
-        if (images.get(11) != null) imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432);
-        if (images.get(12) != null) imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432);
-        if (images.get(13) != null) imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432);
-        if (images.get(14) != null) imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432);
-        if (images.get(15) != null) imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104);
-        if (images.get(16) != null) imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104);
-        if (images.get(17) != null) imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104);
-        if (images.get(18) != null) imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104);
-        if (images.get(19) != null) imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104);
-        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538);
-        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538);
-        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538);
-        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538);
-        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538);
-        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538);
-        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16);
-        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16);
-        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16);
-        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16);
-        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16);
-        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16);
-        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 245, 329);
-        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 750, 213);
-        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 750, 336);
-        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 245, 213);
+        imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));
+        imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));
+        imageView1Monster3 = setImageView(images.get(2), 486, 329, conditions.get(2));
+        imageView1Monster4 = setImageView(images.get(3), 569, 329, conditions.get(3));
+        imageView1Monster5 = setImageView(images.get(4), 652, 329, conditions.get(4));
+        imageView2Monster1 = setImageView(images.get(5), 324, 206, conditions.get(5));
+        imageView2Monster2 = setImageView(images.get(6), 403, 206, conditions.get(6));
+        imageView2Monster3 = setImageView(images.get(7), 486, 206, conditions.get(7));
+        imageView2Monster4 = setImageView(images.get(8), 569, 206, conditions.get(8));
+        imageView2Monster5 = setImageView(images.get(9), 652, 206, conditions.get(9));
+        imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432, conditions.get(10));
+        imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432, conditions.get(11));
+        imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432, conditions.get(12));
+        imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432, conditions.get(13));
+        imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432, conditions.get(14));
+        imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104, conditions.get(15));
+        imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104, conditions.get(16));
+        imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104, conditions.get(17));
+        imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104, conditions.get(18));
+        imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104, conditions.get(19));
+        imageView1hand1 = setImageView(images.get(20), 331, 538, conditions.get(20));
+        imageView1hand2 = setImageView(images.get(21), 387, 538, conditions.get(21));
+        imageView1hand3 = setImageView(images.get(22), 443, 538, conditions.get(22));
+        imageView1hand4 = setImageView(images.get(23), 499, 538, conditions.get(23));
+        imageView1hand5 = setImageView(images.get(24), 555, 538, conditions.get(24));
+        imageView1hand6 = setImageView(images.get(25), 611, 538, conditions.get(25));
+        imageView2hand1 = setImageView(images.get(26), 331, -16, conditions.get(26));
+        imageView2hand2 = setImageView(images.get(27), 387, -16, conditions.get(27));
+        imageView2hand3 = setImageView(images.get(28), 443, -16, conditions.get(28));
+        imageView2hand4 = setImageView(images.get(29), 499, -16, conditions.get(29));
+        imageView2hand5 = setImageView(images.get(30), 555, -16, conditions.get(30));
+        imageView2hand6 = setImageView(images.get(31), 611, -16, conditions.get(31));
+        imageView1FieldZone = setImageView(images.get(32), 232, 324, conditions.get(32));
+        imageView2FieldZone = setImageView(images.get(33), 740, 205, conditions.get(33));
+        imageView1Graveyard = setImageView(images.get(34), 750, 328, conditions.get(34));
+        imageView2Graveyard = setImageView(images.get(35), 245, 213, conditions.get(35));
+        card1Monster1 = cards.get(0);
+        card1Monster2 = cards.get(1);
+        card1Monster3 = cards.get(2);
+        card1Monster4 = cards.get(3);
+        card1Monster5 = cards.get(4);
+        card2Monster1 = cards.get(5);
+        card2Monster2 = cards.get(6);
+        card2Monster3 = cards.get(7);
+        card2Monster4 = cards.get(8);
+        card2Monster5 = cards.get(9);
+        card1SpellAndTrap1 = cards.get(10);
+        card1SpellAndTrap2 = cards.get(11);
+        card1SpellAndTrap3 = cards.get(12);
+        card1SpellAndTrap4 = cards.get(13);
+        card1SpellAndTrap5 = cards.get(14);
+        card2SpellAndTrap1 = cards.get(15);
+        card2SpellAndTrap2 = cards.get(16);
+        card2SpellAndTrap3 = cards.get(17);
+        card2SpellAndTrap4 = cards.get(18);
+        card2SpellAndTrap5 = cards.get(19);
+        card1Hand1 = cards.get(20);
+        card1Hand2 = cards.get(21);
+        card1Hand3 = cards.get(22);
+        card1Hand4 = cards.get(23);
+        card1Hand5 = cards.get(24);
+        if (imageView1hand6 != null) System.out.println(imageView1hand6.getImage() + " 25image");
+        card1Hand6 = cards.get(25);
+        card2Hand1 = cards.get(26);
+        card2Hand2 = cards.get(27);
+        card2Hand3 = cards.get(28);
+        card2Hand4 = cards.get(29);
+        card2Hand5 = cards.get(30);
+        card2Hand6 = cards.get(31);
+        card1FieldZone = cards.get(32);
+        card2FieldZone = cards.get(33);
+        card1Graveyard = cards.get(34);
+        card2Graveyard = cards.get(35);
         setCardDetailsPart();
     }
 
@@ -584,4 +542,31 @@ public class GameViewGraphic extends Application implements Initializable {
         defence.setText("");
     }
 
+    //TODO RANGE MOSTATILE PPHASE AVAZ SHE VAGHTI TUSHE
+    public void goToBattlePhase(MouseEvent event) {
+        if(this.phase.equals(Phase.MAIN_PHASE1)) {
+            this.phase = Phase.BATTLE_PHASE;
+
+        }
+        else showErrorNotProperPhaseNavigation("BATTLE_PHASE");
+    }
+
+    public void goToMainTwo(MouseEvent event) {
+        if (this.phase.equals(Phase.BATTLE_PHASE)) {
+            this.phase = Phase.MAIN_PHASE2;
+        }
+        else showErrorNotProperPhaseNavigation("Main_Phase2");
+    }
+
+    public void goToEndPhase(MouseEvent event) {
+        if (this.phase.equals(Phase.MAIN_PHASE1) || this.phase.equals(Phase.BATTLE_PHASE) || this.phase.equals(Phase.MAIN_PHASE2))
+            this.phase = Phase.END_PHASE;
+    }
+
+    public void showErrorNotProperPhaseNavigation(String phaseNameToEnter){
+        Alert error = new Alert(Alert.AlertType.WARNING);
+        error.setHeaderText("Error");
+        error.setContentText("You cant go to " + phaseNameToEnter + "from " + this.phase);
+        error.showAndWait();
+    }
 }
