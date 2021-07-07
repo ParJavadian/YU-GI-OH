@@ -601,8 +601,8 @@ public class GameViewGraphic extends Application implements Initializable {
         setOnClickSelected(imageView2SpellAndTrap5, rival, 5, 19, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
         setOnClickSelected(imageView1FieldZone, player, 1, 32, DuelController.class.getMethod("selectCardPlayerFieldZone"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
         setOnClickSelected(imageView2FieldZone, rival, 1, 33, DuelController.class.getMethod("selectCardOpponentFieldZone"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1Graveyard, player, 1, 34, DuelController.class.getMethod("showGraveyard"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Graveyard, rival, 1, 35, DuelController.class.getMethod("showGraveyard"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1Graveyard, player, 1, 34, DuelController.class.getMethod("showPlayerGraveyard"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2Graveyard, rival, 1, 35, DuelController.class.getMethod("showRivalGraveyard"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
 
 /*setOnClickSelected(imageView1hand2, 2, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
         setOnClickSelected(imageView1hand3, 3, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
@@ -619,6 +619,91 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     }
+
+
+
+
+    public void startBattleNoCardSelected() throws Exception {
+        /*setOnClickSelected(imageView1Monster1, 5, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class), DuelController.class.getMethod("summonMonster"));
+        setOnClickSelected(imageView1Monster2, 3, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
+        setOnClickSelected(imageView1Monster3, 1, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
+        setOnClickSelected(imageView1Monster4, 2, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
+        setOnClickSelected(imageView1Monster5, 4, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
+
+        setOnClickSelected(imageView2Monster1, 4, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2Monster2, 2, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2Monster3, 1, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2Monster4, 3, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2Monster5, 5, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+
+        setOnClickSelected(imageView1SpellAndTrap1, 5, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView1SpellAndTrap2, 3, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView1SpellAndTrap3, 1, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView1SpellAndTrap4, 2, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+        setOnClickSelected(imageView1SpellAndTrap5, 4, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
+
+        setOnClickSelected(imageView2SpellAndTrap1, 4, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2SpellAndTrap2, 2, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2SpellAndTrap3, 1, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2SpellAndTrap4, 3, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+        setOnClickSelected(imageView2SpellAndTrap5, 5, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
+*/
+        setOnClickSelected(imageView1hand1, player, 1, 20, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1hand2, player, 2, 21, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1hand3, player, 3, 22, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1hand4, player, 4, 23, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1hand5, player, 5, 24, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1hand6, player, 6, 25, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1Monster1, player, 5, 0, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1Monster2, player, 3, 1, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1Monster3, player, 1, 2, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1Monster4, player, 2, 3, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1Monster5, player, 4, 4, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2Monster1, rival, 4, 5, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2Monster2, rival, 2, 6, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2Monster3, rival, 1, 7, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2Monster4, rival, 3, 8, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2Monster5, rival, 5, 9, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1SpellAndTrap1, player, 5, 10, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1SpellAndTrap2, player, 3, 11, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1SpellAndTrap3, player, 1, 12, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1SpellAndTrap4, player, 2, 13, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1SpellAndTrap5, player, 4, 14, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2SpellAndTrap1, rival, 4, 15, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2SpellAndTrap2, rival, 2, 16, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2SpellAndTrap3, rival, 1, 17, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2SpellAndTrap4, rival, 3, 18, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2SpellAndTrap5, rival, 5, 19, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1FieldZone, player, 1, 32, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2FieldZone, rival, 1, 33, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView1Graveyard, player, 1, 34, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setOnClickSelected(imageView2Graveyard, rival, 1, 35, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+
+
+
+/*setOnClickSelected(imageView1hand2, 2, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1hand3, 3, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1hand4, 4, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1hand5, 5, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+        setOnClickSelected(imageView1hand6, 6, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+*/
+//        setOnClickSelected(imageView1FieldZone, 1, DuelController.class.getMethod("selectCardPlayerFieldZone"), this.getClass().getMethod("startMainPlayerFieldZoneSelected", ImageView.class));
+//        setOnClickSelected(imageView2FieldZone, 1, DuelController.class.getMethod("selectCardOpponentFieldZone"), this.getClass().getMethod("startMainOpponentFieldZoneSelected", ImageView.class));
+
+//        //todo number ro gozashtam 1. chi kar konam? va show graveyard darim na select graveyard. bezanam?
+//        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectPlayerGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+//        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectRivalGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
+
+
+    }
+
+
+
+
+
+
+
+
 
 
     private void setOnClickSelected(ImageView imageView, User owner, int number1, int numberForGet, Method onMouseEnteredMethod, Method nextMethod, Method onMouseClickedMethodMonster, Method onMouseClickedMethodSpell, Method onMouseRightClickedMethod) {
@@ -834,6 +919,17 @@ public class GameViewGraphic extends Application implements Initializable {
         error.setContentText("You cant go to " + phaseNameToEnter + "from " + duelController.getPhase());
         error.showAndWait();
     }
+
+
+    public static void printInformation(String input) {
+        Alert error = new Alert(Alert.AlertType.INFORMATION);
+        error.setHeaderText("");
+        error.setContentText(input);
+        error.showAndWait();
+    }
+
+
+
 
     private void showPlayerPopUp() {
 //        System.out.println(popUpPlayerGraveyard);

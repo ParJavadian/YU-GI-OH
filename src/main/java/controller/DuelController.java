@@ -1,7 +1,9 @@
 package controller;
 
 import controller.exeption.*;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import model.*;
 import view.DuelView;
 import view.GameViewGraphic;
@@ -957,7 +959,7 @@ public class DuelController {
             this.phase = Phase.END_PHASE;
             DuelView.printText("phase: " + this.phase.getNamePascalCase());
         } else if (this.phase.equals(Phase.END_PHASE)) {
-            DuelView.printText("its " + rival.getNickname() + "’s turn");
+            GameViewGraphic.printInformation("its " + rival.getNickname() + "’s turn");
             changeTurn();
             startDrawPhase(false);
             if (this.player.getUsername().equals("@AI@"))
@@ -1220,26 +1222,42 @@ public class DuelController {
         DuelView.printText(this.selectedCard.getCard().toString());
     }
 
-    public void showGraveyard() throws Exception {
-        List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
-        StringBuilder toPrint = new StringBuilder();
-        if (graveyard.isEmpty())
-            throw new GraveYardEmpty();
-        else {
-            for (Card cardInGraveyard : graveyard) {
-                if (graveyard.indexOf(cardInGraveyard) == graveyard.size() - 1) {
-                    toPrint.append(cardInGraveyard.getNamePascalCase()).append(":").append(cardInGraveyard.getDescription());
-                } else {
-                    toPrint.append(cardInGraveyard.getNamePascalCase()).append(":").append(cardInGraveyard.getDescription()).append("\n");
-                }
-            }
-        }
-        DuelView.printText(toPrint.toString());
-        String input = DuelView.scan();
-        while (!input.equals("back")) {
-            DuelView.printText("invalid command");
-            input = DuelView.scan();
-        }
+//    public void showGraveyard() throws Exception {
+//        List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
+//        StringBuilder toPrint = new StringBuilder();
+//        if (graveyard.isEmpty())
+//            throw new GraveYardEmpty();
+//        else {
+//            for (Card cardInGraveyard : graveyard) {
+//                if (graveyard.indexOf(cardInGraveyard) == graveyard.size() - 1) {
+//                    toPrint.append(cardInGraveyard.getNamePascalCase()).append(":").append(cardInGraveyard.getDescription());
+//                } else {
+//                    toPrint.append(cardInGraveyard.getNamePascalCase()).append(":").append(cardInGraveyard.getDescription()).append("\n");
+//                }
+//            }
+//        }
+//        DuelView.printText(toPrint.toString());
+//        String input = DuelView.scan();
+//        while (!input.equals("back")) {
+//            DuelView.printText("invalid command");
+//            input = DuelView.scan();
+//        }
+//    }
+
+    public void showPlayerGraveyard(){
+
+        int[] i = {0};
+        AnchorPane anchorPane = new AnchorPane();
+        Button previousButton = new Button("Previous");
+        Button nextButton = new Button("Next");
+        Button backButton = new Button("Back");
+        ArrayList<Image> images = getGraveYard(player);
+        //GameViewGraphic.fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
+
+    }
+
+    public void showRivalGraveyard(){
+
     }
 
     public void removeMonsterPlayer(int address) {
