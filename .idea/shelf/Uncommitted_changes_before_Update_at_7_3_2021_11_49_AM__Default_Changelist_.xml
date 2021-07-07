@@ -1,0 +1,344 @@
+<changelist name="Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]" date="1625296797988" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 7/3/2021 11:49 AM [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$15.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$15.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$15.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$41.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$41.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$41.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$22.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$22.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$22.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$39.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$39.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$39.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$17.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$17.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$17.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$1.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$20.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$20.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$20.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$4.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$4.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$4.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$28.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$28.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$28.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$11.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$11.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$11.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$37.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$37.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$37.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$2.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$2.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$2.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$35.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$35.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$35.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$12.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$12.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$12.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$13.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$13.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$13.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$31.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$31.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$31.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$9.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$9.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$9.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$33.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$33.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$33.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$30.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$30.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$30.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$14.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$14.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$14.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$7.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$7.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$7.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/TrapCard.class" />
+    <option name="AFTER_PATH" value="target/classes/model/TrapCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/TrapCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$15.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$15.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$15.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$8.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$8.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$8.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$27.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$27.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$27.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$32.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$32.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$32.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$16.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$16.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$16.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$26.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$26.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$26.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$4.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$4.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$4.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$6.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$6.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$6.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$25.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$25.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$25.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$3.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$3.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$3.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$17.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$17.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$17.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$19.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$19.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$19.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$24.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$24.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$24.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$18.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$18.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$18.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$23.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$23.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$23.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$5.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$5.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$5.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$21.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$21.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$21.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$14.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$14.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$14.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$2.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$2.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$2.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$38.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$38.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$38.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$16.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$16.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$16.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$10.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$10.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$10.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$20.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$20.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$20.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$36.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$36.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$36.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$3.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$3.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$3.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$29.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$29.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$29.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$34.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$34.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$34.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$12.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$12.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$12.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$13.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$13.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$13.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$1.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$40.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$40.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$40.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$11.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$11.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$11.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$9.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$9.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$9.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/controller/ShopController.class" />
+    <option name="AFTER_PATH" value="target/classes/controller/ShopController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/ShopController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/MonsterCard$10.class" />
+    <option name="AFTER_PATH" value="target/classes/model/MonsterCard$10.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/MonsterCard$10.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$23.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$23.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$23.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$22.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$22.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$22.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$6.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$6.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$6.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$21.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$21.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$21.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$5.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$5.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$5.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$18.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$18.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$18.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$7.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$7.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$7.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$19.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$19.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$19.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/SpellCard$8.class" />
+    <option name="AFTER_PATH" value="target/classes/model/SpellCard$8.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM_[Default_Changelist]/SpellCard$8.class" />
+  </binary>
+</changelist>
