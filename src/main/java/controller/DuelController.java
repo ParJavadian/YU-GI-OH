@@ -30,15 +30,24 @@ public class DuelController {
     boolean isStartTurn;
     private boolean shouldEndGameForView;
 
-    public DuelController(User player, User rival, int roundNumber) {
+    public DuelController(User player, User rival, int roundNumber,GameViewGraphic gameViewGraphic) {
         this.player = player;
         this.rival = rival;
+        this.gameViewGraphic = gameViewGraphic;
         setGameDeck(this.player);
         setGameDeck(this.rival);
         this.rounds = new Round[roundNumber];
         this.roundNumber = roundNumber;
         this.roundCounter = 0;
         startNewGame(null);
+    }
+
+    public Phase getPhase(){
+        return this.phase;
+    }
+
+    public void setPhase(Phase phase){
+        this.phase = phase;
     }
 
     public ArrayList<ActionsDoneInTurn> getActionsOnThisCardPlayer(int i) {
@@ -954,6 +963,12 @@ public class DuelController {
             if (this.player.getUsername().equals("@AI@"))
                 handleAITurn();
         }
+        try{
+            gameViewGraphic.setPhaseRectangleColors();
+            gameViewGraphic.updateBoard();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private void startDrawPhase(boolean isFirst) {
@@ -991,6 +1006,7 @@ public class DuelController {
         User temp = this.player;
         this.player = rival;
         this.rival = temp;
+        gameViewGraphic.changeTurn();
         changePlayerAndRival();
     }
 
@@ -1019,35 +1035,34 @@ public class DuelController {
     }
 
     public ArrayList<Image> getBoard() {
-        Image unknown = new Image("images/Cards/Unknown.jpg");
         ArrayList<Image> images = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             if (this.player.getBoard().getMonsterConditionByNumber(i) == null) images.add(null);
             else if (!this.player.getBoard().getMonsterConditionByNumber(i).equals("DH"))
                 images.add(this.player.getBoard().getMonsterByNumber(i).getImage());
             else
-                images.add(unknown);
+                images.add(GameViewGraphic.unknown);
         }
         for (int i = 4; i >= 0; i--) {
             if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) images.add(null);
             else if (!this.rival.getBoard().getMonsterConditionByNumber(i).equals("DH"))
                 images.add(this.rival.getBoard().getMonsterByNumber(i).getImage());
             else
-                images.add(unknown);
+                images.add(GameViewGraphic.unknown);
         }
         for (int i = 0; i < 5; i++) {
             if (this.player.getBoard().getSpellAndTrapByNumber(i) == null) images.add(null);
             else if (this.player.getBoard().getSpellAndTrapConditionByNumber(i).equals("O"))
                 images.add(this.player.getBoard().getSpellAndTrapByNumber(i).getImage());
             else
-                images.add(unknown);
+                images.add(GameViewGraphic.unknown);
         }
         for (int i = 4; i >= 0; i--) {
             if (this.rival.getBoard().getSpellAndTrapByNumber(i) == null) images.add(null);
             else if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i).equals("O"))
                 images.add(this.rival.getBoard().getSpellAndTrapByNumber(i).getImage());
             else
-                images.add(unknown);
+                images.add(GameViewGraphic.unknown);
         }
         for (int i = 0; i < 6; i++) {
             if (this.player.getBoard().getCardsInHand().size()<=i) images.add(null);
@@ -1055,7 +1070,7 @@ public class DuelController {
         }
         for (int i = 5; i >= 0; i--) {
             if (this.rival.getBoard().getCardsInHand().size()<=i) images.add(null);
-            else images.add(unknown);
+            else images.add(GameViewGraphic.unknown);
         }
         if(this.player.getBoard().getFieldZone() == null)
             images.add(null);
@@ -1117,6 +1132,14 @@ public class DuelController {
         }
         toPrint.append("\n").append(this.player.getNickname()).append(":").append(this.player.getLifePoint());
         DuelView.printText(toPrint.toString());*/
+    }
+
+    public ArrayList<Image> getGraveYard(User user){
+        ArrayList<Image> graveYard = new ArrayList<>();
+        for (Card card : user.getBoard().getCardsInGraveyard()) {
+            graveYard.add(card.getImage());
+        }
+        return graveYard;
     }
 
     public ArrayList<Card> getCards(){

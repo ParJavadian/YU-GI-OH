@@ -43,7 +43,7 @@ public class LogInViewGraphic extends Application {
             importExportUserController.importAllDecks();
             importExportUserController.importActiveDeck();
             Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
-//            User.getUserByUsername("@AI@").setActiveDeck(deck);
+            User.getUserByUsername("@AI@").setActiveDeck(deck);
 //            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
 //            mediaPlayer = new MediaPlayer(media);
 //            mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
