@@ -7,21 +7,26 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import model.*;
 
+import java.awt.image.ImageFilter;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
@@ -63,6 +68,8 @@ public class GameViewGraphic extends Application implements Initializable {
     private ProgressBar rivalProgressBar, playerProgressBar;
     private static Label description, attack, defence;
     private static ImageView selectedCardImageView;
+    public Popup popUpPlayerGraveyard, popUpRivalGraveyard;
+
 
     /*public GameViewGraphic(User player,User rival,int numberOfRounds){
         GameViewGraphic.player = player;
@@ -102,10 +109,12 @@ public class GameViewGraphic extends Application implements Initializable {
         addAllImages();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
+
 //        setSelectedCard();
         duelController.goNextPhase();
         startMainNoCardSelected();
+        //showPlayerPopUp();
+        stage.show();
     }
 
     @Override
@@ -126,12 +135,9 @@ public class GameViewGraphic extends Application implements Initializable {
         }
     }
 
-
     public void setImagesAndCards() {
         images = duelController.getBoard();
         cards = duelController.getCards();
-        if (imageView1hand6 != null) System.out.println(imageView1hand6.getImage() + " 25image");
-//        System.out.println(cards.get(25) + " 25card");
         conditions = duelController.getConditions();
         imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));
         imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));
@@ -304,6 +310,46 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     public void pauseMenu() {
+
+        System.out.println(popUpPlayerGraveyard);
+
+        //ArrayList<Card> playerGraveyard =
+        ArrayList<Image> images = duelController.getBoard();
+        ArrayList<Card> playerGraveyard = duelController.getCards();
+//        ArrayList<Card> playerGraveyard = (ArrayList<Card>) player.getBoard().getCardsInGraveyard();
+        //todo image haye card haro az parmida begir
+//        ScrollPane scrollPane = new ScrollPane();
+
+        //scrollPane.set(100);
+        //scrollPane.setLayoutX(500);
+        //scrollPane.setLayoutX(200);
+        popUpPlayerGraveyard = new Popup();
+        System.out.println(popUpPlayerGraveyard);
+        AnchorPane anchorPane = new AnchorPane();
+        popUpPlayerGraveyard.setX(10);
+        popUpPlayerGraveyard.setY(10);
+        popUpPlayerGraveyard.setWidth(300);
+        popUpPlayerGraveyard.setHeight(300);
+        anchorPane.setPrefWidth(200);
+        anchorPane.setPrefHeight(200);
+        anchorPane.setLayoutX(50);
+        anchorPane.setLayoutY(50);
+        for (int i = 0; i < 6; i++) {
+            ImageView imageView = new ImageView(images.get(i));
+            imageView.setFitWidth(70);
+            imageView.setFitHeight(102);
+            imageView.setX(220);
+            imageView.setY(20 * (i+1) + 102 * (i));
+            anchorPane.getChildren().add(imageView);
+        }
+        popUpPlayerGraveyard.getContent().add(anchorPane);
+        popUpPlayerGraveyard.requestFocus();
+        System.out.println(anchorPane.getChildren());
+        System.out.println(popUpPlayerGraveyard.getContent());;
+        popUpPlayerGraveyard.show(stage);
+        popUpPlayerGraveyard.requestFocus();
+        System.out.println(popUpPlayerGraveyard.isShowing());
+
 
     }
 
@@ -569,4 +615,71 @@ public class GameViewGraphic extends Application implements Initializable {
         error.setContentText("You cant go to " + phaseNameToEnter + "from " + this.phase);
         error.showAndWait();
     }
+    private void showPlayerPopUp() {
+//        System.out.println(popUpPlayerGraveyard);
+//
+//        //ArrayList<Card> playerGraveyard =
+//        ArrayList<Image> images = duelController.getBoard();
+//        ArrayList<Card> playerGraveyard = duelController.getCards();
+////        ArrayList<Card> playerGraveyard = (ArrayList<Card>) player.getBoard().getCardsInGraveyard();
+//        //todo image haye card haro az parmida begir
+////        ScrollPane scrollPane = new ScrollPane();
+//
+//        //scrollPane.set(100);
+//        //scrollPane.setLayoutX(500);
+//        //scrollPane.setLayoutX(200);
+//        popUpPlayerGraveyard = new Popup();
+//        System.out.println(popUpPlayerGraveyard);
+//        AnchorPane anchorPane = new AnchorPane();
+//        popUpPlayerGraveyard.setX(500);
+//        popUpPlayerGraveyard.setY(200);
+//        popUpPlayerGraveyard.setWidth(300);
+//        popUpPlayerGraveyard.setHeight(300);
+//        for (int i = 0; i < 6; i++) {
+//            ImageView imageView = new ImageView(images.get(i));
+//            imageView.setFitWidth(70);
+//            imageView.setFitHeight(102);
+//            imageView.setX(220);
+//            imageView.setY(20 * i + 102 * (i - 1));
+//            anchorPane.getChildren().add(imageView);
+//        }
+//        popUpPlayerGraveyard.getContent().add(anchorPane);
+//        System.out.println(anchorPane.getChildren());
+//        System.out.println(popUpPlayerGraveyard.getContent());;
+//
+//
+//        popUpPlayerGraveyard.show(stage);
+//        System.out.println(popUpPlayerGraveyard.isShowing());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        for (Card card : playerGraveyard) {
+//            ImageView imageView = new ImageView();
+//            imageView.setFitWidth(49);
+//            imageView.setFitHeight(71);
+//            imageView.setX(x);
+//            imageView.setY(y);
+//            scrollPane.getChildrenUnmodifiable().add(imageView);
+//        }
+
+
+    }
+
+    private void showRivalPopUp() {
+        popUpRivalGraveyard = new Popup();
+        ArrayList<Card> rivalGraveyard = (ArrayList<Card>) rival.getBoard().getCardsInGraveyard();
+
+    }
+
 }
