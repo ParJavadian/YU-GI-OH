@@ -1,0 +1,587 @@
+Index: src/main/java/view/GameViewGraphic.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view;\r\n\r\nimport controller.DuelController;\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.geometry.Pos;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.ProgressBar;\r\nimport javafx.scene.effect.DropShadow;\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.scene.paint.Color;\r\nimport javafx.scene.text.Font;\r\nimport javafx.stage.Stage;\r\nimport model.Card;\r\nimport model.MonsterCard;\r\nimport model.User;\r\n\r\nimport java.lang.reflect.Method;\r\nimport java.net.URL;\r\nimport java.util.ArrayList;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class GameViewGraphic extends Application implements Initializable {\r\n    private static DuelController duelController;\r\n    private static Stage stage;\r\n    public static User player;\r\n    public static User rival;\r\n    private static GameViewGraphic instance = null;\r\n    public Label chatBox;\r\n    public int numberOfRounds;\r\n    private static ArrayList<Image> images = new ArrayList<>();\r\n    private static AnchorPane root;\r\n    public static ImageView imageView1Monster1, imageView1Monster2, imageView1Monster3, imageView1Monster4, imageView1Monster5;\r\n    public static ImageView imageView2Monster1, imageView2Monster2, imageView2Monster3, imageView2Monster4, imageView2Monster5;\r\n    public static ImageView imageView1SpellAndTrap1, imageView1SpellAndTrap2, imageView1SpellAndTrap3, imageView1SpellAndTrap4, imageView1SpellAndTrap5;\r\n    public static ImageView imageView2SpellAndTrap1, imageView2SpellAndTrap2, imageView2SpellAndTrap3, imageView2SpellAndTrap4, imageView2SpellAndTrap5;\r\n    public static ImageView imageView1hand1, imageView1hand2, imageView1hand3, imageView1hand4, imageView1hand5, imageView1hand6;\r\n    public static ImageView imageView2hand1, imageView2hand2, imageView2hand3, imageView2hand4, imageView2hand5, imageView2hand6;\r\n    public static ImageView imageView1FieldZone, imageView2FieldZone, imageView1Graveyard, imageView2Graveyard;\r\n    public static ImageView rivalProfile = new ImageView();\r\n    public static ImageView playerProfile = new ImageView();\r\n    public ImageView selectedCard;\r\n    @FXML\r\n    public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;\r\n    @FXML\r\n    private ProgressBar rivalProgressBar, playerProgressBar;\r\n    private static Label description, attack, defence;\r\n    private static ImageView selectedCardImageView;\r\n\r\n    /*public GameViewGraphic(User player,User rival,int numberOfRounds){\r\n        GameViewGraphic.player = player;\r\n        GameViewGraphic.rival = rival;\r\n        this.numberOfRounds = numberOfRounds;\r\n        duelController = new DuelController(player,rival,numberOfRounds);\r\n    }*/\r\n    public void setPlayer(User player) {\r\n        GameViewGraphic.player = player;\r\n    }\r\n\r\n    public void setRival(User rival) {\r\n        GameViewGraphic.rival = rival;\r\n    }\r\n\r\n    public void setNumberOfRounds(int numberOfRounds) {\r\n        this.numberOfRounds = numberOfRounds;\r\n    }\r\n\r\n    public void setDuelController() {\r\n        duelController = new DuelController(player, rival, numberOfRounds);\r\n    }\r\n\r\n    /*public static GameViewGraphic getInstance() {\r\n        if (instance == null) instance = new GameViewGraphic();\r\n        return instance;\r\n    }*/\r\n\r\n    @Override\r\n    public void start(Stage stage) throws Exception {\r\n        GameViewGraphic.stage = stage;\r\n        URL url = getClass().getResource(\"/GameMenu.fxml\");\r\n        root = FXMLLoader.load(url);\r\n        setImagesAndCards();\r\n        setBar();\r\n        setImageViewForProfile();\r\n        addAllImages();\r\n        Scene scene = new Scene(root);\r\n        stage.setScene(scene);\r\n        stage.show();\r\n//        setSelectedCard();\r\n        startMainNoCardSelected();\r\n    }\r\n\r\n    @Override\r\n    public void initialize(URL location, ResourceBundle resources) {\r\n        setBar();\r\n        setImageViewForProfile();\r\n        if (player != null && rival != null) {\r\n            if (playerLifePoint != null) playerLifePoint.setText(String.valueOf(player.getLifePoint()));\r\n            if (rivalLifePoint != null) rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));\r\n            if (playerNickname != null) playerNickname.setText(player.getNickname());\r\n            if (rivalNickname != null) rivalNickname.setText(rival.getNickname());\r\n            if (playerUsername != null) playerUsername.setText(player.getUsername());\r\n            if (rivalUsername != null) rivalUsername.setText(rival.getUsername());\r\n        }\r\n        if (duelController != null) {\r\n            setImagesAndCards();\r\n            addAllImages();\r\n        }\r\n    }\r\n\r\n    public void setImagesAndCards() {\r\n        images = duelController.getBoard();\r\n        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 312, 321);\r\n        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 391, 321);\r\n        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 474, 321);\r\n        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 557, 321);\r\n        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 640, 321);\r\n        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 312, 198);\r\n        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 391, 198);\r\n        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 474, 198);\r\n        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 557, 198);\r\n        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 640, 198);\r\n        if (images.get(10) != null) imageView1SpellAndTrap1 = setImageView(images.get(10), 312, 424);\r\n        if (images.get(11) != null) imageView1SpellAndTrap2 = setImageView(images.get(11), 391, 424);\r\n        if (images.get(12) != null) imageView1SpellAndTrap3 = setImageView(images.get(12), 474, 424);\r\n        if (images.get(13) != null) imageView1SpellAndTrap4 = setImageView(images.get(13), 557, 424);\r\n        if (images.get(14) != null) imageView1SpellAndTrap5 = setImageView(images.get(14), 640, 424);\r\n        if (images.get(15) != null) imageView2SpellAndTrap1 = setImageView(images.get(15), 312, 96);\r\n        if (images.get(16) != null) imageView2SpellAndTrap2 = setImageView(images.get(16), 391, 96);\r\n        if (images.get(17) != null) imageView2SpellAndTrap3 = setImageView(images.get(17), 474, 96);\r\n        if (images.get(18) != null) imageView2SpellAndTrap4 = setImageView(images.get(18), 557, 96);\r\n        if (images.get(19) != null) imageView2SpellAndTrap5 = setImageView(images.get(19), 640, 96);\r\n        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538);\r\n        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538);\r\n        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538);\r\n        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538);\r\n        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538);\r\n        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538);\r\n        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16);\r\n        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16);\r\n        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16);\r\n        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16);\r\n        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16);\r\n        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16);\r\n        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 233, 321);\r\n        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 738, 205);\r\n        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 738, 328);\r\n        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 233, 205);\r\n        setCard();\r\n    }\r\n\r\n    private ImageView setImageView(Image image, int x, int y) {\r\n        ImageView imageView = new ImageView(image);\r\n        imageView.setFitWidth(49);\r\n        imageView.setFitHeight(71);\r\n        imageView.setX(x);\r\n        imageView.setY(y);\r\n        return imageView;\r\n    }\r\n\r\n    private void setImageViewForProfile() {\r\n        URL url = getClass().getResource(\"/images/profiles/profile (\" + player.getProfileNumber() + \").png\");\r\n        Image image = new Image(String.valueOf(url));\r\n        playerProfile = new ImageView(image);\r\n        playerProfile.setFitWidth(50);\r\n        playerProfile.setFitHeight(50);\r\n        playerProfile.setX(228);\r\n        playerProfile.setY(442);\r\n        playerProfile.setImage(image);\r\n        if (root != null && !root.getChildren().contains(playerProfile))\r\n            root.getChildren().add(playerProfile);\r\n        url = getClass().getResource(\"/images/profiles/profile (\" + rival.getProfileNumber() + \").png\");\r\n        image = new Image(String.valueOf(url));\r\n        rivalProfile = new ImageView(image);\r\n        rivalProfile.setFitWidth(50);\r\n        rivalProfile.setFitHeight(50);\r\n        rivalProfile.setX(737);\r\n        rivalProfile.setY(112);\r\n        rivalProfile.setImage(image);\r\n        if (root != null && !root.getChildren().contains(rivalProfile))\r\n            root.getChildren().add(rivalProfile);\r\n    }\r\n\r\n    private void addAllImages() {\r\n        addImagesView(imageView1hand1);\r\n        addImagesView(imageView1hand2);\r\n        addImagesView(imageView1hand3);\r\n        addImagesView(imageView1hand4);\r\n        addImagesView(imageView1hand5);\r\n        addImagesView(imageView1hand6);\r\n        addImagesView(imageView2hand1);\r\n        addImagesView(imageView2hand2);\r\n        addImagesView(imageView2hand3);\r\n        addImagesView(imageView2hand4);\r\n        addImagesView(imageView2hand5);\r\n        addImagesView(imageView2hand6);\r\n        addImagesView(imageView1Monster1);\r\n        addImagesView(imageView1Monster2);\r\n        addImagesView(imageView1Monster3);\r\n        addImagesView(imageView1Monster4);\r\n        addImagesView(imageView1Monster5);\r\n        addImagesView(imageView2Monster1);\r\n        addImagesView(imageView2Monster2);\r\n        addImagesView(imageView2Monster3);\r\n        addImagesView(imageView2Monster4);\r\n        addImagesView(imageView2Monster5);\r\n        addImagesView(imageView1SpellAndTrap1);\r\n        addImagesView(imageView1SpellAndTrap2);\r\n        addImagesView(imageView1SpellAndTrap3);\r\n        addImagesView(imageView1SpellAndTrap4);\r\n        addImagesView(imageView1SpellAndTrap5);\r\n        addImagesView(imageView2SpellAndTrap1);\r\n        addImagesView(imageView2SpellAndTrap2);\r\n        addImagesView(imageView2SpellAndTrap3);\r\n        addImagesView(imageView2SpellAndTrap4);\r\n        addImagesView(imageView2SpellAndTrap5);\r\n        addImagesView(imageView1FieldZone);\r\n        addImagesView(imageView2FieldZone);\r\n        addImagesView(imageView1Graveyard);\r\n        addImagesView(imageView2Graveyard);\r\n        addLabel(description);\r\n        addLabel(attack);\r\n        addLabel(defence);\r\n        addImagesView(selectedCardImageView);\r\n    }\r\n\r\n    private void addImagesView(ImageView imageView) {\r\n        if (root != null) {\r\n            if (imageView != null && !root.getChildren().contains(imageView))\r\n                root.getChildren().add(imageView);\r\n        }\r\n    }\r\n\r\n    private void addLabel(Label label) {\r\n        if (root != null) {\r\n            if (label != null && !root.getChildren().contains(label))\r\n                root.getChildren().add(label);\r\n        }\r\n    }\r\n\r\n\r\n    public void pauseMenu() {\r\n\r\n    }\r\n\r\n    public void updateBoard() {\r\n        setImagesAndCards();\r\n        addAllImages();\r\n    }\r\n\r\n    public void startMainNoCardSelected() throws Exception {\r\n        setOnClickSelected(imageView1Monster1, 5, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1Monster2, 3, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1Monster3, 1, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1Monster4, 2, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1Monster5, 4, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class));\r\n\r\n        setOnClickSelected(imageView2Monster1, 4, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2Monster2, 2, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2Monster3, 1, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2Monster4, 3, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2Monster5, 5, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n\r\n        setOnClickSelected(imageView1SpellAndTrap1,5, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1SpellAndTrap2,3, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1SpellAndTrap3,1, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1SpellAndTrap4,2, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1SpellAndTrap5,4, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n\r\n        setOnClickSelected(imageView2SpellAndTrap1,4, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainARivalSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2SpellAndTrap2,2, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainARivalSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2SpellAndTrap3,1, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainARivalSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2SpellAndTrap4,3, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainARivalSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2SpellAndTrap5,5, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainARivalSpellOrTrapSelected\", ImageView.class));\r\n\r\n        setOnClickSelected(imageView1hand1, 1, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1hand2, 2, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1hand3, 3, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1hand4, 4, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1hand5, 5, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1hand6, 6, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n\r\n        //todo select card opponent hand nadarim. benevisam? ya kolan nemikhad?\r\n        setOnClickSelected(imageView2hand1, 1, DuelController.class.getMethod(\"selectCardOpponentHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2hand2, 2, DuelController.class.getMethod(\"selectCardOpponentHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2hand3, 3, DuelController.class.getMethod(\"selectCardOpponentHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2hand4, 4, DuelController.class.getMethod(\"selectCardOpponentHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2hand5, 5, DuelController.class.getMethod(\"selectCardOpponentHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2hand6, 6, DuelController.class.getMethod(\"selectCardOpponentHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n\r\n        //todo number ro gozashtam 1. chi kar konam?\r\n        setOnClickSelected(imageView1FieldZone, 1, DuelController.class.getMethod(\"selectCardPlayerFieldZone\"), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView2FieldZone, 1, DuelController.class.getMethod(\"selectCardOpponentFieldZone\"), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n\r\n        //todo number ro gozashtam 1. chi kar konam? va show graveyard darim na select graveyard. bezanam?\r\n        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod(\"selectPlayerGraveyard\"), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod(\"selectRivalGraveyard\"), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n\r\n        //        setOnClickSelected(imageView1hand1,duelController.selectCardPlayerHand(1));\r\n\r\n        /*\r\n        try {\r\n            setOnClickSelected(imageView1hand1, duelController.selectCardPlayerHand(1));\r\n            setOnClickSelected(imageView1hand2);\r\n            setOnClickSelected(imageView1hand3);\r\n            setOnClickSelected(imageView1hand4);\r\n            setOnClickSelected(imageView1hand5);\r\n            setOnClickSelected(imageView1hand6);\r\n\r\n            setOnClickSelected(imageView1Monster1);\r\n            setOnClickSelected(imageView1Monster2);\r\n            setOnClickSelected(imageView1Monster3);\r\n            setOnClickSelected(imageView1Monster4);\r\n            setOnClickSelected(imageView1Monster5);\r\n            setOnClickSelected(imageView2Monster1);\r\n            setOnClickSelected(imageView2Monster2);\r\n            setOnClickSelected(imageView2Monster3);\r\n            setOnClickSelected(imageView2Monster4);\r\n            setOnClickSelected(imageView2Monster5);\r\n\r\n            setOnClickSelected(imageView1SpellAndTrap1);\r\n            setOnClickSelected(imageView1SpellAndTrap2);\r\n            setOnClickSelected(imageView1SpellAndTrap3);\r\n            setOnClickSelected(imageView1SpellAndTrap4);\r\n            setOnClickSelected(imageView1SpellAndTrap5);\r\n            setOnClickSelected(imageView2SpellAndTrap1);\r\n            setOnClickSelected(imageView2SpellAndTrap2);\r\n            setOnClickSelected(imageView2SpellAndTrap3);\r\n            setOnClickSelected(imageView2SpellAndTrap4);\r\n            setOnClickSelected(imageView2SpellAndTrap5);\r\n\r\n            setOnClickSelected(imageView1FieldZone);\r\n            setOnClickSelected(imageView2FieldZone);*/\r\n    }\r\n\r\n\r\n    private void setOnClickSelected(ImageView imageView, int number, Method duelControllerMethod, Method thisMethod) {\r\n        if (imageView == null) return;\r\n        Image unknown = new Image(\"images/Cards/Unknown.jpg\");\r\n        imageView.setOnMouseClicked(event -> {\r\n            if (!imageView.getImage().equals(unknown))\r\n                showCardDetails(Card.getCardByImage(imageView.getImage()));\r\n            if (selectedCard != null && selectedCard.getEffect() != null)\r\n                selectedCard.setEffect(null);\r\n            imageView.setEffect(new DropShadow());\r\n            try {\r\n                duelControllerMethod.invoke(duelController, number);\r\n                thisMethod.invoke(this, imageView);\r\n                selectedCard = imageView;\r\n            } catch (Exception e) {\r\n                e.printStackTrace();\r\n            }\r\n        });\r\n    }\r\n\r\n    public void showCardDetails(Card card) {\r\n        selectedCardImageView.setImage(card.getImage());\r\n        description.setText(\"Description:\\n\" + card.getDescription());\r\n        if (card instanceof MonsterCard) {\r\n            MonsterCard monsterCard = (MonsterCard) card;\r\n            attack.setText(\"Attack: \" + monsterCard.getAttack());\r\n            defence.setText(\"Defence: \" + monsterCard.getDefence());\r\n        }\r\n    }\r\n\r\n    public void startMainAHandSelected(ImageView imageView) throws Exception {\r\n        setOnClickSelected(imageView1hand2, 1, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n\r\n    }\r\n\r\n    public void startMainAPlayerMonsterSelected(ImageView imageView) {\r\n\r\n    }\r\n\r\n    public void doNothing(ImageView imageView) {\r\n\r\n    }\r\n\r\n    public void startMainAPlayerSpellOrTrapSelected(ImageView imageView){\r\n\r\n    }\r\n\r\n    public void startMainARivalSpellOrTrapSelected(ImageView imageView){\r\n\r\n    }\r\n\r\n    public void setBar() { //todo harja lifepoint taghyir kard bayad update beshe\r\n        if (rivalProgressBar != null && rival != null)\r\n            rivalProgressBar.setProgress((double) player.getLifePoint() / 8000);\r\n        if (playerProgressBar != null && rival != null)\r\n            playerProgressBar.setProgress((double) rival.getLifePoint() / 8000);\r\n    }\r\n\r\n    private void setCard() {\r\n        description = new Label();\r\n        description.setLayoutX(12);\r\n        description.setLayoutY(338);\r\n        description.setPrefWidth(167);\r\n        description.setPrefHeight(120);\r\n        description.setTextFill(Color.WHITE);\r\n        description.setAlignment(Pos.TOP_LEFT);\r\n        description.setFont(Font.font(\"Agency FB\", 14));\r\n        description.setWrapText(true);\r\n        attack = new Label();\r\n        attack.setLayoutX(12);\r\n        attack.setLayoutY(457);\r\n        attack.setPrefWidth(149);\r\n        attack.setPrefHeight(15);\r\n        attack.setTextFill(Color.WHITE);\r\n        attack.setFont(Font.font(\"Agency FB\", 14));\r\n        defence = new Label();\r\n        defence.setLayoutX(12);\r\n        defence.setLayoutY(471);\r\n        defence.setPrefWidth(149);\r\n        defence.setPrefHeight(15);\r\n        defence.setTextFill(Color.WHITE);\r\n        defence.setFont(Font.font(\"Agency FB\", 14));\r\n        selectedCardImageView = new ImageView();\r\n        selectedCardImageView.setY(128);\r\n        selectedCardImageView.setX(29);\r\n        selectedCardImageView.setFitHeight(202);\r\n        selectedCardImageView.setFitWidth(184);\r\n        selectedCardImageView.setPickOnBounds(true);\r\n        selectedCardImageView.setPreserveRatio(true);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/GameViewGraphic.java b/src/main/java/view/GameViewGraphic.java
+--- a/src/main/java/view/GameViewGraphic.java	(revision 380d0fac42fce84aaf801903a2f4882e6a5f34a9)
++++ b/src/main/java/view/GameViewGraphic.java	(date 1625634767888)
+@@ -7,17 +7,20 @@
+ import javafx.fxml.Initializable;
+ import javafx.geometry.Pos;
+ import javafx.scene.Scene;
++import javafx.scene.control.Alert;
+ import javafx.scene.control.Label;
+ import javafx.scene.control.ProgressBar;
+ import javafx.scene.effect.DropShadow;
+ import javafx.scene.image.Image;
+ import javafx.scene.image.ImageView;
++import javafx.scene.input.MouseEvent;
+ import javafx.scene.layout.AnchorPane;
+ import javafx.scene.paint.Color;
+ import javafx.scene.text.Font;
+ import javafx.stage.Stage;
+ import model.Card;
+ import model.MonsterCard;
++import model.Phase;
+ import model.User;
+ 
+ import java.lang.reflect.Method;
+@@ -32,6 +35,7 @@
+     public static User rival;
+     private static GameViewGraphic instance = null;
+     public Label chatBox;
++    private Phase phase;
+     public int numberOfRounds;
+     private static ArrayList<Image> images = new ArrayList<>();
+     private static AnchorPane root;
+@@ -429,4 +433,32 @@
+         selectedCardImageView.setPreserveRatio(true);
+     }
+ 
++    //TODO RANGE MOSTATILE PPHASE AVAZ SHE VAGHTI TUSHE
++    public void goToBattlePhase(MouseEvent event) {
++        if(this.phase.equals(Phase.MAIN_PHASE1)) {
++            this.phase = Phase.BATTLE_PHASE;
++
++        }
++        else showErrorNotProperPhaseNavigation("BATTLE_PHASE");
++    }
++
++    public void goToMainTwo(MouseEvent event) {
++        if (this.phase.equals(Phase.BATTLE_PHASE)) {
++            this.phase = Phase.MAIN_PHASE2;
++        }
++        else showErrorNotProperPhaseNavigation("Main_Phase2");
++    }
++
++    public void goToEndPhase(MouseEvent event) {
++        if (this.phase.equals(Phase.MAIN_PHASE1) || this.phase.equals(Phase.BATTLE_PHASE) || this.phase.equals(Phase.MAIN_PHASE2))
++            this.phase = Phase.END_PHASE;
++    }
++
++    public void showErrorNotProperPhaseNavigation(String phaseNameToEnter){
++        Alert error = new Alert(Alert.AlertType.WARNING);
++        error.setHeaderText("Error");
++        error.setContentText("You cant go to " + phaseNameToEnter + "from " + this.phase);
++        error.showAndWait();
++    }
++
+ }
+Index: src/main/resources/GameMenu.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.ProgressBar?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.shape.Rectangle?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<AnchorPane prefHeight=\"600.0\" prefWidth=\"900.0\" xmlns=\"http://javafx.com/javafx/8.0.171\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"view.GameViewGraphic\">\r\n    <ImageView fitHeight=\"166.0\" fitWidth=\"200.0\" layoutY=\"299.0\">\r\n        <image>\r\n            <Image url=\"@images/wallUdeer.jpg\" />\r\n        </image>\r\n    </ImageView>\r\n    <ImageView fitHeight=\"328.0\" fitWidth=\"200.0\" layoutX=\"800.0\" layoutY=\"-2.0\" rotate=\"180.0\">\r\n        <image>\r\n            <Image url=\"@images/divarNesfe.jpg\" />\r\n        </image>\r\n    </ImageView>\r\n    <ImageView fitHeight=\"328.0\" fitWidth=\"200.0\" layoutX=\"800.0\" layoutY=\"281.0\">\r\n        <image>\r\n            <Image url=\"@images/divarNesfe.jpg\" />\r\n        </image>\r\n    </ImageView>\r\n    <ImageView fitHeight=\"166.0\" fitWidth=\"200.0\" layoutY=\"444.0\">\r\n        <image>\r\n            <Image url=\"@images/wallUdeer.jpg\" />\r\n        </image>\r\n    </ImageView>\r\n    <ImageView fitHeight=\"318.0\" fitWidth=\"200.0\" layoutY=\"-1.0\">\r\n        <image>\r\n            <Image url=\"@wall.jfif\" />\r\n        </image>\r\n    </ImageView>\r\n    <Button layoutX=\"730.0\" layoutY=\"321.0\" mnemonicParsing=\"false\" prefHeight=\"87.0\" prefWidth=\"52.0\" text=\"show graveyard player\" />\r\n    <Button layoutX=\"247.0\" layoutY=\"201.0\" mnemonicParsing=\"false\" prefHeight=\"87.0\" prefWidth=\"52.0\" text=\"show garveyard rival\" />\r\n    <ImageView fitHeight=\"609.0\" fitWidth=\"600.0\" layoutX=\"432.0\" layoutY=\"184.0\" AnchorPane.bottomAnchor=\"0.0\" AnchorPane.leftAnchor=\"200.0\" AnchorPane.rightAnchor=\"200.0\" AnchorPane.topAnchor=\"0.0\">\r\n        <image>\r\n            <Image url=\"@images/fie_normal.bmp\" />\r\n        </image>\r\n    </ImageView>\r\n    <TextField layoutX=\"826.0\" layoutY=\"527.0\" />\r\n    <Button layoutX=\"838.0\" layoutY=\"561.0\" mnemonicParsing=\"false\" text=\"Send\" />\r\n   <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#98715b\" height=\"72.0\" layoutX=\"7.0\" layoutY=\"526.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"184.0\" />\r\n    <Label fx:id=\"rivalLifePoint\" layoutX=\"87.0\" layoutY=\"62.0\" prefHeight=\"22.0\" prefWidth=\"98.0\" text=\"8000\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"14.0\" layoutY=\"7.0\" text=\"Username = \" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"13.0\" layoutY=\"37.0\" text=\"Nickname = \" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"13.0\" layoutY=\"61.0\" text=\"Life Point = \" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"14.0\" layoutY=\"572.0\" text=\"Life Point = \" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label fx:id=\"playerLifePoint\" layoutX=\"96.0\" layoutY=\"572.0\" prefHeight=\"22.0\" prefWidth=\"79.0\" text=\"8000\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"13.0\" layoutY=\"550.0\" text=\"Nickname = \" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"14.0\" layoutY=\"529.0\" text=\"Username = \" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label fx:id=\"rivalNickname\" layoutX=\"87.0\" layoutY=\"37.0\" prefHeight=\"22.0\" prefWidth=\"98.0\" text=\"nickname r\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label fx:id=\"rivalUsername\" layoutX=\"90.0\" layoutY=\"7.0\" prefHeight=\"22.0\" prefWidth=\"90.0\" text=\"username r\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#6c92d7\" height=\"52.0\" layoutX=\"199.0\" layoutY=\"88.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"25.0\" />\r\n    <Label fx:id=\"playerNickname\" layoutX=\"95.0\" layoutY=\"550.0\" prefHeight=\"22.0\" prefWidth=\"98.0\" text=\"nickname p\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#6c92d7\" height=\"52.0\" layoutX=\"199.0\" layoutY=\"163.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"25.0\" />\r\n    <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#6c92d7\" height=\"52.0\" layoutX=\"199.0\" layoutY=\"240.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"25.0\" />\r\n    <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#6c92d7\" height=\"52.0\" layoutX=\"199.0\" layoutY=\"316.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"25.0\" />\r\n    <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#6c92d7\" height=\"55.0\" layoutX=\"199.0\" layoutY=\"390.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"25.0\" />\r\n    <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#6c92d7\" height=\"52.0\" layoutX=\"199.0\" layoutY=\"468.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"25.0\" />\r\n    <Label layoutX=\"207.0\" layoutY=\"95.0\" text=\"D\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"207.0\" layoutY=\"117.0\" text=\"P\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"207.0\" layoutY=\"189.0\" text=\"P\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"207.0\" layoutY=\"342.0\" text=\"P\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"207.0\" layoutY=\"494.0\" text=\"P\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"207.0\" layoutY=\"167.0\" text=\"S\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"207.0\" layoutY=\"244.0\" text=\"M\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"210.0\" layoutY=\"265.0\" text=\"1\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"206.0\" layoutY=\"319.0\" text=\"B\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"207.0\" layoutY=\"393.0\" text=\"M\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"208.0\" layoutY=\"414.0\" text=\"2\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Label layoutX=\"207.0\" layoutY=\"473.0\" text=\"E\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n    <Button layoutX=\"934.0\" layoutY=\"7.0\" mnemonicParsing=\"false\" onMouseClicked=\"#pauseMenu\" text=\"Pause\" />\r\n   <ProgressBar fx:id=\"rivalProgressBar\" layoutX=\"12.0\" layoutY=\"97.0\" prefHeight=\"18.0\" prefWidth=\"177.0\" progress=\"0.0\" />\r\n   <ProgressBar fx:id=\"playerProgressBar\" layoutX=\"12.0\" layoutY=\"505.0\" prefHeight=\"18.0\" prefWidth=\"177.0\" progress=\"0.0\" />\r\n   <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#6c92d7\" height=\"155.0\" layoutX=\"6.0\" layoutY=\"335.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"177.0\" />\r\n    <Label fx:id=\"playerUsername\" layoutX=\"96.0\" layoutY=\"529.0\" prefHeight=\"22.0\" prefWidth=\"98.0\" text=\"username p\" textFill=\"WHITE\">\r\n        <font>\r\n            <Font name=\"Agency FB Bold\" size=\"18.0\" />\r\n        </font>\r\n    </Label>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/GameMenu.fxml b/src/main/resources/GameMenu.fxml
+--- a/src/main/resources/GameMenu.fxml	(revision 380d0fac42fce84aaf801903a2f4882e6a5f34a9)
++++ b/src/main/resources/GameMenu.fxml	(date 1625635570645)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
++<?import javafx.scene.Cursor?>
+ <?import javafx.scene.control.Button?>
+ <?import javafx.scene.control.Label?>
+ <?import javafx.scene.control.ProgressBar?>
+@@ -104,9 +105,18 @@
+     </Label>
+     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="163.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="316.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="55.0" layoutX="199.0" layoutY="390.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
+-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="468.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
++    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="316.0" onMouseClicked="#goToBattlePhase" stroke="BLACK" strokeType="INSIDE" width="25.0">
++      <cursor>
++         <Cursor fx:constant="HAND" />
++      </cursor></Rectangle>
++    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="55.0" layoutX="199.0" layoutY="390.0" onMouseClicked="#goToMainTwo" stroke="BLACK" strokeType="INSIDE" width="25.0">
++      <cursor>
++         <Cursor fx:constant="HAND" />
++      </cursor></Rectangle>
++    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c92d7" height="52.0" layoutX="199.0" layoutY="468.0" onMouseClicked="#goToEndPhase" stroke="BLACK" strokeType="INSIDE" width="25.0">
++      <cursor>
++         <Cursor fx:constant="HAND" />
++      </cursor></Rectangle>
+     <Label layoutX="207.0" layoutY="95.0" text="D" textFill="WHITE">
+         <font>
+             <Font name="Agency FB Bold" size="18.0" />
+@@ -122,15 +132,21 @@
+             <Font name="Agency FB Bold" size="18.0" />
+         </font>
+     </Label>
+-    <Label layoutX="207.0" layoutY="342.0" text="P" textFill="WHITE">
++    <Label layoutX="207.0" layoutY="340.0" onMouseClicked="#goToBattlePhase" text="P" textFill="WHITE">
+         <font>
+             <Font name="Agency FB Bold" size="18.0" />
+         </font>
++      <cursor>
++         <Cursor fx:constant="HAND" />
++      </cursor>
+     </Label>
+-    <Label layoutX="207.0" layoutY="494.0" text="P" textFill="WHITE">
++    <Label layoutX="207.0" layoutY="494.0" onMouseClicked="#goToEndPhase" text="P" textFill="WHITE">
+         <font>
+             <Font name="Agency FB Bold" size="18.0" />
+         </font>
++      <cursor>
++         <Cursor fx:constant="HAND" />
++      </cursor>
+     </Label>
+     <Label layoutX="207.0" layoutY="167.0" text="S" textFill="WHITE">
+         <font>
+@@ -147,25 +163,37 @@
+             <Font name="Agency FB Bold" size="18.0" />
+         </font>
+     </Label>
+-    <Label layoutX="206.0" layoutY="319.0" text="B" textFill="WHITE">
++    <Label layoutX="207.0" layoutY="319.0" onMouseClicked="#goToBattlePhase" text="B" textFill="WHITE">
+         <font>
+             <Font name="Agency FB Bold" size="18.0" />
+         </font>
++      <cursor>
++         <Cursor fx:constant="HAND" />
++      </cursor>
+     </Label>
+-    <Label layoutX="207.0" layoutY="393.0" text="M" textFill="WHITE">
++    <Label layoutX="207.0" layoutY="393.0" onMouseClicked="#goToMainTwo" text="M" textFill="WHITE">
+         <font>
+             <Font name="Agency FB Bold" size="18.0" />
+         </font>
++      <cursor>
++         <Cursor fx:constant="HAND" />
++      </cursor>
+     </Label>
+-    <Label layoutX="208.0" layoutY="414.0" text="2" textFill="WHITE">
++    <Label layoutX="208.0" layoutY="414.0" onMouseClicked="#goToMainTwo" text="2" textFill="WHITE">
+         <font>
+             <Font name="Agency FB Bold" size="18.0" />
+         </font>
++      <cursor>
++         <Cursor fx:constant="HAND" />
++      </cursor>
+     </Label>
+-    <Label layoutX="207.0" layoutY="473.0" text="E" textFill="WHITE">
++    <Label layoutX="207.0" layoutY="473.0" onMouseClicked="#goToEndPhase" text="E" textFill="WHITE">
+         <font>
+             <Font name="Agency FB Bold" size="18.0" />
+         </font>
++      <cursor>
++         <Cursor fx:constant="HAND" />
++      </cursor>
+     </Label>
+     <Button layoutX="934.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#pauseMenu" text="Pause" />
+    <ProgressBar fx:id="rivalProgressBar" layoutX="12.0" layoutY="97.0" prefHeight="18.0" prefWidth="177.0" progress="0.0" />
+Index: Deck/@AI@DeckForAIMainDeck.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Monster Reborn\r\nTime Seal\r\nBeast King Barbaros\r\nFlame Manipulator\r\nBlack Pendant\r\nHero Of The East\r\nUnited We Stand\r\nDark Blade\r\nHerald Of Creation\r\nTorrential Tribute\r\nSolemn Warning\r\nSword Of Revealing Light\r\nBitron\r\nDark Blade\r\nPot Of Greed\r\nExploder Dragon\r\nMirage Dragon\r\nBitron\r\nCommand Knight\r\nUmiiruka\r\nGate Guardian\r\nMonster Reborn\r\nWarrior Dai Grepher\r\nMarshmallon\r\nScanner\r\nMagnum Shield\r\nChange Of Heart\r\nSolemn Warning\r\nCrawling Dragon\r\nAdvanced Ritual Art\r\nTrap Hole\r\nBitron\r\nSupply Squad\r\nWall Of Revealing Light\r\nYami\r\nGate Guardian\r\nWarrior Dai Grepher\r\nWattkid\r\nGate Guardian\r\nCall Of The Haunted\r\nTorrential Tribute\r\nBattle Warrior\r\nAxe Raider\r\nTexchanger\r\nTerraforming\r\nHaniwa\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Deck/@AI@DeckForAIMainDeck.txt b/Deck/@AI@DeckForAIMainDeck.txt
+--- a/Deck/@AI@DeckForAIMainDeck.txt	(revision 380d0fac42fce84aaf801903a2f4882e6a5f34a9)
++++ b/Deck/@AI@DeckForAIMainDeck.txt	(date 1625600993316)
+@@ -1,46 +1,46 @@
+-Monster Reborn
+-Time Seal
+-Beast King Barbaros
+-Flame Manipulator
+-Black Pendant
+-Hero Of The East
+-United We Stand
+-Dark Blade
+-Herald Of Creation
+-Torrential Tribute
+-Solemn Warning
++Wall Of Revealing Light
++Alexandrite Dragon
+ Sword Of Revealing Light
+-Bitron
+-Dark Blade
+-Pot Of Greed
+-Exploder Dragon
+-Mirage Dragon
+-Bitron
+-Command Knight
++Fireyarou
++Spell Absorption
++Magnum Shield
+ Umiiruka
+-Gate Guardian
+-Monster Reborn
+-Warrior Dai Grepher
+-Marshmallon
++Axe Raider
++Black Pendant
++Battle Ox
++Slot Machine
+ Scanner
+-Magnum Shield
++Silver Fang
++Exploder Dragon
++Baby Dragon
++Closed Forest
++Suijin
++Feral Imp
++Terratiger The Empowered Warrior
++Mirror Force
+ Change Of Heart
+-Solemn Warning
++Wattaildragon
++Trap Hole
++Pot Of Greed
++Magic Jammer
++Man Eater Bug
++Harpies Feather Dust
++Closed Forest
++Mind Crush
++Battle Ox
++Spell Absorption
++Ring Of Defense
++The Tricky
++Baby Dragon
++Dark Magician
++Spell Absorption
++Mystical Space Typhoon
++Baby Dragon
++Flame Manipulator
++Sword Of Dark Destruction
+ Crawling Dragon
+-Advanced Ritual Art
+-Trap Hole
+-Bitron
+-Supply Squad
+-Wall Of Revealing Light
+-Yami
+-Gate Guardian
+-Warrior Dai Grepher
+-Wattkid
+-Gate Guardian
+-Call Of The Haunted
+-Torrential Tribute
+-Battle Warrior
++Umiiruka
+ Axe Raider
+-Texchanger
+-Terraforming
+-Haniwa
++Time Seal
++Monster Reborn
++Crawling Dragon
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0b1707ad-3e75-4310-9619-956ec670ae1a\" name=\"Default Changelist\" comment=\"Duel View 6\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/controller/DuelController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/controller/DuelController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/controller/DuelController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/controller/DuelController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/view/DuelView.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/view/DuelView.class\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1tf7blqKJ2Y0dLvEX2lrUssvKzj\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"extract.method.default.visibility\" value=\"private\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/main/resources\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"restartRequiresConfirmation\" value=\"false\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.project.statistic.project.settings\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hamri\\Desktop\\AP\\project_team_17_9\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hamri\\Desktop\\AP\\project_team_17_9\\src\\main\\resources\\images\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"controller.exeption\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.LogInViewGraphic\">\r\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LogInViewGraphic\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.LogInViewGraphic\" />\r\n      <module name=\"project_team_17\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"1.8\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"project_team_17\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SignUpViewGraphic\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"1.8\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.SignUpViewGraphic\" />\r\n      <module name=\"project_team_17\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"project_team_17\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"test\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test.testForMinFinder\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"project_team_17_2\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testForMinFinder\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.LogInViewGraphic\" />\r\n        <item itemvalue=\"Application.SignUpViewGraphic\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JUnit.test\" />\r\n        <item itemvalue=\"JUnit.test.testForMinFinder\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"StructuralSearchPlugin\">\r\n    <searchConfiguration name=\"Unnamed\" created=\"1624744011824\" text=\"/* $CommentContent$ */\" recursive=\"false\" caseInsensitive=\"false\" type=\"JAVA\" pattern_context=\"default\" scope_type=\"PROJECT\" scope_descriptor=\"\" history=\"1\">\r\n      <constraint name=\"__context__\" within=\"\" contains=\"\" />\r\n      <constraint name=\"CommentContent\" within=\"\" contains=\"\" />\r\n    </searchConfiguration>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0b1707ad-3e75-4310-9619-956ec670ae1a\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1623148364579</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1623148364579</updated>\r\n      <workItem from=\"1624545878199\" duration=\"3232000\" />\r\n      <workItem from=\"1625476998745\" duration=\"2760000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Error sign up\">\r\n      <created>1623151044078</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623151044078</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"model.SpellCard.java&#10;Monster Reborn + Terraforming\">\r\n      <created>1623868346229</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623868346229</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED\">\r\n      <created>1623946393997</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623946393997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Yami SpellCard.java\">\r\n      <created>1624002906129</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624002906129</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Forest &amp; Closed Forest&#10;SpellCard.java\">\r\n      <created>1624012207305</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624012207305</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"debug import user\">\r\n      <created>1624093680512</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624093680512</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"debug import user o baghie import ha\">\r\n      <created>1624099929742</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624099929742</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"kiana test error fix\">\r\n      <created>1624533248061</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624533248061</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"show all cards debug\">\r\n      <created>1624546002241</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624546002241</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"jabejayie cheat money\">\r\n      <created>1624547044985</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624547044985</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"draw phase automatic\">\r\n      <created>1624556390073</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624556390073</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"debug1\">\r\n      <created>1624625286861</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624625286861</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"debug2\">\r\n      <created>1624639165113</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624639165113</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"ai\">\r\n      <created>1624641323564</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624641323564</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"debug attack1\">\r\n      <created>1624643600247</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624643600247</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"debug attack2\">\r\n      <created>1624645817335</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624645817335</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"debug attack3\">\r\n      <created>1624646566864</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624646566864</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"debug attack4\">\r\n      <created>1624650239704</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624650239704</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"debug show card\">\r\n      <created>1624653667478</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624653667478</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"debug show card2\">\r\n      <created>1624654145122</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624654145122</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"debug takeAction1\">\r\n      <created>1624702088038</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624702088038</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"debug command knight2\">\r\n      <created>1624703733833</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624703733833</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"nothing\">\r\n      <created>1624704514853</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624704514853</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"GATE_GUARDIAN\">\r\n      <created>1624709705904</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624709705904</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"SPELL_ABSORPTION debug1\">\r\n      <created>1624710730390</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624710730390</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"tributeForSummon debug\">\r\n      <created>1624712073940</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624712073940</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"Full spell and trap zone\">\r\n      <created>1624713959005</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624713959005</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"continuous spell card\">\r\n      <created>1624715726136</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624715726136</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"suijin debug 1\">\r\n      <created>1624717829951</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624717829951</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"suijin debug 2\">\r\n      <created>1624719651615</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624719651615</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"gate gaurdian debug\">\r\n      <created>1624721450582</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624721450582</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"activate spell debug 1\">\r\n      <created>1624725085666</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624725085666</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"AIFullDebug + monster reborn\">\r\n      <created>1624729177752</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624729177752</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"twin twister + spell absorption\">\r\n      <created>1624737729186</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624737729186</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"mystical space typhoon&#10;twin twisters\">\r\n      <created>1624739906446</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624739906446</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۳۸\" summary=\":|\">\r\n      <created>1625245993391</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۳۸\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۳۸\" />\r\n      <updated>1625245993391</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۳۹\" summary=\"profile and scoreboard edited\">\r\n      <created>1625252163631</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۳۹\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۳۹\" />\r\n      <updated>1625252163631</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"ShopGraphic3\">\r\n      <created>1625304651482</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625304651482</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"ShopGraphic4\">\r\n      <created>1625313201854</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625313201854</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۲\" summary=\"create deck\">\r\n      <created>1625349222305</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۲\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۲\" />\r\n      <updated>1625349222305</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۳\" summary=\"profile photo\">\r\n      <created>1625407690499</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۳\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۳\" />\r\n      <updated>1625407690499</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۴\" summary=\"...\">\r\n      <created>1625420301025</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۴\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۴\" />\r\n      <updated>1625420301025</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۵\" summary=\"ScoreBoard\">\r\n      <created>1625435400560</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۵\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۵\" />\r\n      <updated>1625435400560</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00046\" summary=\"rock paper scissor\">\r\n      <created>1625502701825</created>\r\n      <option name=\"number\" value=\"00046\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625502701825</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00047\" summary=\"rock paper scissor\">\r\n      <created>1625514903733</created>\r\n      <option name=\"number\" value=\"00047\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00047\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625514903733</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۸\" summary=\"rock paper scissor names\">\r\n      <created>1625565325571</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۸\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۸\" />\r\n      <updated>1625565325571</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۹\" summary=\"board cards imageview\">\r\n      <created>1625571369460</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۹\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۹\" />\r\n      <updated>1625571369460</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00050\" summary=\"Duel View 5\">\r\n      <created>1625596091741</created>\r\n      <option name=\"number\" value=\"00050\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00050\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625596091741</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00051\" summary=\"Duel View 6\">\r\n      <created>1625597954649</created>\r\n      <option name=\"number\" value=\"00051\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00051\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625597954649</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"52\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"GATE_GUARDIAN\" />\r\n    <MESSAGE value=\"SPELL_ABSORPTION debug1\" />\r\n    <MESSAGE value=\"tributeForSummon debug\" />\r\n    <MESSAGE value=\"Full spell and trap zone\" />\r\n    <MESSAGE value=\"continuous spell card\" />\r\n    <MESSAGE value=\"suijin debug 1\" />\r\n    <MESSAGE value=\"suijin debug 2\" />\r\n    <MESSAGE value=\"gate gaurdian debug\" />\r\n    <MESSAGE value=\"activate spell debug 1\" />\r\n    <MESSAGE value=\"AIFullDebug + monster reborn\" />\r\n    <MESSAGE value=\"twin twister + spell absorption\" />\r\n    <MESSAGE value=\"mystical space typhoon&#10;twin twisters\" />\r\n    <MESSAGE value=\":|\" />\r\n    <MESSAGE value=\"profile and scoreboard edited\" />\r\n    <MESSAGE value=\"ShopGraphic3\" />\r\n    <MESSAGE value=\"ShopGraphic4\" />\r\n    <MESSAGE value=\"create deck\" />\r\n    <MESSAGE value=\"profile photo\" />\r\n    <MESSAGE value=\"...\" />\r\n    <MESSAGE value=\"ScoreBoard\" />\r\n    <MESSAGE value=\"rock paper scissor\" />\r\n    <MESSAGE value=\"rock paper scissor names\" />\r\n    <MESSAGE value=\"board cards imageview\" />\r\n    <MESSAGE value=\"Duel View 5\" />\r\n    <MESSAGE value=\"Duel View 6\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Duel View 6\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state width=\"1237\" height=\"172\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1625600452292\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state width=\"1237\" height=\"172\" key=\"GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680\" timestamp=\"1625600452292\" />\r\n    <state width=\"1237\" height=\"172\" key=\"GridCell.Tab.0.center\" timestamp=\"1625600452292\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state width=\"1237\" height=\"172\" key=\"GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680\" timestamp=\"1625600452292\" />\r\n    <state width=\"1237\" height=\"172\" key=\"GridCell.Tab.0.left\" timestamp=\"1625600452292\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state width=\"1237\" height=\"172\" key=\"GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680\" timestamp=\"1625600452292\" />\r\n    <state width=\"1237\" height=\"172\" key=\"GridCell.Tab.0.right\" timestamp=\"1625600452292\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state width=\"1237\" height=\"172\" key=\"GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680\" timestamp=\"1625600452292\" />\r\n    <state x=\"233\" y=\"74\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1625597956671\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state x=\"233\" y=\"74\" key=\"Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680\" timestamp=\"1625597956671\" />\r\n    <state x=\"458\" y=\"255\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1625598095556\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state x=\"458\" y=\"255\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680\" timestamp=\"1625598095556\" />\r\n    <state x=\"297\" y=\"151\" key=\"run.anything.popup\" timestamp=\"1625595291203\">\r\n      <screen x=\"0\" y=\"0\" width=\"1280\" height=\"680\" />\r\n    </state>\r\n    <state x=\"297\" y=\"151\" key=\"run.anything.popup/0.0.1280.680@0.0.1280.680\" timestamp=\"1625595291203\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java</url>\r\n          <line>36</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 380d0fac42fce84aaf801903a2f4882e6a5f34a9)
++++ b/.idea/workspace.xml	(date 1625633563483)
+@@ -22,12 +22,23 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 6">
++    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="start main no card selected hamraz + kiana">
++      <change afterPath="$PROJECT_DIR$/ActivateDecks/@AI@.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/ActivateDecks/a.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Deck/adekcmamMainDeck.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/Users/dd.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/UsersDecks/aAllDecks.txt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Deck/@AI@DeckForAIMainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/@AI@DeckForAIMainDeck.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/controller/DuelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DuelController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/view/DuelView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/DuelView.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/GameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GameMenu.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -95,17 +106,6 @@
+     </key>
+   </component>
+   <component name="RunManager" selected="Application.LogInViewGraphic">
+-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+-      <option name="arquillianRunConfiguration">
+-        <value>
+-          <option name="containerStateName" value="" />
+-        </value>
+-      </option>
+-      <option name="TEST_OBJECT" value="class" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+     <configuration name="LogInViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
+       <module name="project_team_17" />
+@@ -143,6 +143,17 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
++      <option name="arquillianRunConfiguration">
++        <value>
++          <option name="containerStateName" value="" />
++        </value>
++      </option>
++      <option name="TEST_OBJECT" value="class" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="project_team_17" />
+       <option name="PACKAGE_NAME" value="" />
+@@ -517,12 +528,12 @@
+       <option name="project" value="LOCAL" />
+       <updated>1625596091741</updated>
+     </task>
+-    <task id="LOCAL-00051" summary="Duel View 6">
+-      <created>1625597954649</created>
++    <task id="LOCAL-00051" summary="start main no card selected hamraz + kiana">
++      <created>1625602970454</created>
+       <option name="number" value="00051" />
+       <option name="presentableId" value="LOCAL-00051" />
+       <option name="project" value="LOCAL" />
+-      <updated>1625597954649</updated>
++      <updated>1625602970454</updated>
+     </task>
+     <option name="localTasksCounter" value="52" />
+     <servers />
+@@ -568,38 +579,8 @@
+     <MESSAGE value="rock paper scissor names" />
+     <MESSAGE value="board cards imageview" />
+     <MESSAGE value="Duel View 5" />
+-    <MESSAGE value="Duel View 6" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Duel View 6" />
+-  </component>
+-  <component name="WindowStateProjectService">
+-    <state width="1237" height="172" key="GridCell.Tab.0.bottom" timestamp="1625600452292">
+-      <screen x="0" y="0" width="1280" height="680" />
+-    </state>
+-    <state width="1237" height="172" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
+-    <state width="1237" height="172" key="GridCell.Tab.0.center" timestamp="1625600452292">
+-      <screen x="0" y="0" width="1280" height="680" />
+-    </state>
+-    <state width="1237" height="172" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
+-    <state width="1237" height="172" key="GridCell.Tab.0.left" timestamp="1625600452292">
+-      <screen x="0" y="0" width="1280" height="680" />
+-    </state>
+-    <state width="1237" height="172" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
+-    <state width="1237" height="172" key="GridCell.Tab.0.right" timestamp="1625600452292">
+-      <screen x="0" y="0" width="1280" height="680" />
+-    </state>
+-    <state width="1237" height="172" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625600452292" />
+-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625597956671">
+-      <screen x="0" y="0" width="1280" height="680" />
+-    </state>
+-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625597956671" />
+-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625598095556">
+-      <screen x="0" y="0" width="1280" height="680" />
+-    </state>
+-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1625598095556" />
+-    <state x="297" y="151" key="run.anything.popup" timestamp="1625595291203">
+-      <screen x="0" y="0" width="1280" height="680" />
+-    </state>
+-    <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1625595291203" />
++    <MESSAGE value="start main no card selected hamraz + kiana" />
++    <option name="LAST_COMMIT_MESSAGE" value="start main no card selected hamraz + kiana" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+Index: allUsers.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>h\r\nparmida\r\nhamraz\r\n@AI@\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/allUsers.txt b/allUsers.txt
+--- a/allUsers.txt	(revision 380d0fac42fce84aaf801903a2f4882e6a5f34a9)
++++ b/allUsers.txt	(date 1625636404455)
+@@ -1,4 +1,7 @@
++@AI@
++a
+ h
+ parmida
+-hamraz
++z
+ @AI@
++dd
+Index: src/main/resources/RockPaperScissor.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.Cursor?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.shape.Rectangle?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<AnchorPane prefHeight=\"602.0\" prefWidth=\"898.0\" xmlns=\"http://javafx.com/javafx/8.0.171\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"view.RockPaperScissorView\">\r\n   <children>\r\n      <ImageView fitHeight=\"602.0\" fitWidth=\"917.0\" layoutX=\"401.0\" layoutY=\"59.0\" AnchorPane.bottomAnchor=\"0.0\" AnchorPane.leftAnchor=\"0.0\" AnchorPane.rightAnchor=\"0.0\" AnchorPane.topAnchor=\"0.0\">\r\n         <image>\r\n            <Image url=\"@images/RockPaperScissor/WallRPS.jpg\" />\r\n         </image>\r\n      </ImageView>\r\n      <ImageView fitHeight=\"130.0\" fitWidth=\"700.0\" layoutX=\"80.0\" layoutY=\"233.0\" AnchorPane.bottomAnchor=\"237.0\" AnchorPane.leftAnchor=\"80.0\" AnchorPane.rightAnchor=\"137.0\" AnchorPane.topAnchor=\"233.0\">\r\n         <image>\r\n            <Image url=\"@images/RockPaperScissor/selectHand.png\" />\r\n         </image>\r\n      </ImageView>\r\n      <ImageView layoutX=\"635.0\" layoutY=\"26.0\">\r\n         <image>\r\n            <Image url=\"@images/RockPaperScissor/unknown.png\" />\r\n         </image>\r\n      </ImageView>\r\n      <ImageView layoutX=\"45.0\" layoutY=\"26.0\">\r\n         <image>\r\n            <Image url=\"@images/RockPaperScissor/unknown.png\" />\r\n         </image>\r\n      </ImageView>\r\n      <ImageView layoutX=\"334.0\" layoutY=\"26.0\">\r\n         <image>\r\n            <Image url=\"@images/RockPaperScissor/unknown.png\" />\r\n         </image>\r\n      </ImageView>\r\n      <ImageView fitHeight=\"200.0\" fitWidth=\"192.0\" layoutX=\"46.0\" layoutY=\"388.0\" onMouseClicked=\"#rockOne\">\r\n         <image>\r\n            <Image url=\"@images/RockPaperScissor/jya_gu_1.png\" />\r\n         </image>\r\n         <cursor>\r\n            <Cursor fx:constant=\"HAND\" />\r\n         </cursor>\r\n      </ImageView>\r\n      <ImageView fitHeight=\"194.0\" fitWidth=\"194.0\" layoutX=\"334.0\" layoutY=\"391.0\" onMouseClicked=\"#paperOne\">\r\n         <image>\r\n            <Image url=\"@images/RockPaperScissor/jya_pa_1.bmp\" />\r\n         </image>\r\n         <cursor>\r\n            <Cursor fx:constant=\"HAND\" />\r\n         </cursor>\r\n      </ImageView>\r\n      <ImageView fitHeight=\"194.0\" fitWidth=\"200.0\" layoutX=\"632.0\" layoutY=\"391.0\" onMouseClicked=\"#scissorOne\">\r\n         <image>\r\n            <Image url=\"@images/RockPaperScissor/jya_cyo_1.bmp\" />\r\n         </image>\r\n         <cursor>\r\n            <Cursor fx:constant=\"HAND\" />\r\n         </cursor>\r\n      </ImageView>\r\n      <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#592d32\" height=\"27.0\" layoutX=\"378.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"107.0\" />\r\n      <Label fx:id=\"secondPlayerLabel\" alignment=\"CENTER\" layoutX=\"378.0\" layoutY=\"1.0\" prefHeight=\"27.0\" prefWidth=\"107.0\" text=\"Label\" textFill=\"#b8c384\">\r\n         <font>\r\n            <Font name=\"Agency FB Bold\" size=\"22.0\" />\r\n         </font>\r\n      </Label>\r\n      <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"#592d32\" height=\"27.0\" layoutX=\"378.0\" layoutY=\"575.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"107.0\" />\r\n      <Label fx:id=\"firstPlayerLabel\" alignment=\"CENTER\" layoutX=\"378.0\" layoutY=\"575.0\" prefHeight=\"27.0\" prefWidth=\"107.0\" text=\"Label\" textFill=\"#b8c384\">\r\n         <font>\r\n            <Font name=\"Agency FB Bold\" size=\"22.0\" />\r\n         </font>\r\n      </Label>\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/RockPaperScissor.fxml b/src/main/resources/RockPaperScissor.fxml
+--- a/src/main/resources/RockPaperScissor.fxml	(revision 380d0fac42fce84aaf801903a2f4882e6a5f34a9)
++++ b/src/main/resources/RockPaperScissor.fxml	(date 1625600997181)
+@@ -2,6 +2,7 @@
+ 
+ <?import javafx.scene.Cursor?>
+ <?import javafx.scene.control.Label?>
++<?import javafx.scene.effect.DropShadow?>
+ <?import javafx.scene.image.Image?>
+ <?import javafx.scene.image.ImageView?>
+ <?import javafx.scene.layout.AnchorPane?>
+Index: ActivateDecks/@AI@.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ActivateDecks/@AI@.txt b/ActivateDecks/@AI@.txt
+new file mode 100644
+--- /dev/null	(date 1625636405379)
++++ b/ActivateDecks/@AI@.txt	(date 1625636405379)
+@@ -0,0 +1,1 @@
++DeckForAI
+\ No newline at end of file
+Index: UsersDecks/@AI@AllDecks.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/UsersDecks/@AI@AllDecks.txt b/UsersDecks/@AI@AllDecks.txt
+new file mode 100644
+--- /dev/null	(date 1625636405378)
++++ b/UsersDecks/@AI@AllDecks.txt	(date 1625636405378)
+@@ -0,0 +1,12 @@
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++@DeckForAI
++DeckForAI
+Index: ActivateDecks/a.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ActivateDecks/a.txt b/ActivateDecks/a.txt
+new file mode 100644
+--- /dev/null	(date 1625636405374)
++++ b/ActivateDecks/a.txt	(date 1625636405374)
+@@ -0,0 +1,1 @@
++dekcmam
+\ No newline at end of file
+Index: Deck/adekcmamMainDeck.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Deck/adekcmamMainDeck.txt b/Deck/adekcmamMainDeck.txt
+new file mode 100644
+--- /dev/null	(date 1625600997186)
++++ b/Deck/adekcmamMainDeck.txt	(date 1625600997186)
+@@ -0,0 +1,43 @@
++Advanced Ritual Art
++Alexandrite Dragon
++Axe Raider
++Baby Dragon
++Baby Dragon
++Axe Raider
++Alexandrite Dragon
++Advanced Ritual Art
++Baby Dragon
++Axe Raider
++Bitron
++Bitron
++Bitron
++Battle Ox
++Battle Ox
++Battle Ox
++Battle Warrior
++Battle Warrior
++Battle Warrior
++Black Pendant
++Black Pendant
++Black Pendant
++Command Knight
++Command Knight
++Command Knight
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Curtain Of Dark Ones
++Dark Hole
++Dark Hole
++Dark Hole
++Flame Manipulator
++Flame Manipulator
++Flame Manipulator
++Exploder Dragon
++Exploder Dragon
++Exploder Dragon
++Haniwa
++Haniwa
++Haniwa
++Hero Of The East
++Hero Of The East
++Hero Of The East
+Index: UsersDecks/aAllDecks.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/UsersDecks/aAllDecks.txt b/UsersDecks/aAllDecks.txt
+new file mode 100644
+--- /dev/null	(date 1625636405263)
++++ b/UsersDecks/aAllDecks.txt	(date 1625636405263)
+@@ -0,0 +1,2 @@
++dekcmam
++@dekcmam
+Index: Users/dd.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Users/dd.txt b/Users/dd.txt
+new file mode 100644
+--- /dev/null	(date 1625636404455)
++++ b/Users/dd.txt	(date 1625636404455)
+@@ -0,0 +1,5 @@
++dd
++dd
++dd
++0
++100000
+\ No newline at end of file
+Index: Users/@AI@.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@AI@\r\n1234AIPlayer1234\r\nAIPlayer\r\n0\r\n100000
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Users/@AI@.txt b/Users/@AI@.txt
+--- a/Users/@AI@.txt	(revision 380d0fac42fce84aaf801903a2f4882e6a5f34a9)
++++ b/Users/@AI@.txt	(date 1625636404452)
+@@ -2,4 +2,4 @@
+ 1234AIPlayer1234
+ AIPlayer
+ 0
+-100000
+\ No newline at end of file
++100500
+\ No newline at end of file

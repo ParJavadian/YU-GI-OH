@@ -1,0 +1,16 @@
+Index: allUsers.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>q\r\nw\r\na\r\ns\r\naa\r\nk\r\np\r\nps\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/allUsers.txt b/allUsers.txt
+--- a/allUsers.txt	
++++ b/allUsers.txt	
+@@ -6,3 +6,5 @@
+ k
+ p
+ ps
++e
++z
