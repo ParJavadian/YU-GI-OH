@@ -24,4 +24,13 @@ public interface Card {
         }
         return null;
     }
+
+    static Card getCardByName(String cardName) {
+        ArrayList<Card> allCards = (ArrayList<Card>)DeckController.getInstance(null).getAllCardsOfGame();
+        for (Card card : allCards) {
+            if(card.getName().equals(cardName))
+                return card;
+        }
+        return null;
+    }
 }

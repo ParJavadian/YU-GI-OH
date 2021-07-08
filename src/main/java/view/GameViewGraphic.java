@@ -412,6 +412,7 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void fillPopUp(int[] i, AnchorPane anchorPane, Button previousButton,Button nextButton,Button backButton,ArrayList<Image> images){
+
         popUpPlayerGraveyard = new Popup();
 
         anchorPane.setStyle(" -fx-background-color: #174761;");

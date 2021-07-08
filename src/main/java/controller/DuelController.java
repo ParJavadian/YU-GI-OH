@@ -1136,13 +1136,15 @@ public class DuelController {
         DuelView.printText(toPrint.toString());*/
     }
 
-//    public ArrayList<Image> getGraveYard(User user){
-//        ArrayList<Image> graveYard = new ArrayList<>();
-//        for (Card card : user.getBoard().getCardsInGraveyard()) {
-//            graveYard.add(card.getImage());
-//        }
-//        return graveYard;
-//    }
+/*
+    public ArrayList<Image> getGraveYard(User user){
+        ArrayList<Image> graveYard = new ArrayList<>();
+        for (Card card : user.getBoard().getCardsInGraveyard()) {
+            graveYard.add(card.getImage());
+        }
+        return graveYard;
+    }
+*/
 
     public ArrayList<Card> getCards(){
         ArrayList<Card> cards = new ArrayList<>();
