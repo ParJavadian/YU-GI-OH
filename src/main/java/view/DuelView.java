@@ -76,13 +76,13 @@ public class DuelView {
                 }
             } else if (isFieldZone.find(0) && isOpponent.find(0)) {
                 try {
-                    duelController.selectCardOpponentFieldZone();
+//                    duelController.selectCardOpponentFieldZone();
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }
             } else if (isFieldZone.find(0)) {
                 try {
-                    duelController.selectCardPlayerFieldZone();
+//                    duelController.selectCardPlayerFieldZone();
                 } catch (Exception exception) {
                     printText(exception.getMessage());
                 }

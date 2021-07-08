@@ -9,9 +9,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -26,8 +29,11 @@ import model.*;
 import model.Card;
 import model.MonsterCard;
 import model.User;
+import org.w3c.dom.events.Event;
 
+import java.io.File;
 import java.lang.reflect.Method;
+import java.net.FileNameMap;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -67,10 +73,13 @@ public class GameViewGraphic extends Application implements Initializable {
     public ImageView selectedCard;
     @FXML
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
+    private static Label playerUsername1, playerNickname1, playerLifePoint1, rivalUsername1, rivalNickname1, rivalLifePoint1;
     @FXML
     private ProgressBar rivalProgressBar, playerProgressBar;
+    private static ProgressBar rivalProgressBar1, playerProgressBar1;
     @FXML
     public Rectangle drawPhase, standByPhase, mainPhase1, battlePhase, mainPhase2, endPhase;
+    private static Rectangle drawPhase1, standByPhase1, mainPhase11, battlePhase1, mainPhase21, endPhase1;
     private static Label description, attack, defence;
     private static ImageView selectedCardImageView;
     public Popup popUpGraveyard;
@@ -108,20 +117,64 @@ public class GameViewGraphic extends Application implements Initializable {
     public void start(Stage stage) throws Exception {
         GameViewGraphic.stage = stage;
         URL url = getClass().getResource("/GameMenu.fxml");
+//        FXMLLoader loader = new FXMLLoader(url);
+//        loader.setController(this);
         root = FXMLLoader.load(url);
+//        root = FXMLLoader.load(url);
         setImagesAndCards();
         setBar();
         setImageViewForProfile();
         addAllImages();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        setFXMLs();
         duelController.setDuelView(this);
         setPhaseRectangleColors();
         duelController.goNextPhase();
-        startMainNoCardSelected();
+//        startMainNoCardSelected();
         //showPlayerPopUp();
         stage.show();
         help();
+    }
+
+    private void setFXMLs() {
+        if (root != null) {
+            for (Node child : root.getChildren()) {
+                if (child.getId() == null) continue;
+                if (child instanceof Rectangle) {
+                    if (child.getId().equals("drawPhase"))
+                        drawPhase = drawPhase1;
+                    else if (child.getId().equals("standByPhase"))
+                        standByPhase = standByPhase1;
+                    else if (child.getId().equals("mainPhase1"))
+                        mainPhase1 = mainPhase11;
+                    else if (child.getId().equals("battlePhase"))
+                        battlePhase = battlePhase1;
+                    else if (child.getId().equals("mainPhase2"))
+                        mainPhase2 = mainPhase21;
+                    else if (child.getId().equals("endPhase"))
+                        endPhase = endPhase1;
+                } else if (child instanceof Label) {
+                    if (child.getId().equals("playerUsername"))
+                        playerUsername = playerUsername1;
+                    else if (child.getId().equals("playerNickname"))
+                        playerNickname = playerNickname1;
+                    else if (child.getId().equals("playerLifePoint"))
+                        playerLifePoint = playerLifePoint1;
+                    else if (child.getId().equals("rivalUsername"))
+                        rivalUsername = rivalUsername1;
+                    else if (child.getId().equals("rivalNickname"))
+                        rivalNickname = rivalNickname1;
+                    else if (child.getId().equals("rivalLifePoint"))
+                        rivalLifePoint = rivalLifePoint1;
+                } else if (child instanceof ProgressBar) {
+                    if (child.getId().equals("playerProgressBar1"))
+                        playerProgressBar = playerProgressBar1;
+                    else if (child.getId().equals("rivalProgressBar1"))
+                        rivalProgressBar = rivalProgressBar1;
+                }
+            }
+        }
     }
 
     @Override
@@ -129,25 +182,39 @@ public class GameViewGraphic extends Application implements Initializable {
         setBar();
         setImageViewForProfile();
         if (player != null && rival != null) {
-            if (playerLifePoint != null) playerLifePoint.setText(String.valueOf(player.getLifePoint()));
+            if (playerLifePoint == null) return;
+            playerLifePoint.setText(String.valueOf(player.getLifePoint()));
             if (rivalLifePoint != null) rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
             if (playerNickname != null) playerNickname.setText(player.getNickname());
             if (rivalNickname != null) rivalNickname.setText(rival.getNickname());
             if (playerUsername != null) playerUsername.setText(player.getUsername());
             if (rivalUsername != null) rivalUsername.setText(rival.getUsername());
+            playerUsername1 = playerUsername;
+            playerNickname1 = playerNickname;
+            playerLifePoint1 = playerLifePoint;
+            rivalUsername1 = rivalUsername;
+            rivalNickname1 = rivalNickname;
+            rivalLifePoint1 = rivalLifePoint;
+            playerProgressBar1 = playerProgressBar;
+            rivalProgressBar1 = rivalProgressBar;
+            drawPhase1 = drawPhase;
+            standByPhase1 = standByPhase;
+            mainPhase11 = mainPhase1;
+            battlePhase1 = battlePhase;
+            mainPhase21 = mainPhase2;
+            endPhase1 = endPhase;
         }
         if (duelController != null) {
             setImagesAndCards();
             addAllImages();
             duelController.setDuelView(this);
         }
-        try {
+        /*try {
             if (drawPhase != null)
                 setPhaseRectangleColors();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-        System.out.println(playerLifePoint + " " + drawPhase);
+        }*/
     }
 
     public void setImagesAndCards() {
@@ -348,7 +415,6 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     public void pauseMenu() {
-
         Popup pausePopup = new Popup();
 
         AnchorPane anchorPane = new AnchorPane();
@@ -427,7 +493,7 @@ public class GameViewGraphic extends Application implements Initializable {
         EventHandler<ActionEvent> eventForMuteUnmuteButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
-                        SoundController.muteAndUnmute();
+//                        SoundController.muteAndUnmute();
                         //fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
                     }
                 };
@@ -447,11 +513,9 @@ public class GameViewGraphic extends Application implements Initializable {
                     }
                 };
         endGame.setOnAction(eventForEndButton);
-
     }
 
     public void fillPopUp(int[] i, AnchorPane anchorPane, Button previousButton, Button nextButton, Button backButton, ArrayList<Image> images) {
-
         popUpGraveyard = new Popup();
         anchorPane.setStyle(" -fx-background-color: #174761;");
         popUpGraveyard.setX(0);
@@ -462,47 +526,33 @@ public class GameViewGraphic extends Application implements Initializable {
         anchorPane.setPrefHeight(293);
         anchorPane.setLayoutX(506);
         anchorPane.setLayoutY(206);
-//        if (images.get(i[0]) != null) {
         if (i[0] < images.size()) {
             graveyardFirstCard.setImage(images.get(i[0]));
             graveyardFirstCard.setFitWidth(110);
             graveyardFirstCard.setFitHeight(160);
             graveyardFirstCard.setX(12);
             graveyardFirstCard.setY(70);
-            if (anchorPane != null) {
-                if (graveyardFirstCard != null && !anchorPane.getChildren().contains(graveyardFirstCard))
-                    anchorPane.getChildren().add(graveyardFirstCard);
-            }
+            if (graveyardFirstCard != null && !anchorPane.getChildren().contains(graveyardFirstCard))
+                anchorPane.getChildren().add(graveyardFirstCard);
         }
-
-//        if (images.get(i[0] +1) != null) {
         if (i[0] + 1 < images.size()) {
             graveyardSecondCard.setImage(images.get(i[0] + 1));
             graveyardSecondCard.setFitWidth(110);
             graveyardSecondCard.setFitHeight(160);
             graveyardSecondCard.setX(138);
             graveyardSecondCard.setY(70);
-            if (anchorPane != null) {
-                if (graveyardSecondCard != null && !anchorPane.getChildren().contains(graveyardSecondCard))
-                    anchorPane.getChildren().add(graveyardSecondCard);
-            }
+            if (graveyardSecondCard != null && !anchorPane.getChildren().contains(graveyardSecondCard))
+                anchorPane.getChildren().add(graveyardSecondCard);
         }
-
-
-//        if (images.get(i[0] +2) != null) {
         if (i[0] + 2 < images.size()) {
             graveyardThirdCard.setImage(images.get(i[0] + 2));
             graveyardThirdCard.setFitWidth(110);
             graveyardThirdCard.setFitHeight(160);
             graveyardThirdCard.setX(264);
             graveyardThirdCard.setY(70);
-            if (anchorPane != null) {
-                if (graveyardThirdCard != null && !anchorPane.getChildren().contains(graveyardThirdCard))
-                    anchorPane.getChildren().add(graveyardThirdCard);
-            }
+            if (graveyardThirdCard != null && !anchorPane.getChildren().contains(graveyardThirdCard))
+                anchorPane.getChildren().add(graveyardThirdCard);
         }
-
-
         previousButton.setLayoutX(160);
         previousButton.setLayoutY(20);
         Font font = Font.font("Agency FB", 18);
@@ -511,8 +561,6 @@ public class GameViewGraphic extends Application implements Initializable {
         if (!anchorPane.getChildren().contains(previousButton)) {
             anchorPane.getChildren().add(previousButton);
         }
-
-
         nextButton.setLayoutX(170);
         nextButton.setLayoutY(242);
         nextButton.setFont(font);
@@ -520,33 +568,25 @@ public class GameViewGraphic extends Application implements Initializable {
         if (!anchorPane.getChildren().contains(nextButton)) {
             anchorPane.getChildren().add(nextButton);
         }
-
-
         backButton.setLayoutX(320);
         backButton.setLayoutY(242);
         backButton.setFont(font);
         backButton.setTextFill(Paint.valueOf("#174761"));
-
         if (!anchorPane.getChildren().contains(backButton)) {
             anchorPane.getChildren().add(backButton);
         }
-
         popUpGraveyard.getContent().add(anchorPane);
-
-
         if (!popUpGraveyard.isShowing()) {
             popUpGraveyard.show(stage);
         }
-
-
         EventHandler<ActionEvent> eventForBackButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
                         popUpGraveyard.hide();
+                        System.out.println("hide graveyard");
                     }
                 };
         backButton.setOnAction(eventForBackButton);
-
         EventHandler<ActionEvent> eventForNextButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
@@ -557,7 +597,6 @@ public class GameViewGraphic extends Application implements Initializable {
                     }
                 };
         nextButton.setOnAction(eventForNextButton);
-
         EventHandler<ActionEvent> eventForPreviousButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
@@ -578,154 +617,74 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void startMainNoCardSelected() throws Exception {
-        /*setOnClickSelected(imageView1Monster1, 5, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class), DuelController.class.getMethod("summonMonster"));
-        setOnClickSelected(imageView1Monster2, 3, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
-        setOnClickSelected(imageView1Monster3, 1, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
-        setOnClickSelected(imageView1Monster4, 2, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
-        setOnClickSelected(imageView1Monster5, 4, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
-
-        setOnClickSelected(imageView2Monster1, 4, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2Monster2, 2, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2Monster3, 1, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2Monster4, 3, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2Monster5, 5, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-
-        setOnClickSelected(imageView1SpellAndTrap1, 5, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-        setOnClickSelected(imageView1SpellAndTrap2, 3, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-        setOnClickSelected(imageView1SpellAndTrap3, 1, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-        setOnClickSelected(imageView1SpellAndTrap4, 2, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-        setOnClickSelected(imageView1SpellAndTrap5, 4, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-
-        setOnClickSelected(imageView2SpellAndTrap1, 4, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2SpellAndTrap2, 2, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2SpellAndTrap3, 1, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2SpellAndTrap4, 3, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2SpellAndTrap5, 5, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-*/
-        setOnClickSelected(imageView1hand1, player, 1, 20, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
-        setOnClickSelected(imageView1hand2, player, 2, 21, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
-        setOnClickSelected(imageView1hand3, player, 3, 22, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
-        setOnClickSelected(imageView1hand4, player, 4, 23, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
-        setOnClickSelected(imageView1hand5, player, 5, 24, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
-        setOnClickSelected(imageView1hand6, player, 6, 25, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
-        setOnClickSelected(imageView1Monster1, player, 5, 0, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
-        setOnClickSelected(imageView1Monster2, player, 3, 1, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
-        setOnClickSelected(imageView1Monster3, player, 1, 2, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
-        setOnClickSelected(imageView1Monster4, player, 2, 3, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
-        setOnClickSelected(imageView1Monster5, player, 4, 4, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
-        setOnClickSelected(imageView2Monster1, rival, 4, 5, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Monster2, rival, 2, 6, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Monster3, rival, 1, 7, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Monster4, rival, 3, 8, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Monster5, rival, 5, 9, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap1, player, 5, 10, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap2, player, 3, 11, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap3, player, 1, 12, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap4, player, 2, 13, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap5, player, 4, 14, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap1, rival, 4, 15, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap2, rival, 2, 16, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap3, rival, 1, 17, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap4, rival, 3, 18, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap5, rival, 5, 19, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1FieldZone, player, 1, 32, DuelController.class.getMethod("selectCardPlayerFieldZone"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2FieldZone, rival, 1, 33, DuelController.class.getMethod("selectCardOpponentFieldZone"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1Graveyard, player, 1, 34, DuelController.class.getMethod("showPlayerGraveyard"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Graveyard, rival, 1, 35, DuelController.class.getMethod("showRivalGraveyard"), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-
-/*setOnClickSelected(imageView1hand2, 2, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-        setOnClickSelected(imageView1hand3, 3, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-        setOnClickSelected(imageView1hand4, 4, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-        setOnClickSelected(imageView1hand5, 5, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-        setOnClickSelected(imageView1hand6, 6, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-*/
-//        setOnClickSelected(imageView1FieldZone, 1, DuelController.class.getMethod("selectCardPlayerFieldZone"), this.getClass().getMethod("startMainPlayerFieldZoneSelected", ImageView.class));
-//        setOnClickSelected(imageView2FieldZone, 1, DuelController.class.getMethod("selectCardOpponentFieldZone"), this.getClass().getMethod("startMainOpponentFieldZoneSelected", ImageView.class));
-
-//        //todo number ro gozashtam 1. chi kar konam? va show graveyard darim na select graveyard. bezanam?
-//        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectPlayerGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-//        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectRivalGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-
-
+        setMouseEventsMainPhase(imageView1hand1, player, 1, 20, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
+        setMouseEventsMainPhase(imageView1hand2, player, 2, 21, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
+        setMouseEventsMainPhase(imageView1hand3, player, 3, 22, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
+        setMouseEventsMainPhase(imageView1hand4, player, 4, 23, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
+        setMouseEventsMainPhase(imageView1hand5, player, 5, 24, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
+        setMouseEventsMainPhase(imageView1hand6, player, 6, 25, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("summonMonster"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("preSet"));
+        setMouseEventsMainPhase(imageView1Monster1, player, 5, 0, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
+        setMouseEventsMainPhase(imageView1Monster2, player, 3, 1, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
+        setMouseEventsMainPhase(imageView1Monster3, player, 1, 2, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
+        setMouseEventsMainPhase(imageView1Monster4, player, 2, 3, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
+        setMouseEventsMainPhase(imageView1Monster5, player, 4, 4, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("flipSummon"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("changePosition"));
+        setMouseEventsMainPhase(imageView2Monster1, rival, 4, 5, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2Monster2, rival, 2, 6, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2Monster3, rival, 1, 7, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2Monster4, rival, 3, 8, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2Monster5, rival, 5, 9, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView1SpellAndTrap1, player, 5, 10, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView1SpellAndTrap2, player, 3, 11, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView1SpellAndTrap3, player, 1, 12, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView1SpellAndTrap4, player, 2, 13, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView1SpellAndTrap5, player, 4, 14, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("activateSpell"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2SpellAndTrap1, rival, 4, 15, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2SpellAndTrap2, rival, 2, 16, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2SpellAndTrap3, rival, 1, 17, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2SpellAndTrap4, rival, 3, 18, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2SpellAndTrap5, rival, 5, 19, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView1FieldZone, player, 1, 32, DuelController.class.getMethod("selectCardPlayerFieldZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2FieldZone, rival, 1, 33, DuelController.class.getMethod("selectCardOpponentFieldZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView1Graveyard, player, 1, 34, DuelController.class.getMethod("doNothing", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("showPlayerGraveyard", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsMainPhase(imageView2Graveyard, rival, 1, 35, DuelController.class.getMethod("doNothing", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("showRivalGraveyard", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
     }
 
 
     public void startBattleNoCardSelected() throws Exception {
-        /*setOnClickSelected(imageView1Monster1, 5, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class), DuelController.class.getMethod("summonMonster"));
-        setOnClickSelected(imageView1Monster2, 3, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
-        setOnClickSelected(imageView1Monster3, 1, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
-        setOnClickSelected(imageView1Monster4, 2, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
-        setOnClickSelected(imageView1Monster5, 4, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
-
-        setOnClickSelected(imageView2Monster1, 4, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2Monster2, 2, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2Monster3, 1, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2Monster4, 3, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2Monster5, 5, DuelController.class.getMethod("selectCardOpponentMonsterZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-
-        setOnClickSelected(imageView1SpellAndTrap1, 5, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-        setOnClickSelected(imageView1SpellAndTrap2, 3, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-        setOnClickSelected(imageView1SpellAndTrap3, 1, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-        setOnClickSelected(imageView1SpellAndTrap4, 2, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-        setOnClickSelected(imageView1SpellAndTrap5, 4, DuelController.class.getMethod("selectCardPlayerTrapAndSpellZone", int.class), this.getClass().getMethod("startMainAPlayerSpellOrTrapSelected", ImageView.class));
-
-        setOnClickSelected(imageView2SpellAndTrap1, 4, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2SpellAndTrap2, 2, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2SpellAndTrap3, 1, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2SpellAndTrap4, 3, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-        setOnClickSelected(imageView2SpellAndTrap5, 5, DuelController.class.getMethod("selectCardOpponentTrapAndSpellZone", int.class), this.getClass().getMethod("doNothing", ImageView.class));
-*/
-        setOnClickSelected(imageView1hand1, player, 1, 20, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1hand2, player, 2, 21, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1hand3, player, 3, 22, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1hand4, player, 4, 23, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1hand5, player, 5, 24, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1hand6, player, 6, 25, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1Monster1, player, 5, 0, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1Monster2, player, 3, 1, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1Monster3, player, 1, 2, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1Monster4, player, 2, 3, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1Monster5, player, 4, 4, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Monster1, rival, 4, 5, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Monster2, rival, 2, 6, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Monster3, rival, 1, 7, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Monster4, rival, 3, 8, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Monster5, rival, 5, 9, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap1, player, 5, 10, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap2, player, 3, 11, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap3, player, 1, 12, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap4, player, 2, 13, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1SpellAndTrap5, player, 4, 14, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap1, rival, 4, 15, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap2, rival, 2, 16, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap3, rival, 1, 17, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap4, rival, 3, 18, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2SpellAndTrap5, rival, 5, 19, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1FieldZone, player, 1, 32, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2FieldZone, rival, 1, 33, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView1Graveyard, player, 1, 34, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-        setOnClickSelected(imageView2Graveyard, rival, 1, 35, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
-
-
-
-/*setOnClickSelected(imageView1hand2, 2, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-        setOnClickSelected(imageView1hand3, 3, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-        setOnClickSelected(imageView1hand4, 4, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-        setOnClickSelected(imageView1hand5, 5, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-        setOnClickSelected(imageView1hand6, 6, DuelController.class.getMethod("selectCardPlayerHand", int.class), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-*/
-//        setOnClickSelected(imageView1FieldZone, 1, DuelController.class.getMethod("selectCardPlayerFieldZone"), this.getClass().getMethod("startMainPlayerFieldZoneSelected", ImageView.class));
-//        setOnClickSelected(imageView2FieldZone, 1, DuelController.class.getMethod("selectCardOpponentFieldZone"), this.getClass().getMethod("startMainOpponentFieldZoneSelected", ImageView.class));
-
-//        //todo number ro gozashtam 1. chi kar konam? va show graveyard darim na select graveyard. bezanam?
-//        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectPlayerGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-//        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod("selectRivalGraveyard"), this.getClass().getMethod("startMainAHandSelected", ImageView.class));
-
-
+        setMouseEventsBattlePhase(imageView1hand1, player, 1, 20, DuelController.class.getMethod("doNothing", int.class), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1hand2, player, 2, 21, DuelController.class.getMethod("doNothing", int.class), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1hand3, player, 3, 22, DuelController.class.getMethod("doNothing", int.class), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1hand4, player, 4, 23, DuelController.class.getMethod("doNothing", int.class), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1hand5, player, 5, 24, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1hand6, player, 6, 25, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1Monster1, player, 5, 0, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1Monster2, player, 3, 1, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1Monster3, player, 1, 2, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1Monster4, player, 2, 3, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1Monster5, player, 4, 4, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2Monster1, rival, 4, 5, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("attackMonster", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2Monster2, rival, 2, 6, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("attackMonster", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2Monster3, rival, 1, 7, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("attackMonster", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2Monster4, rival, 3, 8, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("attackMonster", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2Monster5, rival, 5, 9, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("attackMonster", int.class), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1SpellAndTrap1, player, 5, 10, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1SpellAndTrap2, player, 3, 11, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1SpellAndTrap3, player, 1, 12, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1SpellAndTrap4, player, 2, 13, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1SpellAndTrap5, player, 4, 14, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2SpellAndTrap1, rival, 4, 15, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2SpellAndTrap2, rival, 2, 16, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2SpellAndTrap3, rival, 1, 17, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2SpellAndTrap4, rival, 3, 18, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2SpellAndTrap5, rival, 5, 19, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1FieldZone, player, 1, 32, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2FieldZone, rival, 1, 33, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView1Graveyard, player, 1, 34, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
+        setMouseEventsBattlePhase(imageView2Graveyard, rival, 1, 35, DuelController.class.getMethod("doNothing"), this.getClass().getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
     }
 
 
-    private void setOnClickSelected(ImageView imageView, User owner, int number1, int numberForGet, Method onMouseEnteredMethod, Method nextMethod, Method onMouseClickedMethodMonster, Method onMouseClickedMethodSpell, Method onMouseRightClickedMethod) {
+    private void setMouseEventsMainPhase(ImageView imageView, User owner, int number1, int numberForGet, Method onMouseEnteredMethod, Method nextMethod, Method onMouseClickedMethodMonster, Method onMouseClickedMethodSpell, Method onMouseRightClickedMethod) {
         imageView.setOnMouseEntered(event -> {
             if (imageView.getImage() == null) return;
             if (!imageView.getImage().equals(unknown) || owner.equals(player))
@@ -734,13 +693,15 @@ public class GameViewGraphic extends Application implements Initializable {
                 showUnknownCard();
             if (selectedCard != null && selectedCard.getEffect() != null)
                 selectedCard.setEffect(null);
-            imageView.setEffect(new DropShadow());
+            DropShadow dropShadow = new DropShadow(0, Color.BLACK);
+            dropShadow.setHeight(40);
+            dropShadow.setWidth(40);
+            imageView.setEffect(dropShadow);
             try {
                 onMouseEnteredMethod.invoke(duelController, number1);
                 selectedCard = imageView;
-                startMainNoCardSelected();
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         });
         imageView.setOnMouseExited(event -> {
@@ -752,10 +713,9 @@ public class GameViewGraphic extends Application implements Initializable {
             imageView.setEffect(null);
             try {
                 DuelController.class.getMethod("unselectCard").invoke(duelController);
-                startMainNoCardSelected();
                 selectedCard = null;
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         });
         imageView.setOnMouseClicked(event -> {
@@ -775,7 +735,6 @@ public class GameViewGraphic extends Application implements Initializable {
                     startMainNoCardSelected();
                 } catch (Exception e) {
                     e.printStackTrace();
-                    System.out.println(e.getMessage());
                 }
             } else if (event.getButton().equals(MouseButton.SECONDARY)) {
                 try {
@@ -789,6 +748,73 @@ public class GameViewGraphic extends Application implements Initializable {
                     startMainNoCardSelected();
                 } catch (Exception e) {
                     e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void setMouseEventsBattlePhase(ImageView imageView, User owner, int number1, int numberForGet, Method onMouseEnteredMethod, Method nextMethod, Method onMouseClickedMethodMonster, Method onMouseClickedMethodSpell, Method onMouseRightClickedMethod) {
+        imageView.setOnMouseEntered(event -> {
+            if (imageView.getImage() == null) return;
+            clearCardDetails();
+            if (!imageView.getImage().equals(unknown) || owner.equals(player))
+                showCardDetails(cards.get(numberForGet));
+            else if (imageView.getImage().equals(unknown))
+                showUnknownCard();
+            if (selectedCard != null && selectedCard.getEffect() != null && selectedCard.equals(imageView))
+                selectedCard.setEffect(null);
+            DropShadow dropShadow = new DropShadow(0, Color.BLACK);
+            dropShadow.setHeight(40);
+            dropShadow.setWidth(40);
+            imageView.setEffect(dropShadow);
+            try {
+                if (selectedCard == null) {
+                    onMouseEnteredMethod.invoke(duelController, number1);
+                    selectedCard = imageView;
+                }
+                updateBoard();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
+        imageView.setOnMouseExited(event -> {
+            if (selectedCard != null && selectedCard.getEffect() != null && selectedCard.getEffect() instanceof DropShadow) {
+                if (((DropShadow) imageView.getEffect()).getColor().equals(Color.BLACK)) {
+                    if (imageView.getImage() == null) return;
+                    clearCardDetails();
+                    imageView.setEffect(null);
+                    try {
+                        if (selectedCard.equals(imageView)) {
+                            DuelController.class.getMethod("unselectCard").invoke(duelController);
+                            selectedCard = null;
+                        }
+                        updateBoard();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            }
+        });
+        imageView.setOnMouseClicked(event -> {
+            if (imageView.getImage() == null) return;
+            if (event.getButton().equals(MouseButton.PRIMARY)) {
+                if (!imageView.getImage().equals(unknown) || owner.equals(player))
+                    showCardDetails(cards.get(numberForGet));
+                else if (imageView.getImage().equals(unknown))
+                    showUnknownCard();
+                if (selectedCard != null && selectedCard.getEffect() != null && selectedCard.equals(imageView))
+                    selectedCard.setEffect(null);
+                try {
+                    onMouseClickedMethodMonster.invoke(duelController, number1);
+                    selectedCard = imageView;
+                    if (owner.equals(player)) {
+                        DropShadow dropShadow = new DropShadow(0, Color.DARKRED);
+                        dropShadow.setHeight(45);
+                        dropShadow.setWidth(45);
+                        imageView.setEffect(dropShadow);
+                    }
+                    updateBoard();
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
             }
@@ -818,7 +844,7 @@ public class GameViewGraphic extends Application implements Initializable {
 
     }
 
-    public void doNothing(ImageView imageView) {
+    public void doNothing() {
 
     }
 
@@ -900,14 +926,15 @@ public class GameViewGraphic extends Application implements Initializable {
     public void goToMainPhase2() {
         if (duelController.getPhase().equals(Phase.BATTLE_PHASE)) {
             duelController.goNextPhase();
-        } else if (duelController.getPhase().equals(Phase.MAIN_PHASE1)) {
-            duelController.goNextPhase();
-            duelController.goNextPhase();
         } else if (duelController.getPhase().equals(Phase.STANDBY_PHASE)) {
             duelController.goNextPhase();
             duelController.goNextPhase();
             duelController.goNextPhase();
-        } else showErrorNotProperPhaseNavigation("Main_Phase2");
+        } else if (duelController.getPhase().equals(Phase.MAIN_PHASE1) && duelController.isStartTurn) {
+            duelController.goNextPhase();
+            duelController.goNextPhase();
+        } else
+            showErrorNotProperPhaseNavigation("Main_Phase2");
     }
 
     public void goToEndPhase() {
@@ -998,12 +1025,9 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
 
-
-    public void setPhaseRectangleColors() throws InterruptedException {
-        if (drawPhase == null) {
-            System.out.println("1");
+    public void setPhaseRectangleColors() {
+        if (drawPhase == null)
             return;
-        }
         drawPhase.setFill(Color.DARKBLUE);
         standByPhase.setFill(Color.DARKBLUE);
         mainPhase1.setFill(Color.DARKBLUE);
@@ -1012,19 +1036,24 @@ public class GameViewGraphic extends Application implements Initializable {
         endPhase.setFill(Color.DARKBLUE);
         switch (duelController.getPhase()) {
             case DRAW_PHASE:
-                drawPhase.setFill(Color.BLUE);
+                drawPhase.setFill(Color.LIGHTBLUE);
+                break;
             case STANDBY_PHASE:
-                standByPhase.setFill(Color.BLUE);
+                standByPhase.setFill(Color.LIGHTBLUE);
+                break;
             case MAIN_PHASE1:
-                mainPhase1.setFill(Color.BLUE);
+                mainPhase1.setFill(Color.LIGHTBLUE);
+                break;
             case BATTLE_PHASE:
-                battlePhase.setFill(Color.BLUE);
+                battlePhase.setFill(Color.LIGHTBLUE);
+                break;
             case MAIN_PHASE2:
-                mainPhase2.setFill(Color.BLUE);
+                mainPhase2.setFill(Color.LIGHTBLUE);
+                break;
             case END_PHASE:
-                endPhase.setFill(Color.BLUE);
+                endPhase.setFill(Color.LIGHTBLUE);
+                break;
         }
-        Thread.sleep(2000);
     }
 
     public void changeTurn() {
@@ -1037,6 +1066,30 @@ public class GameViewGraphic extends Application implements Initializable {
         rivalUsername.setText(rival.getUsername());
         rivalNickname.setText(rival.getNickname());
         rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
+        Image tempImage = playerProfile.getImage();
+        playerProfile.setImage(rivalProfile.getImage());
+        rivalProfile.setImage(tempImage);
+    }
+
+    public void resetSelectedCard() {
+        if (duelController.getSelectedCard() == null) return;
+        selectedCard.setEffect(null);
+        selectedCard = null;
+        /*if(duelController.getSelectedCard().getOwner().equals(player)){
+            imageView1Monster1.setEffect(null);
+            imageView1Monster2.setEffect(null);
+            imageView1Monster3.setEffect(null);
+            imageView1Monster4.setEffect(null);
+            imageView1Monster5.setEffect(null);
+        }
+        else {
+            imageView2Monster1.setEffect(null);
+            imageView2Monster2.setEffect(null);
+            imageView2Monster3.setEffect(null);
+            imageView2Monster4.setEffect(null);
+            imageView2Monster5.setEffect(null);
+        }
+        duelController.setSelectedCard(null);*/
     }
 
 
@@ -1045,19 +1098,25 @@ public class GameViewGraphic extends Application implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
         alert.setHeaderText("How to see card information?");
-        alert.setContentText("You can move cursor on each card to see its information on the left!");
+        alert.setContentText("You can move cursor on any card to see its information on the\nleft side!");
         alert.showAndWait();
         alert.setHeaderText("How to summon a monster?");
-        alert.setContentText("You can click on each monster card to summon it!");
+        alert.setContentText("You can click on any monster card from your hand to summon\n it!");
         alert.showAndWait();
-        alert.setHeaderText("How to set a monster?");
-        alert.setContentText("You can right click on each monster card to set it!");
+        alert.setHeaderText("How to activate a spell?");
+        alert.setContentText("You can right click on any spell card from your hand or in your\n spell and trap zone to activate it's effect!");
         alert.showAndWait();
-        alert.setHeaderText("How to set a monster?");
-        alert.setContentText("You can click on each monster card to summon it!");
+        alert.setHeaderText("How to set a card?");
+        alert.setContentText("You can right click on any card from your hand to set it!");
         alert.showAndWait();
-        alert.setHeaderText("How to set a trap/spell?");
-        alert.setContentText("You can click on each trap/spell card to summon it!");
+        alert.setHeaderText("How to flip summon a card?");
+        alert.setContentText("You can click on any face-down monster card from your\nmonster zone to flip summon it!");
+        alert.showAndWait();
+        alert.setHeaderText("How to change a card's position?");
+        alert.setContentText("You can click on any face-up monster card from your\nmonster zone to change it's position!");
+        alert.showAndWait();
+        alert.setHeaderText("How to mute all sounds");
+        alert.setContentText("You can pause the game by clicking on the pause button and\nthen Mute/UnMute all sounds!");
         alert.showAndWait();
 //        alert.setHeaderText("How to mute/unmute?");
 //        alert.setContentText("You can click on each trap/spell card to summon it!");
@@ -1067,7 +1126,7 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
 
-    public void cheat(){
+    public void cheat() {
 
     }
 
