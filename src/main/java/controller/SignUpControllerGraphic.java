@@ -40,7 +40,7 @@ public class SignUpControllerGraphic {
                 }
             }
         }
-        User user = new User(username, nickname, password);
+        User user = new User(username, nickname, password,true);
         SignUpViewGraphic.getInstance().showAccountCreatedPopUp();
         MainViewGraphic.getInstance().setCurrentUser(user);
         MainViewGraphic.getInstance().start(stage);

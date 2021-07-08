@@ -51,11 +51,11 @@ public class ProfileViewForGraphic extends Application implements Initializable 
     }
 
     public void changePassword() throws Exception {
-        ProfileControllerGraphic.changePassword(user,stage);
+        ProfileControllerGraphic.changePassword(user, stage);
     }
 
     public void changeNickname() throws Exception {
-        ProfileControllerGraphic.changeNickname(user,stage);
+        ProfileControllerGraphic.changeNickname(user, stage);
     }
 
     public void goBack() throws Exception {
@@ -64,7 +64,7 @@ public class ProfileViewForGraphic extends Application implements Initializable 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        label.setText("Your Current Username: " + user.getUsername() + "\n Your Current Nickname: "+ user.getNickname());
+        label.setText("Your Current Username: " + user.getUsername() + "\n Your Current Nickname: " + user.getNickname());
     }
 
 //    public void setImageView(){
@@ -84,8 +84,14 @@ public class ProfileViewForGraphic extends Application implements Initializable 
 //    }
 
     private void setImageView() {
-        URL url = getClass().getResource("/images/profiles/profile ("+user.getProfileNumber()+").png");
-        Image image = new Image(String.valueOf(url));
+        Image image;
+        if (user.getProfileImage() == null) {
+            System.out.println(user.getProfileNumber());
+            URL url = getClass().getResource("/images/profiles/profile (" + user.getProfileNumber() + ").png");
+            image = new Image(String.valueOf(url));
+        } else {
+            image = user.getProfileImage();
+        }
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(155);
         imageView.setFitHeight(155);

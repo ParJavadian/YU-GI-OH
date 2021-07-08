@@ -39,7 +39,7 @@ public class SignUpViewGraphic extends Application {
     public void start(Stage stage) throws Exception {
         if (LogInViewGraphic.instance == null && (SignUpViewGraphic.instance == null)){
 
-            SoundController.getInstance().playWhenStart();
+            //SoundController.getInstance().playWhenStart();
 
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();
@@ -49,10 +49,7 @@ public class SignUpViewGraphic extends Application {
             importExportUserController.importActiveDeck();
             Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
             User.getUserByUsername("@AI@").setActiveDeck(deck);
-//            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
-//            MediaPlayer mp = new MediaPlayer(media);
-//            mp.setCycleCount(AudioClip.INDEFINITE);
-//            mp.play();
+
         }
 
         SignUpViewGraphic.stage = stage;

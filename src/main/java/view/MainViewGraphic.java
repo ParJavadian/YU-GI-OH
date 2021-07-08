@@ -75,7 +75,7 @@ public class MainViewGraphic extends Application {
     }
 
     public void muteUnmute(){
-        SoundController.getInstance().muteAndUnmute();
+        SoundController.muteAndUnmute();
     }
 
     private void printError(String command){

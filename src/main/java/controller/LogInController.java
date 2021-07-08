@@ -34,7 +34,7 @@ public class LogInController {
                 }
             }
         }
-        new User(username, nickname, password);
+        new User(username, nickname, password,true);
         LogInView.getInstance().printText("user created successfully!");
     }
 

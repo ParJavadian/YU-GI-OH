@@ -39,7 +39,7 @@ public class MainView {
             Matcher matcher3 = getCommandMatcher(command, "(--rounds|-r) ([0-9]+)");
             if(matcher4.find() && matcher1.find() && matcher3.find()){
                 try{
-                    new User("@AI@","@AIplayer","1234AIPlayer1234");
+                    new User("@AI@","@AIplayer","1234AIPlayer1234",true);
                     Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
                     User.getUserByUsername("@AI@").setActiveDeck(deck);
                     mainController.newDuel("@AI@",Integer.parseInt(matcher3.group(2)));

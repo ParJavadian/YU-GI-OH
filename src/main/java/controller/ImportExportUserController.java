@@ -80,7 +80,7 @@ public class ImportExportUserController {
                                 break;
                             counter--;
                         }
-                        User user = new User(username, nickname, password);
+                        User user = new User(username, nickname, password,false);
                         if (balance.matches("\\d+") && highScore.matches("\\d+")) {
                             user.setMoney(Integer.parseInt(balance));
                             user.setScore(Integer.parseInt(highScore));

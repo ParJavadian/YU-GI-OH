@@ -1,6 +1,8 @@
 package model;
 
 import controller.ImportExportUserController;
+import javafx.scene.image.Image;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +23,10 @@ public class User {
     private int lifePoint;
     private Board board;
     private int money;
+    private Image profileImage;
     private int profileNumber;
 
-    public User(String username, String nickname, String password) {
+    public User(String username, String nickname, String password,boolean isCalledFromSignUpMenu) {
         if (allUsers == null)
             allUsers = new ArrayList<>();
         this.allCards = new ArrayList<>();
@@ -32,15 +35,22 @@ public class User {
         this.nickname = nickname;
         this.password = password;
         this.currentActiveDeck = null;
-        this.profileNumber = getRandomProfileNumber();
-        setScore(0);
-        setMoney(100000);
+        if (isCalledFromSignUpMenu) {
+            setScore(0);
+            setMoney(100000);
+            this.profileNumber = getRandomProfileNumber();
+        }
+        this.profileImage = null;
+//        setScore(0);
+//        setMoney(100000);
         allUsers.add(this);
         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.exportProfileNumber(username, profileNumber);
         importExportUserController.exportNewUser(User.getUserByUsername(username));
         importExportUserController.exportAllUsers(User.getAllUsers());
     }
+
+
 
     public static User getUserByUsername(String username) {
         if (allUsers != null) {
@@ -72,6 +82,14 @@ public class User {
         return this.allCards;
     }
 
+    public void setProfileImage(Image profileImage) {
+        this.profileImage = profileImage;
+    }
+
+    public Image getProfileImage() {
+        return this.profileImage;
+    }
+
     public Deck getDeckByName(String name) {
         for (Deck deck : allDecks) {
             if (deck.getDeckName().equals(name)) {
@@ -98,11 +116,9 @@ public class User {
         this.currentGameDeck = currentGameDeck;
     }
 
-/*    public void setProfileNumber(int profileNumber) {
-        this.profileNumber = profileNumber;
-    }*/
-
-
+//    public void setProfileNumber(int profileNumber) {
+//        this.profileNumber = profileNumber;
+//    }
 
     public String getUsername() {
         return this.username;

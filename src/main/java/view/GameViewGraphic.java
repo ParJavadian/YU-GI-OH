@@ -2,6 +2,7 @@ package view;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import controller.DuelController;
+import controller.SoundController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -122,6 +123,7 @@ public class GameViewGraphic extends Application implements Initializable {
         startMainNoCardSelected();
         //showPlayerPopUp();
         stage.show();
+        help();
     }
 
     @Override
@@ -256,8 +258,13 @@ public class GameViewGraphic extends Application implements Initializable {
 //    }
 
     private void setImageViewForProfile() {
-        URL url = getClass().getResource("/images/profiles/profile (" + player.getProfileNumber() + ").png");
-        Image image = new Image(String.valueOf(url));
+        Image image;
+        if (player.getProfileImage() == null) {
+            URL url = getClass().getResource("/images/profiles/profile (" + player.getProfileNumber() + ").png");
+            image = new Image(String.valueOf(url));
+        } else {
+            image = player.getProfileImage();
+        }
         playerProfile = new ImageView(image);
         playerProfile.setFitWidth(50);
         playerProfile.setFitHeight(50);
@@ -266,8 +273,14 @@ public class GameViewGraphic extends Application implements Initializable {
         playerProfile.setImage(image);
         if (root != null && !root.getChildren().contains(playerProfile))
             root.getChildren().add(playerProfile);
-        url = getClass().getResource("/images/profiles/profile (" + rival.getProfileNumber() + ").png");
-        image = new Image(String.valueOf(url));
+//        url = getClass().getResource("/images/profiles/profile (" + rival.getProfileNumber() + ").png");
+//        image = new Image(String.valueOf(url));
+        if (rival.getProfileImage() == null) {
+            URL url = getClass().getResource("/images/profiles/profile (" + rival.getProfileNumber() + ").png");
+            image = new Image(String.valueOf(url));
+        } else {
+            image = rival.getProfileImage();
+        }
         rivalProfile = new ImageView(image);
         rivalProfile.setFitWidth(50);
         rivalProfile.setFitHeight(50);
@@ -337,81 +350,109 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     public void pauseMenu() {
-        int[] i = {0};
+
+        Popup pausePopup = new Popup();
+
         AnchorPane anchorPane = new AnchorPane();
-        Button previousButton = new Button("Previous");
-        Button nextButton = new Button("Next");
-        Button backButton = new Button("Back");
-        ArrayList<Image> images = duelController.getGraveYard(player);
-        fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
+        Button resumeButton = new Button("Resume");
+        Button muteUnmuteButton = new Button("Mute/Unmute");
+        Button endGame = new Button("EndGame");
+
+        pausePopup = new Popup();
+        URL url = getClass().getResource("/images/backgrounds/19.jpg");
+        Image image = new Image(String.valueOf(url));
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(1010);
+        imageView.setFitHeight(645);
+        pausePopup.setX(0);
+        pausePopup.setY(20);
+        imageView.setImage(image);
+        anchorPane.getChildren().add(imageView);
+        //anchorPane.setBackground("/images/backgrounds/19.jpg");
+
+        //anchorPane.setStyle(" -fx-background-color: #ac7339;");
+        pausePopup.setX(0);
+        pausePopup.setY(0);
+        pausePopup.setWidth(900);
+        pausePopup.setHeight(600);
+        anchorPane.setPrefWidth(1010);
+        anchorPane.setPrefHeight(645);
+        anchorPane.setLayoutX(185);
+        anchorPane.setLayoutY(14);
+
+        resumeButton.setLayoutX(450);
+        resumeButton.setLayoutY(200);
+        Font font = Font.font("Agency FB", 24);
+        resumeButton.setFont(font);
+        resumeButton.setTextFill(Paint.valueOf("#007a99"));
+        if (!anchorPane.getChildren().contains(resumeButton)) {
+            anchorPane.getChildren().add(resumeButton);
+        }
 
 
-
-        /*//ArrayList<Card> playerGraveyard =
-
-//        ArrayList<Card> playerGraveyard = (ArrayList<Card>) player.getBoard().getCardsInGraveyard();
-        //todo image haye card haro az parmida begir
-//        ScrollPane scrollPane = new ScrollPane();
-
-        //scrollPane.set(100);
-        //scrollPane.setLayoutX(500);
-        //scrollPane.setLayoutX(200);
-        //System.out.println(popUpPlayerGraveyard);*/
-//todo
+        muteUnmuteButton.setLayoutX(430);
+        muteUnmuteButton.setLayoutY(300);
+        muteUnmuteButton.setFont(font);
+        muteUnmuteButton.setTextFill(Paint.valueOf("#007a99"));
+        if (!anchorPane.getChildren().contains(muteUnmuteButton)) {
+            anchorPane.getChildren().add(muteUnmuteButton);
+        }
 
 
+        endGame.setLayoutX(450);
+        endGame.setLayoutY(400);
+        endGame.setFont(font);
+        endGame.setTextFill(Paint.valueOf("#007a99"));
+
+        if (!anchorPane.getChildren().contains(endGame)) {
+            anchorPane.getChildren().add(endGame);
+        }
+
+        pausePopup.getContent().add(anchorPane);
 
 
+        if (!pausePopup.isShowing()) {
+            pausePopup.show(stage);
+        }
 
 
+//        Popup finalPausePopup = pausePopup;
+        Popup finalPausePopup = pausePopup;
+        EventHandler<ActionEvent> eventForResumeButton =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e) {
+                        finalPausePopup.hide();
+                    }
+                };
+        resumeButton.setOnAction(eventForResumeButton);
 
-
-        //        Font font = Font.font("Agency FB", 18);
-//        button.setFont();
-//        button.setFont(font);
-
-//        Button button = new Button();
-//        button.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
-
-//        popUpPlayerGraveyard.getContent().add(anchorPane);
-//        if (!popUpPlayerGraveyard.isShowing())
-//            popUpPlayerGraveyard.show(stage);
-//        else
-//            popUpPlayerGraveyard.hide();
-
-
-        //popUpPlayerGraveyard.show(stage);
-
-
-
-
-//        imageView.setImage(image);
-//        imageView.setFitWidth(49);
-//        imageView.setFitHeight(71);
-//        imageView.setX(x);
-//        imageView.setY(y);
-//        for (int i = 0; i < 6; i++) {
-//            ImageView imageView = new ImageView(images.get(i));
-//            imageView.setFitWidth(70);
-//            imageView.setFitHeight(102);
-//            imageView.setX(220);
-//            imageView.setY(20 * (i + 1) + 102 * (i));
-//            anchorPane.getChildren().add(imageView);
-//        }
-//        popUpPlayerGraveyard.getContent().add(anchorPane);
-//        popUpPlayerGraveyard.show(stage);
-////        popUpPlayerGraveyard.requestFocus();
-////        System.out.println(anchorPane.getChildren());
-////        System.out.println(popUpPlayerGraveyard.getContent());
-////        ;
-////        popUpPlayerGraveyard.show(stage);
-////        popUpPlayerGraveyard.requestFocus();
-//        System.out.println(popUpPlayerGraveyard.isShowing());
-
+        EventHandler<ActionEvent> eventForMuteUnmuteButton =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e) {
+                        SoundController.muteAndUnmute();
+                        //fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
+                    }
+                };
+        muteUnmuteButton.setOnAction(eventForMuteUnmuteButton);
+        //nextButton.setOnAction(eventForNextButton);
+//
+        //Popup finalPausePopup1 = pausePopup;
+        EventHandler<ActionEvent> eventForEndButton =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e) {
+                        try {
+                            MainViewGraphic.getInstance().start(stage);
+                            finalPausePopup.hide();
+                        } catch (Exception exception) {
+                            exception.printStackTrace();
+                        }
+                    }
+                };
+        endGame.setOnAction(eventForEndButton);
 
     }
 
-    public void fillPopUp(int[] i, AnchorPane anchorPane, Button previousButton,Button nextButton,Button backButton,ArrayList<Image> images){
+    public void fillPopUp(int[] i, AnchorPane anchorPane, Button previousButton, Button nextButton, Button backButton, ArrayList<Image> images) {
 
         popUpPlayerGraveyard = new Popup();
 
@@ -438,8 +479,8 @@ public class GameViewGraphic extends Application implements Initializable {
         }
 
 //        if (images.get(i[0] +1) != null) {
-        if (i[0]+1 < images.size()) {
-            graveyardSecondCard.setImage(images.get(i[0] +1));
+        if (i[0] + 1 < images.size()) {
+            graveyardSecondCard.setImage(images.get(i[0] + 1));
             graveyardSecondCard.setFitWidth(110);
             graveyardSecondCard.setFitHeight(160);
             graveyardSecondCard.setX(138);
@@ -452,8 +493,8 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
 //        if (images.get(i[0] +2) != null) {
-        if (i[0]+2 < images.size()) {
-            graveyardThirdCard.setImage(images.get(i[0] +2));
+        if (i[0] + 2 < images.size()) {
+            graveyardThirdCard.setImage(images.get(i[0] + 2));
             graveyardThirdCard.setFitWidth(110);
             graveyardThirdCard.setFitHeight(160);
             graveyardThirdCard.setX(264);
@@ -512,9 +553,9 @@ public class GameViewGraphic extends Application implements Initializable {
         EventHandler<ActionEvent> eventForNextButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
-                        if( i[0] +1 < images.size() ) {
+                        if (i[0] + 1 < images.size()) {
                             i[0]++;
-                            fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
+                            fillPopUp(i, anchorPane, previousButton, nextButton, backButton, images);
                         }
                     }
                 };
@@ -523,18 +564,13 @@ public class GameViewGraphic extends Application implements Initializable {
         EventHandler<ActionEvent> eventForPreviousButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
-                        if( i[0] - 1 >= 0 ) {
+                        if (i[0] - 1 >= 0) {
                             i[0]--;
-                            fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
+                            fillPopUp(i, anchorPane, previousButton, nextButton, backButton, images);
                         }
                     }
                 };
         previousButton.setOnAction(eventForPreviousButton);
-
-
-
-
-
 
 
     }
@@ -617,8 +653,6 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
 
-
-
     public void startBattleNoCardSelected() throws Exception {
         /*setOnClickSelected(imageView1Monster1, 5, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class), DuelController.class.getMethod("summonMonster"));
         setOnClickSelected(imageView1Monster2, 3, DuelController.class.getMethod("selectCardPlayerMonsterZone", int.class), this.getClass().getMethod("startMainAPlayerMonsterSelected", ImageView.class));
@@ -692,14 +726,6 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     }
-
-
-
-
-
-
-
-
 
 
     private void setOnClickSelected(ImageView imageView, User owner, int number1, int numberForGet, Method onMouseEnteredMethod, Method nextMethod, Method onMouseClickedMethodMonster, Method onMouseClickedMethodSpell, Method onMouseRightClickedMethod) {
@@ -918,13 +944,11 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     public static void printInformation(String input) {
-        Alert error = new Alert(Alert.AlertType.INFORMATION);
-        error.setHeaderText("");
-        error.setContentText(input);
-        error.showAndWait();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("");
+        alert.setContentText(input);
+        alert.showAndWait();
     }
-
-
 
 
     private void showPlayerPopUp() {
@@ -1020,6 +1044,33 @@ public class GameViewGraphic extends Application implements Initializable {
         rivalUsername.setText(rival.getUsername());
         rivalNickname.setText(rival.getNickname());
         rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
+    }
+
+
+    public void help() {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        alert.setHeaderText("How to see card information?");
+        alert.setContentText("You can move cursor on each card to see its information on the left!");
+        alert.showAndWait();
+        alert.setHeaderText("How to summon a monster?");
+        alert.setContentText("You can click on each monster card to summon it!");
+        alert.showAndWait();
+        alert.setHeaderText("How to set a monster?");
+        alert.setContentText("You can right click on each monster card to set it!");
+        alert.showAndWait();
+        alert.setHeaderText("How to set a monster?");
+        alert.setContentText("You can click on each monster card to summon it!");
+        alert.showAndWait();
+        alert.setHeaderText("How to set a trap/spell?");
+        alert.setContentText("You can click on each trap/spell card to summon it!");
+        alert.showAndWait();
+//        alert.setHeaderText("How to mute/unmute?");
+//        alert.setContentText("You can click on each trap/spell card to summon it!");
+//        alert.showAndWait();
+
+
     }
 
 }
