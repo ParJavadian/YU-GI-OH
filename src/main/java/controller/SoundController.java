@@ -68,4 +68,48 @@ public class SoundController {
             mediaPlayerForEatsDot.play();
         }
     }
+
+    public void playWhenSummons() {
+        Media media = null;
+        try {
+            media = new Media(getClass().getResource("/summon.mp3").toURI().toString());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        MediaPlayer mediaPlayerForEatsDot = new MediaPlayer(media);
+        mediaPlayerForEatsDot.setCycleCount(1);
+        if (currentCondition.equals(SoundCondition.PLAY)) {
+            mediaPlayerForEatsDot.play();
+        }
+    }
+
+    public void playWhenBuys() {
+        Media media = null;
+        try {
+            media = new Media(getClass().getResource("/coin.mp3").toURI().toString());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        MediaPlayer mediaPlayerForEatsDot = new MediaPlayer(media);
+        mediaPlayerForEatsDot.setCycleCount(1);
+        if (currentCondition.equals(SoundCondition.PLAY)) {
+            mediaPlayerForEatsDot.play();
+        }
+    }
+
+    public void playWhenMovesCard() {
+        Media media = null;
+        try {
+            media = new Media(getClass().getResource("/card.mp3").toURI().toString());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        MediaPlayer mediaPlayerForEatsDot = new MediaPlayer(media);
+        mediaPlayerForEatsDot.setCycleCount(1);
+        if (currentCondition.equals(SoundCondition.PLAY)) {
+            mediaPlayerForEatsDot.play();
+        }
+    }
+
+
 }

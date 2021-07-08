@@ -51,6 +51,7 @@ public class GameViewGraphic extends Application implements Initializable {
     private static ArrayList<Card> cards = new ArrayList<>();
     private static ArrayList<Boolean> conditions = new ArrayList<>();
     private static AnchorPane root;
+    public static ImageView directAttackArea = new ImageView();
     public static ImageView imageView1Monster1 = new ImageView(), imageView1Monster2 = new ImageView(), imageView1Monster3 = new ImageView(), imageView1Monster4 = new ImageView(), imageView1Monster5 = new ImageView();
     public static ImageView imageView2Monster1 = new ImageView(), imageView2Monster2 = new ImageView(), imageView2Monster3 = new ImageView(), imageView2Monster4 = new ImageView(), imageView2Monster5 = new ImageView();
     public static ImageView imageView1SpellAndTrap1 = new ImageView(), imageView1SpellAndTrap2 = new ImageView(), imageView1SpellAndTrap3 = new ImageView(), imageView1SpellAndTrap4 = new ImageView(), imageView1SpellAndTrap5 = new ImageView();
@@ -177,6 +178,12 @@ public class GameViewGraphic extends Application implements Initializable {
         }
     }
 
+    public void updateLifePoint(){
+        playerLifePoint.setText(String.valueOf(player.getLifePoint()));
+        rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
+        setBar();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setBar();
@@ -203,6 +210,7 @@ public class GameViewGraphic extends Application implements Initializable {
             battlePhase1 = battlePhase;
             mainPhase21 = mainPhase2;
             endPhase1 = endPhase;
+
         }
         if (duelController != null) {
             setImagesAndCards();
@@ -217,11 +225,19 @@ public class GameViewGraphic extends Application implements Initializable {
         }*/
     }
 
+    public void setDirectAttackArea(){
+        directAttackArea.setFitWidth(423);
+        directAttackArea.setFitHeight(72);
+        directAttackArea.setX(300);
+        directAttackArea.setY(0);
+    }
+
     public void setImagesAndCards() {
         if (duelController == null) return;
         images = duelController.getBoard();
         cards = duelController.getCards();
         conditions = duelController.getConditions();
+        setDirectAttackArea();
         setImageView(imageView1Monster1, images.get(0), 324, 329, conditions.get(0));
         setImageView(imageView1Monster2, images.get(1), 403, 329, conditions.get(1));
         setImageView(imageView1Monster3, images.get(2), 486, 329, conditions.get(2));
@@ -256,7 +272,7 @@ public class GameViewGraphic extends Application implements Initializable {
         setImageView(imageView2hand6, images.get(31), 611, -16, conditions.get(31));
         setImageView(imageView1FieldZone, images.get(32), 232, 324, conditions.get(32));
         setImageView(imageView2FieldZone, images.get(33), 740, 205, conditions.get(33));
-        setImageView(imageView1Graveyard, images.get(34), 750, 328, conditions.get(34));
+        setImageView(imageView1Graveyard, images.get(34), 740, 328, conditions.get(34));
         setImageView(imageView2Graveyard, images.get(35), 245, 213, conditions.get(35));
         card1Monster1 = cards.get(0);
         card1Monster2 = cards.get(1);
@@ -647,6 +663,8 @@ public class GameViewGraphic extends Application implements Initializable {
         setMouseEventsMainPhase(imageView2FieldZone, rival, 1, 33, DuelController.class.getMethod("selectCardOpponentFieldZone", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"), DuelController.class.getMethod("doNothing"));
         setMouseEventsMainPhase(imageView1Graveyard, player, 1, 34, DuelController.class.getMethod("doNothing", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("showPlayerGraveyard"), DuelController.class.getMethod("showPlayerGraveyard"), DuelController.class.getMethod("doNothing"));
         setMouseEventsMainPhase(imageView2Graveyard, rival, 1, 35, DuelController.class.getMethod("doNothing", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("showRivalGraveyard"), DuelController.class.getMethod("showRivalGraveyard"), DuelController.class.getMethod("doNothing"));
+
+        setMouseEventsMainPhase(directAttackArea, rival, 1, 35, DuelController.class.getMethod("doNothing", int.class), this.getClass().getMethod("startMainNoCardSelected"), DuelController.class.getMethod("showRivalGraveyard"), DuelController.class.getMethod("showRivalGraveyard"), DuelController.class.getMethod("directAttack")); // todo owner? / direct attack vorodi nakhast chon ostad pull nakard
     }
 
 
@@ -1121,9 +1139,15 @@ public class GameViewGraphic extends Application implements Initializable {
 
     }
 
-
-    public void cheat() {
-
+    public void explode(ImageView imageView) {
+        ExplosionController animation = new ExplosionController(imageView);
+        animation.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                imageView.setImage(null);
+            }
+        });
+        animation.play();
     }
 
 }
