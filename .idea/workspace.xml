@@ -22,8 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="scoreboard va show graveyard">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/SoundCondition.java" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="sound effect">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileNumbers/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileNumbers/@AI@.txt" afterDir="false" />
@@ -38,9 +37,8 @@
       <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SoundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SoundController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,13 +203,6 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
-    </task>
-    <task id="LOCAL-00006" summary="Yami SpellCard.java">
-      <created>1624002906129</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1624002906129</updated>
     </task>
     <task id="LOCAL-00007" summary="Forest &amp; Closed Forest&#10;SpellCard.java">
       <created>1624012207305</created>
@@ -538,7 +529,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۴" />
       <updated>1625734359086</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL‎۰۰۰۵۵" summary="sound effect">
+      <created>1625735834888</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۵" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۵" />
+      <updated>1625735834888</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +555,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Full spell and trap zone" />
     <MESSAGE value="continuous spell card" />
     <MESSAGE value="suijin debug 1" />
     <MESSAGE value="suijin debug 2" />
@@ -583,7 +579,8 @@
     <MESSAGE value="graveyard" />
     <MESSAGE value="karaye parmida" />
     <MESSAGE value="scoreboard va show graveyard" />
-    <option name="LAST_COMMIT_MESSAGE" value="scoreboard va show graveyard" />
+    <MESSAGE value="sound effect" />
+    <option name="LAST_COMMIT_MESSAGE" value="sound effect" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

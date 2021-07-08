@@ -1,6 +1,7 @@
 package view;
 
 import controller.MainControllerGraphic;
+import controller.SoundController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -71,6 +72,10 @@ public class MainViewGraphic extends Application {
         catch (Exception e){
             printError(e.getMessage());
         }
+    }
+
+    public void muteUnmute(){
+        SoundController.getInstance().muteAndUnmute();
     }
 
     private void printError(String command){
