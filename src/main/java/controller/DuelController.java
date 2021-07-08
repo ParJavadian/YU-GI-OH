@@ -1256,7 +1256,7 @@ public class DuelController {
         }
     }
 
-    public void showPlayerGraveyard(int number) {
+    public void showPlayerGraveyard() {
         int[] i = {0};
         AnchorPane anchorPane = new AnchorPane();
         Button previousButton = new Button("Previous");
@@ -1267,7 +1267,7 @@ public class DuelController {
         gameViewGraphic.fillPopUp(i, anchorPane, previousButton, nextButton, backButton, images);
     }
 
-    public void showRivalGraveyard(int number) {
+    public void showRivalGraveyard() {
         int[] i = {0};
         AnchorPane anchorPane = new AnchorPane();
         Button previousButton = new Button("Previous");
@@ -1712,6 +1712,10 @@ public class DuelController {
     }
 
     public void doNothing(int number) {
+
+    }
+
+    public void doNothing() {
 
     }
 
