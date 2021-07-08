@@ -712,8 +712,7 @@ public class GameViewGraphic extends Application implements Initializable {
                 clearCardDetails();
             imageView.setEffect(null);
             try {
-                if (selectedCard != null)
-                    DuelController.class.getMethod("unselectCard").invoke(duelController);
+                DuelController.class.getMethod("unselectCard").invoke(duelController);
                 selectedCard = null;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -779,17 +778,16 @@ public class GameViewGraphic extends Application implements Initializable {
             }
         });
         imageView.setOnMouseExited(event -> {
-            if (imageView.getEffect() != null && imageView.getEffect() instanceof DropShadow) {
+            if (selectedCard != null && selectedCard.getEffect() != null && selectedCard.getEffect() instanceof DropShadow) {
                 if (((DropShadow) imageView.getEffect()).getColor().equals(Color.BLACK)) {
                     if (imageView.getImage() == null) return;
                     clearCardDetails();
-                    System.out.println("cleared");
                     imageView.setEffect(null);
                     try {
-                        /*if (selectedCard.equals(imageView)) {
+                        if (selectedCard.equals(imageView)) {
                             DuelController.class.getMethod("unselectCard").invoke(duelController);
                             selectedCard = null;
-                        }*/
+                        }
                         updateBoard();
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -870,6 +868,7 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     private void setCardDetailsPart() {
+        description = new Label();
         description.setLayoutX(12);
         description.setLayoutY(338);
         description.setPrefWidth(167);
@@ -878,18 +877,21 @@ public class GameViewGraphic extends Application implements Initializable {
         description.setAlignment(Pos.TOP_LEFT);
         description.setFont(Font.font("Agency FB", 14));
         description.setWrapText(true);
+        attack = new Label();
         attack.setLayoutX(12);
         attack.setLayoutY(457);
         attack.setPrefWidth(149);
         attack.setPrefHeight(15);
         attack.setTextFill(Color.WHITE);
         attack.setFont(Font.font("Agency FB", 14));
+        defence = new Label();
         defence.setLayoutX(12);
         defence.setLayoutY(471);
         defence.setPrefWidth(149);
         defence.setPrefHeight(15);
         defence.setTextFill(Color.WHITE);
         defence.setFont(Font.font("Agency FB", 14));
+        selectedCardImageView = new ImageView();
         selectedCardImageView.setY(128);
         selectedCardImageView.setX(29);
         selectedCardImageView.setFitHeight(202);
@@ -1094,7 +1096,6 @@ public class GameViewGraphic extends Application implements Initializable {
     public void help() {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
         alert.setHeaderText("How to see card information?");
         alert.setContentText("You can move cursor on any card to see its information on the\nleft side!");
         alert.showAndWait();
