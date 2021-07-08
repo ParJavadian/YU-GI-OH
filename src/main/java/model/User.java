@@ -98,9 +98,11 @@ public class User {
         this.currentGameDeck = currentGameDeck;
     }
 
-//    public void setProfileNumber(int profileNumber) {
-//        this.profileNumber = profileNumber;
-//    }
+/*    public void setProfileNumber(int profileNumber) {
+        this.profileNumber = profileNumber;
+    }*/
+
+
 
     public String getUsername() {
         return this.username;
