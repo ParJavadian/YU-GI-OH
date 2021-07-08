@@ -3,6 +3,7 @@ package view;
 import controller.DeckController;
 import controller.ImportExportUserController;
 import controller.LogInControllerGraphic;
+import controller.SoundController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +37,7 @@ public class LogInViewGraphic extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         if ((LogInViewGraphic.instance == null) && (SignUpViewGraphic.instance == null)) {
+            SoundController.getInstance().playWhenStart();
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();
             importExportUserController.importProfileNumber();

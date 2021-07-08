@@ -3,16 +3,15 @@ package view;
 import controller.DeckController;
 import controller.ImportExportUserController;
 import controller.SignUpControllerGraphic;
+import controller.SoundController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 import model.Deck;
 import model.User;
@@ -39,6 +38,8 @@ public class SignUpViewGraphic extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         if (LogInViewGraphic.instance == null && (SignUpViewGraphic.instance == null)){
+
+            SoundController.getInstance().playWhenStart();
 
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();

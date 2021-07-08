@@ -22,10 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="karaye parmida">
-      <change afterPath="$PROJECT_DIR$/graveyard.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/next.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/swords.mp3" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="scoreboard va show graveyard">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/SoundCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileNumbers/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileNumbers/@AI@.txt" afterDir="false" />
@@ -40,12 +38,9 @@
       <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/DuelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DuelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SoundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SoundController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +56,7 @@
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -209,13 +205,6 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
-    </task>
-    <task id="LOCAL-00005" summary="model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED">
-      <created>1623946393997</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1623946393997</updated>
     </task>
     <task id="LOCAL-00006" summary="Yami SpellCard.java">
       <created>1624002906129</created>
@@ -543,7 +532,13 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۳" />
       <updated>1625691283824</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL‎۰۰۰۵۴" summary="scoreboard va show graveyard">
+      <created>1625734359085</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۴" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۴" />
+      <updated>1625734359086</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -563,7 +558,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="tributeForSummon debug" />
     <MESSAGE value="Full spell and trap zone" />
     <MESSAGE value="continuous spell card" />
     <MESSAGE value="suijin debug 1" />
@@ -588,7 +582,8 @@
     <MESSAGE value="Duel View 6" />
     <MESSAGE value="graveyard" />
     <MESSAGE value="karaye parmida" />
-    <option name="LAST_COMMIT_MESSAGE" value="karaye parmida" />
+    <MESSAGE value="scoreboard va show graveyard" />
+    <option name="LAST_COMMIT_MESSAGE" value="scoreboard va show graveyard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
