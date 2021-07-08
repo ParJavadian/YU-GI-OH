@@ -1,6 +1,5 @@
 package view;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import controller.DuelController;
 import controller.SoundController;
 import javafx.application.Application;
@@ -16,7 +15,6 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -75,7 +73,7 @@ public class GameViewGraphic extends Application implements Initializable {
     public Rectangle drawPhase, standByPhase, mainPhase1, battlePhase, mainPhase2, endPhase;
     private static Label description, attack, defence;
     private static ImageView selectedCardImageView;
-    public Popup popUpPlayerGraveyard, popUpRivalGraveyard;
+    public Popup popUpGraveyard;
     public static final Image unknown = new Image("images/Cards/Unknown.jpg");
 
 
@@ -454,13 +452,12 @@ public class GameViewGraphic extends Application implements Initializable {
 
     public void fillPopUp(int[] i, AnchorPane anchorPane, Button previousButton, Button nextButton, Button backButton, ArrayList<Image> images) {
 
-        popUpPlayerGraveyard = new Popup();
-
+        popUpGraveyard = new Popup();
         anchorPane.setStyle(" -fx-background-color: #174761;");
-        popUpPlayerGraveyard.setX(0);
-        popUpPlayerGraveyard.setY(0);
-        popUpPlayerGraveyard.setWidth(900);
-        popUpPlayerGraveyard.setHeight(600);
+        popUpGraveyard.setX(0);
+        popUpGraveyard.setY(0);
+        popUpGraveyard.setWidth(900);
+        popUpGraveyard.setHeight(600);
         anchorPane.setPrefWidth(388);
         anchorPane.setPrefHeight(293);
         anchorPane.setLayoutX(506);
@@ -534,18 +531,18 @@ public class GameViewGraphic extends Application implements Initializable {
             anchorPane.getChildren().add(backButton);
         }
 
-        popUpPlayerGraveyard.getContent().add(anchorPane);
+        popUpGraveyard.getContent().add(anchorPane);
 
 
-        if (!popUpPlayerGraveyard.isShowing()) {
-            popUpPlayerGraveyard.show(stage);
+        if (!popUpGraveyard.isShowing()) {
+            popUpGraveyard.show(stage);
         }
 
 
         EventHandler<ActionEvent> eventForBackButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
-                        popUpPlayerGraveyard.hide();
+                        popUpGraveyard.hide();
                     }
                 };
         backButton.setOnAction(eventForBackButton);
@@ -1000,11 +997,7 @@ public class GameViewGraphic extends Application implements Initializable {
 
     }
 
-    private void showRivalPopUp() {
-        popUpRivalGraveyard = new Popup();
-        ArrayList<Card> rivalGraveyard = (ArrayList<Card>) rival.getBoard().getCardsInGraveyard();
 
-    }
 
     public void setPhaseRectangleColors() throws InterruptedException {
         if (drawPhase == null) {
@@ -1070,6 +1063,11 @@ public class GameViewGraphic extends Application implements Initializable {
 //        alert.setContentText("You can click on each trap/spell card to summon it!");
 //        alert.showAndWait();
 
+
+    }
+
+
+    public void cheat(){
 
     }
 
