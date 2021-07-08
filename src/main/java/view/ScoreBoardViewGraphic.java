@@ -69,7 +69,12 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
 
 
         ArrayList<User> allUsers = new ArrayList<>(User.getAllUsers());
-        if (allUsers.contains(User.getUserByUsername("@AI@"))) allUsers.remove(User.getUserByUsername("@AI@"));
+//        System.out.println(allUsers.contains(User.getUserByUsername("@AI@")));
+//        System.out.println(allUsers.size());
+        while (allUsers.contains(User.getUserByUsername("@AI@"))) {
+            allUsers.remove(User.getUserByUsername("@AI@"));
+//            System.out.println(allUsers.size());
+        }
         Comparator<User> userComparator = Comparator.comparing(User::getScore, Comparator.reverseOrder()).thenComparing(User::getNickname);
 //        if (allUsers != null) {
         allUsers.sort(userComparator);
