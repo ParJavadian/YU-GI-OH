@@ -38,7 +38,7 @@ public class LogInViewGraphic extends Application {
     public void start(Stage stage) throws Exception {
         if ((LogInViewGraphic.instance == null) && (SignUpViewGraphic.instance == null)) {
 
-            //SoundController.getInstance().playWhenStart();
+            SoundController.getInstance().playWhenStart();
 
 
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();

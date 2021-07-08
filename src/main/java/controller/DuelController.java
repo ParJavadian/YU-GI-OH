@@ -711,6 +711,7 @@ public class DuelController {
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("Your monster card is destroyed and you received " + damage + " battle damage");
         }
+        SoundController.getInstance().playWhenAttacks();
         unselectCard();
         gameViewGraphic.resetSelectedCard();
     }
@@ -733,6 +734,7 @@ public class DuelController {
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("no card is destroyed and you received " + damage + " battle damage");
         }
+        SoundController.getInstance().playWhenAttacks();
         unselectCard();
         gameViewGraphic.resetSelectedCard();
     }
@@ -758,6 +760,7 @@ public class DuelController {
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed and you received " + damage + " battle damage");
         }
+        SoundController.getInstance().playWhenAttacks();
         unselectCard();
         gameViewGraphic.resetSelectedCard();
     }
@@ -979,6 +982,7 @@ public class DuelController {
             if (this.player.getUsername().equals("@AI@"))
                 handleAITurn();
         }
+        SoundController.getInstance().playWhenEnterNextPhase();
         gameViewGraphic.setPhaseRectangleColors();
         gameViewGraphic.updateBoard();
     }

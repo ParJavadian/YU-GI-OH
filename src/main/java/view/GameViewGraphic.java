@@ -493,7 +493,7 @@ public class GameViewGraphic extends Application implements Initializable {
         EventHandler<ActionEvent> eventForMuteUnmuteButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
-//                        SoundController.muteAndUnmute();
+                        SoundController.muteAndUnmute();
                         //fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
                     }
                 };
