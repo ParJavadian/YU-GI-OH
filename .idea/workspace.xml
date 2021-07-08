@@ -22,42 +22,50 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="muteUnmute">
-      <change afterPath="$PROJECT_DIR$/ProfileNumbers/kiana.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/kiana.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/import profile.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/PauseView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/PauseMenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/backgrounds/19.jpg" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="import export card">
+      <change afterPath="$PROJECT_DIR$/Cards/userone.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CardsIE/MIND_CRUSHTrapCard.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CardsIE/SUIJIIIIIINMonsterCard.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CardsIE/SUIJINMonsterCard.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deck/adoMainDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deck/athreeSideDeck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileNumbers/a.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileNumbers/aa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileNumbers/aaa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileNumbers/lolo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProfileNumbers/userone.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/aa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/aaa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/lolo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users/userone.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UsersDecks/aAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cards/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/a.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileNumbers/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileNumbers/@AI@.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileNumbers/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileNumbers/h.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileNumbers/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileNumbers/hamraz.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProfileNumbers/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileNumbers/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/a.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/a.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LogInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/SignUpControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SignUpControllerGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChangeProfilePhotoGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChangeProfilePhotoGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/ImportExportUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ImportExportUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Profile.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/LogInController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/SignUpControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/SignUpControllerGraphic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/ProfileViewForGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ProfileViewForGraphic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
     </list>
@@ -73,9 +81,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
-        <option value="Enum" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -107,7 +114,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../pacman3/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -128,17 +135,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.LogInViewGraphic">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GameViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.GameViewGraphic" />
       <module name="project_team_17" />
@@ -189,6 +185,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project_team_17" />
       <option name="PACKAGE_NAME" value="" />
@@ -224,6 +233,20 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
+    </task>
+    <task id="LOCAL-00005" summary="model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED">
+      <created>1623946393997</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623946393997</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Yami SpellCard.java">
+      <created>1624002906129</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624002906129</updated>
     </task>
     <task id="LOCAL-00007" summary="Forest &amp; Closed Forest&#10;SpellCard.java">
       <created>1624012207305</created>
@@ -538,25 +561,14 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۲" />
       <updated>1625688162787</updated>
     </task>
-    <task id="LOCAL‎۰۰۰۵۳" summary="karaye parmida">
-      <created>1625691283824</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۳" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۳" />
-      <updated>1625691283824</updated>
+    <task id="LOCAL-00053" summary="import export card">
+      <created>1625741053439</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1625741053440</updated>
     </task>
-    <task id="LOCAL‎۰۰۰۵۴" summary="scoreboard va show graveyard">
-      <created>1625734359085</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۴" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۴" />
-      <updated>1625734359086</updated>
-    </task>
-    <task id="LOCAL‎۰۰۰۵۵" summary="sound effect">
-      <created>1625735834888</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۵" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۵" />
-      <updated>1625735834888</updated>
-    </task>
-    <option name="localTasksCounter" value="56" />
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,6 +588,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="tributeForSummon debug" />
+    <MESSAGE value="Full spell and trap zone" />
     <MESSAGE value="continuous spell card" />
     <MESSAGE value="suijin debug 1" />
     <MESSAGE value="suijin debug 2" />
@@ -598,10 +612,8 @@
     <MESSAGE value="Duel View 5" />
     <MESSAGE value="Duel View 6" />
     <MESSAGE value="graveyard" />
-    <MESSAGE value="karaye parmida" />
-    <MESSAGE value="scoreboard va show graveyard" />
-    <MESSAGE value="sound effect" />
-    <option name="LAST_COMMIT_MESSAGE" value="sound effect" />
+    <MESSAGE value="import export card" />
+    <option name="LAST_COMMIT_MESSAGE" value="import export card" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -611,6 +623,10 @@
           <line>36</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

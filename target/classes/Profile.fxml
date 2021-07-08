@@ -14,17 +14,17 @@
                 <Image url="@images/profiles/profile.jpg" />
             </image>
         </ImageView>
-        <Button layoutX="121.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#changeNickname" prefHeight="34.0" prefWidth="148.0" text="Change Nickname" textFill="RED">
+        <Button layoutX="115.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#changeNickname" prefHeight="34.0" prefWidth="160.0" text="Change Nickname" textFill="RED">
             <font>
                 <Font name="Agency FB Bold" size="18.0" />
             </font>
         </Button>
-        <Button layoutX="121.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#changePassword" prefHeight="34.0" prefWidth="148.0" text="Change Password" textFill="RED">
+        <Button layoutX="115.0" layoutY="346.0" mnemonicParsing="false" onMouseClicked="#changePassword" prefHeight="34.0" prefWidth="160.0" text="Change Password" textFill="RED">
             <font>
                 <Font name="Agency FB Bold" size="18.0" />
             </font>
         </Button>
-        <Button layoutX="121.0" layoutY="412.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="34.0" prefWidth="148.0" text="Back" textFill="RED">
+        <Button layoutX="115.0" layoutY="459.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="34.0" prefWidth="160.0" text="Back" textFill="RED">
             <font>
                 <Font name="Agency FB Bold" size="18.0" />
             </font>
@@ -34,5 +34,10 @@
                 <Font name="Agency FB Bold" size="19.0" />
             </font>
         </Label>
+      <Button layoutX="115.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#changeProfilePhoto" prefHeight="34.0" prefWidth="160.0" text="Change Profile Photo" textFill="RED">
+         <font>
+            <Font name="Agency FB Bold" size="18.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

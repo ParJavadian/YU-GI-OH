@@ -49,7 +49,10 @@ public class SignUpViewGraphic extends Application {
             importExportUserController.importActiveDeck();
             Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
             User.getUserByUsername("@AI@").setActiveDeck(deck);
-
+//            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
+//            MediaPlayer mp = new MediaPlayer(media);
+//            mp.setCycleCount(AudioClip.INDEFINITE);
+//            mp.play();
         }
 
         SignUpViewGraphic.stage = stage;

@@ -38,16 +38,12 @@ public class User {
         if (isCalledFromSignUpMenu) {
             setScore(0);
             setMoney(100000);
-            this.profileNumber = getRandomProfileNumber();
+//            this.profileNumber = getRandomProfileNumber();
         }
         this.profileImage = null;
 //        setScore(0);
 //        setMoney(100000);
         allUsers.add(this);
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-        importExportUserController.exportProfileNumber(username, profileNumber);
-        importExportUserController.exportNewUser(User.getUserByUsername(username));
-        importExportUserController.exportAllUsers(User.getAllUsers());
     }
 
 

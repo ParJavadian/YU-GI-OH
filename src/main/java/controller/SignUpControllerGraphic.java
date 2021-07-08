@@ -8,6 +8,7 @@ import view.MainViewGraphic;
 import view.SignUpViewGraphic;
 
 import java.util.List;
+import java.util.Random;
 
 public class SignUpControllerGraphic {
     public static void login(Stage stage) throws Exception {
@@ -40,7 +41,14 @@ public class SignUpControllerGraphic {
                 }
             }
         }
+
         User user = new User(username, nickname, password,true);
+        int profileNumber = user.getRandomProfileNumber();
+        user.setProfileNumber(profileNumber);
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+        importExportUserController.exportProfileNumber(username, profileNumber);
+        importExportUserController.exportNewUser(User.getUserByUsername(username));
+        importExportUserController.exportAllUsers(User.getAllUsers());
         SignUpViewGraphic.getInstance().showAccountCreatedPopUp();
         MainViewGraphic.getInstance().setCurrentUser(user);
         MainViewGraphic.getInstance().start(stage);
@@ -49,4 +57,5 @@ public class SignUpControllerGraphic {
     public static boolean passwordsAreEqual(String firstPassword,String secondPassword) {
         return firstPassword.equals(secondPassword);
     }
+
 }

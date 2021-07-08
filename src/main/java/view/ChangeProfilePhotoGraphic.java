@@ -63,5 +63,6 @@ public class ChangeProfilePhotoGraphic extends Application {
         String path = file.getPath();
         System.out.println("path = " + path);
         Image image = new Image(fileInputStream);
+        user.setProfileImage(image);
     }
 }
