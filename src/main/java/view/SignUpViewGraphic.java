@@ -1,9 +1,6 @@
 package view;
 
-import controller.DeckController;
-import controller.ImportExportUserController;
-import controller.SignUpControllerGraphic;
-import controller.SoundController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import model.Deck;
-import model.User;
+import model.*;
 
 import java.net.URL;
 
@@ -40,6 +36,7 @@ public class SignUpViewGraphic extends Application {
         if (LogInViewGraphic.instance == null && (SignUpViewGraphic.instance == null)){
 
             SoundController.getInstance().playWhenStart();
+
 
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();
@@ -87,6 +84,10 @@ public class SignUpViewGraphic extends Application {
 
 
         //todo
+//        ImportExportCardController.exportMonsterCardForCsv(MonsterCard.AXE_RAIDER);
+//        ImportExportCardController.exportTrapCardForCsv(TrapCard.MAGIC_JAMMER);
+//        ImportExportCardController.exportSpellCardForCsv(SpellCard.MAGNUM_SHIELD);
+        //System.out.println(ImportExportCardController.importCardForCsv("MAGIC_JAMMER"));
 
         SignUpControllerGraphic.login(stage);
     }
