@@ -65,7 +65,7 @@ public class GameViewGraphic extends Application implements Initializable {
     private ImageView graveyardFirstCard = new ImageView();
     private ImageView graveyardSecondCard = new ImageView();
     private ImageView graveyardThirdCard = new ImageView();
-    public ImageView selectedCard, imageViewForCardShuffle = new ImageView();
+    public ImageView selectedCard, imageViewForCardShuffle = new ImageView(),imageViewForCrown = new ImageView();
     @FXML
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
     private static Label playerUsername1, playerNickname1, playerLifePoint1, rivalUsername1, rivalNickname1, rivalLifePoint1;
@@ -1278,6 +1278,11 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     private void setSword(){
+        imageViewForCrown.setFitWidth(184);
+        imageViewForCrown.setFitHeight(117);
+        imageViewForCrown.setX(416);
+        imageViewForCrown.setY(234);
+        imageViewForCrown.toFront();
         imageViewForSword.setFitWidth(111);
         imageViewForSword.setFitHeight(166);
         imageViewForSword.setX(455);
@@ -1290,9 +1295,12 @@ public class GameViewGraphic extends Application implements Initializable {
         imageViewForCardShuffle.setFitHeight(62);
         imageViewForCardShuffle.setX(724);
         imageViewForCardShuffle.setY(446);
-        if(!root.getChildren().contains(imageViewForCardShuffle))
-            root.getChildren().add(imageViewForCardShuffle);
+        if(!root.getChildren().contains(imageViewForCrown))
+            root.getChildren().add(imageViewForCrown);
+        if(!root.getChildren().contains(imageViewForCrown))
+            root.getChildren().add(imageViewForCrown);
     }
+
     public void startBattlePhaseWithSword(ImageView imageView) {
         System.out.println("1" + imageView);
         SwordController animation = new SwordController(imageView);
@@ -1323,6 +1331,17 @@ public class GameViewGraphic extends Application implements Initializable {
 
     public void crownAnimation(ImageView imageView) {
         CrownController animation = new CrownController(imageView);
+        animation.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                imageView.setImage(null);
+            }
+        });
+        animation.play();
+    }
+
+    public void lightningAnimation(ImageView imageView) {
+        LightningController animation = new LightningController(imageView);
         animation.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {

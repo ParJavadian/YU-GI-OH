@@ -17,7 +17,7 @@ public class DeckSuffleController extends Transition {
     @Override
     protected void interpolate(double v) {
         int frame = (int) Math.floor(v * 5);
-        imageView.setImage( new Image("/images/explosion/" + frame + ".png"));
+        imageView.setImage( new Image("/images/shuffle/" + frame + ".png"));
     }
 
 }
