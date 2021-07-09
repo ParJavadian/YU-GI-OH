@@ -1,8 +1,6 @@
 package view;
 
-import controller.DuelController;
-import controller.SoundController;
-import controller.SwordController;
+import controller.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -67,7 +65,7 @@ public class GameViewGraphic extends Application implements Initializable {
     private ImageView graveyardFirstCard = new ImageView();
     private ImageView graveyardSecondCard = new ImageView();
     private ImageView graveyardThirdCard = new ImageView();
-    public ImageView selectedCard;
+    public ImageView selectedCard, imageViewForCardShuffle = new ImageView();
     @FXML
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
     private static Label playerUsername1, playerNickname1, playerLifePoint1, rivalUsername1, rivalNickname1, rivalLifePoint1;
@@ -1287,6 +1285,13 @@ public class GameViewGraphic extends Application implements Initializable {
         imageViewForSword.toFront();
         if(!root.getChildren().contains(imageViewForSword))
             root.getChildren().add(imageViewForSword);
+        imageViewForCardShuffle.setImage( new Image("/images/shuffle/0.png"));
+        imageViewForCardShuffle.setFitWidth(73);
+        imageViewForCardShuffle.setFitHeight(62);
+        imageViewForCardShuffle.setX(724);
+        imageViewForCardShuffle.setY(446);
+        if(!root.getChildren().contains(imageViewForCardShuffle))
+            root.getChildren().add(imageViewForCardShuffle);
     }
     public void startBattlePhaseWithSword(ImageView imageView) {
         System.out.println("1" + imageView);
@@ -1300,6 +1305,31 @@ public class GameViewGraphic extends Application implements Initializable {
         });
         animation.play();
         System.out.println("3" + imageView);
+    }
+
+
+
+    public void deckShuffleAnimation(ImageView imageView) {
+
+        DeckSuffleController animation = new DeckSuffleController(imageView);
+        animation.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                imageView.setImage(null);
+            }
+        });
+        animation.play();
+    }
+
+    public void crownAnimation(ImageView imageView) {
+        CrownController animation = new CrownController(imageView);
+        animation.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                imageView.setImage(null);
+            }
+        });
+        animation.play();
     }
 
 
