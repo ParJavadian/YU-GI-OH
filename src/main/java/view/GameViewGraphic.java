@@ -2,6 +2,7 @@ package view;
 
 import controller.DuelController;
 import controller.SoundController;
+import controller.SwordController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -51,7 +52,7 @@ public class GameViewGraphic extends Application implements Initializable {
     private static ArrayList<Card> cards = new ArrayList<>();
     private static ArrayList<Boolean> conditions = new ArrayList<>();
     private static AnchorPane root;
-    public static ImageView directAttackArea = new ImageView();
+    public static ImageView directAttackArea = new ImageView(), imageViewForSword = new ImageView();
     public static ImageView imageView1Monster1 = new ImageView(), imageView1Monster2 = new ImageView(), imageView1Monster3 = new ImageView(), imageView1Monster4 = new ImageView(), imageView1Monster5 = new ImageView();
     public static ImageView imageView2Monster1 = new ImageView(), imageView2Monster2 = new ImageView(), imageView2Monster3 = new ImageView(), imageView2Monster4 = new ImageView(), imageView2Monster5 = new ImageView();
     public static ImageView imageView1SpellAndTrap1 = new ImageView(), imageView1SpellAndTrap2 = new ImageView(), imageView1SpellAndTrap3 = new ImageView(), imageView1SpellAndTrap4 = new ImageView(), imageView1SpellAndTrap5 = new ImageView();
@@ -169,9 +170,9 @@ public class GameViewGraphic extends Application implements Initializable {
                     else if (child.getId().equals("rivalLifePoint"))
                         rivalLifePoint = rivalLifePoint1;
                 } else if (child instanceof ProgressBar) {
-                    if (child.getId().equals("playerProgressBar1"))
+                    if (child.getId().equals("playerProgressBar"))
                         playerProgressBar = playerProgressBar1;
-                    else if (child.getId().equals("rivalProgressBar1"))
+                    else if (child.getId().equals("rivalProgressBar"))
                         rivalProgressBar = rivalProgressBar1;
                 }
             }
@@ -438,7 +439,7 @@ public class GameViewGraphic extends Application implements Initializable {
         AnchorPane anchorPane = new AnchorPane();
         Button resumeButton = new Button("Resume");
         Button muteUnmuteButton = new Button("Mute/Unmute");
-        Button endGame = new Button("EndGame");
+        Button endGame = new Button("Surrender");
 
         pausePopup = new Popup();
         URL url = getClass().getResource("/images/backgrounds/19.jpg");
@@ -602,7 +603,6 @@ public class GameViewGraphic extends Application implements Initializable {
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
                         popUpGraveyard.hide();
-                        //System.out.println("hide graveyard");
                     }
                 };
         backButton.setOnAction(eventForBackButton);
@@ -898,11 +898,11 @@ public class GameViewGraphic extends Application implements Initializable {
 
     }
 
-    public void setBar() { //todo harja lifepoint taghyir kard bayad update beshe
-        if (rivalProgressBar != null && rival != null)
-            rivalProgressBar.setProgress((double) rival.getLifePoint() / 8000);
-        if (playerProgressBar != null && player != null)
-            playerProgressBar.setProgress((double) player.getLifePoint() / 8000);
+    public void setBar() {
+        if (rivalProgressBar != null)
+            rivalProgressBar.setProgress((double) Integer.parseInt(rivalLifePoint.getText()) / 8000);
+        if (playerProgressBar != null)
+            playerProgressBar.setProgress((double) Integer.parseInt(playerLifePoint.getText()) / 8000);
     }
 
     private void setCardDetailsPart() {
@@ -1174,5 +1174,124 @@ public class GameViewGraphic extends Application implements Initializable {
         rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
         setBar();
     }
+
+    public void endGamePopup(String labelText) {
+        Popup endGamePopup = new Popup();
+
+        Label label = new Label();
+
+        AnchorPane anchorPane = new AnchorPane();
+        Button startNewGameButton = new Button("Restart Game");
+        Button endGameButton = new Button("Go To MainMenu");
+
+        URL url = getClass().getResource("/images/backgrounds/31.jpg");
+        Image image = new Image(String.valueOf(url));
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(1010);
+        imageView.setFitHeight(645);
+//        pausePopup.setX(0);
+//        pausePopup.setY(20);
+        imageView.setImage(image);
+        anchorPane.getChildren().add(imageView);
+        //anchorPane.setBackground("/images/backgrounds/19.jpg");
+
+        //anchorPane.setStyle(" -fx-background-color: #ac7339;");
+        endGamePopup.setX(0);
+        endGamePopup.setY(0);
+        endGamePopup.setWidth(900);
+        endGamePopup.setHeight(600);
+        anchorPane.setPrefWidth(1010);
+        anchorPane.setPrefHeight(645);
+        anchorPane.setLayoutX(185);
+        anchorPane.setLayoutY(14);
+
+        label.setLayoutX(350);
+        label.setLayoutY(200);
+        label.setText(labelText);
+        Font font = Font.font("Agency FB", 18);
+        label.setFont(font);
+        label.setTextFill(Paint.valueOf("#007a99"));
+        if (!anchorPane.getChildren().contains(label)) {
+            anchorPane.getChildren().add(label);
+        }
+
+
+        startNewGameButton.setLayoutX(430);
+        startNewGameButton.setLayoutY(300);
+        startNewGameButton.setFont(font);
+        startNewGameButton.setTextFill(Paint.valueOf("#007a99"));
+        if (!anchorPane.getChildren().contains(startNewGameButton)) {
+            anchorPane.getChildren().add(startNewGameButton);
+        }
+
+
+        endGameButton.setLayoutX(450);
+        endGameButton.setLayoutY(400);
+        endGameButton.setFont(font);
+        endGameButton.setTextFill(Paint.valueOf("#007a99"));
+
+        if (!anchorPane.getChildren().contains(endGameButton)) {
+            anchorPane.getChildren().add(endGameButton);
+        }
+
+        endGamePopup.getContent().add(anchorPane);
+
+
+        if (!endGamePopup.isShowing()) {
+            endGamePopup.show(stage);
+        }
+
+
+//        Popup finalPausePopup = pausePopup;
+        Popup finalEndGamePopup = endGamePopup;
+//        EventHandler<ActionEvent> eventForResumeButton =
+//                new EventHandler<ActionEvent>() {
+//                    public void handle(ActionEvent e) {
+//                        finalEndGamePopup.hide();
+//                    }
+//                };
+//        resumeButton.setOnAction(eventForResumeButton);
+
+        EventHandler<ActionEvent> eventForRestartGameButton =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e) {
+                        SoundController.muteAndUnmute();
+                        //fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
+                    }
+                };
+        startNewGameButton.setOnAction(eventForRestartGameButton);
+
+        EventHandler<ActionEvent> eventForEndButton =
+                new EventHandler<ActionEvent>() {
+                    public void handle(ActionEvent e) {
+                        try {
+                            duelController.surrender();
+                            MainViewGraphic.getInstance().start(stage);
+                            finalEndGamePopup.hide();
+                        } catch (Exception exception) {
+                            exception.printStackTrace();
+                        }
+                    }
+                };
+        endGameButton.setOnAction(eventForEndButton);
+    }
+
+
+    public void startBattlePhaseWithSword(ImageView imageView) {
+        imageView.setFitWidth(111);
+        imageView.setFitHeight(166);
+        imageView.setX(455);
+        imageView.setY(216);
+        SwordController animation = new SwordController(imageView);
+        animation.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                imageView.setImage(null);
+            }
+        });
+        animation.play();
+    }
+
+
 
 }
