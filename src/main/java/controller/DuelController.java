@@ -484,9 +484,8 @@ public class DuelController {
                 /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
                 unselectCard();
                 hasSummonedOrSetInThisTurn = true;*/
-                return;
             }
-            if (monsterCard.getLevel() < 7) {
+            else if (monsterCard.getLevel() < 7) {
                 if (getCountOfMonsterCardsInGround(this.player) < 1) {
                     throw new InsufficientForTribute();
                 } else {
@@ -655,6 +654,7 @@ public class DuelController {
             throw new CanNotFlipSummon();
         this.player.getBoard().changeMonsterPosition(this.selectedCard.getNumber(), "OO");
         ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.FLIP_SUMMONED, this.player, this.selectedCard.getNumber());
+        gameViewGraphic.lightAnimation(getImageViewByNumberForExplode(this.selectedCard.getNumber()+5));
         unselectCard();
         DuelView.printText("flip summoned successfully");
         getBoard();
@@ -932,7 +932,7 @@ public class DuelController {
             winner.increaseMoney(1000 + winner.getLifePoint());
             loser.increaseMoney(100);
             shouldEndGameForView = true;
-            gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+            GameViewGraphic.printInformation(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
             DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
         }
         if (roundNumber == 3) {
@@ -946,8 +946,8 @@ public class DuelController {
                 loser.increaseMoney(300);
                 shouldEndGameForView = true;
                 gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore() + "\n" + winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
-                DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-                DuelView.printText(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+                GameViewGraphic.printInformation(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                gameViewGraphic.endGamePopup(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else if (roundCounter == 3) {
                 int winnerLP1 = this.rounds[0].getLifePointByUser(winner);
                 int winnerLP2 = this.rounds[1].getLifePointByUser(winner);
@@ -958,9 +958,9 @@ public class DuelController {
                 winner.increaseMoney(3000 + (3 * maxLP));
                 loser.increaseMoney(300);
                 shouldEndGameForView = true;
-                gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore() + "\n" + winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
-                DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-                DuelView.printText(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+//                gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore() + "\n" + winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
+                GameViewGraphic.printInformation(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                gameViewGraphic.endGamePopup(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else {
                 gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());

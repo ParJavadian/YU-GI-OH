@@ -228,7 +228,6 @@ public class GameViewGraphic extends Application implements Initializable {
             battlePhase1 = battlePhase;
             mainPhase21 = mainPhase2;
             endPhase1 = endPhase;
-
         }
         if (duelController != null) {
             setImagesAndCards();
@@ -547,9 +546,9 @@ public class GameViewGraphic extends Application implements Initializable {
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
                         try {
-                            duelController.surrender();
-                            MainViewGraphic.getInstance().start(stage);
                             finalPausePopup.hide();
+                            duelController.surrender();
+//                            MainViewGraphic.getInstance().start(stage);
                         } catch (Exception exception) {
                             exception.printStackTrace();
                         }
@@ -1200,6 +1199,7 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void endGamePopup(String labelText) {
+        GameViewGraphic thisGame = this;
         Popup endGamePopup = new Popup();
 
         Label label = new Label();
@@ -1268,8 +1268,7 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
 //        Popup finalPausePopup = pausePopup;
-        Popup finalEndGamePopup = endGamePopup;
-//        EventHandler<ActionEvent> eventForResumeButton =
+        //        EventHandler<ActionEvent> eventForResumeButton =
 //                new EventHandler<ActionEvent>() {
 //                    public void handle(ActionEvent e) {
 //                        finalEndGamePopup.hide();
@@ -1280,7 +1279,17 @@ public class GameViewGraphic extends Application implements Initializable {
         EventHandler<ActionEvent> eventForRestartGameButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
-                        //todo by parmida
+                        /*GameViewGraphic gameViewGraphic = new GameViewGraphic();
+                        gameViewGraphic.setPlayer(player);
+                        gameViewGraphic.setRival(rival);
+                        gameViewGraphic.setNumberOfRounds(numberOfRounds);*/
+                        thisGame.setDuelController();
+                        try {
+                            endGamePopup.hide();
+                            thisGame.start(stage);
+                        } catch (Exception exception) {
+                            System.out.println(exception.getMessage());
+                        }
                     }
                 };
         startNewGameButton.setOnAction(eventForRestartGameButton);
@@ -1290,7 +1299,7 @@ public class GameViewGraphic extends Application implements Initializable {
                     public void handle(ActionEvent e) {
                         try {
                             MainViewGraphic.getInstance().start(stage);
-                            finalEndGamePopup.hide();
+                            endGamePopup.hide();
                         } catch (Exception exception) {
                             exception.printStackTrace();
                         }
@@ -1393,6 +1402,7 @@ public class GameViewGraphic extends Application implements Initializable {
                             exception.printStackTrace();
                         }
                         duelController.hasSummonedOrSetInThisTurn = true;
+                        break;
                     case 3:
                         duelController.getPlayer().getBoard().getCardsInHand().remove((int) duelController.selectedCard.getNumber());
                         try {
@@ -1410,11 +1420,13 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void lightAnimation(ImageView imageView) {
+        Image image = imageView.getImage();
         LightController animation = new LightController(imageView);
         animation.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                imageView.setImage(null);
+                imageView.setImage(image);
+                updateBoard();
             }
         });
         animation.play();
