@@ -1,6 +1,7 @@
 package view;
 
 import controller.DeckController;
+import controller.SoundController;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -139,6 +140,7 @@ public class RemoveCardFromSideDeckView extends Application implements Initializ
     public void removeCardFromDeck(Card card, boolean isSide) {
         try{
             DeckController.getInstance(user).removeCardFromDeck(card.getNamePascalCase(), deck.getDeckName(), isSide);
+            SoundController.getInstance().playWhenMovesCard();
             resetImagesAndCards();
         }
         catch (Exception e){

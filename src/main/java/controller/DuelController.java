@@ -3,6 +3,7 @@ package controller;
 import controller.exeption.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import model.*;
 import view.DuelView;
@@ -679,6 +680,20 @@ public class DuelController {
         } else throw new CanNotAttackThisCard();
     }
 
+    private ImageView getImageViewByNumberForExplode(int number){
+        if(number==0) return GameViewGraphic.imageView2Monster1;
+        if(number==1) return GameViewGraphic.imageView2Monster2;
+        if(number==2) return GameViewGraphic.imageView2Monster3;
+        if(number==3) return GameViewGraphic.imageView2Monster4;
+        if(number==4) return GameViewGraphic.imageView2Monster5;
+        if(number==5) return GameViewGraphic.imageView1Monster1;
+        if(number==6) return GameViewGraphic.imageView1Monster2;
+        if(number==7) return GameViewGraphic.imageView1Monster3;
+        if(number==8) return GameViewGraphic.imageView1Monster4;
+        if(number==9) return GameViewGraphic.imageView1Monster5;
+        else return null;
+    }
+
     private void attackMonsterOO(int monsterNumber) throws Exception {
         int attackerAttack = this.playerAttackPoints[this.selectedCard.getNumber()];
         int targetAttack = this.rivalAttackPoints[monsterNumber];
@@ -686,12 +701,18 @@ public class DuelController {
             int damage = attackerAttack - targetAttack;
             if (!this.rival.getBoard().getMonsterByNumber(monsterNumber).equals(MonsterCard.EXPLODER_DRAGON))
                 this.rival.decreaseLifePoint(damage);
+            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(monsterNumber);
+            gameViewGraphic.explode(gameViewGraphic.cardToExplode);
             this.rival.getBoard().putInGraveYard(this.rival.getBoard().getMonsterByNumber(monsterNumber));
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
             this.rival.getBoard().removeMonster(monsterNumber, this, rival);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("your opponent’s monster is destroyed and your opponent receives " + damage + " battle damage");
         } else if (attackerAttack == targetAttack) {
+            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(monsterNumber);
+            gameViewGraphic.explode(gameViewGraphic.cardToExplode);
+            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(this.selectedCard.getNumber()+5);
+            gameViewGraphic.explode(gameViewGraphic.cardToExplode);
             this.rival.getBoard().putInGraveYard(this.rival.getBoard().getMonsterByNumber(monsterNumber));
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
             this.rival.getBoard().removeMonster(monsterNumber, this, rival);
@@ -705,6 +726,8 @@ public class DuelController {
         } else {
             int damage = targetAttack - attackerAttack;
             this.player.decreaseLifePoint(damage);
+            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(this.selectedCard.getNumber()+5);
+            gameViewGraphic.explode(gameViewGraphic.cardToExplode);
             ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.REMOVE_FROM_MONSTERZONE, this.player, this.selectedCard.getNumber());
             this.player.getBoard().putInGraveYard(this.selectedCard.getCard());
             this.player.getBoard().removeMonster(this.selectedCard.getNumber(), this, player);
@@ -724,6 +747,8 @@ public class DuelController {
         if (attackerAttack > target.getDefence()) {
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
             this.rival.getBoard().removeMonster(monsterNumber, this, rival);
+            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(monsterNumber);
+            gameViewGraphic.explode(gameViewGraphic.cardToExplode);
             this.rival.getBoard().putInGraveYard(target);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             DuelView.printText("the defense position monster is destroyed");
@@ -749,6 +774,8 @@ public class DuelController {
         this.rival.getBoard().changeMonsterPosition(monsterNumber, "DO");
         ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.FLIP_SUMMONED, this.rival, this.selectedCard.getNumber());
         if (attackerAttack > target.getDefence()) {
+            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(monsterNumber);
+            gameViewGraphic.explode(gameViewGraphic.cardToExplode);
             this.rival.getBoard().putInGraveYard(target);
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
             this.rival.getBoard().removeMonster(monsterNumber, this, rival);
@@ -773,13 +800,15 @@ public class DuelController {
         if (this.selectedCard == null) throw new NoCardSelected();
         if (!this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE)) throw new CanNotAttack();
         if (!this.phase.equals(Phase.BATTLE_PHASE)) throw new ImproperPhase();
+        /*if(actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).contains(ActionsDoneInTurn.ATTACK))
+            throw new AlreadyAttacked();*/
         int countOfMonsterCardsInGround = getCountOfMonsterCardsInGround(this.rival);
         if (countOfMonsterCardsInGround == 0) {
             rival.decreaseLifePoint(((MonsterCard) this.selectedCard.getCard()).getAttack());
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             unselectCard();
-            System.out.println("1");
             gameViewGraphic.setLifePoints();
+            manageEndGame();
         } else throw new CanNotAttackDirectly();
     }
 
@@ -960,6 +989,7 @@ public class DuelController {
         } else if (phase.equals(Phase.MAIN_PHASE1)) {
             if (!isStartTurn) {
                 this.phase = Phase.BATTLE_PHASE;
+                gameViewGraphic.startBattlePhaseWithSword(GameViewGraphic.imageViewForSword);
                 try {
                     gameViewGraphic.startBattleNoCardSelected();
                 } catch (Exception exception) {

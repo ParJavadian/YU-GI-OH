@@ -15,7 +15,8 @@ public class SwordController extends Transition {
 
     @Override
     protected void interpolate(double v) {
-        int frame = (int) Math.floor(v * 6);
+        System.out.println("1");
+        int frame = (int) Math.floor(v * 5);
         imageView.setImage( new Image("/images/sword/" + frame + ".png"));
     }
 }

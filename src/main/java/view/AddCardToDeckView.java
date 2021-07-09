@@ -1,6 +1,7 @@
 package view;
 
 import controller.DeckController;
+import controller.SoundController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -89,6 +90,7 @@ public class AddCardToDeckView extends Application implements Initializable {
         try {
             DeckController.getInstance(user).addCardToDeck(card.getNamePascalCase(), deck.getDeckName(), isSide, false);
             resetImagesAndCards();
+            SoundController.getInstance().playWhenMovesCard();
         } catch (Exception e) {
             printTextError(e.getMessage());
         }
@@ -113,6 +115,7 @@ public class AddCardToDeckView extends Application implements Initializable {
     public void addCardToDeckByCheating(Card card, boolean isSide){
         try {
             DeckController.getInstance(user).addCardToDeck(card.getNamePascalCase(), deck.getDeckName(), isSide, true);
+            SoundController.getInstance().playWhenMovesCard();
             resetImagesAndCards();
         } catch (Exception e) {
             printTextError(e.getMessage());

@@ -62,7 +62,7 @@ public class ChooseDuelView extends Application {
         }
         else {
             RockPaperScissorView.getInstance().setCurrentUser(playerOne);
-            RockPaperScissorAIView.getInstance().setNumberOfRounds(numberOfRounds);
+            RockPaperScissorView.getInstance().setNumberOfRounds(numberOfRounds);
             RockPaperScissorView.getInstance().setPlayerTwoName(playerTwoName);
             RockPaperScissorView.getInstance().start(stage);
         }

@@ -13,9 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -30,11 +28,8 @@ import model.*;
 import model.Card;
 import model.MonsterCard;
 import model.User;
-import org.w3c.dom.events.Event;
 
-import java.io.File;
 import java.lang.reflect.Method;
-import java.net.FileNameMap;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -86,6 +81,7 @@ public class GameViewGraphic extends Application implements Initializable {
     private static final ImageView selectedCardImageView = new ImageView();
     public Popup popUpGraveyard;
     public static final Image unknown = new Image("images/Cards/Unknown.jpg");
+    public ImageView cardToExplode = new ImageView();
 
 
     /*public GameViewGraphic(User player,User rival,int numberOfRounds){
@@ -227,9 +223,9 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void setDirectAttackArea(){
-        directAttackArea.setImage(new Image("images/profiles/profile.jpg"));
+//        directAttackArea.setImage(new Image("images/profiles/profile.jpg"));
         directAttackArea.setFitWidth(423);
-        directAttackArea.setFitHeight(72);
+        directAttackArea.setFitHeight(150);
         directAttackArea.setX(300);
         directAttackArea.setY(0);
     }
@@ -818,13 +814,17 @@ public class GameViewGraphic extends Application implements Initializable {
                 }
             }
         });
+        if(imageView.equals(directAttackArea))
+            System.out.println("directAttackArea");
         imageView.setOnMouseClicked(event -> {
+            System.out.println("ok");
             if (imageView.getImage() == null && !imageView.equals(directAttackArea)) {
                 System.out.println("returned because of null image");
                 return;
             }
             if (event.getButton().equals(MouseButton.PRIMARY)) {
                 if(imageView.equals(directAttackArea)){
+                    System.out.println("entered direct attack area");
                     try {
                         onMouseClickedMethodMonster.invoke(duelController,number1);
                         selectedCard.setEffect(null);
