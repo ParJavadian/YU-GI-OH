@@ -11,13 +11,17 @@ public class DeckSuffleController extends Transition {
 
     public DeckSuffleController(ImageView imageView) {
         this.imageView = imageView;
-        setCycleDuration(Duration.millis(500));
+        setCycleDuration(Duration.millis(1000));
     }
 
     @Override
     protected void interpolate(double v) {
-        int frame = (int) Math.floor(v * 5);
-        imageView.setImage( new Image("/images/explosion/" + frame + ".png"));
+        int frame = (int) Math.floor(v * 6);
+        try {
+            imageView.setImage(new Image("/images/shuffle/" + frame + ".png"));
+        } catch (Exception ignored) {
+
+        }
     }
 
 }

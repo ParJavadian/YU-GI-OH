@@ -22,26 +22,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="animation + end game">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/DeckSuffleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/5.png" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View battlePhase7">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/direct_attack.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckSuffleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckSuffleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf1.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf2.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf3.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf4.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf5.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DuelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DuelController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +82,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Brick Breaker/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../pacman3/src" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -206,6 +199,20 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
+    </task>
+    <task id="LOCAL-00006" summary="Yami SpellCard.java">
+      <created>1624002906129</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624002906129</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Forest &amp; Closed Forest&#10;SpellCard.java">
+      <created>1624012207305</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1624012207305</updated>
     </task>
     <task id="LOCAL-00008" summary="debug import user">
       <created>1624093680512</created>
@@ -526,7 +533,7 @@
       <option name="project" value="LOCAL" />
       <updated>1625766784427</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,6 +553,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Full spell and trap zone" />
+    <MESSAGE value="continuous spell card" />
     <MESSAGE value="suijin debug 1" />
     <MESSAGE value="suijin debug 2" />
     <MESSAGE value="gate gaurdian debug" />
@@ -568,10 +577,30 @@
     <MESSAGE value="Duel View 6" />
     <MESSAGE value="graveyard" />
     <MESSAGE value="karaye parmida" />
-    <MESSAGE value="scoreboard va show graveyard" />
-    <MESSAGE value="sound effect" />
-    <MESSAGE value="commit molayitar" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit molayitar" />
+    <MESSAGE value="Duel View battlePhase3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Duel View battlePhase3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom" timestamp="1625840957104">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625840957104" />
+    <state width="1237" height="159" key="GridCell.Tab.0.center" timestamp="1625840957104">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625840957104" />
+    <state width="1237" height="159" key="GridCell.Tab.0.left" timestamp="1625840957104">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625840957104" />
+    <state width="1237" height="159" key="GridCell.Tab.0.right" timestamp="1625840957104">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625840957104" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625766818248">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625766818248" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

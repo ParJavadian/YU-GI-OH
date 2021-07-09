@@ -8,7 +8,7 @@ import javafx.util.Duration;
 public class CrownController extends Transition {
     private ImageView imageView;
 
-    public CrownController(ImageView imageView){
+    public CrownController(ImageView imageView) {
         this.imageView = imageView;
         setCycleDuration(Duration.millis(500));
     }
@@ -16,8 +16,12 @@ public class CrownController extends Transition {
 
     @Override
     protected void interpolate(double v) {
-        int frame = (int) Math.floor(v * 3);
-        imageView.setImage( new Image("/images/crown/" + frame + ".png"));
+        int frame = (int) Math.floor(v * 4);
+        try {
+            imageView.setImage(new Image("/images/crown/" + frame + ".png"));
+        } catch (Exception ignored) {
+
+        }
     }
 
 
