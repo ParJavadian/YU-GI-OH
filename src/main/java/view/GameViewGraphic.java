@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -17,6 +18,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -459,14 +463,12 @@ public class GameViewGraphic extends Application implements Initializable {
         imageView.setFitWidth(1010);
         imageView.setFitHeight(645);
         pausePopup.setX(0);
-        pausePopup.setY(20);
+        pausePopup.setY(60);
         imageView.setImage(image);
         anchorPane.getChildren().add(imageView);
         //anchorPane.setBackground("/images/backgrounds/19.jpg");
 
         //anchorPane.setStyle(" -fx-background-color: #ac7339;");
-        pausePopup.setX(0);
-        pausePopup.setY(0);
         pausePopup.setWidth(900);
         pausePopup.setHeight(600);
         anchorPane.setPrefWidth(1010);
@@ -1209,7 +1211,7 @@ public class GameViewGraphic extends Application implements Initializable {
 
         //anchorPane.setStyle(" -fx-background-color: #ac7339;");
         endGamePopup.setX(0);
-        endGamePopup.setY(0);
+        endGamePopup.setY(60);
         endGamePopup.setWidth(900);
         endGamePopup.setHeight(600);
         anchorPane.setPrefWidth(1010);
@@ -1217,30 +1219,31 @@ public class GameViewGraphic extends Application implements Initializable {
         anchorPane.setLayoutX(185);
         anchorPane.setLayoutY(14);
 
-        label.setLayoutX(350);
-        label.setLayoutY(200);
+        label.setLayoutX(300);
+        label.setLayoutY(240);
+        label.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0, 0.9), new CornerRadii(5.0), new Insets(-5.0))));
         label.setText(labelText);
-        Font font = Font.font("Agency FB", 18);
+        Font font = Font.font("Agency FB", 24);
         label.setFont(font);
-        label.setTextFill(Paint.valueOf("#007a99"));
+        label.setTextFill(Paint.valueOf("#ffffff"));
         if (!anchorPane.getChildren().contains(label)) {
             anchorPane.getChildren().add(label);
         }
 
 
-        startNewGameButton.setLayoutX(430);
-        startNewGameButton.setLayoutY(300);
+        startNewGameButton.setLayoutX(440);
+        startNewGameButton.setLayoutY(320);
         startNewGameButton.setFont(font);
-        startNewGameButton.setTextFill(Paint.valueOf("#007a99"));
+        startNewGameButton.setTextFill(Paint.valueOf("#000000"));
         if (!anchorPane.getChildren().contains(startNewGameButton)) {
             anchorPane.getChildren().add(startNewGameButton);
         }
 
 
-        endGameButton.setLayoutX(450);
+        endGameButton.setLayoutX(430);
         endGameButton.setLayoutY(400);
         endGameButton.setFont(font);
-        endGameButton.setTextFill(Paint.valueOf("#007a99"));
+        endGameButton.setTextFill(Paint.valueOf("#000000"));
 
         if (!anchorPane.getChildren().contains(endGameButton)) {
             anchorPane.getChildren().add(endGameButton);
@@ -1350,6 +1353,17 @@ public class GameViewGraphic extends Application implements Initializable {
 
     public void lightningAnimation(ImageView imageView) {
         LightningController animation = new LightningController(imageView);
+        animation.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                imageView.setImage(null);
+            }
+        });
+        animation.play();
+    }
+
+    public void lightAnimation(ImageView imageView) {
+        LightController animation = new LightController(imageView);
         animation.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
