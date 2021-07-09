@@ -62,7 +62,7 @@ public class DeckController {
 
     public Deck createRandomDeckForAI() {
         Deck deck = new Deck("DeckForAI");
-        DeckController.user.addDeck(deck);
+        User.getUserByUsername("@AI@").addDeck(deck);
         List<Card> allCards = new ArrayList<>();
         Collections.addAll(allCards, MonsterCard.values());
         Collections.addAll(allCards, SpellCard.values());
