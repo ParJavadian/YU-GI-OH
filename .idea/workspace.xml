@@ -22,27 +22,45 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="animation + end game">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/DeckSuffleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="light">
+      <change afterPath="$PROJECT_DIR$/src/main/java/animations.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/LightController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/light/9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf1.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf2.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf3.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf4.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf5.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/CrownController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/CrownController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckSuffleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeckSuffleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$9.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -526,7 +544,13 @@
       <option name="project" value="LOCAL" />
       <updated>1625766784427</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL‎۰۰۰۵۷" summary="light">
+      <created>1625852305770</created>
+      <option name="number" value="LOCAL‎۰۰۰۵۷" />
+      <option name="presentableId" value="LOCAL‎۰۰۰۵۷" />
+      <updated>1625852305770</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +570,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="suijin debug 1" />
     <MESSAGE value="suijin debug 2" />
     <MESSAGE value="gate gaurdian debug" />
     <MESSAGE value="activate spell debug 1" />
@@ -571,7 +594,8 @@
     <MESSAGE value="scoreboard va show graveyard" />
     <MESSAGE value="sound effect" />
     <MESSAGE value="commit molayitar" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit molayitar" />
+    <MESSAGE value="light" />
+    <option name="LAST_COMMIT_MESSAGE" value="light" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
