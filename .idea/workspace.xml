@@ -22,23 +22,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="download marg bemola">
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="help">
       <change afterPath="$PROJECT_DIR$/ProfileNumbers/kiana.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Users/kiana.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/import profile.zip" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/import profile2.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/zipOstadErfati.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/ExplosionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/card.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/coin.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/explosion/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/explosion/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/explosion/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/explosion/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/explosion/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/explosion/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/explosion/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/summon.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProfileNumbers/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProfileNumbers/h.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SoundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SoundController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/swords.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/swords.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +61,6 @@
       <list>
         <option value="Interface" />
         <option value="FxmlFile" />
-        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -204,6 +210,13 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
+    </task>
+    <task id="LOCAL-00008" summary="debug import user">
+      <created>1624093680512</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1624093680512</updated>
     </task>
     <task id="LOCAL-00009" summary="debug import user o baghie import ha">
       <created>1624099929742</created>
@@ -510,31 +523,14 @@
       <option name="presentableId" value="LOCAL‎۰۰۰۵۳" />
       <updated>1625691283824</updated>
     </task>
-    <task id="LOCAL‎۰۰۰۵۴" summary="scoreboard va show graveyard">
-      <created>1625734359085</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۴" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۴" />
-      <updated>1625734359086</updated>
+    <task id="LOCAL-00054" summary="Duel View battlePhase3">
+      <created>1625766784427</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1625766784427</updated>
     </task>
-    <task id="LOCAL‎۰۰۰۵۵" summary="sound effect">
-      <created>1625735834888</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۵" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۵" />
-      <updated>1625735834888</updated>
-    </task>
-    <task id="LOCAL‎۰۰۰۵۶" summary="commit molayitar">
-      <created>1625760937249</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۶" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۶" />
-      <updated>1625760937250</updated>
-    </task>
-    <task id="LOCAL‎۰۰۰۵۷" summary="download marg bemola">
-      <created>1625780639146</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۷" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۷" />
-      <updated>1625780639146</updated>
-    </task>
-    <option name="localTasksCounter" value="58" />
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,6 +550,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="suijin debug 1" />
     <MESSAGE value="suijin debug 2" />
     <MESSAGE value="gate gaurdian debug" />
     <MESSAGE value="activate spell debug 1" />
@@ -578,8 +575,7 @@
     <MESSAGE value="scoreboard va show graveyard" />
     <MESSAGE value="sound effect" />
     <MESSAGE value="commit molayitar" />
-    <MESSAGE value="download marg bemola" />
-    <option name="LAST_COMMIT_MESSAGE" value="download marg bemola" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit molayitar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
