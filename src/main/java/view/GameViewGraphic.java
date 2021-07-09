@@ -65,7 +65,7 @@ public class GameViewGraphic extends Application implements Initializable {
     private ImageView graveyardFirstCard = new ImageView();
     private ImageView graveyardSecondCard = new ImageView();
     private ImageView graveyardThirdCard = new ImageView();
-    public ImageView selectedCard, imageViewForCardShuffle = new ImageView(),imageViewForCrown = new ImageView();
+    public ImageView selectedCard, imageViewForCardShuffle = new ImageView(), imageViewForCrown = new ImageView();
     @FXML
     public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;
     private static Label playerUsername1, playerNickname1, playerLifePoint1, rivalUsername1, rivalNickname1, rivalLifePoint1;
@@ -170,6 +170,10 @@ public class GameViewGraphic extends Application implements Initializable {
                     else if (child.getId().equals("rivalProgressBar"))
                         rivalProgressBar = rivalProgressBar1;
                 }
+                else if(child instanceof ImageView){
+//                    if(child.getId().equals("background"))
+//                        background = background1
+                }
             }
         }
     }
@@ -222,11 +226,11 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void setDirectAttackArea() {
-        directAttackArea.setImage(new Image("images/direct_attack.png"));
-        directAttackArea.setY(55);
-        directAttackArea.setX(304);
-        directAttackArea.setFitWidth(419);
-        directAttackArea.setFitHeight(246);
+        directAttackArea.setImage(new Image("images/direct_attack.jpg"));
+        directAttackArea.setY(1);
+        directAttackArea.setX(294);
+        directAttackArea.setFitWidth(431);
+        directAttackArea.setFitHeight(94);
         if (root != null && !root.getChildren().contains(directAttackArea))
             root.getChildren().add(directAttackArea);
     }
@@ -269,6 +273,12 @@ public class GameViewGraphic extends Application implements Initializable {
         setImageView(imageView2hand4, images.get(29), 499, -16, conditions.get(29));
         setImageView(imageView2hand5, images.get(30), 555, -16, conditions.get(30));
         setImageView(imageView2hand6, images.get(31), 611, -16, conditions.get(31));
+        imageView2hand1.toFront();
+        imageView2hand2.toFront();
+        imageView2hand3.toFront();
+        imageView2hand4.toFront();
+        imageView2hand5.toFront();
+        imageView2hand6.toFront();
         setImageView(imageView1FieldZone, images.get(32), 232, 324, conditions.get(32));
         setImageView(imageView2FieldZone, images.get(33), 740, 205, conditions.get(33));
         setImageView(imageView1Graveyard, images.get(34), 740, 328, conditions.get(34));
@@ -378,6 +388,7 @@ public class GameViewGraphic extends Application implements Initializable {
         addImagesView(imageView1hand4);
         addImagesView(imageView1hand5);
         addImagesView(imageView1hand6);
+        addImagesView(directAttackArea);
         addImagesView(imageView2hand1);
         addImagesView(imageView2hand2);
         addImagesView(imageView2hand3);
@@ -412,7 +423,6 @@ public class GameViewGraphic extends Application implements Initializable {
         addLabel(attack);
         addLabel(defence);
         addImagesView(selectedCardImageView);
-        addImagesView(directAttackArea);
     }
 
     private void addImagesView(ImageView imageView) {
@@ -1272,7 +1282,7 @@ public class GameViewGraphic extends Application implements Initializable {
         endGameButton.setOnAction(eventForEndButton);
     }
 
-    private void setSword(){
+    private void setSword() {
         imageViewForSword.setFitWidth(111);
         imageViewForSword.setFitHeight(166);
         imageViewForSword.setX(455);
@@ -1280,19 +1290,19 @@ public class GameViewGraphic extends Application implements Initializable {
         imageViewForSword.toFront();
         if (!root.getChildren().contains(imageViewForSword))
             root.getChildren().add(imageViewForSword);
-        imageViewForCardShuffle.setImage( new Image("/images/shuffle/0.png"));
+        imageViewForCardShuffle.setImage(new Image("/images/shuffle/0.png"));
         imageViewForCardShuffle.setFitWidth(73);
         imageViewForCardShuffle.setFitHeight(62);
         imageViewForCardShuffle.setX(724);
         imageViewForCardShuffle.setY(446);
-        if(!root.getChildren().contains(imageViewForCardShuffle))
+        if (!root.getChildren().contains(imageViewForCardShuffle))
             root.getChildren().add(imageViewForCardShuffle);
         imageViewForCrown.setFitWidth(184);
         imageViewForCrown.setFitHeight(117);
         imageViewForCrown.setX(416);
         imageViewForCrown.setY(234);
         imageViewForCrown.toFront();
-        if(!root.getChildren().contains(imageViewForCrown))
+        if (!root.getChildren().contains(imageViewForCrown))
             root.getChildren().add(imageViewForCrown);
     }
 
@@ -1309,7 +1319,6 @@ public class GameViewGraphic extends Application implements Initializable {
         animation.play();
         System.out.println("3" + imageView);
     }
-
 
 
     public void deckShuffleAnimation(ImageView imageView) {
@@ -1334,15 +1343,53 @@ public class GameViewGraphic extends Application implements Initializable {
         animation.play();
     }
 
-    public void lightningAnimation(ImageView imageView) {
+    public void lightningAnimation(ImageView imageView, int number,int address1,int address2) {
         LightningController animation = new LightningController(imageView);
         animation.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 imageView.setImage(null);
+                switch (number) {
+                    case 1:
+                        duelController.getPlayer().getBoard().getCardsInHand().remove((int) duelController.selectedCard.getNumber());
+                        try {
+                            duelController.unselectCard();
+                        } catch (Exception exception) {
+                            exception.printStackTrace();
+                        }
+                        duelController.hasSummonedOrSetInThisTurn = true;
+                        break;
+                    case 2:
+                        duelController.getPlayer().getBoard().getCardsInHand().remove((int) duelController.selectedCard.getNumber());
+                        duelController.getPlayer().getBoard().removeMonster(address1, duelController, player);
+                        duelController.getPlayer().getBoard().removeMonster(address2, duelController, player);
+                        duelController.removeMonsterPlayer(address1);
+                        duelController.removeMonsterPlayer(address2);
+                        int place = duelController.getPlayer().getBoard().putMonster((MonsterCard) duelController.selectedCard.getCard(), "DH");
+                        duelController.setMonsterAttackPlayer(place, ((MonsterCard) duelController.selectedCard.getCard()).getAttack());
+                        duelController.playerDefencePoints[place] = ((MonsterCard) duelController.selectedCard.getCard()).getAttack();
+                        duelController.addToAttackDefenceOfPutCard(place, duelController.getPlayer());
+                        duelController.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
+                        try {
+                            duelController.unselectCard();
+                        } catch (Exception exception) {
+                            exception.printStackTrace();
+                        }
+                        duelController.hasSummonedOrSetInThisTurn = true;
+                    case 3:
+                        duelController.getPlayer().getBoard().getCardsInHand().remove((int) duelController.selectedCard.getNumber());
+                        try {
+                            duelController.unselectCard();
+                        } catch (Exception exception) {
+                            exception.printStackTrace();
+                        }
+                        break;
+                }
+                updateBoard();
             }
         });
         animation.play();
+        updateBoard();
     }
 
 

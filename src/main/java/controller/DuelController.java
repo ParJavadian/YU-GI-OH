@@ -1,15 +1,18 @@
 package controller;
 
 import controller.exeption.*;
+import javafx.animation.PauseTransition;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import model.*;
 import view.DuelView;
 import view.GameViewGraphic;
 
 import java.lang.reflect.Method;
+import java.sql.Time;
 import java.util.*;
 
 public class DuelController {
@@ -20,16 +23,16 @@ public class DuelController {
     private User rival;
     private Round[] rounds;
     private final int roundNumber;
-    private SelectedCard selectedCard;
+    public SelectedCard selectedCard;
     private int roundCounter;
     private Phase phase;
-    private boolean hasSummonedOrSetInThisTurn;
-    private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardPlayer = new ArrayList<>(5);
+    public boolean hasSummonedOrSetInThisTurn;
+    public ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardPlayer = new ArrayList<>(5);
     private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardRival = new ArrayList<>(5);
     private Integer[] playerAttackPoints = new Integer[5];
     private Integer[] rivalAttackPoints = new Integer[5];
-    private Integer[] playerDefencePoints = new Integer[5];
-    private Integer[] rivalDefencePoints = new Integer[5];
+    public Integer[] playerDefencePoints = new Integer[5];
+    public Integer[] rivalDefencePoints = new Integer[5];
     public boolean isStartTurn;
     private boolean shouldEndGameForView;
 
@@ -310,7 +313,7 @@ public class DuelController {
         return countOfMonsterCardsInGround;
     }
 
-    private void addToAttackDefenceOfPutCard(int place, User owner) {
+    public void addToAttackDefenceOfPutCard(int place, User owner) {
         for (int i = 0; i < 5; i++) {
             if (this.player.getBoard().getMonsterByNumber(i) != null)
                 this.player.getBoard().getMonsterByNumber(i).takeAction(this, TakeActionCase.ANY_MONSTER_PUT_IN_MONSTERZONE, owner, place);
@@ -347,11 +350,12 @@ public class DuelController {
                 this.playerDefencePoints[place] = monsterCard.getAttack();
                 monsterCard.takeAction(this, TakeActionCase.SUMMONED, this.player, place);
                 addToAttackDefenceOfPutCard(place, this.player);
-                this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
+                gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
+                /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
                 unselectCard();
                 DuelView.printText("summoned successfully");
                 getBoard();
-                hasSummonedOrSetInThisTurn = true;
+                hasSummonedOrSetInThisTurn = true;*/
                 return;
             }
             if (monsterCard.getLevel() < 7) {
@@ -372,6 +376,16 @@ public class DuelController {
         }
     }
 
+    private ImageView getHandByNumber(int number) {
+        if (number == 0) return GameViewGraphic.imageView1hand1;
+        if (number == 1) return GameViewGraphic.imageView1hand2;
+        if (number == 2) return GameViewGraphic.imageView1hand3;
+        if (number == 3) return GameViewGraphic.imageView1hand4;
+        if (number == 4) return GameViewGraphic.imageView1hand5;
+        if (number == 5) return GameViewGraphic.imageView1hand6;
+        return null;
+    }
+
     private void tributeOneMonsterForSummon() throws Exception {
         DuelView.printText("select a monster by number to tribute");
         String input = DuelView.scan();
@@ -383,7 +397,10 @@ public class DuelController {
         }
         int address = Integer.parseInt(input);
         address = playerGroundNumbers[address - 1] - 1;
-        if (this.player.getBoard().getMonsterByNumber(address) == null) throw new NoMonsterHere();
+        if (this.player.getBoard().getMonsterByNumber(address) == null) {
+            System.out.println("1");
+            throw new NoMonsterHere();
+        }
         this.player.getBoard().removeMonster(address, this, player);
         removeMonsterPlayer(address);
         int place = this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "OO");
@@ -391,11 +408,7 @@ public class DuelController {
         this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
         ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player, place);
         addToAttackDefenceOfPutCard(place, this.player);
-        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
-        unselectCard();
-        DuelView.printText("summoned successfully");
-        getBoard();
-        hasSummonedOrSetInThisTurn = true;
+        gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
     }
 
     private void tributeTwoMonstersForSummon() throws Exception {
@@ -430,11 +443,10 @@ public class DuelController {
         this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
         ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player, place);
         addToAttackDefenceOfPutCard(place, this.player);
-        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
+        gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
+        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
-        DuelView.printText("summoned successfully");
-        getBoard();
-        hasSummonedOrSetInThisTurn = true;
+        hasSummonedOrSetInThisTurn = true;*/
     }
 
     public void specialSummonNormal() {
@@ -468,11 +480,10 @@ public class DuelController {
                 this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
                 addToAttackDefenceOfPutCard(place, this.player);
                 this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
-                this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
+                gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
+                /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
                 unselectCard();
-                DuelView.printText("set successfully");
-                hasSummonedOrSetInThisTurn = true;
-                getBoard();
+                hasSummonedOrSetInThisTurn = true;*/
                 return;
             }
             if (monsterCard.getLevel() < 7) {
@@ -504,7 +515,10 @@ public class DuelController {
         }
         int address = Integer.parseInt(input);
         address = playerGroundNumbers[address - 1] - 1;
-        if (this.player.getBoard().getMonsterByNumber(address) == null) throw new NoMonsterHere();
+        if (this.player.getBoard().getMonsterByNumber(address) == null) {
+            System.out.println("1");
+            throw new NoMonsterHere();
+        }
         this.player.getBoard().removeMonster(address, this, player);
         removeMonsterPlayer(address);
         int place = this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "DH");
@@ -512,11 +526,10 @@ public class DuelController {
         this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
         addToAttackDefenceOfPutCard(place, this.player);
         this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
-        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
+        gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
+        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
-        DuelView.printText("set successfully");
-        hasSummonedOrSetInThisTurn = true;
-        getBoard();
+        hasSummonedOrSetInThisTurn = true;*/
     }
 
     private void tributeTwoMonstersForSet() throws Exception {
@@ -542,7 +555,8 @@ public class DuelController {
         address2 = playerGroundNumbers[address2 - 1] - 1;
         if (this.player.getBoard().getMonsterByNumber(address2) == null) throw new NoMonsterHere();
         if (address1 == address2) throw new sameAddresses();
-        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
+        gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, address1, address2);
+        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         this.player.getBoard().removeMonster(address1, this, player);
         this.player.getBoard().removeMonster(address2, this, player);
         removeMonsterPlayer(address1);
@@ -555,7 +569,7 @@ public class DuelController {
         unselectCard();
         DuelView.printText("set successfully");
         hasSummonedOrSetInThisTurn = true;
-        getBoard();
+        getBoard();*/
     }
 
     private void setSpell() throws Exception {
@@ -573,10 +587,10 @@ public class DuelController {
             }
             this.player.getBoard().putInFieldZone(spellCard);
         }
-        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
+        gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
+        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
-        DuelView.printText("set successfully");
-        getBoard();
+        getBoard();*/
     }
 
     private void setTrap() throws Exception {
@@ -595,10 +609,11 @@ public class DuelController {
             }
             this.player.getBoard().putInFieldZone(trapCard);
         }
-        this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
+        gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
+        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
         unselectCard();
         DuelView.printText("set successfully");
-        getBoard();
+        getBoard();*/
     }
 
     public void changePosition() throws Exception {
@@ -681,16 +696,16 @@ public class DuelController {
     }
 
     private ImageView getImageViewByNumberForExplode(int number) {
-        if (number == 0) return GameViewGraphic.imageView2Monster1;
-        if (number == 1) return GameViewGraphic.imageView2Monster2;
+        if (number == 0) return GameViewGraphic.imageView2Monster5;
+        if (number == 1) return GameViewGraphic.imageView2Monster4;
         if (number == 2) return GameViewGraphic.imageView2Monster3;
-        if (number == 3) return GameViewGraphic.imageView2Monster4;
-        if (number == 4) return GameViewGraphic.imageView2Monster5;
-        if (number == 5) return GameViewGraphic.imageView1Monster5;
-        if (number == 6) return GameViewGraphic.imageView1Monster4;
+        if (number == 3) return GameViewGraphic.imageView2Monster2;
+        if (number == 4) return GameViewGraphic.imageView2Monster1;
+        if (number == 5) return GameViewGraphic.imageView1Monster1;
+        if (number == 6) return GameViewGraphic.imageView1Monster2;
         if (number == 7) return GameViewGraphic.imageView1Monster3;
-        if (number == 8) return GameViewGraphic.imageView1Monster2;
-        if (number == 9) return GameViewGraphic.imageView1Monster1;
+        if (number == 8) return GameViewGraphic.imageView1Monster4;
+        if (number == 9) return GameViewGraphic.imageView1Monster5;
         else return null;
     }
 
@@ -830,13 +845,16 @@ public class DuelController {
             throw new UndonePreparationOfSpell();
         if (spellCard.getIcon().equals(Icon.FIELD)) {
             if (this.player.getBoard().getFieldZone() != null) {
-                if (((SpellCard) this.player.getBoard().getFieldZone()).takeAction(this, TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP, this.player, 1))
+                if (((SpellCard) this.player.getBoard().getFieldZone()).takeAction(this, TakeActionCase.REMOVE_FROM_FIELDZONE_FACE_UP, this.player, 1)) {
                     this.player.getBoard().putInGraveYard(this.player.getBoard().getFieldZone());
-                this.player.getBoard().removeFromFieldZone();
+                    this.player.getBoard().removeFromFieldZone();
+                }
             }
-            if (((SpellCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.PUT_IN_FIELDZONE_FACE_UP, this.player, 1))
+            if (((SpellCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.PUT_IN_FIELDZONE_FACE_UP, this.player, 1)) {
                 this.player.getBoard().putInFieldZone(spellCard);
-            this.player.getBoard().getCardsInHand().remove((int) selectedCard.getNumber());
+                gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
+            }
+//            this.player.getBoard().getCardsInHand().remove((int) selectedCard.getNumber());
         } else {
             if (selectedCard.getBoardZone().equals(BoardZone.SPELLANDTRAPZONE)) {
                 this.player.getBoard().changeSpellAndTrapPosition(selectedCard.getNumber(), "O");
@@ -850,12 +868,13 @@ public class DuelController {
                 if (!wasSuccessful) {
                     this.player.getBoard().removeSpellOrTrap(selectedCard.getNumber());
                 }
-                this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
+                gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
+//                this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
             }
         }
-        unselectCard();
+        /*unselectCard();
         DuelView.printText("spell activated");
-        getBoard();
+        getBoard();*/
     }
 
     public void cheatLifePoint(String target, int lifePoint) {

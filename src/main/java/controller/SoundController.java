@@ -3,7 +3,6 @@ package controller;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import model.CurrentCondition;
 import model.SoundCondition;
 
 import java.net.URISyntaxException;
@@ -21,7 +20,7 @@ public class SoundController {
     public void playWhenStart(){
         Media media = null;
         try {
-            media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
+            media = new Media(getClass().getResource("/TheHours.mp3").toURI().toString());
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
