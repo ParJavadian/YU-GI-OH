@@ -174,7 +174,7 @@ public class GameViewGraphic extends Application implements Initializable {
         }
     }
 
-    public void updateLifePoint(){
+    public void updateLifePoint() {
         playerLifePoint.setText(String.valueOf(player.getLifePoint()));
         rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
         setBar();
@@ -221,13 +221,14 @@ public class GameViewGraphic extends Application implements Initializable {
         }*/
     }
 
-    public void setDirectAttackArea(){
-//        directAttackArea.setImage(new Image("images/profiles/profile.jpg"));
-        directAttackArea.setFitWidth(423);
-        directAttackArea.setFitHeight(150);
-        directAttackArea.setX(300);
-        directAttackArea.setY(0);
-        directAttackArea.toFront();
+    public void setDirectAttackArea() {
+        directAttackArea.setImage(new Image("images/direct_attack.png"));
+        directAttackArea.setY(55);
+        directAttackArea.setX(304);
+        directAttackArea.setFitWidth(419);
+        directAttackArea.setFitHeight(246);
+        if (root != null && !root.getChildren().contains(directAttackArea))
+            root.getChildren().add(directAttackArea);
     }
 
     public void setImagesAndCards() {
@@ -703,7 +704,7 @@ public class GameViewGraphic extends Application implements Initializable {
 
     private void setMouseEventsMainPhase(ImageView imageView, User owner, int number1, int numberForGet, Method onMouseEnteredMethod, Method nextMethod, Method onMouseClickedMethodMonster, Method onMouseClickedMethodSpell, Method onMouseRightClickedMethod) {
         imageView.setOnMouseEntered(event -> {
-            if (imageView.getImage() == null) return;
+            if (imageView.getImage() == null || imageView.equals(directAttackArea)) return;
             if (!imageView.getImage().equals(unknown) || owner.equals(player))
                 showCardDetails(cards.get(numberForGet));
             else if (imageView.getImage().equals(unknown))
@@ -722,7 +723,7 @@ public class GameViewGraphic extends Application implements Initializable {
             }
         });
         imageView.setOnMouseExited(event -> {
-            if (imageView.getImage() == null) return;
+            if (imageView.getImage() == null || imageView.equals(directAttackArea)) return;
             if (!imageView.getImage().equals(unknown) || owner.equals(player))
                 clearCardDetails();
             else if (imageView.getImage().equals(unknown))
@@ -737,7 +738,7 @@ public class GameViewGraphic extends Application implements Initializable {
             }
         });
         imageView.setOnMouseClicked(event -> {
-            if (imageView.getImage() == null) return;
+            if (imageView.getImage() == null || imageView.equals(directAttackArea)) return;
             if (event.getButton().equals(MouseButton.PRIMARY)) {
                 try {
                     if (cards.get(numberForGet) instanceof MonsterCard)
@@ -773,7 +774,7 @@ public class GameViewGraphic extends Application implements Initializable {
 
     private void setMouseEventsBattlePhase(ImageView imageView, User owner, int number1, int numberForGet, Method onMouseEnteredMethod, Method nextMethod, Method onMouseClickedMethodMonster) {
         imageView.setOnMouseEntered(event -> {
-            if (imageView.getImage() == null) return;
+            if (imageView.getImage() == null || imageView.equals(directAttackArea)) return;
             clearCardDetails();
             if (!imageView.getImage().equals(unknown) || owner.equals(player))
                 showCardDetails(cards.get(numberForGet));
@@ -796,7 +797,7 @@ public class GameViewGraphic extends Application implements Initializable {
             }
         });
         imageView.setOnMouseExited(event -> {
-            if(imageView.getImage()==null) return;
+            if (imageView.getImage() == null || imageView.equals(directAttackArea)) return;
             if (selectedCard != null && selectedCard.getEffect() != null && selectedCard.getEffect() instanceof DropShadow) {
                 if (((DropShadow) imageView.getEffect()).getColor().equals(Color.BLACK)) {
                     if (imageView.getImage() == null) return;
@@ -814,22 +815,16 @@ public class GameViewGraphic extends Application implements Initializable {
                 }
             }
         });
-        if(imageView.equals(directAttackArea))
-            System.out.println("directAttackArea");
         imageView.setOnMouseClicked(event -> {
-            System.out.println("ok");
-            if (imageView.getImage() == null && !imageView.equals(directAttackArea)) {
-                System.out.println("returned because of null image");
+            if (imageView.getImage() == null)
                 return;
-            }
             if (event.getButton().equals(MouseButton.PRIMARY)) {
-                if(imageView.equals(directAttackArea)){
-                    System.out.println("entered direct attack area");
+                if (imageView.equals(directAttackArea)) {
                     try {
-                        onMouseClickedMethodMonster.invoke(duelController,number1);
+                        onMouseClickedMethodMonster.invoke(duelController, number1);
                         selectedCard.setEffect(null);
-                        selectedCard=null;
-                    }catch (Exception e){
+                        selectedCard = null;
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     return;
@@ -842,8 +837,8 @@ public class GameViewGraphic extends Application implements Initializable {
                     selectedCard.setEffect(null);
                 try {
                     onMouseClickedMethodMonster.invoke(duelController, number1);
-                    if(selectedCard!=null) selectedCard.setEffect(null);
-                    selectedCard=null;
+                    if (selectedCard != null) selectedCard.setEffect(null);
+                    selectedCard = null;
                     if (owner.equals(player)) {
                         selectedCard = imageView;
                         DropShadow dropShadow = new DropShadow(0, Color.DARKRED);
@@ -1103,9 +1098,9 @@ public class GameViewGraphic extends Application implements Initializable {
         Image tempImage = playerProfile.getImage();
         playerProfile.setImage(rivalProfile.getImage());
         rivalProfile.setImage(tempImage);
-        ProgressBar tempProgressBar = playerProgressBar;
-        playerProgressBar=rivalProgressBar;
-        rivalProgressBar = tempProgressBar;
+        double tempProgressBar = playerProgressBar.getProgress();
+        playerProgressBar.setProgress(rivalProgressBar.getProgress());
+        rivalProgressBar.setProgress(tempProgressBar);
     }
 
     public void resetSelectedCard() {
@@ -1172,7 +1167,7 @@ public class GameViewGraphic extends Application implements Initializable {
         animation.play();
     }
 
-    public void setLifePoints(){
+    public void setLifePoints() {
         playerLifePoint.setText(String.valueOf(player.getLifePoint()));
         rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));
         setBar();
@@ -1278,25 +1273,25 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     private void setSword(){
-        imageViewForCrown.setFitWidth(184);
-        imageViewForCrown.setFitHeight(117);
-        imageViewForCrown.setX(416);
-        imageViewForCrown.setY(234);
-        imageViewForCrown.toFront();
         imageViewForSword.setFitWidth(111);
         imageViewForSword.setFitHeight(166);
         imageViewForSword.setX(455);
         imageViewForSword.setY(216);
         imageViewForSword.toFront();
-        if(!root.getChildren().contains(imageViewForSword))
+        if (!root.getChildren().contains(imageViewForSword))
             root.getChildren().add(imageViewForSword);
         imageViewForCardShuffle.setImage( new Image("/images/shuffle/0.png"));
         imageViewForCardShuffle.setFitWidth(73);
         imageViewForCardShuffle.setFitHeight(62);
         imageViewForCardShuffle.setX(724);
         imageViewForCardShuffle.setY(446);
-        if(!root.getChildren().contains(imageViewForCrown))
-            root.getChildren().add(imageViewForCrown);
+        if(!root.getChildren().contains(imageViewForCardShuffle))
+            root.getChildren().add(imageViewForCardShuffle);
+        imageViewForCrown.setFitWidth(184);
+        imageViewForCrown.setFitHeight(117);
+        imageViewForCrown.setX(416);
+        imageViewForCrown.setY(234);
+        imageViewForCrown.toFront();
         if(!root.getChildren().contains(imageViewForCrown))
             root.getChildren().add(imageViewForCrown);
     }
@@ -1318,12 +1313,11 @@ public class GameViewGraphic extends Application implements Initializable {
 
 
     public void deckShuffleAnimation(ImageView imageView) {
-
         DeckSuffleController animation = new DeckSuffleController(imageView);
         animation.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                imageView.setImage(null);
+                imageView.setImage(new Image("/images/shuffle/0.png"));
             }
         });
         animation.play();
@@ -1350,7 +1344,6 @@ public class GameViewGraphic extends Application implements Initializable {
         });
         animation.play();
     }
-
 
 
 }

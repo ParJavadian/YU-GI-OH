@@ -680,17 +680,17 @@ public class DuelController {
         } else throw new CanNotAttackThisCard();
     }
 
-    private ImageView getImageViewByNumberForExplode(int number){
-        if(number==0) return GameViewGraphic.imageView2Monster1;
-        if(number==1) return GameViewGraphic.imageView2Monster2;
-        if(number==2) return GameViewGraphic.imageView2Monster3;
-        if(number==3) return GameViewGraphic.imageView2Monster4;
-        if(number==4) return GameViewGraphic.imageView2Monster5;
-        if(number==5) return GameViewGraphic.imageView1Monster1;
-        if(number==6) return GameViewGraphic.imageView1Monster2;
-        if(number==7) return GameViewGraphic.imageView1Monster3;
-        if(number==8) return GameViewGraphic.imageView1Monster4;
-        if(number==9) return GameViewGraphic.imageView1Monster5;
+    private ImageView getImageViewByNumberForExplode(int number) {
+        if (number == 0) return GameViewGraphic.imageView2Monster1;
+        if (number == 1) return GameViewGraphic.imageView2Monster2;
+        if (number == 2) return GameViewGraphic.imageView2Monster3;
+        if (number == 3) return GameViewGraphic.imageView2Monster4;
+        if (number == 4) return GameViewGraphic.imageView2Monster5;
+        if (number == 5) return GameViewGraphic.imageView1Monster5;
+        if (number == 6) return GameViewGraphic.imageView1Monster4;
+        if (number == 7) return GameViewGraphic.imageView1Monster3;
+        if (number == 8) return GameViewGraphic.imageView1Monster2;
+        if (number == 9) return GameViewGraphic.imageView1Monster1;
         else return null;
     }
 
@@ -711,7 +711,7 @@ public class DuelController {
         } else if (attackerAttack == targetAttack) {
             gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(monsterNumber);
             gameViewGraphic.explode(gameViewGraphic.cardToExplode);
-            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(this.selectedCard.getNumber()+5);
+            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(this.selectedCard.getNumber() + 5);
             gameViewGraphic.explode(gameViewGraphic.cardToExplode);
             this.rival.getBoard().putInGraveYard(this.rival.getBoard().getMonsterByNumber(monsterNumber));
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
@@ -726,7 +726,7 @@ public class DuelController {
         } else {
             int damage = targetAttack - attackerAttack;
             this.player.decreaseLifePoint(damage);
-            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(this.selectedCard.getNumber()+5);
+            gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(this.selectedCard.getNumber() + 5);
             gameViewGraphic.explode(gameViewGraphic.cardToExplode);
             ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.REMOVE_FROM_MONSTERZONE, this.player, this.selectedCard.getNumber());
             this.player.getBoard().putInGraveYard(this.selectedCard.getCard());
@@ -807,6 +807,7 @@ public class DuelController {
             rival.decreaseLifePoint(((MonsterCard) this.selectedCard.getCard()).getAttack());
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             unselectCard();
+            gameViewGraphic.explode(GameViewGraphic.directAttackArea);
             gameViewGraphic.setLifePoints();
             manageEndGame();
         } else throw new CanNotAttackDirectly();
@@ -899,6 +900,7 @@ public class DuelController {
     private void endGame(User loser) {
         User winner;
         if (loser.equals(rival)) {
+            gameViewGraphic.crownAnimation(gameViewGraphic.imageViewForCrown);
             winner = player;
         } else {
             winner = rival;
@@ -911,6 +913,7 @@ public class DuelController {
             winner.increaseMoney(1000 + winner.getLifePoint());
             loser.increaseMoney(100);
             shouldEndGameForView = true;
+            gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
             DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
         }
         if (roundNumber == 3) {
@@ -923,6 +926,7 @@ public class DuelController {
                 winner.increaseMoney(3000 + (3 * maxLP));
                 loser.increaseMoney(300);
                 shouldEndGameForView = true;
+                gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore() + "\n" + winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
                 DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 DuelView.printText(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else if (roundCounter == 3) {
@@ -935,9 +939,11 @@ public class DuelController {
                 winner.increaseMoney(3000 + (3 * maxLP));
                 loser.increaseMoney(300);
                 shouldEndGameForView = true;
+                gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore() + "\n" + winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
                 DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 DuelView.printText(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else {
+                gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 exchangeCardBetweenMainAndSide(this.player);
                 exchangeCardBetweenMainAndSide(this.rival);
@@ -1028,8 +1034,9 @@ public class DuelController {
     }
 
     private void startDrawPhase(boolean isFirst) {
-        manageEndGame();
+        if (!isFirst) manageEndGame();
         this.phase = Phase.DRAW_PHASE;
+        gameViewGraphic.deckShuffleAnimation(gameViewGraphic.imageViewForCardShuffle);
         DuelView.printText("phase: " + this.phase.getNamePascalCase());
         ArrayList<Card> playerMainCards = (ArrayList<Card>) this.player.getGameDeck().getMainDeck();
         ArrayList<Card> rivalMainCards = (ArrayList<Card>) this.rival.getGameDeck().getMainDeck();

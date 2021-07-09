@@ -22,30 +22,27 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="animation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/LightningController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/dosste hamraz.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/lightning/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/lightning/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/lightning/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/lightning/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/lightning/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/lightning/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/lightning/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/lightning/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/lightning/9.png" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="animation + end game">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/DeckSuffleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/crown/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckSuffleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckSuffleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/velum.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/velum.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/velum.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/velum.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf1.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf2.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf3.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf4.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/shuffle/deck_shuf5.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/images/shuffle/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -529,13 +526,7 @@
       <option name="project" value="LOCAL" />
       <updated>1625766784427</updated>
     </task>
-    <task id="LOCAL‎۰۰۰۵۷" summary="animation">
-      <created>1625837282218</created>
-      <option name="number" value="LOCAL‎۰۰۰۵۷" />
-      <option name="presentableId" value="LOCAL‎۰۰۰۵۷" />
-      <updated>1625837282218</updated>
-    </task>
-    <option name="localTasksCounter" value="58" />
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,6 +546,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="suijin debug 1" />
     <MESSAGE value="suijin debug 2" />
     <MESSAGE value="gate gaurdian debug" />
     <MESSAGE value="activate spell debug 1" />
@@ -579,8 +571,7 @@
     <MESSAGE value="scoreboard va show graveyard" />
     <MESSAGE value="sound effect" />
     <MESSAGE value="commit molayitar" />
-    <MESSAGE value="animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit molayitar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
