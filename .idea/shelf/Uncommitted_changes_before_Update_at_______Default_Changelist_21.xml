@@ -1,0 +1,39 @@
+<changelist name="Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۹_۵۱_[Default_Changelist]" date="1625757728697" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۹_۵۱_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at ۰۸/۰۷/۲۰۲۱ ۱۹:۵۱ [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/User.class" />
+    <option name="AFTER_PATH" value="target/classes/model/User.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۹_۵۱_[Default_Changelist]/User.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/LogInViewGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/LogInViewGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۹_۵۱_[Default_Changelist]/LogInViewGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/SignUpViewGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/SignUpViewGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۹_۵۱_[Default_Changelist]/SignUpViewGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/GameViewGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/GameViewGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۹_۵۱_[Default_Changelist]/GameViewGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/import profile2.zip" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۹_۵۱_[Default_Changelist]/import profile2.zip" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/import profile.zip" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۹_۵۱_[Default_Changelist]/import profile.zip" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/ProfileViewForGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/ProfileViewForGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۹_۵۱_[Default_Changelist]/ProfileViewForGraphic.class" />
+  </binary>
+</changelist>

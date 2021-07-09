@@ -1,0 +1,1592 @@
+Index: src/main/java/view/SignUpViewGraphic.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view;\r\n\r\nimport controller.DeckController;\r\nimport controller.ImportExportUserController;\r\nimport controller.SignUpControllerGraphic;\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Alert;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.image.Image;\r\nimport javafx.stage.Stage;\r\nimport model.Deck;\r\nimport model.User;\r\n\r\nimport java.net.URL;\r\n\r\npublic class SignUpViewGraphic extends Application {\r\n    private static Stage stage;\r\n    static SignUpViewGraphic instance = null;\r\n    @FXML\r\n    private TextField username;\r\n    @FXML\r\n    private TextField nickname;\r\n    @FXML\r\n    private TextField password;\r\n    @FXML\r\n    private TextField checkPassword;\r\n\r\n    public static SignUpViewGraphic getInstance() {\r\n        if (instance == null) instance = new SignUpViewGraphic();\r\n        return instance;\r\n    }\r\n\r\n    @Override\r\n    public void start(Stage stage) throws Exception {\r\n        if (LogInViewGraphic.instance == null && (SignUpViewGraphic.instance == null)){\r\n\r\n            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n            importExportUserController.importAllUsers();\r\n            importExportUserController.importProfileNumber();\r\n            importExportUserController.importAllCards();\r\n            importExportUserController.importAllDecks();\r\n            importExportUserController.importActiveDeck();\r\n            Deck deck = DeckController.getInstance(User.getUserByUsername(\"@AI@\")).createRandomDeckForAI();\r\n            User.getUserByUsername(\"@AI@\").setActiveDeck(deck);\r\n//            Media media = new Media(getClass().getResource(\"/velum.mp3\").toURI().toString());\r\n//            MediaPlayer mp = new MediaPlayer(media);\r\n//            mp.setCycleCount(AudioClip.INDEFINITE);\r\n//            mp.play();\r\n        }\r\n\r\n        SignUpViewGraphic.stage = stage;\r\n        URL url = getClass().getResource(\"/SignUp.fxml\");\r\n        Parent root = FXMLLoader.load(url);\r\n        Scene scene = new Scene(root);\r\n        stage.setScene(scene);\r\n        stage.getIcons().add(new Image(String.valueOf(getClass().getResource(\"/images/icon.png\"))));\r\n        stage.setTitle(\"YU GI OH\");\r\n        stage.show();\r\n    }\r\n\r\n    public void login() throws Exception {\r\n        SignUpControllerGraphic.login(stage);\r\n    }\r\n\r\n    public void createAccount() {\r\n        try {\r\n            SignUpControllerGraphic.createAccount(username.getText(),nickname.getText(), password.getText(), checkPassword.getText(),stage);\r\n        } catch (Exception e) {\r\n            Alert error = new Alert(Alert.AlertType.ERROR);\r\n            error.setHeaderText(\"\");\r\n            error.setContentText(e.getMessage());\r\n            error.showAndWait();\r\n//            Alert error = new Alert(Alert.AlertType.WARNING);\r\n//            error.setHeaderText(\"Error\");\r\n//            error.setContentText(e.getMessage());\r\n//            error.showAndWait();\r\n        }\r\n    }\r\n\r\n    public void showAccountCreatedPopUp(){\r\n        Alert error = new Alert(Alert.AlertType.INFORMATION);\r\n        error.setHeaderText(\"\");\r\n        error.setContentText(\"account created successfully\");\r\n        error.showAndWait();\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/SignUpViewGraphic.java b/src/main/java/view/SignUpViewGraphic.java
+--- a/src/main/java/view/SignUpViewGraphic.java	(revision 5a45923cdb5dbe952d8c0a2ae90b4773bec2a1f1)
++++ b/src/main/java/view/SignUpViewGraphic.java	(date 1625667668118)
+@@ -9,8 +9,10 @@
+ import javafx.scene.Parent;
+ import javafx.scene.Scene;
+ import javafx.scene.control.Alert;
++import javafx.scene.control.Label;
+ import javafx.scene.control.TextField;
+ import javafx.scene.image.Image;
++import javafx.stage.Popup;
+ import javafx.stage.Stage;
+ import model.Deck;
+ import model.User;
+@@ -63,6 +65,28 @@
+     }
+ 
+     public void login() throws Exception {
++
++        //todo pak shavad
++
++//        Label label = new Label("This is a Popup");
++//
++//        // create a popup
++//        Popup popup = new Popup();
++//
++//        // set background
++//        label.setStyle(" -fx-background-color: white;");
++//
++//        // add the label
++//        popup.getContent().add(label);
++//
++//        // set size of label
++//        label.setMinWidth(80);
++//        label.setMinHeight(50);
++//        popup.show(stage);
++
++
++        //todo
++
+         SignUpControllerGraphic.login(stage);
+     }
+ 
+Index: src/main/java/model/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport controller.ImportExportUserController;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Objects;\r\nimport java.util.Random;\r\n\r\npublic class User {\r\n\r\n    private static List<User> allUsers;\r\n    private String username;\r\n    private String password;\r\n    private String nickname;\r\n    private int score;\r\n    private List<Card> allCards;\r\n    private List<Deck> allDecks;\r\n    private Deck currentActiveDeck;\r\n    private Deck currentGameDeck;\r\n    private int lifePoint;\r\n    private Board board;\r\n    private int money;\r\n    private int profileNumber;\r\n\r\n    public User(String username, String nickname, String password) {\r\n        if (allUsers == null)\r\n            allUsers = new ArrayList<>();\r\n        this.allCards = new ArrayList<>();\r\n        this.allDecks = new ArrayList<>();\r\n        this.username = username;\r\n        this.nickname = nickname;\r\n        this.password = password;\r\n        this.currentActiveDeck = null;\r\n        this.profileNumber = getRandomProfileNumber();\r\n        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n        importExportUserController.exportProfileNumber(username, profileNumber);\r\n        setScore(0);\r\n        setMoney(100000);\r\n        allUsers.add(this);\r\n        importExportUserController.exportNewUser(User.getUserByUsername(username));\r\n        importExportUserController.exportAllUsers(User.getAllUsers());\r\n    }\r\n\r\n    public static User getUserByUsername(String username) {\r\n        if (allUsers != null) {\r\n            for (User user : allUsers) {\r\n                if (user.getUsername().equals(username))\r\n                    return user;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public static User getUserByNickname(String nickname) {\r\n        for (User allUser : allUsers) {\r\n            if (allUser.getNickname().equals(nickname))\r\n                return allUser;\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public static List<User> getAllUsers() {\r\n        return allUsers;\r\n    }\r\n\r\n    public List<Deck> getAllDecks() {\r\n        return this.allDecks;\r\n    }\r\n\r\n    public List<Card> getAllCards() {\r\n        return this.allCards;\r\n    }\r\n\r\n    public Deck getDeckByName(String name) {\r\n        for (Deck deck : allDecks) {\r\n            if (deck.getDeckName().equals(name)) {\r\n                return deck;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public Deck getGameDeck() {\r\n        return this.currentGameDeck;\r\n    }\r\n\r\n    public Card getCardByName(String name) {\r\n        for (Card card : allCards) {\r\n            if (card.getNamePascalCase().equals(name)) {\r\n                return card;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n\r\n    public void setGameDeck(Deck currentGameDeck) {\r\n        this.currentGameDeck = currentGameDeck;\r\n    }\r\n\r\n    public void setProfileNumber(int profileNumber) {\r\n        this.profileNumber = profileNumber;\r\n    }\r\n\r\n    public String getUsername() {\r\n        return this.username;\r\n    }\r\n\r\n    public String getPassword() {\r\n        return this.password;\r\n    }\r\n\r\n    public String getNickname() {\r\n        return this.nickname;\r\n    }\r\n\r\n    public int getProfileNumber() {\r\n        return this.profileNumber;\r\n    }\r\n\r\n    public int getScore() {\r\n        return this.score;\r\n    }\r\n\r\n    public Deck getActiveDeck() {\r\n        return this.currentActiveDeck;\r\n    }\r\n\r\n    public Board getBoard() {\r\n        return this.board;\r\n    }\r\n\r\n    public void setNewBoard() {\r\n        this.board = new Board();\r\n    }\r\n\r\n    public int getLifePoint() {\r\n        return this.lifePoint;\r\n    }\r\n\r\n    public void setLifePoint(int lifePoint) {\r\n        this.lifePoint = lifePoint;\r\n    }\r\n\r\n    public void setScore(int score) {\r\n        this.score = score;\r\n    }\r\n\r\n    public void setMoney(int money) {\r\n        this.money = money;\r\n    }\r\n\r\n    public int getMoney() {\r\n        return this.money;\r\n    }\r\n\r\n    public void setPassword(String password) {\r\n        this.password = password;\r\n        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));\r\n    }\r\n\r\n    public void setNickname(String nickname) {\r\n        this.nickname = nickname;\r\n        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n        importExportUserController.exportNewUser(User.getUserByNickname(nickname));\r\n    }\r\n\r\n    public void setUsername(String username) {\r\n        this.username = username;\r\n        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n        importExportUserController.exportNewUser(User.getUserByUsername(username));\r\n        importExportUserController.exportAllUsers(User.getAllUsers());\r\n    }\r\n\r\n    public void setActiveDeck(Deck deck) {\r\n        this.currentActiveDeck = deck;\r\n        ImportExportUserController.getInstance().exportActiveDeck(Objects.requireNonNull(getUserByUsername(username)),deck.getDeckName());\r\n    }\r\n\r\n    public int getCountOfCardInAllCards(Card card) {\r\n        int counter = 0;\r\n        for (Card eachCard : allCards) {\r\n            if (card.getName().equals(eachCard.getName()))\r\n                counter++;\r\n        }\r\n        return counter;\r\n    }\r\n\r\n    public void deleteDeck(String name) {\r\n        this.allDecks.remove(getDeckByName(name));\r\n    }\r\n\r\n    public void deleteCard(String name) {\r\n        this.allCards.remove(getCardByName(name));\r\n    }\r\n\r\n    public void addDeck(Deck deck) {\r\n        this.allDecks.add(deck);\r\n        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n        importExportUserController.exportAllDecksName(this.getAllDecks(), Objects.requireNonNull(User.getUserByUsername(username)));\r\n    }\r\n\r\n    public void addCardToUsersAllCards(Card card) {\r\n        this.allCards.add(card);\r\n    }\r\n\r\n    public void removeDeck(Deck deck) {\r\n        this.allDecks.remove(deck);\r\n        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n        importExportUserController.exportAllDecksName(this.getAllDecks(), Objects.requireNonNull(User.getUserByUsername(username)));\r\n    }\r\n\r\n    public void increaseScore(int amount) {\r\n        this.score += amount;\r\n    }\r\n\r\n    public void decreaseScore(int amount) {\r\n        this.score -= amount;\r\n    }\r\n\r\n    public void increaseLifePoint(int amount) {\r\n        this.lifePoint += amount;\r\n    }\r\n\r\n    public void decreaseLifePoint(int amount) {\r\n        this.lifePoint -= amount;\r\n    }\r\n\r\n    public void increaseMoney(int amount) {\r\n        this.money += amount;\r\n        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));\r\n    }\r\n\r\n    public void decreaseMoney(int amount) {\r\n        this.money -= amount;\r\n        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n        importExportUserController.exportNewUser(User.getUserByUsername(this.getUsername()));\r\n    }\r\n\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        User user = (User) o;\r\n        return (this.username.equals(user.username));\r\n    }\r\n\r\n    public int getRandomProfileNumber() {\r\n        Random random = new Random();\r\n        return ((random.nextInt(36) + 1));\r\n    }\r\n\r\n    public void removeCard(Card card) {\r\n        Card cardToBeDeleted = null;\r\n        for (Card eachCard : this.allCards) {\r\n            if (eachCard.getName().equals(card.getName())) {\r\n                cardToBeDeleted = eachCard;\r\n                break;\r\n            }\r\n        }\r\n        this.allCards.remove(cardToBeDeleted);\r\n    }\r\n\r\n    public void addDeckCardsToUserAllCards(String name) {\r\n        Deck deck = this.getDeckByName(name);\r\n        allCards.addAll(deck.getMainDeck());\r\n        allCards.addAll(deck.getSideDeck());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/User.java b/src/main/java/model/User.java
+--- a/src/main/java/model/User.java	(revision 5a45923cdb5dbe952d8c0a2ae90b4773bec2a1f1)
++++ b/src/main/java/model/User.java	(date 1625665200388)
+@@ -98,9 +98,9 @@
+         this.currentGameDeck = currentGameDeck;
+     }
+ 
+-    public void setProfileNumber(int profileNumber) {
+-        this.profileNumber = profileNumber;
+-    }
++//    public void setProfileNumber(int profileNumber) {
++//        this.profileNumber = profileNumber;
++//    }
+ 
+     public String getUsername() {
+         return this.username;
+@@ -118,6 +118,10 @@
+         return this.profileNumber;
+     }
+ 
++    public void setProfileNumber(int profileNumber) {
++        this.profileNumber = profileNumber;
++    }
++
+     public int getScore() {
+         return this.score;
+     }
+Index: src/main/java/view/GameViewGraphic.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package view;\r\n\r\nimport com.sun.org.apache.xpath.internal.operations.Bool;\r\nimport controller.DuelController;\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.geometry.Pos;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.ProgressBar;\r\nimport javafx.scene.control.ScrollPane;\r\nimport javafx.scene.effect.DropShadow;\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.image.ImageView;\r\nimport javafx.scene.input.MouseButton;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.scene.layout.Pane;\r\nimport javafx.scene.paint.Color;\r\nimport javafx.scene.text.Font;\r\nimport javafx.stage.Popup;\r\nimport javafx.stage.Stage;\r\nimport model.Board;\r\nimport model.Card;\r\nimport model.MonsterCard;\r\nimport model.User;\r\n\r\nimport java.awt.image.ImageFilter;\r\nimport java.lang.reflect.Method;\r\nimport java.net.URL;\r\nimport java.util.ArrayList;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class GameViewGraphic extends Application implements Initializable {\r\n    private static DuelController duelController;\r\n    private static Stage stage;\r\n    public static User player;\r\n    public static User rival;\r\n    private static GameViewGraphic instance = null;\r\n    public Label chatBox;\r\n    public int numberOfRounds;\r\n    private static ArrayList<Image> images = new ArrayList<>();\r\n    private static ArrayList<Card> cards = new ArrayList<>();\r\n    private static ArrayList<Boolean> conditions = new ArrayList<>();\r\n    private static AnchorPane root;\r\n    public static ImageView imageView1Monster1, imageView1Monster2, imageView1Monster3, imageView1Monster4, imageView1Monster5;\r\n    public static ImageView imageView2Monster1, imageView2Monster2, imageView2Monster3, imageView2Monster4, imageView2Monster5;\r\n    public static ImageView imageView1SpellAndTrap1, imageView1SpellAndTrap2, imageView1SpellAndTrap3, imageView1SpellAndTrap4, imageView1SpellAndTrap5;\r\n    public static ImageView imageView2SpellAndTrap1, imageView2SpellAndTrap2, imageView2SpellAndTrap3, imageView2SpellAndTrap4, imageView2SpellAndTrap5;\r\n    public static ImageView imageView1hand1, imageView1hand2, imageView1hand3, imageView1hand4, imageView1hand5, imageView1hand6;\r\n    public static ImageView imageView2hand1, imageView2hand2, imageView2hand3, imageView2hand4, imageView2hand5, imageView2hand6;\r\n    public static ImageView imageView1FieldZone, imageView2FieldZone, imageView1Graveyard, imageView2Graveyard;\r\n    private static Card card1Monster1, card1Monster2, card1Monster3, card1Monster4, card1Monster5;\r\n    private static Card card2Monster1, card2Monster2, card2Monster3, card2Monster4, card2Monster5;\r\n    private static Card card1SpellAndTrap1, card1SpellAndTrap2, card1SpellAndTrap3, card1SpellAndTrap4, card1SpellAndTrap5;\r\n    private static Card card2SpellAndTrap1, card2SpellAndTrap2, card2SpellAndTrap3, card2SpellAndTrap4, card2SpellAndTrap5;\r\n    public static Card card1Hand1, card1Hand2, card1Hand3, card1Hand4, card1Hand5, card1Hand6;\r\n    public static Card card2Hand1, card2Hand2, card2Hand3, card2Hand4, card2Hand5, card2Hand6;\r\n    public static Card card1FieldZone, card2FieldZone, card1Graveyard, card2Graveyard;\r\n    public static ImageView rivalProfile = new ImageView();\r\n    public static ImageView playerProfile = new ImageView();\r\n    public ImageView selectedCard;\r\n    @FXML\r\n    public Label playerUsername, playerNickname, playerLifePoint, rivalUsername, rivalNickname, rivalLifePoint;\r\n    @FXML\r\n    private ProgressBar rivalProgressBar, playerProgressBar;\r\n    private static Label description, attack, defence;\r\n    private static ImageView selectedCardImageView;\r\n    public Popup popUpPlayerGraveyard, popUpRivalGraveyard;\r\n\r\n\r\n    /*public GameViewGraphic(User player,User rival,int numberOfRounds){\r\n        GameViewGraphic.player = player;\r\n        GameViewGraphic.rival = rival;\r\n        this.numberOfRounds = numberOfRounds;\r\n        duelController = new DuelController(player,rival,numberOfRounds);\r\n    }*/\r\n    public void setPlayer(User player) {\r\n        GameViewGraphic.player = player;\r\n    }\r\n\r\n    public void setRival(User rival) {\r\n        GameViewGraphic.rival = rival;\r\n    }\r\n\r\n    public void setNumberOfRounds(int numberOfRounds) {\r\n        this.numberOfRounds = numberOfRounds;\r\n    }\r\n\r\n    public void setDuelController() {\r\n        duelController = new DuelController(player, rival, numberOfRounds);\r\n    }\r\n\r\n    /*public static GameViewGraphic getInstance() {\r\n        if (instance == null) instance = new GameViewGraphic();\r\n        return instance;\r\n    }*/\r\n\r\n    @Override\r\n    public void start(Stage stage) throws Exception {\r\n        GameViewGraphic.stage = stage;\r\n        URL url = getClass().getResource(\"/GameMenu.fxml\");\r\n        root = FXMLLoader.load(url);\r\n        setImagesAndCards();\r\n        setBar();\r\n        setImageViewForProfile();\r\n        addAllImages();\r\n        Scene scene = new Scene(root);\r\n        stage.setScene(scene);\r\n\r\n//        setSelectedCard();\r\n        duelController.goNextPhase();\r\n        startMainNoCardSelected();\r\n        //showPlayerPopUp();\r\n        stage.show();\r\n    }\r\n\r\n    @Override\r\n    public void initialize(URL location, ResourceBundle resources) {\r\n        setBar();\r\n        setImageViewForProfile();\r\n        if (player != null && rival != null) {\r\n            if (playerLifePoint != null) playerLifePoint.setText(String.valueOf(player.getLifePoint()));\r\n            if (rivalLifePoint != null) rivalLifePoint.setText(String.valueOf(rival.getLifePoint()));\r\n            if (playerNickname != null) playerNickname.setText(player.getNickname());\r\n            if (rivalNickname != null) rivalNickname.setText(rival.getNickname());\r\n            if (playerUsername != null) playerUsername.setText(player.getUsername());\r\n            if (rivalUsername != null) rivalUsername.setText(rival.getUsername());\r\n        }\r\n        if (duelController != null) {\r\n            setImagesAndCards();\r\n            addAllImages();\r\n        }\r\n    }\r\n\r\n    public void setImagesAndCards() {\r\n        images = duelController.getBoard();\r\n        cards = duelController.getCards();\r\n        conditions = duelController.getConditions();\r\n        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));\r\n        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));\r\n        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 486, 329, conditions.get(2));\r\n        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 569, 329, conditions.get(3));\r\n        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 652, 329, conditions.get(4));\r\n        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 324, 206, conditions.get(5));\r\n        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 403, 206, conditions.get(6));\r\n        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 486, 206, conditions.get(7));\r\n        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 569, 206, conditions.get(8));\r\n        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 652, 206, conditions.get(9));\r\n        if (images.get(10) != null)\r\n            imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432, conditions.get(10));\r\n        if (images.get(11) != null)\r\n            imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432, conditions.get(11));\r\n        if (images.get(12) != null)\r\n            imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432, conditions.get(12));\r\n        if (images.get(13) != null)\r\n            imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432, conditions.get(13));\r\n        if (images.get(14) != null)\r\n            imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432, conditions.get(14));\r\n        if (images.get(15) != null)\r\n            imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104, conditions.get(15));\r\n        if (images.get(16) != null)\r\n            imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104, conditions.get(16));\r\n        if (images.get(17) != null)\r\n            imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104, conditions.get(17));\r\n        if (images.get(18) != null)\r\n            imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104, conditions.get(18));\r\n        if (images.get(19) != null)\r\n            imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104, conditions.get(19));\r\n        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538, conditions.get(20));\r\n        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538, conditions.get(21));\r\n        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538, conditions.get(22));\r\n        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538, conditions.get(23));\r\n        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538, conditions.get(24));\r\n        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538, conditions.get(25));\r\n        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16, conditions.get(26));\r\n        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16, conditions.get(27));\r\n        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16, conditions.get(28));\r\n        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16, conditions.get(29));\r\n        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16, conditions.get(30));\r\n        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16, conditions.get(31));\r\n        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 232, 324, conditions.get(32));\r\n        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 740, 205, conditions.get(33));\r\n        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 750, 328, conditions.get(34));\r\n        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 245, 213, conditions.get(35));\r\n        if (cards.get(0) != null) card1Monster1 = cards.get(0);\r\n        if (cards.get(1) != null) card1Monster2 = cards.get(1);\r\n        if (cards.get(2) != null) card1Monster3 = cards.get(2);\r\n        if (cards.get(3) != null) card1Monster4 = cards.get(3);\r\n        if (cards.get(4) != null) card1Monster5 = cards.get(4);\r\n        if (cards.get(5) != null) card2Monster1 = cards.get(5);\r\n        if (cards.get(6) != null) card2Monster2 = cards.get(6);\r\n        if (cards.get(7) != null) card2Monster3 = cards.get(7);\r\n        if (cards.get(8) != null) card2Monster4 = cards.get(8);\r\n        if (cards.get(9) != null) card2Monster5 = cards.get(9);\r\n        if (cards.get(10) != null) card1SpellAndTrap1 = cards.get(10);\r\n        if (cards.get(11) != null) card1SpellAndTrap2 = cards.get(11);\r\n        if (cards.get(12) != null) card1SpellAndTrap3 = cards.get(12);\r\n        if (cards.get(13) != null) card1SpellAndTrap4 = cards.get(13);\r\n        if (cards.get(14) != null) card1SpellAndTrap5 = cards.get(14);\r\n        if (cards.get(15) != null) card2SpellAndTrap1 = cards.get(15);\r\n        if (cards.get(16) != null) card2SpellAndTrap2 = cards.get(16);\r\n        if (cards.get(17) != null) card2SpellAndTrap3 = cards.get(17);\r\n        if (cards.get(18) != null) card2SpellAndTrap4 = cards.get(18);\r\n        if (cards.get(19) != null) card2SpellAndTrap5 = cards.get(19);\r\n        if (cards.get(20) != null) card1Hand1 = cards.get(20);\r\n        if (cards.get(21) != null) card1Hand2 = cards.get(21);\r\n        if (cards.get(22) != null) card1Hand3 = cards.get(22);\r\n        if (cards.get(23) != null) card1Hand4 = cards.get(23);\r\n        if (cards.get(24) != null) card1Hand5 = cards.get(24);\r\n        if (cards.get(25) != null) card1Hand6 = cards.get(25);\r\n        if (cards.get(26) != null) card2Hand1 = cards.get(26);\r\n        if (cards.get(27) != null) card2Hand2 = cards.get(27);\r\n        if (cards.get(28) != null) card2Hand3 = cards.get(28);\r\n        if (cards.get(29) != null) card2Hand4 = cards.get(29);\r\n        if (cards.get(30) != null) card2Hand5 = cards.get(30);\r\n        if (cards.get(31) != null) card2Hand6 = cards.get(31);\r\n        if (cards.get(32) != null) card1FieldZone = cards.get(32);\r\n        if (cards.get(33) != null) card2FieldZone = cards.get(33);\r\n        if (cards.get(34) != null) card1Graveyard = cards.get(34);\r\n        if (cards.get(35) != null) card2Graveyard = cards.get(35);\r\n        cards = duelController.getCards();\r\n        conditions = duelController.getConditions();\r\n        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));\r\n        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));\r\n        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 486, 329, conditions.get(2));\r\n        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 569, 329, conditions.get(3));\r\n        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 652, 329, conditions.get(4));\r\n        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 324, 206, conditions.get(5));\r\n        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 403, 206, conditions.get(6));\r\n        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 486, 206, conditions.get(7));\r\n        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 569, 206, conditions.get(8));\r\n        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 652, 206, conditions.get(9));\r\n        if (images.get(10) != null)\r\n            imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432, conditions.get(10));\r\n        if (images.get(11) != null)\r\n            imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432, conditions.get(11));\r\n        if (images.get(12) != null)\r\n            imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432, conditions.get(12));\r\n        if (images.get(13) != null)\r\n            imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432, conditions.get(13));\r\n        if (images.get(14) != null)\r\n            imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432, conditions.get(14));\r\n        if (images.get(15) != null)\r\n            imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104, conditions.get(15));\r\n        if (images.get(16) != null)\r\n            imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104, conditions.get(16));\r\n        if (images.get(17) != null)\r\n            imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104, conditions.get(17));\r\n        if (images.get(18) != null)\r\n            imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104, conditions.get(18));\r\n        if (images.get(19) != null)\r\n            imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104, conditions.get(19));\r\n        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538, conditions.get(20));\r\n        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538, conditions.get(21));\r\n        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538, conditions.get(22));\r\n        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538, conditions.get(23));\r\n        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538, conditions.get(24));\r\n        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538, conditions.get(25));\r\n        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16, conditions.get(26));\r\n        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16, conditions.get(27));\r\n        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16, conditions.get(28));\r\n        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16, conditions.get(29));\r\n        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16, conditions.get(30));\r\n        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16, conditions.get(31));\r\n        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 232, 324, conditions.get(32));\r\n        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 740, 205, conditions.get(33));\r\n        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 750, 328, conditions.get(34));\r\n        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 245, 213, conditions.get(35));\r\n        if (cards.get(0) != null) card1Monster1 = cards.get(0);\r\n        if (cards.get(1) != null) card1Monster2 = cards.get(1);\r\n        if (cards.get(2) != null) card1Monster3 = cards.get(2);\r\n        if (cards.get(3) != null) card1Monster4 = cards.get(3);\r\n        if (cards.get(4) != null) card1Monster5 = cards.get(4);\r\n        if (cards.get(5) != null) card2Monster1 = cards.get(5);\r\n        if (cards.get(6) != null) card2Monster2 = cards.get(6);\r\n        if (cards.get(7) != null) card2Monster3 = cards.get(7);\r\n        if (cards.get(8) != null) card2Monster4 = cards.get(8);\r\n        if (cards.get(9) != null) card2Monster5 = cards.get(9);\r\n        if (cards.get(10) != null) card1SpellAndTrap1 = cards.get(10);\r\n        if (cards.get(11) != null) card1SpellAndTrap2 = cards.get(11);\r\n        if (cards.get(12) != null) card1SpellAndTrap3 = cards.get(12);\r\n        if (cards.get(13) != null) card1SpellAndTrap4 = cards.get(13);\r\n        if (cards.get(14) != null) card1SpellAndTrap5 = cards.get(14);\r\n        if (cards.get(15) != null) card2SpellAndTrap1 = cards.get(15);\r\n        if (cards.get(16) != null) card2SpellAndTrap2 = cards.get(16);\r\n        if (cards.get(17) != null) card2SpellAndTrap3 = cards.get(17);\r\n        if (cards.get(18) != null) card2SpellAndTrap4 = cards.get(18);\r\n        if (cards.get(19) != null) card2SpellAndTrap5 = cards.get(19);\r\n        if (cards.get(20) != null) card1Hand1 = cards.get(20);\r\n        if (cards.get(21) != null) card1Hand2 = cards.get(21);\r\n        if (cards.get(22) != null) card1Hand3 = cards.get(22);\r\n        if (cards.get(23) != null) card1Hand4 = cards.get(23);\r\n        if (cards.get(24) != null) card1Hand5 = cards.get(24);\r\n        if (cards.get(25) != null) card1Hand6 = cards.get(25);\r\n        if (cards.get(26) != null) card2Hand1 = cards.get(26);\r\n        if (cards.get(27) != null) card2Hand2 = cards.get(27);\r\n        if (cards.get(28) != null) card2Hand3 = cards.get(28);\r\n        if (cards.get(29) != null) card2Hand4 = cards.get(29);\r\n        if (cards.get(30) != null) card2Hand5 = cards.get(30);\r\n        if (cards.get(31) != null) card2Hand6 = cards.get(31);\r\n        if (cards.get(32) != null) card1FieldZone = cards.get(32);\r\n        if (cards.get(33) != null) card2FieldZone = cards.get(33);\r\n        if (cards.get(34) != null) card1Graveyard = cards.get(34);\r\n        if (cards.get(35) != null) card2Graveyard = cards.get(35);\r\n        setCardDetailsPart();\r\n    }\r\n\r\n    private ImageView setImageView(Image image, int x, int y, Boolean condition) {\r\n        ImageView imageView = new ImageView(image);\r\n        imageView.setFitWidth(49);\r\n        imageView.setFitHeight(71);\r\n        imageView.setX(x);\r\n        imageView.setY(y);\r\n        if (condition.equals(true))\r\n            imageView.setRotate(90);\r\n        else\r\n            imageView.setRotate(0);\r\n        return imageView;\r\n    }\r\n\r\n    private void setImageViewForProfile() {\r\n        URL url = getClass().getResource(\"/images/profiles/profile (\" + player.getProfileNumber() + \").png\");\r\n        Image image = new Image(String.valueOf(url));\r\n        playerProfile = new ImageView(image);\r\n        playerProfile.setFitWidth(50);\r\n        playerProfile.setFitHeight(50);\r\n        playerProfile.setX(228);\r\n        playerProfile.setY(442);\r\n        playerProfile.setImage(image);\r\n        if (root != null && !root.getChildren().contains(playerProfile))\r\n            root.getChildren().add(playerProfile);\r\n        url = getClass().getResource(\"/images/profiles/profile (\" + rival.getProfileNumber() + \").png\");\r\n        image = new Image(String.valueOf(url));\r\n        rivalProfile = new ImageView(image);\r\n        rivalProfile.setFitWidth(50);\r\n        rivalProfile.setFitHeight(50);\r\n        rivalProfile.setX(737);\r\n        rivalProfile.setY(112);\r\n        rivalProfile.setImage(image);\r\n        if (root != null && !root.getChildren().contains(rivalProfile))\r\n            root.getChildren().add(rivalProfile);\r\n    }\r\n\r\n    private void addAllImages() {\r\n        addImagesView(imageView1hand1);\r\n        addImagesView(imageView1hand2);\r\n        addImagesView(imageView1hand3);\r\n        addImagesView(imageView1hand4);\r\n        addImagesView(imageView1hand5);\r\n        addImagesView(imageView1hand6);\r\n        addImagesView(imageView2hand1);\r\n        addImagesView(imageView2hand2);\r\n        addImagesView(imageView2hand3);\r\n        addImagesView(imageView2hand4);\r\n        addImagesView(imageView2hand5);\r\n        addImagesView(imageView2hand6);\r\n        addImagesView(imageView1Monster1);\r\n        addImagesView(imageView1Monster2);\r\n        addImagesView(imageView1Monster3);\r\n        addImagesView(imageView1Monster4);\r\n        addImagesView(imageView1Monster5);\r\n        addImagesView(imageView2Monster1);\r\n        addImagesView(imageView2Monster2);\r\n        addImagesView(imageView2Monster3);\r\n        addImagesView(imageView2Monster4);\r\n        addImagesView(imageView2Monster5);\r\n        addImagesView(imageView1SpellAndTrap1);\r\n        addImagesView(imageView1SpellAndTrap2);\r\n        addImagesView(imageView1SpellAndTrap3);\r\n        addImagesView(imageView1SpellAndTrap4);\r\n        addImagesView(imageView1SpellAndTrap5);\r\n        addImagesView(imageView2SpellAndTrap1);\r\n        addImagesView(imageView2SpellAndTrap2);\r\n        addImagesView(imageView2SpellAndTrap3);\r\n        addImagesView(imageView2SpellAndTrap4);\r\n        addImagesView(imageView2SpellAndTrap5);\r\n        addImagesView(imageView1FieldZone);\r\n        addImagesView(imageView2FieldZone);\r\n        addImagesView(imageView1Graveyard);\r\n        addImagesView(imageView2Graveyard);\r\n        addLabel(description);\r\n        addLabel(attack);\r\n        addLabel(defence);\r\n        addImagesView(selectedCardImageView);\r\n    }\r\n\r\n    private void addImagesView(ImageView imageView) {\r\n        if (root != null) {\r\n            if (imageView != null && !root.getChildren().contains(imageView))\r\n                root.getChildren().add(imageView);\r\n        }\r\n    }\r\n\r\n    private void addLabel(Label label) {\r\n        if (root != null) {\r\n            if (label != null && !root.getChildren().contains(label))\r\n                root.getChildren().add(label);\r\n        }\r\n    }\r\n\r\n\r\n    public void pauseMenu() {\r\n\r\n        System.out.println(popUpPlayerGraveyard);\r\n\r\n        //ArrayList<Card> playerGraveyard =\r\n        ArrayList<Image> images = duelController.getBoard();\r\n        ArrayList<Card> playerGraveyard = duelController.getCards();\r\n//        ArrayList<Card> playerGraveyard = (ArrayList<Card>) player.getBoard().getCardsInGraveyard();\r\n        //todo image haye card haro az parmida begir\r\n//        ScrollPane scrollPane = new ScrollPane();\r\n\r\n        //scrollPane.set(100);\r\n        //scrollPane.setLayoutX(500);\r\n        //scrollPane.setLayoutX(200);\r\n        popUpPlayerGraveyard = new Popup();\r\n        System.out.println(popUpPlayerGraveyard);\r\n        AnchorPane anchorPane = new AnchorPane();\r\n        popUpPlayerGraveyard.setX(10);\r\n        popUpPlayerGraveyard.setY(10);\r\n        popUpPlayerGraveyard.setWidth(300);\r\n        popUpPlayerGraveyard.setHeight(300);\r\n        anchorPane.setPrefWidth(200);\r\n        anchorPane.setPrefHeight(200);\r\n        anchorPane.setLayoutX(50);\r\n        anchorPane.setLayoutY(50);\r\n        for (int i = 0; i < 6; i++) {\r\n            ImageView imageView = new ImageView(images.get(i));\r\n            imageView.setFitWidth(70);\r\n            imageView.setFitHeight(102);\r\n            imageView.setX(220);\r\n            imageView.setY(20 * (i+1) + 102 * (i));\r\n            anchorPane.getChildren().add(imageView);\r\n        }\r\n        popUpPlayerGraveyard.getContent().add(anchorPane);\r\n        popUpPlayerGraveyard.requestFocus();\r\n        System.out.println(anchorPane.getChildren());\r\n        System.out.println(popUpPlayerGraveyard.getContent());;\r\n        popUpPlayerGraveyard.show(stage);\r\n        popUpPlayerGraveyard.requestFocus();\r\n        System.out.println(popUpPlayerGraveyard.isShowing());\r\n\r\n\r\n    }\r\n\r\n    public void updateBoard() {\r\n        setImagesAndCards();\r\n        addAllImages();\r\n    }\r\n\r\n    public void startMainNoCardSelected() throws Exception {\r\n        /*setOnClickSelected(imageView1Monster1, 5, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class), DuelController.class.getMethod(\"summonMonster\"));\r\n        setOnClickSelected(imageView1Monster2, 3, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1Monster3, 1, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1Monster4, 2, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1Monster5, 4, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainAPlayerMonsterSelected\", ImageView.class));\r\n\r\n        setOnClickSelected(imageView2Monster1, 4, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2Monster2, 2, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2Monster3, 1, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2Monster4, 3, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2Monster5, 5, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n\r\n        setOnClickSelected(imageView1SpellAndTrap1, 5, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1SpellAndTrap2, 3, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1SpellAndTrap3, 1, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1SpellAndTrap4, 2, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1SpellAndTrap5, 4, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainAPlayerSpellOrTrapSelected\", ImageView.class));\r\n\r\n        setOnClickSelected(imageView2SpellAndTrap1, 4, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2SpellAndTrap2, 2, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2SpellAndTrap3, 1, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2SpellAndTrap4, 3, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n        setOnClickSelected(imageView2SpellAndTrap5, 5, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"doNothing\", ImageView.class));\r\n*/\r\n        setOnClickSelected(imageView1hand1, player, 1, 20, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"summonMonster\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"preSet\"));\r\n        setOnClickSelected(imageView1hand2, player, 2, 21, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"summonMonster\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"preSet\"));\r\n        setOnClickSelected(imageView1hand3, player, 3, 22, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"summonMonster\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"preSet\"));\r\n        setOnClickSelected(imageView1hand4, player, 4, 23, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"summonMonster\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"preSet\"));\r\n        setOnClickSelected(imageView1hand5, player, 5, 24, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"summonMonster\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"preSet\"));\r\n        setOnClickSelected(imageView1hand6, player, 6, 25, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"summonMonster\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"preSet\"));\r\n        setOnClickSelected(imageView1Monster1, player, 5, 0, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"flipSummon\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"changePosition\"));\r\n        setOnClickSelected(imageView1Monster2, player, 3, 1, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"flipSummon\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"changePosition\"));\r\n        setOnClickSelected(imageView1Monster3, player, 1, 2, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"flipSummon\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"changePosition\"));\r\n        setOnClickSelected(imageView1Monster4, player, 2, 3, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"flipSummon\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"changePosition\"));\r\n        setOnClickSelected(imageView1Monster5, player, 4, 4, DuelController.class.getMethod(\"selectCardPlayerMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"flipSummon\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"changePosition\"));\r\n        setOnClickSelected(imageView2Monster1, rival, 4, 5, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2Monster1, rival, 2, 6, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2Monster1, rival, 1, 7, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2Monster1, rival, 3, 8, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2Monster1, rival, 5, 9, DuelController.class.getMethod(\"selectCardOpponentMonsterZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView1SpellAndTrap1, player, 5, 10, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView1SpellAndTrap2, player, 3, 11, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView1SpellAndTrap3, player, 1, 12, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView1SpellAndTrap4, player, 2, 13, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView1SpellAndTrap5, player, 4, 14, DuelController.class.getMethod(\"selectCardPlayerTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"activateSpell\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2SpellAndTrap1, rival, 4, 15, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2SpellAndTrap2, rival, 2, 16, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2SpellAndTrap3, rival, 1, 17, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2SpellAndTrap4, rival, 3, 18, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2SpellAndTrap5, rival, 5, 19, DuelController.class.getMethod(\"selectCardOpponentTrapAndSpellZone\", int.class), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView1FieldZone, player, 1, 32, DuelController.class.getMethod(\"selectCardPlayerFieldZone\"), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2FieldZone, rival, 1, 33, DuelController.class.getMethod(\"selectCardOpponentFieldZone\"), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView1Graveyard, player, 1, 34, DuelController.class.getMethod(\"showGraveyard\"), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n        setOnClickSelected(imageView2Graveyard, rival, 1, 35, DuelController.class.getMethod(\"showGraveyard\"), this.getClass().getMethod(\"startMainNoCardSelected\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"), DuelController.class.getMethod(\"doNothing\"));\r\n\r\n/*setOnClickSelected(imageView1hand2, 2, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1hand3, 3, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1hand4, 4, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1hand5, 5, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n        setOnClickSelected(imageView1hand6, 6, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n*/\r\n//        setOnClickSelected(imageView1FieldZone, 1, DuelController.class.getMethod(\"selectCardPlayerFieldZone\"), this.getClass().getMethod(\"startMainPlayerFieldZoneSelected\", ImageView.class));\r\n//        setOnClickSelected(imageView2FieldZone, 1, DuelController.class.getMethod(\"selectCardOpponentFieldZone\"), this.getClass().getMethod(\"startMainOpponentFieldZoneSelected\", ImageView.class));\r\n\r\n//        //todo number ro gozashtam 1. chi kar konam? va show graveyard darim na select graveyard. bezanam?\r\n//        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod(\"selectPlayerGraveyard\"), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n//        setOnClickSelected(imageView1Graveyard, 1, DuelController.class.getMethod(\"selectRivalGraveyard\"), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n\r\n\r\n    }\r\n\r\n\r\n    private void setOnClickSelected(ImageView imageView, User owner, int number1, int numberForGet, Method onMouseEnteredMethod, Method nextMethod, Method onMouseClickedMethodMonster, Method onMouseClickedMethodSpell, Method onMouseRightClickedMethod) {\r\n        if (imageView == null) return;\r\n        Image unknown = new Image(\"images/Cards/Unknown.jpg\");\r\n        imageView.setOnMouseEntered(event -> {\r\n            if (!imageView.getImage().equals(unknown) || owner.equals(player))\r\n                showCardDetails(cards.get(numberForGet));\r\n            else if (imageView.getImage().equals(unknown))\r\n                showUnknownCard();\r\n            if (selectedCard != null && selectedCard.getEffect() != null)\r\n                selectedCard.setEffect(null);\r\n            imageView.setEffect(new DropShadow());\r\n            try {\r\n                onMouseEnteredMethod.invoke(duelController, number1);\r\n                startMainNoCardSelected();\r\n                selectedCard = imageView;\r\n            } catch (Exception e) {\r\n                System.out.println(e.getMessage());\r\n            }\r\n        });\r\n        imageView.setOnMouseExited(event -> {\r\n            if (!imageView.getImage().equals(unknown) || owner.equals(player))\r\n                clearCardDetails();\r\n            else if (imageView.getImage().equals(unknown))\r\n                clearCardDetails();\r\n            imageView.setEffect(null);\r\n            try {\r\n                DuelController.class.getMethod(\"unselectCard\").invoke(duelController);\r\n                startMainNoCardSelected();\r\n                selectedCard = null;\r\n            } catch (Exception e) {\r\n                System.out.println(e.getMessage());\r\n            }\r\n        });\r\n        imageView.setOnMouseClicked(event -> {\r\n            if (event.getButton().equals(MouseButton.PRIMARY)) {\r\n                try {\r\n                    if (cards.get(numberForGet) instanceof MonsterCard)\r\n                        onMouseClickedMethodMonster.invoke(duelController);\r\n                    else\r\n                        onMouseClickedMethodSpell.invoke(duelController);\r\n                    if (!imageView.getImage().equals(unknown)) {\r\n                        clearCardDetails();\r\n                    }\r\n                    imageView.setEffect(null);\r\n                    selectedCard = null;\r\n                    updateBoard();\r\n                    startMainNoCardSelected();\r\n                } catch (Exception e) {\r\n                    e.printStackTrace();\r\n                    System.out.println(e.getMessage());\r\n                }\r\n            } else if (event.getButton().equals(MouseButton.SECONDARY)) {\r\n                try {\r\n                    onMouseRightClickedMethod.invoke(duelController);\r\n                    if (!imageView.getImage().equals(unknown)) {\r\n                        clearCardDetails();\r\n                    }\r\n                    imageView.setEffect(null);\r\n                    selectedCard = null;\r\n                    updateBoard();\r\n                    startMainNoCardSelected();\r\n                } catch (Exception e) {\r\n                    e.printStackTrace();\r\n                    System.out.println(e.getMessage());\r\n                }\r\n            }\r\n        });\r\n    }\r\n\r\n    public void showCardDetails(Card card) {\r\n        System.out.println(card);\r\n        selectedCardImageView.setImage(card.getImage());\r\n        description.setText(\"Description:\\n\" + card.getDescription());\r\n        if (card instanceof MonsterCard) {\r\n            MonsterCard monsterCard = (MonsterCard) card;\r\n            attack.setText(\"Attack: \" + monsterCard.getAttack());\r\n            defence.setText(\"Defence: \" + monsterCard.getDefence());\r\n        }\r\n    }\r\n\r\n    public void showUnknownCard() {\r\n        Image unknown = new Image(\"images/Cards/Unknown.jpg\");\r\n        selectedCardImageView.setImage(unknown);\r\n    }\r\n\r\n    public void startMainAHandSelected(ImageView imageView) throws Exception {\r\n//        setOnClickSelected(imageView1hand2, 1, DuelController.class.getMethod(\"selectCardPlayerHand\", int.class), this.getClass().getMethod(\"startMainAHandSelected\", ImageView.class));\r\n\r\n    }\r\n\r\n    public void startMainAPlayerMonsterSelected(ImageView imageView) {\r\n\r\n    }\r\n\r\n    public void doNothing(ImageView imageView) {\r\n\r\n    }\r\n\r\n    public void startMainAPlayerSpellOrTrapSelected(ImageView imageView) {\r\n\r\n    }\r\n\r\n    public void startMainPlayerFieldZoneSelected(ImageView imageView) {\r\n\r\n    }\r\n\r\n    public void startMainOpponentFieldZoneSelected(ImageView imageView) {\r\n\r\n    }\r\n\r\n    public void setBar() { //todo harja lifepoint taghyir kard bayad update beshe\r\n        if (rivalProgressBar != null && rival != null)\r\n            rivalProgressBar.setProgress((double) player.getLifePoint() / 8000);\r\n        if (playerProgressBar != null && rival != null)\r\n            playerProgressBar.setProgress((double) rival.getLifePoint() / 8000);\r\n    }\r\n\r\n    private void setCardDetailsPart() {\r\n        description = new Label();\r\n        description.setLayoutX(12);\r\n        description.setLayoutY(338);\r\n        description.setPrefWidth(167);\r\n        description.setPrefHeight(120);\r\n        description.setTextFill(Color.WHITE);\r\n        description.setAlignment(Pos.TOP_LEFT);\r\n        description.setFont(Font.font(\"Agency FB\", 14));\r\n        description.setWrapText(true);\r\n        attack = new Label();\r\n        attack.setLayoutX(12);\r\n        attack.setLayoutY(457);\r\n        attack.setPrefWidth(149);\r\n        attack.setPrefHeight(15);\r\n        attack.setTextFill(Color.WHITE);\r\n        attack.setFont(Font.font(\"Agency FB\", 14));\r\n        defence = new Label();\r\n        defence.setLayoutX(12);\r\n        defence.setLayoutY(471);\r\n        defence.setPrefWidth(149);\r\n        defence.setPrefHeight(15);\r\n        defence.setTextFill(Color.WHITE);\r\n        defence.setFont(Font.font(\"Agency FB\", 14));\r\n        selectedCardImageView = new ImageView();\r\n        selectedCardImageView.setY(128);\r\n        selectedCardImageView.setX(29);\r\n        selectedCardImageView.setFitHeight(202);\r\n        selectedCardImageView.setFitWidth(184);\r\n        selectedCardImageView.setPickOnBounds(true);\r\n        selectedCardImageView.setPreserveRatio(true);\r\n    }\r\n\r\n    private void clearCardDetails() {\r\n        selectedCardImageView.setImage(null);\r\n        description.setText(\"\");\r\n        attack.setText(\"\");\r\n        defence.setText(\"\");\r\n    }\r\n\r\n    private void showPlayerPopUp() {\r\n//        System.out.println(popUpPlayerGraveyard);\r\n//\r\n//        //ArrayList<Card> playerGraveyard =\r\n//        ArrayList<Image> images = duelController.getBoard();\r\n//        ArrayList<Card> playerGraveyard = duelController.getCards();\r\n////        ArrayList<Card> playerGraveyard = (ArrayList<Card>) player.getBoard().getCardsInGraveyard();\r\n//        //todo image haye card haro az parmida begir\r\n////        ScrollPane scrollPane = new ScrollPane();\r\n//\r\n//        //scrollPane.set(100);\r\n//        //scrollPane.setLayoutX(500);\r\n//        //scrollPane.setLayoutX(200);\r\n//        popUpPlayerGraveyard = new Popup();\r\n//        System.out.println(popUpPlayerGraveyard);\r\n//        AnchorPane anchorPane = new AnchorPane();\r\n//        popUpPlayerGraveyard.setX(500);\r\n//        popUpPlayerGraveyard.setY(200);\r\n//        popUpPlayerGraveyard.setWidth(300);\r\n//        popUpPlayerGraveyard.setHeight(300);\r\n//        for (int i = 0; i < 6; i++) {\r\n//            ImageView imageView = new ImageView(images.get(i));\r\n//            imageView.setFitWidth(70);\r\n//            imageView.setFitHeight(102);\r\n//            imageView.setX(220);\r\n//            imageView.setY(20 * i + 102 * (i - 1));\r\n//            anchorPane.getChildren().add(imageView);\r\n//        }\r\n//        popUpPlayerGraveyard.getContent().add(anchorPane);\r\n//        System.out.println(anchorPane.getChildren());\r\n//        System.out.println(popUpPlayerGraveyard.getContent());;\r\n//\r\n//\r\n//        popUpPlayerGraveyard.show(stage);\r\n//        System.out.println(popUpPlayerGraveyard.isShowing());\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n//        for (Card card : playerGraveyard) {\r\n//            ImageView imageView = new ImageView();\r\n//            imageView.setFitWidth(49);\r\n//            imageView.setFitHeight(71);\r\n//            imageView.setX(x);\r\n//            imageView.setY(y);\r\n//            scrollPane.getChildrenUnmodifiable().add(imageView);\r\n//        }\r\n\r\n\r\n    }\r\n\r\n    private void showRivalPopUp() {\r\n        popUpRivalGraveyard = new Popup();\r\n        ArrayList<Card> rivalGraveyard = (ArrayList<Card>) rival.getBoard().getCardsInGraveyard();\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/view/GameViewGraphic.java b/src/main/java/view/GameViewGraphic.java
+--- a/src/main/java/view/GameViewGraphic.java	(revision 5a45923cdb5dbe952d8c0a2ae90b4773bec2a1f1)
++++ b/src/main/java/view/GameViewGraphic.java	(date 1625667668113)
+@@ -135,190 +135,363 @@
+         }
+     }
+ 
++//    public void setImagesAndCards() {
++//        images = duelController.getBoard();
++//        cards = duelController.getCards();
++//        if (imageView1hand6 != null) System.out.println(imageView1hand6.getImage() + " 25image");
++////        System.out.println(cards.get(25) + " 25card");
++//        conditions = duelController.getConditions();
++//        imageView1Monster1 = setImageView(imageView1Monster1,images.get(0), 324, 329, conditions.get(0));
++//        imageView1Monster2 = setImageView(imageView1Monster2,images.get(1), 403, 329, conditions.get(1));
++//        imageView1Monster3 = setImageView(imageView1Monster3,images.get(2), 486, 329, conditions.get(2));
++//        imageView1Monster4 = setImageView(imageView1Monster4,images.get(3), 569, 329, conditions.get(3));
++//        imageView1Monster5 = setImageView(imageView1Monster5,images.get(4), 652, 329, conditions.get(4));
++//        imageView2Monster1 = setImageView(imageView2Monster1,images.get(5), 324, 206, conditions.get(5));
++//        imageView2Monster2 = setImageView(imageView2Monster2,images.get(6), 403, 206, conditions.get(6));
++//        imageView2Monster3 = setImageView(imageView2Monster3,images.get(7), 486, 206, conditions.get(7));
++//        imageView2Monster4 = setImageView(imageView2Monster4,images.get(8), 569, 206, conditions.get(8));
++//        imageView2Monster5 = setImageView(imageView2Monster5,images.get(9), 652, 206, conditions.get(9));
++//        imageView1SpellAndTrap1 = setImageView(imageView1SpellAndTrap1,images.get(10), 324, 432, conditions.get(10));
++//        imageView1SpellAndTrap2 = setImageView(imageView1SpellAndTrap2,images.get(11), 403, 432, conditions.get(11));
++//        imageView1SpellAndTrap3 = setImageView(imageView1SpellAndTrap3,images.get(12), 486, 432, conditions.get(12));
++//        imageView1SpellAndTrap4 = setImageView(imageView1SpellAndTrap4,images.get(13), 569, 432, conditions.get(13));
++//        imageView1SpellAndTrap5 = setImageView(imageView1SpellAndTrap5,images.get(14), 652, 432, conditions.get(14));
++//        imageView2SpellAndTrap1 = setImageView(imageView2SpellAndTrap1,images.get(15), 324, 104, conditions.get(15));
++//        imageView2SpellAndTrap2 = setImageView(imageView2SpellAndTrap2,images.get(16), 403, 104, conditions.get(16));
++//        imageView2SpellAndTrap3 = setImageView(imageView2SpellAndTrap3,images.get(17), 486, 104, conditions.get(17));
++//        imageView2SpellAndTrap4 = setImageView(imageView2SpellAndTrap4,images.get(18), 569, 104, conditions.get(18));
++//        imageView2SpellAndTrap5 = setImageView(imageView2SpellAndTrap5,images.get(19), 652, 104, conditions.get(19));
++//        imageView1hand1 = setImageView(imageView1hand1,images.get(20), 331, 538, conditions.get(20));
++//        imageView1hand2 = setImageView(imageView1hand2,images.get(21), 387, 538, conditions.get(21));
++//        imageView1hand3 = setImageView(imageView1hand3,images.get(22), 443, 538, conditions.get(22));
++//        imageView1hand4 = setImageView(imageView1hand4,images.get(23), 499, 538, conditions.get(23));
++//        imageView1hand5 = setImageView(imageView1hand5,images.get(24), 555, 538, conditions.get(24));
++//        imageView1hand6 = setImageView(imageView1hand6,images.get(25), 611, 538, conditions.get(25));
++//        imageView2hand1 = setImageView(imageView2hand1,images.get(26), 331, -16, conditions.get(26));
++//        imageView2hand2 = setImageView(imageView2hand2,images.get(27), 387, -16, conditions.get(27));
++//        imageView2hand3 = setImageView(imageView2hand3,images.get(28), 443, -16, conditions.get(28));
++//        imageView2hand4 = setImageView(imageView2hand4,images.get(29), 499, -16, conditions.get(29));
++//        imageView2hand5 = setImageView(imageView2hand5,images.get(30), 555, -16, conditions.get(30));
++//        imageView2hand6 = setImageView(imageView2hand6,images.get(31), 611, -16, conditions.get(31));
++//        imageView1FieldZone = setImageView(imageView1FieldZone,images.get(32), 232, 324, conditions.get(32));
++//        imageView2FieldZone = setImageView(imageView2FieldZone,images.get(33), 740, 205, conditions.get(33));
++//        imageView1Graveyard = setImageView(imageView1Graveyard,images.get(34), 750, 328, conditions.get(34));
++//        imageView2Graveyard = setImageView(imageView2Graveyard,images.get(35), 245, 213, conditions.get(35));
++//        card1Monster1 = cards.get(0);
++//        card1Monster2 = cards.get(1);
++//        card1Monster3 = cards.get(2);
++//        card1Monster4 = cards.get(3);
++//        card1Monster5 = cards.get(4);
++//        card2Monster1 = cards.get(5);
++//        card2Monster2 = cards.get(6);
++//        card2Monster3 = cards.get(7);
++//        card2Monster4 = cards.get(8);
++//        card2Monster5 = cards.get(9);
++//        card1SpellAndTrap1 = cards.get(10);
++//        card1SpellAndTrap2 = cards.get(11);
++//        card1SpellAndTrap3 = cards.get(12);
++//        card1SpellAndTrap4 = cards.get(13);
++//        card1SpellAndTrap5 = cards.get(14);
++//        card2SpellAndTrap1 = cards.get(15);
++//        card2SpellAndTrap2 = cards.get(16);
++//        card2SpellAndTrap3 = cards.get(17);
++//        card2SpellAndTrap4 = cards.get(18);
++//        card2SpellAndTrap5 = cards.get(19);
++//        card1Hand1 = cards.get(20);
++//        card1Hand2 = cards.get(21);
++//        card1Hand3 = cards.get(22);
++//        card1Hand4 = cards.get(23);
++//        card1Hand5 = cards.get(24);
++//        if (imageView1hand6 != null) System.out.println(imageView1hand6.getImage() + " 25image");
++//        card1Hand6 = cards.get(25);
++//        card2Hand1 = cards.get(26);
++//        card2Hand2 = cards.get(27);
++//        card2Hand3 = cards.get(28);
++//        card2Hand4 = cards.get(29);
++//        card2Hand5 = cards.get(30);
++//        card2Hand6 = cards.get(31);
++//        card1FieldZone = cards.get(32);
++//        card2FieldZone = cards.get(33);
++//        card1Graveyard = cards.get(34);
++//        card2Graveyard = cards.get(35);
++//        setCardDetailsPart();
++//    }
++
++
+     public void setImagesAndCards() {
+         images = duelController.getBoard();
+         cards = duelController.getCards();
+         conditions = duelController.getConditions();
+-        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));
+-        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));
+-        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 486, 329, conditions.get(2));
+-        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 569, 329, conditions.get(3));
+-        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 652, 329, conditions.get(4));
+-        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 324, 206, conditions.get(5));
+-        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 403, 206, conditions.get(6));
+-        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 486, 206, conditions.get(7));
+-        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 569, 206, conditions.get(8));
+-        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 652, 206, conditions.get(9));
+-        if (images.get(10) != null)
+-            imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432, conditions.get(10));
+-        if (images.get(11) != null)
+-            imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432, conditions.get(11));
+-        if (images.get(12) != null)
+-            imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432, conditions.get(12));
+-        if (images.get(13) != null)
+-            imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432, conditions.get(13));
+-        if (images.get(14) != null)
+-            imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432, conditions.get(14));
+-        if (images.get(15) != null)
+-            imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104, conditions.get(15));
+-        if (images.get(16) != null)
+-            imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104, conditions.get(16));
+-        if (images.get(17) != null)
+-            imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104, conditions.get(17));
+-        if (images.get(18) != null)
+-            imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104, conditions.get(18));
+-        if (images.get(19) != null)
+-            imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104, conditions.get(19));
+-        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538, conditions.get(20));
+-        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538, conditions.get(21));
+-        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538, conditions.get(22));
+-        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538, conditions.get(23));
+-        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538, conditions.get(24));
+-        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538, conditions.get(25));
+-        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16, conditions.get(26));
+-        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16, conditions.get(27));
+-        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16, conditions.get(28));
+-        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16, conditions.get(29));
+-        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16, conditions.get(30));
+-        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16, conditions.get(31));
+-        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 232, 324, conditions.get(32));
+-        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 740, 205, conditions.get(33));
+-        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 750, 328, conditions.get(34));
+-        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 245, 213, conditions.get(35));
+-        if (cards.get(0) != null) card1Monster1 = cards.get(0);
+-        if (cards.get(1) != null) card1Monster2 = cards.get(1);
+-        if (cards.get(2) != null) card1Monster3 = cards.get(2);
+-        if (cards.get(3) != null) card1Monster4 = cards.get(3);
+-        if (cards.get(4) != null) card1Monster5 = cards.get(4);
+-        if (cards.get(5) != null) card2Monster1 = cards.get(5);
+-        if (cards.get(6) != null) card2Monster2 = cards.get(6);
+-        if (cards.get(7) != null) card2Monster3 = cards.get(7);
+-        if (cards.get(8) != null) card2Monster4 = cards.get(8);
+-        if (cards.get(9) != null) card2Monster5 = cards.get(9);
+-        if (cards.get(10) != null) card1SpellAndTrap1 = cards.get(10);
+-        if (cards.get(11) != null) card1SpellAndTrap2 = cards.get(11);
+-        if (cards.get(12) != null) card1SpellAndTrap3 = cards.get(12);
+-        if (cards.get(13) != null) card1SpellAndTrap4 = cards.get(13);
+-        if (cards.get(14) != null) card1SpellAndTrap5 = cards.get(14);
+-        if (cards.get(15) != null) card2SpellAndTrap1 = cards.get(15);
+-        if (cards.get(16) != null) card2SpellAndTrap2 = cards.get(16);
+-        if (cards.get(17) != null) card2SpellAndTrap3 = cards.get(17);
+-        if (cards.get(18) != null) card2SpellAndTrap4 = cards.get(18);
+-        if (cards.get(19) != null) card2SpellAndTrap5 = cards.get(19);
+-        if (cards.get(20) != null) card1Hand1 = cards.get(20);
+-        if (cards.get(21) != null) card1Hand2 = cards.get(21);
+-        if (cards.get(22) != null) card1Hand3 = cards.get(22);
+-        if (cards.get(23) != null) card1Hand4 = cards.get(23);
+-        if (cards.get(24) != null) card1Hand5 = cards.get(24);
+-        if (cards.get(25) != null) card1Hand6 = cards.get(25);
+-        if (cards.get(26) != null) card2Hand1 = cards.get(26);
+-        if (cards.get(27) != null) card2Hand2 = cards.get(27);
+-        if (cards.get(28) != null) card2Hand3 = cards.get(28);
+-        if (cards.get(29) != null) card2Hand4 = cards.get(29);
+-        if (cards.get(30) != null) card2Hand5 = cards.get(30);
+-        if (cards.get(31) != null) card2Hand6 = cards.get(31);
+-        if (cards.get(32) != null) card1FieldZone = cards.get(32);
+-        if (cards.get(33) != null) card2FieldZone = cards.get(33);
+-        if (cards.get(34) != null) card1Graveyard = cards.get(34);
+-        if (cards.get(35) != null) card2Graveyard = cards.get(35);
+-        cards = duelController.getCards();
+-        conditions = duelController.getConditions();
+-        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));
+-        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));
+-        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 486, 329, conditions.get(2));
+-        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 569, 329, conditions.get(3));
+-        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 652, 329, conditions.get(4));
+-        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 324, 206, conditions.get(5));
+-        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 403, 206, conditions.get(6));
+-        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 486, 206, conditions.get(7));
+-        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 569, 206, conditions.get(8));
+-        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 652, 206, conditions.get(9));
+-        if (images.get(10) != null)
+-            imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432, conditions.get(10));
+-        if (images.get(11) != null)
+-            imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432, conditions.get(11));
+-        if (images.get(12) != null)
+-            imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432, conditions.get(12));
+-        if (images.get(13) != null)
+-            imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432, conditions.get(13));
+-        if (images.get(14) != null)
+-            imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432, conditions.get(14));
+-        if (images.get(15) != null)
+-            imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104, conditions.get(15));
+-        if (images.get(16) != null)
+-            imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104, conditions.get(16));
+-        if (images.get(17) != null)
+-            imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104, conditions.get(17));
+-        if (images.get(18) != null)
+-            imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104, conditions.get(18));
+-        if (images.get(19) != null)
+-            imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104, conditions.get(19));
+-        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538, conditions.get(20));
+-        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538, conditions.get(21));
+-        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538, conditions.get(22));
+-        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538, conditions.get(23));
+-        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538, conditions.get(24));
+-        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538, conditions.get(25));
+-        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16, conditions.get(26));
+-        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16, conditions.get(27));
+-        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16, conditions.get(28));
+-        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16, conditions.get(29));
+-        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16, conditions.get(30));
+-        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16, conditions.get(31));
+-        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 232, 324, conditions.get(32));
+-        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 740, 205, conditions.get(33));
+-        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 750, 328, conditions.get(34));
+-        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 245, 213, conditions.get(35));
+-        if (cards.get(0) != null) card1Monster1 = cards.get(0);
+-        if (cards.get(1) != null) card1Monster2 = cards.get(1);
+-        if (cards.get(2) != null) card1Monster3 = cards.get(2);
+-        if (cards.get(3) != null) card1Monster4 = cards.get(3);
+-        if (cards.get(4) != null) card1Monster5 = cards.get(4);
+-        if (cards.get(5) != null) card2Monster1 = cards.get(5);
+-        if (cards.get(6) != null) card2Monster2 = cards.get(6);
+-        if (cards.get(7) != null) card2Monster3 = cards.get(7);
+-        if (cards.get(8) != null) card2Monster4 = cards.get(8);
+-        if (cards.get(9) != null) card2Monster5 = cards.get(9);
+-        if (cards.get(10) != null) card1SpellAndTrap1 = cards.get(10);
+-        if (cards.get(11) != null) card1SpellAndTrap2 = cards.get(11);
+-        if (cards.get(12) != null) card1SpellAndTrap3 = cards.get(12);
+-        if (cards.get(13) != null) card1SpellAndTrap4 = cards.get(13);
+-        if (cards.get(14) != null) card1SpellAndTrap5 = cards.get(14);
+-        if (cards.get(15) != null) card2SpellAndTrap1 = cards.get(15);
+-        if (cards.get(16) != null) card2SpellAndTrap2 = cards.get(16);
+-        if (cards.get(17) != null) card2SpellAndTrap3 = cards.get(17);
+-        if (cards.get(18) != null) card2SpellAndTrap4 = cards.get(18);
+-        if (cards.get(19) != null) card2SpellAndTrap5 = cards.get(19);
+-        if (cards.get(20) != null) card1Hand1 = cards.get(20);
+-        if (cards.get(21) != null) card1Hand2 = cards.get(21);
+-        if (cards.get(22) != null) card1Hand3 = cards.get(22);
+-        if (cards.get(23) != null) card1Hand4 = cards.get(23);
+-        if (cards.get(24) != null) card1Hand5 = cards.get(24);
+-        if (cards.get(25) != null) card1Hand6 = cards.get(25);
+-        if (cards.get(26) != null) card2Hand1 = cards.get(26);
+-        if (cards.get(27) != null) card2Hand2 = cards.get(27);
+-        if (cards.get(28) != null) card2Hand3 = cards.get(28);
+-        if (cards.get(29) != null) card2Hand4 = cards.get(29);
+-        if (cards.get(30) != null) card2Hand5 = cards.get(30);
+-        if (cards.get(31) != null) card2Hand6 = cards.get(31);
+-        if (cards.get(32) != null) card1FieldZone = cards.get(32);
+-        if (cards.get(33) != null) card2FieldZone = cards.get(33);
+-        if (cards.get(34) != null) card1Graveyard = cards.get(34);
+-        if (cards.get(35) != null) card2Graveyard = cards.get(35);
++        setImageView(imageView1Monster1, images.get(0), 324, 329, conditions.get(0));
++        setImageView(imageView1Monster2, images.get(1), 403, 329, conditions.get(1));
++        setImageView(imageView1Monster3, images.get(2), 486, 329, conditions.get(2));
++        setImageView(imageView1Monster4, images.get(3), 569, 329, conditions.get(3));
++        setImageView(imageView1Monster5, images.get(4), 652, 329, conditions.get(4));
++        setImageView(imageView2Monster1, images.get(5), 324, 206, conditions.get(5));
++        setImageView(imageView2Monster2, images.get(6), 403, 206, conditions.get(6));
++        setImageView(imageView2Monster3, images.get(7), 486, 206, conditions.get(7));
++        setImageView(imageView2Monster4, images.get(8), 569, 206, conditions.get(8));
++        setImageView(imageView2Monster5, images.get(9), 652, 206, conditions.get(9));
++        setImageView(imageView1SpellAndTrap1, images.get(10), 324, 432, conditions.get(10));
++        setImageView(imageView1SpellAndTrap2, images.get(11), 403, 432, conditions.get(11));
++        setImageView(imageView1SpellAndTrap3, images.get(12), 486, 432, conditions.get(12));
++        setImageView(imageView1SpellAndTrap4, images.get(13), 569, 432, conditions.get(13));
++        setImageView(imageView1SpellAndTrap5, images.get(14), 652, 432, conditions.get(14));
++        setImageView(imageView2SpellAndTrap1, images.get(15), 324, 104, conditions.get(15));
++        setImageView(imageView2SpellAndTrap2, images.get(16), 403, 104, conditions.get(16));
++        setImageView(imageView2SpellAndTrap3, images.get(17), 486, 104, conditions.get(17));
++        setImageView(imageView2SpellAndTrap4, images.get(18), 569, 104, conditions.get(18));
++        setImageView(imageView2SpellAndTrap5, images.get(19), 652, 104, conditions.get(19));
++        setImageView(imageView1hand1, images.get(20), 331, 538, conditions.get(20));
++        setImageView(imageView1hand2, images.get(21), 387, 538, conditions.get(21));
++        setImageView(imageView1hand3, images.get(22), 443, 538, conditions.get(22));
++        setImageView(imageView1hand4, images.get(23), 499, 538, conditions.get(23));
++        setImageView(imageView1hand5, images.get(24), 555, 538, conditions.get(24));
++        setImageView(imageView1hand6, images.get(25), 611, 538, conditions.get(25));
++        setImageView(imageView2hand1, images.get(26), 331, -16, conditions.get(26));
++        setImageView(imageView2hand2, images.get(27), 387, -16, conditions.get(27));
++        setImageView(imageView2hand3, images.get(28), 443, -16, conditions.get(28));
++        setImageView(imageView2hand4, images.get(29), 499, -16, conditions.get(29));
++        setImageView(imageView2hand5, images.get(30), 555, -16, conditions.get(30));
++        setImageView(imageView2hand6, images.get(31), 611, -16, conditions.get(31));
++        setImageView(imageView1FieldZone, images.get(32), 232, 324, conditions.get(32));
++        setImageView(imageView2FieldZone, images.get(33), 740, 205, conditions.get(33));
++        setImageView(imageView1Graveyard, images.get(34), 750, 328, conditions.get(34));
++        setImageView(imageView2Graveyard, images.get(35), 245, 213, conditions.get(35));
++        card1Monster1 = cards.get(0);
++        card1Monster2 = cards.get(1);
++        card1Monster3 = cards.get(2);
++        card1Monster4 = cards.get(3);
++        card1Monster5 = cards.get(4);
++        card2Monster1 = cards.get(5);
++        card2Monster2 = cards.get(6);
++        card2Monster3 = cards.get(7);
++        card2Monster4 = cards.get(8);
++        card2Monster5 = cards.get(9);
++        card1SpellAndTrap1 = cards.get(10);
++        card1SpellAndTrap2 = cards.get(11);
++        card1SpellAndTrap3 = cards.get(12);
++        card1SpellAndTrap4 = cards.get(13);
++        card1SpellAndTrap5 = cards.get(14);
++        card2SpellAndTrap1 = cards.get(15);
++        card2SpellAndTrap2 = cards.get(16);
++        card2SpellAndTrap3 = cards.get(17);
++        card2SpellAndTrap4 = cards.get(18);
++        card2SpellAndTrap5 = cards.get(19);
++        card1Hand1 = cards.get(20);
++        card1Hand2 = cards.get(21);
++        card1Hand3 = cards.get(22);
++        card1Hand4 = cards.get(23);
++        card1Hand5 = cards.get(24);
++        card1Hand6 = cards.get(25);
++        card2Hand1 = cards.get(26);
++        card2Hand2 = cards.get(27);
++        card2Hand3 = cards.get(28);
++        card2Hand4 = cards.get(29);
++        card2Hand5 = cards.get(30);
++        card2Hand6 = cards.get(31);
++        card1FieldZone = cards.get(32);
++        card2FieldZone = cards.get(33);
++        card1Graveyard = cards.get(34);
++        card2Graveyard = cards.get(35);
+         setCardDetailsPart();
+     }
+ 
+-    private ImageView setImageView(Image image, int x, int y, Boolean condition) {
+-        ImageView imageView = new ImageView(image);
++
++
++
++
++
++
++
++
++
++
++
++
++//    public void setImagesAndCards() {
++//        images = duelController.getBoard();
++//        cards = duelController.getCards();
++//        conditions = duelController.getConditions();
++//        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));
++//        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));
++//        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 486, 329, conditions.get(2));
++//        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 569, 329, conditions.get(3));
++//        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 652, 329, conditions.get(4));
++//        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 324, 206, conditions.get(5));
++//        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 403, 206, conditions.get(6));
++//        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 486, 206, conditions.get(7));
++//        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 569, 206, conditions.get(8));
++//        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 652, 206, conditions.get(9));
++//        if (images.get(10) != null)
++//            imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432, conditions.get(10));
++//        if (images.get(11) != null)
++//            imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432, conditions.get(11));
++//        if (images.get(12) != null)
++//            imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432, conditions.get(12));
++//        if (images.get(13) != null)
++//            imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432, conditions.get(13));
++//        if (images.get(14) != null)
++//            imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432, conditions.get(14));
++//        if (images.get(15) != null)
++//            imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104, conditions.get(15));
++//        if (images.get(16) != null)
++//            imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104, conditions.get(16));
++//        if (images.get(17) != null)
++//            imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104, conditions.get(17));
++//        if (images.get(18) != null)
++//            imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104, conditions.get(18));
++//        if (images.get(19) != null)
++//            imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104, conditions.get(19));
++//        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538, conditions.get(20));
++//        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538, conditions.get(21));
++//        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538, conditions.get(22));
++//        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538, conditions.get(23));
++//        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538, conditions.get(24));
++//        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538, conditions.get(25));
++//        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16, conditions.get(26));
++//        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16, conditions.get(27));
++//        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16, conditions.get(28));
++//        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16, conditions.get(29));
++//        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16, conditions.get(30));
++//        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16, conditions.get(31));
++//        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 232, 324, conditions.get(32));
++//        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 740, 205, conditions.get(33));
++//        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 750, 328, conditions.get(34));
++//        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 245, 213, conditions.get(35));
++//        if (cards.get(0) != null) card1Monster1 = cards.get(0);
++//        if (cards.get(1) != null) card1Monster2 = cards.get(1);
++//        if (cards.get(2) != null) card1Monster3 = cards.get(2);
++//        if (cards.get(3) != null) card1Monster4 = cards.get(3);
++//        if (cards.get(4) != null) card1Monster5 = cards.get(4);
++//        if (cards.get(5) != null) card2Monster1 = cards.get(5);
++//        if (cards.get(6) != null) card2Monster2 = cards.get(6);
++//        if (cards.get(7) != null) card2Monster3 = cards.get(7);
++//        if (cards.get(8) != null) card2Monster4 = cards.get(8);
++//        if (cards.get(9) != null) card2Monster5 = cards.get(9);
++//        if (cards.get(10) != null) card1SpellAndTrap1 = cards.get(10);
++//        if (cards.get(11) != null) card1SpellAndTrap2 = cards.get(11);
++//        if (cards.get(12) != null) card1SpellAndTrap3 = cards.get(12);
++//        if (cards.get(13) != null) card1SpellAndTrap4 = cards.get(13);
++//        if (cards.get(14) != null) card1SpellAndTrap5 = cards.get(14);
++//        if (cards.get(15) != null) card2SpellAndTrap1 = cards.get(15);
++//        if (cards.get(16) != null) card2SpellAndTrap2 = cards.get(16);
++//        if (cards.get(17) != null) card2SpellAndTrap3 = cards.get(17);
++//        if (cards.get(18) != null) card2SpellAndTrap4 = cards.get(18);
++//        if (cards.get(19) != null) card2SpellAndTrap5 = cards.get(19);
++//        if (cards.get(20) != null) card1Hand1 = cards.get(20);
++//        if (cards.get(21) != null) card1Hand2 = cards.get(21);
++//        if (cards.get(22) != null) card1Hand3 = cards.get(22);
++//        if (cards.get(23) != null) card1Hand4 = cards.get(23);
++//        if (cards.get(24) != null) card1Hand5 = cards.get(24);
++//        if (cards.get(25) != null) card1Hand6 = cards.get(25);
++//        if (cards.get(26) != null) card2Hand1 = cards.get(26);
++//        if (cards.get(27) != null) card2Hand2 = cards.get(27);
++//        if (cards.get(28) != null) card2Hand3 = cards.get(28);
++//        if (cards.get(29) != null) card2Hand4 = cards.get(29);
++//        if (cards.get(30) != null) card2Hand5 = cards.get(30);
++//        if (cards.get(31) != null) card2Hand6 = cards.get(31);
++//        if (cards.get(32) != null) card1FieldZone = cards.get(32);
++//        if (cards.get(33) != null) card2FieldZone = cards.get(33);
++//        if (cards.get(34) != null) card1Graveyard = cards.get(34);
++//        if (cards.get(35) != null) card2Graveyard = cards.get(35);
++//        cards = duelController.getCards();
++//        conditions = duelController.getConditions();
++//        if (images.get(0) != null) imageView1Monster1 = setImageView(images.get(0), 324, 329, conditions.get(0));
++//        if (images.get(1) != null) imageView1Monster2 = setImageView(images.get(1), 403, 329, conditions.get(1));
++//        if (images.get(2) != null) imageView1Monster3 = setImageView(images.get(2), 486, 329, conditions.get(2));
++//        if (images.get(3) != null) imageView1Monster4 = setImageView(images.get(3), 569, 329, conditions.get(3));
++//        if (images.get(4) != null) imageView1Monster5 = setImageView(images.get(4), 652, 329, conditions.get(4));
++//        if (images.get(5) != null) imageView2Monster1 = setImageView(images.get(5), 324, 206, conditions.get(5));
++//        if (images.get(6) != null) imageView2Monster2 = setImageView(images.get(6), 403, 206, conditions.get(6));
++//        if (images.get(7) != null) imageView2Monster3 = setImageView(images.get(7), 486, 206, conditions.get(7));
++//        if (images.get(8) != null) imageView2Monster4 = setImageView(images.get(8), 569, 206, conditions.get(8));
++//        if (images.get(9) != null) imageView2Monster5 = setImageView(images.get(9), 652, 206, conditions.get(9));
++//        if (images.get(10) != null)
++//            imageView1SpellAndTrap1 = setImageView(images.get(10), 324, 432, conditions.get(10));
++//        if (images.get(11) != null)
++//            imageView1SpellAndTrap2 = setImageView(images.get(11), 403, 432, conditions.get(11));
++//        if (images.get(12) != null)
++//            imageView1SpellAndTrap3 = setImageView(images.get(12), 486, 432, conditions.get(12));
++//        if (images.get(13) != null)
++//            imageView1SpellAndTrap4 = setImageView(images.get(13), 569, 432, conditions.get(13));
++//        if (images.get(14) != null)
++//            imageView1SpellAndTrap5 = setImageView(images.get(14), 652, 432, conditions.get(14));
++//        if (images.get(15) != null)
++//            imageView2SpellAndTrap1 = setImageView(images.get(15), 324, 104, conditions.get(15));
++//        if (images.get(16) != null)
++//            imageView2SpellAndTrap2 = setImageView(images.get(16), 403, 104, conditions.get(16));
++//        if (images.get(17) != null)
++//            imageView2SpellAndTrap3 = setImageView(images.get(17), 486, 104, conditions.get(17));
++//        if (images.get(18) != null)
++//            imageView2SpellAndTrap4 = setImageView(images.get(18), 569, 104, conditions.get(18));
++//        if (images.get(19) != null)
++//            imageView2SpellAndTrap5 = setImageView(images.get(19), 652, 104, conditions.get(19));
++//        if (images.get(20) != null) imageView1hand1 = setImageView(images.get(20), 331, 538, conditions.get(20));
++//        if (images.get(21) != null) imageView1hand2 = setImageView(images.get(21), 387, 538, conditions.get(21));
++//        if (images.get(22) != null) imageView1hand3 = setImageView(images.get(22), 443, 538, conditions.get(22));
++//        if (images.get(23) != null) imageView1hand4 = setImageView(images.get(23), 499, 538, conditions.get(23));
++//        if (images.get(24) != null) imageView1hand5 = setImageView(images.get(24), 555, 538, conditions.get(24));
++//        if (images.get(25) != null) imageView1hand6 = setImageView(images.get(25), 611, 538, conditions.get(25));
++//        if (images.get(26) != null) imageView2hand1 = setImageView(images.get(26), 331, -16, conditions.get(26));
++//        if (images.get(27) != null) imageView2hand2 = setImageView(images.get(27), 387, -16, conditions.get(27));
++//        if (images.get(28) != null) imageView2hand3 = setImageView(images.get(28), 443, -16, conditions.get(28));
++//        if (images.get(29) != null) imageView2hand4 = setImageView(images.get(29), 499, -16, conditions.get(29));
++//        if (images.get(30) != null) imageView2hand5 = setImageView(images.get(30), 555, -16, conditions.get(30));
++//        if (images.get(31) != null) imageView2hand6 = setImageView(images.get(31), 611, -16, conditions.get(31));
++//        if (images.get(32) != null) imageView1FieldZone = setImageView(images.get(32), 232, 324, conditions.get(32));
++//        if (images.get(33) != null) imageView2FieldZone = setImageView(images.get(33), 740, 205, conditions.get(33));
++//        if (images.get(34) != null) imageView1Graveyard = setImageView(images.get(34), 750, 328, conditions.get(34));
++//        if (images.get(35) != null) imageView2Graveyard = setImageView(images.get(35), 245, 213, conditions.get(35));
++//        if (cards.get(0) != null) card1Monster1 = cards.get(0);
++//        if (cards.get(1) != null) card1Monster2 = cards.get(1);
++//        if (cards.get(2) != null) card1Monster3 = cards.get(2);
++//        if (cards.get(3) != null) card1Monster4 = cards.get(3);
++//        if (cards.get(4) != null) card1Monster5 = cards.get(4);
++//        if (cards.get(5) != null) card2Monster1 = cards.get(5);
++//        if (cards.get(6) != null) card2Monster2 = cards.get(6);
++//        if (cards.get(7) != null) card2Monster3 = cards.get(7);
++//        if (cards.get(8) != null) card2Monster4 = cards.get(8);
++//        if (cards.get(9) != null) card2Monster5 = cards.get(9);
++//        if (cards.get(10) != null) card1SpellAndTrap1 = cards.get(10);
++//        if (cards.get(11) != null) card1SpellAndTrap2 = cards.get(11);
++//        if (cards.get(12) != null) card1SpellAndTrap3 = cards.get(12);
++//        if (cards.get(13) != null) card1SpellAndTrap4 = cards.get(13);
++//        if (cards.get(14) != null) card1SpellAndTrap5 = cards.get(14);
++//        if (cards.get(15) != null) card2SpellAndTrap1 = cards.get(15);
++//        if (cards.get(16) != null) card2SpellAndTrap2 = cards.get(16);
++//        if (cards.get(17) != null) card2SpellAndTrap3 = cards.get(17);
++//        if (cards.get(18) != null) card2SpellAndTrap4 = cards.get(18);
++//        if (cards.get(19) != null) card2SpellAndTrap5 = cards.get(19);
++//        if (cards.get(20) != null) card1Hand1 = cards.get(20);
++//        if (cards.get(21) != null) card1Hand2 = cards.get(21);
++//        if (cards.get(22) != null) card1Hand3 = cards.get(22);
++//        if (cards.get(23) != null) card1Hand4 = cards.get(23);
++//        if (cards.get(24) != null) card1Hand5 = cards.get(24);
++//        if (cards.get(25) != null) card1Hand6 = cards.get(25);
++//        if (cards.get(26) != null) card2Hand1 = cards.get(26);
++//        if (cards.get(27) != null) card2Hand2 = cards.get(27);
++//        if (cards.get(28) != null) card2Hand3 = cards.get(28);
++//        if (cards.get(29) != null) card2Hand4 = cards.get(29);
++//        if (cards.get(30) != null) card2Hand5 = cards.get(30);
++//        if (cards.get(31) != null) card2Hand6 = cards.get(31);
++//        if (cards.get(32) != null) card1FieldZone = cards.get(32);
++//        if (cards.get(33) != null) card2FieldZone = cards.get(33);
++//        if (cards.get(34) != null) card1Graveyard = cards.get(34);
++//        if (cards.get(35) != null) card2Graveyard = cards.get(35);
++//        setCardDetailsPart();
++//    }
++
++    private void setImageView(ImageView imageView, Image image, int x, int y, Boolean condition) {
++        imageView.setImage(image);
+         imageView.setFitWidth(49);
+         imageView.setFitHeight(71);
+         imageView.setX(x);
+         imageView.setY(y);
+-        if (condition.equals(true))
++        if (condition != null && condition.equals(true))
+             imageView.setRotate(90);
+         else
+             imageView.setRotate(0);
+-        return imageView;
+     }
+ 
+     private void setImageViewForProfile() {
+@@ -404,11 +577,10 @@
+ 
+     public void pauseMenu() {
+ 
+-        System.out.println(popUpPlayerGraveyard);
++
+ 
+         //ArrayList<Card> playerGraveyard =
+-        ArrayList<Image> images = duelController.getBoard();
+-        ArrayList<Card> playerGraveyard = duelController.getCards();
++
+ //        ArrayList<Card> playerGraveyard = (ArrayList<Card>) player.getBoard().getCardsInGraveyard();
+         //todo image haye card haro az parmida begir
+ //        ScrollPane scrollPane = new ScrollPane();
+@@ -416,9 +588,13 @@
+         //scrollPane.set(100);
+         //scrollPane.setLayoutX(500);
+         //scrollPane.setLayoutX(200);
++        System.out.println(popUpPlayerGraveyard);
++        ArrayList<Image> images = duelController.getBoard();
++        ArrayList<Card> playerGraveyard = duelController.getCards();
+         popUpPlayerGraveyard = new Popup();
+         System.out.println(popUpPlayerGraveyard);
+         AnchorPane anchorPane = new AnchorPane();
++        anchorPane.setStyle(" -fx-background-color: white;");
+         popUpPlayerGraveyard.setX(10);
+         popUpPlayerGraveyard.setY(10);
+         popUpPlayerGraveyard.setWidth(300);
+Index: src/main/java/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import controller.ImportExportUserController;\r\n\r\nimport view.LogInView;\r\n\r\npublic class Main {\r\n\r\n    public static void main(String[] args) {\r\n        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();\r\n        importExportUserController.importAllUsers();\r\n        importExportUserController.importAllCards();\r\n        importExportUserController.importAllDecks();\r\n        LogInView.getInstance().getCommandForLogin();\r\n    }\r\n}\r\n/*\r\nuser login -u hamraz -p 123\r\nmenu enter Deck\r\ndeck set-activate one\r\nmenu exit\r\nduel -n -ai -r 3\r\nnext phase\r\n */
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Main.java b/src/main/java/Main.java
+--- a/src/main/java/Main.java	(revision 5a45923cdb5dbe952d8c0a2ae90b4773bec2a1f1)
++++ b/src/main/java/Main.java	(date 1625665036727)
+@@ -1,15 +1,32 @@
+ import controller.ImportExportUserController;
+ 
++import javafx.scene.control.Alert;
++import javafx.scene.control.ButtonType;
++import javafx.scene.image.Image;
++import javafx.scene.image.ImageView;
+ import view.LogInView;
+ 
+ public class Main {
+ 
+-    public static void main(String[] args) {
+-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+-        importExportUserController.importAllUsers();
+-        importExportUserController.importAllCards();
+-        importExportUserController.importAllDecks();
+-        LogInView.getInstance().getCommandForLogin();
++    public static void main(String[] args)  {
++
++        Alert alert = new Alert(Alert.AlertType.INFORMATION, "ya hagh", ButtonType.OK);
++        alert.setHeaderText("");
++        alert.setTitle("");
++        alert.showAndWait();
++
++//        Alert alert = new Alert(Alert.AlertType.ERROR, "Error", ButtonType.OK);
++//        Image image = new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Emojione_1F62D.svg/64px-Emojione_1F62D.svg.png");
++//        ImageView imageView = new ImageView(image);
++//        alert.setGraphic(imageView);
++//        alert.showAndWait();
++
++
++//        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
++//        importExportUserController.importAllUsers();
++//        importExportUserController.importAllCards();
++//        importExportUserController.importAllDecks();
++//        LogInView.getInstance().getCommandForLogin();
+     }
+ }
+ /*
+Index: ProfileNumbers/h.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProfileNumbers/h.txt b/ProfileNumbers/h.txt
+new file mode 100644
+--- /dev/null	(date 1625667671325)
++++ b/ProfileNumbers/h.txt	(date 1625667671325)
+@@ -0,0 +1,1 @@
++
+\ No newline at end of file
+Index: ProfileNumbers/@AI@.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProfileNumbers/@AI@.txt b/ProfileNumbers/@AI@.txt
+new file mode 100644
+--- /dev/null	(date 1625667671329)
++++ b/ProfileNumbers/@AI@.txt	(date 1625667671329)
+@@ -0,0 +1,1 @@
++
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0b1707ad-3e75-4310-9619-956ec670ae1a\" name=\"Default Changelist\" comment=\"Duel View 3\">\r\n      <change afterPath=\"$PROJECT_DIR$/Users/hamraz.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_10.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_10.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_11.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_11.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_12.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_12.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_13.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_13.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_14.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_14.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_2.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_2.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_3.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_3.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_4.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_4.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_5.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_5.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_6.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_6.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_7.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_7.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_8.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_8.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_9.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_9.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Cards/hamraz.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Cards/hamraz.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Cards/parmida.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Cards/parmida.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Deck/@AI@DeckForAIMainDeck.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Deck/@AI@DeckForAIMainDeck.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Deck/hamrazoneMainDeck.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Deck/hamrazoneMainDeck.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Deck/hamrazoneSideDeck.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Deck/hamrazoneSideDeck.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Deck/parmidaoneParmidaMainDeck.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Deck/parmidaoneParmidaMainDeck.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Deck/parmidaoneParmidaSideDeck.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Deck/parmidaoneParmidaSideDeck.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/UsersDecks/kiana_mszAllDecks.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/UsersDecks/kiana_mszAllDecks.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1tf7blqKJ2Y0dLvEX2lrUssvKzj\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"extract.method.default.visibility\" value=\"private\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/main/resources\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\r\n    <property name=\"restartRequiresConfirmation\" value=\"false\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.project.statistic.project.settings\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hamri\\Desktop\\AP\\project_team_17_9\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hamri\\Desktop\\AP\\project_team_17_9\\src\\main\\resources\\images\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"controller.exeption\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.LogInViewGraphic\">\r\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LogInViewGraphic\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.LogInViewGraphic\" />\r\n      <module name=\"project_team_17\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"1.8\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"project_team_17\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SignUpViewGraphic\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"1.8\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"view.SignUpViewGraphic\" />\r\n      <module name=\"project_team_17\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"view.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"project_team_17\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"test\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test.testForMinFinder\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"project_team_17_2\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"test\" />\r\n      <option name=\"METHOD_NAME\" value=\"testForMinFinder\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.LogInViewGraphic\" />\r\n        <item itemvalue=\"Application.SignUpViewGraphic\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JUnit.test\" />\r\n        <item itemvalue=\"JUnit.test.testForMinFinder\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"StructuralSearchPlugin\">\r\n    <searchConfiguration name=\"Unnamed\" created=\"1624744011824\" text=\"/* $CommentContent$ */\" recursive=\"false\" caseInsensitive=\"false\" type=\"JAVA\" pattern_context=\"default\" scope_type=\"PROJECT\" scope_descriptor=\"\" history=\"1\">\r\n      <constraint name=\"__context__\" within=\"\" contains=\"\" />\r\n      <constraint name=\"CommentContent\" within=\"\" contains=\"\" />\r\n    </searchConfiguration>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0b1707ad-3e75-4310-9619-956ec670ae1a\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1623148364579</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1623148364579</updated>\r\n      <workItem from=\"1624545878199\" duration=\"3232000\" />\r\n      <workItem from=\"1625476998745\" duration=\"2760000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"ScoreBoardViewGraphic.java\">\r\n      <created>1623149665559</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623149665559</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"ScoreBoardViewGraphic.java\">\r\n      <created>1623149688409</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623149688409</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Error sign up\">\r\n      <created>1623151044078</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623151044078</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"model.SpellCard.java&#10;Monster Reborn + Terraforming\">\r\n      <created>1623868346229</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623868346229</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"model.SpellCard.java&#10;RAIGEKI + POT_OF_GREED\">\r\n      <created>1623946393997</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1623946393997</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Yami SpellCard.java\">\r\n      <created>1624002906129</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624002906129</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Forest &amp; Closed Forest&#10;SpellCard.java\">\r\n      <created>1624012207305</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624012207305</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"debug import user\">\r\n      <created>1624093680512</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624093680512</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"debug import user o baghie import ha\">\r\n      <created>1624099929742</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624099929742</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"kiana test error fix\">\r\n      <created>1624533248061</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624533248061</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"show all cards debug\">\r\n      <created>1624546002241</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624546002241</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"jabejayie cheat money\">\r\n      <created>1624547044985</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624547044985</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"draw phase automatic\">\r\n      <created>1624556390073</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624556390073</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"debug1\">\r\n      <created>1624625286861</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624625286861</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"debug2\">\r\n      <created>1624639165113</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624639165113</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"ai\">\r\n      <created>1624641323564</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624641323564</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"debug attack1\">\r\n      <created>1624643600247</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624643600247</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"debug attack2\">\r\n      <created>1624645817335</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624645817335</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"debug attack3\">\r\n      <created>1624646566864</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624646566864</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"debug attack4\">\r\n      <created>1624650239704</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624650239704</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"debug show card\">\r\n      <created>1624653667478</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624653667478</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"debug show card2\">\r\n      <created>1624654145122</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624654145122</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"debug takeAction1\">\r\n      <created>1624702088038</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624702088038</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"debug command knight2\">\r\n      <created>1624703733833</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624703733833</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"nothing\">\r\n      <created>1624704514853</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624704514853</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"GATE_GUARDIAN\">\r\n      <created>1624709705904</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624709705904</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"SPELL_ABSORPTION debug1\">\r\n      <created>1624710730390</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624710730390</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"tributeForSummon debug\">\r\n      <created>1624712073940</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624712073940</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"Full spell and trap zone\">\r\n      <created>1624713959005</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624713959005</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"continuous spell card\">\r\n      <created>1624715726136</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624715726136</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"suijin debug 1\">\r\n      <created>1624717829951</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624717829951</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"suijin debug 2\">\r\n      <created>1624719651615</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624719651615</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"gate gaurdian debug\">\r\n      <created>1624721450582</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624721450582</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"activate spell debug 1\">\r\n      <created>1624725085666</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624725085666</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"AIFullDebug + monster reborn\">\r\n      <created>1624729177752</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624729177752</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"twin twister + spell absorption\">\r\n      <created>1624737729186</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624737729186</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"mystical space typhoon&#10;twin twisters\">\r\n      <created>1624739906446</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1624739906446</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۳۸\" summary=\":|\">\r\n      <created>1625245993391</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۳۸\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۳۸\" />\r\n      <updated>1625245993391</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۳۹\" summary=\"profile and scoreboard edited\">\r\n      <created>1625252163631</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۳۹\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۳۹\" />\r\n      <updated>1625252163631</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"ShopGraphic3\">\r\n      <created>1625304651482</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625304651482</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00041\" summary=\"ShopGraphic4\">\r\n      <created>1625313201854</created>\r\n      <option name=\"number\" value=\"00041\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625313201854</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۲\" summary=\"create deck\">\r\n      <created>1625349222305</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۲\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۲\" />\r\n      <updated>1625349222305</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۳\" summary=\"profile photo\">\r\n      <created>1625407690499</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۳\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۳\" />\r\n      <updated>1625407690499</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۴\" summary=\"...\">\r\n      <created>1625420301025</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۴\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۴\" />\r\n      <updated>1625420301025</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۵\" summary=\"ScoreBoard\">\r\n      <created>1625435400560</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۵\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۵\" />\r\n      <updated>1625435400560</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00046\" summary=\"rock paper scissor\">\r\n      <created>1625502701825</created>\r\n      <option name=\"number\" value=\"00046\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625502701825</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00047\" summary=\"rock paper scissor\">\r\n      <created>1625514903733</created>\r\n      <option name=\"number\" value=\"00047\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00047\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1625514903733</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۸\" summary=\"rock paper scissor names\">\r\n      <created>1625565325571</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۸\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۸\" />\r\n      <updated>1625565325571</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E۰۰۰۴۹\" summary=\"board cards imageview\">\r\n      <created>1625571369460</created>\r\n      <option name=\"number\" value=\"LOCAL\u200E۰۰۰۴۹\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E۰۰۰۴۹\" />\r\n      <updated>1625571369460</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"50\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"debug takeAction1\" />\r\n    <MESSAGE value=\"debug command knight2\" />\r\n    <MESSAGE value=\"nothing\" />\r\n    <MESSAGE value=\"GATE_GUARDIAN\" />\r\n    <MESSAGE value=\"SPELL_ABSORPTION debug1\" />\r\n    <MESSAGE value=\"tributeForSummon debug\" />\r\n    <MESSAGE value=\"Full spell and trap zone\" />\r\n    <MESSAGE value=\"continuous spell card\" />\r\n    <MESSAGE value=\"suijin debug 1\" />\r\n    <MESSAGE value=\"suijin debug 2\" />\r\n    <MESSAGE value=\"gate gaurdian debug\" />\r\n    <MESSAGE value=\"activate spell debug 1\" />\r\n    <MESSAGE value=\"AIFullDebug + monster reborn\" />\r\n    <MESSAGE value=\"twin twister + spell absorption\" />\r\n    <MESSAGE value=\"mystical space typhoon&#10;twin twisters\" />\r\n    <MESSAGE value=\":|\" />\r\n    <MESSAGE value=\"profile and scoreboard edited\" />\r\n    <MESSAGE value=\"ShopGraphic3\" />\r\n    <MESSAGE value=\"ShopGraphic4\" />\r\n    <MESSAGE value=\"create deck\" />\r\n    <MESSAGE value=\"profile photo\" />\r\n    <MESSAGE value=\"...\" />\r\n    <MESSAGE value=\"ScoreBoard\" />\r\n    <MESSAGE value=\"rock paper scissor\" />\r\n    <MESSAGE value=\"rock paper scissor names\" />\r\n    <MESSAGE value=\"board cards imageview\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"board cards imageview\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java</url>\r\n          <line>36</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 5a45923cdb5dbe952d8c0a2ae90b4773bec2a1f1)
++++ b/.idea/workspace.xml	(date 1625667735434)
+@@ -22,36 +22,75 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 3">
+-      <change afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_10.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_11.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_12.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_13.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_14.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_14.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_2.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_3.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_4.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_5.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_6.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_7.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_8.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_9.xml" afterDir="false" />
++    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="download marg">
++      <change afterPath="$PROJECT_DIR$/ProfileNumbers/@AI@.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/ProfileNumbers/h.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/ProfileNumbers/hamraz.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/ProfileNumbers/parmida.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/PopUp.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_2_2021_11_13_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_2_2021_11_13_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_11_49_AM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_12_22_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_3_2021_12_22_AM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_10_08_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_10_08_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_11_20_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_11_20_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_6_32_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_6_32_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_8_56_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2021_8_56_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_12_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_12_59_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_2_58_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_2_58_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_4_14_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_4_14_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_4_48_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_4_48_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_15_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_15_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_35_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_35_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_9_32_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_9_32_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_10_58_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_10_58_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_11_28_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_11_28_AM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_11_29_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_11_29_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_12_14_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_12_14_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_1_03_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_1_03_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_1_18_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_1_18_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_11_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_11_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_29_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_29_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_31_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_31_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_45_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_45_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_47_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_2_47_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_07_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_07_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_19_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_19_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_27_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_4_27_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_48_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_48_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_51_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_51_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_52_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_5_52_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_6_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_6_59_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_8_46_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_8_46_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_9_05_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_6_2021_9_05_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_12_19_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_12_19_AM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_09_PM__Default_Changelist_1.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_13_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_13_PM__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_2_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_2_59_PM__Default_Changelist_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Cards/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/hamraz.txt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Deck/@AI@DeckForAIMainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/@AI@DeckForAIMainDeck.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneMainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/hamrazoneMainDeck.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Deck/hamrazoneSideDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/hamrazoneSideDeck.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/kiana_mszdeck to check full mainmainDeck.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Deck/parmidaoneParmidaMainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/parmidaoneParmidaMainDeck.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Deck/parmidaoneParmidaSideDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/parmidaoneParmidaSideDeck.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Users/h.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/h.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/UsersDecks/kiana_mszAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/kiana_mszAllDecks.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/parmidaAllDecks.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/ImportExport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ImportExport.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/controller/ImportExportUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ImportExportUserController.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/view/ImportExportGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ImportExportGraphic.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -152,6 +191,13 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="PopUp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="PopUp" />
++      <module name="project_team_17" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="SignUpViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+@@ -172,16 +218,6 @@
+       <option name="PACKAGE_NAME" value="" />
+       <option name="MAIN_CLASS_NAME" value="test" />
+       <option name="TEST_OBJECT" value="class" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="test.testForMinFinder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="project_team_17_2" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="test" />
+-      <option name="METHOD_NAME" value="testForMinFinder" />
+-      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -189,10 +225,10 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.LogInViewGraphic" />
++        <item itemvalue="Application.PopUp" />
+         <item itemvalue="Application.SignUpViewGraphic" />
+         <item itemvalue="Application.Main" />
+         <item itemvalue="JUnit.test" />
+-        <item itemvalue="JUnit.test.testForMinFinder" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -213,13 +249,6 @@
+       <workItem from="1624545878199" duration="3232000" />
+       <workItem from="1625476998745" duration="2760000" />
+     </task>
+-    <task id="LOCAL-00001" summary="ScoreBoardViewGraphic.java">
+-      <created>1623149665559</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1623149665559</updated>
+-    </task>
+     <task id="LOCAL-00002" summary="ScoreBoardViewGraphic.java">
+       <created>1623149688409</created>
+       <option name="number" value="00002" />
+@@ -548,7 +577,13 @@
+       <option name="presentableId" value="LOCAL‎۰۰۰۴۹" />
+       <updated>1625571369460</updated>
+     </task>
+-    <option name="localTasksCounter" value="50" />
++    <task id="LOCAL‎۰۰۰۵۰" summary="download marg">
++      <created>1625665125041</created>
++      <option name="number" value="LOCAL‎۰۰۰۵۰" />
++      <option name="presentableId" value="LOCAL‎۰۰۰۵۰" />
++      <updated>1625665125041</updated>
++    </task>
++    <option name="localTasksCounter" value="51" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -568,7 +603,6 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+-    <MESSAGE value="debug takeAction1" />
+     <MESSAGE value="debug command knight2" />
+     <MESSAGE value="nothing" />
+     <MESSAGE value="GATE_GUARDIAN" />
+@@ -594,7 +628,8 @@
+     <MESSAGE value="rock paper scissor" />
+     <MESSAGE value="rock paper scissor names" />
+     <MESSAGE value="board cards imageview" />
+-    <option name="LAST_COMMIT_MESSAGE" value="board cards imageview" />
++    <MESSAGE value="download marg" />
++    <option name="LAST_COMMIT_MESSAGE" value="download marg" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+Index: ProfileNumbers/hamraz.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProfileNumbers/hamraz.txt b/ProfileNumbers/hamraz.txt
+new file mode 100644
+--- /dev/null	(date 1625667671331)
++++ b/ProfileNumbers/hamraz.txt	(date 1625667671331)
+@@ -0,0 +1,1 @@
++
+\ No newline at end of file
+Index: allUsers.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>h\r\nparmida\r\n@AI@\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/allUsers.txt b/allUsers.txt
+--- a/allUsers.txt	(revision 5a45923cdb5dbe952d8c0a2ae90b4773bec2a1f1)
++++ b/allUsers.txt	(date 1625667671331)
+@@ -1,3 +1,4 @@
+ h
+ parmida
+ @AI@
++hamraz
+Index: ProfileNumbers/parmida.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProfileNumbers/parmida.txt b/ProfileNumbers/parmida.txt
+new file mode 100644
+--- /dev/null	(date 1625667671327)
++++ b/ProfileNumbers/parmida.txt	(date 1625667671327)
+@@ -0,0 +1,1 @@
++
+Index: src/main/java/PopUp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/PopUp.java b/src/main/java/PopUp.java
+new file mode 100644
+--- /dev/null	(date 1625665036734)
++++ b/src/main/java/PopUp.java	(date 1625665036734)
+@@ -0,0 +1,118 @@
++import javafx.application.Application;
++import javafx.event.ActionEvent;
++import javafx.event.EventHandler;
++import javafx.scene.Scene;
++import javafx.scene.control.Alert;
++import javafx.scene.control.Button;
++import javafx.scene.control.ButtonType;
++import javafx.scene.control.Label;
++import javafx.scene.image.Image;
++import javafx.scene.image.ImageView;
++import javafx.scene.layout.AnchorPane;
++import javafx.scene.layout.TilePane;
++import javafx.stage.Popup;
++import javafx.stage.Stage;
++import sun.plugin.javascript.navig.Anchor;
++
++public class PopUp extends Application {
++    @Override
++    public void start(Stage primaryStage) throws Exception {
++
++
++        Stage stage = new Stage();
++        // set title for the stage
++        stage.setTitle("Creating popup");
++
++        // create a button
++        Button button = new Button("button");
++
++        // create a tile pane
++        TilePane tilepane = new TilePane();
++
++        // create a label
++        Label label = new Label("This is a Popup");
++
++        // create a popup
++        Popup popup = new Popup();
++
++        // set background
++        label.setStyle(" -fx-background-color: white;");
++
++        // add the label
++        popup.getContent().add(label);
++
++        // set size of label
++        label.setMinWidth(80);
++        label.setMinHeight(50);
++
++        // action event
++        EventHandler<ActionEvent> event =
++                new EventHandler<ActionEvent>() {
++
++                    public void handle(ActionEvent e)
++                    {
++                        if (!popup.isShowing())
++                            popup.show(stage);
++                        else
++                            popup.hide();
++                    }
++                };
++
++        // when button is pressed
++        button.setOnAction(event);
++
++        // add button
++        tilepane.getChildren().add(button);
++
++        // create a scene
++        Scene scene = new Scene(tilepane, 200, 200);
++
++        // set the scene
++        stage.setScene(scene);
++
++        stage.show();
++
++
++
++
++
++//        Alert alert = new Alert(Alert.AlertType.ERROR, "Error", ButtonType.OK);
++//        Stage stage = new Stage();
++//        stage.show();
++//        stage.setTitle("Creating popup");
++//        // create a label
++//        Label label = new Label("This is a Popup");
++//
++//        // create a popup
++//        Popup popup = new Popup();
++//
++//        // set background
++//        label.setStyle(" -fx-background-color: white;");
++//
++//        // add the label
++//        AnchorPane anchorPane = new AnchorPane();
++//        popup.getContent().add(anchorPane);
++//
++//        popup.show(stage);
++        //popup.wait();
++
++//        alert.setHeight(100);
++//        alert.setWidth(100);
++//        alert.setX(400);
++//        alert.setY(600);
++//        //alert.setWidth(100);
++//
++//        Image image = new Image("https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Emojione_1F62D.svg/64px-Emojione_1F62D.svg.png");
++//        ImageView imageView = new ImageView(image);
++//        alert.setGraphic(imageView);
++//        alert.showAndWait();
++
++
++
++
++//        Alert alert = new Alert(Alert.AlertType.INFORMATION, "ya hagh", ButtonType.OK);
++//        alert.setHeaderText("");
++//        alert.setTitle("");
++//        alert.showAndWait();
++    }
++}
+Index: target/classes/ImportExport.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.shape.Rectangle?>\r\n\r\n\r\n<AnchorPane prefHeight=\"600.0\" prefWidth=\"900.0\" xmlns=\"http://javafx.com/javafx/8.0.171\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"view.ImportExportGraphic\">\r\n   <children>\r\n      <ImageView fitHeight=\"600.0\" fitWidth=\"900.0\" layoutY=\"14.0\" AnchorPane.bottomAnchor=\"0.0\" AnchorPane.leftAnchor=\"0.0\" AnchorPane.rightAnchor=\"0.0\" AnchorPane.topAnchor=\"0.0\">\r\n         <image>\r\n            <Image url=\"@images/backgrounds/26.jpg\" />\r\n         </image>\r\n      </ImageView>\r\n      <ImageView fitHeight=\"150.0\" fitWidth=\"200.0\" pickOnBounds=\"true\" preserveRatio=\"true\" />\r\n      <ImageView fitHeight=\"253.0\" fitWidth=\"251.0\" layoutX=\"24.0\" layoutY=\"48.0\" onDragOver=\"#importFiles\" pickOnBounds=\"true\" preserveRatio=\"true\" />\r\n      <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"DODGERBLUE\" height=\"9.0\" layoutX=\"24.0\" layoutY=\"39.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"251.0\" />\r\n      <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"DODGERBLUE\" height=\"9.0\" layoutX=\"19.0\" layoutY=\"301.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"251.0\" />\r\n      <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"DODGERBLUE\" height=\"9.0\" layoutX=\"138.0\" layoutY=\"170.0\" rotate=\"90.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"273.0\" />\r\n      <Rectangle arcHeight=\"5.0\" arcWidth=\"5.0\" fill=\"DODGERBLUE\" height=\"9.0\" layoutX=\"-112.0\" layoutY=\"170.0\" rotate=\"90.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" width=\"273.0\" />\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/ImportExport.fxml b/target/classes/ImportExport.fxml
+--- a/target/classes/ImportExport.fxml	(revision 5a45923cdb5dbe952d8c0a2ae90b4773bec2a1f1)
++++ b/target/classes/ImportExport.fxml	(date 1625665017771)
+@@ -5,7 +5,6 @@
+ <?import javafx.scene.layout.AnchorPane?>
+ <?import javafx.scene.shape.Rectangle?>
+ 
+-
+ <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ImportExportGraphic">
+    <children>
+       <ImageView fitHeight="600.0" fitWidth="900.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+@@ -14,7 +13,7 @@
+          </image>
+       </ImageView>
+       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+-      <ImageView fitHeight="253.0" fitWidth="251.0" layoutX="24.0" layoutY="48.0" onDragOver="#importFiles" pickOnBounds="true" preserveRatio="true" />
++      <ImageView fitHeight="253.0" fitWidth="251.0" layoutX="24.0" layoutY="48.0" onDragDropped="#onDragDropped" onDragOver="#onDragOver" pickOnBounds="true" preserveRatio="true" />
+       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="24.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="251.0" />
+       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="19.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="251.0" />
+       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="138.0" layoutY="170.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="273.0" />
+Index: Cards/parmida.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Monster Reborn\r\nSpell Absorption\r\nCommand Knight\r\nCurtain Of Dark Ones\r\nSilver Fang\r\nHaniwa\r\nGate Guardian\r\nMagic Cylinder\r\nMind Crush\r\nSuijin\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nLeotron\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nYomi Ship\r\nYomi Ship\r\nYomi Ship\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nDark Hole\r\nDark Hole\r\nDark Hole\r\nExploder Dragon\r\nExploder Dragon\r\nExploder Dragon\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nSuijin\r\nSuijin\r\nSuijin\r\nSuijin\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nTrap Hole\r\nTrap Hole\r\nTrap Hole\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nLeotron\r\nLeotron\r\nLeotron\r\nLeotron\r\nUnited We Stand\r\nUnited We Stand\r\nUnited We Stand\r\nYami\r\nYami\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nYomi Ship\r\nYomi Ship\r\nYomi Ship\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nDark Hole\r\nDark Hole\r\nDark Hole\r\nExploder Dragon\r\nExploder Dragon\r\nExploder Dragon\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nSuijin\r\nSuijin\r\nSuijin\r\nSuijin\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nTrap Hole\r\nTrap Hole\r\nTrap Hole\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nLeotron\r\nLeotron\r\nLeotron\r\nLeotron\r\nUnited We Stand\r\nUnited We Stand\r\nUnited We Stand\r\nYami\r\nYami\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nYomi Ship\r\nYomi Ship\r\nYomi Ship\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nDark Hole\r\nDark Hole\r\nDark Hole\r\nExploder Dragon\r\nExploder Dragon\r\nExploder Dragon\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nSuijin\r\nSuijin\r\nSuijin\r\nSuijin\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nTrap Hole\r\nTrap Hole\r\nTrap Hole\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nLeotron\r\nLeotron\r\nLeotron\r\nLeotron\r\nUnited We Stand\r\nUnited We Stand\r\nUnited We Stand\r\nYami\r\nYami\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nYomi Ship\r\nYomi Ship\r\nYomi Ship\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nDark Hole\r\nDark Hole\r\nDark Hole\r\nExploder Dragon\r\nExploder Dragon\r\nExploder Dragon\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nSuijin\r\nSuijin\r\nSuijin\r\nSuijin\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nTrap Hole\r\nTrap Hole\r\nTrap Hole\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nLeotron\r\nLeotron\r\nLeotron\r\nLeotron\r\nUnited We Stand\r\nUnited We Stand\r\nUnited We Stand\r\nYami\r\nYami\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nMystical Space Typhoon\r\nYomi Ship\r\nYomi Ship\r\nYomi Ship\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nMonster Reborn\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nDark Hole\r\nDark Hole\r\nDark Hole\r\nExploder Dragon\r\nExploder Dragon\r\nExploder Dragon\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCommand Knight\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nCurtain Of Dark Ones\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nHaniwa\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nGate Guardian\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMagic Cylinder\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nMind Crush\r\nSuijin\r\nSuijin\r\nSuijin\r\nSuijin\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSilver Fang\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSword Of Revealing Light\r\nSupply Squad\r\nSupply Squad\r\nSupply Squad\r\nTrap Hole\r\nTrap Hole\r\nTrap Hole\r\nSpell Absorption\r\nSpell Absorption\r\nSpell Absorption\r\nLeotron\r\nLeotron\r\nLeotron\r\nLeotron\r\nUnited We Stand\r\nUnited We Stand\r\nUnited We Stand\r\nYami\r\nYami\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Cards/parmida.txt b/Cards/parmida.txt
+--- a/Cards/parmida.txt	(revision 5a45923cdb5dbe952d8c0a2ae90b4773bec2a1f1)
++++ b/Cards/parmida.txt	(date 1625665031125)
+@@ -1,427 +1,1 @@
+-Monster Reborn
+-Spell Absorption
+-Command Knight
+-Curtain Of Dark Ones
+-Silver Fang
+-Haniwa
+-Gate Guardian
+-Magic Cylinder
+-Mind Crush
+-Suijin
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Leotron
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Yomi Ship
+-Yomi Ship
+-Yomi Ship
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Dark Hole
+-Dark Hole
+-Dark Hole
+-Exploder Dragon
+-Exploder Dragon
+-Exploder Dragon
+-Command Knight
+-Command Knight
+-Command Knight
+-Command Knight
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Haniwa
+-Haniwa
+-Haniwa
+-Haniwa
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Suijin
+-Suijin
+-Suijin
+-Suijin
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Trap Hole
+-Trap Hole
+-Trap Hole
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Leotron
+-Leotron
+-Leotron
+-Leotron
+-United We Stand
+-United We Stand
+-United We Stand
+-Yami
+-Yami
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Yomi Ship
+-Yomi Ship
+-Yomi Ship
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Dark Hole
+-Dark Hole
+-Dark Hole
+-Exploder Dragon
+-Exploder Dragon
+-Exploder Dragon
+-Command Knight
+-Command Knight
+-Command Knight
+-Command Knight
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Haniwa
+-Haniwa
+-Haniwa
+-Haniwa
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Suijin
+-Suijin
+-Suijin
+-Suijin
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Trap Hole
+-Trap Hole
+-Trap Hole
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Leotron
+-Leotron
+-Leotron
+-Leotron
+-United We Stand
+-United We Stand
+-United We Stand
+-Yami
+-Yami
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Yomi Ship
+-Yomi Ship
+-Yomi Ship
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Dark Hole
+-Dark Hole
+-Dark Hole
+-Exploder Dragon
+-Exploder Dragon
+-Exploder Dragon
+-Command Knight
+-Command Knight
+-Command Knight
+-Command Knight
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Haniwa
+-Haniwa
+-Haniwa
+-Haniwa
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Suijin
+-Suijin
+-Suijin
+-Suijin
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Trap Hole
+-Trap Hole
+-Trap Hole
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Leotron
+-Leotron
+-Leotron
+-Leotron
+-United We Stand
+-United We Stand
+-United We Stand
+-Yami
+-Yami
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Yomi Ship
+ Yomi Ship
+-Yomi Ship
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Dark Hole
+-Dark Hole
+-Dark Hole
+-Exploder Dragon
+-Exploder Dragon
+-Exploder Dragon
+-Command Knight
+-Command Knight
+-Command Knight
+-Command Knight
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Haniwa
+-Haniwa
+-Haniwa
+-Haniwa
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Suijin
+-Suijin
+-Suijin
+-Suijin
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Trap Hole
+-Trap Hole
+-Trap Hole
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Leotron
+-Leotron
+-Leotron
+-Leotron
+-United We Stand
+-United We Stand
+-United We Stand
+-Yami
+-Yami
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Mystical Space Typhoon
+-Yomi Ship
+-Yomi Ship
+-Yomi Ship
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Monster Reborn
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Dark Hole
+-Dark Hole
+-Dark Hole
+-Exploder Dragon
+-Exploder Dragon
+-Exploder Dragon
+-Command Knight
+-Command Knight
+-Command Knight
+-Command Knight
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Curtain Of Dark Ones
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Haniwa
+-Haniwa
+-Haniwa
+-Haniwa
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Gate Guardian
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Magic Cylinder
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Mind Crush
+-Suijin
+-Suijin
+-Suijin
+-Suijin
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Silver Fang
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Sword Of Revealing Light
+-Supply Squad
+-Supply Squad
+-Supply Squad
+-Trap Hole
+-Trap Hole
+-Trap Hole
+-Spell Absorption
+-Spell Absorption
+-Spell Absorption
+-Leotron
+-Leotron
+-Leotron
+-Leotron
+-United We Stand
+-United We Stand
+-United We Stand
+-Yami
+-Yami
+Index: UsersDecks/@AI@AllDecks.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>DeckForAI\r\nDeckForAI\r\nDeckForAI\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/UsersDecks/@AI@AllDecks.txt b/UsersDecks/@AI@AllDecks.txt
+--- a/UsersDecks/@AI@AllDecks.txt	(revision 5a45923cdb5dbe952d8c0a2ae90b4773bec2a1f1)
++++ b/UsersDecks/@AI@AllDecks.txt	(date 1625667671921)
+@@ -1,3 +1,19 @@
+ DeckForAI
+ DeckForAI
+ DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI
++DeckForAI

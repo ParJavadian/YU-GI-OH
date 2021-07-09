@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -14,8 +15,12 @@ import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -81,6 +86,18 @@ public class GameViewGraphic extends Application implements Initializable {
     public static final Image unknown = new Image("images/Cards/Unknown.jpg");
     public ImageView cardToExplode = new ImageView(), imageViewForSword = new ImageView();
 
+    public static Button buttonEndGame = new Button();
+    public static Button buttonAddLifePoint = new Button();
+
+    public static TextField cheatLifePointTextField = new TextField();
+
+    public boolean isCTRLPressed = false;
+    public boolean isSHIFTPressed = false;
+    public boolean isEPressed = false;
+    public boolean isNPressed = false;
+    public boolean isDPressed = false;
+    public boolean isLPressed = false;
+
 
     /*public GameViewGraphic(User player,User rival,int numberOfRounds){
         GameViewGraphic.player = player;
@@ -132,6 +149,7 @@ public class GameViewGraphic extends Application implements Initializable {
         //showPlayerPopUp();
         stage.show();
         help();
+        cheat();
     }
 
     private void setFXMLs() {
@@ -455,14 +473,12 @@ public class GameViewGraphic extends Application implements Initializable {
         imageView.setFitWidth(1010);
         imageView.setFitHeight(645);
         pausePopup.setX(0);
-        pausePopup.setY(20);
+        pausePopup.setY(60);
         imageView.setImage(image);
         anchorPane.getChildren().add(imageView);
         //anchorPane.setBackground("/images/backgrounds/19.jpg");
 
         //anchorPane.setStyle(" -fx-background-color: #ac7339;");
-        pausePopup.setX(0);
-        pausePopup.setY(0);
         pausePopup.setWidth(900);
         pausePopup.setHeight(600);
         anchorPane.setPrefWidth(1010);
@@ -1205,7 +1221,7 @@ public class GameViewGraphic extends Application implements Initializable {
 
         //anchorPane.setStyle(" -fx-background-color: #ac7339;");
         endGamePopup.setX(0);
-        endGamePopup.setY(0);
+        endGamePopup.setY(60);
         endGamePopup.setWidth(900);
         endGamePopup.setHeight(600);
         anchorPane.setPrefWidth(1010);
@@ -1213,30 +1229,31 @@ public class GameViewGraphic extends Application implements Initializable {
         anchorPane.setLayoutX(185);
         anchorPane.setLayoutY(14);
 
-        label.setLayoutX(350);
-        label.setLayoutY(200);
+        label.setLayoutX(300);
+        label.setLayoutY(240);
+        label.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0, 0.9), new CornerRadii(5.0), new Insets(-5.0))));
         label.setText(labelText);
-        Font font = Font.font("Agency FB", 18);
+        Font font = Font.font("Agency FB", 24);
         label.setFont(font);
-        label.setTextFill(Paint.valueOf("#007a99"));
+        label.setTextFill(Paint.valueOf("#ffffff"));
         if (!anchorPane.getChildren().contains(label)) {
             anchorPane.getChildren().add(label);
         }
 
 
-        startNewGameButton.setLayoutX(430);
-        startNewGameButton.setLayoutY(300);
+        startNewGameButton.setLayoutX(440);
+        startNewGameButton.setLayoutY(320);
         startNewGameButton.setFont(font);
-        startNewGameButton.setTextFill(Paint.valueOf("#007a99"));
+        startNewGameButton.setTextFill(Paint.valueOf("#000000"));
         if (!anchorPane.getChildren().contains(startNewGameButton)) {
             anchorPane.getChildren().add(startNewGameButton);
         }
 
 
-        endGameButton.setLayoutX(450);
+        endGameButton.setLayoutX(430);
         endGameButton.setLayoutY(400);
         endGameButton.setFont(font);
-        endGameButton.setTextFill(Paint.valueOf("#007a99"));
+        endGameButton.setTextFill(Paint.valueOf("#000000"));
 
         if (!anchorPane.getChildren().contains(endGameButton)) {
             anchorPane.getChildren().add(endGameButton);
@@ -1390,6 +1407,105 @@ public class GameViewGraphic extends Application implements Initializable {
         });
         animation.play();
         updateBoard();
+    }
+
+    public void lightAnimation(ImageView imageView) {
+        LightController animation = new LightController(imageView);
+        animation.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                imageView.setImage(null);
+            }
+        });
+        animation.play();
+    }
+
+
+    public void cheat(){
+        adjustEndGameButtonOnBoard();
+        adjustCheatLifePoint();
+        stage.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+
+                if (event.getCode().getName().equals("E"))
+                    isEPressed = true;
+                if (event.getCode().getName().equals("N"))
+                    isNPressed = true;
+                if (event.getCode().getName().equals("D"))
+                    isDPressed = true;
+                if (event.getCode().getName().equals("L"))
+                    isLPressed = true;
+                if (event.getCode().getName().equals("Ctrl"))
+                    isCTRLPressed = true;
+                if (event.getCode().getName().equals("Shift"))
+                    isSHIFTPressed = true;
+
+                if (isEPressed && isNPressed && isDPressed && isCTRLPressed && isSHIFTPressed) {
+                    root.getChildren().add(buttonEndGame);
+                    buttonEndGame.setOnAction(this::endGameButtonAction);
+                }
+
+                if (isLPressed && isCTRLPressed && isSHIFTPressed){
+                    root.getChildren().add(buttonAddLifePoint);
+                    root.getChildren().add(cheatLifePointTextField);
+                    buttonAddLifePoint.setOnAction(this::addLifePointButtonAction);
+                }
+            }
+
+            private void addLifePointButtonAction(ActionEvent actionEvent) {
+                if (cheatLifePointTextField.getText().matches("\\d+")){
+                    duelController.cheatLifePoint("player",Integer.parseInt(cheatLifePointTextField.getText()));
+                    root.getChildren().remove(cheatLifePointTextField);
+                    root.getChildren().remove(buttonAddLifePoint);
+                    confirmLifePointCheat();
+                    playerLifePoint.setText(String.valueOf(player.getLifePoint()));
+                }
+            }
+
+            private void endGameButtonAction(ActionEvent actionEvent) {
+                duelController.cheatToWinGame();
+            }
+        });
+
+        stage.getScene().setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode().getName().equals("E"))
+                    isEPressed = false;
+                if (event.getCode().getName().equals("N"))
+                    isNPressed = false;
+                if (event.getCode().getName().equals("D"))
+                    isDPressed = false;
+                if (event.getCode().getName().equals("L"))
+                    isLPressed = false;
+                if (event.getCode().getName().equals("Ctrl"))
+                    isCTRLPressed = false;
+                if (event.getCode().getName().equals("Shift"))
+                    isSHIFTPressed = false;
+            }
+        });
+    }
+
+    public void adjustEndGameButtonOnBoard(){
+        buttonEndGame.setLayoutX(224);
+        buttonEndGame.setLayoutY(25);
+        buttonEndGame.setText("End Game!");
+    }
+
+    public void adjustCheatLifePoint(){
+        cheatLifePointTextField.setLayoutX(826);
+        cheatLifePointTextField.setLayoutY(228);
+        buttonAddLifePoint.setText("Life Point!");
+        buttonAddLifePoint.setLayoutX(863);
+        buttonAddLifePoint.setLayoutY(254);
+    }
+
+    private void confirmLifePointCheat() {
+        Alert error = new Alert(Alert.AlertType.INFORMATION);
+        error.setHeaderText("shame on you!");
+        error.setContentText("you successfully cheated!");
+        error.showAndWait();
     }
 
 

@@ -1,0 +1,39 @@
+<changelist name="Uncommitted_changes_before_Update_at_۰۷_۰۷_۲۰۲۱_۲۳_۲۸_[Default_Changelist]" date="1625685080883" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۷_۰۷_۲۰۲۱_۲۳_۲۸_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at ۰۷/۰۷/۲۰۲۱ ۲۳:۲۸ [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="graveyard.zip" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۷_۰۷_۲۰۲۱_۲۳_۲۸_[Default_Changelist]/graveyard.zip" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/controller/ImportExportUserController.class" />
+    <option name="AFTER_PATH" value="target/classes/controller/ImportExportUserController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۷_۰۷_۲۰۲۱_۲۳_۲۸_[Default_Changelist]/ImportExportUserController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/User.class" />
+    <option name="AFTER_PATH" value="target/classes/model/User.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۷_۰۷_۲۰۲۱_۲۳_۲۸_[Default_Changelist]/User.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/SignUpViewGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/SignUpViewGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۷_۰۷_۲۰۲۱_۲۳_۲۸_[Default_Changelist]/SignUpViewGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/Main.class" />
+    <option name="AFTER_PATH" value="target/classes/Main.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۷_۰۷_۲۰۲۱_۲۳_۲۸_[Default_Changelist]/Main.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/GameViewGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/GameViewGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۷_۰۷_۲۰۲۱_۲۳_۲۸_[Default_Changelist]/GameViewGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/controller/DuelController.class" />
+    <option name="AFTER_PATH" value="target/classes/controller/DuelController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۷_۰۷_۲۰۲۱_۲۳_۲۸_[Default_Changelist]/DuelController.class" />
+  </binary>
+</changelist>

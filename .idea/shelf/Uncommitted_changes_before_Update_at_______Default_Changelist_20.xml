@@ -1,0 +1,64 @@
+<changelist name="Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]" date="1625749700151" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at ۰۸/۰۷/۲۰۲۱ ۱۷:۳۶ [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/controller/ImportExportUserController.class" />
+    <option name="AFTER_PATH" value="target/classes/controller/ImportExportUserController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/ImportExportUserController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/model/User.class" />
+    <option name="AFTER_PATH" value="target/classes/model/User.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/User.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/LogInViewGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/LogInViewGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/LogInViewGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/controller/SignUpControllerGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/controller/SignUpControllerGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/SignUpControllerGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/SignUpViewGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/SignUpViewGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/SignUpViewGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/MainViewGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/MainViewGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/MainViewGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/main/resources/images/backgrounds/19.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/19.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/controller/LogInController.class" />
+    <option name="AFTER_PATH" value="target/classes/controller/LogInController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/LogInController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/GameViewGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/GameViewGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/GameViewGraphic.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/MainView.class" />
+    <option name="AFTER_PATH" value="target/classes/view/MainView.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/MainView.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/import profile.zip" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/import profile.zip" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/view/ProfileViewForGraphic.class" />
+    <option name="AFTER_PATH" value="target/classes/view/ProfileViewForGraphic.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۸_۰۷_۲۰۲۱_۱۷_۳۶_[Default_Changelist]/ProfileViewForGraphic.class" />
+  </binary>
+</changelist>
