@@ -1,0 +1,53 @@
+Index: Cards/parmida.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Yomi Ship\r\nAxe Raider\r\nBaby Dragon\r\nAxe Raider\r\nAxe Raider\r\nBaby Dragon\r\nBitron\r\nAlexandrite Dragon\r\nAxe Raider\r\nAdvanced Ritual Art\r\nBaby Dragon\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Cards/parmida.txt	(revision f7ed28656b4e81ea93c652dd134f4af1db1a6f5d)
++++ Cards/parmida.txt	(date 1625845220267)
+@@ -9,3 +9,9 @@
+ Axe Raider
+ Advanced Ritual Art
+ Baby Dragon
++Alexandrite Dragon
++Alexandrite Dragon
++Axe Raider
++Baby Dragon
++Advanced Ritual Art
++Alexandrite Dragon
+Index: src/main/java/controller/LightningController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/controller/LightningController.java	(date 1625845220268)
++++ src/main/java/controller/LightningController.java	(date 1625845220268)
+@@ -0,0 +1,26 @@
++package controller;
++
++import javafx.animation.Transition;
++import javafx.scene.image.Image;
++import javafx.scene.image.ImageView;
++import javafx.util.Duration;
++
++public class LightningController extends Transition {
++
++    private ImageView imageView;
++
++    public LightningController(ImageView imageView) {
++        this.imageView = imageView;
++        setCycleDuration(Duration.millis(500));
++    }
++
++
++    @Override
++    protected void interpolate(double v) {
++        int frame = ((int) Math.floor(v * 8)+1);
++        imageView.setImage( new Image("/images/lightning/" + frame + ".png"));
++    }
++
++
++
++}

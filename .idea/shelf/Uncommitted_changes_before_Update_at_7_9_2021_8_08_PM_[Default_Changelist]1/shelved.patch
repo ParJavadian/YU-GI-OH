@@ -1,0 +1,19 @@
+Index: Cards/parmida.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Yomi Ship\r\nAxe Raider\r\nBaby Dragon\r\nAxe Raider\r\nAxe Raider\r\nBaby Dragon\r\nBitron\r\nAlexandrite Dragon\r\nAxe Raider\r\nAdvanced Ritual Art\r\nBaby Dragon\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Cards/parmida.txt	(revision f7ed28656b4e81ea93c652dd134f4af1db1a6f5d)
++++ Cards/parmida.txt	(date 1625845103691)
+@@ -9,3 +9,9 @@
+ Axe Raider
+ Advanced Ritual Art
+ Baby Dragon
++Alexandrite Dragon
++Alexandrite Dragon
++Axe Raider
++Baby Dragon
++Advanced Ritual Art
++Alexandrite Dragon
