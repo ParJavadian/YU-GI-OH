@@ -2,15 +2,17 @@ package view;
 
 import controller.DeckController;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Card;
@@ -33,6 +35,18 @@ public class AddCardToDeckView extends Application implements Initializable {
     private static int totalCardsNumber;
     private static int firstCardNumber = 0;
     private static boolean hasComeFromSide;
+    public static Label label = new Label();
+    public static Button button1 = new Button();
+    public static Button button2 = new Button();
+    public static Button button3 = new Button();
+    public static Button button4 = new Button();
+    public static Button button5 = new Button();
+    public static Button button6 = new Button();
+    public static Button button7 = new Button();
+    public static Button button8 = new Button();
+    public boolean isCTRLPressed = false;
+    public boolean isSHIFTPressed = false;
+    public boolean isDPressed = false;
     private static AnchorPane root;
     @FXML
     private AnchorPane anchorPane1, anchorPane2, anchorPane3, anchorPane4;
@@ -66,6 +80,7 @@ public class AddCardToDeckView extends Application implements Initializable {
         addImages();
         removeBadAnchorPanes();
         Scene scene = new Scene(root);
+        preCheat();
         stage.setScene(scene);
     }
 
@@ -93,6 +108,15 @@ public class AddCardToDeckView extends Application implements Initializable {
             }
             resetImagesAndCards();
         }*/
+    }
+
+    public void addCardToDeckByCheating(Card card, boolean isSide){
+        try {
+            DeckController.getInstance(user).addCardToDeck(card.getNamePascalCase(), deck.getDeckName(), isSide, true);
+            resetImagesAndCards();
+        } catch (Exception e) {
+            printTextError(e.getMessage());
+        }
     }
 
 
@@ -297,6 +321,203 @@ public class AddCardToDeckView extends Application implements Initializable {
         addCardToDeck(card4, true);
     }
 
+
+    public void addToMainDeckCheat1() {
+        addCardToDeckByCheating(card1, false);
+    }
+
+    public void addToMainDeckCheat2() {
+        addCardToDeckByCheating(card2, false);
+    }
+
+    public void addToMainDeckCheat3() {
+        addCardToDeckByCheating(card3, false);
+    }
+
+    public void addToMainDeckCheat4() {
+        addCardToDeckByCheating(card4, false);
+    }
+
+    public void addToSideDeckCheat1() {
+        addCardToDeckByCheating(card1, true);
+    }
+
+    public void addToSideDeckCheat2() {
+        addCardToDeckByCheating(card2, true);
+    }
+
+    public void addToSideDeckCheat3() {
+        addCardToDeckByCheating(card3, true);
+    }
+
+    public void addToSideDeckCheat4() {
+        addCardToDeckByCheating(card4, true);
+    }
+
+
+
+
+
+    private void preCheat(){
+        //TODO chejuri ye kar konam be tedade card ha button bezare:(
+        adjustButtonsOnScene();
+
+        root.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode().getName().equals("D"))
+                    isDPressed = true;
+                if (event.getCode().getName().equals("Ctrl"))
+                    isCTRLPressed = true;
+                if (event.getCode().getName().equals("Shift"))
+                    isSHIFTPressed = true;
+
+                if (isSHIFTPressed && isCTRLPressed && isDPressed){
+                    setButtonsOnScene();
+
+                    button1.setOnAction(this::createCheatEnvironment1);
+                    button2.setOnAction(this::createCheatEnvironment2);
+                    button3.setOnAction(this::createCheatEnvironment3);
+                    button4.setOnAction(this::createCheatEnvironment4);
+                    button5.setOnAction(this::createCheatEnvironment5);
+                    button6.setOnAction(this::createCheatEnvironment6);
+                    button7.setOnAction(this::createCheatEnvironment7);
+                    button8.setOnAction(this::createCheatEnvironment8);
+
+                }
+            }
+
+            private void createCheatEnvironment1(ActionEvent actionEvent) {
+                addToMainDeckCheat1();
+                removeButtons();
+                alertForCheat();
+            }
+
+            private void createCheatEnvironment2(ActionEvent actionEvent) {
+                addToSideDeckCheat1();
+                removeButtons();
+                alertForCheat();
+            }
+
+            private void createCheatEnvironment3(ActionEvent actionEvent) {
+                addToMainDeckCheat2();
+                removeButtons();
+                alertForCheat();
+            }
+
+            private void createCheatEnvironment4(ActionEvent actionEvent) {
+                addToSideDeckCheat2();
+                removeButtons();
+                alertForCheat();
+            }
+
+            private void createCheatEnvironment5(ActionEvent actionEvent) {
+                addToMainDeckCheat3();
+                removeButtons();
+                alertForCheat();
+            }
+
+            private void createCheatEnvironment6(ActionEvent actionEvent) {
+                addToSideDeckCheat3();
+                removeButtons();
+                alertForCheat();
+            }
+
+            private void createCheatEnvironment7(ActionEvent actionEvent) {
+                addToMainDeckCheat4();
+                removeButtons();
+                alertForCheat();
+            }
+
+            private void createCheatEnvironment8(ActionEvent actionEvent) {
+                addToSideDeckCheat4();
+                removeButtons();
+                alertForCheat();
+            }
+        });
+        root.getScene().setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode().getName().equals("D"))
+                    isDPressed = false;
+                if (event.getCode().getName().equals("Ctrl"))
+                    isCTRLPressed = false;
+                if (event.getCode().getName().equals("Shift"))
+                    isSHIFTPressed = false;
+            }
+        });
+
+    }
+
+    public void adjustButtonsOnScene(){
+        button1.setLayoutX(100);
+        button1.setLayoutY(438);
+        button1.setText("AMC!");
+
+        button2.setLayoutX(170);
+        button2.setLayoutY(438);
+        button2.setText("ASC!");
+
+        button3.setLayoutX(300);
+        button3.setLayoutY(438);
+        button3.setText("AMC");
+
+        button4.setLayoutX(370);
+        button4.setLayoutY(438);
+        button4.setText("ASC!");
+
+        button5.setLayoutX(500);
+        button5.setLayoutY(438);
+        button5.setText("AMC!");
+
+        button6.setLayoutX(570);
+        button6.setLayoutY(438);
+        button6.setText("ASC!");
+
+        button7.setLayoutX(705);
+        button7.setLayoutY(438);
+        button7.setText("AMC!");
+
+        button8.setLayoutX(773);
+        button8.setLayoutY(438);
+        button8.setText("ASC!");
+    }
+
+    public void setButtonsOnScene(){
+        root.getChildren().add(button1);
+        root.getChildren().add(button2);
+        root.getChildren().add(button3);
+        root.getChildren().add(button4);
+        root.getChildren().add(button5);
+        root.getChildren().add(button6);
+        root.getChildren().add(button7);
+        root.getChildren().add(button8);
+    }
+
+    private void removeButtons(){
+        root.getChildren().remove(button1);
+        root.getChildren().remove(button2);
+        root.getChildren().remove(button3);
+        root.getChildren().remove(button4);
+        root.getChildren().remove(button5);
+        root.getChildren().remove(button6);
+        root.getChildren().remove(button7);
+        root.getChildren().remove(button8);
+    }
+
+    public void alertForCheat(){
+        Alert error = new Alert(Alert.AlertType.INFORMATION);
+        error.setHeaderText("shame on you!");
+        error.setContentText("you successfully cheated!");
+        error.showAndWait();
+    }
+
+
+
+
+
+
+
     public void printTextError(String output) {
         Alert alert = new Alert(Alert.AlertType.ERROR, output, ButtonType.OK);
         alert.setHeaderText("");
@@ -315,4 +536,5 @@ public class AddCardToDeckView extends Application implements Initializable {
             RemoveCardFromDeckView.getInstance().start(stage);
         }
     }
+
 }
