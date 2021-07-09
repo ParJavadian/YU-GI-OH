@@ -18,6 +18,7 @@ import model.Deck;
 import model.User;
 
 import java.net.URL;
+import java.util.Objects;
 
 public class LogInViewGraphic extends Application {
     private static Stage stage;
@@ -47,8 +48,12 @@ public class LogInViewGraphic extends Application {
             importExportUserController.importAllCards();
             importExportUserController.importAllDecks();
             importExportUserController.importActiveDeck();
-            Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
-            User.getUserByUsername("@AI@").setActiveDeck(deck);
+            Deck AIDeck = Objects.requireNonNull(User.getUserByUsername("@AI@")).getDeckByName("DeckForAI");
+            if (AIDeck == null) {
+                Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
+                Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(deck);
+            }
+            else Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(AIDeck);
 //            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
 //            mediaPlayer = new MediaPlayer(media);
 //            mediaPlayer.setCycleCount(AudioClip.INDEFINITE);

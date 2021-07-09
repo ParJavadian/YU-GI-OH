@@ -515,12 +515,6 @@ public class AddCardToDeckView extends Application implements Initializable {
         error.showAndWait();
     }
 
-
-
-
-
-
-
     public void printTextError(String output) {
         Alert alert = new Alert(Alert.AlertType.ERROR, output, ButtonType.OK);
         alert.setHeaderText("");
