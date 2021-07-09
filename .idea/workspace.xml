@@ -22,52 +22,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="animation + end game">
-      <change afterPath="$PROJECT_DIR$/src (11).zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_15.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_15.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_16.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_16.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_17.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_17.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_18.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_18.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_19.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_20.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_20.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_21.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_21.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_22.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_22.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_23.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_23.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_24.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_25.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_25.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_26.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_27.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_27.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_28.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_28.xml" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 3">
+      <change afterPath="$PROJECT_DIR$/CardsIE/AXE_RAIDERMonsterCard.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CardsIE/BITRONMonsterCard.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CardsIE/BITRONMonsterCard.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CardsIE/MAGIC_JAMMERTrapCard.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CardsIE/MAGNUM_SHIELDSpellCard.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (12).zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck/parmidaparmida1MainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/parmidaparmida1MainDeck.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/DuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DuelView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ImportExportGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ImportExportGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ShopMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/DuelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DuelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/images/shuffle/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/images/shuffle/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/images/shuffle/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/images/shuffle/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/images/shuffle/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/images/shuffle/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/images/shuffle/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/images/shuffle/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/images/shuffle/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/images/shuffle/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/images/shuffle/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/images/shuffle/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/AddCardToDeckView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/AddCardToDeckView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ImportExportCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ImportExportCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/DuelView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/DuelView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$11.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$12.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/RockPaperScissorAIView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/RockPaperScissorAIView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ImportExportGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ImportExportGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ShopViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ShopViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +197,7 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="StructuralSearchPlugin">
-    <searchConfiguration name="Unnamed" created="1624744011824" text="/* $CommentContent$ */" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" history="1">
+    <searchConfiguration name="Unnamed" created="1625867850690" text="/* $CommentContent$ */" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" history="1">
       <constraint name="__context__" within="" contains="" />
       <constraint name="CommentContent" within="" contains="" />
     </searchConfiguration>
@@ -551,7 +531,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625766784427</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Duel View 3">
+      <created>1625859351326</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1625859351326</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +558,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="suijin debug 1" />
     <MESSAGE value="suijin debug 2" />
     <MESSAGE value="gate gaurdian debug" />
     <MESSAGE value="activate spell debug 1" />
@@ -596,29 +582,34 @@
     <MESSAGE value="scoreboard va show graveyard" />
     <MESSAGE value="sound effect" />
     <MESSAGE value="commit molayitar" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit molayitar" />
+    <MESSAGE value="Duel View 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Duel View 3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="231" key="GridCell.Tab.0.bottom" timestamp="1625858981105">
+    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1625867910338">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="231" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625858981105" />
-    <state width="1237" height="231" key="GridCell.Tab.0.center" timestamp="1625858981104">
+    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1625867910338" />
+    <state width="1237" height="93" key="GridCell.Tab.0.bottom" timestamp="1625868101962">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="231" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625858981104" />
-    <state width="1237" height="231" key="GridCell.Tab.0.left" timestamp="1625858981104">
+    <state width="1237" height="93" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625868101962" />
+    <state width="1237" height="93" key="GridCell.Tab.0.center" timestamp="1625868101962">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="231" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625858981104" />
-    <state width="1237" height="231" key="GridCell.Tab.0.right" timestamp="1625858981104">
+    <state width="1237" height="93" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625868101962" />
+    <state width="1237" height="93" key="GridCell.Tab.0.left" timestamp="1625868101961">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="231" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625858981104" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625855993501">
+    <state width="1237" height="93" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625868101961" />
+    <state width="1237" height="93" key="GridCell.Tab.0.right" timestamp="1625868101962">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625855993501" />
+    <state width="1237" height="93" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625868101962" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625859354660">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625859354660" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

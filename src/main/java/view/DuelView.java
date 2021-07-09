@@ -36,7 +36,7 @@ public class DuelView {
     private boolean processCommand(String command) {
         if (command.equals("select -d")) {
             try {
-                duelController.unselectCardFromCommand();
+//                duelController.unselectCardFromCommand();
             } catch (Exception exception) {
                 printText(exception.getMessage());
             }
@@ -162,7 +162,7 @@ public class DuelView {
         }
         if (command.equals("show graveyard")) {
             try {
-                duelController.showGraveyard();
+//                duelController.showGraveyard();
             } catch (Exception exception) {
                 printText(exception.getMessage());
             }
@@ -200,7 +200,7 @@ public class DuelView {
         matcher = getCommandMatcher(command, "edoCtaehc yenom ([0-9]+)");
         if (matcher.matches()){
             int amount = Integer.parseInt(matcher.group(1));
-            duelController.cheatMoney(amount);
+//            duelController.cheatMoney(amount);
             return false;
         }
         if (command.equals("niw ot tnaw tsuj i tub od ot gniht dab yrev a si gnitaehc wonk i")){

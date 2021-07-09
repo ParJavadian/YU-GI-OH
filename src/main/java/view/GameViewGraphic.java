@@ -1333,9 +1333,7 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
     public void startBattlePhaseWithSword(ImageView imageView) {
-        System.out.println("1" + imageView);
         SwordController animation = new SwordController(imageView);
-        System.out.println("2" + imageView);
         animation.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -1343,7 +1341,6 @@ public class GameViewGraphic extends Application implements Initializable {
             }
         });
         animation.play();
-        System.out.println("3" + imageView);
     }
 
 

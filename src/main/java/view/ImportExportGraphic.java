@@ -137,7 +137,7 @@ public class ImportExportGraphic extends Application {
     }
 
     public String changeName(String completeName){
-        Pattern pattern = Pattern.compile("([\\w]+)(SpellCard.txt|MonsterCard.txt|TrapCard.txt)");
+        Pattern pattern = Pattern.compile("([\\w]+)(SpellCard.txt|MonsterCard.txt|TrapCard.txt|SpellCard.csv|MonsterCard.csv|TrapCard.csv)");
         Matcher matcher = pattern.matcher(completeName);
         if (matcher.find())
             return matcher.group(1);
