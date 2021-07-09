@@ -76,7 +76,7 @@ public class RockPaperScissorAIView extends Application implements Initializable
     }
 
     public String findWinner(String handPlayerOne, String handPlayerTwo) throws Exception {
-        if (handPlayerOne != null) {
+/*        if (handPlayerOne != null) {
             if (handPlayerOne.equals(handPlayerTwo)) {
                 PrintTextEqualRPS();
             }
@@ -112,7 +112,10 @@ public class RockPaperScissorAIView extends Application implements Initializable
                 }
             }
         }
-        return "";
+        return "";*/
+        printTextInformation(user.getUsername());
+        return user.getUsername();
+
     }
 
     public void startNewGame(User firstPlayer, User secondPlayer) throws Exception{
