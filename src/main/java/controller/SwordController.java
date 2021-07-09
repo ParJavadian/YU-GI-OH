@@ -6,18 +6,21 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class SwordController extends Transition {
-    private ImageView imageView;
+    private final ImageView imageView;
 
     public SwordController(ImageView imageView) {
         this.imageView = imageView;
-        setCycleDuration(Duration.millis(1000));
+        setCycleDuration(Duration.millis(500));
     }
 
     @Override
     protected void interpolate(double v) {
         imageView.toFront();
-        System.out.println("sword molayi");
-        int frame = (int) Math.floor(v * 5);
-        imageView.setImage( new Image("/images/sword/" + frame + ".png"));
+        int frame = (int) Math.floor(v * 6);
+        try {
+            imageView.setImage(new Image("/images/sword/" + frame + ".png"));
+        } catch (Exception ignored) {
+
+        }
     }
 }

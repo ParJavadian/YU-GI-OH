@@ -989,9 +989,13 @@ public class DuelController {
         } else if (phase.equals(Phase.MAIN_PHASE1)) {
             if (!isStartTurn) {
                 this.phase = Phase.BATTLE_PHASE;
-                GameViewGraphic.imageViewForSword.toFront();
-                GameViewGraphic.imageViewForSword.setImage( new Image("/images/sword/0.png"));
-                gameViewGraphic.startBattlePhaseWithSword(GameViewGraphic.imageViewForSword);
+                gameViewGraphic.imageViewForSword.toFront();
+                /*try{
+                    Thread.sleep(2000);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }*/
+                gameViewGraphic.startBattlePhaseWithSword(gameViewGraphic.imageViewForSword);
                 try {
                     gameViewGraphic.startBattleNoCardSelected();
                 } catch (Exception exception) {

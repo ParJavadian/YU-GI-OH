@@ -47,7 +47,7 @@ public class GameViewGraphic extends Application implements Initializable {
     private static ArrayList<Card> cards = new ArrayList<>();
     private static ArrayList<Boolean> conditions = new ArrayList<>();
     private static AnchorPane root;
-    public static ImageView directAttackArea = new ImageView(), imageViewForSword = new ImageView();
+    public static ImageView directAttackArea = new ImageView();
     public static ImageView imageView1Monster1 = new ImageView(), imageView1Monster2 = new ImageView(), imageView1Monster3 = new ImageView(), imageView1Monster4 = new ImageView(), imageView1Monster5 = new ImageView();
     public static ImageView imageView2Monster1 = new ImageView(), imageView2Monster2 = new ImageView(), imageView2Monster3 = new ImageView(), imageView2Monster4 = new ImageView(), imageView2Monster5 = new ImageView();
     public static ImageView imageView1SpellAndTrap1 = new ImageView(), imageView1SpellAndTrap2 = new ImageView(), imageView1SpellAndTrap3 = new ImageView(), imageView1SpellAndTrap4 = new ImageView(), imageView1SpellAndTrap5 = new ImageView();
@@ -81,7 +81,7 @@ public class GameViewGraphic extends Application implements Initializable {
     private static final ImageView selectedCardImageView = new ImageView();
     public Popup popUpGraveyard;
     public static final Image unknown = new Image("images/Cards/Unknown.jpg");
-    public ImageView cardToExplode = new ImageView();
+    public ImageView cardToExplode = new ImageView(), imageViewForSword = new ImageView();
 
 
     /*public GameViewGraphic(User player,User rival,int numberOfRounds){
@@ -126,6 +126,7 @@ public class GameViewGraphic extends Application implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         setFXMLs();
+        setSword();
         duelController.setDuelView(this);
         setPhaseRectangleColors();
         duelController.goNextPhase();
@@ -228,6 +229,7 @@ public class GameViewGraphic extends Application implements Initializable {
         directAttackArea.setFitHeight(150);
         directAttackArea.setX(300);
         directAttackArea.setY(0);
+        directAttackArea.toFront();
     }
 
     public void setImagesAndCards() {
@@ -1103,6 +1105,9 @@ public class GameViewGraphic extends Application implements Initializable {
         Image tempImage = playerProfile.getImage();
         playerProfile.setImage(rivalProfile.getImage());
         rivalProfile.setImage(tempImage);
+        ProgressBar tempProgressBar = playerProgressBar;
+        playerProgressBar=rivalProgressBar;
+        rivalProgressBar = tempProgressBar;
     }
 
     public void resetSelectedCard() {
@@ -1158,7 +1163,16 @@ public class GameViewGraphic extends Application implements Initializable {
 
     }
 
-
+    public void explode(ImageView imageView) {
+        ExplosionController animation = new ExplosionController(imageView);
+        animation.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                imageView.setImage(null);
+            }
+        });
+        animation.play();
+    }
 
     public void setLifePoints(){
         playerLifePoint.setText(String.valueOf(player.getLifePoint()));
@@ -1265,27 +1279,19 @@ public class GameViewGraphic extends Application implements Initializable {
         endGameButton.setOnAction(eventForEndButton);
     }
 
-
-    public void explode(ImageView imageView) {
-        ExplosionController animation = new ExplosionController(imageView);
-        animation.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                imageView.setImage(null);
-            }
-        });
-        animation.play();
+    private void setSword(){
+        imageViewForSword.setFitWidth(111);
+        imageViewForSword.setFitHeight(166);
+        imageViewForSword.setX(455);
+        imageViewForSword.setY(216);
+        imageViewForSword.toFront();
+        if(!root.getChildren().contains(imageViewForSword))
+            root.getChildren().add(imageViewForSword);
     }
-
-
     public void startBattlePhaseWithSword(ImageView imageView) {
-        imageView.setImage( new Image("/images/sword/0.png"));
-        imageView.setFitWidth(111);
-        imageView.setFitHeight(166);
-        imageView.setX(455);
-        imageView.setY(216);
-        imageView.toFront();
+        System.out.println("1" + imageView);
         SwordController animation = new SwordController(imageView);
+        System.out.println("2" + imageView);
         animation.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -1293,6 +1299,7 @@ public class GameViewGraphic extends Application implements Initializable {
             }
         });
         animation.play();
+        System.out.println("3" + imageView);
     }
 
 
