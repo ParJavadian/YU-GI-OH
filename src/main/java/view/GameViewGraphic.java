@@ -521,6 +521,7 @@ public class GameViewGraphic extends Application implements Initializable {
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
                         try {
+                            duelController.surrender();
                             MainViewGraphic.getInstance().start(stage);
                             finalPausePopup.hide();
                         } catch (Exception exception) {
@@ -599,14 +600,14 @@ public class GameViewGraphic extends Application implements Initializable {
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
                         popUpGraveyard.hide();
-                        System.out.println("hide graveyard");
+                        //System.out.println("hide graveyard");
                     }
                 };
         backButton.setOnAction(eventForBackButton);
         EventHandler<ActionEvent> eventForNextButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
-                        if (i[0] + 1 < images.size()) {
+                        if (i[0] + 3 < images.size()) {
                             i[0]++;
                             fillPopUp(i, anchorPane, previousButton, nextButton, backButton, images);
                         }
