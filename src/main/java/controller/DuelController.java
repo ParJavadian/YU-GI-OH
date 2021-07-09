@@ -658,6 +658,7 @@ public class DuelController {
         if (rival.getBoard().getMonsterByNumber(monsterNumber) == null)
             throw new NoCardFoundInThisPosition();
         findWayAttack(monsterNumber);
+        manageEndGame();
     }
 
     private void findWayAttack(int monsterNumber) throws Exception {
@@ -714,6 +715,7 @@ public class DuelController {
         SoundController.getInstance().playWhenAttacks();
         unselectCard();
         gameViewGraphic.resetSelectedCard();
+        gameViewGraphic.setLifePoints();
     }
 
     private void attackMonsterDO(int monsterNumber) throws Exception {
@@ -737,6 +739,7 @@ public class DuelController {
         SoundController.getInstance().playWhenAttacks();
         unselectCard();
         gameViewGraphic.resetSelectedCard();
+        gameViewGraphic.setLifePoints();
     }
 
     private void attackMonsterDH(int monsterNumber) throws Exception {
@@ -763,9 +766,10 @@ public class DuelController {
         SoundController.getInstance().playWhenAttacks();
         unselectCard();
         gameViewGraphic.resetSelectedCard();
+        gameViewGraphic.setLifePoints();
     }
 
-    public void directAttack() throws Exception {
+    public void directAttack(int number) throws Exception {
         if (this.selectedCard == null) throw new NoCardSelected();
         if (!this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE)) throw new CanNotAttack();
         if (!this.phase.equals(Phase.BATTLE_PHASE)) throw new ImproperPhase();
@@ -774,9 +778,9 @@ public class DuelController {
             rival.decreaseLifePoint(((MonsterCard) this.selectedCard.getCard()).getAttack());
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
             unselectCard();
-            getBoard();
+            System.out.println("1");
+            gameViewGraphic.setLifePoints();
         } else throw new CanNotAttackDirectly();
-        getBoard();
     }
 
     public void activateSpell() throws Exception {
@@ -988,6 +992,7 @@ public class DuelController {
     }
 
     private void startDrawPhase(boolean isFirst) {
+        manageEndGame();
         this.phase = Phase.DRAW_PHASE;
         DuelView.printText("phase: " + this.phase.getNamePascalCase());
         ArrayList<Card> playerMainCards = (ArrayList<Card>) this.player.getGameDeck().getMainDeck();
@@ -1403,7 +1408,7 @@ public class DuelController {
             if (monsterCard != null) {
                 try {
                     this.selectedCard = new SelectedCard(this.player.getBoard().getMonsterByNumber(i), BoardZone.MONSTERZONE, i, this.player);
-                    directAttack();
+                    directAttack(0);
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }

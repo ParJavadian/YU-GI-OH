@@ -146,7 +146,7 @@ public class DuelView {
         }
         if (command.equals("attack direct")) {
             try {
-                duelController.directAttack();
+//                duelController.directAttack();
             } catch (Exception exception) {
                 printText(exception.getMessage());
             }
