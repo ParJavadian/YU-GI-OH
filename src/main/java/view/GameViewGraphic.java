@@ -1158,16 +1158,7 @@ public class GameViewGraphic extends Application implements Initializable {
 
     }
 
-    public void explode(ImageView imageView) {
-        ExplosionController animation = new ExplosionController(imageView);
-        animation.setOnFinished(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                imageView.setImage(null);
-            }
-        });
-        animation.play();
-    }
+
 
     public void setLifePoints(){
         playerLifePoint.setText(String.valueOf(player.getLifePoint()));
@@ -1255,8 +1246,7 @@ public class GameViewGraphic extends Application implements Initializable {
         EventHandler<ActionEvent> eventForRestartGameButton =
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
-                        SoundController.muteAndUnmute();
-                        //fillPopUp(i,anchorPane,previousButton,nextButton,backButton,images);
+                        //todo by parmida
                     }
                 };
         startNewGameButton.setOnAction(eventForRestartGameButton);
@@ -1265,7 +1255,6 @@ public class GameViewGraphic extends Application implements Initializable {
                 new EventHandler<ActionEvent>() {
                     public void handle(ActionEvent e) {
                         try {
-                            duelController.surrender();
                             MainViewGraphic.getInstance().start(stage);
                             finalEndGamePopup.hide();
                         } catch (Exception exception) {
@@ -1277,11 +1266,25 @@ public class GameViewGraphic extends Application implements Initializable {
     }
 
 
+    public void explode(ImageView imageView) {
+        ExplosionController animation = new ExplosionController(imageView);
+        animation.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                imageView.setImage(null);
+            }
+        });
+        animation.play();
+    }
+
+
     public void startBattlePhaseWithSword(ImageView imageView) {
+        imageView.setImage( new Image("/images/sword/0.png"));
         imageView.setFitWidth(111);
         imageView.setFitHeight(166);
         imageView.setX(455);
         imageView.setY(216);
+        imageView.toFront();
         SwordController animation = new SwordController(imageView);
         animation.setOnFinished(new EventHandler<ActionEvent>() {
             @Override

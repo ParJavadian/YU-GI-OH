@@ -10,12 +10,13 @@ public class SwordController extends Transition {
 
     public SwordController(ImageView imageView) {
         this.imageView = imageView;
-        setCycleDuration(Duration.millis(500));
+        setCycleDuration(Duration.millis(1000));
     }
 
     @Override
     protected void interpolate(double v) {
-        System.out.println("1");
+        imageView.toFront();
+        System.out.println("sword molayi");
         int frame = (int) Math.floor(v * 5);
         imageView.setImage( new Image("/images/sword/" + frame + ".png"));
     }
