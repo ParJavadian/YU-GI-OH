@@ -5,7 +5,6 @@ import controller.SoundController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -33,7 +32,6 @@ public class AddCardToDeckView extends Application implements Initializable {
     private static ArrayList<Image> images = new ArrayList<>(4);
     private static Card card1, card2, card3, card4;
     public static ImageView image1, image2, image3, image4;
-    private static int totalCardsNumber;
     private static int firstCardNumber = 0;
     private static boolean hasComeFromSide;
     public static Label label = new Label();
@@ -45,13 +43,10 @@ public class AddCardToDeckView extends Application implements Initializable {
     public static Button button6 = new Button();
     public static Button button7 = new Button();
     public static Button button8 = new Button();
+    private static AnchorPane root;
     public boolean isCTRLPressed = false;
     public boolean isSHIFTPressed = false;
     public boolean isDPressed = false;
-    private static AnchorPane root;
-    @FXML
-    private AnchorPane anchorPane1, anchorPane2, anchorPane3, anchorPane4;
-
 
     public static AddCardToDeckView getInstance() {
         if (instance == null) instance = new AddCardToDeckView();
@@ -85,7 +80,6 @@ public class AddCardToDeckView extends Application implements Initializable {
         stage.setScene(scene);
     }
 
-
     public void addCardToDeck(Card card, boolean isSide) {
         try {
             DeckController.getInstance(user).addCardToDeck(card.getNamePascalCase(), deck.getDeckName(), isSide, false);
@@ -94,22 +88,6 @@ public class AddCardToDeckView extends Application implements Initializable {
         } catch (Exception e) {
             printTextError(e.getMessage());
         }
-        /*if (deck.getCountOfCardInDeck(card) > 2) {
-            printTextError("you already have 3 cards of this type in this deck");
-        } else {
-            if (isSide) {
-                user.removeCard(card);
-                //user.getAllCards().remove(card);
-                deck.addCardToSideDeck(card);
-                printTextInformation("Card added to side deck successfully");
-            } else {
-                user.removeCard(card);
-                //user.getAllCards().remove(card);
-                deck.addCardToMainDeck(card);
-                printTextInformation("Card added to main deck successfully");
-            }
-            resetImagesAndCards();
-        }*/
     }
 
     public void addCardToDeckByCheating(Card card, boolean isSide){
@@ -121,7 +99,6 @@ public class AddCardToDeckView extends Application implements Initializable {
             printTextError(e.getMessage());
         }
     }
-
 
     public void goNextPage() {
         if (firstCardNumber + 4 >= user.getAllCards().size()) return;
@@ -324,7 +301,6 @@ public class AddCardToDeckView extends Application implements Initializable {
         addCardToDeck(card4, true);
     }
 
-
     public void addToMainDeckCheat1() {
         addCardToDeckByCheating(card1, false);
     }
@@ -358,13 +334,9 @@ public class AddCardToDeckView extends Application implements Initializable {
     }
 
 
-
-
-
     private void preCheat(){
-        //TODO chejuri ye kar konam be tedade card ha button bezare:(
-        adjustButtonsOnScene();
 
+        adjustButtonsOnScene();
         root.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -374,10 +346,8 @@ public class AddCardToDeckView extends Application implements Initializable {
                     isCTRLPressed = true;
                 if (event.getCode().getName().equals("Shift"))
                     isSHIFTPressed = true;
-
                 if (isSHIFTPressed && isCTRLPressed && isDPressed){
                     setButtonsOnScene();
-
                     button1.setOnAction(this::createCheatEnvironment1);
                     button2.setOnAction(this::createCheatEnvironment2);
                     button3.setOnAction(this::createCheatEnvironment3);
@@ -438,18 +408,14 @@ public class AddCardToDeckView extends Application implements Initializable {
                 alertForCheat();
             }
         });
-        root.getScene().setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode().getName().equals("D"))
-                    isDPressed = false;
-                if (event.getCode().getName().equals("Ctrl"))
-                    isCTRLPressed = false;
-                if (event.getCode().getName().equals("Shift"))
-                    isSHIFTPressed = false;
-            }
+        root.getScene().setOnKeyReleased(event -> {
+            if (event.getCode().getName().equals("D"))
+                isDPressed = false;
+            if (event.getCode().getName().equals("Ctrl"))
+                isCTRLPressed = false;
+            if (event.getCode().getName().equals("Shift"))
+                isSHIFTPressed = false;
         });
-
     }
 
     public void adjustButtonsOnScene(){
@@ -533,5 +499,4 @@ public class AddCardToDeckView extends Application implements Initializable {
             RemoveCardFromDeckView.getInstance().start(stage);
         }
     }
-
 }

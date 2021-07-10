@@ -15,35 +15,24 @@ import model.User;
 import java.net.URL;
 
 public class ChangePasswordViewGraphic extends Application {
-
+    private static Stage stage;
+    static ChangePasswordViewGraphic instance = null;
+    private static User user;
     @FXML
     private TextField oldPassword;
     @FXML
     private TextField newPassword;
-
-    public void changePassword() {
-        try {
-            ChangePasswordControllerGraphic.changePassword(user, oldPassword.getText(), newPassword.getText(),stage);
-        } catch (Exception e) {
-            Alert error = new Alert(Alert.AlertType.WARNING);
-            error.setHeaderText("Error");
-            error.setContentText(e.getMessage());
-            error.showAndWait();
-        }
-    }
-
-    private static Stage stage;
-    static ChangePasswordViewGraphic instance = null;
-    private static User user;
 
     public static ChangePasswordViewGraphic getInstance() {
         if (instance == null) instance = new ChangePasswordViewGraphic();
         return instance;
     }
 
-
-    public void setCurrentUser(User user) {
-        ChangePasswordViewGraphic.user = user;
+    public static void showPasswordChanged(User user) {
+        Alert error = new Alert(Alert.AlertType.INFORMATION);
+        error.setHeaderText("Done");
+        error.setContentText("Dear " + user.getNickname() + " your password was changed successfully!");
+        error.showAndWait();
     }
 
     @Override
@@ -58,15 +47,22 @@ public class ChangePasswordViewGraphic extends Application {
         stage.show();
     }
 
+    public void setCurrentUser(User user) {
+        ChangePasswordViewGraphic.user = user;
+    }
+
+    public void changePassword() {
+        try {
+            ChangePasswordControllerGraphic.changePassword(user, oldPassword.getText(), newPassword.getText(),stage);
+        } catch (Exception e) {
+            Alert error = new Alert(Alert.AlertType.WARNING);
+            error.setHeaderText("Error");
+            error.setContentText(e.getMessage());
+            error.showAndWait();
+        }
+    }
+
     public void goBack() throws Exception {
         ChangePasswordControllerGraphic.goBack(stage);
     }
-
-    public static void showPasswordChanged(User user) {
-        Alert error = new Alert(Alert.AlertType.INFORMATION);
-        error.setHeaderText("Done");
-        error.setContentText("Dear " + user.getNickname() + " your password was changed successfully!");
-        error.showAndWait();
-    }
-
 }

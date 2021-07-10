@@ -7,13 +7,6 @@ import view.ChangePasswordViewGraphic;
 import view.MainViewGraphic;
 
 public class ProfileControllerGraphic {
-
-//    public static void setPreviousMenu(MenuTypesGraphic previousMenu) {
-//        ProfileControllerGraphic.previousMenu = previousMenu;
-//    }
-//
-//    private static MenuTypesGraphic previousMenu;
-
     public static void changePassword(User user, Stage stage) throws Exception {
         ChangePasswordViewGraphic.getInstance().setCurrentUser(user);
         ChangePasswordViewGraphic.getInstance().start(stage);
@@ -26,6 +19,5 @@ public class ProfileControllerGraphic {
 
     public static void goBack(Stage stage) throws Exception {
         MainViewGraphic.getInstance().start(stage);
-//        PreviousMenuControllerGraphic.goBack(previousMenu,stage);
     }
 }

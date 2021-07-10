@@ -49,15 +49,15 @@ public class RockPaperScissorView extends Application implements Initializable {
     }
 
 
-    public void scissorOne(MouseEvent event) throws Exception{
+    public void scissorOne() throws Exception{
         nextHand("scissor");
     }
 
-    public void paperOne(MouseEvent event) throws Exception{
+    public void paperOne() throws Exception{
         nextHand("paper");
     }
 
-    public void rockOne(MouseEvent event) throws Exception{
+    public void rockOne() throws Exception{
         nextHand("rock");
     }
 

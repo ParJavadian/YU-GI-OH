@@ -17,19 +17,22 @@ import java.net.URL;
 public class ChangeNicknameViewGraphic extends Application {
 
     private static Stage stage;
-    static ChangeNicknameViewGraphic instance = null;
     private static User user;
-
+    static ChangeNicknameViewGraphic instance = null;
     @FXML
     private TextField nickname;
-
-
 
     public static ChangeNicknameViewGraphic getInstance() {
         if (instance == null) instance = new ChangeNicknameViewGraphic();
         return instance;
     }
 
+    public static void showNicknameChanged() {
+        Alert error = new Alert(Alert.AlertType.INFORMATION);
+        error.setHeaderText("Done");
+        error.setContentText("your nickname was changed successfully!");
+        error.showAndWait();
+    }
 
     public void setCurrentUser(User user) {
         ChangeNicknameViewGraphic.user = user;
@@ -51,14 +54,6 @@ public class ChangeNicknameViewGraphic extends Application {
         ChangeNicknameControllerGraphic.goBack(stage);
     }
 
-    public static void showNicknameChanged(User user) {
-        Alert error = new Alert(Alert.AlertType.INFORMATION);
-        error.setHeaderText("Done");
-        error.setContentText("your nickname was changed successfully!");
-        error.showAndWait();
-    }
-
-
     public void changeNickname() {
         try {
             ChangeNicknameControllerGraphic.changeNickname(nickname.getText(), user,stage);
@@ -69,5 +64,4 @@ public class ChangeNicknameViewGraphic extends Application {
             error.showAndWait();
         }
     }
-
 }

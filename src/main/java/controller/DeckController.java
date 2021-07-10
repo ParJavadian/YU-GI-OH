@@ -54,7 +54,6 @@ public class DeckController {
             DeckController.user.addDeck(deck);
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.exportAllDecksName(DeckController.user.getAllDecks(), DeckController.user);
-            DeckView.getInstance(DeckController.user).printText("deck created successfully!");
         } else {
             throw new RepetitiveDeckName(name);
         }
@@ -83,7 +82,6 @@ public class DeckController {
             DeckController.user.deleteDeck(name);
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.exportAllDecksName(DeckController.user.getAllDecks(), DeckController.user);
-            DeckView.getInstance(DeckController.user).printText("deck deleted successfully");
         } else
             throw new DeckNotFound(name);
     }
@@ -162,7 +160,6 @@ public class DeckController {
     public void activateDeck(String name) throws Exception {
         if (DeckController.user.getDeckByName(name) != null) {
             DeckController.user.setActiveDeck(DeckController.user.getDeckByName(name));
-            DeckView.getInstance(DeckController.user).printText("deck activated successfully");
         } else
             throw new DeckNotFound(name);
     }
@@ -189,7 +186,6 @@ public class DeckController {
                         importExportUserController.exportCardsInMainDeck(DeckController.user, deckName);
                         importExportUserController.exportAllCards(DeckController.user);
                         RemoveCardFromDeckView.getInstance().printTextInformation("card removed form deck successfully");
-                        //DeckView.getInstance(user).printText("card removed form deck successfully");
                     } else throw new CardNotFoundInDeck(cardName, "main");
                 }
             } else
@@ -227,7 +223,6 @@ public class DeckController {
                 else toPrint.append(", invalid\n");
             }
         }
-        DeckView.getInstance(DeckController.user).printText(toPrint.toString());
     }
 
     public void showDeck(String deckName, boolean isSide) throws Exception {
@@ -258,7 +253,6 @@ public class DeckController {
         for (Card eachCard : spellAndTrapCards) {
             toPrint.append("\n").append(eachCard.getNamePascalCase()).append(":").append(eachCard.getDescription());
         }
-        DeckView.getInstance(DeckController.user).printText(toPrint.toString());
     }
 
     public void showAllCards() {
@@ -269,7 +263,6 @@ public class DeckController {
         for (Card card : allCards) {
             toPrint.append(card.getNamePascalCase()).append(":").append(card.getDescription()).append("\n");
         }
-        DeckView.getInstance(DeckController.user).printText(toPrint.toString());
     }
 
     public void setUsersCards() {

@@ -2,16 +2,10 @@ package controller;
 
 import controller.exeption.EmptyNicknameBox;
 import controller.exeption.RepetitiveNickname;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.User;
 import view.ChangeNicknameViewGraphic;
-import view.ChangePasswordViewGraphic;
-import view.ProfileView;
 import view.ProfileViewForGraphic;
-
-import javax.jws.soap.SOAPBinding;
-
 public class ChangeNicknameControllerGraphic {
 
     public static void goBack(Stage stage) throws Exception {
@@ -26,12 +20,7 @@ public class ChangeNicknameControllerGraphic {
             throw new RepetitiveNickname(nickname);
         }
         user.setNickname(nickname);
-        ChangeNicknameViewGraphic.showNicknameChanged(user);
-        //ChangePasswordViewGraphic.showPasswordChanged(user);
+        ChangeNicknameViewGraphic.showNicknameChanged();
         ProfileViewForGraphic.getInstance().start(stage);
-//        ProfileView.getInstance(this.user).printText("nickname changed successfully!");
     }
-
-
-
 }

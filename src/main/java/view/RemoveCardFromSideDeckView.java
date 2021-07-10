@@ -3,8 +3,6 @@ package view;
 import controller.DeckController;
 import controller.SoundController;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,7 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,7 +18,6 @@ import javafx.stage.Stage;
 import model.Card;
 import model.Deck;
 import model.User;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -34,11 +30,8 @@ public class RemoveCardFromSideDeckView extends Application implements Initializ
     private static ArrayList<Image> images = new ArrayList<>(4);
     private static Card card1, card2, card3, card4;
     public static ImageView image1, image2, image3, image4;
-    private static int totalCardsNumber;
     private static int firstCardNumber = 0;
     private static AnchorPane root;
-    @FXML
-    private AnchorPane anchorPane1, anchorPane2, anchorPane3, anchorPane4;
     @FXML
     private Label label;
 
@@ -67,6 +60,16 @@ public class RemoveCardFromSideDeckView extends Application implements Initializ
         removeBadAnchorPanes();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        DeckController.getInstance(user).setSideDeckCards(deck);
+        DeckController.initImages();
+        setImagesAndCards();
+        addImages();
+        removeBadAnchorPanes();
+        label.setText(deck.getDeckName());
     }
 
     private void setImagesAndCards() {
@@ -150,7 +153,6 @@ public class RemoveCardFromSideDeckView extends Application implements Initializ
 
     private void resetImagesAndCards() {
         DeckController.getInstance(user).setSideDeckCards(deck);
-        //DeckController.getInstance(user).setUsersCards();
         DeckController.initImages();
         images = DeckController.getInstance(user).getImages(firstCardNumber);
         ArrayList<Card> cards = DeckController.getInstance(user).getCards(firstCardNumber);
@@ -236,16 +238,6 @@ public class RemoveCardFromSideDeckView extends Application implements Initializ
         alert.showAndWait();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        DeckController.getInstance(user).setSideDeckCards(deck);
-        DeckController.initImages();
-        setImagesAndCards();
-        addImages();
-        removeBadAnchorPanes();
-        label.setText(deck.getDeckName());
-    }
-
     public void back() throws Exception {
         AllDecksViewGraphic.getInstance().setCurrentUser(user);
         AllDecksViewGraphic.getInstance().start(stage);
@@ -263,7 +255,6 @@ public class RemoveCardFromSideDeckView extends Application implements Initializ
         resetImagesAndCards();
     }
 
-
     public void removeCardFromDeck1() {
         removeCardFromDeck(card1, true);
     }
@@ -279,7 +270,6 @@ public class RemoveCardFromSideDeckView extends Application implements Initializ
     public void removeCardFromDeck4() {
         removeCardFromDeck(card4, true);
     }
-
 
     public void addCardToDeck() throws Exception {
         AddCardToDeckView.getInstance().setCurrentUser(user);

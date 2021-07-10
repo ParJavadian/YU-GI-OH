@@ -8,7 +8,6 @@ import view.MainViewGraphic;
 import view.SignUpViewGraphic;
 
 import java.util.List;
-import java.util.Random;
 
 public class SignUpControllerGraphic {
     public static void login(Stage stage) throws Exception {
@@ -57,5 +56,4 @@ public class SignUpControllerGraphic {
     public static boolean passwordsAreEqual(String firstPassword,String secondPassword) {
         return firstPassword.equals(secondPassword);
     }
-
 }

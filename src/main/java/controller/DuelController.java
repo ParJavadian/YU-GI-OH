@@ -1,40 +1,36 @@
 package controller;
 
 import controller.exeption.*;
-import javafx.animation.PauseTransition;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
 import model.*;
 import view.DuelView;
 import view.GameViewGraphic;
 
-import java.lang.reflect.Method;
-import java.sql.Time;
+import java.net.URL;
 import java.util.*;
 
 public class DuelController {
 
     public static final int[] playerGroundNumbers = {3, 4, 2, 5, 1};
-    private GameViewGraphic gameViewGraphic = null;
+    private GameViewGraphic gameViewGraphic;
     private User player;
     private User rival;
-    private Round[] rounds;
+    private final Round[] rounds;
     private final int roundNumber;
     public SelectedCard selectedCard;
     private int roundCounter;
     private Phase phase;
     public boolean hasSummonedOrSetInThisTurn;
     public ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardPlayer = new ArrayList<>(5);
-    private ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardRival = new ArrayList<>(5);
+    private final ArrayList<ArrayList<ActionsDoneInTurn>> actionsOnThisCardRival = new ArrayList<>(5);
     private Integer[] playerAttackPoints = new Integer[5];
     private Integer[] rivalAttackPoints = new Integer[5];
     public Integer[] playerDefencePoints = new Integer[5];
     public Integer[] rivalDefencePoints = new Integer[5];
     public boolean isStartTurn;
-    private boolean shouldEndGameForView;
 
     public DuelController(User player, User rival, int roundNumber, GameViewGraphic gameViewGraphic) {
         this.player = player;
@@ -91,14 +87,6 @@ public class DuelController {
         return this.rival;
     }
 
-    public void setPlayer(User player) {
-        this.player = player;
-    }
-
-    public void setRival(User rival) {
-        this.rival = rival;
-    }
-
     public boolean getHasEnabledSuijin(int i) {
         return actionsOnThisCardRival.get(i).contains(ActionsDoneInTurn.ENABLE_SUIJIN);
     }
@@ -125,10 +113,6 @@ public class DuelController {
 
     public SelectedCard getSelectedCard() {
         return this.selectedCard;
-    }
-
-    public boolean getShouldEndGameForView() {
-        return this.shouldEndGameForView;
     }
 
     public static int[] getPlayerGroundNumbers() {
@@ -201,13 +185,9 @@ public class DuelController {
         MonsterCard[] monsters = this.player.getBoard().getMonsters();
         if ((address > 5) || (address < 1)) {
             return;
-//            throw new InvalidSelection();
         }
         address = playerGroundNumbers[address - 1] - 1;
-        if (monsters[address] == null) {
-            return;
-//            throw new NoCardFoundInThisPosition();
-        } else {
+        if (monsters[address] != null) {
             this.selectedCard = new SelectedCard(this.player.getBoard().getMonsterByNumber(address), BoardZone.MONSTERZONE, address, this.player);
         }
     }
@@ -216,13 +196,9 @@ public class DuelController {
         MonsterCard[] monsters = this.rival.getBoard().getMonsters();
         if ((address > 5) || (address < 1)) {
             return;
-//            throw new InvalidSelection();
         }
         address = playerGroundNumbers[address - 1] - 1;
-        if (monsters[address] == null) {
-            return;
-//            throw new NoCardFoundInThisPosition();
-        } else {
+        if (monsters[address] != null) {
             this.selectedCard = new SelectedCard(this.rival.getBoard().getMonsterByNumber(address), BoardZone.MONSTERZONE, address, this.rival);
         }
     }
@@ -231,35 +207,27 @@ public class DuelController {
         Card[] spellAndTrap = this.player.getBoard().getSpellsAndTraps();
         if ((address > 5) || (address < 1)) {
             return;
-//            throw new InvalidSelection();
         }
         address = playerGroundNumbers[address - 1] - 1;
         if (spellAndTrap[address] != null) {
             this.selectedCard = new SelectedCard(this.player.getBoard().getSpellAndTrapByNumber(address), BoardZone.SPELLANDTRAPZONE, address, this.player);
-        }/* else {
-            this.selectedCard = new SelectedCard(this.player.getBoard().getSpellAndTrapByNumber(address), BoardZone.SPELLANDTRAPZONE, address, this.player);
-        }*/
+        }
     }
 
     public void selectCardOpponentTrapAndSpellZone(int address) {
         Card[] spellAndTrap = this.rival.getBoard().getSpellsAndTraps();
         if ((address > 5) || (address < 1)) {
             return;
-//            throw new InvalidSelection();
         }
         address = playerGroundNumbers[address - 1] - 1;
         if (spellAndTrap[address] != null) {
             this.selectedCard = new SelectedCard(this.rival.getBoard().getSpellAndTrapByNumber(address), BoardZone.SPELLANDTRAPZONE, address, this.rival);
-        }/* else {
-            this.selectedCard = new SelectedCard(this.rival.getBoard().getSpellAndTrapByNumber(address), BoardZone.SPELLANDTRAPZONE, address, this.rival);
-        }*/
+        }
     }
 
     public void selectCardPlayerFieldZone(int number) {
         Card fieldZone = this.player.getBoard().getFieldZone();
         if (fieldZone != null) {
-            this.selectedCard = new SelectedCard(this.player.getBoard().getFieldZone(), BoardZone.FIELDZONE, 1, this.player);
-        } else {
             this.selectedCard = new SelectedCard(this.player.getBoard().getFieldZone(), BoardZone.FIELDZONE, 1, this.player);
         }
     }
@@ -268,37 +236,22 @@ public class DuelController {
         Card fieldZone = this.rival.getBoard().getFieldZone();
         if (fieldZone != null) {
             this.selectedCard = new SelectedCard(this.rival.getBoard().getFieldZone(), BoardZone.FIELDZONE, 1, this.rival);
-        }/* else {
-            this.selectedCard = new SelectedCard(this.rival.getBoard().getFieldZone(), BoardZone.FIELDZONE, 1, this.rival);
-        }*/
+        }
     }
 
     public void selectCardPlayerHand(int address) {
         List<Card> cardsInHand = this.player.getBoard().getCardsInHand();
-        /*if ((address > cardsInHand.size()) || (address < 1)) {
-            //            throw new InvalidSelection();
-        } else */
         if (!((address > cardsInHand.size()) || (address < 1)) && cardsInHand.get(address - 1) != null) {
             this.selectedCard = new SelectedCard(this.player.getBoard().getCardInHandByNumber(address - 1), BoardZone.HAND, address - 1, this.player);
         }
-//        this.selectedCard = new SelectedCard(this.player.getBoard().getCardInHandByNumber(address - 1), BoardZone.HAND, address - 1, this.player);
     }
 
     public void unselectCard() {
         if (this.selectedCard != null) {
             this.selectedCard = null;
-        } /*else {
-            this.selectedCard = null;
-        }*/
+        }
     }
 
-    /*public void unselectCardFromCommand() throws Exception {
-        if (this.selectedCard == null) {
-            throw new NoCardSelected();
-        } else {
-            this.selectedCard = null;
-        }
-    }*/
 
     public int getCountOfMonsterCardsInGround(User user) {
         MonsterCard[] monsterCards = user.getBoard().getMonsters();
@@ -327,15 +280,12 @@ public class DuelController {
     public void summonMonster() throws Exception {
         if (this.selectedCard == null) {
             return;
-//            throw new NoCardSelected();
         }
         if (!(this.selectedCard.getCard() instanceof MonsterCard && this.selectedCard.getBoardZone().equals(BoardZone.HAND) && !((MonsterCard) this.selectedCard.getCard()).getCardType().equals(CardType.RITUAL))) {
             return;
-//            throw new CanNotSummon();
         }
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
             return;
-//            throw new ActionNotAllowedInThisPhase();
         }
         if (this.player.getBoard().isFullMonsterZone()) {
             throw new FullMonsterZone();
@@ -352,11 +302,7 @@ public class DuelController {
                 monsterCard.takeAction(this, TakeActionCase.SUMMONED, this.player, place);
                 addToAttackDefenceOfPutCard(place, this.player);
                 gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
-                /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
-                unselectCard();
-                DuelView.printText("summoned successfully");
-                getBoard();
-                hasSummonedOrSetInThisTurn = true;*/
+                SoundController.getInstance().playWhenSummons();
                 return;
             }
             if (monsterCard.getLevel() < 7) {
@@ -407,6 +353,7 @@ public class DuelController {
         ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player, place);
         addToAttackDefenceOfPutCard(place, this.player);
         gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
+        SoundController.getInstance().playWhenSummons();
     }
 
     private void tributeTwoMonstersForSummon() throws Exception {
@@ -442,9 +389,7 @@ public class DuelController {
         ((MonsterCard) selectedCard.getCard()).takeAction(this, TakeActionCase.SUMMONED, this.player, place);
         addToAttackDefenceOfPutCard(place, this.player);
         gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
-        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
-        unselectCard();
-        hasSummonedOrSetInThisTurn = true;*/
+        SoundController.getInstance().playWhenSummons();
     }
 
     public void specialSummonNormal() {
@@ -454,11 +399,9 @@ public class DuelController {
     public void preSet() throws Exception {
         if (this.selectedCard == null) {
             return;
-//            throw new NoCardSelected();
         }
         if (!(this.selectedCard.getBoardZone().equals(BoardZone.HAND))) {
             return;
-//            throw new CanNotSet();
         }
         if (this.selectedCard.getCard() instanceof MonsterCard) setMonster();
         else if (this.selectedCard.getCard() instanceof SpellCard) setSpell();
@@ -468,7 +411,6 @@ public class DuelController {
     public void setMonster() throws Exception {
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
             return;
-//            throw new ImproperPhase();
         }
         if (this.player.getBoard().isFullMonsterZone()) {
             throw new FullMonsterZone();
@@ -485,9 +427,6 @@ public class DuelController {
                 addToAttackDefenceOfPutCard(place, this.player);
                 this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
                 gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
-                /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
-                unselectCard();
-                hasSummonedOrSetInThisTurn = true;*/
             } else if (monsterCard.getLevel() < 7) {
                 if (getCountOfMonsterCardsInGround(this.player) < 1) {
                     throw new InsufficientForTribute();
@@ -526,13 +465,9 @@ public class DuelController {
         addToAttackDefenceOfPutCard(place, this.player);
         this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
         gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, 0, 0);
-        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
-        unselectCard();
-        hasSummonedOrSetInThisTurn = true;*/
     }
 
     private void tributeTwoMonstersForSet() throws Exception {
-        //fixme
         DuelView.printText("select two monsters by number to tribute");
         String input1 = DuelView.scan();
         if (input1.equals("cancel")) return;
@@ -556,20 +491,6 @@ public class DuelController {
         if (this.player.getBoard().getMonsterByNumber(address2) == null) throw new NoMonsterHere();
         if (address1 == address2) throw new sameAddresses();
         gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 1, address1, address2);
-        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
-        this.player.getBoard().removeMonster(address1, this, player);
-        this.player.getBoard().removeMonster(address2, this, player);
-        removeMonsterPlayer(address1);
-        removeMonsterPlayer(address2);
-        int place = this.player.getBoard().putMonster((MonsterCard) selectedCard.getCard(), "DH");
-        setMonsterAttackPlayer(place, ((MonsterCard) selectedCard.getCard()).getAttack());
-        this.playerDefencePoints[place] = ((MonsterCard) selectedCard.getCard()).getAttack();
-        addToAttackDefenceOfPutCard(place, this.player);
-        this.actionsOnThisCardPlayer.get(place).add(ActionsDoneInTurn.SET);
-        unselectCard();
-        DuelView.printText("set successfully");
-        hasSummonedOrSetInThisTurn = true;
-        getBoard();*/
     }
 
     private void setSpell() throws Exception {
@@ -585,18 +506,15 @@ public class DuelController {
                 this.player.getBoard().putInGraveYard(this.player.getBoard().getFieldZone());
                 this.player.getBoard().removeFromFieldZone();
             }
+            changeBackground(spellCard);
             this.player.getBoard().putInFieldZone(spellCard);
         }
         gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
-        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
-        unselectCard();
-        getBoard();*/
     }
 
     private void setTrap() throws Exception {
         if (!(phase.equals(Phase.MAIN_PHASE1) || (phase.equals(Phase.MAIN_PHASE2)))) {
             return;
-//            throw new ImproperPhase();
         }
         TrapCard trapCard = (TrapCard) this.selectedCard.getCard();
         if (!trapCard.getIcon().equals(Icon.FIELD)) {
@@ -612,10 +530,6 @@ public class DuelController {
             this.player.getBoard().putInFieldZone(trapCard);
         }
         gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
-        /*this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
-        unselectCard();
-        DuelView.printText("set successfully");
-        getBoard();*/
     }
 
     public void changePosition() throws Exception {
@@ -630,19 +544,15 @@ public class DuelController {
         }
         if (this.selectedCard == null) {
             return;
-//            throw new NoCardSelected();
         }
         if (!this.selectedCard.getOwner().getUsername().equals(player.getUsername()) || !this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE) || this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals("DH")) {
             return;
-//            throw new CanNotChangePosition();
         }
         if (!(this.phase.equals(Phase.MAIN_PHASE1) || (this.phase.equals(Phase.MAIN_PHASE2)))) {
             return;
-//            throw new CantDoActionInThisPhase();
         }
         if (this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals(targetPositionInShort) || this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals("DH")) {
             return;
-//            throw new AlreadyInWantedPosition();
         }
         if (actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).contains(ActionsDoneInTurn.CHANGE_POSITION))
             throw new AlreadyChangedPosition();
@@ -655,15 +565,12 @@ public class DuelController {
     public void flipSummon() throws Exception {
         if (this.selectedCard == null) {
             return;
-//            throw new NoCardSelected();
         }
         if (!this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE) || !this.selectedCard.getOwner().getUsername().equals(player.getUsername())) {
             return;
-//            throw new CanNotChangePosition();
         }
         if (!(this.phase.equals(Phase.MAIN_PHASE1) || this.phase.equals(Phase.MAIN_PHASE2))) {
             return;
-//            throw new CantDoActionInThisPhase();
         }
         if (!this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals("DH") || actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).contains(ActionsDoneInTurn.SET))
             throw new CanNotFlipSummon();
@@ -677,11 +584,9 @@ public class DuelController {
         monsterNumber = playerGroundNumbers[monsterNumber - 1] - 1;
         if (this.selectedCard == null) {
             return;
-//            throw new NoCardSelected();
         }
         if (!(this.selectedCard.getOwner().getUsername().equals(player.getUsername()) && this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE) && (this.selectedCard.getCard() instanceof MonsterCard) && (this.player.getBoard().getMonsterConditionByNumber(this.selectedCard.getNumber()).equals("OO")))) {
             return;
-//            throw new CanNotAttack();
         }
         if (!(this.phase.equals(Phase.BATTLE_PHASE)))
             throw new CantDoActionInThisPhase();
@@ -689,11 +594,9 @@ public class DuelController {
             throw new AlreadyAttacked();
         if (getCountOfMonsterCardsInGround(this.rival) == 0) {
             return;
-//            throw new NoCardToAttack();
         }
         if (rival.getBoard().getMonsterByNumber(monsterNumber) == null) {
             return;
-//            throw new NoCardFoundInThisPosition();
         }
         findWayAttack(monsterNumber);
         manageEndGame();
@@ -731,7 +634,7 @@ public class DuelController {
         else return null;
     }
 
-    private void attackMonsterOO(int monsterNumber) throws Exception {
+    private void attackMonsterOO(int monsterNumber) {
         int attackerAttack = this.playerAttackPoints[this.selectedCard.getNumber()];
         int targetAttack = this.rivalAttackPoints[monsterNumber];
         if (attackerAttack > targetAttack) {
@@ -744,7 +647,6 @@ public class DuelController {
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
             this.rival.getBoard().removeMonster(monsterNumber, this, rival);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-//            DuelView.printText("your opponent’s monster is destroyed and your opponent receives " + damage + " battle damage");
         } else if (attackerAttack == targetAttack) {
             gameViewGraphic.cardToExplode = getImageViewByNumberForExplode(monsterNumber);
             gameViewGraphic.explode(gameViewGraphic.cardToExplode);
@@ -759,7 +661,6 @@ public class DuelController {
                 removeMonsterPlayer(this.selectedCard.getNumber());
             }
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-//            DuelView.printText("both you and your opponent monster cards are destroyed and no one receives damage");
         } else {
             int damage = targetAttack - attackerAttack;
             this.player.decreaseLifePoint(damage);
@@ -770,7 +671,6 @@ public class DuelController {
             this.player.getBoard().removeMonster(this.selectedCard.getNumber(), this, player);
             removeMonsterPlayer(this.selectedCard.getNumber());
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-//            DuelView.printText("Your monster card is destroyed and you received " + damage + " battle damage");
         }
         SoundController.getInstance().playWhenAttacks();
         unselectCard();
@@ -778,7 +678,7 @@ public class DuelController {
         gameViewGraphic.setLifePoints();
     }
 
-    private void attackMonsterDO(int monsterNumber) throws Exception {
+    private void attackMonsterDO(int monsterNumber) {
         MonsterCard target = this.rival.getBoard().getMonsterByNumber(monsterNumber);
         int attackerAttack = this.playerAttackPoints[this.selectedCard.getNumber()];
         if (attackerAttack > target.getDefence()) {
@@ -788,15 +688,12 @@ public class DuelController {
             gameViewGraphic.explode(gameViewGraphic.cardToExplode);
             this.rival.getBoard().putInGraveYard(target);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-//            DuelView.printText("the defense position monster is destroyed");
         } else if (attackerAttack == target.getDefence()) {
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-//            DuelView.printText("no card is destroyed");
         } else {
             int damage = this.rivalDefencePoints[monsterNumber] - attackerAttack;
             this.player.decreaseLifePoint(damage);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-//            DuelView.printText("no card is destroyed and you received " + damage + " battle damage");
         }
         SoundController.getInstance().playWhenAttacks();
         unselectCard();
@@ -804,10 +701,9 @@ public class DuelController {
         gameViewGraphic.setLifePoints();
     }
 
-    private void attackMonsterDH(int monsterNumber) throws Exception {
+    private void attackMonsterDH(int monsterNumber) {
         MonsterCard target = this.rival.getBoard().getMonsterByNumber(monsterNumber);
         int attackerAttack = this.playerAttackPoints[this.selectedCard.getNumber()];
-        String targetName = this.rival.getBoard().getMonsterByNumber(monsterNumber).getNamePascalCase();
         this.rival.getBoard().changeMonsterPosition(monsterNumber, "DO");
         ((MonsterCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.FLIP_SUMMONED, this.rival, this.selectedCard.getNumber());
         if (attackerAttack > target.getDefence()) {
@@ -817,15 +713,12 @@ public class DuelController {
             this.rival.getBoard().getMonsterByNumber(monsterNumber).takeAction(this, TakeActionCase.DIED_BY_BEING_ATTACKED, this.rival, monsterNumber);
             this.rival.getBoard().removeMonster(monsterNumber, this, rival);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-//            DuelView.printText("opponent’s monster card was " + targetName + " and the defense position monster is destroyed");
         } else if (attackerAttack == target.getDefence()) {
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-//            DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed");
         } else {
             int damage = this.rivalDefencePoints[monsterNumber] - attackerAttack;
             this.player.decreaseLifePoint(damage);
             actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).add(ActionsDoneInTurn.ATTACK);
-//            DuelView.printText("opponent’s monster card was " + targetName + " and no card is destroyed and you received " + damage + " battle damage");
         }
         SoundController.getInstance().playWhenAttacks();
         unselectCard();
@@ -836,15 +729,13 @@ public class DuelController {
     public void directAttack(int number) throws Exception {
         if (this.selectedCard == null) {
             return;
-//            throw new NoCardSelected();
         }
         if (!this.selectedCard.getBoardZone().equals(BoardZone.MONSTERZONE)) {
             return;
-//            throw new CanNotAttack();
         }
         if (!this.phase.equals(Phase.BATTLE_PHASE)) throw new ImproperPhase();
-        /*if(actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).contains(ActionsDoneInTurn.ATTACK))
-            throw new AlreadyAttacked();*/
+        if (actionsOnThisCardPlayer.get(this.selectedCard.getNumber()).contains(ActionsDoneInTurn.ATTACK))
+            throw new AlreadyAttacked();
         int countOfMonsterCardsInGround = getCountOfMonsterCardsInGround(this.rival);
         if (countOfMonsterCardsInGround == 0) {
             rival.decreaseLifePoint(((MonsterCard) this.selectedCard.getCard()).getAttack());
@@ -853,28 +744,22 @@ public class DuelController {
             gameViewGraphic.explode(GameViewGraphic.directAttackArea);
             gameViewGraphic.setLifePoints();
             manageEndGame();
-        }  //            throw new CanNotAttackDirectly();
+        }
 
     }
 
     public void activateSpell() throws Exception {
         if (this.selectedCard == null) {
             return;
-//            throw new NoCardSelected();
         }
         if (!(this.selectedCard.getCard() instanceof SpellCard)) {
             return;
-//            throw new IsNotSpell();
         }
-        if (!((this.phase.equals(Phase.MAIN_PHASE1)) || (this.phase.equals(Phase.MAIN_PHASE2))))
-        {
+        if (!((this.phase.equals(Phase.MAIN_PHASE1)) || (this.phase.equals(Phase.MAIN_PHASE2)))) {
             return;
-//            throw new CanNotActivateEffectInThisPhase();
         }
-        if (!this.selectedCard.getBoardZone().equals(BoardZone.HAND) && this.player.getBoard().getSpellAndTrapConditionByNumber(this.selectedCard.getNumber()).equals("O"))
-        {
+        if (!this.selectedCard.getBoardZone().equals(BoardZone.HAND) && this.player.getBoard().getSpellAndTrapConditionByNumber(this.selectedCard.getNumber()).equals("O")) {
             return;
-//            throw new AlreadyActivated();
         }
         SpellCard spellCard = (SpellCard) this.selectedCard.getCard();
         if (this.player.getBoard().isFullSpellAndTrapZone() && !spellCard.getIcon().equals(Icon.FIELD) && selectedCard.getBoardZone().equals(BoardZone.HAND))
@@ -890,10 +775,12 @@ public class DuelController {
                 }
             }
             if (((SpellCard) this.selectedCard.getCard()).takeAction(this, TakeActionCase.PUT_IN_FIELDZONE_FACE_UP, this.player, 1)) {
-                this.player.getBoard().putInFieldZone(spellCard);
+                {
+                    this.player.getBoard().putInFieldZone(spellCard);
+                    changeBackground(spellCard);
+                }
                 gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
             }
-//            this.player.getBoard().getCardsInHand().remove((int) selectedCard.getNumber());
         } else {
             if (selectedCard.getBoardZone().equals(BoardZone.SPELLANDTRAPZONE)) {
                 this.player.getBoard().changeSpellAndTrapPosition(selectedCard.getNumber(), "O");
@@ -908,12 +795,8 @@ public class DuelController {
                     this.player.getBoard().removeSpellOrTrap(selectedCard.getNumber());
                 }
                 gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
-//                this.player.getBoard().getCardsInHand().remove((int) this.selectedCard.getNumber());
             }
         }
-        /*unselectCard();
-        DuelView.printText("spell activated");
-        getBoard();*/
     }
 
     public void cheatLifePoint(String target, int lifePoint) {
@@ -964,9 +847,7 @@ public class DuelController {
             winner.increaseScore(1000);
             winner.increaseMoney(1000 + winner.getLifePoint());
             loser.increaseMoney(100);
-            shouldEndGameForView = true;
-            GameViewGraphic.printInformation(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-//            DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+            gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
         }
         if (roundNumber == 3) {
             this.rounds[this.roundCounter - 1] = new Round(winner, loser, winner.getLifePoint(), loser.getLifePoint());
@@ -977,8 +858,6 @@ public class DuelController {
                 winner.increaseScore(3000);
                 winner.increaseMoney(3000 + (3 * maxLP));
                 loser.increaseMoney(300);
-                shouldEndGameForView = true;
-//                gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore() + "\n" + winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
                 GameViewGraphic.printInformation(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 gameViewGraphic.endGamePopup(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else if (roundCounter == 3) {
@@ -990,18 +869,18 @@ public class DuelController {
                 winner.increaseScore(3000);
                 winner.increaseMoney(3000 + (3 * maxLP));
                 loser.increaseMoney(300);
-                shouldEndGameForView = true;
-//                gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore() + "\n" + winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
                 GameViewGraphic.printInformation(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
                 gameViewGraphic.endGamePopup(winner.getUsername() + " won the whole match with score: " + winner.getScore() + "-" + loser.getScore());
             } else {
-                gameViewGraphic.endGamePopup(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
-//                DuelView.printText(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                GameViewGraphic.printInformation(winner.getUsername() + " won the game and the score is: " + winner.getScore() + "-" + loser.getScore());
+                try {
+                    gameViewGraphic.start(GameViewGraphic.stage);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
                 exchangeCardBetweenMainAndSide(this.player);
                 exchangeCardBetweenMainAndSide(this.rival);
                 startNewGame(winner);
-                //TODO connect this
-//                gameViewGraphic.getCommandForDuel();
             }
         }
     }
@@ -1035,7 +914,6 @@ public class DuelController {
     public void goNextPhase() {
         if (this.phase.equals(Phase.DRAW_PHASE)) {
             this.phase = Phase.STANDBY_PHASE;
-//            DuelView.printText("phase: " + this.phase.getNamePascalCase());
             try {
                 gameViewGraphic.startMainNoCardSelected();
             } catch (Exception e) {
@@ -1043,16 +921,10 @@ public class DuelController {
             }
         } else if (phase.equals(Phase.STANDBY_PHASE)) {
             this.phase = Phase.MAIN_PHASE1;
-//            DuelView.printText("phase: " + this.phase.getNamePascalCase());
         } else if (phase.equals(Phase.MAIN_PHASE1)) {
             if (!isStartTurn) {
                 this.phase = Phase.BATTLE_PHASE;
                 gameViewGraphic.imageViewForSword.toFront();
-                /*try{
-                    Thread.sleep(2000);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }*/
                 gameViewGraphic.startBattlePhaseWithSword(gameViewGraphic.imageViewForSword);
                 try {
                     gameViewGraphic.startBattleNoCardSelected();
@@ -1061,10 +933,8 @@ public class DuelController {
                 }
             } else
                 this.phase = Phase.MAIN_PHASE2;
-//            DuelView.printText("phase: " + this.phase.getNamePascalCase());
         } else if (this.phase.equals(Phase.BATTLE_PHASE)) {
             this.phase = Phase.MAIN_PHASE2;
-//            DuelView.printText("phase: " + this.phase.getNamePascalCase());
             try {
                 gameViewGraphic.startMainNoCardSelected();
             } catch (Exception exception) {
@@ -1072,7 +942,6 @@ public class DuelController {
             }
         } else if (this.phase.equals(Phase.MAIN_PHASE2)) {
             this.phase = Phase.END_PHASE;
-//            DuelView.printText("phase: " + this.phase.getNamePascalCase());
         } else if (this.phase.equals(Phase.END_PHASE)) {
             GameViewGraphic.printInformation("its " + rival.getNickname() + "’s turn");
             changeTurn();
@@ -1089,7 +958,6 @@ public class DuelController {
         if (!isFirst) manageEndGame();
         this.phase = Phase.DRAW_PHASE;
         gameViewGraphic.deckShuffleAnimation(gameViewGraphic.imageViewForCardShuffle);
-//        DuelView.printText("phase: " + this.phase.getNamePascalCase());
         ArrayList<Card> playerMainCards = (ArrayList<Card>) this.player.getGameDeck().getMainDeck();
         ArrayList<Card> rivalMainCards = (ArrayList<Card>) this.rival.getGameDeck().getMainDeck();
         if (playerMainCards.size() == 0) endGame(this.player);
@@ -1109,7 +977,6 @@ public class DuelController {
             if (this.player.getBoard().getCardsInHand().size() < 6) {
                 this.player.getBoard().addCardToHand(playerMainCards.get(playerMainCards.size() - 1));
                 this.player.getGameDeck().removeCardFromMainDeck(playerMainCards.get(playerMainCards.size() - 1));
-//                DuelView.printText("new card added to the hand : " + playerMainCards.get(playerMainCards.size() - 1).getNamePascalCase());
             }
             Collections.shuffle(this.player.getGameDeck().getMainDeck());
         }
@@ -1205,60 +1072,7 @@ public class DuelController {
         else
             images.add(this.rival.getBoard().getCardsInGraveyard().get(this.rival.getBoard().getCardsInGraveyard().size() - 1).getImage());
         return images;
-
-        /*StringBuilder toPrint = new StringBuilder(this.rival.getNickname() + ":" + this.rival.getLifePoint() + "\n");
-        for (Card ignored : this.rival.getBoard().getCardsInHand()) {
-            toPrint.append("\tc");
-        }
-        toPrint.append("\n");
-        toPrint.append(this.rival.getGameDeck().getMainSize()).append("\n");
-        for (int i = 4; i > -1; i--) {
-            toPrint.append("\t");
-            if (this.rival.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint.append("E");
-            else toPrint.append(this.rival.getBoard().getSpellAndTrapConditionByNumber(i));
-        }
-        toPrint.append("\n");
-        for (int i = 4; i > -1; i--) {
-            toPrint.append("\t");
-            if (this.rival.getBoard().getMonsterConditionByNumber(i) == null) toPrint.append("E");
-            else toPrint.append(this.rival.getBoard().getMonsterConditionByNumber(i));
-        }
-        toPrint.append("\n").append(this.rival.getBoard().getCardsInGraveyard().size()).append("\t\t\t\t\t\t");
-        if (this.rival.getBoard().getFieldZone() == null) toPrint.append("E\n");
-        else toPrint.append("O\n");
-        toPrint.append("\n--------------------------\n\n");
-        if (this.player.getBoard().getFieldZone() == null) toPrint.append("E\t\t\t\t\t\t");
-        else toPrint.append("O\t\t\t\t\t\t");
-        toPrint.append(this.player.getBoard().getCardsInGraveyard().size()).append("\n");
-        for (int i = 0; i < 5; i++) {
-            toPrint.append("\t");
-            if (this.player.getBoard().getMonsterConditionByNumber(i) == null) toPrint.append("E");
-            else toPrint.append(this.player.getBoard().getMonsterConditionByNumber(i));
-        }
-        toPrint.append("\n");
-        for (int i = 0; i < 5; i++) {
-            toPrint.append("\t");
-            if (this.player.getBoard().getSpellAndTrapConditionByNumber(i) == null) toPrint.append("E");
-            else toPrint.append(this.player.getBoard().getSpellAndTrapConditionByNumber(i));
-        }
-        toPrint.append("\n\t\t\t\t\t\t").append(this.player.getGameDeck().getMainSize()).append("\n");
-        for (Card ignored : this.player.getBoard().getCardsInHand()) {
-//            toPrint += ignored.getNamePascalCase() + "\t";
-            toPrint.append("c\t");
-        }
-        toPrint.append("\n").append(this.player.getNickname()).append(":").append(this.player.getLifePoint());
-        DuelView.printText(toPrint.toString());*/
     }
-
-/*
-    public ArrayList<Image> getGraveYard(User user){
-        ArrayList<Image> graveYard = new ArrayList<>();
-        for (Card card : user.getBoard().getCardsInGraveyard()) {
-            graveYard.add(card.getImage());
-        }
-        return graveYard;
-    }
-*/
 
     public ArrayList<Card> getCards() {
         ArrayList<Card> cards = new ArrayList<>();
@@ -1335,30 +1149,7 @@ public class DuelController {
             if (this.selectedCard.getBoardZone().equals(BoardZone.SPELLANDTRAPZONE) && this.rival.getBoard().getSpellAndTrapConditionByNumber(this.selectedCard.getNumber()).equals("H"))
                 throw new InvisibleCard();
         }
-//        DuelView.printText(this.selectedCard.getCard().toString());
     }
-
-    /*public void showGraveyard() throws Exception {
-        List<Card> graveyard = this.player.getBoard().getCardsInGraveyard();
-        StringBuilder toPrint = new StringBuilder();
-        if (graveyard.isEmpty())
-            throw new GraveYardEmpty();
-        else {
-            for (Card cardInGraveyard : graveyard) {
-                if (graveyard.indexOf(cardInGraveyard) == graveyard.size() - 1) {
-                    toPrint.append(cardInGraveyard.getNamePascalCase()).append(":").append(cardInGraveyard.getDescription());
-                } else {
-                    toPrint.append(cardInGraveyard.getNamePascalCase()).append(":").append(cardInGraveyard.getDescription()).append("\n");
-                }
-            }
-        }
-        DuelView.printText(toPrint.toString());
-        String input = DuelView.scan();
-        while (!input.equals("back")) {
-            DuelView.printText("invalid command");
-            input = DuelView.scan();
-        }
-    }*/
 
     public void showPlayerGraveyard() {
         int[] i = {0};
@@ -1502,7 +1293,11 @@ public class DuelController {
             if (monsterCard != null) {
                 try {
                     this.selectedCard = new SelectedCard(this.player.getBoard().getMonsterByNumber(i), BoardZone.MONSTERZONE, i, this.player);
-                    directAttack(0);
+                    try {
+                        directAttack(0);
+                    } catch (Exception ignored) {
+
+                    }
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -1810,10 +1605,6 @@ public class DuelController {
         return numberOfWantedMonsters;
     }
 
-    public int minFinder(int firstNumber, int secondNumber) {
-        return Math.min(firstNumber, secondNumber);
-    }
-
     public void doNothing(int number) {
 
     }
@@ -1829,6 +1620,29 @@ public class DuelController {
             graveYard.add(card.getImage());
         }
         return graveYard;
+    }
+
+    private void changeBackground(SpellCard spellCard) {
+        if (spellCard.getName().equals("CLOSED_FOREST") || spellCard.getName().equals("FOREST") || spellCard.getName().equals("UMIIRUKA") || spellCard.getName().equals("YAMI")) {
+            URL url;
+            switch (spellCard.getName()) {
+                case "CLOSED_FOREST":
+                    url = getClass().getResource("/images/gameBackground/closed_forest.bmp");
+                    break;
+                case "FOREST":
+                    url = getClass().getResource("/images/gameBackground/forrest.bmp");
+                    break;
+                case "UMIIRUKA":
+                    url = getClass().getResource("/images/gameBackground/umiruka.bmp");
+                    break;
+                default:
+                    url = getClass().getResource("/images/gameBackground/yami.bmp");
+                    break;
+            }
+
+            Image image = new Image(String.valueOf(url));
+            gameViewGraphic.gameBackground.setImage(image);
+        }
     }
 }
 

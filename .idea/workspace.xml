@@ -22,32 +22,192 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="Duel View 3">
-      <change afterPath="$PROJECT_DIR$/CardsIE/AXE_RAIDERMonsterCard.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardsIE/BITRONMonsterCard.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardsIE/BITRONMonsterCard.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardsIE/MAGIC_JAMMERTrapCard.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CardsIE/MAGNUM_SHIELDSpellCard.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src (12).zip" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="kar haye parakande">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/DeckShuffleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/view.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/gameBackground/closed_forest.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/gameBackground/forrest.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/gameBackground/umiruka.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/gameBackground/yami.bmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deck/parmidaparmida1MainDeck.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Deck/parmidaparmida1MainDeck.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/@AI@.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/@AI@.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graveyard.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/json.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (10).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (11).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (12).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (13).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (2).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (3).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (4).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (5).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (6).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (7).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (8).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src (9).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PopUp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BoardGraphicController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChangeNicknameControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChangeNicknameControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChangePasswordControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChangePasswordControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChangeUsernameControllerGraphic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChooseDuelControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseDuelControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChooseSecondPlayerControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseSecondPlayerControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CreateDeckGraphicController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckSuffleController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LightningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LightningController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LogInController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LogInControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LogInControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuTypesGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuTypesGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PreviousMenuControllerGraphic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProfileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ProfileControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProfileControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ScoreBoardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ScoreBoardControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ScoreBoardControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShowAllDecksController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SignUpControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SignUpControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SoundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SoundController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/exeption/AlreadySummoned.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/AlreadySummoned.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/src.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChangeNicknameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChangeNicknameViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChangePasswordViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChangePasswordViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChangeProfilePhotoGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChangeProfilePhotoGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChangeUsernameViewGraphic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChooseSecondPlayerViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseSecondPlayerViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/CreateDeckGraphic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/DeckView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/DeckViewGraphic.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/DuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DuelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ExplosionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ExplosionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ImportExportGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ImportExportGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ImportExportView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/PauseView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromDeckView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromSideDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromSideDeckView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorAIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorAIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorPlayerTwoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorPlayerTwoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScannerClassForView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScannerClassForView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ShopView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ShowAllDecksGraphic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ShowDeckDetailsViewGraphic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/GameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GameMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PauseMenu.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AllDecksMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AllDecksMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CreateNewDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CreateNewDeck.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NewDuelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NewDuelMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PauseMenu.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ShopMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/BoardGraphicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ChangeNicknameControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ChangeNicknameControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ChangePasswordControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ChangePasswordControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ChangeUsernameControllerGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ChooseDuelControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ChooseDuelControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DeckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeckSuffleController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/DuelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/DuelController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/ImportExportCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ImportExportCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ImportExportUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ImportExportUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/LogInController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/LogInControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/LogInControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/PreviousMenuControllerGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ProfileController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ProfileControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ProfileControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ScoreBoardController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ScoreBoardControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ScoreBoardControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/SignUpControllerGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/SignUpControllerGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/SoundController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/SoundController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/exeption/AlreadySummoned.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/exeption/AlreadySummoned.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/AddCardToDeckView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/AddCardToDeckView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/AddCardToDeckView$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/AddCardToDeckView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/AddCardToDeckView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/AllDecksViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/AllDecksViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ChangeNicknameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ChangeNicknameViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ChangePasswordViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ChangePasswordViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ChangeProfilePhotoGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ChangeProfilePhotoGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ChangeUsernameViewGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ChooseDuelView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ChooseDuelView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ChooseSecondPlayerViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ChooseSecondPlayerViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/DeckView.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/DuelView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/DuelView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ExplosionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic$9.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/GameViewGraphic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/ImportExportGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ImportExportGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ImportExportView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/LogInViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/PauseView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ProfileView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ProfileViewForGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ProfileViewForGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/RemoveCardFromDeckView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/RemoveCardFromDeckView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/RemoveCardFromSideDeckView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/RemoveCardFromSideDeckView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/RockPaperScissorAIView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/RockPaperScissorAIView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/RockPaperScissorPlayerTwoView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/RockPaperScissorPlayerTwoView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/RockPaperScissorView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/RockPaperScissorView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ScannerClassForView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScannerClassForView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ScoreBoardViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ShopView.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/view/ShopViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/ShopViewGraphic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/ShowDeckDetailsViewGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUpViewGraphic.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +291,7 @@
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -144,7 +304,7 @@
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -168,7 +328,7 @@
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="view.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -197,7 +357,7 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="StructuralSearchPlugin">
-    <searchConfiguration name="Unnamed" created="1625867850690" text="/* $CommentContent$ */" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" history="1">
+    <searchConfiguration name="Unnamed" created="1625875227018" text="/* $CommentContent$ */" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" history="1">
       <constraint name="__context__" within="" contains="" />
       <constraint name="CommentContent" within="" contains="" />
     </searchConfiguration>
@@ -538,7 +698,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625859351326</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="kar haye parakande">
+      <created>1625868335757</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1625868335757</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +725,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="suijin debug 2" />
     <MESSAGE value="gate gaurdian debug" />
     <MESSAGE value="activate spell debug 1" />
     <MESSAGE value="AIFullDebug + monster reborn" />
@@ -583,40 +749,49 @@
     <MESSAGE value="sound effect" />
     <MESSAGE value="commit molayitar" />
     <MESSAGE value="Duel View 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Duel View 3" />
+    <MESSAGE value="kar haye parakande" />
+    <option name="LAST_COMMIT_MESSAGE" value="kar haye parakande" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1625867910338">
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1625877971260">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1625867910338" />
-    <state width="1237" height="93" key="GridCell.Tab.0.bottom" timestamp="1625868101962">
+    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1625877971260" />
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1625873821371">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="93" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625868101962" />
-    <state width="1237" height="93" key="GridCell.Tab.0.center" timestamp="1625868101962">
+    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1625873821371" />
+    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1625875227010">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="93" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625868101962" />
-    <state width="1237" height="93" key="GridCell.Tab.0.left" timestamp="1625868101961">
+    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1625875227010" />
+    <state width="1237" height="135" key="GridCell.Tab.0.bottom" timestamp="1625877749576">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="93" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625868101961" />
-    <state width="1237" height="93" key="GridCell.Tab.0.right" timestamp="1625868101962">
+    <state width="1237" height="135" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1625877749576" />
+    <state width="1237" height="135" key="GridCell.Tab.0.center" timestamp="1625877749576">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="93" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625868101962" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625859354660">
+    <state width="1237" height="135" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1625877749576" />
+    <state width="1237" height="135" key="GridCell.Tab.0.left" timestamp="1625877749576">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625859354660" />
+    <state width="1237" height="135" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1625877749576" />
+    <state width="1237" height="135" key="GridCell.Tab.0.right" timestamp="1625877749576">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="135" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1625877749576" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1625868338504">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1625868338504" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java</url>
-          <line>36</line>
+          <line>37</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

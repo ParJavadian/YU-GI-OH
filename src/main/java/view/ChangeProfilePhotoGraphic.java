@@ -1,6 +1,5 @@
 package view;
 
-import controller.ChangePasswordControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +13,6 @@ import model.User;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -30,7 +28,6 @@ public class ChangeProfilePhotoGraphic extends Application {
         if (instance == null) instance = new ChangeProfilePhotoGraphic();
         return instance;
     }
-
 
     public void setCurrentUser(User user) {
         ChangeProfilePhotoGraphic.user = user;

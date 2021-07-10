@@ -43,8 +43,6 @@ public class RockPaperScissorPlayerTwoView extends Application implements Initia
 
     public void setNumberOfRounds(int numberOfRounds) {RockPaperScissorPlayerTwoView.numberOfRounds = numberOfRounds; }
 
-    public int getNumberOfRounds(){return RockPaperScissorPlayerTwoView.numberOfRounds;}
-
     public void start(Stage stage) throws Exception {
         RockPaperScissorPlayerTwoView.stage = stage;
         URL url = getClass().getResource("/RockPaperScissorPlayerTwo.fxml");
@@ -54,15 +52,15 @@ public class RockPaperScissorPlayerTwoView extends Application implements Initia
         stage.setScene(scene);
     }
 
-    public void rockTwo(MouseEvent event) throws Exception{
+    public void rockTwo() throws Exception{
         findWinner(previousHand,"rock");
     }
 
-    public void paperTwo(MouseEvent event) throws Exception{
+    public void paperTwo() throws Exception{
         findWinner(previousHand,"paper");
     }
 
-    public void scissorTwo(MouseEvent event) throws Exception{
+    public void scissorTwo() throws Exception{
         findWinner(previousHand,"scissor");
     }
 

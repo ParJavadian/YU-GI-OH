@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -32,8 +31,14 @@ public class ChooseSecondPlayerViewGraphic extends Application implements Initia
         ChooseSecondPlayerViewGraphic.user = user;
     }
 
-    public void start(Stage stage) throws Exception {
-        ChooseSecondPlayerViewGraphic.stage = stage;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        fillTheComboBoxWithUsers();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        ChooseSecondPlayerViewGraphic.stage = primaryStage;
         URL url = getClass().getResource("/ChooseSecondPlayer.fxml");
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
@@ -41,7 +46,6 @@ public class ChooseSecondPlayerViewGraphic extends Application implements Initia
         fillTheComboBoxWithUsers();
         stage.show();
     }
-
 
     public void twoPlayerGame(){
         try {
@@ -58,7 +62,7 @@ public class ChooseSecondPlayerViewGraphic extends Application implements Initia
         ChooseDuelView.getInstance().start(stage);
     }
 
-    public void goBack(MouseEvent event) throws Exception {
+    public void goBack() throws Exception {
         MainViewGraphic.getInstance().start(stage);
     }
 
@@ -73,15 +77,11 @@ public class ChooseSecondPlayerViewGraphic extends Application implements Initia
         comboBox.getItems().addAll(choices);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        fillTheComboBoxWithUsers();
-    }
-
     private void printError(String command) {
         Alert alert = new Alert(Alert.AlertType.ERROR, command);
         alert.setHeaderText("");
         alert.setTitle("");
         alert.showAndWait();
     }
+
 }

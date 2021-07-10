@@ -6,25 +6,17 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import model.User;
-
 import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+
 
 public class MainViewGraphic extends Application{
 
@@ -33,10 +25,10 @@ public class MainViewGraphic extends Application{
     private static User user;
     public static Button button = new Button();
     public static TextField textField = new TextField();
+    public static AnchorPane root;
     public boolean isCTRLPressed = false;
     public boolean isSHIFTPressed = false;
     public boolean isMPressed = false;
-    public static AnchorPane root;
 
 
     public static MainViewGraphic getInstance() {
@@ -47,7 +39,6 @@ public class MainViewGraphic extends Application{
     public void setCurrentUser(User user) {
         MainViewGraphic.user = user;
     }
-
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -82,7 +73,7 @@ public class MainViewGraphic extends Application{
         MainControllerGraphic.showDeckMenu(user,stage);
     }
 
-    public void importExport(MouseEvent event) throws Exception{
+    public void importExport() throws Exception{
         ImportExportGraphic.getInstance().start(stage);
     }
 
@@ -112,7 +103,6 @@ public class MainViewGraphic extends Application{
         button.setText("cheat!");
         textField.setLayoutX(19);
         textField.setLayoutY(95);
-
         stage.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -129,7 +119,6 @@ public class MainViewGraphic extends Application{
                     button.setOnAction(this::createCheatEnvironment);
                 }
             }
-
             private void createCheatEnvironment(ActionEvent actionEvent) {
                 if (textField.getText().matches("\\d+")) {
                     int amountOfMoney = Integer.parseInt(textField.getText());
@@ -140,18 +129,14 @@ public class MainViewGraphic extends Application{
                 root.getChildren().remove(textField);
             }
         });
-        stage.getScene().setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode().getName().equals("M"))
-                    isMPressed = false;
-                if (event.getCode().getName().equals("Ctrl"))
-                    isCTRLPressed = false;
-                if (event.getCode().getName().equals("Shift"))
-                    isSHIFTPressed = false;
-            }
+        stage.getScene().setOnKeyReleased(event -> {
+            if (event.getCode().getName().equals("M"))
+                isMPressed = false;
+            if (event.getCode().getName().equals("Ctrl"))
+                isCTRLPressed = false;
+            if (event.getCode().getName().equals("Shift"))
+                isSHIFTPressed = false;
         });
-
     }
 
     public void alertForCheat(){
@@ -160,5 +145,4 @@ public class MainViewGraphic extends Application{
         error.setContentText("you successfully cheated!");
         error.showAndWait();
     }
-
 }

@@ -23,17 +23,16 @@ public class ChooseDuelView extends Application {
     }
 
     public void setCurrentUser(User user) {
-
         ChooseDuelView.playerOne = user;
     }
 
     public void setPlayerTwoName(String playerTwoName) {
-
         ChooseDuelView.playerTwoName = playerTwoName;
     }
 
-    public void start(Stage stage) throws Exception {
-        ChooseDuelView.stage = stage;
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        ChooseDuelView.stage = primaryStage;
         URL url = getClass().getResource("/NewDuelMenu.fxml");
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
@@ -41,18 +40,17 @@ public class ChooseDuelView extends Application {
         stage.show();
     }
 
-    public void threeRoundsGame(MouseEvent event) throws Exception{
+    public void threeRoundsGame() throws Exception{
         startNewGame(3);
     }
 
-    public void oneRoundGame(MouseEvent event) throws Exception{
+    public void oneRoundGame() throws Exception{
         startNewGame(1);
     }
 
-    public void goBack(MouseEvent event) throws Exception {
+    public void goBack() throws Exception {
         ChooseDuelControllerGraphic.goBack(stage);
     }
-
 
     public void startNewGame(int numberOfRounds) throws Exception{
         if (playerTwoName.equals("@AI@")){
@@ -67,6 +65,4 @@ public class ChooseDuelView extends Application {
             RockPaperScissorView.getInstance().start(stage);
         }
     }
-
-
 }

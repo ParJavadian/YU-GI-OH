@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import model.Deck;
 import model.User;
@@ -23,8 +22,6 @@ import java.util.Objects;
 public class LogInViewGraphic extends Application {
     private static Stage stage;
     static LogInViewGraphic instance = null;
-    static MediaPlayer mediaPlayer;
-    static String current;
     @FXML
     private TextField username;
     @FXML
@@ -38,10 +35,7 @@ public class LogInViewGraphic extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         if ((LogInViewGraphic.instance == null) && (SignUpViewGraphic.instance == null)) {
-
             SoundController.getInstance().playWhenStart();
-
-
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();
             importExportUserController.importProfileNumber();
@@ -54,14 +48,7 @@ public class LogInViewGraphic extends Application {
                 Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(deck);
             }
             else Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(AIDeck);
-//            Media media = new Media(getClass().getResource("/velum.mp3").toURI().toString());
-//            mediaPlayer = new MediaPlayer(media);
-//            mediaPlayer.setCycleCount(AudioClip.INDEFINITE);
-//            mediaPlayer.play();
-//            current = "play";
         }
-
-
         LogInViewGraphic.stage = stage;
         URL url = getClass().getResource("/Login.fxml");
         Parent root = FXMLLoader.load(url);
@@ -86,6 +73,4 @@ public class LogInViewGraphic extends Application {
             error.showAndWait();
         }
     }
-
-
 }

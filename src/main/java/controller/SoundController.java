@@ -17,6 +17,16 @@ public class SoundController {
         return instance;
     }
 
+    public static void muteAndUnmute() {
+        if (currentCondition.equals(SoundCondition.PLAY)) {
+            mediaPlayerForMain.pause();
+            currentCondition = SoundCondition.PAUSE;
+        } else if (currentCondition.equals(SoundCondition.PAUSE)) {
+            mediaPlayerForMain.play();
+            currentCondition = SoundCondition.PLAY;
+        }
+    }
+
     public void playWhenStart(){
         Media media = null;
         try {
@@ -28,16 +38,6 @@ public class SoundController {
         mediaPlayerForMain.setCycleCount(AudioClip.INDEFINITE);
         mediaPlayerForMain.play();
         currentCondition = SoundCondition.PLAY;
-    }
-
-    public static void muteAndUnmute() {
-        if (currentCondition.equals(SoundCondition.PLAY)) {
-            mediaPlayerForMain.pause();
-            currentCondition = SoundCondition.PAUSE;
-        } else if (currentCondition.equals(SoundCondition.PAUSE)) {
-            mediaPlayerForMain.play();
-            currentCondition = SoundCondition.PLAY;
-        }
     }
 
     public void playWhenEnterNextPhase() {

@@ -1,12 +1,10 @@
-        package view;
+package view;
 
 
-import controller.DeckController;
 import controller.ImportExportUserController;
 import controller.ShopController;
 import controller.SoundController;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,13 +20,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.*;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ShopViewGraphic extends Application implements Initializable {
@@ -42,7 +35,7 @@ public class ShopViewGraphic extends Application implements Initializable {
     private static int totalCardsNumber;
     private static int firstCardNumber = 0;
     private static AnchorPane root;
-    private final ImageView imageView = new ImageView();
+    private static Image image;
     @FXML
     private Label money, youHave1, youHave2, youHave3, youHave4, price1, price2, price3, price4;
     @FXML
@@ -145,59 +138,40 @@ public class ShopViewGraphic extends Application implements Initializable {
 
 
     private void dragAndDrop() {
-        image1.setOnDragDetected(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println("1 drag");
-                Dragboard dragboard = image1.startDragAndDrop(TransferMode.ANY);
-                ClipboardContent clipboardContent = new ClipboardContent();
-                clipboardContent.putImage(image1.getImage());
-                dragboard.setContent(clipboardContent);
-                imageView.setImage(image1.getImage());
-                System.out.println("image 1 = " + image1.getImage());
-                System.out.println("image view = "  +  imageView);
-                event.consume();
-            }
+        image1.setOnDragDetected(event -> {
+            Dragboard dragboard = image1.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent clipboardContent = new ClipboardContent();
+            clipboardContent.putImage(image1.getImage());
+            dragboard.setContent(clipboardContent);
+            if (image1.getImage() != null) image = image1.getImage();
+            event.consume();
         });
 
-        image2.setOnDragDetected(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println("2 drag");
-                Dragboard dragboard = image2.startDragAndDrop(TransferMode.ANY);
-
-                ClipboardContent clipboardContent = new ClipboardContent();
-                clipboardContent.putImage(image2.getImage());
-                dragboard.setContent(clipboardContent);
-                event.consume();
-            }
+        image2.setOnDragDetected(event -> {
+            Dragboard dragboard = image2.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent clipboardContent = new ClipboardContent();
+            clipboardContent.putImage(image2.getImage());
+            dragboard.setContent(clipboardContent);
+            if (image2.getImage() != null) image = image2.getImage();
+            event.consume();
         });
 
-        image3.setOnDragDetected(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println("3 drag");
-                Dragboard dragboard = image3.startDragAndDrop(TransferMode.ANY);
-
-                ClipboardContent clipboardContent = new ClipboardContent();
-                clipboardContent.putImage(image3.getImage());
-                dragboard.setContent(clipboardContent);
-                addImages();
-                event.consume();
-            }
+        image3.setOnDragDetected(event -> {
+            Dragboard dragboard = image3.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent clipboardContent = new ClipboardContent();
+            clipboardContent.putImage(image3.getImage());
+            dragboard.setContent(clipboardContent);
+            if (image3.getImage() != null) image = image3.getImage();
+            event.consume();
         });
 
-        image4.setOnDragDetected(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println("4 drag");
-                Dragboard dragboard = image4.startDragAndDrop(TransferMode.ANY);
-
-                ClipboardContent clipboardContent = new ClipboardContent();
-                clipboardContent.putImage(image4.getImage());
-                dragboard.setContent(clipboardContent);
-                event.consume();
-            }
+        image4.setOnDragDetected(event -> {
+            Dragboard dragboard = image4.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent clipboardContent = new ClipboardContent();
+            clipboardContent.putImage(image4.getImage());
+            dragboard.setContent(clipboardContent);
+            if (image4.getImage() != null) image = image4.getImage();
+            event.consume();
         });
 
     }
@@ -209,33 +183,22 @@ public class ShopViewGraphic extends Application implements Initializable {
         }
     }
 
-    public void onDragDropped(DragEvent dragEvent) throws FileNotFoundException {
-
-
-        if (imageView.getImage() == null) {
-            System.out.println("2 = " + imageView);
-            System.out.println("no");
+    public void onDragDropped(){
+        if (image == null) {
             return;
         }
-        if (image1.equals(imageView)) {
-            System.out.println("eyval");
+        if (image1.getImage().equals(image)) {
             buy1();
         }
-
-//        Image image = dragEvent.getDragboard().getImage();
-/*        System.out.println(dragEvent.getDragboard().getImage().impl_getUrl());
-        System.out.println(image1.getImage().impl_getUrl());*/
-        if (image1.getImage().equals(dragEvent.getDragboard().getImage())) {
-            System.out.println("umad tu if");
-            buy1();
-        }
-        /*
-        if (Objects.equals(Card.getCardByImage(image), card2))
+        if (image2.getImage().equals(image)) {
             buy2();
-        if (Objects.equals(Card.getCardByImage(image), card3))
+        }
+        if (image3.getImage().equals(image)) {
             buy3();
-        if (Objects.equals(Card.getCardByImage(image), card4))
-            buy4();*/
+        }
+        if (image4.getImage().equals(image)) {
+            buy4();
+        }
     }
 
 
@@ -303,9 +266,9 @@ public class ShopViewGraphic extends Application implements Initializable {
     }
 
     private String getTextForInStock(Card card) {
-        if (user.getCountOfCardInAllCards(card)>1)
+        if (user.getCountOfCardInAllCards(card) > 1)
             return "You have " + user.getCountOfCardInAllCards(card) + " cards of this type";
-        else if(user.getCountOfCardInAllCards(card)==1)
+        else if (user.getCountOfCardInAllCards(card) == 1)
             return "You have " + user.getCountOfCardInAllCards(card) + " card of this type";
         else
             return "";
@@ -317,17 +280,6 @@ public class ShopViewGraphic extends Application implements Initializable {
         alert.setTitle("");
         alert.showAndWait();
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

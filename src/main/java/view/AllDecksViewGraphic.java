@@ -20,17 +20,17 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AllDecksViewGraphic extends Application implements Initializable {
+    private static final ArrayList<AnchorPane> decks = new ArrayList<>();
+    private static final ToggleGroup toggleGroup = new ToggleGroup();
     private static Stage stage;
     private static AllDecksViewGraphic instance = null;
-    private static User user /*= new User("1","1","1")*/;
+    private static User user;
     @FXML
     public TextField deckName;
     @FXML
     private VBox vBox;
     @FXML
     private ScrollPane scrollPane;
-    private static ArrayList<AnchorPane> decks = new ArrayList<>();
-    private static final ToggleGroup toggleGroup = new ToggleGroup();
 
     public static AllDecksViewGraphic getInstance() {
         if (instance == null) instance = new AllDecksViewGraphic();
@@ -43,9 +43,6 @@ public class AllDecksViewGraphic extends Application implements Initializable {
 
     @Override
     public void start(Stage stage) throws Exception {
-        /*Deck deck = new Deck("hi");
-        user.addDeck(deck);
-        user.setActiveDeck(deck);*/
         AllDecksViewGraphic.stage = stage;
         URL url = getClass().getResource("/AllDecksMenu.fxml");
         AnchorPane root = FXMLLoader.load(url);
@@ -76,17 +73,10 @@ public class AllDecksViewGraphic extends Application implements Initializable {
         anchorPane1.getChildren().add(radioButton);
         Label label = new Label();
         label.setText(String.valueOf(deck.getMainSize() + deck.getSideSize()));
-        /*if (deck.isValid())
-            label.setText(" : Valid");
-        else
-            label.setText(" : Invalid");*/
         label.setLayoutX(184);
         label.setTextFill(Color.WHITE);
         anchorPane1.getChildren().add(label);
         Button editButton = new Button("Edit Deck");
-//        editButton.setOnMouseClicked(edit());
-//        editButton.getOnMouseClicked();
-//        editButton.onMouseClickedProperty();
         editButton.setLayoutX(240);
         editButton.setOnAction(this::editDeck);
         anchorPane1.getChildren().add(editButton);
@@ -144,7 +134,6 @@ public class AllDecksViewGraphic extends Application implements Initializable {
                 } catch (Exception ignored) {
 
                 }
-//                user.deleteDeck(radioButton.getText());
                 decks.remove(anchorPane);
                 for (int j = 0; j < vBox.getChildren().size(); j++) {
                     AnchorPane anchorPane1 = (AnchorPane) vBox.getChildren().get(j);

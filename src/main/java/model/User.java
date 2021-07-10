@@ -38,11 +38,8 @@ public class User {
         if (isCalledFromSignUpMenu) {
             setScore(0);
             setMoney(100000);
-//            this.profileNumber = getRandomProfileNumber();
         }
         this.profileImage = null;
-//        setScore(0);
-//        setMoney(100000);
         allUsers.add(this);
     }
 
@@ -111,10 +108,6 @@ public class User {
     public void setGameDeck(Deck currentGameDeck) {
         this.currentGameDeck = currentGameDeck;
     }
-
-//    public void setProfileNumber(int profileNumber) {
-//        this.profileNumber = profileNumber;
-//    }
 
     public String getUsername() {
         return this.username;
@@ -231,10 +224,6 @@ public class User {
 
     public void increaseScore(int amount) {
         this.score += amount;
-    }
-
-    public void decreaseScore(int amount) {
-        this.score -= amount;
     }
 
     public void increaseLifePoint(int amount) {

@@ -3,8 +3,6 @@ package view;
 import controller.DeckController;
 import controller.SoundController;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,13 +11,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Card;
 import model.Deck;
 import model.User;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -32,14 +28,10 @@ public class RemoveCardFromDeckView extends Application implements Initializable
     private static ArrayList<Image> images = new ArrayList<>(4);
     private static Card card1, card2, card3, card4;
     public static ImageView image1, image2, image3, image4;
-    private static int totalCardsNumber;
     private static int firstCardNumber = 0;
     private static AnchorPane root;
     @FXML
-    private AnchorPane anchorPane1, anchorPane2, anchorPane3, anchorPane4;
-    @FXML
     private Label label;
-
 
     public static RemoveCardFromDeckView getInstance() {
         if (instance == null) instance = new RemoveCardFromDeckView();
@@ -66,6 +58,17 @@ public class RemoveCardFromDeckView extends Application implements Initializable
         removeBadAnchorPanes();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+    }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        DeckController.getInstance(user).setMainDeckCards(deck);
+        DeckController.initImages();
+        setImagesAndCards();
+        addImages();
+        removeBadAnchorPanes();
+        label.setText(deck.getDeckName());
     }
 
     private void setImagesAndCards() {
@@ -148,7 +151,6 @@ public class RemoveCardFromDeckView extends Application implements Initializable
 
     private void resetImagesAndCards() {
         DeckController.getInstance(user).setMainDeckCards(deck);
-        //DeckController.getInstance(user).setUsersCards();
         DeckController.initImages();
         images = DeckController.getInstance(user).getImages(firstCardNumber);
         ArrayList<Card> cards = DeckController.getInstance(user).getCards(firstCardNumber);
@@ -234,16 +236,6 @@ public class RemoveCardFromDeckView extends Application implements Initializable
         alert.showAndWait();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        DeckController.getInstance(user).setMainDeckCards(deck);
-        DeckController.initImages();
-        setImagesAndCards();
-        addImages();
-        removeBadAnchorPanes();
-        label.setText(deck.getDeckName());
-    }
-
     public void back() throws Exception {
         AllDecksViewGraphic.getInstance().setCurrentUser(user);
         AllDecksViewGraphic.getInstance().start(stage);
@@ -278,7 +270,6 @@ public class RemoveCardFromDeckView extends Application implements Initializable
         removeCardFromDeck(card4, false);
     }
 
-
     public void addCardToDeck() throws Exception {
         AddCardToDeckView.getInstance().setCurrentUser(user);
         AddCardToDeckView.getInstance().setCurrentDeck(deck);
@@ -290,9 +281,5 @@ public class RemoveCardFromDeckView extends Application implements Initializable
         RemoveCardFromSideDeckView.getInstance().setCurrentUser(user);
         RemoveCardFromSideDeckView.getInstance().setCurrentDeck(deck);
         RemoveCardFromSideDeckView.getInstance().start(stage);
-    }
-
-    public void openMainDeckMenu() {
-
     }
 }

@@ -29,7 +29,7 @@
     </ImageView>
     <Button layoutX="730.0" layoutY="321.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="52.0" text="show graveyard player" />
     <Button layoutX="247.0" layoutY="201.0" mnemonicParsing="false" prefHeight="87.0" prefWidth="52.0" text="show garveyard rival" />
-    <ImageView fitHeight="609.0" fitWidth="600.0" layoutX="432.0" layoutY="184.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
+    <ImageView fx:id="gameBackground" fitHeight="609.0" fitWidth="600.0" layoutX="432.0" layoutY="184.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
         <Image url="@images/fie_normal.bmp" />
     </ImageView>
     <TextField layoutX="826.0" layoutY="527.0" />

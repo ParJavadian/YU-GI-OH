@@ -1,12 +1,9 @@
 package view;
 
-import controller.ChangeNicknameControllerGraphic;
 import controller.ImportExportCardController;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -19,14 +16,11 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Card;
 import model.User;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -37,16 +31,15 @@ public class ImportExportGraphic extends Application {
     private static Stage stage;
     static ImportExportGraphic instance = null;
     private static User user;
-    public TextField toBeExportedCard;
     public static ImageView cardImage = new ImageView();
     public static Label label = new Label();
     public static AnchorPane root;
+    public TextField toBeExportedCard;
 
     public static ImportExportGraphic getInstance() {
         if (instance == null) instance = new ImportExportGraphic();
         return instance;
     }
-
 
     public void setCurrentUser(User user) {
         ImportExportGraphic.user = user;
@@ -74,7 +67,7 @@ public class ImportExportGraphic extends Application {
 
     public void onDragDropped(DragEvent dragEvent) {
         try {
-            String cardInfo = "";
+            String cardInfo;
             List<File> files = dragEvent.getDragboard().getFiles();
             File file = new File(files.toString());
             String fileName = file.getName();
@@ -97,7 +90,6 @@ public class ImportExportGraphic extends Application {
             Font font = Font.font("Agency FB", 18);
             label.setFont(font);
             label.setTextFill(Color.BLACK);
-
             cardImage.setX(568);
             cardImage.setY(39);
             cardImage.setFitHeight(204);
@@ -111,7 +103,7 @@ public class ImportExportGraphic extends Application {
         }
     }
 
-    public void exportCard(MouseEvent event) {
+    public void exportCard() {
         if (Card.getCardByName(normalToPascalCase(toBeExportedCard.getText())) != null) {
             ImportExportCardController.getInstance(user).exportCard(Card.getCardByName(normalToPascalCase(toBeExportedCard.getText())));
             Alert information = new Alert(Alert.AlertType.INFORMATION);

@@ -92,7 +92,6 @@ public class ImportExportCardController {
             }
             counter--;
         }
-//        SpellCard spellCard = new SpellCard(icon,description,status,price)
         return "";
     }
 
@@ -131,7 +130,6 @@ public class ImportExportCardController {
             }
             counter--;
         }
-//                TrapCard trapCard = new TrapCard(icon,description,status,price);
         return "";
     }
 
@@ -198,17 +196,6 @@ public class ImportExportCardController {
             counter--;
         }
         return "";
-/*                MonsterCard monsterCard = new MonsterCard(level, attribute, monsterType, cardType, attackPoint, defencePoint, description, price, canBeNormalSummoned) {
-                    @Override
-                    public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
-
-                    }
-
-                    @Override
-                    public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
-                        return false;
-                    }
-                };*/
     }
 
     public void exportCard(Card card) {
@@ -267,193 +254,8 @@ public class ImportExportCardController {
         }
     }
 
-    public static String importCardFromCsv(String cardName) {
 
-        String cardInfo = null;
-
-        File monsterFile = new File("CardsIE/" + cardName + "MonsterCard.csv");
-        File trapFile = new File("CardsIE/" + cardName + "TrapCard.csv");
-        File spellFile = new File("CardsIE/" + cardName + "SpellCard.csv");
-        StringBuilder stringBuilder = new StringBuilder();
-        if (monsterFile.exists()) {
-            try {
-                String row;
-
-                String monsterType;
-                String cardType;
-                int defencePoint;
-                int price;
-                int level;
-                boolean canBeNormalSummoned;
-                String attribute;
-                int attackPoint;
-                String description;
-
-
-                BufferedReader csvReader = new BufferedReader(new FileReader("CardsIE/" + cardName + "MonsterCard.csv"));
-                while ((row = csvReader.readLine()) != null) {
-                    String[] data = row.split(",");
-                    if (data.length > 0) {
-                        level = Integer.parseInt(data[0]);
-                        stringBuilder.append("level = ").append(level).append("\n");
-                    }
-                    if (data.length > 1) {
-                        attribute = data[1];
-                        stringBuilder.append("attribute = ").append(attribute).append("\n");
-                    }
-                    if (data.length > 2) {
-                        monsterType = data[2];
-                        stringBuilder.append("monster type = ").append(monsterType).append("\n");
-                    }
-                    if (data.length > 3) {
-                        cardType = data[3];
-                        stringBuilder.append("card type = ").append(cardType).append("\n");
-                    }
-                    if (data.length > 4) {
-                        attackPoint = Integer.parseInt(data[4]);
-                        stringBuilder.append("attack point = ").append(attackPoint).append("\n");
-                    }
-                    if (data.length > 5) {
-                        defencePoint = Integer.parseInt(data[5]);
-                        stringBuilder.append("defence point = ").append(defencePoint).append("\n");
-                    }
-                    if (data.length > 6) {
-                        price = Integer.parseInt(data[6]);
-                        stringBuilder.append("price = ").append(price).append("\n");
-                    }
-
-                    if (data.length > 7) {
-                        StringBuilder stringBuilder2 = new StringBuilder();
-                        //while (scanner.hasNextLine()) {
-                        stringBuilder2.append(data[7]);
-                        //}
-                        description = String.valueOf(stringBuilder2);
-                        stringBuilder.append("card description = ").append(description);
-//                        return String.valueOf(stringBuilder);
-                    }
-                    return String.valueOf(stringBuilder);
-//                    if (counter == 0) {
-//                        break;
-//                    }
-//                    counter--;
-                }
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        if (spellFile.exists()) {
-            try {
-                String row;
-                StringBuilder stringbuilder = new StringBuilder();
-                String icon;
-                String status;
-                int price;
-                int counter = 4;
-
-
-                BufferedReader csvReader = new BufferedReader(new FileReader("CardsIE/" + cardName + "SpellCard.csv"));
-                while ((row = csvReader.readLine()) != null) {
-                    String[] data = row.split(",");
-
-                    if (data.length > 0) {
-                        icon = data[0];
-                        stringbuilder.append("icon = ").append(icon).append("\n");
-                    }
-                    if (data.length > 1) {
-                        status = data[1];
-                        stringbuilder.append("status = ").append(status).append("\n");
-                    }
-                    if (data.length > 2) {
-                        price = Integer.parseInt(data[2]);
-                        stringbuilder.append("price = ").append(price).append("\n");
-                    }
-                    if (data.length > 3) {
-
-                        String spellDescription = data[3];
-                        stringbuilder.append("card description = ").append(spellDescription);
-                        return String.valueOf(stringBuilder);
-
-                    }
-
-                }
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return String.valueOf(stringBuilder);
-        }
-
-
-        if (trapFile.exists()) {
-            try {
-                String row;
-                StringBuilder stringbuilder = new StringBuilder();
-                String icon;
-                String status;
-                int price;
-                int counter = 4;
-
-
-                BufferedReader csvReader = new BufferedReader(new FileReader("CardsIE/" + cardName + "TrapCard.csv"));
-                while ((row = csvReader.readLine()) != null) {
-                    String[] data = row.split(",");
-
-                    if (data.length > 0) {
-                        icon = data[0];
-                        stringbuilder.append("icon = ").append(icon).append("\n");
-                    }
-                    if (data.length > 1) {
-                        status = data[1];
-                        stringbuilder.append("status = ").append(status).append("\n");
-                    }
-                    if (data.length > 2) {
-                        price = Integer.parseInt(data[2]);
-                        stringbuilder.append("price = ").append(price).append("\n");
-                    }
-                    if (data.length > 3) {
-
-                        String spellDescription = data[3];
-                        stringbuilder.append("card description = ").append(spellDescription);
-                        return String.valueOf(stringBuilder);
-
-                    }
-
-                }
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return "";
-    } //todo fixme
-
-
-    public static void exportMonsterCardForCsv(Card card) {
-        System.out.println("salam");
-//        PrintWriter pw = null;
-//        try {
-//            pw = new PrintWriter(new File("CardsIE/" + card.getName() + "MonsterCard.csv"));
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        StringBuilder builder = new StringBuilder();
-//        //String columnNamesList = "Id,Name";
-//        // No need give the headers Like: id, Name on builder.append
-//        builder.append(columnNamesList +"\n");
-//        builder.append("1"+",");
-//        builder.append("Chola");
-//        builder.append('\n')
-
-
+    public void exportMonsterCardForCsv(Card card) {
         try {
             FileWriter writer = new FileWriter("CardsIE/" + card.getName() + "MonsterCard.csv");
             writer.write(((MonsterCard) card).getLevel() + "\n" + ((MonsterCard) card).getAttribute() + "\n" +
@@ -469,7 +271,7 @@ public class ImportExportCardController {
         }
     }
 
-    public static void exportSpellCardForCsv(Card card) {
+    public void exportSpellCardForCsv(Card card) {
         try {
             FileWriter writer = new FileWriter("CardsIE/" + card.getName() + "SpellCard.csv");
             writer.write(((SpellCard) card).getIcon() + "\n" + ((SpellCard) card).getStatus() + "\n"
@@ -481,7 +283,7 @@ public class ImportExportCardController {
         }
     }
 
-    public static void exportTrapCardForCsv(Card card) {
+    public void exportTrapCardForCsv(Card card) {
         try {
             FileWriter writer = new FileWriter("CardsIE/" + card.getName() + "TrapCard.csv");
             writer.write(((TrapCard) card).getIcon() + "\n" + ((TrapCard) card).getStatus() + "\n"
@@ -492,32 +294,6 @@ public class ImportExportCardController {
             e.printStackTrace();
         }
     }
-
-//    public static String importCardForCsv(String cardName) {
-//
-//        String cardInfo = null;
-//
-//        File monsterFile = new File("CardsIE/" + cardName + "MonsterCard.csv");
-//        File trapFile = new File("CardsIE/" + cardName + "TrapCard.csv");
-//        File spellFile = new File("CardsIE/" + cardName + "SpellCard.csv");
-//
-//        try {
-//            if (monsterFile.exists()) {
-//                cardInfo = importMonsterCardForCsv(monsterFile);
-//            }
-//            if (trapFile.exists()) {
-//                cardInfo = importTrapCardForCsv(trapFile);
-//            }
-//            if (spellFile.exists()) {
-//                cardInfo = importSpellCardForCsv(spellFile);
-//            }
-//            return cardInfo;
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        return "";
-//    }
-
 
     private String importSpellCardForCsv(File spellFile) throws FileNotFoundException {
         StringBuilder cardInfo = new StringBuilder();
@@ -554,7 +330,6 @@ public class ImportExportCardController {
             }
             counter--;
         }
-//        SpellCard spellCard = new SpellCard(icon,description,status,price)
         return "";
     }
 
@@ -593,7 +368,7 @@ public class ImportExportCardController {
             }
             counter--;
         }
-//                TrapCard trapCard = new TrapCard(icon,description,status,price);
+
         return "";
     }
 
@@ -660,70 +435,6 @@ public class ImportExportCardController {
             counter--;
         }
         return "";
-/*                MonsterCard monsterCard = new MonsterCard(level, attribute, monsterType, cardType, attackPoint, defencePoint, description, price, canBeNormalSummoned) {
-                    @Override
-                    public void takeAction(DuelController duelController, TakeActionCase takeActionCase, User owner, int targetNumber) {
-
-                    }
-
-                    @Override
-                    public boolean canBeAttacked(DuelController duelController, int monsterNumber) {
-                        return false;
-                    }
-                };*/
     }
-
-
-
-
-
-
-
-//    public StringBuilder importSpellCardFromCsv(String cardName){
-////        StringBuilder stringbuilder = new StringBuilder();
-//        StringBuilder stringBuilder = null;
-//        try {
-//            String row;
-//
-//            String icon;
-//            String status;
-//            int price;
-//            int counter = 4;
-//
-//
-//            BufferedReader csvReader = new BufferedReader(new FileReader("CardsIE/" + cardName + "SpellCard.csv"));
-//            while ((row = csvReader.readLine()) != null) {
-//                String[] data = row.split(",");
-//
-//                StringBuilder stringbuilder = new StringBuilder();
-//                if (counter > 0) {
-//                    icon = data[0];
-//                    stringbuilder.append("icon = ").append(icon).append("\n");
-//                }
-//                if (counter > 1) {
-//                    status = data[1];
-//                    stringbuilder.append("status = ").append(status).append("\n");
-//                }
-//                if (counter > 2) {
-//                    price = Integer.parseInt(data[2]);
-//                    stringbuilder.append("price = ").append(price).append("\n");
-//                }
-//                if (counter > 3) {
-//
-//                    String spellDescription = data[3];
-//                    stringbuilder.append("card description = ").append(spellDescription);
-//                    return stringBuilder;
-//
-//                }
-//
-//            }
-//
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return String.valueOf(stringBuilder);
-//    }
 
 }

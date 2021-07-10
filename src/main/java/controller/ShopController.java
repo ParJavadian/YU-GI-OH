@@ -2,10 +2,7 @@ package controller;
 
 import controller.exeption.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import model.*;
-import view.ShopView;
-
 
 import java.util.ArrayList;
 
@@ -35,7 +32,6 @@ public class ShopController {
                 this.user.addCardToUsersAllCards(card);
                 ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
                 importExportUserController.exportAllCards(this.user);
-                ShopView.getInstance(this.user).printText("The card " + name + " was successfully bought!");
             } else {
                 throw new NotEnoughMoney();
             }
@@ -52,7 +48,6 @@ public class ShopController {
             } else
                 toPrint.append(card.getNamePascalCase()).append(":").append(card.getPrice()).append("\n");
         }
-        ShopView.getInstance(this.user).printText(toPrint.toString());
     }
 
     private void initImages() {

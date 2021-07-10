@@ -19,13 +19,11 @@ public class MainControllerGraphic {
     }
 
     public static void showProfileMenu(User user, Stage stage) throws Exception {
-//        ProfileControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
         ProfileViewForGraphic.getInstance().setCurrentUser(user);
         ProfileViewForGraphic.getInstance().start(stage);
     }
 
     public static void showShopMenu(User user, Stage stage) throws Exception {
-//        ProfileControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
         ShopViewGraphic.getInstance().setCurrentUser(user);
         ShopViewGraphic.getInstance().start(stage);
     }
@@ -43,9 +41,4 @@ public class MainControllerGraphic {
         ChooseSecondPlayerViewGraphic.getInstance().setCurrentUser(user);
         ChooseSecondPlayerViewGraphic.getInstance().start(stage);
     }
-
-//    public static void showDeckMenu(User user, Stage stage) throws Exception {
-//        DeckViewGraphic.getInstance().setCurrentUser(user);
-//        DeckViewGraphic.getInstance().start(stage);
-//    }
 }

@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class ImportExportUserController {
+
     private static ImportExportUserController instance = null;
 
     public static ImportExportUserController getInstance() {
@@ -55,7 +56,6 @@ public class ImportExportUserController {
         String highScore = "";
         String balance = "";
         File file = new File("allUsers.txt");
-
         try {
             if (file.exists()) {
                 Scanner scanner = new Scanner(file);
@@ -108,9 +108,7 @@ public class ImportExportUserController {
                             if (profileNumber.matches("\\d+")) {
                                 number = Integer.parseInt(profileNumber);
                                 Objects.requireNonNull(User.getUserByUsername(username)).setProfileNumber(number);
-                            } /*else {
-                                System.out.println(profileNumber);
-                            }*/
+                            }
                         }
                     }
                 }catch (FileNotFoundException e){
@@ -124,7 +122,6 @@ public class ImportExportUserController {
         try {
             FileWriter fileWriter = new FileWriter("ProfileNumbers/" + username + ".txt");
             fileWriter.write(String.valueOf(number));
-//            System.out.println("export profile number" + number);
             fileWriter.close();
         }catch (IOException e){
             e.printStackTrace();

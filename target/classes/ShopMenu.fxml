@@ -90,8 +90,6 @@
         </Label>
     </AnchorPane>
     <AnchorPane layoutX="478.0" layoutY="290.0" prefHeight="169.0" prefWidth="151.0">
-
-        hamraz, [10.07.21 02:13]
         <Label fx:id="price3" layoutX="68.0" layoutY="13.0" text="1">
             <font>
                 <Font name="Agency FB Bold" size="21.0"/>

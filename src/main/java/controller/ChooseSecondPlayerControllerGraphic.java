@@ -9,7 +9,7 @@ import view.ChooseDuelView;
 
 public class ChooseSecondPlayerControllerGraphic {
 
-    public static void twoPlayerGame(String secondPlayerUsername, User user, Stage stage)throws Exception{
+    public static void twoPlayerGame(String secondPlayerUsername, User user, Stage stage)throws Exception {
         if(secondPlayerUsername==null)
             throw new PlayerNotFound();
         User secondUser = User.getUserByUsername(secondPlayerUsername);

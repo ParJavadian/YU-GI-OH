@@ -1,9 +1,6 @@
 package view;
 
-import controller.DeckController;
-import controller.ImportExportUserController;
-import controller.SignUpControllerGraphic;
-import controller.SoundController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,8 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import model.Deck;
-import model.User;
+import model.*;
 
 import java.net.URL;
 
@@ -38,9 +34,7 @@ public class SignUpViewGraphic extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         if (LogInViewGraphic.instance == null && (SignUpViewGraphic.instance == null)){
-
             SoundController.getInstance().playWhenStart();
-
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();
             importExportUserController.importProfileNumber();
@@ -49,12 +43,7 @@ public class SignUpViewGraphic extends Application {
             importExportUserController.importActiveDeck();
             Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
             User.getUserByUsername("@AI@").setActiveDeck(deck);
-//            Media media = new Media(getClass().getResource("/TheHours.mp3").toURI().toString());
-//            MediaPlayer mp = new MediaPlayer(media);
-//            mp.setCycleCount(AudioClip.INDEFINITE);
-//            mp.play();
         }
-
         SignUpViewGraphic.stage = stage;
         URL url = getClass().getResource("/SignUp.fxml");
         Parent root = FXMLLoader.load(url);
@@ -66,28 +55,6 @@ public class SignUpViewGraphic extends Application {
     }
 
     public void login() throws Exception {
-
-        //todo pak shavad
-
-//        Label label = new Label("This is a Popup");
-//
-//        // create a popup
-//        Popup popup = new Popup();
-//
-//        // set background
-//        label.setStyle(" -fx-background-color: white;");
-//
-//        // add the label
-//        popup.getContent().add(label);
-//
-//        // set size of label
-//        label.setMinWidth(80);
-//        label.setMinHeight(50);
-//        popup.show(stage);
-
-
-        //todo
-
         SignUpControllerGraphic.login(stage);
     }
 
@@ -99,10 +66,6 @@ public class SignUpViewGraphic extends Application {
             error.setHeaderText("");
             error.setContentText(e.getMessage());
             error.showAndWait();
-//            Alert error = new Alert(Alert.AlertType.WARNING);
-//            error.setHeaderText("Error");
-//            error.setContentText(e.getMessage());
-//            error.showAndWait();
         }
     }
 
@@ -112,6 +75,4 @@ public class SignUpViewGraphic extends Application {
         error.setContentText("account created successfully");
         error.showAndWait();
     }
-
-
 }

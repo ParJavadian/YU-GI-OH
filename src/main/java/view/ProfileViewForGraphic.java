@@ -1,13 +1,10 @@
 package view;
 
 import controller.ProfileControllerGraphic;
-import controller.ScoreBoardControllerGraphic;
-import controller.ShopController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -16,19 +13,17 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.User;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProfileViewForGraphic extends Application implements Initializable {
-
     private static Stage stage;
     private static ProfileViewForGraphic instance = null;
     private static User user;
     private static AnchorPane root;
+    public static ImageView imageView;
     @FXML
     Label label = new Label();
-    public static ImageView imageView;
 
     public static ProfileViewForGraphic getInstance() {
         if (instance == null) instance = new ProfileViewForGraphic();
@@ -67,21 +62,6 @@ public class ProfileViewForGraphic extends Application implements Initializable 
         label.setText("Your Current Username: " + user.getUsername() + "\n Your Current Nickname: " + user.getNickname());
     }
 
-//    public void setImageView(){
-////        Image image = new Image();
-//        ImageView imageView = new ImageView(image);
-//        imageView.setFitWidth(155);
-//        imageView.setFitHeight(155);
-//        imageView.setX(110);
-//        imageView.setY(40);
-//        return imageView;
-//    }
-
-
-//    private void setImagesAndCards() {
-//        images = ShopController.getInstance(user).getImages(firstCardNumber);
-//        image1 = setImageView(images.get(0), 83);
-//    }
 
     private void setImageView() {
         Image image;
@@ -99,11 +79,10 @@ public class ProfileViewForGraphic extends Application implements Initializable 
         imageView.setY(40);
         imageView.setImage(image);
         root.getChildren().add(imageView);
-        //return imageView;
     }
 
 
-    public void changeProfilePhoto(MouseEvent event) throws Exception{
+    public void changeProfilePhoto() throws Exception{
         ChangeProfilePhotoGraphic.getInstance().setCurrentUser(user);
         ChangeProfilePhotoGraphic.getInstance().start(stage);
     }

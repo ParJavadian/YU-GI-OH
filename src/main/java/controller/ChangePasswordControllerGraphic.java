@@ -1,17 +1,12 @@
 package controller;
 
 import controller.exeption.*;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.User;
 import view.ChangePasswordViewGraphic;
-import view.ProfileView;
 import view.ProfileViewForGraphic;
 
 public class ChangePasswordControllerGraphic {
-
 
     public static void changePassword(User user, String oldPassword, String newPassword,Stage stage) throws Exception {
         if (oldPassword.equals("")) {
@@ -27,7 +22,6 @@ public class ChangePasswordControllerGraphic {
         user.setPassword(newPassword);
         ChangePasswordViewGraphic.showPasswordChanged(user);
         ProfileViewForGraphic.getInstance().start(stage);
-        //ProfileView.getInstance(user).printText("password changed successfully!");
     }
 
 
