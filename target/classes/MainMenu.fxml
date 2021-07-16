@@ -58,7 +58,7 @@
       </font>
    </Button>
    <Accordion />
-   <Button layoutX="457.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#newDuel" text="Chat" textFill="#c800ff">
+   <Button onAction="#openChat" layoutX="457.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#newDuel" text="Chat" textFill="#c800ff">
       <font>
          <Font name="Agency FB Bold" size="18.0" />
       </font>

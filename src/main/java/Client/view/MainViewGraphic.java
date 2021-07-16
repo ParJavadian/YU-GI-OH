@@ -1,7 +1,7 @@
 package Client.view;
 
 import Server.controller.MainControllerGraphic;
-import Client.Controller.SoundController;
+import Client.controller.SoundController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -144,5 +144,10 @@ public class MainViewGraphic extends Application{
         error.setHeaderText("shame on you!");
         error.setContentText("you successfully cheated!");
         error.showAndWait();
+    }
+
+    public void openChat() throws Exception {
+        ChatView.getInstance().setCurrentUser(user);
+        ChatView.getInstance().start(stage);
     }
 }

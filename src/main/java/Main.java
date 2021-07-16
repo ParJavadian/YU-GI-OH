@@ -1,4 +1,4 @@
-import Client.Controller.SoundController;
+import Client.controller.SoundController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import Client.view.SignUpViewGraphic;

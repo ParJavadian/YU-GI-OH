@@ -65,9 +65,9 @@ public class ProfileViewForGraphic extends Application implements Initializable 
     private void setImageView() {
         Image image;
         if (user.getProfileImage() == null) {
-            System.out.println(user.getProfileNumber());
             URL url = getClass().getResource("/images/profiles/profile (" + user.getProfileNumber() + ").png");
             image = new Image(String.valueOf(url));
+            user.setProfileImage(image);
         } else {
             image = user.getProfileImage();
         }

@@ -1,8 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #007a99;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.view.ChatView">
-
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #73afb7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.view.ChatView">
+    <children>
+        <ImageView fitHeight="522.0" fitWidth="182.0" layoutX="661.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/backgrounds/32.jpg" />
+            </image>
+        </ImageView>
+        <Label layoutX="235.0" layoutY="21.0" text="GLOBAL CHAT" textFill="#004659">
+            <font>
+                <Font name="Agency FB Bold" size="53.0" />
+            </font>
+        </Label>
+        <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="135.0" layoutY="129.0" prefHeight="391.0" prefWidth="473.0" style="-fx-background-color: #3d6f76;">
+            <content>
+                <VBox fx:id="vBox" prefHeight="389.0" prefWidth="472.0" spacing="5.0" style="-fx-background-color: #73afb7;">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></VBox>
+            </content>
+        </ScrollPane>
+        <Label fx:id="pin" alignment="TOP_LEFT" layoutX="135.0" layoutY="86.0" lineSpacing="5.0" minHeight="46.0" prefHeight="46.0" prefWidth="473.0" style="-fx-background-color: #73afb7; -fx-border-color: #3d6f76;" textFill="#1e494e" wrapText="true">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <font>
+                <Font name="Agency FB" size="17.0" />
+            </font>
+        </Label>
+        <TextField fx:id="textField" layoutX="135.0" layoutY="520.0" prefHeight="33.0" prefWidth="430.0" promptText="message" style="-fx-background-color: #cce2e5;">
+            <font>
+                <Font name="Agency FB" size="15.0" />
+            </font>
+        </TextField>
+        <Button fx:id="sendButton" defaultButton="true" layoutX="565.0" layoutY="520.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="44.0" text="Send" textFill="#005659">
+            <font>
+                <Font name="Agency FB Bold" size="14.0" />
+            </font>
+        </Button>
+      <Button layoutX="37.0" layoutY="545.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="44.0" text="Back" textFill="#005659">
+         <font>
+            <Font name="Agency FB Bold" size="14.0" />
+         </font>
+      </Button>
+    </children>
 </AnchorPane>

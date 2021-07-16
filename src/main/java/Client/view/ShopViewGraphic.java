@@ -3,7 +3,7 @@ package Client.view;
 
 import Server.controller.ImportExportUserController;
 import Server.controller.ShopController;
-import Client.Controller.SoundController;
+import Client.controller.SoundController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

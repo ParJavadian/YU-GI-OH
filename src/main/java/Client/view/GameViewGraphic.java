@@ -1,6 +1,6 @@
 package Client.view;
 
-import Client.Controller.SoundController;
+import Client.controller.SoundController;
 import Server.controller.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -219,6 +219,7 @@ public class GameViewGraphic extends Application implements Initializable {
         if (player.getProfileImage() == null) {
             URL url = getClass().getResource("/images/profiles/profile (" + player.getProfileNumber() + ").png");
             image = new Image(String.valueOf(url));
+            player.setProfileImage(image);
         } else {
             image = player.getProfileImage();
         }
@@ -233,6 +234,7 @@ public class GameViewGraphic extends Application implements Initializable {
         if (rival.getProfileImage() == null) {
             URL url = getClass().getResource("/images/profiles/profile (" + rival.getProfileNumber() + ").png");
             image = new Image(String.valueOf(url));
+            rival.setProfileImage(image);
         } else {
             image = rival.getProfileImage();
         }
