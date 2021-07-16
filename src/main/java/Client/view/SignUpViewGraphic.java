@@ -1,5 +1,7 @@
 package Client.view;
 
+import Client.Controller.SignUpControllerGraphic;
+import Client.Controller.SoundController;
 import Client.controller.SoundController;
 import Server.controller.*;
 import javafx.application.Application;

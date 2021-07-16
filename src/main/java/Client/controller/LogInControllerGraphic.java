@@ -1,10 +1,13 @@
-package Server.controller;
+package Client.Controller;
 
+import Server.controller.Main;
 import Server.controller.exeption.*;
 import javafx.stage.Stage;
 import model.User;
 import Client.view.MainViewGraphic;
 import Client.view.SignUpViewGraphic;
+
+import java.io.IOException;
 
 public class LogInControllerGraphic {
 
@@ -25,8 +28,18 @@ public class LogInControllerGraphic {
         } else if (!user.getPassword().equals(password)) {
             throw new UsernameNotFound();
         } else {
+            sendToServer(user);
             MainViewGraphic.getInstance().setCurrentUser(user);
             MainViewGraphic.getInstance().start(stage);
+        }
+    }
+
+    public static void sendToServer(User user) {
+        try {
+            Main.dataOutputStream.writeUTF("register " + user.getUsername() + " " + user.getNickname() + " " + user.getPassword());
+            Main.dataOutputStream.flush();
+        } catch (IOException x) {
+            x.printStackTrace();
         }
     }
 }

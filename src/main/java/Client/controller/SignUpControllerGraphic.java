@@ -1,5 +1,6 @@
-package Server.controller;
+package Client.Controller;
 
+import Server.controller.ImportExportUserController;
 import Server.controller.exeption.*;
 import javafx.stage.Stage;
 import model.User;
@@ -10,6 +11,7 @@ import Client.view.SignUpViewGraphic;
 import java.util.List;
 
 public class SignUpControllerGraphic {
+
     public static void login(Stage stage) throws Exception {
         LogInViewGraphic.getInstance().start(stage);
     }
