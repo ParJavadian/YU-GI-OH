@@ -1,7 +1,7 @@
 package Client.view;
 
 import Server.controller.MainControllerGraphic;
-import Server.controller.SoundController;
+import Client.Controller.SoundController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

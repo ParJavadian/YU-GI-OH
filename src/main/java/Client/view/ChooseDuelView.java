@@ -2,12 +2,15 @@ package Client.view;
 
 import Server.controller.ChooseDuelControllerGraphic;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.User;
 
+import java.awt.*;
 import java.net.URL;
 
 public class ChooseDuelView extends Application {
@@ -15,6 +18,9 @@ public class ChooseDuelView extends Application {
     static ChooseDuelView instance = null;
     private static User playerOne;
     private static String playerTwoName;
+    public Label chooseAndWaiting;
+//    @FXML
+//    Label chooseAndWaiting;
 
     public static ChooseDuelView getInstance() {
         if (instance == null) instance = new ChooseDuelView();
@@ -35,16 +41,19 @@ public class ChooseDuelView extends Application {
         URL url = getClass().getResource("/NewDuelMenu.fxml");
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
+        chooseAndWaiting.setText("Choose Your Game Round Number");
         stage.setScene(scene);
         stage.show();
     }
 
     public void threeRoundsGame() throws Exception{
-        startNewGame(3);
+        chooseAndWaiting.setText("We Are Trying To Find a Rival For You! Please Wait!");
+        startNewGame(3); //todo
     }
 
     public void oneRoundGame() throws Exception{
-        startNewGame(1);
+        chooseAndWaiting.setText("We Are Trying To Find a Rival For You! Please Wait!");
+        startNewGame(1); //todo
     }
 
     public void goBack() throws Exception {

@@ -1,4 +1,4 @@
-package Server.controller;
+package Client.Controller;
 
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;

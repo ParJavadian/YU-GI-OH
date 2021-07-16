@@ -1,5 +1,6 @@
 package Client.view;
 
+import Client.Controller.SoundController;
 import Server.controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -35,12 +36,12 @@ public class SignUpViewGraphic extends Application {
     public void start(Stage stage) throws Exception {
         if (LogInViewGraphic.instance == null && (SignUpViewGraphic.instance == null)){
             SoundController.getInstance().playWhenStart();
-            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
+            ImportExportUserController importExportUserController = ImportExportUserController.getInstance(); //todo start
             importExportUserController.importAllUsers();
             importExportUserController.importProfileNumber();
             importExportUserController.importAllCards();
             importExportUserController.importAllDecks();
-            importExportUserController.importActiveDeck();
+            importExportUserController.importActiveDeck(); //todo end
             Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
             User.getUserByUsername("@AI@").setActiveDeck(deck);
         }
