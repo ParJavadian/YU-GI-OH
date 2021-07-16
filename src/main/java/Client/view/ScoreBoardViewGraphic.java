@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
@@ -91,5 +92,8 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
 
     public void goBack() throws Exception {
         ScoreBoardControllerGraphic.goBack(stage);
+    }
+
+    public void refresh() {
     }
 }

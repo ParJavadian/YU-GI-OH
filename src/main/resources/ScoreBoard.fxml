@@ -13,7 +13,7 @@
         <Image url="@images/backgrounds/21.jpg" />
     </ImageView>
 
-   <Button layoutX="164.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" textFill="#2088a5">
+   <Button layoutX="115.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" textFill="#2088a5">
       <font>
          <Font name="Agency FB Bold" size="18.0" />
       </font>
@@ -24,4 +24,9 @@
          <Font name="Agency FB Bold" size="24.0" />
       </font>
    </Text>
+   <Button layoutX="212.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#refresh" text="Refresh" textFill="#2088a5">
+      <font>
+         <Font name="Agency FB Bold" size="18.0" />
+      </font>
+   </Button>
 </AnchorPane>
