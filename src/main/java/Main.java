@@ -1,7 +1,7 @@
-import controller.SoundController;
+import Server.controller.SoundController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import view.SignUpViewGraphic;
+import Client.view.SignUpViewGraphic;
 
 public class Main extends Application {
 

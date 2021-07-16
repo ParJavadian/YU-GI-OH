@@ -1,8 +1,8 @@
 package model;
 
 
-import controller.DuelController;
-import view.DuelView;
+import Server.controller.DuelController;
+import Client.view.DuelView;
 
 import java.util.ArrayList;
 

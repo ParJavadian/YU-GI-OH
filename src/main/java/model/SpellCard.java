@@ -1,8 +1,8 @@
 package model;
 
-import controller.DuelController;
+import Server.controller.DuelController;
 import javafx.scene.image.Image;
-import view.DuelView;
+import Client.view.DuelView;
 
 import java.util.List;
 import java.util.regex.Matcher;
