@@ -1,7 +1,7 @@
 package view;
 
 import client.Main;
-import server.ServerController;
+import javafx.application.Platform;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 import model.Message;
 import model.User;
 
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
@@ -24,7 +23,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChatView extends Application implements Initializable {
-    private static final ArrayList<Label> messages = new ArrayList<>();
+    private static final ArrayList<Label> messagesLabels = new ArrayList<>();
     private static Stage stage;
     private static ChatView instance = null;
     private static User user;
@@ -33,7 +32,7 @@ public class ChatView extends Application implements Initializable {
     @FXML
     private VBox vBox;
     @FXML
-    private Label pin,onlineNumber;
+    private Label pin, onlineNumber;
     Socket socket;
 
     public static ChatView getInstance() {
@@ -44,6 +43,7 @@ public class ChatView extends Application implements Initializable {
     public void setCurrentUser(User user) {
         ChatView.user = user;
     }
+
     @Override
     public void start(Stage stage) throws Exception {
         ChatView.stage = stage;
@@ -84,31 +84,58 @@ public class ChatView extends Application implements Initializable {
         messages.add(message1);
         messages.add(message2);
         messages.add(message3);*/
+        setOnlineNumber();
+        //TODO get messages from server
+    }
+
+    private void setMessages(){
+        ArrayList<Message> messages = new ArrayList<>();
+        new Thread(() -> {
+            while (true) {
+                try {
+                    Main.dataOutputStream.writeUTF("all messages");
+                    Main.dataOutputStream.flush();
+                    String[] results = Main.dataInputStream.readUTF().split(" ");
+                    for (String result : results) {
+//                        Message
+                    }
+                    Platform.runLater(() -> {
+                        messagesLabels.clear();
+                        for (Message message : messages) {
+                            addMessage(message);
+                        }
+                    });
+                    Thread.sleep(1000);
+                } catch(Exception x){
+                    x.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    private void setOnlineNumber(){
         try {
-            socket = new Socket("localhost",7777);
+            socket = new Socket("localhost", 7777);
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        ServerController.showLogins("1");
         new Thread(() -> {
-            try {
-                Main.dataOutputStream.writeUTF("NumberOfOnlinePeople");
-                Main.dataOutputStream.flush();
-                DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
-                String result = dataInputStream.readUTF();
-                System.out.println("result: " + result);
-                onlineNumber.setText(result);
-//                ServerController.showLogins("2");
-            } catch (IOException x) {
-                System.out.println("1");
-                x.printStackTrace();
+            while (true) {
+                try {
+                    Main.dataOutputStream.writeUTF("NumberOfOnlinePeople");
+                    Main.dataOutputStream.flush();
+                    String result = Main.dataInputStream.readUTF();
+                    Platform.runLater(() -> setLabel(result));
+                    Thread.sleep(5000);
+                } catch(Exception x){
+                    x.printStackTrace();
+                }
             }
         }).start();
-        //TODO get messages from server
-        ArrayList<Message> messages = new ArrayList<>();
-        for (Message message : messages) {
-            addMessage(message);
-        }
+    }
+
+    private void setLabel(String text){
+        onlineNumber.setText(text);
     }
 
     private void addMessage(Message message) {
@@ -122,8 +149,8 @@ public class ChatView extends Application implements Initializable {
         imageView.setY(0);
         label1.setWrapText(true);
         label1.setGraphic(imageView);
-        label1.setFont(new Font("Agency FB",16.5));
-        messages.add(label1);
+        label1.setFont(new Font("Agency FB", 16.5));
+        messagesLabels.add(label1);
         vBox.getChildren().add(label1);
         /*vBox.setPrefHeight(36 * decks.size());
         scrollPane.setPrefHeight(36 * decks.size());*/

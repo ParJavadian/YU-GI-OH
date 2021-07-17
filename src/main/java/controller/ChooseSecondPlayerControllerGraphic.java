@@ -9,16 +9,13 @@ import view.ChooseDuelView;
 
 public class ChooseSecondPlayerControllerGraphic {
 
-    public static void twoPlayerGame(String secondPlayerUsername, User user, Stage stage)throws Exception {
-        if(secondPlayerUsername==null)
-            throw new PlayerNotFound();
-        User secondUser = User.getUserByUsername(secondPlayerUsername);
-        if (secondUser.getActiveDeck() == null)
-            throw new NoActiveDeck(secondPlayerUsername);
+    public static void twoPlayerGame(User user, Stage stage)throws Exception {
+        if (user.getActiveDeck() == null)
+            throw new NoActiveDeck(user.getUsername());
         if(!user.getActiveDeck().isValid())
-            throw new InvalidDeck(secondPlayerUsername);
+            throw new InvalidDeck(user.getUsername());
         ChooseDuelView.getInstance().setCurrentUser(user);
-        ChooseDuelView.getInstance().setPlayerTwoName(secondPlayerUsername);
+        ChooseDuelView.getInstance().setPlayerTwoName("");
         ChooseDuelView.getInstance().start(stage);
     }
 }

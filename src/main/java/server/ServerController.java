@@ -1,8 +1,7 @@
 package server;
 
-import controller.DeckController;
 import controller.ImportExportUserController;
-import model.Deck;
+import model.Message;
 import model.User;
 
 import java.io.DataInputStream;
@@ -12,7 +11,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.UUID;
 
 public class ServerController {
@@ -20,6 +18,11 @@ public class ServerController {
     private static ArrayList<User> allUsers = new ArrayList<>();
     private static final HashMap<String, User> loggedInUsers = new HashMap<>();
     private static ServerSocket serverSocket;
+    private static ArrayList<User> peopleWaitingFor3RoundGame = new ArrayList<>();
+    private static ArrayList<User> peopleWaitingFor1RoundGame = new ArrayList<>();
+    private static ArrayList<Message> messages = new ArrayList<>();
+    static User finalSecondUser;
+    static User finalFirstUser;
 
     public static void main(String[] args) {
         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
@@ -48,10 +51,10 @@ public class ServerController {
                         DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
                         while (true) {
                             String input = dataInputStream.readUTF();
-                            String result = process(input, dataOutputStream);
-                            if (result.equals("")) break;
-                            dataOutputStream.writeUTF(result);
-                            dataOutputStream.flush();
+                            process(input, dataOutputStream);
+//                            if (result.equals("")) break;
+//                            dataOutputStream.writeUTF(result);
+//                            dataOutputStream.flush();
                         }
 //                        dataInputStream.close();
 //                        socket.close();
@@ -72,12 +75,12 @@ public class ServerController {
         }
     }
 
+
     public static void showLogins(String ok) {
         System.out.println(loggedInUsers.size() + " " + ok);
     }
 
-
-    static String process(String command, DataOutputStream dataOutputStream) {
+    static void process(String command, DataOutputStream dataOutputStream) {
 //        System.out.println("process 1: " + command);
         /*if (command.startsWith("signup")) {
             String[] parts = command.split(" ");
@@ -90,9 +93,34 @@ public class ServerController {
             returnNumberOfOnlinePeople(dataOutputStream);
         } else if (command.startsWith("logout")) {
             logout(command);
-            return "";
+        }else if (command.startsWith("request for game: ")) {
+            handleRequestForGame(command);
+        }else if(command.equals("all messages")){
+            handleRequestgetAllMessages(dataOutputStream);
+        }else if(command.startsWith("addchat ")){
+            addMessage(command);
         }
-        return "ok";
+    }
+
+    private static void addMessage(String command) {
+        String[] parts = command.split(" ");
+        String text = parts[1];
+        User sender = User.getUserByUsername(parts[2]);
+        int Id = Integer.parseInt(parts[3]);
+        messages.add(new Message(text,sender));
+    }
+
+    private synchronized static void handleRequestgetAllMessages(DataOutputStream dataOutputStream) {
+        try {
+            StringBuilder toWrite = new StringBuilder();
+            for (Message message : messages) {
+                toWrite.append(message.Id).append(" ");
+            }
+            dataOutputStream.writeUTF(toWrite.toString());
+            dataOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /*public static synchronized boolean register(String username, String password, String fullName) {
@@ -105,19 +133,16 @@ public class ServerController {
     }*/
 
     public static void login(String username) {
-//        System.out.println(allUsers.size() + " " + username);
         for (User user : allUsers) {
             if (user.getUsername().equals(username)) {
-//                System.out.println("login2: ");
                 loggedInUsers.put(UUID.randomUUID().toString(), user);
                 break;
             }
         }
     }
 
-    public static void returnNumberOfOnlinePeople(DataOutputStream dataOutputStream) {
+    public static synchronized void returnNumberOfOnlinePeople(DataOutputStream dataOutputStream) {
         try {
-            System.out.println("logged in: "  +loggedInUsers.size());
             dataOutputStream.writeUTF(String.valueOf(loggedInUsers.size()));
             dataOutputStream.flush();
         } catch (IOException e) {
@@ -128,6 +153,70 @@ public class ServerController {
     public static void logout(String command) {
         String[] parts = command.split(" ");
         loggedInUsers.values().remove(User.getUserByUsername(parts[1]));
+    }
+
+    public static void handleRequestForGame(String command){
+        String[] parts = command.split(" ");
+        String username = parts[3];
+        String numberOfRounds = parts[4];
+        if (numberOfRounds.equals("1")) {
+            peopleWaitingFor1RoundGame.add(User.getUserByUsername(username));
+        } else if (numberOfRounds.equals("3")) {
+            peopleWaitingFor3RoundGame.add(User.getUserByUsername(username));
+        }
+        if (peopleWaitingFor1RoundGame.size()>1) {
+            matchUsersForGame(peopleWaitingFor1RoundGame);
+            //todo startGame
+        }
+        if (peopleWaitingFor3RoundGame.size()>1) {
+            matchUsersForGame(peopleWaitingFor3RoundGame);
+            //todo startGame
+        }
+    }
+
+    public static void matchUsersForGame(ArrayList<User> waitingUsers){
+        new Thread(() -> {
+            for (User firstUser : waitingUsers) {
+                for (User secondUser : waitingUsers) {
+                    if ((Math.abs(firstUser.getScore() - secondUser.getScore()) < 2000) && (waitingUsers.indexOf(firstUser) != waitingUsers.indexOf(secondUser))) {
+                        finalFirstUser = firstUser;
+                        finalSecondUser = secondUser;
+//                        System.out.println("first user: " + finalFirstUser.getUsername() + "," + finalFirstUser.getScore());
+//                        System.out.println("second user: " + finalSecondUser.getUsername() + "," + finalSecondUser.getScore());
+                        return;
+                    }
+                }
+            }
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            for (User firstUser : waitingUsers) {
+                for (User secondUser : waitingUsers) {
+                    if ((Math.abs(firstUser.getScore() - secondUser.getScore()) < 2000) && (waitingUsers.indexOf(firstUser) != waitingUsers.indexOf(secondUser))) {
+                        finalFirstUser = firstUser;
+                        finalSecondUser = secondUser;
+//                        System.out.println("first user: " + finalFirstUser.getUsername() + "," + finalFirstUser.getScore());
+//                        System.out.println("second user: " + finalSecondUser.getUsername() + "," + finalSecondUser.getScore());
+                        return;
+                    }
+                }
+            }
+            for (User firstUser : waitingUsers) {
+                for (User secondUser : waitingUsers) {
+                    if (waitingUsers.indexOf(firstUser) != waitingUsers.indexOf(secondUser)) {
+                        finalFirstUser = waitingUsers.get(0);
+                        finalSecondUser = waitingUsers.get(1);
+//                        System.out.println("first user: " + finalFirstUser.getUsername() + "," + finalFirstUser.getScore());
+//                        System.out.println("second user: " + finalSecondUser.getUsername() + "," + finalSecondUser.getScore());
+                        return;
+                    }
+                }
+            }
+
+        }).start();
+
     }
 
 
