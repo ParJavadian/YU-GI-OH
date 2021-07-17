@@ -18,12 +18,14 @@ import java.util.UUID;
 public class ServerController {
 
     private static ArrayList<User> allUsers = new ArrayList<>();
-    private static HashMap<String, User> loggedInUsers = new HashMap<>();
+    private static final HashMap<String, User> loggedInUsers = new HashMap<>();
     private static ServerSocket serverSocket;
 
     public static void main(String[] args) {
         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.importAllUsers();
+        allUsers = (ArrayList<User>) User.getAllUsers();
+//        System.out.println("in main: " + allUsers.size());
         /*importExportUserController.importProfileNumber();
         importExportUserController.importAllCards();
         importExportUserController.importAllDecks();
@@ -34,14 +36,14 @@ public class ServerController {
             Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(deck);
         }
         else Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(AIDeck);*/
-        System.out.println("main: " + User.getAllUsers());
+//        System.out.println("main: " + User.getAllUsers());
         try {
             serverSocket = new ServerSocket(7777);
             while (true) {
                 Socket socket = serverSocket.accept();
                 new Thread(() -> {
                     try {
-                        System.out.println("main2: " + User.getAllUsers() + " " + socket.getPort());
+//                        System.out.println("main2: " + User.getAllUsers() + " " + socket.getPort());
                         DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
                         DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
                         while (true) {
@@ -76,7 +78,7 @@ public class ServerController {
 
 
     static String process(String command, DataOutputStream dataOutputStream) {
-        System.out.println("process 1: " + command);
+//        System.out.println("process 1: " + command);
         /*if (command.startsWith("signup")) {
             String[] parts = command.split(" ");
             return String.valueOf(ServerController.register(parts[1], parts[2], parts[3]));
@@ -103,10 +105,10 @@ public class ServerController {
     }*/
 
     public static void login(String username) {
-        System.out.println("login 1: " + User.getAllUsers());
+//        System.out.println(allUsers.size() + " " + username);
         for (User user : allUsers) {
-            System.out.println("login 2");
             if (user.getUsername().equals(username)) {
+//                System.out.println("login2: ");
                 loggedInUsers.put(UUID.randomUUID().toString(), user);
                 break;
             }
@@ -115,6 +117,7 @@ public class ServerController {
 
     public static void returnNumberOfOnlinePeople(DataOutputStream dataOutputStream) {
         try {
+            System.out.println("logged in: "  +loggedInUsers.size());
             dataOutputStream.writeUTF(String.valueOf(loggedInUsers.size()));
             dataOutputStream.flush();
         } catch (IOException e) {

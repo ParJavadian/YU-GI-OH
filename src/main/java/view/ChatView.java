@@ -89,15 +89,18 @@ public class ChatView extends Application implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ServerController.showLogins("1");
+//        ServerController.showLogins("1");
         new Thread(() -> {
             try {
                 Main.dataOutputStream.writeUTF("NumberOfOnlinePeople");
                 Main.dataOutputStream.flush();
                 DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
-                onlineNumber.setText(dataInputStream.readUTF());
-                ServerController.showLogins("2");
+                String result = dataInputStream.readUTF();
+                System.out.println("result: " + result);
+                onlineNumber.setText(result);
+//                ServerController.showLogins("2");
             } catch (IOException x) {
+                System.out.println("1");
                 x.printStackTrace();
             }
         }).start();
