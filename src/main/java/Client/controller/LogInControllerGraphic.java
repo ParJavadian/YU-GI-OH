@@ -1,4 +1,4 @@
-package Client.Controller;
+package Client.controller;
 
 import Server.controller.Main;
 import Server.controller.exeption.*;

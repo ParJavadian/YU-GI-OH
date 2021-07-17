@@ -2,7 +2,7 @@ package Client.view;
 
 import Server.controller.DeckController;
 import Server.controller.ImportExportUserController;
-import Client.Controller.LogInControllerGraphic;
+import Client.controller.LogInControllerGraphic;
 import Client.controller.SoundController;
 import javafx.application.Application;
 import javafx.fxml.FXML;

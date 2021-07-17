@@ -6,9 +6,12 @@ import javafx.stage.Stage;
 import model.User;
 import Client.view.*;
 
+import java.io.IOException;
+
 public class MainControllerGraphic {
 
-    public static void logout(Stage stage) throws Exception {
+    public static void logout(User user,Stage stage) throws Exception {
+        sendLogoutToServer(user);
         LogInViewGraphic.getInstance().start(stage);
     }
 
@@ -40,5 +43,14 @@ public class MainControllerGraphic {
             throw new InvalidDeck(user.getUsername());
         ChooseSecondPlayerViewGraphic.getInstance().setCurrentUser(user);
         ChooseSecondPlayerViewGraphic.getInstance().start(stage);
+    }
+
+    public static void sendLogoutToServer(User user) {
+        try {
+            Main.dataOutputStream.writeUTF("logout " + user.getUsername());
+            Main.dataOutputStream.flush();
+        } catch (IOException x) {
+            x.printStackTrace();
+        }
     }
 }

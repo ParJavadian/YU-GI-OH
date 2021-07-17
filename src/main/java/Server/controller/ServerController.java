@@ -25,16 +25,11 @@ public class ServerController {
                     try {
                         DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
                         DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                        while (true) {
-                            String input = dataInputStream.readUTF();
-                            String result = process(input);
-                            if (result.equals("")) break;
-                            dataOutputStream.writeUTF(result);
-                            dataOutputStream.flush();
-                        }
+                        String input = dataInputStream.readUTF();
+                        process(input,dataOutputStream);
                         dataInputStream.close();
                         socket.close();
-                        serverSocket.close();
+//                        serverSocket.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -47,15 +42,22 @@ public class ServerController {
         }
     }
 
-    static String process(String command) {
+
+
+
+    static void process(String command,DataOutputStream dataOutputStream) {
         /*if (command.startsWith("signup")) {
             String[] parts = command.split(" ");
             return String.valueOf(ServerController.register(parts[1], parts[2], parts[3]));
-        } else*/ if (command.startsWith("login")) {
+        } else*/
+        if (command.startsWith("login")) {
             String[] parts = command.split(" ");
-            return String.valueOf(ServerController.login(parts[1], parts[2]));
+            ServerController.login(parts[1]);
+        } else if (command.equals("NumberOfOnlinePeople")) {
+            returnNumberOfOnlinePeople(dataOutputStream);
+        } else if (command.startsWith("logout")) {
+            logout(command);
         }
-        return "";
     }
 
     /*public static synchronized boolean register(String username, String password, String fullName) {
@@ -67,17 +69,28 @@ public class ServerController {
 
     }*/
 
-    public static boolean login(String username, String password) {
-        for (User user: allUsers) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+    public static void login(String username) {
+        for (User user : allUsers) {
+            if (user.getUsername().equals(username)) {
                 loggedInUsers.put(UUID.randomUUID().toString(), user);
-                return true;
+                break;
             }
         }
-        return false;
     }
 
+    public static void returnNumberOfOnlinePeople(DataOutputStream dataOutputStream){
+        try {
+            dataOutputStream.writeUTF(String.valueOf(loggedInUsers.size()));
+            dataOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static void logout(String command){
+        String[] parts = command.split(" ");
+        loggedInUsers.values().remove(User.getUserByUsername(parts[1]));
+    }
 
 
 

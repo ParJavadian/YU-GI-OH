@@ -54,7 +54,7 @@ public class MainViewGraphic extends Application{
     }
 
     public void logout() throws Exception {
-        MainControllerGraphic.logout(stage);
+        MainControllerGraphic.logout(user,stage);
     }
 
     public void showScoreboard() throws Exception{
