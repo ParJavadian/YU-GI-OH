@@ -1,6 +1,6 @@
 package model;
 
-import Server.controller.DuelController;
+import controller.DuelController;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package model;
 
 
-import Server.controller.DeckController;
+import controller.DeckController;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;

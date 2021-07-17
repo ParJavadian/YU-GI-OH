@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffd9cc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.view.RemoveCardFromSideDeckView">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffd9cc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RemoveCardFromSideDeckView">
     <Button layoutX="722.0" layoutY="469.0" mnemonicParsing="false" onAction="#goNextPage" text="Next Page">
         <font>
             <Font name="Agency FB Bold" size="21.0" />
@@ -64,7 +64,7 @@
             <Font name="Agency FB Bold" size="21.0" />
         </font>
     </Button>
-    <Button layoutX="360.0" layoutY="469.0" mnemonicParsing="false" onAction="#openMainDeckMenu" prefHeight="40.0" prefWidth="180.0" text="Edit Client.Main Deck">
+    <Button layoutX="360.0" layoutY="469.0" mnemonicParsing="false" onAction="#openMainDeckMenu" prefHeight="40.0" prefWidth="180.0" text="Edit client.Main Deck">
         <font>
             <Font name="Agency FB Bold" size="21.0" />
         </font>

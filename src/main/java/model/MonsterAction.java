@@ -1,6 +1,6 @@
 package model;
 
-import Server.controller.DuelController;
+import controller.DuelController;
 
 public class MonsterAction {
     private static MonsterAction instance;
