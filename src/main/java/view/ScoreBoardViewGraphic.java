@@ -1,7 +1,9 @@
 package view;
 
+import client.Main;
 import controller.ScoreBoardControllerGraphic;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,7 +14,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 import model.User;
+import server.ServerController;
 
+import java.net.ServerSocket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -48,46 +52,110 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Text text1;
+        final Text[] text1 = new Text[1];
         ArrayList<User> allUsers = new ArrayList<>(User.getAllUsers());
         while (allUsers.contains(User.getUserByUsername("@AI@"))) {
             allUsers.remove(User.getUserByUsername("@AI@"));
         }
         Comparator<User> userComparator = Comparator.comparing(User::getScore, Comparator.reverseOrder()).thenComparing(User::getNickname);
-        allUsers.sort(userComparator);
-        User previousUser = null;
-        int rank = 1;
-        int i = 1;
-        int userCounter = 0;
-        for (User eachUser : allUsers) {
-            if (userCounter >= 20) {
-                break;
-            }
-            if (previousUser != null) {
-                if (previousUser.getScore() == eachUser.getScore()) {
-                    i++;
-                } else {
-                    rank += i;
-                    i = 1;
+
+
+
+        new Thread(() -> {
+            while (true) {
+                allUsers.sort(userComparator);
+                User previousUser = null;
+                int rank = 1;
+                int i = 1;
+                int userCounter = 0;
+                for (User eachUser : allUsers) {
+                    if (userCounter >= 20) {
+                        break;
+                    }
+                    if (previousUser != null) {
+                        if (previousUser.getScore() == eachUser.getScore()) {
+                            i++;
+                        } else {
+                            rank += i;
+                            i = 1;
+                        }
+                    }
+                    text1[0] = new Text(rank + "-          NickName:" + eachUser.getNickname() + "          Score: " + eachUser.getScore() + "\n");
+                    previousUser = eachUser;
+                    userCounter++;
+
+                    if (eachUser.equals(user)) {
+                        text1[0].setFill(Color.PURPLE);
+                        Font font1 = Font.font("Agency FB", FontWeight.BOLD, 18);
+                        text1[0].setFont(font1);
+                    } else if (ServerController.loggedInUsers.values().contains(eachUser)) {
+                        text1[0].setFill(Color.PURPLE);
+                        Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
+                        text1[0].setFont(font1);
+                    } else {
+                        text1[0].setFill(Color.BLUE);
+                        Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
+                        text1[0].setFont(font1);
+                    }
+                    textFlow.setLineSpacing(1.5);
+                    textFlow.getChildren().removeAll();
+                    textFlow.getChildren().add(text1[0]);
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
                 }
             }
-            text1 = new Text(rank + "-          NickName:" + eachUser.getNickname() + "          Score: " + eachUser.getScore() + "\n");
-            previousUser = eachUser;
-            userCounter++;
+        }).start();
 
-            if (eachUser.equals(user)) {
-                text1.setFill(Color.PURPLE);
-                Font font1 = Font.font("Agency FB", FontWeight.BOLD, 18);
-                text1.setFont(font1);
-            } else {
-                text1.setFill(Color.BLUE);
-                Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
-                text1.setFont(font1);
-            }
-            textFlow.setLineSpacing(1.5);
-            textFlow.getChildren().add(text1);
+
+
+
+//            allUsers.sort(userComparator);
+//            User previousUser = null;
+//            int rank = 1;
+//            int i = 1;
+//            int userCounter = 0;
+//            for (User eachUser : allUsers) {
+//                if (userCounter >= 20) {
+//                    break;
+//                }
+//                if (previousUser != null) {
+//                    if (previousUser.getScore() == eachUser.getScore()) {
+//                        i++;
+//                    } else {
+//                        rank += i;
+//                        i = 1;
+//                    }
+//                }
+//                text1 = new Text(rank + "-          NickName:" + eachUser.getNickname() + "          Score: " + eachUser.getScore() + "\n");
+//                previousUser = eachUser;
+//                userCounter++;
+//
+//                if (eachUser.equals(user)) {
+//                    text1.setFill(Color.PURPLE);
+//                    Font font1 = Font.font("Agency FB", FontWeight.BOLD, 18);
+//                    text1.setFont(font1);
+//                } else if (ServerController.loggedInUsers.values().contains(eachUser)){
+//                    text1.setFill(Color.PURPLE);
+//                    Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
+//                    text1.setFont(font1);
+//                } else {
+//                    text1.setFill(Color.BLUE);
+//                    Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
+//                    text1.setFont(font1);
+//                }
+//                textFlow.setLineSpacing(1.5);
+//                textFlow.getChildren().add(text1);
+
+
+
+
+
         }
-    }
+
 
     public void goBack() throws Exception {
         ScoreBoardControllerGraphic.goBack(stage);

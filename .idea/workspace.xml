@@ -23,14 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="save before gand">
-      <change afterPath="$PROJECT_DIR$/ProfileNumbers/kj.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileNumbers/kja.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileNumbers/sa.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProfileNumbers/sa1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/kj.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/kja.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/sa.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Users/sa1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_6_24_2021_9_01_PM__Default_Changelist_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_5_2021_8_59_PM__Default_Changelist_.xml" afterDir="false" />
@@ -39,11 +31,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_13_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_1_13_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_2_59_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_2_59_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_3_03_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2021_3_03_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_11_01_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_11_01_PM_[Default_Changelist]/src (11).zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_11_01_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_6_04_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_6_04_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_07_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_07_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_08_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_08_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_08_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_08_PM__Default_Changelist_1.xml" afterDir="false" />
@@ -52,383 +39,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_11_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_11_PM__Default_Changelist_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_12_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_12_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_14_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_14_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_18_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_18_PM_[Default_Changelist]/src (10).zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_9_2021_8_18_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_12.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_13.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_14.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_14.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_15.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_15.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_24.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_27.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_28.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_______Default_Changelist_28.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_۰۹_۰۷_۲۰۲۱_۱۹_۵۲_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/controller/LogInControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LogInControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/controller/SignUpControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SignUpControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/controller/SoundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SoundController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/AddCardToDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AddCardToDeckView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/AllDecksViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/AllDecksViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ChangeNicknameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChangeNicknameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ChangePasswordViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChangePasswordViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ChangeProfilePhotoGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChangeProfilePhotoGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChatView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ChooseDuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ChooseSecondPlayerViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseSecondPlayerViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/DuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/DuelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ImportExportGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ImportExportGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/LobbyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LobbyView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ProfileViewForGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/RemoveCardFromDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromDeckView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/RemoveCardFromSideDeckView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RemoveCardFromSideDeckView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/RockPaperScissorAIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorAIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/RockPaperScissorPlayerTwoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorPlayerTwoView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/RockPaperScissorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ScannerClassForView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScannerClassForView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/ShopViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Client/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ChangeNicknameControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChangeNicknameControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ChangePasswordControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChangePasswordControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ChooseDuelControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseDuelControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ChooseSecondPlayerControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseSecondPlayerControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/CrownController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/DeckShuffleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckShuffleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ExplosionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ExplosionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ImportExportCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ImportExportUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/LightController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LightController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/LightningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LightningController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/LobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LobbyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/MenuTypesGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuTypesGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ProfileControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ProfileControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ScoreBoardControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ScoreBoardControllerGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/SwordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SwordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/ActionNotAllowedInThisPhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/ActionNotAllowedInThisPhase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/AlreadyActivated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/AlreadyActivated.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/AlreadyAttacked.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/AlreadyAttacked.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/AlreadyChangedPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/AlreadyChangedPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/AlreadyInWantedPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/AlreadyInWantedPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/AlreadySummoned.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/AlreadySummoned.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotActivateEffectInThisPhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotActivateEffectInThisPhase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotAttackDirectly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotAttackDirectly.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotAttackThisCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotAttackThisCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotChangePosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotChangePosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotFlipSummon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotFlipSummon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotRitualSummon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotRitualSummon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotSpecialSummon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotSpecialSummon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CanNotSummon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CanNotSummon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CantDoActionInThisPhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CantDoActionInThisPhase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CardNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CardNotFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CardNotFoundForController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CardNotFoundForController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CardNotFoundFotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CardNotFoundFotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CardNotFoundInDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CardNotFoundInDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/CardNotFoundInUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/CardNotFoundInUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/DeckNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/DeckNotFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/DifferentPasswords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/DifferentPasswords.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/EmptyConfirmPasswordBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/EmptyConfirmPasswordBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/EmptyDeckNameBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/EmptyDeckNameBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/EmptyNewPasswordBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/EmptyNewPasswordBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/EmptyNicknameBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/EmptyNicknameBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/EmptyOldPasswordBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/EmptyOldPasswordBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/EmptyPasswordBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/EmptyPasswordBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/EmptyUsernameBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/EmptyUsernameBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/EnterNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/EnterNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/FullMainDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/FullMainDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/FullMonsterZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/FullMonsterZone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/FullSideDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/FullSideDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/FullSpellZone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/FullSpellZone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/GraveYardEmpty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/GraveYardEmpty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/HasAttackedInBattle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/HasAttackedInBattle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/ImproperPhase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/ImproperPhase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/InsufficientForTribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/InsufficientForTribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/InvalidCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/InvalidCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/InvalidDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/InvalidDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/InvalidPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/InvalidPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/InvalidSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/InvalidSelection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/InvisibleCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/InvisibleCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/IsNotSpell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/IsNotSpell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/MustRitualSummon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/MustRitualSummon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/MustSpecialSummon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/MustSpecialSummon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/NoActiveDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/NoActiveDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/NoCardFoundInThisPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/NoCardFoundInThisPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/NoCardSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/NoCardSelected.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/NoCardToAttack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/NoCardToAttack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/NoMonsterHere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/NoMonsterHere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/NotEnoughMoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/NotEnoughMoney.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/NotLoggedIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/NotLoggedIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/NotYourTurnForThisAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/NotYourTurnForThisAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/OneCardForLimited.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/OneCardForLimited.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/PlayerNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/PlayerNotFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/RepetitiveDeckName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/RepetitiveDeckName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/RepetitiveNickname.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/RepetitiveNickname.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/RepetitiveUsername.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/RepetitiveUsername.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/SameNewNickname.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/SameNewNickname.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/SameNewUsername.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/SameNewUsername.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/SamePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/SamePassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/TakenUsername.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/TakenUsername.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/ThreeSameCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/ThreeSameCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/UndonePreparationOfSpell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/UndonePreparationOfSpell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/UnsupportedRoundNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/UnsupportedRoundNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/UserDoesNotExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/UserDoesNotExist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/UsernameNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/UsernameNotFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/WrongMenuNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/WrongMenuNavigation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/WrongPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/WrongPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/WrongPasswordForSignInMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/WrongPasswordForSignInMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server/controller/exeption/sameAddresses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/exeption/sameAddresses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MonsterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MonsterAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MonsterCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MonsterCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/SpellCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AllDecksMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AllDecksMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ChangeNickname.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ChangeNickname.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ChangePassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ChangePassword.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ChangeProfilePhoto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ChangeProfilePhoto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Chat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ChooseSecondPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ChooseSecondPlayer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CreateNewDeck.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/GameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/GameMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ImportExport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ImportExport.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/NewDuelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/NewDuelMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RemoveCardFromDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RemoveCardFromDeck.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RemoveCardFromSideDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RemoveCardFromSideDeck.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RockPaperScissorAi.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissorAi.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RockPaperScissorPlayerTwo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RockPaperScissorPlayerTwo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ScoreBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ScoreBoard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SignUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AllDecksMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AllDecksMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ChangeNickname.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChangeNickname.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ChangePassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChangePassword.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ChangeProfilePhoto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChangeProfilePhoto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ChooseSecondPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChooseSecondPlayer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/AddCardToDeckView$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/AddCardToDeckView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/AllDecksViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ChangeNicknameViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ChangePasswordViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ChangeProfilePhotoGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ChooseDuelView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ChooseSecondPlayerViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/DuelView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/GameViewGraphic$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/GameViewGraphic$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/GameViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ImportExportGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/LogInViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/MainViewGraphic$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/MainViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ProfileViewForGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/RemoveCardFromDeckView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/RemoveCardFromSideDeckView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/RockPaperScissorAIView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/RockPaperScissorPlayerTwoView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/RockPaperScissorView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ScannerClassForView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ScoreBoardViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/ShopViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Client/view/SignUpViewGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CreateNewDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CreateNewDeck.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImportExport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ImportExport.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/NewDuelMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NewDuelMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RemoveCardFromDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RemoveCardFromDeck.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RemoveCardFromSideDeck.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RemoveCardFromSideDeck.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RockPaperScissor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RockPaperScissor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RockPaperScissorAi.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RockPaperScissorAi.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RockPaperScissorPlayerTwo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RockPaperScissorPlayerTwo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ScoreBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ScoreBoard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ChangeNicknameControllerGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ChangePasswordControllerGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ChooseDuelControllerGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ChooseSecondPlayerControllerGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/CrownController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/DeckController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/DeckShuffleController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/DuelController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ExplosionController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ImportExportCardController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ImportExportUserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/LightController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/LightningController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/MainControllerGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/MenuTypesGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ProfileControllerGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ScoreBoardControllerGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/ShopController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/SwordController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/ActionNotAllowedInThisPhase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/AlreadyActivated.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/AlreadyAttacked.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/AlreadyChangedPosition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/AlreadyInWantedPosition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/AlreadySummoned.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotActivateEffectInThisPhase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotAttack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotAttackDirectly.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotAttackThisCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotChangePosition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotFlipSummon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotRitualSummon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotSpecialSummon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CanNotSummon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CantDoActionInThisPhase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CardNotFound.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CardNotFoundForController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CardNotFoundFotController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CardNotFoundInDeck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/CardNotFoundInUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/DeckNotFound.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/DifferentPasswords.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/EmptyConfirmPasswordBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/EmptyDeckNameBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/EmptyNewPasswordBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/EmptyNicknameBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/EmptyOldPasswordBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/EmptyPasswordBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/EmptyUsernameBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/EnterNumber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/FullMainDeck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/FullMonsterZone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/FullSideDeck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/FullSpellZone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/GraveYardEmpty.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/HasAttackedInBattle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/ImproperPhase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/InsufficientForTribute.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/InvalidCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/InvalidDeck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/InvalidPassword.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/InvalidSelection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/InvisibleCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/IsNotSpell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/MustRitualSummon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/MustSpecialSummon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/NoActiveDeck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/NoCardFoundInThisPosition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/NoCardSelected.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/NoCardToAttack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/NoMonsterHere.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/NotEnoughMoney.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/NotLoggedIn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/NotYourTurnForThisAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/OneCardForLimited.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/PlayerNotFound.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/RepetitiveDeckName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/RepetitiveNickname.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/RepetitiveUsername.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/SameNewNickname.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/SameNewUsername.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/SamePassword.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/TakenUsername.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/ThreeSameCards.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/UndonePreparationOfSpell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/UnsupportedRoundNumber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/UserDoesNotExist.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/UsernameNotFound.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/WrongMenuNavigation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/WrongPassword.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/WrongPasswordForSignInMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/controller/exeption/sameAddresses.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ShopMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SignUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$24.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$25.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$26.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$27.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$28.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$29.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$30.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$31.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$32.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$33.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$34.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$34.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$35.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$35.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$36.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$36.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$37.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$37.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$38.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$38.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$39.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$39.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$40.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$40.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$41.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$41.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MonsterCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MonsterCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/SpellCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/SpellCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -458,13 +80,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -482,7 +97,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Brick Breaker/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -595,7 +210,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.LogInViewGraphic" />
-        <item itemvalue="Application.ServerController (1)" />
         <item itemvalue="Application.ServerController" />
         <item itemvalue="Application.ChatView" />
         <item itemvalue="Application.Main" />
@@ -998,56 +612,6 @@
     <MESSAGE value="kar haye parakande" />
     <MESSAGE value="save before gand" />
     <option name="LAST_COMMIT_MESSAGE" value="save before gand" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1625877971260">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1625877971260" />
-    <state x="424" y="231" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1626531406803">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="424" y="231" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1626531406803" />
-    <state x="438" y="248" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1626531386475">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="438" y="248" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1280.680@0.0.1280.680" timestamp="1626531386475" />
-    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1625873821371">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1625873821371" />
-    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1625875227010">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1625875227010" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1626516160358">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1626516160358" />
-    <state width="1237" height="246" key="GridCell.Tab.0.bottom" timestamp="1626532259272">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="246" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1626532259272" />
-    <state width="1237" height="246" key="GridCell.Tab.0.center" timestamp="1626532259272">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="246" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1626532259272" />
-    <state width="1237" height="246" key="GridCell.Tab.0.left" timestamp="1626532259272">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="246" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1626532259272" />
-    <state width="1237" height="246" key="GridCell.Tab.0.right" timestamp="1626532259272">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="246" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1626532259272" />
-    <state x="171" y="0" key="Maven.ArtifactSearchDialog" timestamp="1626529870336">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="171" y="0" key="Maven.ArtifactSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1626529870336" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1626529568282">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1626529568282" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

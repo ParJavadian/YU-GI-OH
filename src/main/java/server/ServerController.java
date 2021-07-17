@@ -16,7 +16,7 @@ import java.util.UUID;
 public class ServerController {
 
     private static ArrayList<User> allUsers = new ArrayList<>();
-    private static final HashMap<String, User> loggedInUsers = new HashMap<>();
+    public static final HashMap<String, User> loggedInUsers = new HashMap<>();
     private static ServerSocket serverSocket;
     private static ArrayList<User> peopleWaitingFor3RoundGame = new ArrayList<>();
     private static ArrayList<User> peopleWaitingFor1RoundGame = new ArrayList<>();
@@ -93,12 +93,14 @@ public class ServerController {
             returnNumberOfOnlinePeople(dataOutputStream);
         } else if (command.startsWith("logout")) {
             logout(command);
-        }else if (command.startsWith("request for game: ")) {
+        } else if (command.startsWith("request for game: ")) {
             handleRequestForGame(command);
-        }else if(command.equals("all messages")){
+        } else if (command.equals("all messages")) {
             handleRequestgetAllMessages(dataOutputStream);
-        }else if(command.startsWith("addchat ")){
+        } else if (command.startsWith("addchat ")) {
             addMessage(command);
+        } else if (command.startsWith("stop waiting ")) {
+            removeUserFromWaitingList(command);
         }
     }
 
@@ -107,7 +109,7 @@ public class ServerController {
         String text = parts[1];
         User sender = User.getUserByUsername(parts[2]);
         int Id = Integer.parseInt(parts[3]);
-        messages.add(new Message(text,sender));
+        messages.add(new Message(text, sender));
     }
 
     private synchronized static void handleRequestgetAllMessages(DataOutputStream dataOutputStream) {
@@ -155,7 +157,7 @@ public class ServerController {
         loggedInUsers.values().remove(User.getUserByUsername(parts[1]));
     }
 
-    public static void handleRequestForGame(String command){
+    public static void handleRequestForGame(String command) {
         String[] parts = command.split(" ");
         String username = parts[3];
         String numberOfRounds = parts[4];
@@ -164,17 +166,17 @@ public class ServerController {
         } else if (numberOfRounds.equals("3")) {
             peopleWaitingFor3RoundGame.add(User.getUserByUsername(username));
         }
-        if (peopleWaitingFor1RoundGame.size()>1) {
+        if (peopleWaitingFor1RoundGame.size() > 1) {
             matchUsersForGame(peopleWaitingFor1RoundGame);
             //todo startGame
         }
-        if (peopleWaitingFor3RoundGame.size()>1) {
+        if (peopleWaitingFor3RoundGame.size() > 1) {
             matchUsersForGame(peopleWaitingFor3RoundGame);
             //todo startGame
         }
     }
 
-    public static void matchUsersForGame(ArrayList<User> waitingUsers){
+    public static void matchUsersForGame(ArrayList<User> waitingUsers) {
         new Thread(() -> {
             for (User firstUser : waitingUsers) {
                 for (User secondUser : waitingUsers) {
@@ -216,7 +218,26 @@ public class ServerController {
             }
 
         }).start();
+    }
 
+    static void removeUserFromWaitingList(String command) {
+        String[] parts = command.split(" ");
+        String username = parts[2];
+        User toBeDeleted = null;
+        for (User user : peopleWaitingFor1RoundGame) {
+            if (user.getUsername().equals(username)) {
+                toBeDeleted = user;
+                break;
+            }
+        }
+        peopleWaitingFor1RoundGame.remove(toBeDeleted);
+        for (User user : peopleWaitingFor3RoundGame) {
+            if (user.getUsername().equals(username)) {
+                toBeDeleted = user;
+                break;
+            }
+        }
+        peopleWaitingFor3RoundGame.remove(toBeDeleted);
     }
 
 

@@ -65,8 +65,18 @@ public class ChooseDuelView extends Application implements Initializable {
         }
     }
 
+    public static synchronized void cancelGameRequestInServer() {
+        try {
+            Main.dataOutputStream.writeUTF("stop waiting " + playerOne.getUsername());
+            Main.dataOutputStream.flush();
+        } catch (Exception x) {
+            x.printStackTrace();
+        }
+    }
+
     public void goBack() throws Exception {
         ChooseDuelControllerGraphic.goBack(stage);
+        cancelGameRequestInServer();
     }
 
     public void startNewGame(int numberOfRounds) throws Exception{
