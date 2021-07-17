@@ -14,21 +14,33 @@ import java.util.UUID;
 public class ServerController {
 
     private static ArrayList<User> allUsers = new ArrayList<>();
-    private static HashMap<String, User> loggedInUsers;
+    private static HashMap<String, User> loggedInUsers = new HashMap<>();
+    private static ServerSocket serverSocket;
 
     public static void main(String[] args) {
+        System.out.println("main: " + User.getAllUsers());
         try {
-            ServerSocket serverSocket = new ServerSocket(7777);
+            serverSocket = new ServerSocket(7777);
             while (true) {
                 Socket socket = serverSocket.accept();
                 new Thread(() -> {
                     try {
+                        System.out.println("main2: " + User.getAllUsers() + " " + socket.getPort());
                         DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
                         DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-                        String input = dataInputStream.readUTF();
-                        process(input,dataOutputStream);
-                        dataInputStream.close();
-                        socket.close();
+                        while (true) {
+                            String input = dataInputStream.readUTF();
+                            String result = process(input, dataOutputStream);
+                            if (result.equals("")) break;
+                            dataOutputStream.writeUTF(result);
+                            dataOutputStream.flush();
+                        }
+//                        dataInputStream.close();
+//                        socket.close();
+//                        serverSocket.close();
+//                        dataInputStream.close();
+//                        dataOutputStream.close();
+//                        socket.close();
 //                        serverSocket.close();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -42,10 +54,13 @@ public class ServerController {
         }
     }
 
+    public static void showLogins(String ok) {
+        System.out.println(loggedInUsers.size() + " " + ok);
+    }
 
 
-
-    static void process(String command,DataOutputStream dataOutputStream) {
+    static String process(String command, DataOutputStream dataOutputStream) {
+        System.out.println("process 1: " + command);
         /*if (command.startsWith("signup")) {
             String[] parts = command.split(" ");
             return String.valueOf(ServerController.register(parts[1], parts[2], parts[3]));
@@ -57,7 +72,9 @@ public class ServerController {
             returnNumberOfOnlinePeople(dataOutputStream);
         } else if (command.startsWith("logout")) {
             logout(command);
+            return "";
         }
+        return "ok";
     }
 
     /*public static synchronized boolean register(String username, String password, String fullName) {
@@ -70,7 +87,9 @@ public class ServerController {
     }*/
 
     public static void login(String username) {
+        System.out.println("login 1: " + User.getAllUsers());
         for (User user : allUsers) {
+            System.out.println("login 2");
             if (user.getUsername().equals(username)) {
                 loggedInUsers.put(UUID.randomUUID().toString(), user);
                 break;
@@ -78,7 +97,7 @@ public class ServerController {
         }
     }
 
-    public static void returnNumberOfOnlinePeople(DataOutputStream dataOutputStream){
+    public static void returnNumberOfOnlinePeople(DataOutputStream dataOutputStream) {
         try {
             dataOutputStream.writeUTF(String.valueOf(loggedInUsers.size()));
             dataOutputStream.flush();
@@ -87,11 +106,10 @@ public class ServerController {
         }
     }
 
-    public static void logout(String command){
+    public static void logout(String command) {
         String[] parts = command.split(" ");
         loggedInUsers.values().remove(User.getUserByUsername(parts[1]));
     }
-
 
 
 }

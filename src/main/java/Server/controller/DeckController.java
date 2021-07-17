@@ -229,7 +229,7 @@ public class DeckController {
         if (DeckController.user.getDeckByName(deckName) == null) throw new DeckNotFound(deckName);
         StringBuilder toPrint = new StringBuilder("Deck: " + deckName + "\n");
         if (isSide) toPrint.append("Side deck:\nMonsters:\n");
-        else toPrint.append("Server.controller.Main deck:\nMonsters:\n");
+        else toPrint.append("Client.Main deck:\nMonsters:\n");
         ArrayList<Card> monsterCards = new ArrayList<>();
         ArrayList<Card> spellAndTrapCards = new ArrayList<>();
         if (!isSide) {

@@ -1,6 +1,6 @@
 package Client.controller;
 
-import Server.controller.Main;
+import Client.Main;
 import Server.controller.exeption.*;
 import javafx.stage.Stage;
 import model.User;
@@ -28,6 +28,7 @@ public class LogInControllerGraphic {
         } else if (!user.getPassword().equals(password)) {
             throw new UsernameNotFound();
         } else {
+            System.out.println("allusers1: " + User.getAllUsers());
             sendToServer(user);
             MainViewGraphic.getInstance().setCurrentUser(user);
             MainViewGraphic.getInstance().start(stage);
@@ -36,8 +37,10 @@ public class LogInControllerGraphic {
 
     public static void sendToServer(User user) {
         try {
-            Main.dataOutputStream.writeUTF("register " + user.getUsername() + " " + user.getNickname() + " " + user.getPassword());
+            Main.dataOutputStream.writeUTF("login " + user.getUsername());
+            System.out.println("allusers2: " + User.getAllUsers());
             Main.dataOutputStream.flush();
+            System.out.println("allusers3: " + User.getAllUsers());
         } catch (IOException x) {
             x.printStackTrace();
         }

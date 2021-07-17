@@ -4,6 +4,7 @@ import Server.controller.DeckController;
 import Server.controller.ImportExportUserController;
 import Client.controller.LogInControllerGraphic;
 import Client.controller.SoundController;
+import Client.Main;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,6 +49,7 @@ public class LogInViewGraphic extends Application {
                 Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(deck);
             }
             else Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(AIDeck);
+            Main.initializeNetwork();
         }
         LogInViewGraphic.stage = stage;
         URL url = getClass().getResource("/Login.fxml");

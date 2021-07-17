@@ -1,6 +1,7 @@
 package Client.view;
 
 import Client.Controller.SignUpControllerGraphic;
+import Client.Main;
 import Client.controller.SoundController;
 import Server.controller.*;
 import javafx.application.Application;
@@ -45,6 +46,7 @@ public class SignUpViewGraphic extends Application {
             importExportUserController.importActiveDeck(); //todo end
             Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
             User.getUserByUsername("@AI@").setActiveDeck(deck);
+            Main.initializeNetwork();
         }
         SignUpViewGraphic.stage = stage;
         URL url = getClass().getResource("/SignUp.fxml");

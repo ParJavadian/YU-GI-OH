@@ -1,4 +1,4 @@
-package Server.controller;
+package Client;
 
 import Client.controller.SoundController;
 import javafx.application.Application;

@@ -1,5 +1,6 @@
 package Server.controller;
 
+import Client.Main;
 import Server.controller.exeption.InvalidDeck;
 import Server.controller.exeption.NoActiveDeck;
 import javafx.stage.Stage;
@@ -49,6 +50,9 @@ public class MainControllerGraphic {
         try {
             Main.dataOutputStream.writeUTF("logout " + user.getUsername());
             Main.dataOutputStream.flush();
+//            Main.dataOutputStream.close();
+//            Main.dataInputStream.close();
+//            Main.socket.close();
         } catch (IOException x) {
             x.printStackTrace();
         }

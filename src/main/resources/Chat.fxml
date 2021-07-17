@@ -24,7 +24,7 @@
                 <Font name="Agency FB Bold" size="53.0" />
             </font>
         </Label>
-        <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="135.0" layoutY="129.0" prefHeight="391.0" prefWidth="473.0" style="-fx-background-color: #3d6f76;">
+        <ScrollPane hbarPolicy="NEVER" layoutX="135.0" layoutY="129.0" prefHeight="391.0" prefWidth="473.0" style="-fx-background-color: #3d6f76;">
             <content>
                 <VBox fx:id="vBox" prefHeight="389.0" prefWidth="472.0" spacing="5.0" style="-fx-background-color: #73afb7;">
                <padding>
@@ -45,7 +45,7 @@
                 <Font name="Agency FB" size="15.0" />
             </font>
         </TextField>
-        <Button fx:id="sendButton" defaultButton="true" layoutX="565.0" layoutY="520.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="44.0" text="Send" textFill="#005659">
+        <Button defaultButton="true" layoutX="565.0" layoutY="520.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="44.0" text="Send" textFill="#005659">
             <font>
                 <Font name="Agency FB Bold" size="14.0" />
             </font>
@@ -60,7 +60,7 @@
             <Font name="Agency FB Bold" size="18.0" />
          </font>
       </Text>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="194.0" prefHeight="17.0" prefWidth="87.0" text="Number" textFill="#004659">
+      <Label fx:id="onlineNumber" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="194.0" prefHeight="17.0" prefWidth="87.0" textFill="#004659">
          <font>
             <Font name="Agency FB Bold" size="18.0" />
          </font>

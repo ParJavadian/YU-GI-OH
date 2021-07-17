@@ -1,13 +1,13 @@
 package Client.view;
 
+import Client.Main;
+import Server.controller.ServerController;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 import model.Message;
 import model.User;
 
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -30,7 +33,8 @@ public class ChatView extends Application implements Initializable {
     @FXML
     private VBox vBox;
     @FXML
-    private Label pin;
+    private Label pin,onlineNumber;
+    Socket socket;
 
     public static ChatView getInstance() {
         if (instance == null) instance = new ChatView();
@@ -80,6 +84,23 @@ public class ChatView extends Application implements Initializable {
         messages.add(message1);
         messages.add(message2);
         messages.add(message3);*/
+        try {
+            socket = new Socket("localhost",7777);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ServerController.showLogins("1");
+        new Thread(() -> {
+            try {
+                Main.dataOutputStream.writeUTF("NumberOfOnlinePeople");
+                Main.dataOutputStream.flush();
+                DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
+                onlineNumber.setText(dataInputStream.readUTF());
+                ServerController.showLogins("2");
+            } catch (IOException x) {
+                x.printStackTrace();
+            }
+        }).start();
         //TODO get messages from server
         ArrayList<Message> messages = new ArrayList<>();
         for (Message message : messages) {
