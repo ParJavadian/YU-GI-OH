@@ -4,12 +4,13 @@ import controller.ImportExportUserController;
 import javafx.scene.image.Image;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-public class User {
+public class User implements Serializable {
 
     private static List<User> allUsers;
     private String username;

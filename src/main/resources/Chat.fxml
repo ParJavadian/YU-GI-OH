@@ -45,7 +45,7 @@
                 <Font name="Agency FB" size="15.0" />
             </font>
         </TextField>
-        <Button defaultButton="true" layoutX="565.0" layoutY="520.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="44.0" text="Send" textFill="#005659">
+        <Button onAction="#send" defaultButton="true" layoutX="565.0" layoutY="520.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="44.0" text="Send" textFill="#005659">
             <font>
                 <Font name="Agency FB Bold" size="14.0" />
             </font>

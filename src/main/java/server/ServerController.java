@@ -7,11 +7,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import model.Message;
 import model.User;
-//import view.AdminPanel;
+//import server.AdminPanel;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -26,14 +27,15 @@ public class ServerController extends Application {
     private static ArrayList<User> peopleWaitingFor3RoundGame = new ArrayList<>();
     private static ArrayList<User> peopleWaitingFor1RoundGame = new ArrayList<>();
     private static ArrayList<Message> messages = new ArrayList<>();
+    private static String pinText = "";
     static User finalSecondUser;
     static User finalFirstUser;
 
     public static void main(String[] args) {
-
         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.importAllUsers();
         allUsers = (ArrayList<User>) User.getAllUsers();
+        importExportUserController.importProfileNumber();
 //        System.out.println("in main: " + allUsers.size());
         importExportUserController.importProfileNumber();
         importExportUserController.importAllCards();
@@ -46,9 +48,9 @@ public class ServerController extends Application {
         }
         else Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(AIDeck);*/
 //        System.out.println("main: " + User.getAllUsers());
-        launch(args);
         try {
             serverSocket = new ServerSocket(7777);
+            new Thread(() -> launch(args)).start();
             while (true) {
                 Socket socket = serverSocket.accept();
                 new Thread(() -> {
@@ -56,9 +58,10 @@ public class ServerController extends Application {
 //                        System.out.println("main2: " + User.getAllUsers() + " " + socket.getPort());
                         DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
                         DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
                         while (true) {
                             String input = dataInputStream.readUTF();
-                            process(input, dataOutputStream);
+                            process(input, dataOutputStream, objectOutputStream);
 //                            if (result.equals("")) break;
 //                            dataOutputStream.writeUTF(result);
 //                            dataOutputStream.flush();
@@ -74,13 +77,10 @@ public class ServerController extends Application {
                         e.printStackTrace();
                     }
                 }).start();
-
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 
@@ -93,7 +93,7 @@ public class ServerController extends Application {
         System.out.println(loggedInUsers.size() + " " + ok);
     }
 
-    static void process(String command, DataOutputStream dataOutputStream) {
+    static void process(String command, DataOutputStream dataOutputStream, ObjectOutputStream objectOutputStream) {
 //        System.out.println("process 1: " + command);
         /*if (command.startsWith("signup")) {
             String[] parts = command.split(" ");
@@ -109,41 +109,98 @@ public class ServerController extends Application {
         } else if (command.startsWith("request for game: ")) {
             handleRequestForGame(command);
         } else if (command.equals("all messages")) {
-            handleRequestgetAllMessages(dataOutputStream);
-        } else if (command.startsWith("addchat ")) {
+            handleRequestGetAllMessages(dataOutputStream);
+        } else if (command.startsWith("addchat!@#")) {
             addMessage(command);
+        } else if (command.startsWith("setPin!@#")) {
+            setPin(command);
+        } else if (command.equals("get pin")) {
+            handleRequestGetPin(dataOutputStream);
+        } else if (command.startsWith("deletechat!@#")) {
+            deleteMessage(command);
+        } else if (command.equals("get online people")) {
+            getOnlinePeople(dataOutputStream);
         } else if (command.startsWith("stop waiting ")) {
             removeUserFromWaitingList(command);
-        }else if (command.startsWith("SendInvitationTo")) {
-            String result = "";
-            result = sendInvitation(command);
-            try {
-                dataOutputStream.writeUTF(result);
-                dataOutputStream.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } else if (command.startsWith("get people")) {
+            getPeople(dataOutputStream);
+        } else if (command.startsWith("SendInvitationTo")) {
+            sendInvitation(dataOutputStream);
         } else if (command.startsWith("get online people")) {
             getOnlinePeople(dataOutputStream);
         }
+    }
 
+    private static void getOnlinePeople(DataOutputStream dataOutputStream) {
+        StringBuilder toWrite = new StringBuilder("#");
+        for (User user : loggedInUsers.values()) {
+            toWrite.append(user.getUsername()).append("#");
+        }
+        try {
+            dataOutputStream.writeUTF(toWrite.toString());
+            dataOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void deleteMessage(String command) {
+        String[] parts = command.split("!@#");
+        String toDelete = parts[1];
+        for (int i = 0; i < messages.size(); i++) {
+            Message message = messages.get(i);
+            String toCompare = message.sender.getNickname() + ":    " + message.text;
+            if (toCompare.equals(toDelete)) {
+                messages.remove(message);
+                return;
+            }
+        }
+    }
+
+    public static void getPeople(DataOutputStream dataOutputStream) {
+        String toWrite = "#";
+        for (User user : allUsers) {
+            toWrite += user.getUsername() + "#";
+        }
+        try {
+            dataOutputStream.writeUTF(toWrite);
+            dataOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void handleRequestGetPin(DataOutputStream dataOutputStream) {
+        try {
+            dataOutputStream.writeUTF(pinText);
+            dataOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void setPin(String command) {
+        String[] parts = command.split("!@#");
+        pinText = parts[1];
     }
 
     private static void addMessage(String command) {
-        String[] parts = command.split(" ");
+        String[] parts = command.split("!@#");
         String text = parts[1];
         User sender = User.getUserByUsername(parts[2]);
         int Id = Integer.parseInt(parts[3]);
         messages.add(new Message(text, sender));
     }
 
-    private synchronized static void handleRequestgetAllMessages(DataOutputStream dataOutputStream) {
+    private synchronized static void handleRequestGetAllMessages(DataOutputStream dataOutputStream) {
         try {
-            StringBuilder toWrite = new StringBuilder();
+            String toWrite = "";
             for (Message message : messages) {
-                toWrite.append(message.Id).append(" ");
+                toWrite += message.sender.getProfileNumber() + "!@#";
+                toWrite += message.sender.getNickname() + "!@#";
+                toWrite += message.text + "#@!";
             }
-            dataOutputStream.writeUTF(toWrite.toString());
+            dataOutputStream.writeUTF(toWrite);
             dataOutputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -205,11 +262,11 @@ public class ServerController extends Application {
         new Thread(() -> {
             for (User firstUser : waitingUsers) {
                 for (User secondUser : waitingUsers) {
-                    if ((Math.abs(firstUser.getScore() - secondUser.getScore()) < 2000) && (waitingUsers.indexOf(firstUser) != waitingUsers.indexOf(secondUser))) {
+                    if (/*firstUser!=null && secondUser!=null && */(Math.abs(firstUser.getScore() - secondUser.getScore()) < 2000) && (waitingUsers.indexOf(firstUser) != waitingUsers.indexOf(secondUser))) {
                         finalFirstUser = firstUser;
                         finalSecondUser = secondUser;
-//                        System.out.println("first user: " + finalFirstUser.getUsername() + "," + finalFirstUser.getScore());
-//                        System.out.println("second user: " + finalSecondUser.getUsername() + "," + finalSecondUser.getScore());
+                        System.out.println("first user: " + finalFirstUser.getUsername() + "," + finalFirstUser.getScore());
+                        System.out.println("second user: " + finalSecondUser.getUsername() + "," + finalSecondUser.getScore());
                         return;
                     }
                 }
@@ -221,22 +278,22 @@ public class ServerController extends Application {
             }
             for (User firstUser : waitingUsers) {
                 for (User secondUser : waitingUsers) {
-                    if ((Math.abs(firstUser.getScore() - secondUser.getScore()) < 2000) && (waitingUsers.indexOf(firstUser) != waitingUsers.indexOf(secondUser))) {
+                    if (/*firstUser!=null && secondUser!=null && */(Math.abs(firstUser.getScore() - secondUser.getScore()) < 2000) && (waitingUsers.indexOf(firstUser) != waitingUsers.indexOf(secondUser))) {
                         finalFirstUser = firstUser;
                         finalSecondUser = secondUser;
-//                        System.out.println("first user: " + finalFirstUser.getUsername() + "," + finalFirstUser.getScore());
-//                        System.out.println("second user: " + finalSecondUser.getUsername() + "," + finalSecondUser.getScore());
+                        System.out.println("first user: " + finalFirstUser.getUsername() + "," + finalFirstUser.getScore());
+                        System.out.println("second user: " + finalSecondUser.getUsername() + "," + finalSecondUser.getScore());
                         return;
                     }
                 }
             }
             for (User firstUser : waitingUsers) {
                 for (User secondUser : waitingUsers) {
-                    if (waitingUsers.indexOf(firstUser) != waitingUsers.indexOf(secondUser)) {
+                    if (waitingUsers.indexOf(firstUser) != waitingUsers.indexOf(secondUser) && waitingUsers.size() > 1) {
                         finalFirstUser = waitingUsers.get(0);
                         finalSecondUser = waitingUsers.get(1);
-//                        System.out.println("first user: " + finalFirstUser.getUsername() + "," + finalFirstUser.getScore());
-//                        System.out.println("second user: " + finalSecondUser.getUsername() + "," + finalSecondUser.getScore());
+                        System.out.println("first user: " + finalFirstUser.getUsername() + "," + finalFirstUser.getScore());
+                        System.out.println("second user: " + finalSecondUser.getUsername() + "," + finalSecondUser.getScore());
                         return;
                     }
                 }
@@ -265,34 +322,27 @@ public class ServerController extends Application {
         peopleWaitingFor3RoundGame.remove(toBeDeleted);
     }
 
-    static String sendInvitation(String command){
-            Alert info = new Alert(Alert.AlertType.CONFIRMATION, "You have just been invited to a play a game with " /* + esme yaru */ + "\n" + "want to join?", ButtonType.YES, ButtonType.NO);
-            info.setHeaderText("Invitation");
-            info.showAndWait();
-            if (info.getResult().equals(ButtonType.NO))
-                return "No";
-            else return "Yes";
-    }
-
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-//        AdminPanel.getInstance().start(primaryStage);
-    }
-
-    public static void getOnlinePeople(DataOutputStream dataOutputStream){
-        String toWrite = "#";
-        for (User user : loggedInUsers.values()) {
-            toWrite += user.getUsername()+"#";
-        }
+    static void sendInvitation(DataOutputStream dataOutputStream) {
+        Alert info = new Alert(Alert.AlertType.CONFIRMATION, "You have just been invited to a play a game with " /* + esme yaru */ + "\n" + "want to join?", ButtonType.YES, ButtonType.NO);
+        info.setHeaderText("Invitation");
+        info.showAndWait();
+        String result;
+        if (info.getResult().equals(ButtonType.NO))
+            result = "No";
+        else result = "Yes";
         try {
-            dataOutputStream.writeUTF(toWrite);
+            dataOutputStream.writeUTF(result);
             dataOutputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        AdminPanel.getInstance().start(primaryStage);
+    }
 
 
 }

@@ -8,12 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
-import model.Message;
 import model.User;
 
 import java.io.IOException;
@@ -56,64 +59,42 @@ public class ChatView extends Application implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*User user1 = new User("man","man","123",true);
-        int profileNumber = user1.getRandomProfileNumber();
-        user1.setProfileNumber(profileNumber);
-        if(user1.getProfileImage()==null){
-            URL url = getClass().getResource("/images/profiles/profile (" + profileNumber + ").png");
-            user1.setProfileImage(new Image(String.valueOf(url)));
-        }
-        User user2 = new User("mann","mann","123",true);
-        int profileNumber2 = user2.getRandomProfileNumber();
-        user2.setProfileNumber(profileNumber2);
-        if(user2.getProfileImage()==null){
-            URL url = getClass().getResource("/images/profiles/profile (" + profileNumber2 + ").png");
-            user2.setProfileImage(new Image(String.valueOf(url)));
-        }
-        User user3 = new User("mannn","mannn","123",true);
-        int profileNumber3 = user3.getRandomProfileNumber();
-        user3.setProfileNumber(profileNumber3);
-        if(user3.getProfileImage()==null){
-            URL url = getClass().getResource("/images/profiles/profile (" + profileNumber3 + ").png");
-            user3.setProfileImage(new Image(String.valueOf(url)));
-        }
-        Message message1 = new Message("hi from user 1",user1);
-        Message message2 = new Message("hi from user 2",user2);
-        Message message3 = new Message("hi from user 3",user3);
-        ArrayList<Message> messages = new ArrayList<>();
-        messages.add(message1);
-        messages.add(message2);
-        messages.add(message3);*/
         setOnlineNumber();
-        //TODO get messages from server
+        setMessages();
     }
 
-    private void setMessages(){
-        ArrayList<Message> messages = new ArrayList<>();
+    private void setMessages() {
         new Thread(() -> {
             while (true) {
                 try {
                     Main.dataOutputStream.writeUTF("all messages");
                     Main.dataOutputStream.flush();
-                    String[] results = Main.dataInputStream.readUTF().split(" ");
-                    for (String result : results) {
-//                        Message
-                    }
-                    Platform.runLater(() -> {
-                        messagesLabels.clear();
-                        for (Message message : messages) {
-                            addMessage(message);
+                    String answer = Main.dataInputStream.readUTF();
+                    Platform.runLater(() -> vBox.getChildren().clear());
+                    if (!answer.equals("")) {
+                        String[] messages = answer.split("#@!");
+                        for (String message : messages) {
+                            String[] parts = message.split("!@#");
+                            int profileNumber = Integer.parseInt(parts[0]);
+                            String nickName = parts[1];
+                            String text = parts[2];
+                            Image profileImage = new Image("/images/profiles/profile (" + profileNumber + ").png");
+                            Platform.runLater(() -> addMessage(profileImage, nickName, text));
                         }
-                    });
-                    Thread.sleep(1000);
-                } catch(Exception x){
+                    }
+                    Main.dataOutputStream.writeUTF("get pin");
+                    Main.dataOutputStream.flush();
+                    String pinText = Main.dataInputStream.readUTF();
+                    Platform.runLater(() -> pin.setText(pinText));
+                    Thread.sleep(2000);
+                } catch (Exception x) {
                     x.printStackTrace();
                 }
             }
         }).start();
     }
 
-    private void setOnlineNumber(){
+    private void setOnlineNumber() {
         try {
             socket = new Socket("localhost", 7777);
         } catch (IOException e) {
@@ -127,36 +108,175 @@ public class ChatView extends Application implements Initializable {
                     String result = Main.dataInputStream.readUTF();
                     Platform.runLater(() -> setLabel(result));
                     Thread.sleep(5000);
-                } catch(Exception x){
+                } catch (Exception x) {
                     x.printStackTrace();
                 }
             }
         }).start();
     }
 
-    private void setLabel(String text){
+    private void setLabel(String text) {
         onlineNumber.setText(text);
     }
 
-    private void addMessage(Message message) {
+    private void addMessage(Image profileImage, String nickName, String text) {
         Label label1 = new Label();
         label1.setPrefWidth(452);
-        label1.setText(message.sender.getNickname() + ":    " + message.text);
-        ImageView imageView = new ImageView(message.sender.getProfileImage());
+        label1.setText(nickName + ":    " + text);
+        ImageView imageView = new ImageView(profileImage);
+        imageView.mouseTransparentProperty().addListener((observable, oldVal, newVal) -> {
+            if (newVal) {
+                imageView.setMouseTransparent(false);
+            }
+        });
+/*
+        imageView.setOnMouseClicked(event -> {
+            System.out.println("okeb");
+            Popup popup = new Popup();
+            popup.setWidth(200);
+            popup.setHeight(200);
+            ImageView profileImageView = new ImageView(profileImage);
+            profileImageView.setFitHeight(30);
+            profileImageView.setFitWidth(30);
+            profileImageView.setX(10);
+            profileImageView.setY(10);
+            popup.getContent().add(profileImageView);
+            User user = User.getUserByNickname(nickName);
+            Label label = new Label();
+            label.setText("Username: " + user.getUsername() + "\nNickname: " + user.getNickname() +
+                    "\nScore: " + user.getScore());
+            label.setWrapText(true);
+            label.setPrefWidth(120);
+            label.setPrefWidth(120);
+            label.setLayoutX(50);
+            label.setLayoutY(20);
+            label.setFont(Font.font("Agency FB", 24));
+            popup.getContent().add(label);
+            Button button = new Button("OK");
+            button.setDefaultButton(true);
+            button.setFont(Font.font("Agency FB", 15));
+            button.setLayoutX(170);
+            button.setLayoutY(170);
+            button.setOnAction(event1 -> popup.hide());
+            popup.getContent().add(button);
+            if (!popup.isShowing()) {
+                popup.show(stage);
+            }
+        });
+*/
         imageView.setFitHeight(15);
         imageView.setFitWidth(15);
         imageView.setX(0);
         imageView.setY(0);
         label1.setWrapText(true);
         label1.setGraphic(imageView);
+        label1.getGraphic().setOnMouseClicked(event -> {
+            Popup popup = new Popup();
+            popup.setWidth(400);
+            popup.setHeight(200);
+            AnchorPane anchorPane = new AnchorPane();
+            ImageView profileImageView = new ImageView(profileImage);
+            profileImageView.setFitHeight(60);
+            profileImageView.setFitWidth(60);
+            profileImageView.setX(10);
+            profileImageView.setY(10);
+            anchorPane.getChildren().add(profileImageView);
+            User user = User.getUserByNickname(nickName);
+            Label label = new Label();
+            label.setText("Username: " + user.getUsername() + "\nNickname: " + user.getNickname() +
+                    "\nScore: " + user.getScore());
+            label.setWrapText(true);
+            label.setPrefWidth(150);
+            label.setPrefHeight(120);
+            label.setLayoutX(80);
+            label.setLayoutY(0);
+            label.setStyle("-fx-text-fill: #84e1e1");
+            label.setFont(Font.font("Agency FB", 20));
+            anchorPane.getChildren().add(label);
+            Button button = new Button("OK");
+            button.setDefaultButton(true);
+            button.setFont(Font.font("Agency FB", 15));
+            button.setLayoutX(200);
+            button.setLayoutY(100);
+            button.setOnAction(event1 -> popup.hide());
+            anchorPane.getChildren().add(button);
+            anchorPane.setStyle("-fx-background-color: #196666;");
+            popup.getContent().add(anchorPane);
+            popup.setX(400);
+            popup.setY(200);
+            if (!popup.isShowing()) {
+                popup.show(stage);
+            }
+        });
         label1.setFont(new Font("Agency FB", 16.5));
+        label1.setOnMouseClicked(event -> {
+            if (event.getButton().equals(MouseButton.PRIMARY)) {
+                try {
+                    Main.dataOutputStream.writeUTF("setPin!@#" + label1.getText());
+                    Main.dataOutputStream.flush();
+                    Main.dataOutputStream.writeUTF("all messages");
+                    Main.dataOutputStream.flush();
+                    String pinText = Main.dataInputStream.readUTF();
+                    pin.setText(pinText);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (event.getButton().equals(MouseButton.SECONDARY)) {
+                try {
+                    Main.dataOutputStream.writeUTF("deletechat!@#" + label1.getText());
+                    Main.dataOutputStream.flush();
+                    Main.dataOutputStream.writeUTF("all messages");
+                    Main.dataOutputStream.flush();
+                    String answer = Main.dataInputStream.readUTF();
+                    vBox.getChildren().clear();
+                    if (!answer.equals("")) {
+                        String[] messages = answer.split("#@!");
+                        for (String message : messages) {
+                            String[] parts = message.split("!@#");
+                            int profileNumber = Integer.parseInt(parts[0]);
+                            String nickName2 = parts[1];
+                            String text2 = parts[2];
+                            Image profileImage2 = new Image("/images/profiles/profile (" + profileNumber + ").png");
+                            addMessage(profileImage2, nickName2, text2);
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         messagesLabels.add(label1);
         vBox.getChildren().add(label1);
-        /*vBox.setPrefHeight(36 * decks.size());
-        scrollPane.setPrefHeight(36 * decks.size());*/
     }
 
     public void back() throws Exception {
         MainViewGraphic.getInstance().start(stage);
+    }
+
+    public void send() {
+        try {
+            Main.dataOutputStream.writeUTF("addchat!@#" + textField.getText() + "!@#" + user.getUsername());
+            Main.dataOutputStream.flush();
+            Main.dataOutputStream.writeUTF("all messages");
+            Main.dataOutputStream.flush();
+            String answer = Main.dataInputStream.readUTF();
+            vBox.getChildren().clear();
+            textField.setText("");
+            String[] messages = answer.split("#@!");
+            for (String message : messages) {
+                String[] parts = message.split("!@#");
+                int profileNumber = Integer.parseInt(parts[0]);
+                String nickName = parts[1];
+                String text = parts[2];
+                Image profileImage = new Image("/images/profiles/profile (" + profileNumber + ").png");
+                addMessage(profileImage, nickName, text);
+            }
+            Main.dataOutputStream.writeUTF("get pin");
+            Main.dataOutputStream.flush();
+            String pinText = Main.dataInputStream.readUTF();
+            pin.setText(pinText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

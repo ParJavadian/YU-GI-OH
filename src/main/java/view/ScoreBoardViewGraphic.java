@@ -21,6 +21,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ScoreBoardViewGraphic extends Application implements Initializable {
     private static Stage stage;
@@ -45,30 +47,95 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/images/icon.png"))));
-        stage.setTitle("YU GI OH");
-        stage.show();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        final Text[] text1 = new Text[1];
+        /*Text text1;
         ArrayList<User> allUsers = new ArrayList<>(User.getAllUsers());
         while (allUsers.contains(User.getUserByUsername("@AI@"))) {
             allUsers.remove(User.getUserByUsername("@AI@"));
         }
         Comparator<User> userComparator = Comparator.comparing(User::getScore, Comparator.reverseOrder()).thenComparing(User::getNickname);
+        allUsers.sort(userComparator);
+        User previousUser = null;
+        int rank = 1;
+        int i = 1;
+        int userCounter = 0;
+        for (User eachUser : allUsers) {
+            if (userCounter >= 20) {
+                break;
+            }
+            if (previousUser != null) {
+                if (previousUser.getScore() == eachUser.getScore()) {
+                    i++;
+                } else {
+                    rank += i;
+                    i = 1;
+                }
+            }
+            text1 = new Text(rank + "-          NickName:" + eachUser.getNickname() + "          Score: " + eachUser.getScore() + "\n");
+            previousUser = eachUser;
+            userCounter++;
 
-
-
+            if (eachUser.equals(user)) {
+                text1.setFill(Color.PURPLE);
+                Font font1 = Font.font("Agency FB", FontWeight.BOLD, 18);
+                text1.setFont(font1);
+            } else {
+                text1.setFill(Color.BLUE);
+                Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
+                text1.setFont(font1);
+            }
+            textFlow.setLineSpacing(1.5);
+            textFlow.getChildren().add(text1);
+        }*/
+        ArrayList<Text> texts = new ArrayList<>();
+//        final Text[] text1 = new Text[1];
+        ArrayList<User> allUsers = new ArrayList<>();
+        String usernames = "";
+        try {
+            Main.dataOutputStream.writeUTF("get people");
+            Main.dataOutputStream.flush();
+            usernames = Main.dataInputStream.readUTF();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Pattern pattern = Pattern.compile("#([^#]+)");
+        Matcher matcher = pattern.matcher(usernames);
+        while (matcher.find()) {
+            User toBeAdded = User.getUserByUsername(matcher.group(1));
+            allUsers.add(toBeAdded);
+        }
+        while (allUsers.contains(User.getUserByUsername("@AI@"))) {
+            allUsers.remove(User.getUserByUsername("@AI@"));
+        }
+        Comparator<User> userComparator = Comparator.comparing(User::getScore, Comparator.reverseOrder()).thenComparing(User::getNickname);
         new Thread(() -> {
             while (true) {
+                ArrayList<User> onlineUsers = new ArrayList<>();
+                String usernames2 = "";
+                try {
+                    Main.dataOutputStream.writeUTF("get online people");
+                    Main.dataOutputStream.flush();
+                    usernames2 = Main.dataInputStream.readUTF();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Pattern pattern2 = Pattern.compile("#([^#]+)");
+                Matcher matcher2 = pattern2.matcher(usernames2);
+                while (matcher2.find()) {
+                    User toBeAdded = User.getUserByUsername(matcher2.group(1));
+                    onlineUsers.add(toBeAdded);
+                }
                 allUsers.sort(userComparator);
                 User previousUser = null;
                 int rank = 1;
                 int i = 1;
                 int userCounter = 0;
-                for (User eachUser : allUsers) {
+                Platform.runLater(() -> textFlow.getChildren().clear());
+                for (int j=0;j<allUsers.size();j++) {
+                    User eachUser = allUsers.get(j);
                     if (userCounter >= 20) {
                         break;
                     }
@@ -80,82 +147,36 @@ public class ScoreBoardViewGraphic extends Application implements Initializable 
                             i = 1;
                         }
                     }
-                    text1[0] = new Text(rank + "-          NickName:" + eachUser.getNickname() + "          Score: " + eachUser.getScore() + "\n");
+                    texts.add(new Text(rank + "-          NickName:" + eachUser.getNickname() + "          Score: " + eachUser.getScore() + "\n"));
                     previousUser = eachUser;
                     userCounter++;
-
                     if (eachUser.equals(user)) {
-                        text1[0].setFill(Color.PURPLE);
+                        texts.get(j).setFill(Color.PURPLE);
                         Font font1 = Font.font("Agency FB", FontWeight.BOLD, 18);
-                        text1[0].setFont(font1);
-                    } else if (ServerController.loggedInUsers.values().contains(eachUser)) {
-                        text1[0].setFill(Color.PURPLE);
+                        texts.get(j).setFont(font1);
+                    } else if (onlineUsers.contains(eachUser)) {
+                        texts.get(j).setFill(Color.PURPLE);
                         Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
-                        text1[0].setFont(font1);
+                        texts.get(j).setFont(font1);
                     } else {
-                        text1[0].setFill(Color.BLUE);
+                        texts.get(j).setFill(Color.BLUE);
                         Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
-                        text1[0].setFont(font1);
+                        texts.get(j).setFont(font1);
                     }
-                    textFlow.setLineSpacing(1.5);
-                    textFlow.getChildren().removeAll();
-                    textFlow.getChildren().add(text1[0]);
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
+                    int finalJ = j;
+                    Platform.runLater(() -> {
+                        textFlow.setLineSpacing(1.5);
+                        textFlow.getChildren().add(texts.get(finalJ));
+                    });
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
-
-
-
-
-//            allUsers.sort(userComparator);
-//            User previousUser = null;
-//            int rank = 1;
-//            int i = 1;
-//            int userCounter = 0;
-//            for (User eachUser : allUsers) {
-//                if (userCounter >= 20) {
-//                    break;
-//                }
-//                if (previousUser != null) {
-//                    if (previousUser.getScore() == eachUser.getScore()) {
-//                        i++;
-//                    } else {
-//                        rank += i;
-//                        i = 1;
-//                    }
-//                }
-//                text1 = new Text(rank + "-          NickName:" + eachUser.getNickname() + "          Score: " + eachUser.getScore() + "\n");
-//                previousUser = eachUser;
-//                userCounter++;
-//
-//                if (eachUser.equals(user)) {
-//                    text1.setFill(Color.PURPLE);
-//                    Font font1 = Font.font("Agency FB", FontWeight.BOLD, 18);
-//                    text1.setFont(font1);
-//                } else if (ServerController.loggedInUsers.values().contains(eachUser)){
-//                    text1.setFill(Color.PURPLE);
-//                    Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
-//                    text1.setFont(font1);
-//                } else {
-//                    text1.setFill(Color.BLUE);
-//                    Font font1 = Font.font("Agency FB", FontWeight.NORMAL, 18);
-//                    text1.setFont(font1);
-//                }
-//                textFlow.setLineSpacing(1.5);
-//                textFlow.getChildren().add(text1);
-
-
-
-
-
-        }
-
+    }
 
     public void goBack() throws Exception {
         ScoreBoardControllerGraphic.goBack(stage);

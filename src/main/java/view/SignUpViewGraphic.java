@@ -47,7 +47,7 @@ public class SignUpViewGraphic extends Application {
             importExportUserController.importActiveDeck(); //todo end
             Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
             User.getUserByUsername("@AI@").setActiveDeck(deck);
-//            Main.initializeNetwork();
+            Main.initializeNetwork();
         }
         SignUpViewGraphic.stage = stage;
         URL url = getClass().getResource("/SignUp.fxml");

@@ -12,12 +12,14 @@ import javafx.stage.Stage;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.Socket;
 
 public class Main extends Application {
 
     public static Socket socket;
     public static DataInputStream dataInputStream;
+    public static ObjectInputStream objectInputStream;
     public static DataOutputStream dataOutputStream;
 
     public static void main(String[] args) {
@@ -52,6 +54,7 @@ public class Main extends Application {
             socket = new Socket("localhost", 7777);
             dataInputStream = new DataInputStream(socket.getInputStream());
             dataOutputStream = new DataOutputStream(socket.getOutputStream());
+            objectInputStream = new ObjectInputStream(socket.getInputStream());
         } catch (IOException x) {
             x.printStackTrace();
         }

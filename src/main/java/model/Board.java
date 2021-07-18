@@ -2,10 +2,11 @@ package model;
 
 import controller.DuelController;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Board {
+public class Board implements Serializable {
     private static final int[] playerGroundNumbers = {2,3,1,4,0};
     private List<Card> cardsInHand;
     private List<Card> cardsInGraveyard;

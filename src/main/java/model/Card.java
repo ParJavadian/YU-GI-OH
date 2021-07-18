@@ -4,9 +4,10 @@ package model;
 import controller.DeckController;
 import javafx.scene.image.Image;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public interface Card {
+public interface Card extends Serializable {
     String getName();
     String getNamePascalCase();
     String getDescription();

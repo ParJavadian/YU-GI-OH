@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Deck {
+public class Deck implements Serializable {
     private String deckName;
     private List<Card> mainDeck;
     private List<Card> sideDeck;
