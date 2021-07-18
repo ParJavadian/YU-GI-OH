@@ -93,6 +93,87 @@ public class ImportExportUserController {
         }
     }
 
+
+    public void exportAchievements(List<User> allUsers){
+        try {
+            for (User user : allUsers) {
+                String username = user.getUsername();
+                FileWriter fileWriter = new FileWriter("Achievements/" + username + ".txt");
+                fileWriter.write(user.getWonGamesInARow() + "\n");
+                fileWriter.write(user.getNumberOfWonGamesWithoutMonster() + "\n");
+                fileWriter.write(user.getNumberOfBronze() + "\n");
+                fileWriter.write(user.getNumberOfSilver() + "\n");
+                fileWriter.write(user.getNumberOfGold() + "\n");
+                fileWriter.write(user.getNumberOfTrophy() +"\n");
+
+                fileWriter.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void importAchievements(){
+        if (User.getAllUsers() != null){
+            for (User user : User.getAllUsers()){
+                String username = user.getUsername();
+                String wonGamesInRow = "";
+                String wonGameWithoutMonster = "";
+                String numberOfBronze = "";
+                String numberOfSilver = "";
+                String numberOfGold = "";
+                String numberOfTrophy = "";
+
+                int number = 6;
+                File file = new File("Achievements/" + username + ".txt");
+                try {
+                    if (file.exists()){
+                        Scanner scanner = new Scanner(file);
+                        while (scanner.hasNextLine()) {
+                            if (number == 6) {
+                                wonGamesInRow = scanner.nextLine();
+                                if (wonGamesInRow.matches("\\d+"))
+                                    user.setWonGamesInARow(Integer.parseInt(wonGamesInRow));
+                            }
+                            if (number == 5) {
+                                wonGameWithoutMonster = scanner.nextLine();
+                                if (wonGameWithoutMonster.matches("\\d+"))
+                                    user.setNumberOfWonGamesWithoutMonster(Integer.parseInt(wonGameWithoutMonster));
+                            }
+                            if (number == 4) {
+                                numberOfBronze = scanner.nextLine();
+                                if (numberOfBronze.matches("\\d+"))
+                                    user.setNumberOfBronze(Integer.parseInt(numberOfBronze));
+                            }
+                            if (number == 3) {
+                                numberOfSilver = scanner.nextLine();
+                                if (numberOfSilver.matches("\\d+"))
+                                    user.setNumberOfSilver(Integer.parseInt(numberOfSilver));
+                            }
+                            if (number == 2){
+                                numberOfGold = scanner.nextLine();
+                                if (numberOfGold.matches("\\d+"))
+                                    user.setNumberOfGold(Integer.parseInt(numberOfGold));
+                            }
+                            if (number == 1){
+                                numberOfTrophy = scanner.nextLine();
+                                if (numberOfTrophy.matches("\\d+"))
+                                    user.setNumberOfTrophy(Integer.parseInt(numberOfTrophy));
+                            }
+                            if (number == 0) {
+                                break;
+                            }
+                            number--;
+                        }
+                    }
+                }catch (FileNotFoundException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
     public void importProfileNumber(){
         if (User.getAllUsers() != null){
             for (User user : User.getAllUsers()){
