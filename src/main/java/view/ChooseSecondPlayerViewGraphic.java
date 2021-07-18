@@ -1,5 +1,6 @@
 package view;
 
+import com.sun.security.ntlm.Server;
 import controller.ChooseSecondPlayerControllerGraphic;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,17 +9,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
+import server.ServerController;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ChooseSecondPlayerViewGraphic extends Application {
+public class ChooseSecondPlayerViewGraphic extends Application implements Initializable{
     private static Stage stage;
     static ChooseSecondPlayerViewGraphic instance = null;
     private static User user;
+    public ComboBox<String> comboBox = new ComboBox<>();
+
 
     public static ChooseSecondPlayerViewGraphic getInstance() {
         if (instance == null) instance = new ChooseSecondPlayerViewGraphic();
@@ -27,6 +32,10 @@ public class ChooseSecondPlayerViewGraphic extends Application {
 
     public void setCurrentUser(User user) {
         ChooseSecondPlayerViewGraphic.user = user;
+    }
+
+    public void initialize(URL location, ResourceBundle resources) {
+        fillTheComboBoxWithUsers();
     }
 
     @Override
@@ -59,5 +68,25 @@ public class ChooseSecondPlayerViewGraphic extends Application {
     }
 
 
+    public void fillTheComboBoxWithUsers() {
+        ArrayList<String> choices = new ArrayList<>();
+        System.out.println("all usera = " + ServerController.getLoggedInUsers());
+        for (User user : ServerController.loggedInUsers.values()) {
+            String username = user.getUsername();
+            if (!username.equals(ChooseSecondPlayerViewGraphic.user.getUsername()) && !username.equals("@AI@")) {
+                choices.add(username);
+            }
+        }
+        comboBox.getItems().addAll(choices);
+    }
 
+    public void sendInvitation(MouseEvent event) {
+        try {
+            if (User.getUserByUsername(comboBox.getValue()) != null)
+        ChooseSecondPlayerControllerGraphic.sendInvitation(user, User.getUserByUsername(comboBox.getValue()));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

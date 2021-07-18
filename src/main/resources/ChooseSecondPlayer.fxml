@@ -14,12 +14,12 @@
             <Image url="@images/backgrounds/chooseDuelist.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="612.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#twoPlayerGame" prefHeight="49.0" prefWidth="158.0" text="Start 2 Player Game">
+      <Button layoutX="543.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#twoPlayerGame" prefHeight="49.0" prefWidth="297.0" text="Start 2 Player Game with Random Player">
          <font>
             <Font name="Agency FB Bold" size="19.0" />
          </font>
       </Button>
-      <Button layoutX="611.0" layoutY="278.0" mnemonicParsing="false" onMouseClicked="#playWithAi" prefHeight="49.0" prefWidth="160.0" text="Play With Computer">
+      <Button layoutX="611.0" layoutY="215.0" mnemonicParsing="false" onMouseClicked="#playWithAi" prefHeight="49.0" prefWidth="160.0" text="Play With Computer">
          <font>
             <Font name="Agency FB Bold" size="19.0" />
          </font>
@@ -27,6 +27,13 @@
       <Button layoutX="662.0" layoutY="519.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="36.0" prefWidth="59.0" text="Back">
          <font>
             <Font name="Agency FB" size="19.0" />
+         </font>
+      </Button>
+      <ComboBox prefWidth="150.0" />
+      <ComboBox fx:id="comboBox" layoutX="616.0" layoutY="390.0" prefWidth="150.0" />
+      <Button layoutX="630.0" layoutY="440.0" mnemonicParsing="false" onMouseClicked="#sendInvitation" text="Send Invitation">
+         <font>
+            <Font name="Agency FB Bold" size="19.0" />
          </font>
       </Button>
    </children>

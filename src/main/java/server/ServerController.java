@@ -1,6 +1,8 @@
 package server;
 
 import controller.ImportExportUserController;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import model.Message;
 import model.User;
 
@@ -76,6 +78,11 @@ public class ServerController {
     }
 
 
+    public static HashMap<String, User> getLoggedInUsers() {
+        System.out.println("az tu server = " + loggedInUsers);
+        return loggedInUsers;
+    }
+
     public static void showLogins(String ok) {
         System.out.println(loggedInUsers.size() + " " + ok);
     }
@@ -101,7 +108,17 @@ public class ServerController {
             addMessage(command);
         } else if (command.startsWith("stop waiting ")) {
             removeUserFromWaitingList(command);
+        }else if (command.startsWith("SendInvitationTo")) {
+            String result = "";
+            result = sendInvitation(command);
+            try {
+                dataOutputStream.writeUTF(result);
+                dataOutputStream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
     private static void addMessage(String command) {
@@ -238,6 +255,15 @@ public class ServerController {
             }
         }
         peopleWaitingFor3RoundGame.remove(toBeDeleted);
+    }
+
+    static String sendInvitation(String command){
+            Alert info = new Alert(Alert.AlertType.CONFIRMATION, "You have just been invited to a play a game with " /* + esme yaru */ + "\n" + "want to join?", ButtonType.YES, ButtonType.NO);
+            info.setHeaderText("Invitation");
+            info.showAndWait();
+            if (info.getResult().equals(ButtonType.NO))
+                return "No";
+            else return "Yes";
     }
 
 
