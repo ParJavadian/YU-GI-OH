@@ -25,6 +25,18 @@ public class User {
     private int money;
     private Image profileImage;
     private int profileNumber;
+    private int wonGamesInARow = 0;
+    private int lostGamesInARow = 0;
+    private int numberOfWonGamesWithoutMonster = 0;
+    private int numberOfBronze = 0;
+    private int numberOfSilver = 0;
+    private int numberOfGold = 0;
+    private int numberOfTrophy = 0;
+    private int numberOfGifts = 0;
+    private int numberOfThreeLosesInARow = 0;
+    private int numberOfSevenLosesInARow = 0;
+    private int numberOfTenLosesInARow = 0;
+
 
     public User(String username, String nickname, String password,boolean isCalledFromSignUpMenu) {
         if (allUsers == null)
@@ -188,6 +200,131 @@ public class User {
         this.currentActiveDeck = deck;
         ImportExportUserController.getInstance().exportActiveDeck(Objects.requireNonNull(getUserByUsername(username)),deck.getDeckName());
     }
+
+    public void addWonGamesInARow() {
+        this.wonGamesInARow += 1;
+    }
+
+    public void setWonGamesInARowToZero(){
+        this.wonGamesInARow = 0;
+    }
+
+    public void setNumberOfWonGamesWithoutMonsterToZero(){
+        this.numberOfWonGamesWithoutMonster = 0;
+    }
+
+    public int getNumberOfGifts() {
+        return numberOfGifts;
+    }
+
+    public void addGift(){
+        this.numberOfGifts += 1;
+    }
+
+    public void setWonGamesInARow(int wonGamesInARow) {
+        this.wonGamesInARow = wonGamesInARow;
+    }
+
+    public void setNumberOfWonGamesWithoutMonster(int numberOfWonGamesWithoutMonster) {
+        this.numberOfWonGamesWithoutMonster = numberOfWonGamesWithoutMonster;
+    }
+
+    public void setNumberOfBronze(int numberOfBronze) {
+        this.numberOfBronze = numberOfBronze;
+    }
+
+    public void setNumberOfSilver(int numberOfSilver) {
+        this.numberOfSilver = numberOfSilver;
+    }
+
+    public void setNumberOfGold(int numberOfGold) {
+        this.numberOfGold = numberOfGold;
+    }
+
+    public void setNumberOfTrophy(int numberOfTrophy) {
+        this.numberOfTrophy = numberOfTrophy;
+    }
+
+    public void setLostGamesInARow(int lostGamesInARow) {
+        this.lostGamesInARow = lostGamesInARow;
+    }
+
+    public void addThreeLosesInARow(){
+        this.numberOfThreeLosesInARow += 1;
+    }
+
+    public void addSevenLosesInARow(){
+        this.numberOfSevenLosesInARow += 1;
+    }
+
+    public void addTenLosesInARow(){
+        this.numberOfTenLosesInARow += 1;
+    }
+
+    public void addToLostGames(){
+        this.lostGamesInARow += 1;
+    }
+
+    public int getLostGamesInARow() {
+        return lostGamesInARow;
+    }
+
+    public int getNumberOfThreeLosesInARow() {
+        return numberOfThreeLosesInARow;
+    }
+
+    public int getNumberOfSevenLosesInARow() {
+        return numberOfSevenLosesInARow;
+    }
+
+    public int getNumberOfTenLosesInARow() {
+        return numberOfTenLosesInARow;
+    }
+
+    public int getNumberOfWonGamesWithoutMonster() {
+        return numberOfWonGamesWithoutMonster;
+    }
+
+    public int getWonGamesInARow() {
+        return wonGamesInARow;
+    }
+
+    public int getNumberOfBronze() {
+        return numberOfBronze;
+    }
+
+    public int getNumberOfSilver() {
+        return numberOfSilver;
+    }
+
+    public int getNumberOfGold() {
+        return numberOfGold;
+    }
+
+    public int getNumberOfTrophy() {
+        return numberOfTrophy;
+    }
+
+    public void addNumberOfWonGamesWithoutMonster(){
+        this.numberOfWonGamesWithoutMonster += 1;
+    }
+
+    public void addNumberOfTrophy(){
+        this.numberOfTrophy += 1;
+    }
+
+    public void addNumberOfBronze() {
+        this.numberOfBronze += 1;
+    }
+
+    public void addNumberOfSilver() {
+        this.numberOfSilver += 1;
+    }
+
+    public void addNumberOfGold() {
+        this.numberOfGold += 1;
+    }
+
 
     public int getCountOfCardInAllCards(Card card) {
         int counter = 0;
