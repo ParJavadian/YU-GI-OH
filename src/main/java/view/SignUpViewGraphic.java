@@ -41,6 +41,7 @@ public class SignUpViewGraphic extends Application {
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance(); //todo start
             importExportUserController.importAllUsers();
             importExportUserController.importProfileNumber();
+            importExportUserController.importAchievements();
             importExportUserController.importAllCards();
             importExportUserController.importAllDecks();
             importExportUserController.importActiveDeck(); //todo end

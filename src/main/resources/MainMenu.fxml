@@ -27,22 +27,22 @@
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Button>
-    <Button layoutX="450.0" layoutY="308.0" mnemonicParsing="false" onMouseClicked="#profileMenu" text="Profile" textFill="#c800ff">
+    <Button layoutX="450.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#profileMenu" text="Profile" textFill="#c800ff">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Button>
-    <Button layoutX="456.0" layoutY="364.0" mnemonicParsing="false" onMouseClicked="#shopMenu" text="Shop" textFill="#c800ff">
+    <Button layoutX="456.0" layoutY="404.0" mnemonicParsing="false" onMouseClicked="#shopMenu" text="Shop" textFill="#c800ff">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Button>
-    <Button layoutX="426.0" layoutY="419.0" mnemonicParsing="false" onMouseClicked="#importExport" text="Import/Export" textFill="#c800ff">
+    <Button layoutX="426.0" layoutY="455.0" mnemonicParsing="false" onMouseClicked="#importExport" text="Import/Export" textFill="#c800ff">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
     </Button>
-    <Button layoutX="451.0" layoutY="526.0" mnemonicParsing="false" onMouseClicked="#logout" text="Logout" textFill="#c800ff">
+    <Button layoutX="451.0" layoutY="556.0" mnemonicParsing="false" onMouseClicked="#logout" text="Logout" textFill="#c800ff">
         <font>
             <Font name="Agency FB Bold" size="18.0" />
         </font>
@@ -52,15 +52,20 @@
             <Font name="Agency FB Bold" size="36.0" />
         </font>
     </Text>
-   <Button layoutX="429.0" layoutY="474.0" mnemonicParsing="false" onMouseClicked="#muteUnmute" text="Mute/Unmute" textFill="#c800ff">
-      <font>
-         <Font name="Agency FB Bold" size="18.0" />
-      </font>
-   </Button>
-   <Accordion />
-   <Button onAction="#openChat" layoutX="457.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#newDuel" text="Chat" textFill="#c800ff">
-      <font>
-         <Font name="Agency FB Bold" size="18.0" />
-      </font>
-   </Button>
+    <Button layoutX="429.0" layoutY="507.0" mnemonicParsing="false" onMouseClicked="#muteUnmute" text="Mute/Unmute" textFill="#c800ff">
+        <font>
+            <Font name="Agency FB Bold" size="18.0" />
+        </font>
+    </Button>
+    <Accordion />
+    <Button layoutX="457.0" layoutY="146.0" mnemonicParsing="false" onMouseClicked="#newDuel" text="Chat" textFill="#c800ff">
+        <font>
+            <Font name="Agency FB Bold" size="18.0" />
+        </font>
+    </Button>
+    <Button layoutX="445.0" layoutY="300.0" onMouseClicked="#goToTVRoom" text="TV Room" textFill="#c800ff">
+        <font>
+            <Font name="Agency FB Bold" size="18.0" />
+        </font>
+    </Button>
 </AnchorPane>

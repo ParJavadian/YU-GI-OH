@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProfileViewForGraphic">
     <children>
         <ImageView id="label" fitHeight="600.0" fitWidth="907.0" layoutX="-1.0">
@@ -19,12 +20,12 @@
                 <Font name="Agency FB Bold" size="18.0" />
             </font>
         </Button>
-        <Button layoutX="115.0" layoutY="346.0" mnemonicParsing="false" onMouseClicked="#changePassword" prefHeight="34.0" prefWidth="160.0" text="Change Password" textFill="RED">
+        <Button layoutX="115.0" layoutY="341.0" mnemonicParsing="false" onMouseClicked="#changePassword" prefHeight="34.0" prefWidth="160.0" text="Change Password" textFill="RED">
             <font>
                 <Font name="Agency FB Bold" size="18.0" />
             </font>
         </Button>
-        <Button layoutX="115.0" layoutY="459.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="34.0" prefWidth="160.0" text="Back" textFill="RED">
+        <Button layoutX="115.0" layoutY="450.0" mnemonicParsing="false" onMouseClicked="#seeAchievements" prefHeight="34.0" prefWidth="160.0" text="See Achievements" textFill="RED">
             <font>
                 <Font name="Agency FB Bold" size="18.0" />
             </font>
@@ -34,10 +35,15 @@
                 <Font name="Agency FB Bold" size="19.0" />
             </font>
         </Label>
-      <Button layoutX="115.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#changeProfilePhoto" prefHeight="34.0" prefWidth="160.0" text="Change Profile Photo" textFill="RED">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
+        <Button layoutX="115.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#changeProfilePhoto" prefHeight="34.0" prefWidth="160.0" text="Change Profile Photo" textFill="RED">
+            <font>
+                <Font name="Agency FB Bold" size="18.0" />
+            </font>
+        </Button>
+        <Button layoutX="115.0" layoutY="503.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="34.0" prefWidth="160.0" text="Back" textFill="RED">
+            <font>
+                <Font name="Agency FB Bold" size="18.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>

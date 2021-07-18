@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.User;
@@ -149,5 +150,10 @@ public class MainViewGraphic extends Application{
     public void openChat() throws Exception {
         ChatView.getInstance().setCurrentUser(user);
         ChatView.getInstance().start(stage);
+    }
+
+    public void goToTVRoom(MouseEvent event) throws Exception{
+        TVRoomView.getInstance().setCurrentUser(user);
+        TVRoomView.getInstance().start(stage);
     }
 }

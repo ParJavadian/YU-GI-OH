@@ -40,6 +40,7 @@ public class LogInViewGraphic extends Application {
             ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
             importExportUserController.importAllUsers();
             importExportUserController.importProfileNumber();
+            importExportUserController.importAchievements();
             importExportUserController.importAllCards();
             importExportUserController.importAllDecks();
             importExportUserController.importActiveDeck();
