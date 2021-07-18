@@ -29,6 +29,5 @@
             <Font name="Agency FB" size="19.0" />
          </font>
       </Button>
-      <ComboBox fx:id="comboBox" layoutX="616.0" layoutY="396.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
