@@ -30,6 +30,13 @@ public class Main extends Application {
         importExportUserController.importActiveDeck(); //todo end
         Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
         User.getUserByUsername("@AI@").setActiveDeck(deck);
+
+
+
+
+
+
+
         initializeNetwork();
         launch(args);
     }

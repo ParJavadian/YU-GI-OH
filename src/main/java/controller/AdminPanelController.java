@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class AdminPanelController {
 
-    private static ShopController instance = null;
+/*    private static ShopController instance = null;
     private final static ArrayList<Image> allImages = new ArrayList<>();
     private final static ArrayList<Card> allCards = (ArrayList<Card>)DeckController.getInstance(null).getAllCardsOfGame();
 
@@ -16,5 +16,5 @@ public class AdminPanelController {
         if (instance == null) instance = new AdminPanelController(user);
         instance.user = user;
         return instance;
-    }
+    }*/
 }

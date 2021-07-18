@@ -33,6 +33,8 @@ public class DuelController {
     public Integer[] rivalDefencePoints = new Integer[5];
     public boolean isStartTurn;
     public boolean hasUsedSpellOrTrap = false;
+    //fixme 1 : moshkeli nadare bara edit badane :)
+    private int numberOfChangedTurns = 0;
 
 
     public DuelController(User player, User rival, int roundNumber, GameViewGraphic gameViewGraphic) {
@@ -88,6 +90,10 @@ public class DuelController {
 
     public User getRival() {
         return this.rival;
+    }
+
+    public int getNumberOfChangedTurns() {
+        return numberOfChangedTurns;
     }
 
     public boolean getHasEnabledSuijin(int i) {
@@ -882,6 +888,8 @@ public class DuelController {
                 rival.addSevenLosesInARow();
             if (rival.getNumberOfTenLosesInARow() == 10)
                 rival.addTenLosesInARow();
+            if (this.numberOfChangedTurns < 10)
+                player.addNumberOfFlowers();
         } else {
             winner = rival;
             rival.addWonGamesInARow();
@@ -930,6 +938,8 @@ public class DuelController {
                 player.addTenLosesInARow();
                 playerLost10Games();
             }
+            if (this.numberOfChangedTurns < 10)
+                rival.addNumberOfFlowers();
         }
         ImportExportUserController.getInstance().exportAchievements(User.getAllUsers());
         if (player.getLifePoint() < 0) player.setLifePoint(0);
@@ -1081,6 +1091,7 @@ public class DuelController {
         User temp = this.player;
         this.player = rival;
         this.rival = temp;
+        addToNumberOfTurns();
         gameViewGraphic.changeTurn();
         changePlayerAndRival();
     }
@@ -1792,6 +1803,11 @@ public class DuelController {
         info.setHeaderText("Dude!");
         info.setContentText("You just Lost ten games in a row!!!");
         info.showAndWait();
+    }
+
+    //fixme 2
+    public void addToNumberOfTurns(){
+        this.numberOfChangedTurns += 1;
     }
 }
 

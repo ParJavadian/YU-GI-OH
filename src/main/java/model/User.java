@@ -36,6 +36,7 @@ public class User {
     private int numberOfThreeLosesInARow = 0;
     private int numberOfSevenLosesInARow = 0;
     private int numberOfTenLosesInARow = 0;
+    private int numberOfFlowers = 0;
 
 
     public User(String username, String nickname, String password,boolean isCalledFromSignUpMenu) {
@@ -325,6 +326,9 @@ public class User {
         this.numberOfGold += 1;
     }
 
+    public void addNumberOfFlowers(){
+        this.numberOfFlowers += 1;
+    }
 
     public int getCountOfCardInAllCards(Card card) {
         int counter = 0;

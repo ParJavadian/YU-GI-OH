@@ -50,7 +50,7 @@ public class LogInViewGraphic extends Application {
                 Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(deck);
             }
             else Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(AIDeck);
-            Main.initializeNetwork();
+//            Main.initializeNetwork();
         }
         LogInViewGraphic.stage = stage;
         URL url = getClass().getResource("/Login.fxml");
