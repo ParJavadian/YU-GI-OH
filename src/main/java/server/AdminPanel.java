@@ -2,6 +2,7 @@ package server;
 
 import controller.ShopController;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -194,23 +195,54 @@ public class AdminPanel extends Application implements Initializable {
         numberCard2.setText(String.valueOf(currencies.get(card2)));
         numberCard3.setText(String.valueOf(currencies.get(card3)));
         numberCard4.setText(String.valueOf(currencies.get(card4)));
-        if(isActives.get(card1))
+        if (isActives.get(card1))
             activeDeactive1.setText("Active");
         else
             activeDeactive1.setText("Inactive");
-        if(isActives.get(card2))
+        if (isActives.get(card2))
             activeDeactive2.setText("Active");
         else
             activeDeactive2.setText("Inactive");
-        if(isActives.get(card3))
+        if (isActives.get(card3))
             activeDeactive3.setText("Active");
         else
             activeDeactive3.setText("Inactive");
-        if(isActives.get(card4))
+        if (isActives.get(card4))
             activeDeactive4.setText("Active");
         else
             activeDeactive4.setText("Inactive");
     }
 
 
+    public void set1() {
+        if (textField1.getText().matches("\\d+")) {
+            currencies.put(card1, Integer.parseInt(textField1.getText()));
+            setAll();
+        }
+        textField1.setText("");
+    }
+
+    public void set2() {
+        if (textField2.getText().matches("\\d+")) {
+            currencies.put(card2, Integer.parseInt(textField2.getText()));
+            setAll();
+        }
+        textField2.setText("");
+    }
+
+    public void set3() {
+        if (textField3.getText().matches("\\d+")) {
+            currencies.put(card3, Integer.parseInt(textField3.getText()));
+            setAll();
+        }
+        textField3.setText("");
+    }
+
+    public void set4() {
+        if (textField4.getText().matches("\\d+")) {
+            currencies.put(card4, Integer.parseInt(textField4.getText()));
+            setAll();
+        }
+        textField4.setText("");
+    }
 }
