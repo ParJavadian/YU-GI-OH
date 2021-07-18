@@ -1,6 +1,7 @@
 package controller;
 
 import controller.exeption.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,6 +32,8 @@ public class DuelController {
     public Integer[] playerDefencePoints = new Integer[5];
     public Integer[] rivalDefencePoints = new Integer[5];
     public boolean isStartTurn;
+    public boolean hasUsedSpellOrTrap = false;
+
 
     public DuelController(User player, User rival, int roundNumber, GameViewGraphic gameViewGraphic) {
         this.player = player;
@@ -501,6 +504,7 @@ public class DuelController {
             if (this.player.getBoard().isFullSpellAndTrapZone())
                 throw new FullSpellZone();
             this.player.getBoard().putSpellOrTrap(spellCard, "H");
+            hasUsedSpellOrTrap = true;
         } else {
             if (this.player.getBoard().getFieldZone() != null) {
                 this.player.getBoard().putInGraveYard(this.player.getBoard().getFieldZone());
@@ -508,6 +512,7 @@ public class DuelController {
             }
             changeBackground(spellCard);
             this.player.getBoard().putInFieldZone(spellCard);
+            hasUsedSpellOrTrap = true;
         }
         gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
     }
@@ -522,12 +527,15 @@ public class DuelController {
                 throw new FullSpellZone();
             }
             this.player.getBoard().putSpellOrTrap(trapCard, "H");
+            hasUsedSpellOrTrap = true;
+
         } else {
             if (this.player.getBoard().getFieldZone() != null) {
                 this.player.getBoard().putInGraveYard(this.player.getBoard().getFieldZone());
                 this.player.getBoard().removeFromFieldZone();
             }
             this.player.getBoard().putInFieldZone(trapCard);
+            hasUsedSpellOrTrap = true;
         }
         gameViewGraphic.lightningAnimation(getHandByNumber(this.selectedCard.getNumber()), 3, 0, 0);
     }
@@ -837,9 +845,93 @@ public class DuelController {
         if (loser.equals(rival)) {
             gameViewGraphic.crownAnimation(gameViewGraphic.imageViewForCrown);
             winner = player;
+            player.addWonGamesInARow();
+            player.setLostGamesInARow(0);
+            rival.addToLostGames();
+            if (player.getLifePoint() >= 6000) {
+                player.addGift();
+                playerWonGift();
+            }
+            if (!hasUsedSpellOrTrap){
+                player.addNumberOfWonGamesWithoutMonster();
+            }
+            else player.setNumberOfWonGamesWithoutMonsterToZero();
+            if (player.getNumberOfWonGamesWithoutMonster() == 5) {
+                player.addNumberOfTrophy();
+                playerWonWithoutMonster();
+                player.setNumberOfWonGamesWithoutMonsterToZero();
+            }
+            rival.setWonGamesInARowToZero();
+            rival.setNumberOfWonGamesWithoutMonsterToZero();
+            if (player.getWonGamesInARow() == 5) {
+                playerWon5Games();
+                player.addNumberOfBronze();
+            }
+            if (player.getWonGamesInARow() == 10){
+                playerWon10Games();
+                player.addNumberOfSilver();
+            }
+            if (player.getWonGamesInARow() == 15){
+                playerWon15Games();
+                player.addNumberOfGold();
+                player.setWonGamesInARowToZero();
+            }
+            if (rival.getLostGamesInARow() == 3)
+                rival.addThreeLosesInARow();
+            if (rival.getLostGamesInARow() == 7)
+                rival.addSevenLosesInARow();
+            if (rival.getNumberOfTenLosesInARow() == 10)
+                rival.addTenLosesInARow();
         } else {
             winner = rival;
+            rival.addWonGamesInARow();
+            player.addToLostGames();
+            rival.setLostGamesInARow(0);
+            if (rival.getLifePoint() >= 6000) {
+                rival.addGift();
+                playerWonGift();
+            }
+
+            if (!hasUsedSpellOrTrap){
+                rival.addNumberOfWonGamesWithoutMonster();
+            }
+            else rival.setNumberOfWonGamesWithoutMonsterToZero();
+
+            if (rival.getNumberOfWonGamesWithoutMonster() == 5) {
+                rival.addNumberOfTrophy();
+                playerWonWithoutMonster();
+                rival.setNumberOfWonGamesWithoutMonsterToZero();
+            }
+            player.setWonGamesInARowToZero();
+            player.setNumberOfWonGamesWithoutMonsterToZero();
+            if (rival.getWonGamesInARow() == 5){
+                playerWon5Games();
+                rival.addNumberOfBronze();
+            }
+            if (rival.getWonGamesInARow() == 10){
+                playerWon10Games();
+                rival.addNumberOfSilver();
+            }
+            if (rival.getWonGamesInARow() == 15){
+                playerWon15Games();
+                rival.addNumberOfGold();
+                rival.setWonGamesInARowToZero();
+            }
+
+            if (player.getLostGamesInARow() == 3) {
+                player.addThreeLosesInARow();
+                playerLost3games();
+            }
+            if (player.getLostGamesInARow() == 7) {
+                player.addSevenLosesInARow();
+                playerLost7Games();
+            }
+            if (player.getNumberOfTenLosesInARow() == 10) {
+                player.addTenLosesInARow();
+                playerLost10Games();
+            }
         }
+        ImportExportUserController.getInstance().exportAchievements(User.getAllUsers());
         if (player.getLifePoint() < 0) player.setLifePoint(0);
         if (rival.getLifePoint() < 0) rival.setLifePoint(0);
         roundCounter++;
@@ -1643,6 +1735,63 @@ public class DuelController {
             Image image = new Image(String.valueOf(url));
             gameViewGraphic.gameBackground.setImage(image);
         }
+    }
+
+
+    public void playerWon5Games() {
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setHeaderText("Congratulation!");
+        info.setContentText("You just won 5 games in a row and received a bronze medal!");
+        info.showAndWait();
+    }
+
+    public void playerWon10Games(){
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setHeaderText("Congratulation!");
+        info.setContentText("You just won 10 games in a row and received a silver medal!");
+        info.showAndWait();
+    }
+
+    public void playerWon15Games(){
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setHeaderText("Congratulation!");
+        info.setContentText("You just won 15 games in a row and received a gold medal!");
+        info.showAndWait();
+    }
+
+    public void playerWonWithoutMonster(){
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setHeaderText("Congratulation!");
+        info.setContentText("You just won 5 games without using any spell or trap!");
+        info.showAndWait();
+    }
+
+    public void playerWonGift(){
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setHeaderText("Congratulation!");
+        info.setContentText("You just won with losing less than 25percent of your lifepoint!");
+        info.showAndWait();
+    }
+
+    public void playerLost3games(){
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setHeaderText("Dude!");
+        info.setContentText("You just lost three games in a row!!!");
+        info.showAndWait();
+    }
+
+    public void playerLost7Games(){
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setHeaderText("Dude!");
+        info.setContentText("You just lost seven games in a row!!!");
+        info.showAndWait();
+    }
+
+    public void playerLost10Games(){
+        Alert info = new Alert(Alert.AlertType.INFORMATION);
+        info.setHeaderText("Dude!");
+        info.setContentText("You just Lost ten games in a row!!!");
+        info.showAndWait();
     }
 }
 
