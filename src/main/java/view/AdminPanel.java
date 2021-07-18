@@ -1,3 +1,4 @@
+/*
 package view;
 import controller.ImportExportUserController;
 import controller.ShopController;
@@ -24,7 +25,6 @@ public class AdminPanel extends Application implements Initializable{
     //TODO chon az jayi call nashode in stage esh set nashode
     private static Stage stage;
     private static AdminPanel instance = null;
-    private static User user;
     private static ArrayList<Image> images = new ArrayList<>(4);
     private static Card card1, card2, card3, card4;
     public static ImageView image1, image2, image3, image4;
@@ -55,11 +55,6 @@ public class AdminPanel extends Application implements Initializable{
 
     public AdminPanel() {
         totalCardsNumber = ShopController.getInstance(user).getTotalCardsNumber();
-    }
-
-
-    public void setCurrentUser(User user) {
-        AdminPanel.user = user;
     }
 
     @Override
@@ -186,11 +181,13 @@ public class AdminPanel extends Application implements Initializable{
     }
 
     public void setAll() {
+*/
 /*        money.setText(String.valueOf(user.getMoney()));
         activeButton1.setDisable(card1 != null && card1.getPrice() > user.getMoney());
         activeButton2.setDisable(card2 != null && card2.getPrice() > user.getMoney());
         activeButton3.setDisable(card3 != null && card3.getPrice() > user.getMoney());
-        activeButton4.setDisable(card4 != null && card4.getPrice() > user.getMoney());*/
+        activeButton4.setDisable(card4 != null && card4.getPrice() > user.getMoney());*//*
+
         setInStocksAndPrices();
     }
 
@@ -203,3 +200,4 @@ public class AdminPanel extends Application implements Initializable{
     }
 
 }
+*/

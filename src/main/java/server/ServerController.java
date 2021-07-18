@@ -1,10 +1,13 @@
 package server;
 
 import controller.ImportExportUserController;
+import javafx.application.Application;
+import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import model.Message;
 import model.User;
+//import view.AdminPanel;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -15,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class ServerController {
+public class ServerController extends Application {
 
     private static ArrayList<User> allUsers = new ArrayList<>();
     public static final HashMap<String, User> loggedInUsers = new HashMap<>();
@@ -27,21 +30,23 @@ public class ServerController {
     static User finalFirstUser;
 
     public static void main(String[] args) {
+
         ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.importAllUsers();
         allUsers = (ArrayList<User>) User.getAllUsers();
 //        System.out.println("in main: " + allUsers.size());
-        /*importExportUserController.importProfileNumber();
+        importExportUserController.importProfileNumber();
         importExportUserController.importAllCards();
         importExportUserController.importAllDecks();
         importExportUserController.importActiveDeck();
-        Deck AIDeck = Objects.requireNonNull(User.getUserByUsername("@AI@")).getDeckByName("DeckForAI");
+        /*Deck AIDeck = Objects.requireNonNull(User.getUserByUsername("@AI@")).getDeckByName("DeckForAI");
         if (AIDeck == null) {
             Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
             Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(deck);
         }
         else Objects.requireNonNull(User.getUserByUsername("@AI@")).setActiveDeck(AIDeck);*/
 //        System.out.println("main: " + User.getAllUsers());
+        launch(args);
         try {
             serverSocket = new ServerSocket(7777);
             while (true) {
@@ -75,6 +80,7 @@ public class ServerController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 
@@ -117,6 +123,8 @@ public class ServerController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else if (command.startsWith("get online people")) {
+            getOnlinePeople(dataOutputStream);
         }
 
     }
@@ -265,6 +273,26 @@ public class ServerController {
                 return "No";
             else return "Yes";
     }
+
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+//        AdminPanel.getInstance().start(primaryStage);
+    }
+
+    public static void getOnlinePeople(DataOutputStream dataOutputStream){
+        String toWrite = "#";
+        for (User user : loggedInUsers.values()) {
+            toWrite += user.getUsername()+"#";
+        }
+        try {
+            dataOutputStream.writeUTF(toWrite);
+            dataOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

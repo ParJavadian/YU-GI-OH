@@ -1,5 +1,7 @@
 package view;
 
+import client.Main;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 import com.sun.security.ntlm.Server;
 import controller.ChooseSecondPlayerControllerGraphic;
 import javafx.application.Application;
@@ -14,9 +16,12 @@ import javafx.stage.Stage;
 import model.User;
 import server.ServerController;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ChooseSecondPlayerViewGraphic extends Application implements Initializable{
     private static Stage stage;
@@ -69,6 +74,23 @@ public class ChooseSecondPlayerViewGraphic extends Application implements Initia
 
 
     public void fillTheComboBoxWithUsers() {
+        ArrayList<User> onlineUsers = new ArrayList<>();
+        String usernames = "";
+        try {
+            Main.dataOutputStream.writeUTF("login " + user.getUsername());
+            Main.dataOutputStream.flush();
+            usernames = Main.dataInputStream.readUTF();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Pattern pattern = Pattern.compile("#([^#]+)");
+        Matcher matcher = pattern.matcher(usernames);
+        while (matcher.find()) {
+            User toBeAdded = User.getUserByUsername(matcher.group(1));
+            onlineUsers.add(toBeAdded);
+        }
+
         ArrayList<String> choices = new ArrayList<>();
         System.out.println("all usera = " + ServerController.getLoggedInUsers());
         for (User user : ServerController.loggedInUsers.values()) {

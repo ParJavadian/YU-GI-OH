@@ -17,7 +17,7 @@ public class Round {
         return this.winner;
     }
 
-    public int getLifePointByUser(User user){
+    public int getLifePointByUser(User user) {
         if(this.winner.equals(user)) return this.winnerLifePoint;
         else return this.loserLifePoint;
     }
