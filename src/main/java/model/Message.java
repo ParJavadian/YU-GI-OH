@@ -14,8 +14,4 @@ public class Message implements Serializable {
         this.Id = IdCounter;
         IdCounter++;
     }
-
-    /*public static Message getMessageById(int id){
-
-    }*/
 }

@@ -2,9 +2,10 @@ package server;
 
 import controller.ShopController;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -35,6 +36,7 @@ public class AdminPanel extends Application implements Initializable {
     public Label wantedNumber1, wantedNumber2, wantedNumber3, wantedNumber4;
     public Label activeDeactive1, activeDeactive2, activeDeactive3, activeDeactive4;
     public Label numberCard1, numberCard2, numberCard3, numberCard4;
+    private static Label activeDeactive11, activeDeactive21, activeDeactive31, activeDeactive41, numberCard11, numberCard21, numberCard31, numberCard41;
     public static HashMap<Card, Boolean> isActives = new HashMap<>();
     public static HashMap<Card, Integer> currencies = new HashMap<>();
 
@@ -61,14 +63,48 @@ public class AdminPanel extends Application implements Initializable {
         root = FXMLLoader.load(url);
         setImagesAndCards();
         addImages();
+        setFXMLs();
+        setActivesAndCurrencies();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void goBack() throws Exception {
-        //TODO
+    private void setFXMLs() {
+        if (root != null) {
+            for (Node child : root.getChildren()) {
+                if (child.getId() == null) continue;
+                if (child instanceof Label) {
+                    if (child.getId().equals("activeDeactive1"))
+                        activeDeactive1 = activeDeactive11;
+                    else if (child.getId().equals("activeDeactive2"))
+                        activeDeactive2 = activeDeactive21;
+                    else if (child.getId().equals("activeDeactive3"))
+                        activeDeactive3 = activeDeactive31;
+                    else if (child.getId().equals("activeDeactive4"))
+                        activeDeactive4 = activeDeactive41;
+                    else if (child.getId().equals("numberCard1"))
+                        numberCard1 = numberCard11;
+                    else if (child.getId().equals("numberCard2"))
+                        numberCard2 = numberCard21;
+                    else if (child.getId().equals("numberCard3"))
+                        numberCard3 = numberCard31;
+                    else if (child.getId().equals("numberCard4"))
+                        numberCard4 = numberCard41;
+                }
+            }
+//            System.out.println("active1: " + activeDeactive11);
+        }
+        /*activeDeactive1 = activeDeactive11;
+        activeDeactive2 = activeDeactive21;
+        activeDeactive3 = activeDeactive31;
+        activeDeactive4 = activeDeactive41;
+        numberCard1 = numberCard11;
+        numberCard2 = numberCard21;
+        numberCard3 = numberCard31;
+        numberCard4 = numberCard41;*/
     }
+
 
     public void active1() {
         if (isActives.get(card1))
@@ -102,7 +138,7 @@ public class AdminPanel extends Application implements Initializable {
         if (firstCardNumber + 4 >= totalCardsNumber) return;
         firstCardNumber += 4;
         setOnlyImagesAndCards();
-        setInStocksAndPrices();
+//        setActivesAndCurrencies();
         setAll();
     }
 
@@ -110,7 +146,7 @@ public class AdminPanel extends Application implements Initializable {
         if (firstCardNumber - 4 < 0) return;
         firstCardNumber -= 4;
         setOnlyImagesAndCards();
-        setInStocksAndPrices();
+//        setActivesAndCurrencies();
         setAll();
     }
 
@@ -168,7 +204,19 @@ public class AdminPanel extends Application implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initializeActivesAndCurrencies();
         setImagesAndCards();
-        setAll();
+        setActivesAndCurrencies();
+        setStatics();
+    }
+
+    private void setStatics() {
+        numberCard11 = numberCard1;
+        numberCard21 = numberCard2;
+        numberCard31 = numberCard3;
+        numberCard41 = numberCard4;
+        activeDeactive11 = activeDeactive1;
+        activeDeactive21 = activeDeactive2;
+        activeDeactive31 = activeDeactive3;
+        activeDeactive41 = activeDeactive4;
     }
 
     private void initializeActivesAndCurrencies() {
@@ -183,34 +231,50 @@ public class AdminPanel extends Application implements Initializable {
     }
 
     public void setAll() {
-        setInStocksAndPrices();
+//        System.out.println("in set all: " + numberCard1);
+//        setActivesAndCurrencies();
     }
 
-    private void setInStocksAndPrices() {
-        wantedNumber1.setText("number of cards");
-        wantedNumber2.setText("number of cards");
-        wantedNumber3.setText("number of cards");
-        wantedNumber4.setText("number of cards");
-        numberCard1.setText(String.valueOf(currencies.get(card1)));
-        numberCard2.setText(String.valueOf(currencies.get(card2)));
-        numberCard3.setText(String.valueOf(currencies.get(card3)));
-        numberCard4.setText(String.valueOf(currencies.get(card4)));
-        if (isActives.get(card1))
-            activeDeactive1.setText("Active");
-        else
-            activeDeactive1.setText("Inactive");
-        if (isActives.get(card2))
-            activeDeactive2.setText("Active");
-        else
-            activeDeactive2.setText("Inactive");
-        if (isActives.get(card3))
-            activeDeactive3.setText("Active");
-        else
-            activeDeactive3.setText("Inactive");
-        if (isActives.get(card4))
-            activeDeactive4.setText("Active");
-        else
-            activeDeactive4.setText("Inactive");
+    private void setActivesAndCurrencies() {
+        new Thread(() -> {
+            while (true) {
+                if(numberCard1==null){
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    continue;
+                }
+                Platform.runLater(() -> {
+                    numberCard1.setText(String.valueOf(currencies.get(card1)));
+                    numberCard2.setText(String.valueOf(currencies.get(card2)));
+                    numberCard3.setText(String.valueOf(currencies.get(card3)));
+                    numberCard4.setText(String.valueOf(currencies.get(card4)));
+                    if (isActives.get(card1))
+                        activeDeactive1.setText("Active");
+                    else
+                        activeDeactive1.setText("Inactive");
+                    if (isActives.get(card2))
+                        activeDeactive2.setText("Active");
+                    else
+                        activeDeactive2.setText("Inactive");
+                    if (isActives.get(card3))
+                        activeDeactive3.setText("Active");
+                    else
+                        activeDeactive3.setText("Inactive");
+                    if (isActives.get(card4))
+                        activeDeactive4.setText("Active");
+                    else
+                        activeDeactive4.setText("Inactive");
+                });
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
 
@@ -245,4 +309,22 @@ public class AdminPanel extends Application implements Initializable {
         }
         textField4.setText("");
     }
+
+    public static int getCurrency(Card card) {
+        /*if (!currencies.containsKey(card))
+            System.out.println(card);*/
+        return currencies.get(card);
+    }
+
+    public static Boolean getActiveState(Card card) {
+        return isActives.get(card);
+    }
+
+    public void decreaseCurrency(Card card) {
+//        System.out.println("numberCard1: " + numberCard1);
+        int currentCurrency = currencies.get(card);
+        currencies.put(card, currentCurrency - 1);
+//        setActivesAndCurrencies();
+    }
+
 }

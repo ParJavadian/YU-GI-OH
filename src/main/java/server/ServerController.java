@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import model.Card;
 import model.Message;
 import model.User;
 //import server.AdminPanel;
@@ -128,6 +129,44 @@ public class ServerController extends Application {
             sendInvitation(dataOutputStream);
         } else if (command.startsWith("get online people")) {
             getOnlinePeople(dataOutputStream);
+        }else if(command.startsWith("getCurrency!@#")){
+            getCurrency(command,dataOutputStream);
+        }else if(command.startsWith("decreaseCurrency!@#")){
+            decreaseCurrency(command);
+        }else if(command.startsWith("getActiveState!@#")){
+            getActiveState(command,dataOutputStream);
+        }
+    }
+
+    private static void getActiveState(String command, DataOutputStream dataOutputStream) {
+//        System.out.println("entered get active state server");
+        String[] parts = command.split("!@#");
+        Card card = Card.getCardByName(parts[1]);
+        try {
+            String toWrite = String.valueOf(AdminPanel.getActiveState(card));
+            dataOutputStream.writeUTF(toWrite);
+            dataOutputStream.flush();
+//            System.out.println("written UTF: " + toWrite);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void decreaseCurrency(String command) {
+        String[] parts = command.split("!@#");
+        Card card = Card.getCardByName(parts[1]);
+        AdminPanel.getInstance().decreaseCurrency(card);
+    }
+
+    private static void getCurrency(String command,DataOutputStream dataOutputStream) {
+        String[] parts = command.split("!@#");
+        Card card = Card.getCardByName(parts[1]);
+        try {
+            dataOutputStream.writeUTF(String.valueOf(AdminPanel.getCurrency(card)));
+//            System.out.println("written currency");
+            dataOutputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

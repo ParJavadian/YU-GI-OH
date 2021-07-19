@@ -6,8 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #d9b3ff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.AdminPanel">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="900.0" style="-fx-background-color: #d9b3ff;" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.AdminPanel">
     <!--<ImageView fitHeight="204.0" fitWidth="140.0" layoutX="83.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true"
+    <!-<ImageView fitHeight="204.0" fitWidth="140.0" layoutX="83.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true"
                fx:id="image1"/>
     <ImageView fitHeight="204.0" fitWidth="140.0" layoutX="680.0" layoutY="64.0" pickOnBounds="true"
                preserveRatio="true" fx:id="image2"/>
@@ -18,123 +21,123 @@
     <AnchorPane layoutX="278.0" layoutY="290.0" prefHeight="169.0" prefWidth="150.0">
         <Button layoutX="3.0" layoutY="68.0" mnemonicParsing="false" onAction="#active2" text="Activate/deactivate">
             <font>
-                <Font name="Agency FB Bold" size="18.0" />
+                <Font name="Agency FB Bold" size="18.0"/>
             </font>
         </Button>
-        <Label fx:id="wantedNumber2" layoutX="1.0" layoutY="123.0" prefHeight="22.0" prefWidth="150.0">
+        <Label text="number of cards:" layoutX="1.0" layoutY="111.0" prefHeight="22.0" prefWidth="150.0">
             <font>
-                <Font name="Agency FB" size="16.0" />
+                <Font name="Agency FB" size="16.0"/>
             </font>
         </Label>
-      <TextField fx:id="textField2" layoutX="2.0" layoutY="106.0" />
-      <Label fx:id="activeDeactive2" layoutX="68.0" layoutY="1.0" text="AD2">
-         <font>
-            <Font name="Agency FB" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="numberCard2" layoutX="64.0" layoutY="30.0" text="Num2">
-         <font>
-            <Font name="Agency FB" size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="53.0" layoutY="138.0" mnemonicParsing="false" onAction="#set2" text="Set">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
+        <TextField fx:id="textField2" layoutX="2.0" layoutY="145.0"/>
+        <Label fx:id="activeDeactive2" alignment="CENTER" layoutX="55.0" layoutY="4.0" text="AD2">
+            <font>
+                <Font name="Agency FB" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="numberCard2" alignment="CENTER" layoutX="64.0" layoutY="30.0" text="Num2">
+            <font>
+                <Font name="Agency FB" size="18.0"/>
+            </font>
+        </Label>
+        <Button layoutX="54.0" layoutY="188.0" mnemonicParsing="false" onAction="#set2" prefWidth="45.0" text="Set">
+            <font>
+                <Font name="Agency FB Bold" size="18.0"/>
+            </font>
+        </Button>
     </AnchorPane>
     <AnchorPane layoutX="84.0" layoutY="290.0" prefHeight="169.0" prefWidth="150.0">
         <Button layoutX="2.0" layoutY="68.0" mnemonicParsing="false" onAction="#active1" text="Activate/deactivate">
             <font>
-                <Font name="Agency FB Bold" size="18.0" />
+                <Font name="Agency FB Bold" size="18.0"/>
             </font>
         </Button>
-        <Label fx:id="wantedNumber1" layoutY="123.0" prefHeight="22.0" prefWidth="150.0">
+        <Label text="number of cards:" layoutX="4.0" layoutY="111.0" prefHeight="22.0" prefWidth="150.0">
             <font>
-                <Font name="Agency FB" size="16.0" />
+                <Font name="Agency FB" size="16.0"/>
             </font>
         </Label>
-      <TextField fx:id="textField1" layoutX="1.0" layoutY="106.0" />
-      <Label fx:id="activeDeactive1" layoutX="68.0" layoutY="4.0" text="AD1">
-         <font>
-            <Font name="Agency FB" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="numberCard1" layoutX="64.0" layoutY="32.0" text="NUM1">
-         <font>
-            <Font name="Agency FB" size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="53.0" layoutY="138.0" mnemonicParsing="false" onAction="#set1" text="Set">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
+        <TextField fx:id="textField1" layoutX="1.0" layoutY="145.0"/>
+        <Label fx:id="activeDeactive1" alignment="CENTER" layoutX="55.0" layoutY="4.0" text="AD1">
+            <font>
+                <Font name="Agency FB" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="numberCard1" alignment="CENTER" layoutX="64.0" layoutY="32.0" text="NUM1">
+            <font>
+                <Font name="Agency FB" size="18.0"/>
+            </font>
+        </Label>
+        <Button layoutX="53.0" layoutY="187.0" mnemonicParsing="false" onAction="#set1" text="Set">
+            <font>
+                <Font name="Agency FB Bold" size="18.0"/>
+            </font>
+        </Button>
     </AnchorPane>
     <AnchorPane layoutX="675.0" layoutY="290.0" prefHeight="169.0" prefWidth="150.0">
         <Button layoutX="3.0" layoutY="68.0" mnemonicParsing="false" onAction="#active4" text="Activate/deactivate">
             <font>
-                <Font name="Agency FB Bold" size="18.0" />
+                <Font name="Agency FB Bold" size="18.0"/>
             </font>
         </Button>
-        <Label fx:id="wantedNumber4" layoutX="1.0" layoutY="125.0" prefHeight="22.0" prefWidth="150.0">
+        <Label text="number of cards:" layoutX="-2.0" layoutY="112.0" prefHeight="22.0" prefWidth="150.0">
             <font>
-                <Font name="Agency FB" size="16.0" />
+                <Font name="Agency FB" size="16.0"/>
             </font>
         </Label>
-      <TextField fx:id="textField4" layoutX="-1.0" layoutY="108.0" />
-      <Label fx:id="activeDeactive4" layoutX="61.0" layoutY="8.0" text="AD4">
-         <font>
-            <Font name="Agency FB" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="numberCard4" layoutX="58.0" layoutY="35.0" text="Num4">
-         <font>
-            <Font name="Agency FB" size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="52.0" layoutY="138.0" mnemonicParsing="false" onAction="#set4" text="Set">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
+        <TextField fx:id="textField4" layoutX="-2.0" layoutY="147.0"/>
+        <Label fx:id="activeDeactive4" alignment="CENTER" layoutX="55.0" layoutY="4.0" text="AD4">
+            <font>
+                <Font name="Agency FB" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="numberCard4" alignment="CENTER" layoutX="58.0" layoutY="35.0" text="Num4">
+            <font>
+                <Font name="Agency FB" size="18.0"/>
+            </font>
+        </Label>
+        <Button layoutX="54.0" layoutY="177.0" mnemonicParsing="false" onAction="#set4" text="Set">
+            <font>
+                <Font name="Agency FB Bold" size="18.0"/>
+            </font>
+        </Button>
     </AnchorPane>
     <AnchorPane layoutX="478.0" layoutY="290.0" prefHeight="169.0" prefWidth="151.0">
         <Button layoutX="1.0" layoutY="68.0" mnemonicParsing="false" onAction="#active3" text="Activate/deactivate">
             <font>
-                <Font name="Agency FB Bold" size="18.0" />
+                <Font name="Agency FB Bold" size="18.0"/>
             </font>
         </Button>
-        <Label fx:id="wantedNumber3" layoutX="1.0" layoutY="124.0" prefHeight="22.0" prefWidth="150.0">
+        <Label text="number of cards:" layoutX="-1.0" layoutY="112.0" prefHeight="22.0" prefWidth="150.0">
             <font>
-                <Font name="Agency FB" size="16.0" />
+                <Font name="Agency FB" size="16.0"/>
             </font>
         </Label>
-      <TextField fx:id="textField3" layoutX="-1.0" layoutY="107.0" />
-      <Label fx:id="activeDeactive3" layoutX="64.0" layoutY="5.0" text="AD3">
-         <font>
-            <Font name="Agency FB" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="numberCard3" layoutX="59.0" layoutY="32.0" text="Num3">
-         <font>
-            <Font name="Agency FB" size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="54.0" layoutY="138.0" mnemonicParsing="false" onAction="#set3" text="Set">
-         <font>
-            <Font name="Agency FB Bold" size="18.0" />
-         </font>
-      </Button>
+        <TextField fx:id="textField3" layoutX="2.0" layoutY="146.0"/>
+        <Label fx:id="activeDeactive3" alignment="CENTER" layoutX="55.0" layoutY="4.0" text="AD3">
+            <font>
+                <Font name="Agency FB" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="numberCard3" alignment="CENTER" layoutX="59.0" layoutY="32.0" text="Num3">
+            <font>
+                <Font name="Agency FB" size="18.0"/>
+            </font>
+        </Label>
+        <Button layoutX="53.0" layoutY="190.0" mnemonicParsing="false" onAction="#set3" text="Set">
+            <font>
+                <Font name="Agency FB Bold" size="18.0"/>
+            </font>
+        </Button>
     </AnchorPane>
-    <Button layoutX="725.0" layoutY="474.0" mnemonicParsing="false" onAction="#goNextPage" text="Next Page">
+    <Button layoutX="734.0" layoutY="529.0" mnemonicParsing="false" onAction="#goNextPage" text="Next Page">
         <font>
-            <Font name="Agency FB Bold" size="21.0" />
+            <Font name="Agency FB Bold" size="21.0"/>
         </font>
     </Button>
-    <Button layoutX="63.0" layoutY="474.0" mnemonicParsing="false" onAction="#goPreviousPage" text="Previous Page">
+    <Button layoutX="45.0" layoutY="529.0" mnemonicParsing="false" onAction="#goPreviousPage" text="Previous Page">
         <font>
-            <Font name="Agency FB Bold" size="21.0" />
+            <Font name="Agency FB Bold" size="21.0"/>
         </font>
     </Button>
 </AnchorPane>
