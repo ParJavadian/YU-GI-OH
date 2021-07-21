@@ -50,7 +50,7 @@ public class ImportExportUserController {
     }
 
     public void importAllUsers() {
-        String username = "";
+        String username;
         String password = "";
         String nickname = "";
         String highScore = "";
@@ -80,7 +80,7 @@ public class ImportExportUserController {
                                 break;
                             counter--;
                         }
-                        User user = new User(username, nickname, password,false);
+                        User user = new User(username, nickname, password, false);
                         if (balance.matches("\\d+") && highScore.matches("\\d+")) {
                             user.setMoney(Integer.parseInt(balance));
                             user.setScore(Integer.parseInt(highScore));
@@ -94,7 +94,7 @@ public class ImportExportUserController {
     }
 
 
-    public void exportAchievements(List<User> allUsers){
+    public void exportAchievements(List<User> allUsers) {
         try {
             for (User user : allUsers) {
                 String username = user.getUsername();
@@ -104,7 +104,7 @@ public class ImportExportUserController {
                 fileWriter.write(user.getNumberOfBronze() + "\n");
                 fileWriter.write(user.getNumberOfSilver() + "\n");
                 fileWriter.write(user.getNumberOfGold() + "\n");
-                fileWriter.write(user.getNumberOfTrophy() +"\n");
+                fileWriter.write(user.getNumberOfTrophy() + "\n");
 
                 fileWriter.close();
             }
@@ -113,21 +113,21 @@ public class ImportExportUserController {
         }
     }
 
-    public void importAchievements(){
-        if (User.getAllUsers() != null){
-            for (User user : User.getAllUsers()){
+    public void importAchievements() {
+        if (User.getAllUsers() != null) {
+            for (User user : User.getAllUsers()) {
                 String username = user.getUsername();
-                String wonGamesInRow = "";
-                String wonGameWithoutMonster = "";
-                String numberOfBronze = "";
-                String numberOfSilver = "";
-                String numberOfGold = "";
-                String numberOfTrophy = "";
+                String wonGamesInRow;
+                String wonGameWithoutMonster;
+                String numberOfBronze;
+                String numberOfSilver;
+                String numberOfGold;
+                String numberOfTrophy;
 
                 int number = 6;
                 File file = new File("Achievements/" + username + ".txt");
                 try {
-                    if (file.exists()){
+                    if (file.exists()) {
                         Scanner scanner = new Scanner(file);
                         while (scanner.hasNextLine()) {
                             if (number == 6) {
@@ -150,12 +150,12 @@ public class ImportExportUserController {
                                 if (numberOfSilver.matches("\\d+"))
                                     user.setNumberOfSilver(Integer.parseInt(numberOfSilver));
                             }
-                            if (number == 2){
+                            if (number == 2) {
                                 numberOfGold = scanner.nextLine();
                                 if (numberOfGold.matches("\\d+"))
                                     user.setNumberOfGold(Integer.parseInt(numberOfGold));
                             }
-                            if (number == 1){
+                            if (number == 1) {
                                 numberOfTrophy = scanner.nextLine();
                                 if (numberOfTrophy.matches("\\d+"))
                                     user.setNumberOfTrophy(Integer.parseInt(numberOfTrophy));
@@ -166,7 +166,7 @@ public class ImportExportUserController {
                             number--;
                         }
                     }
-                }catch (FileNotFoundException e){
+                } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
             }
@@ -174,17 +174,17 @@ public class ImportExportUserController {
     }
 
 
-    public void importProfileNumber(){
-        if (User.getAllUsers() != null){
-            for (User user : User.getAllUsers()){
+    public void importProfileNumber() {
+        if (User.getAllUsers() != null) {
+            for (User user : User.getAllUsers()) {
                 String username = user.getUsername();
-                String profileNumber = "";
+                String profileNumber;
                 int number;
                 File file = new File("ProfileNumbers/" + username + ".txt");
                 try {
-                    if (file.exists()){
+                    if (file.exists()) {
                         Scanner scanner = new Scanner(file);
-                        if (scanner.hasNextLine()){
+                        if (scanner.hasNextLine()) {
                             profileNumber = scanner.nextLine();
                             if (profileNumber.matches("\\d+")) {
                                 number = Integer.parseInt(profileNumber);
@@ -192,28 +192,28 @@ public class ImportExportUserController {
                             }
                         }
                     }
-                }catch (FileNotFoundException e){
+                } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
 
-    public void exportProfileNumber(String username, int number){
+    public void exportProfileNumber(String username, int number) {
         try {
             FileWriter fileWriter = new FileWriter("ProfileNumbers/" + username + ".txt");
             fileWriter.write(String.valueOf(number));
             fileWriter.close();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void importActiveDeck(){
+    public void importActiveDeck() {
         if (User.getAllUsers() != null) {
             for (User user : User.getAllUsers()) {
                 String username = user.getUsername();
-                String activeDeckName = "";
+                String activeDeckName;
                 File file = new File("ActivateDecks/" + username + ".txt");
                 try {
                     if (file.exists()) {
@@ -230,13 +230,13 @@ public class ImportExportUserController {
         }
     }
 
-    public void exportActiveDeck(User user, String deckName){
+    public void exportActiveDeck(User user, String deckName) {
         String username = user.getUsername();
         try {
             FileWriter fileWriter = new FileWriter("ActivateDecks/" + username + ".txt");
             fileWriter.write(deckName);
             fileWriter.close();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

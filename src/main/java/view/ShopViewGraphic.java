@@ -54,7 +54,7 @@ public class ShopViewGraphic extends Application implements Initializable {
     }
 
     public ShopViewGraphic() {
-        totalCardsNumber = ShopController.getInstance(user).getTotalCardsNumber();
+        totalCardsNumber = ShopController.getInstance().getTotalCardsNumber();
     }
 
     public void setCurrentUser(User user) {
@@ -86,7 +86,6 @@ public class ShopViewGraphic extends Application implements Initializable {
         try {
             Main.dataOutputStream.writeUTF("decreaseCurrency!@#" + card1.getName());
             Main.dataOutputStream.flush();
-//            updateCurrenciesManually();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,7 +101,6 @@ public class ShopViewGraphic extends Application implements Initializable {
         try {
             Main.dataOutputStream.writeUTF("decreaseCurrency!@#" + card2.getName());
             Main.dataOutputStream.flush();
-//            updateCurrenciesManually();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -118,7 +116,6 @@ public class ShopViewGraphic extends Application implements Initializable {
         try {
             Main.dataOutputStream.writeUTF("decreaseCurrency!@#" + card3.getName());
             Main.dataOutputStream.flush();
-//            updateCurrenciesManually();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -134,52 +131,11 @@ public class ShopViewGraphic extends Application implements Initializable {
         try {
             Main.dataOutputStream.writeUTF("decreaseCurrency!@#" + card4.getName());
             Main.dataOutputStream.flush();
-//            updateCurrenciesManually();
         } catch (IOException e) {
             e.printStackTrace();
         }
         printText("Card added successfully");
     }
-
-/*
-    private void updateCurrenciesManually() {
-        new Thread(() -> {
-            while (true) {
-                String currencyString1 = getCurrencyTextFromServer(card1);
-                String currencyString2 = getCurrencyTextFromServer(card2);
-                String currencyString3 = getCurrencyTextFromServer(card3);
-                String currencyString4 = getCurrencyTextFromServer(card4);
-                Platform.runLater(() -> {
-                    currency1.setText(currencyString1);
-                    currency2.setText(currencyString2);
-                    currency3.setText(currencyString3);
-                    currency4.setText(currencyString4);
-                    if (!getActiveStateFromServer(card1))
-                        inactive1.toFront();
-                    else
-                        inactive1.toBack();
-                    if (!getActiveStateFromServer(card2))
-                        inactive2.toFront();
-                    else
-                        inactive2.toBack();
-                    if (!getActiveStateFromServer(card3))
-                        inactive3.toFront();
-                    else
-                        inactive3.toBack();
-                    if (!getActiveStateFromServer(card4))
-                        inactive4.toFront();
-                    else
-                        inactive4.toBack();
-                });
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-*/
 
     private void startCurrencyUpdateThread() {
         new Thread(() -> {
@@ -192,20 +148,19 @@ public class ShopViewGraphic extends Application implements Initializable {
                 Boolean activationState2 = getActiveStateFromServer(card2);
                 Boolean activationState3 = getActiveStateFromServer(card3);
                 Boolean activationState4 = getActiveStateFromServer(card4);
-//                System.out.println(currencyString1);
                 Platform.runLater(() -> {
                     buyButton1.setDisable(card1 != null && (card1.getPrice() > user.getMoney()
-                || !activationState1
-                || Integer.parseInt(currencyString1) == 0));
-        buyButton2.setDisable(card2 != null && (card2.getPrice() > user.getMoney()
-                || !activationState2
-                || Integer.parseInt(currencyString2) == 0));
-        buyButton3.setDisable(card3 != null && (card3.getPrice() > user.getMoney()
-                || !activationState3
-                || Integer.parseInt(currencyString3) == 0));
-        buyButton4.setDisable(card4 != null && (card4.getPrice() > user.getMoney()
-                || !activationState4
-                || Integer.parseInt(currencyString4) == 0));
+                            || !activationState1
+                            || Integer.parseInt(currencyString1) == 0));
+                    buyButton2.setDisable(card2 != null && (card2.getPrice() > user.getMoney()
+                            || !activationState2
+                            || Integer.parseInt(currencyString2) == 0));
+                    buyButton3.setDisable(card3 != null && (card3.getPrice() > user.getMoney()
+                            || !activationState3
+                            || Integer.parseInt(currencyString3) == 0));
+                    buyButton4.setDisable(card4 != null && (card4.getPrice() > user.getMoney()
+                            || !activationState4
+                            || Integer.parseInt(currencyString4) == 0));
                     currency1.setText(currencyString1);
                     currency2.setText(currencyString2);
                     currency3.setText(currencyString3);
@@ -241,7 +196,6 @@ public class ShopViewGraphic extends Application implements Initializable {
         firstCardNumber += 4;
         setOnlyImagesAndCards();
         setInStocksAndPrices();
-//        updateCurrenciesManually();
         setAll();
     }
 
@@ -250,20 +204,19 @@ public class ShopViewGraphic extends Application implements Initializable {
         firstCardNumber -= 4;
         setOnlyImagesAndCards();
         setInStocksAndPrices();
-//        updateCurrenciesManually();
         setAll();
     }
 
     private void setImagesAndCards() {
-        images = ShopController.getInstance(user).getImages(firstCardNumber);
+        images = ShopController.getInstance().getImages(firstCardNumber);
         image1 = setImageView(images.get(0), 83);
         image2 = setImageView(images.get(1), 283);
         image3 = setImageView(images.get(2), 483);
         image4 = setImageView(images.get(3), 683);
-        card1 = ShopController.getInstance(user).getCards(firstCardNumber).get(0);
-        card2 = ShopController.getInstance(user).getCards(firstCardNumber).get(1);
-        card3 = ShopController.getInstance(user).getCards(firstCardNumber).get(2);
-        card4 = ShopController.getInstance(user).getCards(firstCardNumber).get(3);
+        card1 = ShopController.getInstance().getCards(firstCardNumber).get(0);
+        card2 = ShopController.getInstance().getCards(firstCardNumber).get(1);
+        card3 = ShopController.getInstance().getCards(firstCardNumber).get(2);
+        card4 = ShopController.getInstance().getCards(firstCardNumber).get(3);
 
     }
 
@@ -343,17 +296,17 @@ public class ShopViewGraphic extends Application implements Initializable {
     }
 
     private void setOnlyImagesAndCards() {
-        images = ShopController.getInstance(user).getImages(firstCardNumber);
+        images = ShopController.getInstance().getImages(firstCardNumber);
         removeImages();
         image1.setImage(images.get(0));
         image2.setImage(images.get(1));
         image3.setImage(images.get(2));
         image4.setImage(images.get(3));
         addImages();
-        card1 = ShopController.getInstance(user).getCards(firstCardNumber).get(0);
-        card2 = ShopController.getInstance(user).getCards(firstCardNumber).get(1);
-        card3 = ShopController.getInstance(user).getCards(firstCardNumber).get(2);
-        card4 = ShopController.getInstance(user).getCards(firstCardNumber).get(3);
+        card1 = ShopController.getInstance().getCards(firstCardNumber).get(0);
+        card2 = ShopController.getInstance().getCards(firstCardNumber).get(1);
+        card3 = ShopController.getInstance().getCards(firstCardNumber).get(2);
+        card4 = ShopController.getInstance().getCards(firstCardNumber).get(3);
     }
 
     private void removeImages() {
@@ -380,18 +333,6 @@ public class ShopViewGraphic extends Application implements Initializable {
         money.setText(String.valueOf(user.getMoney()));
         setInStocksAndPrices();
         startCurrencyUpdateThread();
-        /*buyButton1.setDisable(card1 != null && (card1.getPrice() > user.getMoney()
-                || !getActiveStateFromServer(card1)
-                || Integer.parseInt(getCurrencyTextFromServer(card1)) == 0));
-        buyButton2.setDisable(card2 != null && (card2.getPrice() > user.getMoney()
-                || !getActiveStateFromServer(card2)
-                || Integer.parseInt(getCurrencyTextFromServer(card2)) == 0));
-        buyButton3.setDisable(card3 != null && (card3.getPrice() > user.getMoney()
-                || !getActiveStateFromServer(card3)
-                || Integer.parseInt(getCurrencyTextFromServer(card3)) == 0));
-        buyButton4.setDisable(card4 != null && (card4.getPrice() > user.getMoney()
-                || !getActiveStateFromServer(card4)
-                || Integer.parseInt(getCurrencyTextFromServer(card4)) == 0));*/
     }
 
     private void setInStocksAndPrices() {
@@ -399,11 +340,6 @@ public class ShopViewGraphic extends Application implements Initializable {
         youHave2.setText(getTextForInStock(card2));
         youHave3.setText(getTextForInStock(card3));
         youHave4.setText(getTextForInStock(card4));
-
-        /*currency1.setText(getCurrencyTextFromServer(card1));
-        currency2.setText(getCurrencyTextFromServer(card2));
-        currency3.setText(getCurrencyTextFromServer(card3));
-        currency4.setText(getCurrencyTextFromServer(card4));*/
         price1.setText(String.valueOf(card1.getPrice()));
         price2.setText(String.valueOf(card2.getPrice()));
         price3.setText(String.valueOf(card3.getPrice()));
@@ -414,10 +350,7 @@ public class ShopViewGraphic extends Application implements Initializable {
         try {
             Main.dataOutputStream.writeUTF("getCurrency!@#" + card.getName());
             Main.dataOutputStream.flush();
-//            System.out.println("entered get currency");
-            String result = Main.dataInputStream.readUTF();
-//            System.out.println("getCurrencyTextFromServer: " + result);
-            return result;
+            return Main.dataInputStream.readUTF();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -428,9 +361,7 @@ public class ShopViewGraphic extends Application implements Initializable {
         try {
             Main.dataOutputStream.writeUTF("getActiveState!@#" + card.getName());
             Main.dataOutputStream.flush();
-//            System.out.println("get active state");
             String result = Main.dataInputStream.readUTF();
-//            System.out.println("result: " + result);
             return Boolean.valueOf(result);
         } catch (IOException e) {
             e.printStackTrace();

@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.User;
@@ -87,7 +86,7 @@ public class ProfileViewForGraphic extends Application implements Initializable 
         ChangeProfilePhotoGraphic.getInstance().start(stage);
     }
 
-    public void seeAchievements(MouseEvent event) throws Exception{
+    public void seeAchievements() throws Exception{
         Achievements.getInstance().setCurrentUser(user);
         Achievements.getInstance().start(stage);
     }

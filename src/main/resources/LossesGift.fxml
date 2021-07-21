@@ -7,83 +7,117 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Losses">
    <children>
-      <ImageView fitHeight="134.0" fitWidth="225.0" layoutY="424.0">
+      <ImageView fitHeight="134.0" fitWidth="225.0" layoutY="450.0">
          <image>
             <Image url="@images/medals/fire_splited.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="134.0" fitWidth="225.0" layoutX="675.0" layoutY="424.0">
+      <ImageView fitHeight="134.0" fitWidth="225.0" layoutX="675.0" layoutY="448.0">
          <image>
             <Image url="@images/medals/fire_splited.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="134.0" fitWidth="225.0" layoutX="450.0" layoutY="424.0">
+      <ImageView fitHeight="134.0" fitWidth="225.0" layoutX="450.0" layoutY="449.0">
          <image>
             <Image url="@images/medals/fire_splited.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="134.0" fitWidth="225.0" layoutX="225.0" layoutY="424.0">
+      <ImageView fitHeight="134.0" fitWidth="225.0" layoutX="225.0" layoutY="450.0">
          <image>
             <Image url="@images/medals/fire_splited.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="128.0" fitWidth="114.0" layoutX="56.0" layoutY="141.0">
+      <ImageView fitHeight="128.0" fitWidth="114.0" layoutX="21.0" layoutY="106.0">
          <image>
             <Image url="@images/medals/poop2.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="119.0" fitWidth="114.0" layoutX="56.0" layoutY="22.0">
+      <ImageView fitHeight="119.0" fitWidth="114.0" layoutX="25.0" layoutY="-7.0">
          <image>
             <Image url="@images/medals/poop1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="128.0" fitWidth="114.0" layoutX="56.0" layoutY="269.0">
+      <ImageView fitHeight="128.0" fitWidth="114.0" layoutX="20.0" layoutY="226.0">
          <image>
             <Image url="@images/medals/shit3.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="251.0" layoutY="82.0" text="Number of 3 Losses in a row =" textFill="#ff6600">
+      <Label layoutX="180.0" layoutY="38.0" text="Number of 3 Losses in a row =" textFill="#ff6600">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="252.0" layoutY="205.0" text="Number of 7 Losses in a row =" textFill="#ff6600">
+      <Label layoutX="173.0" layoutY="162.0" text="Number of 7 Losses in a row =" textFill="#ff6600">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="247.0" layoutY="321.0" text="Number of 10 Losses in a row =" textFill="#ff6600">
+      <Label layoutX="165.0" layoutY="279.0" text="Number of 10 Losses in a row =" textFill="#ff6600">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="threeLossesIR" layoutX="465.0" layoutY="82.0" text="N3L" textFill="#ff6600">
+      <Label fx:id="threeLossesIR" layoutX="391.0" layoutY="42.0" text="N3L" textFill="#ff6600">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="sevenLossesIR" layoutX="465.0" layoutY="205.0" text="N7L" textFill="#ff6600">
+      <Label fx:id="sevenLossesIR" layoutX="387.0" layoutY="164.0" text="N7L" textFill="#ff6600">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="tenLossesIR" layoutX="465.0" layoutY="321.0" text="N10L" textFill="#ff6600">
+      <Label fx:id="tenLossesIR" layoutX="386.0" layoutY="281.0" text="N10L" textFill="#ff6600">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="594.0" layoutY="365.0" mnemonicParsing="false" text="Back" onMouseClicked="#goBack" textFill="#e89c05">
+      <Button layoutX="512.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" textFill="#e89c05">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="722.0" layoutY="365.0" mnemonicParsing="false" text="See achievements"  onMouseClicked="#goToAchievements" textFill="#e89c05">
+      <Button layoutX="277.0" layoutY="381.0" mnemonicParsing="false" onMouseClicked="#goToAchievements" text="See achievements" textFill="#e89c05">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>
       </Button>
+      <ImageView fitHeight="128.0" fitWidth="133.0" layoutX="457.0" layoutY="38.0">
+         <image>
+            <Image url="@images/medals/zeresh.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="596.0" layoutY="78.0" text="Number of games Lost in less than 10 rounds = " textFill="#ff6600">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lessThanThreeRounds" layoutX="710.0" layoutY="125.0" text="LT10R" textFill="#ff6600">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="134.0" fitWidth="157.0" layoutX="445.0" layoutY="188.0">
+         <image>
+            <Image url="@images/medals/sadAfarin.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="613.0" layoutY="234.0" text="Number of Games Lost with rival's" textFill="#ff6600">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="613.0" layoutY="258.0" text="Life point more than 7000 =" textFill="#ff6600">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="sadAfarin" layoutX="824.0" layoutY="258.0" text="SA" textFill="#ff6600">
+         <font>
+            <Font name="Agency FB" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

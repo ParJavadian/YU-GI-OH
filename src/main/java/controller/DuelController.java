@@ -33,7 +33,6 @@ public class DuelController {
     public Integer[] rivalDefencePoints = new Integer[5];
     public boolean isStartTurn;
     public boolean hasUsedSpellOrTrap = false;
-    //fixme 1 : moshkeli nadare bara edit badane :)
     private int numberOfChangedTurns = 0;
 
 
@@ -858,6 +857,9 @@ public class DuelController {
                 player.addGift();
                 playerWonGift();
             }
+            if (player.getLifePoint() >= 7000)
+                rival.addSadAfarin();
+
             if (!hasUsedSpellOrTrap){
                 player.addNumberOfWonGamesWithoutMonster();
             }
@@ -888,8 +890,10 @@ public class DuelController {
                 rival.addSevenLosesInARow();
             if (rival.getNumberOfTenLosesInARow() == 10)
                 rival.addTenLosesInARow();
-            if (this.numberOfChangedTurns < 10)
+            if (this.numberOfChangedTurns < 10) {
                 player.addNumberOfFlowers();
+                rival.addNumberOfRassberry();
+            }
         } else {
             winner = rival;
             rival.addWonGamesInARow();
@@ -899,6 +903,9 @@ public class DuelController {
                 rival.addGift();
                 playerWonGift();
             }
+
+            if (rival.getLifePoint() >= 7000)
+                player.addSadAfarin();
 
             if (!hasUsedSpellOrTrap){
                 rival.addNumberOfWonGamesWithoutMonster();
@@ -938,8 +945,10 @@ public class DuelController {
                 player.addTenLosesInARow();
                 playerLost10Games();
             }
-            if (this.numberOfChangedTurns < 10)
+            if (this.numberOfChangedTurns < 10) {
                 rival.addNumberOfFlowers();
+                player.addNumberOfRassberry();
+            }
         }
         ImportExportUserController.getInstance().exportAchievements(User.getAllUsers());
         if (player.getLifePoint() < 0) player.setLifePoint(0);
@@ -1805,7 +1814,6 @@ public class DuelController {
         info.showAndWait();
     }
 
-    //fixme 2
     public void addToNumberOfTurns(){
         this.numberOfChangedTurns += 1;
     }

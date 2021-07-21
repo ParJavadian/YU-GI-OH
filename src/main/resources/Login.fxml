@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.LogInViewGraphic">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.LogInViewGraphic">
     <ImageView fitHeight="600.0" fitWidth="900.0" layoutY="-1.0">
         <Image url="@images/backgrounds/4.jpg"/>
     </ImageView>

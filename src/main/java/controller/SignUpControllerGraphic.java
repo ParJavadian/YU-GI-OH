@@ -3,9 +3,9 @@ package controller;
 import controller.exeption.*;
 import javafx.stage.Stage;
 import model.User;
-import view.LogInViewGraphic;
+import client.LogInViewGraphic;
 import view.MainViewGraphic;
-import view.SignUpViewGraphic;
+import client.SignUpViewGraphic;
 
 import java.util.List;
 

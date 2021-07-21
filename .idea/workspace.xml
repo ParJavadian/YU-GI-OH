@@ -22,23 +22,69 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="chat end + aghaze shop">
-      <change afterPath="$PROJECT_DIR$/src (10).zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src (7).zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src (8).zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src (9).zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/cross.png" afterDir="false" />
+    <list default="true" id="0b1707ad-3e75-4310-9619-956ec670ae1a" name="Default Changelist" comment="done">
+      <change afterPath="$PROJECT_DIR$/alllllllrighhhhhhhhhttttttttttt.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loginbalanemiad.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (11).zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (12).zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (13).zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (14).zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (15).zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (16).zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src (17).zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cards/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cards/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/hamraz.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/hamraz.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Users/parmida.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Users/parmida.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/@AI@AllDecks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/UsersDecks/hamrazAllDecks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allUsers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/allUsers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChatController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ChooseSecondPlayerControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ChooseSecondPlayerControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CrownController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeckShuffleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DeckShuffleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DuelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ExplosionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ExplosionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ImportExportUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LightController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LightController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LightningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LightningController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LobbyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LogInControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LogInControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuTypesGraphic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ScoreBoardControllerGraphic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SignUpControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SignUpControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/AdminPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AdminPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/AdminPanelController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Achievements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Achievements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChatView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChatView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseDuelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ChooseSecondPlayerViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ChooseSecondPlayerViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/LogInViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/LogInViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Losses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Losses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ProfileViewForGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorAIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorAIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorPlayerTwoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/RockPaperScissorPlayerTwoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardViewGraphic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ShopViewGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AdminPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AdminPanel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ShopMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ShopMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ShopMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SignUpViewGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/SignUpViewGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/TVRoomView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/TVRoomView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Achievements.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Achievements.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ChooseSecondPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ChooseSecondPlayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/LossesGift.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/LossesGift.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SignUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ChooseSecondPlayer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChooseSecondPlayer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/SignUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +162,7 @@
       <recent name="C:\Users\hamri\Desktop\AP\project_team_17_9\src\main\resources\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LogInViewGraphic">
+  <component name="RunManager" selected="Application.ServerController">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -129,7 +175,7 @@
       </method>
     </configuration>
     <configuration name="LogInViewGraphic" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.LogInViewGraphic" />
+      <option name="MAIN_CLASS_NAME" value="client.LogInViewGraphic" />
       <module name="project_team_17" />
       <extension name="coverage">
         <pattern>
@@ -180,20 +226,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SignUpViewGraphic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.SignUpViewGraphic" />
+      <module name="project_team_17" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.Main" />
       <item itemvalue="Application.ServerController" />
       <item itemvalue="Application.LogInViewGraphic" />
+      <item itemvalue="Application.SignUpViewGraphic" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LogInViewGraphic" />
+        <item itemvalue="Application.SignUpViewGraphic" />
         <item itemvalue="Application.ServerController" />
+        <item itemvalue="Application.LogInViewGraphic" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="StructuralSearchPlugin">
-    <searchConfiguration name="Unnamed" created="1626703833726" text="/* $CommentContent$ */" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" history="1">
+    <searchConfiguration name="Unnamed" created="1626882408818" text="/* $CommentContent$ */" recursive="false" caseInsensitive="false" type="JAVA" pattern_context="default" scope_type="PROJECT" scope_descriptor="" history="1">
       <constraint name="__context__" within="" contains="" />
       <constraint name="CommentContent" within="" contains="" />
     </searchConfiguration>
@@ -207,13 +269,6 @@
       <updated>1623148364579</updated>
       <workItem from="1624545878199" duration="3232000" />
       <workItem from="1625476998745" duration="2760000" />
-    </task>
-    <task id="LOCAL-00010" summary="kiana test error fix">
-      <created>1624533248061</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1624533248061</updated>
     </task>
     <task id="LOCAL-00011" summary="show all cards debug">
       <created>1624546002241</created>
@@ -541,7 +596,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626632033566</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="shop done">
+      <created>1626723769388</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1626723769388</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,8 +623,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="AIFullDebug + monster reborn" />
-    <MESSAGE value="twin twister + spell absorption" />
     <MESSAGE value="mystical space typhoon&#10;twin twisters" />
     <MESSAGE value=":|" />
     <MESSAGE value="profile and scoreboard edited" />
@@ -586,7 +646,9 @@
     <MESSAGE value="kar haye parakande" />
     <MESSAGE value="save before gand" />
     <MESSAGE value="chat end + aghaze shop" />
-    <option name="LAST_COMMIT_MESSAGE" value="chat end + aghaze shop" />
+    <MESSAGE value="shop done" />
+    <MESSAGE value="done" />
+    <option name="LAST_COMMIT_MESSAGE" value="done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1626690479552">
@@ -609,42 +671,42 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="88" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1625873821371" />
-    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1626703833716">
+    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog" timestamp="1626882408746">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1626703833716" />
+    <state x="174" y="164" width="942" height="348" key="#com.intellij.structuralsearch.plugin.ui.StructuralSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1626882408746" />
     <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1626516160358">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1626516160358" />
-    <state width="1237" height="208" key="GridCell.Tab.0.bottom" timestamp="1626717291142">
+    <state width="1237" height="173" key="GridCell.Tab.0.bottom" timestamp="1626884670992">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1626717291142" />
-    <state width="1237" height="208" key="GridCell.Tab.0.center" timestamp="1626717291142">
+    <state width="1237" height="173" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1626884670992" />
+    <state width="1237" height="173" key="GridCell.Tab.0.center" timestamp="1626884670992">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1626717291142" />
-    <state width="1237" height="208" key="GridCell.Tab.0.left" timestamp="1626717291142">
+    <state width="1237" height="173" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1626884670992" />
+    <state width="1237" height="173" key="GridCell.Tab.0.left" timestamp="1626884670991">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1626717291142" />
-    <state width="1237" height="208" key="GridCell.Tab.0.right" timestamp="1626717291142">
+    <state width="1237" height="173" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1626884670991" />
+    <state width="1237" height="173" key="GridCell.Tab.0.right" timestamp="1626884670992">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="208" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1626717291142" />
+    <state width="1237" height="173" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1626884670992" />
     <state x="171" y="0" key="Maven.ArtifactSearchDialog" timestamp="1626529870336">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="171" y="0" key="Maven.ArtifactSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1626529870336" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1626632037769">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1626723780555">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1626632037769" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626677854314">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1626723780555" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1626884930885">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1626677854314" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1626884930885" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

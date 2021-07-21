@@ -7,7 +7,7 @@ import javafx.util.Duration;
 
 public class LightningController extends Transition {
 
-    private ImageView imageView;
+    private final ImageView imageView;
 
     public LightningController(ImageView imageView) {
         this.imageView = imageView;

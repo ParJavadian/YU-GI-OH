@@ -6,8 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 
@@ -19,8 +17,7 @@ public class Achievements extends Application implements Initializable {
     private static Stage stage;
     static Achievements instance = null;
     private static User user;
-    public Label numberOfTrophy, numberOfBronze, numberOfSilver, numberOfGold, numberOfGifts;
-
+    public Label numberOfTrophy, numberOfBronze, numberOfSilver, numberOfGold, numberOfGifts, numberOfFlower;
 
     public static Achievements getInstance() {
         if (instance == null) instance = new Achievements();
@@ -53,6 +50,7 @@ public class Achievements extends Application implements Initializable {
         numberOfGold.setText(String.valueOf(user.getNumberOfGold()));
         numberOfTrophy.setText(String.valueOf(user.getNumberOfTrophy()));
         numberOfGifts.setText(String.valueOf(user.getNumberOfGifts()));
+        numberOfFlower.setText(String.valueOf(user.getNumberOfFlowers()));
     }
 
     @Override
@@ -60,7 +58,7 @@ public class Achievements extends Application implements Initializable {
         setNumbers();
     }
 
-    public void nextPage(MouseEvent event) throws Exception{
+    public void nextPage() throws Exception{
         Losses.getInstance().setCurrentUser(user);
         Losses.getInstance().start(stage);
     }

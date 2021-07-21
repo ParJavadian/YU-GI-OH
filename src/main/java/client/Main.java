@@ -5,7 +5,6 @@ import controller.ImportExportUserController;
 import controller.SoundController;
 import model.Deck;
 import model.User;
-import view.SignUpViewGraphic;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -23,13 +22,13 @@ public class Main extends Application {
     public static DataOutputStream dataOutputStream;
 
     public static void main(String[] args) {
-        ImportExportUserController importExportUserController = ImportExportUserController.getInstance(); //todo start
+        ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
         importExportUserController.importAllUsers();
         importExportUserController.importProfileNumber();
         importExportUserController.importAchievements();
         importExportUserController.importAllCards();
         importExportUserController.importAllDecks();
-        importExportUserController.importActiveDeck(); //todo end
+        importExportUserController.importActiveDeck();
         Deck deck = DeckController.getInstance(User.getUserByUsername("@AI@")).createRandomDeckForAI();
         User.getUserByUsername("@AI@").setActiveDeck(deck);
 

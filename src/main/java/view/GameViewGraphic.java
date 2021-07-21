@@ -71,7 +71,6 @@ public class GameViewGraphic extends Application implements Initializable {
     public static Button buttonAddLifePoint = new Button();
     public static TextField cheatLifePointTextField = new TextField();
 
-    public Label chatBox;
     public int numberOfRounds;
     private final ImageView graveyardFirstCard = new ImageView();
     private final ImageView graveyardSecondCard = new ImageView();
@@ -415,7 +414,7 @@ public class GameViewGraphic extends Application implements Initializable {
                     showCardDetails(cards.get(numberForGet));
                 else if (imageView.getImage().equals(unknown))
                     showUnknownCard();
-                if (selectedCard != null && selectedCard.getEffect() != null/*l && selectedCard.equals(imageView)*/)
+                if (selectedCard != null && selectedCard.getEffect() != null)
                     selectedCard.setEffect(null);
                 try {
                     onMouseClickedMethodMonster.invoke(duelController, number1);

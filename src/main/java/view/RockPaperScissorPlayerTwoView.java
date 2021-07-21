@@ -106,7 +106,6 @@ public class RockPaperScissorPlayerTwoView extends Application implements Initia
 
     public void startNewGame(User firstPlayer, User secondPlayer) throws Exception{
         GameViewGraphic gameViewGraphic = new GameViewGraphic();
-//        gameViewGraphic.start(stage);
         gameViewGraphic.setPlayer(firstPlayer);
         gameViewGraphic.setRival(secondPlayer);
         gameViewGraphic.setNumberOfRounds(numberOfRounds);

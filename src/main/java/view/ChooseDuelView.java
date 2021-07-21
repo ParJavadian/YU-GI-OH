@@ -47,13 +47,11 @@ public class ChooseDuelView extends Application implements Initializable {
     public void threeRoundsGame(){
         chooseAndWaiting.setText("We Are Trying To Find a Rival For You! Please Wait!");
         sendGameRequestToServer(playerOne,3);
-        //startNewGame(3); //todo
     }
 
     public void oneRoundGame(){
         chooseAndWaiting.setText("We Are Trying To Find a Rival For You! Please Wait!");
         sendGameRequestToServer(playerOne,1);
-        //startNewGame(1); //todo
     }
 
     public static synchronized void sendGameRequestToServer(User user,int numberOfRounds) {

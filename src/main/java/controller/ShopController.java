@@ -1,6 +1,5 @@
 package controller;
 
-import controller.exeption.*;
 import javafx.scene.image.Image;
 import model.*;
 
@@ -11,43 +10,14 @@ public class ShopController {
     private static ShopController instance = null;
     private final static ArrayList<Image> allImages = new ArrayList<>();
     private final static ArrayList<Card> allCards = (ArrayList<Card>)DeckController.getInstance(null).getAllCardsOfGame();
-    private User user;
 
-    public static ShopController getInstance(User user) {
-        if (instance == null) instance = new ShopController(user);
-        instance.user = user;
+    public static ShopController getInstance() {
+        if (instance == null) instance = new ShopController();
         return instance;
     }
 
-    private ShopController(User user) {
-        this.user = user;
+    private ShopController() {
         initImages();
-    }
-
-    public void buyCard(String name) throws Exception {
-        Card card = DeckController.getInstance(user).getCardByName(name);
-        if (card != null) {
-            if (this.user.getMoney() >= card.getPrice()) {
-                this.user.decreaseMoney(card.getPrice());
-                this.user.addCardToUsersAllCards(card);
-                ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-                importExportUserController.exportAllCards(this.user);
-            } else {
-                throw new NotEnoughMoney();
-            }
-        } else {
-            throw new CardNotFoundForController();
-        }
-    }
-
-    public void showAll() {
-        StringBuilder toPrint = new StringBuilder();
-        for (Card card : allCards){
-            if (allCards.indexOf(card) == allCards.size()-1){
-                toPrint.append(card.getNamePascalCase()).append(":").append(card.getPrice());
-            } else
-                toPrint.append(card.getNamePascalCase()).append(":").append(card.getPrice()).append("\n");
-        }
     }
 
     private void initImages() {

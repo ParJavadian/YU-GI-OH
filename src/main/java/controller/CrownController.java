@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class CrownController extends Transition {
-    private ImageView imageView;
+    private final ImageView imageView;
 
     public CrownController(ImageView imageView) {
         this.imageView = imageView;

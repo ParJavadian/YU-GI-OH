@@ -1,5 +1,6 @@
 package controller;
 
+import client.LogInViewGraphic;
 import client.Main;
 import controller.exeption.InvalidDeck;
 import controller.exeption.NoActiveDeck;
@@ -17,7 +18,6 @@ public class MainControllerGraphic {
     }
 
     public static void showScoreBoard(User user, Stage stage) throws Exception {
-        ScoreBoardControllerGraphic.setPreviousMenu(MenuTypesGraphic.MAINCONTROLLERGRAPHIC);
         ScoreBoardViewGraphic.getInstance().setCurrentUser(user);
         ScoreBoardViewGraphic.getInstance().start(stage);
     }
@@ -37,11 +37,13 @@ public class MainControllerGraphic {
         AllDecksViewGraphic.getInstance().start(stage);
     }
 
-    public static void showNewDuelMenu(User user, Stage stage) throws Exception {
+    public static void showNewDuelMenu(User user, Stage stage,Thread thread) throws Exception {
         if (user.getActiveDeck() == null)
             throw new NoActiveDeck(user.getUsername());
         if (!user.getActiveDeck().isValid())
             throw new InvalidDeck(user.getUsername());
+        if(thread!=null)
+            thread.stop();
         ChooseSecondPlayerViewGraphic.getInstance().setCurrentUser(user);
         ChooseSecondPlayerViewGraphic.getInstance().start(stage);
     }
@@ -50,9 +52,6 @@ public class MainControllerGraphic {
         try {
             Main.dataOutputStream.writeUTF("logout " + user.getUsername());
             Main.dataOutputStream.flush();
-//            client.Main.dataOutputStream.close();
-//            client.Main.dataInputStream.close();
-//            client.Main.socket.close();
         } catch (IOException x) {
             x.printStackTrace();
         }

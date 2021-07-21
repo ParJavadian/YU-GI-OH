@@ -7,7 +7,7 @@ import javafx.util.Duration;
 
 public class DeckShuffleController extends Transition {
 
-    private ImageView imageView;
+    private final ImageView imageView;
 
     public DeckShuffleController(ImageView imageView) {
         this.imageView = imageView;

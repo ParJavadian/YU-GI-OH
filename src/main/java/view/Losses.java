@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.User;
 
@@ -19,7 +18,7 @@ public class Losses extends Application implements Initializable {
     static Losses instance = null;
     private static User user;
 
-    public Label threeLossesIR, sevenLossesIR, tenLossesIR;
+    public Label threeLossesIR, sevenLossesIR, tenLossesIR, lessThanThreeRounds, sadAfarin;
 
 
     public static Losses getInstance() {
@@ -47,7 +46,7 @@ public class Losses extends Application implements Initializable {
         ProfileViewForGraphic.getInstance().start(stage);
     }
 
-    public void goToAchievements(MouseEvent event) throws Exception{
+    public void goToAchievements() throws Exception{
         Achievements.getInstance().setCurrentUser(user);
         Achievements.getInstance().start(stage);
     }
@@ -56,6 +55,8 @@ public class Losses extends Application implements Initializable {
         threeLossesIR.setText(String.valueOf(user.getNumberOfThreeLosesInARow()));
         sevenLossesIR.setText(String.valueOf(user.getNumberOfSevenLosesInARow()));
         tenLossesIR.setText(String.valueOf(user.getNumberOfTenLosesInARow()));
+        lessThanThreeRounds.setText(String.valueOf(user.getLessThanTenRounds()));
+        sadAfarin.setText(String.valueOf(user.getSadAfarin()));
     }
 
     @Override

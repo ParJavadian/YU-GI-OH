@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -22,11 +21,9 @@ import model.User;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChatView extends Application implements Initializable {
-    private static final ArrayList<Label> messagesLabels = new ArrayList<>();
     private static Stage stage;
     private static ChatView instance = null;
     private static User user;
@@ -129,41 +126,6 @@ public class ChatView extends Application implements Initializable {
                 imageView.setMouseTransparent(false);
             }
         });
-/*
-        imageView.setOnMouseClicked(event -> {
-            System.out.println("okeb");
-            Popup popup = new Popup();
-            popup.setWidth(200);
-            popup.setHeight(200);
-            ImageView profileImageView = new ImageView(profileImage);
-            profileImageView.setFitHeight(30);
-            profileImageView.setFitWidth(30);
-            profileImageView.setX(10);
-            profileImageView.setY(10);
-            popup.getContent().add(profileImageView);
-            User user = User.getUserByNickname(nickName);
-            Label label = new Label();
-            label.setText("Username: " + user.getUsername() + "\nNickname: " + user.getNickname() +
-                    "\nScore: " + user.getScore());
-            label.setWrapText(true);
-            label.setPrefWidth(120);
-            label.setPrefWidth(120);
-            label.setLayoutX(50);
-            label.setLayoutY(20);
-            label.setFont(Font.font("Agency FB", 24));
-            popup.getContent().add(label);
-            Button button = new Button("OK");
-            button.setDefaultButton(true);
-            button.setFont(Font.font("Agency FB", 15));
-            button.setLayoutX(170);
-            button.setLayoutY(170);
-            button.setOnAction(event1 -> popup.hide());
-            popup.getContent().add(button);
-            if (!popup.isShowing()) {
-                popup.show(stage);
-            }
-        });
-*/
         imageView.setFitHeight(15);
         imageView.setFitWidth(15);
         imageView.setX(0);
@@ -245,7 +207,6 @@ public class ChatView extends Application implements Initializable {
                 }
             }
         });
-        messagesLabels.add(label1);
         vBox.getChildren().add(label1);
     }
 

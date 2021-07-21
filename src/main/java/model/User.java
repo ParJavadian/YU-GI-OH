@@ -4,13 +4,12 @@ import controller.ImportExportUserController;
 import javafx.scene.image.Image;
 
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-public class User implements Serializable {
+public class User {
 
     private static List<User> allUsers;
     private String username;
@@ -38,6 +37,8 @@ public class User implements Serializable {
     private int numberOfSevenLosesInARow = 0;
     private int numberOfTenLosesInARow = 0;
     private int numberOfFlowers = 0;
+    private int lessThanTenRounds = 0;
+    private int sadAfarin = 0;
 
 
     public User(String username, String nickname, String password,boolean isCalledFromSignUpMenu) {
@@ -307,6 +308,18 @@ public class User implements Serializable {
         return numberOfTrophy;
     }
 
+    public int getNumberOfFlowers() {
+        return numberOfFlowers;
+    }
+
+    public int getLessThanTenRounds() {
+        return lessThanTenRounds;
+    }
+
+    public int getSadAfarin() {
+        return sadAfarin;
+    }
+
     public void addNumberOfWonGamesWithoutMonster(){
         this.numberOfWonGamesWithoutMonster += 1;
     }
@@ -329,6 +342,14 @@ public class User implements Serializable {
 
     public void addNumberOfFlowers(){
         this.numberOfFlowers += 1;
+    }
+
+    public void addNumberOfRassberry(){
+        this.lessThanTenRounds += 1;
+    }
+
+    public void addSadAfarin(){
+        this.sadAfarin += 1;
     }
 
     public int getCountOfCardInAllCards(Card card) {

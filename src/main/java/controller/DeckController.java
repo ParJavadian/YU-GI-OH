@@ -15,7 +15,7 @@ public class DeckController {
     private static DeckController instance = null;
     private static User user;
 
-    private static ArrayList<Image> allImages = new ArrayList<>();
+    private static final ArrayList<Image> allImages = new ArrayList<>();
     private static ArrayList<Card> allCards = new ArrayList<>();
 
     private DeckController(User user) {
@@ -46,17 +46,6 @@ public class DeckController {
                 return card;
         }
         return null;
-    }
-
-    public void createDeck(String name) throws Exception {
-        if (DeckController.user.getDeckByName(name) == null) {
-            Deck deck = new Deck(name);
-            DeckController.user.addDeck(deck);
-            ImportExportUserController importExportUserController = ImportExportUserController.getInstance();
-            importExportUserController.exportAllDecksName(DeckController.user.getAllDecks(), DeckController.user);
-        } else {
-            throw new RepetitiveDeckName(name);
-        }
     }
 
     public Deck createRandomDeckForAI() {
@@ -157,13 +146,6 @@ public class DeckController {
         } else throw new DeckNotFound(deckName);
     }
 
-    public void activateDeck(String name) throws Exception {
-        if (DeckController.user.getDeckByName(name) != null) {
-            DeckController.user.setActiveDeck(DeckController.user.getDeckByName(name));
-        } else
-            throw new DeckNotFound(name);
-    }
-
     public void removeCardFromDeck(String cardName, String deckName, boolean isSide) throws Exception {
         Deck deck = user.getDeckByName(deckName);
         if (deck != null) {
@@ -192,77 +174,6 @@ public class DeckController {
                 throw new CardNotFoundForController();
         } else
             throw new DeckNotFound(deckName);
-    }
-
-    public void showAllDecks() {
-        StringBuilder toPrint = new StringBuilder("Decks:\nActive deck:\n");
-        List<Deck> allDecks = new ArrayList<>(DeckController.user.getAllDecks());
-        Deck activeDeck = null;
-        if (DeckController.user.getActiveDeck() != null) {
-            for (Deck deck : allDecks) {
-                if (DeckController.user.getActiveDeck().getDeckName().equals(deck.getDeckName())) {
-                    toPrint.append(deck.toString());
-                    if (deck.isValid()) toPrint.append(", valid\n");
-                    else toPrint.append(", invalid\n");
-                    activeDeck = deck;
-                }
-            }
-        }
-
-        toPrint.append("Other decks:\n");
-        allDecks.remove(activeDeck);
-        Comparator<Deck> deckComparator = Comparator.comparing(Deck::getDeckName);
-        allDecks.sort(deckComparator);
-        for (Deck deck : allDecks) {
-            toPrint.append(deck.toString());
-            if (allDecks.get(allDecks.size() - 1).equals(deck)) {
-                if (deck.isValid()) toPrint.append(", valid");
-                else toPrint.append(", invalid");
-            } else {
-                if (deck.isValid()) toPrint.append(", valid\n");
-                else toPrint.append(", invalid\n");
-            }
-        }
-    }
-
-    public void showDeck(String deckName, boolean isSide) throws Exception {
-        if (DeckController.user.getDeckByName(deckName) == null) throw new DeckNotFound(deckName);
-        StringBuilder toPrint = new StringBuilder("Deck: " + deckName + "\n");
-        if (isSide) toPrint.append("Side deck:\nMonsters:\n");
-        else toPrint.append("client.Main deck:\nMonsters:\n");
-        ArrayList<Card> monsterCards = new ArrayList<>();
-        ArrayList<Card> spellAndTrapCards = new ArrayList<>();
-        if (!isSide) {
-            for (Card eachCard : DeckController.user.getDeckByName(deckName).getMainDeck()) {
-                if (eachCard instanceof MonsterCard) monsterCards.add(eachCard);
-                else spellAndTrapCards.add(eachCard);
-            }
-        } else {
-            for (Card eachCard : DeckController.user.getDeckByName(deckName).getSideDeck()) {
-                if (eachCard instanceof MonsterCard) monsterCards.add(eachCard);
-                else spellAndTrapCards.add(eachCard);
-            }
-        }
-        Comparator<Card> cardComparator = Comparator.comparing(Card::getNamePascalCase);
-        monsterCards.sort(cardComparator);
-        spellAndTrapCards.sort(cardComparator);
-        for (Card eachCard : monsterCards) {
-            toPrint.append(eachCard.getNamePascalCase()).append(":").append(eachCard.getDescription()).append("\n");
-        }
-        toPrint.append("Spell and Traps:");
-        for (Card eachCard : spellAndTrapCards) {
-            toPrint.append("\n").append(eachCard.getNamePascalCase()).append(":").append(eachCard.getDescription());
-        }
-    }
-
-    public void showAllCards() {
-        StringBuilder toPrint = new StringBuilder();
-        List<Card> allCards = DeckController.user.getAllCards();
-        Comparator<Card> cardComparator = Comparator.comparing(Card::getNamePascalCase);
-        allCards.sort(cardComparator);
-        for (Card card : allCards) {
-            toPrint.append(card.getNamePascalCase()).append(":").append(card.getDescription()).append("\n");
-        }
     }
 
     public void setUsersCards() {
